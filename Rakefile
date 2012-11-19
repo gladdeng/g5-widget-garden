@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-G5LayoutGarden::Application.load_tasks
+G5WidgetGarden::Application.load_tasks
