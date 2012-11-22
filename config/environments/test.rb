@@ -35,3 +35,4 @@ G5WidgetGarden::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 end
+Rails.application.routes.default_url_options[:host]= 'localhost:3001'

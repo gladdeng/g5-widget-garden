@@ -1,0 +1,15 @@
+<% content_for :css do %>
+  <% @static_asset.css.each do |link| %>
+    <%= stylesheet_link_tag link %>
+  <% end %>
+<% end %>
+
+<% content_for :js do %>
+  <% @static_asset.js.each do |link| %>
+    <%= javascript_include_tag link %>
+  <% end %>
+<% end %>
+
+<% content_for :title, @static_asset.name.capitalize %>
+<%= raw @static_asset.html %>
+<%= link_to "Back", root_path %>

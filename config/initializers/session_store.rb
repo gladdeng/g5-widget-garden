@@ -1,6 +1,6 @@
 # Be sure to restart your server when you modify this file.
 
-G5WidgetGarden::Application.config.session_store :cookie_store, key: '_g5_widget_garden_session'
+G5WidgetGarden::Application.config.session_store :cookie_store, key: '_g5_layout_garden_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information

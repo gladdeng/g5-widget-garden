@@ -1,0 +1,8 @@
+<% content_for :title do %>
+  Widgets
+<% end %>
+<ul>
+  <% @static_assets.each do |layout| %>
+    <li><%= link_to layout.name, layout_path(layout.name) %></li>
+  <% end %>
+</ul>
