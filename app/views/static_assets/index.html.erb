@@ -1,8 +1,34 @@
 <% content_for :title do %>
   Widgets
 <% end %>
-<ul>
-  <% @static_assets.each do |layout| %>
-    <li><%= link_to layout.name, layout_path(layout.name) %></li>
-  <% end %>
-</ul>
+<% @static_assets.each do |layout| %>
+  <div class="h-entry well">
+    <div class='p-name'>
+      <h2><%= layout.name %></h2>
+    </div>
+    <a href="<%= layout_url(layout.name) %>" rel="bookmark" class="u-url u-uid">
+      <%= layout_url(layout.name) %>
+    </a>
+    
+    <dl class="e-content">
+      <dt class='javascript'>Javascript</dt> 
+      <% layout.js.each do |js| %>
+        <dd>
+          <a class="u-url u-uid" href="<%= js %>">
+            <%= js %>
+          </a>
+        </dd>
+      <% end %>
+
+      <dt class='target'>CSS</dt> 
+      <% layout.css.each do |css| %>
+        <dd>
+          <a class="u-url u-uid" href="<%= css %>">
+            <%= css %>
+          </a>
+        </dd>
+      <% end %>
+
+    </dl>
+  </div>
+<% end %>

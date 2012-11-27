@@ -35,4 +35,4 @@ G5WidgetGarden::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 end
-Rails.application.routes.default_url_options[:host]= 'localhost:3001'
+Rails.application.routes.default_url_options[:host]= 'localhost:3004'

@@ -37,7 +37,11 @@ class StaticAsset < File
     links = Nokogiri::HTML(body).css('script')
     
     links.map do |link|
-      REMOTE_ASSETS_URL + link['src'].gsub('../', "") if link['src']
+      if link['src'] && link['src'].match(/googleapis/)
+        link['src']
+      else
+        REMOTE_ASSETS_URL + link['src'].gsub('../', "") if link['src']
+      end
     end.compact
   end
   
