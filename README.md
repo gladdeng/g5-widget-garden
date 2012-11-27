@@ -29,7 +29,7 @@ bundle
 1. Create new Pull Request
 
 If you find bugs, have feature requests or questions, please
-[file an issue](https://github.com/g5search/g5_widget_garden/issues).
+[file an issue](https://github.com/g5search/g5-widget-garden/issues).
 
 
 ## Specs
