@@ -6,9 +6,15 @@ A garden of widgets that can be used in client location sites
 ## Setup
 
 1. Install all the required gems
-
 ```bash
 bundle
+```
+
+1. Set up your database
+```bash
+cp config/database.example.yml config/database.yml
+vi config/database.yml # edit username
+rake db:create db:schema:load db:seed
 ```
 
 
