@@ -6,6 +6,7 @@ A garden of widgets that can be used in client location sites
 ## Setup
 
 1. Install all the required gems
+
 ```bash
 bundle
 ```
