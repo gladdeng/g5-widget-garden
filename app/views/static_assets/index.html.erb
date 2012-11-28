@@ -1,34 +1,36 @@
 <% content_for :title do %>
   Widgets
 <% end %>
-<% @static_assets.each do |layout| %>
-  <div class="h-entry well">
-    <div class='p-name'>
-      <h2><%= layout.name %></h2>
+<div class="h-feed">
+  <% @static_assets.each do |static_asset| %>
+    <div class="h-entry well">
+      <div class='p-name'>
+        <h2><%= static_asset.name %></h2>
+      </div>
+      <a href="<%= static_asset_url(static_asset.name) %>" rel="bookmark" class="u-url u-uid">
+        <%= static_asset_url(static_asset.name) %>
+      </a>
+      
+      <dl class="e-content">
+        <dt class='javascript'>Javascript</dt> 
+        <% static_asset.js.each do |js| %>
+          <dd>
+            <a class="u-url u-uid" href="<%= js %>">
+              <%= js %>
+            </a>
+          </dd>
+        <% end %>
+
+        <dt class='target'>CSS</dt> 
+        <% static_asset.css.each do |css| %>
+          <dd>
+            <a class="u-url u-uid" href="<%= css %>">
+              <%= css %>
+            </a>
+          </dd>
+        <% end %>
+
+      </dl>
     </div>
-    <a href="<%= layout_url(layout.name) %>" rel="bookmark" class="u-url u-uid">
-      <%= layout_url(layout.name) %>
-    </a>
-    
-    <dl class="e-content">
-      <dt class='javascript'>Javascript</dt> 
-      <% layout.js.each do |js| %>
-        <dd>
-          <a class="u-url u-uid" href="<%= js %>">
-            <%= js %>
-          </a>
-        </dd>
-      <% end %>
-
-      <dt class='target'>CSS</dt> 
-      <% layout.css.each do |css| %>
-        <dd>
-          <a class="u-url u-uid" href="<%= css %>">
-            <%= css %>
-          </a>
-        </dd>
-      <% end %>
-
-    </dl>
-  </div>
-<% end %>
+  <% end %>
+</div>
