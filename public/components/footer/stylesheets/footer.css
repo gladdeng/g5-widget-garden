@@ -8,13 +8,13 @@
   vertical-align: middle;
   width: 100px;
   height: 23px;
-  background: url(img/dxm.png) 0 0 no-repeat;
+  background: url(images/dxm.png) 0 0 no-repeat;
 }
 .footer .accessibility {
   vertical-align: middle;
   width: 70px;
   height: 31px;
-  background: url(img/accessibility.png) 0 0 no-repeat;
+  background: url(images/accessibility.png) 0 0 no-repeat;
 }
 
 @media (min-width: 481px) {

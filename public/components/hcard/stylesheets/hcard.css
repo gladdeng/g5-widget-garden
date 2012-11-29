@@ -1,0 +1,8 @@
+.hcard .p-organization-name,
+.hcard .h-adr,
+.hcard .p-street-address,
+.hcard .p-tel,
+.hcard .p-url,
+ {
+  display: block;
+}

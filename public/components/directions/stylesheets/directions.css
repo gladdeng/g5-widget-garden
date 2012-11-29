@@ -1,0 +1,15 @@
+.directions h1 {
+  font-weight: bold;
+}
+.directions dt {
+  margin-top: 1em;
+}
+.direction-icon {
+  display: inline-block;
+  margin-right: 1em;
+  min-width: 1em;
+  text-align: center;
+}
+.direction-distance {
+  float: right;
+}

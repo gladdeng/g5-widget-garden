@@ -1,0 +1,31 @@
+.gallery .photo {
+  margin: 2em 0 1em;
+}
+.gallery img {
+  display: block;
+}
+.gallery-navigation a {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin: 0 1em 1em 0;
+  text-indent: -999em;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #283f54;
+  cursor: pointer;
+}
+
+@media (min-width: 980px) {
+  .gallery .photo {
+    margin-bottom: 2em;
+  }
+  .gallery-navigation a {
+    height: 12px;
+    width: 12px;
+    margin-right: .2em;
+  }
+  .gallery-navigation .active {
+    background: #a6bfd5;
+  }
+}

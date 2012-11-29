@@ -1,0 +1,25 @@
+.slim-footer .signature {
+  vertical-align: middle;
+  width: 100px;
+  height: 23px;
+  background: url(img/dxm.png) 0 0 no-repeat;
+}
+.slim-footer .accessibility {
+  vertical-align: middle;
+  width: 70px;
+  height: 31px;
+  background: url(img/accessibility.png) 0 0 no-repeat;
+}
+.slim-footer .attribution {
+  clear: both;
+}
+
+@media (min-width: 481px) {
+  .slim-footer nav {
+    float: left;
+  }
+  .slim-footer .copyright {
+    float: right;
+  }
+
+}

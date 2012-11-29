@@ -1,0 +1,22 @@
+.fat-footer .hours span {
+  display: block;
+}
+.fat-footer .signature {
+  vertical-align: middle;
+  width: 100px;
+  height: 23px;
+  background: url(img/dxm.png) 0 0 no-repeat;
+}
+.fat-footer .accessibility {
+  vertical-align: middle;
+  width: 70px;
+  height: 31px;
+  background: url(img/accessibility.png) 0 0 no-repeat;
+}
+
+@media (min-width: 768px) {
+  .fat-footer .column {
+    width: 33%;
+    float: left;
+  }
+}

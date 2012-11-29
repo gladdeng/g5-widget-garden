@@ -1,0 +1,30 @@
+.social-links a {
+  display: inline-block;
+  margin-right: 5px;
+  background: url(images/social-icons.png) no-repeat;
+}
+.facebook {
+  width: 22px;
+  height: 23px;
+  background-position: 0 0;
+}
+.twitter {
+  width: 24px;
+  height: 23px;
+  background-position: 0 -40px;
+}
+.yelp {
+  width: 22px;
+  height: 21px;
+  background-position: 0 -80px;
+}
+.foursquare {
+  width: 23px;
+  height: 24px;
+  background-position: 0 -120px;
+}
+.pinterest {
+  width: 21px;
+  height: 22px;
+  background-position: 0 -160px;
+}
