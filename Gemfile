@@ -1,14 +1,14 @@
 source :rubygems
+source 'https://gems.gemfury.com/***REMOVED***/'
 
 gem "rails", "3.2.7"
 gem "pg"
 gem "jquery-rails"
-gem "bcrypt-ruby", :require => "bcrypt"
-gem "webhook", git: "git://github.com/G5/webhook.git", branch: "configuration"
-gem "flowerbox", "~> 0.0.1"
+
 gem "quiet_assets", "~> 1.0.1"
 gem "bootstrap-sass", "~> 2.1.0.1"
-gem "nokogiri"
+
+gem "g5_component_garden", "~> 0.0.2"
 
 group :assets do
   gem "sass-rails", "~> 3.2.3"
@@ -21,11 +21,6 @@ group :test do
   gem "guard-rspec"
   gem "guard-spork"
   gem 'rb-fsevent', '~> 0.9.1'
-end
-
-group :development do
-  gem "nifty-generators", "~> 0.4.6"
-  gem "heroku", "~> 2.32.6"
 end
 
 group :production do
