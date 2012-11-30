@@ -30,7 +30,6 @@
             <!-- Everything you want hidden at 940px or less, place within here -->
             <div class="nav-collapse">
               <ul class="nav">
-                <li><a href="<%= root_path %>">Widgets</a></li>
               </ul>
             </div>
 
@@ -41,10 +40,6 @@
       <% flash.each do |name, msg| %>
         <%= flash_div name %>
       <% end %>
-
-      <div class="row-fluid page-header">
-        <%= content_tag :h1, yield(:title), class: "span12" %>
-      </div>
 
       <%= yield %>
 
