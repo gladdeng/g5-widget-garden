@@ -87,6 +87,11 @@
 
 
 /* SELECT FLOORPLAN STYLES =========================*/
+.floorplans ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 .floorplan-box {
   border: 1px solid #bcbcbc;
   border-radius: 10px;
