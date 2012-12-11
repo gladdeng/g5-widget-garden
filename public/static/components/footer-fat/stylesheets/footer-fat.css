@@ -1,22 +1,59 @@
-.fat-footer .hours span {
-  display: block;
+.fat-footer .social-links {
+  margin-bottom: 0;
 }
-.fat-footer .signature {
-  vertical-align: middle;
+.fat-footer .social-links  a {
+  display: inline-block;
+  margin-right: 5px;
+  background: url(images/social-icons-alt.png) no-repeat;
+  width: 29px;
+  height: 28px;
+}
+.fat-footer .social-links  a:last-child {
+  margin-right: 0;
+}
+.fat-footer .social-links  .twitter {
+  background-position: 0 0;
+}
+.fat-footer .social-links .facebook {
+  background-position: -35px 0;
+}
+.fat-footer .social-links .pinterest {
+  background-position: -70px 0;
+}
+.fat-footer .social-links .vimeo {
+  background-position: -104px 0;
+}
+.fat-footer .social-links .yelp {
+  background-position: -138px 0;
+}
+.fat-footer .social-links .foursquare {
+  background-position: -172px 0;
+}
+.dxm {
+  clear: right;
   width: 100px;
   height: 23px;
-  background: url(img/dxm.png) 0 0 no-repeat;
+  background: url(images/dxm.png) 0 0 no-repeat;
 }
-.fat-footer .accessibility {
-  vertical-align: middle;
-  width: 70px;
-  height: 31px;
-  background: url(img/accessibility.png) 0 0 no-repeat;
+.hours span,
+.hours  strong {
+  display: block;
 }
 
 @media (min-width: 768px) {
-  .fat-footer .column {
-    width: 33%;
+  .fat-footer .widget {
     float: left;
+  }
+  .fat-footer nav {
+    font-size: 14px;
+  }
+  .fat-footer .social-links {
+    float: right;
+  }
+  .fat-footer ul {
+    float: left;
+  }
+  .dxm {
+    float: right;
   }
 }

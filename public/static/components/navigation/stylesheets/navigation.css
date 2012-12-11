@@ -1,0 +1,31 @@
+.collapsable .collapsable-btn {
+  display: inline-block;
+}
+.collapsable-content,
+.collapsable-content.collapse {
+  height: 0;
+  overflow: hidden;
+}
+.collapse {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.35s ease;
+     -moz-transition: height 0.35s ease;
+       -o-transition: height 0.35s ease;
+          transition: height 0.35s ease;
+}
+.collapse.in {
+  height: auto;
+}
+
+
+@media (min-width: 980px) {
+  .collapsable .collapsable-btn {
+    display: none;
+  }
+  .collapsable-content {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
