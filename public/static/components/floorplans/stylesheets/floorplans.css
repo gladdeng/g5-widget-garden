@@ -1,15 +1,3 @@
-.btn {
-  overflow: hidden;
-  border: 1px solid #cbcbcb;
-  border-radius: 5px;
-  background: #f0f0f0;
-  background: -webkit-linear-gradient(#fff, #f0f0f0);
-  background: -moz-linear-gradient(#fff, #f0f0f0);
-  background: -ms-linear-gradient(#fff, #f0f0f0);
-  background: -o-linear-gradient(#fff, #f0f0f0);
-  background: linear-gradient(#fff, #f0f0f0);
-}
-
 /* FILTER STYLES =============================*/
 #filters {
   border-bottom: 1px solid #e4e4e4;
@@ -87,6 +75,18 @@
 
 
 /* SELECT FLOORPLAN STYLES =========================*/
+.floorplans .btn {
+  overflow: hidden;
+  border: 1px solid #cbcbcb;
+  border-radius: 5px;
+  background: #f0f0f0;
+  background: -webkit-linear-gradient(#fff, #f0f0f0);
+  background: -moz-linear-gradient(#fff, #f0f0f0);
+  background: -ms-linear-gradient(#fff, #f0f0f0);
+  background: -o-linear-gradient(#fff, #f0f0f0);
+  background: linear-gradient(#fff, #f0f0f0);
+}
+
 .floorplans ul {
   list-style-type: none;
   margin: 0;
