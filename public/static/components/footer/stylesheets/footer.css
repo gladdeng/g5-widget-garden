@@ -15,10 +15,10 @@ footer[role=contentinfo] nav a {
 }
 
 @media (min-width: 768px) {
-  nav {
+  footer[role=contentinfo] nav {
     float: right;
   }
-  .widget {
+  footer[role=contentinfo] .widget {
     float: left;
   }
 }
