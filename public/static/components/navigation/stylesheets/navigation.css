@@ -1,5 +1,6 @@
-.collapsable .collapsable-btn {
+.collapsable-btn {
   display: inline-block;
+  cursor: pointer;
 }
 .collapsable-content,
 .collapsable-content.collapse {
@@ -21,7 +22,7 @@
 
 
 @media (min-width: 980px) {
-  .collapsable .collapsable-btn {
+  .collapsable-btn {
     display: none;
   }
   .collapsable-content {
