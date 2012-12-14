@@ -6,12 +6,20 @@ footer[role=contentinfo] nav li,
 footer[role=contentinfo] nav a {
   display: inline;
 }
+.hcard .p-organization-name,
+.hcard .h-adr,
+.hcard .p-street-address,
+.hcard .p-tel,
+.hcard .p-url,
+ {
+  display: block;
+}
 .dxm {
   clear: right;
   float: right;
   width: 100px;
   height: 23px;
-  background: url(/img/dxm.png) 0 0 no-repeat;
+  background: url(http://g5-widget-garden.herokuapp.com/static/components/footer/images/dxm.png) 0 0 no-repeat;
 }
 
 @media (min-width: 768px) {

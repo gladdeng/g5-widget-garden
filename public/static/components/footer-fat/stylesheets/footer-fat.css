@@ -4,7 +4,7 @@
 .fat-footer .social-links  a {
   display: inline-block;
   margin-right: 5px;
-  background: url(images/social-icons-alt.png) no-repeat;
+  background: url(http://g5-widget-garden.herokuapp.com/static/components/footer-fat/images/social-icons-alt.png) no-repeat;
   width: 29px;
   height: 28px;
 }
@@ -33,7 +33,15 @@
   clear: right;
   width: 100px;
   height: 23px;
-  background: url(images/dxm.png) 0 0 no-repeat;
+  background: url(http://g5-widget-garden.herokuapp.com/static/components/footer-fat/images/dxm.png) 0 0 no-repeat;
+}
+.hcard .p-organization-name,
+.hcard .h-adr,
+.hcard .p-street-address,
+.hcard .p-tel,
+.hcard .p-url,
+ {
+  display: block;
 }
 .hours span,
 .hours  strong {
