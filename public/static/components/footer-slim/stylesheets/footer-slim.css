@@ -1,7 +1,3 @@
-@import 'widgets/collapsable.scss';
-@import 'widgets/hcard.scss';
-@import 'widgets/floorplan.scss';
-
 .slim-footer p {
   margin: 0;
 }
