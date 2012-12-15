@@ -1,10 +1,13 @@
-footer[role=contentinfo] {
+.footer {
   clear: both;
   position: relative;
 }
-footer[role=contentinfo] nav li,
-footer[role=contentinfo] nav a {
+.footer nav li,
+.footer nav a {
   display: inline;
+}
+.footer .widget {
+  margin-bottom: 1em;
 }
 .hcard .p-organization-name,
 .hcard .h-adr,
@@ -23,10 +26,25 @@ footer[role=contentinfo] nav a {
 }
 
 @media (min-width: 768px) {
-  footer[role=contentinfo] nav {
-    float: right;
+  .footer {
+    clear: both;
   }
-  footer[role=contentinfo] .widget {
+  .footer nav {
+    float: right;
+    margin-bottom: 1em;
+  }
+  .footer li {
+    display: inline-block;
+    border-top: none;
+  }
+  .footer li:before {
+    content: '/';
+  }
+  .footer li:first-child:before {
+    content: '';
+  }
+  .footer .widget {
     float: left;
+    margin-right: 3em;
   }
 }
