@@ -1,7 +1,7 @@
 .social-links a {
   display: inline-block;
   margin-right: 5px;
-  background: url(http://g5-widget-garden.herokuapp.com/static/components/social-links/images/social-icons.png) no-repeat;
+  background-image: url(http://g5-widget-garden.herokuapp.com/static/components/social-links/images/social-icons.png);
 }
 .facebook {
   width: 22px;
