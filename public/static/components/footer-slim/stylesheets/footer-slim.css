@@ -1,6 +1,9 @@
 .slim-footer p {
   margin: 0;
 }
+.slim-footer nav {
+  margin-bottom: 1em;
+}
 .slim-footer .signature {
   vertical-align: middle;
   width: 100px;
@@ -11,7 +14,6 @@
 @media (min-width: 481px) {
   .slim-footer nav {
     float: right;
-    margin-bottom: 1em;
   }
   .slim-footer .copyright {
     float: left;

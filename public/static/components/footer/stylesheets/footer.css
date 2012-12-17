@@ -2,6 +2,9 @@
   clear: both;
   position: relative;
 }
+.footer nav {
+  margin-bottom: 1em;
+}
 .footer nav li,
 .footer nav a {
   display: inline;
@@ -23,14 +26,12 @@
   height: 23px;
   background: url(http://g5-widget-garden.herokuapp.com/static/components/footer/images/dxm.png) 0 0 no-repeat;
 }
-
 @media (min-width: 768px) {
   .footer {
     clear: both;
   }
   .footer nav {
     float: right;
-    margin-bottom: 1em;
   }
   .footer li {
     display: inline-block;
