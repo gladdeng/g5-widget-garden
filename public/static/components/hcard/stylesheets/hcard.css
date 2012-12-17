@@ -6,3 +6,6 @@
  {
   display: block;
 }
+.hcard p {
+  margin: 0;
+}
