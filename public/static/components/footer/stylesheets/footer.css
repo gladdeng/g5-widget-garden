@@ -22,9 +22,6 @@
 .dxm {
   clear: right;
   float: right;
-  width: 100px;
-  height: 23px;
-  background: url(http://g5-widget-garden.herokuapp.com/static/components/footer/images/dxm.png) 0 0 no-repeat;
 }
 @media (min-width: 768px) {
   .footer {

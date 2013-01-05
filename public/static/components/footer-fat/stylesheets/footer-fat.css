@@ -1,31 +1,3 @@
-.fat-footer .social-links  a {
-  display: inline-block;
-  margin-right: 5px;
-  background: url(http://g5-widget-garden.herokuapp.com/static/components/footer-fat/images/social-icons-alt.png) no-repeat;
-  width: 29px;
-  height: 28px;
-}
-.fat-footer .social-links  a:last-child {
-  margin-right: 0;
-}
-.fat-footer .social-links  .twitter {
-  background-position: 0 0;
-}
-.fat-footer .social-links .facebook {
-  background-position: -35px 0;
-}
-.fat-footer .social-links .pinterest {
-  background-position: -70px 0;
-}
-.fat-footer .social-links .vimeo {
-  background-position: -104px 0;
-}
-.fat-footer .social-links .yelp {
-  background-position: -138px 0;
-}
-.fat-footer .social-links .foursquare {
-  background-position: -172px 0;
-}
 .fat-footer .social-links,
 .fat-footer nav ul,
 .fat-footer .widget {
@@ -33,9 +5,6 @@
 }
 .dxm {
   clear: right;
-  width: 100px;
-  height: 23px;
-  background: url(http://g5-widget-garden.herokuapp.com/static/components/footer-fat/images/dxm.png) 0 0 no-repeat;
 }
 .hcard .p-organization-name,
 .hcard .h-adr,

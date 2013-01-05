@@ -2,7 +2,7 @@
   font-weight: bold;
 }
 .directions dt {
-  margin-top: 1em;
+  margin: 1em 0;
 }
 .direction-icon {
   display: inline-block;

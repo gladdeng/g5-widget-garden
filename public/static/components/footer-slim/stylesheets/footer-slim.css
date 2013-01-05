@@ -1,14 +1,8 @@
-.slim-footer p {
-  margin: 0;
-}
 .slim-footer nav {
   margin-bottom: 1em;
 }
-.slim-footer .signature {
+.slim-footer .dxm {
   vertical-align: middle;
-  width: 100px;
-  height: 23px;
-  background: url(http://g5-widget-garden.herokuapp.com/static/components/footer/images/dxm.png) 0 0 no-repeat;
 }
 
 @media (min-width: 481px) {
@@ -17,6 +11,7 @@
   }
   .slim-footer .copyright {
     float: left;
+    margin-top: 0;
   }
   .slim-footer .attribution {
     clear: right;
