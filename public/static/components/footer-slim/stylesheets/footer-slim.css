@@ -1,20 +1,20 @@
 .slim-footer nav {
-  margin-bottom: 1em;
-}
+  margin-bottom: 1em; }
 .slim-footer .dxm {
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 @media (min-width: 481px) {
   .slim-footer nav {
-    float: right;
-  }
+    float: right; }
+  .slim-footer li {
+    display: inline-block; }
+  .slim-footer li:before {
+    content: '/'; }
+  .slim-footer li:first-child:before {
+    content: ''; }
   .slim-footer .copyright {
     float: left;
-    margin-top: 0;
-  }
-  .slim-footer .attribution {
+    margin-top: 0; }
+  .slim-footer .dxm {
     clear: right;
-    float: right;
-  }
-}
+    float: right; } }

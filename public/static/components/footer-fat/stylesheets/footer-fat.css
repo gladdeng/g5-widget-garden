@@ -1,41 +1,28 @@
 .fat-footer .social-links,
 .fat-footer nav ul,
 .fat-footer .widget {
-  margin-bottom: 1em;
-}
-.dxm {
-  clear: right;
-}
-.hcard .p-organization-name,
-.hcard .h-adr,
-.hcard .p-street-address,
-.hcard .p-tel,
-.hcard .p-url {
-  display: block;
-}
-.hours span,
-.hours  strong {
-  display: block;
-}
+  margin-bottom: 1em; }
+.fat-footer .dxm {
+  clear: right; }
+.fat-footer .hours span,
+.fat-footer .hours strong {
+  display: block; }
 
 @media (min-width: 768px) {
   .fat-footer .widget {
-    float: left;
-  }
-  .fat-footer nav {
-    font-size: 14px;
-  }
+    float: left; }
+  .fat-footer li {
+    display: inline-block; }
+  .fat-footer li:before {
+    content: '/'; }
+  .fat-footer li:first-child:before {
+    content: ''; }
   .fat-footer .social-links {
-    float: right;
-  }
+    float: right; }
   .fat-footer ul {
-    float: left;
-  }
+    float: left; }
   .fat-footer .hcard,
   .fat-footer .hours {
-    margin-right: 3em;
-  }
-  .dxm {
-    float: right;
-  }
-}
+    margin-right: 3em; }
+  .fat-footer .dxm {
+    float: right; } }

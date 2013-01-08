@@ -1,47 +1,20 @@
-.footer {
-  clear: both;
-  position: relative;
-}
 .footer nav {
-  margin-bottom: 1em;
-}
-.footer nav li,
-.footer nav a {
-  display: inline;
-}
+  margin-bottom: 1em; }
 .footer .widget {
-  margin-bottom: 1em;
-}
-.hcard .p-organization-name,
-.hcard .h-adr,
-.hcard .p-street-address,
-.hcard .p-tel,
-.hcard .p-url {
-  display: block;
-}
-.dxm {
+  margin-bottom: 1em; }
+.footer .dxm {
   clear: right;
-  float: right;
-}
+  float: right; }
+
 @media (min-width: 768px) {
-  .footer {
-    clear: both;
-  }
   .footer nav {
-    float: right;
-  }
+    float: right; }
   .footer li {
-    display: inline-block;
-    border-top: none;
-  }
+    display: inline-block; }
   .footer li:before {
-    content: '/';
-  }
+    content: '/'; }
   .footer li:first-child:before {
-    content: '';
-  }
+    content: ''; }
   .footer .widget {
     float: left;
-    margin-right: 3em;
-  }
-}
+    margin-right: 3em; } }
