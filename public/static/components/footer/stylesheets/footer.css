@@ -2,6 +2,10 @@
   margin-bottom: 1em; }
 .footer .widget {
   margin-bottom: 1em; }
+.footer .hours span,
+.footer .hours  strong {
+  display: block;
+}
 .footer .dxm {
   clear: right;
   float: right; }
