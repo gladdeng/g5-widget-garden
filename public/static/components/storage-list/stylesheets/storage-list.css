@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
 }
-.storage-head {
+.storage-list .storage-head {
   overflow: hidden;
   display: block;
   background: #222;
@@ -11,72 +11,101 @@
   padding: .5em 1em;
   margin-bottom: .5em;
 }
-.storage-head:hover {
+.storage-list .storage-head:hover {
   color: #fff;
   text-decoration: none;
 }
-.storage-head p {
+.storage-list .storage-head p {
   margin-bottom: 0;
 }
-.storage-head strong {
+.storage-list .storage-head strong {
   font-size: 18px;
   margin-right: 1em;
 }
 
-.storage-item {
+.storage-list .storage-item {
   margin-bottom: .5em;
   border-bottom: 1px solid #ccc;
 }
-.storage-item p {
+.storage-list .storage-item p {
   overflow: hidden;
 }
-.storage-info {
-  text-align: right;
-}
-.storage-info span {
+.storage-list .storage-info span {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;
 }
-.storage-size,
-.storage-special,
-.storage-price {
-  padding: 0 2%;
+.storage-list .storage-size,
+.storage-list .storage-special,
+.storage-list .storage-price {
+  float: left;
 }
-.storage-price {
-  font-size: 18px;
+.storage-list .storage-size {
+  padding-right: 2%;
 }
-.storage-price .strike {
+.storage-list .storage-size {
+  padding-right: 2%;
+}
+
+.storage-list .storage-special {
+  padding-left: 2%;
+}
+
+.storage-list .strike {
   text-decoration: line-through;
   font-style: normal;
   color: #666;
 }
-.storage-info .storage-action {
+.storage-list .btn {
   float: right;
 }
 
 @media (max-width: 767px) {
-  .storage-head span {
+  .storage-list .storage-head span {
     display: block;
   }
-  .storage-size,
-  .storage-special,
-  .storage-price {
-    text-align: center;
-  }
-  .storage-size {
+  .storage-list .storage-size {
     width: 20%;
   }
-  .storage-special {
+  .storage-list .storage-special {
     width: 50%;
+    text-align: right;
   }
-  .storage-price {
-    width: 28%;
+  .storage-list .storage-price {
+    width: 30%;
+    text-align: center;
   }
-  .storage-action {
+  .storage-list .storage-action {
     width: 100%;
     margin-top: .5em;
     text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .storage-list .storage-item {
+    overflow: hidden;
+  }
+  .storage-list .storage-desc {
+    float: left;
+    width: 48%;
+    padding-right: 2%;
+  }
+  .storage-list .storage-info {
+    float: left;
+    width: 50%;
+  }
+  .storage-list .storage-size {
+    width: 25%;
+  }
+  .storage-list .storage-special {
+    clear: left;
+    padding-left: 0;
+    margin-top: 1em;
+  }
+  .storage-list .storage-action {
+    float: right;
+    margin-top: -1em;
   }
 }
