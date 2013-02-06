@@ -22,12 +22,12 @@
   font-size: 18px;
   margin-right: 1em;
 }
-.storage-cards .storage-cards {
+.storage-cards ul ul {
   overflow: hidden;
 }
 
 /* must set min-height on cards */
-.storage-cards .storage-cards li {
+.storage-cards .storage-item {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -36,22 +36,35 @@
   border: 1px solid;
 }
 .storage-cards .storage-size,
+.storage-cards .storage-price,
+.storage-cards .storage-special {
+  width: auto;
+}
+.storage-cards .storage-size,
 .storage-cards .storage-price {
   width: 50%;
   float: left;
 }
+.storage-cards .storage-size {
+  float: left;
+}
+.storage-cards .storage-price {
+  float: right;
+  text-align: right;
+}
 .storage-cards .storage-special {
+  clear: both;
   text-align: center;
 }
 
 
 @media (min-width: 481px) {
-  .storage-cards .storage-cards li {
+  .storage-cards .storage-item {
     float: left;
     width: 49%;
     height: 300px;
   }
-  .storage-cards .storage-cards li:nth-child(2n+1) {
+  .storage-cards .storage-item:nth-child(2n+1) {
     margin-right: 2%;
   }
 }

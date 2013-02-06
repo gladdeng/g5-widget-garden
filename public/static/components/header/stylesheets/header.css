@@ -2,6 +2,12 @@
   display: inline-block;
   cursor: pointer;
 }
+.collapsable-btn .text {
+  display: none;
+}
+.collapsable-btn .bars {
+  float: right;
+}
 .collapsable-content,
 .collapsable-content.collapse {
   height: 0;
