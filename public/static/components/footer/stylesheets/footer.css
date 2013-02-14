@@ -21,4 +21,8 @@
     content: ''; }
   .footer .widget {
     float: left;
-    margin-right: 3em; } }
+    margin-right: 3em; }
+  .copyright,
+  .dxm {
+    clear: right;
+    float: right; } }

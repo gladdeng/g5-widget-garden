@@ -24,5 +24,7 @@
   .fat-footer .hcard,
   .fat-footer .hours {
     margin-right: 3em; }
+  .fat-footer .copyright,
   .fat-footer .dxm {
+    clear: right;
     float: right; } }
