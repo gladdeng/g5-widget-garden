@@ -6,17 +6,79 @@
       <dd><span class="p-name">Social Links</span></dd>
       <dt>Summary</dt>
       <dd><span class="p-summary">List of links to business's social sites</span></dd>
+			<dt>Configuration</dt>
+			<dd>
+				<dl class="e-g5-configuration">  
+				  <dt>Name</dt>  
+				  <dd class="p-name">Social Links</dd>  
+				  <dt>Category</dt>  
+				  <dd class="p-category">Instance</dd>  
+				  <dt>Attributes</dt>  
+				  <dd class="e-g5-attribute">  
+				    <dl>  
+				      <dt>Twitter Username</dt>  
+				      <dd class="p-g5-name">twitter_username</dd>  
+				      <dt>Editable</dt>  
+				      <dd class="p-g5-editable">true</dd>  
+				    </dl>  
+				  </dd>  
+					<dd class='e-g5-attribute'>  
+				  	<dl>  
+				      <dt>Facebook URL</dt>  
+				      <dd class="p-g5-name">facebook_url</dd>  
+				      <dt>Editable</dt>  
+				      <dd class="p-g5-editable">true</dd>  
+				    </dl>  
+				  </dd>
+					<dd class='e-g5-attribute'>  
+				  	<dl>  
+				      <dt>Yelp Username</dt>  
+				      <dd class="p-g5-name">yelp_username</dd>  
+				      <dt>Editable</dt>  
+				      <dd class="p-g5-editable">true</dd>  
+				    </dl>  
+				  </dd>
+					<dd class='e-g5-attribute'>  
+				  	<dl>  
+				      <dt>Pinterest Username</dt>  
+				      <dd class="p-g5-name">pinterest_username</dd>  
+				      <dt>Editable</dt>  
+				      <dd class="p-g5-editable">true</dd>  
+				    </dl>  
+				  </dd>
+					<dd class='e-g5-attribute'>  
+				  	<dl>  
+				      <dt>FourSquare URL</dt>  
+				      <dd class="p-g5-name">foursquare_url</dd>  
+				      <dt>Editable</dt>  
+				      <dd class="p-g5-editable">true</dd>  
+				    </dl>  
+				  </dd>
+				
+				</dl>
+			</dd>  <!-- END e-g5-object-attributes -->
+
     </dl>
   </header>
 
   <section role="main" class="e-content">
     <div class="social-links widget">
-      <a href="#" class="facebook" title="Facebook">Facebook</a>
-      <a href="#" class="twitter" title="Twitter">Twitter</a>
-      <a href="#" class="yelp" title="Yelp">Yelp</a>
-      <a href="#" class="foursquare" title="Foursquare">Foursquare</a>
-      <a href="#" class="pinterest" title="Pinterest">Pinterest</a>
-    </div>
+			{% if widget.social_links.facebook_url.value != ""  %}
+      	<a href="{{ widget.social_links.facebook_url.value }}" class="facebook" title="Facebook">Facebook</a>
+			{% endif %}
+			{% if widget.social_links.twitter_username.value != ""  %}
+      	<a href="http://twitter.com/{{ widget.social_links.twitter_username.value }}" class="twitter" title="Twitter">Twitter</a>
+			{% endif %}
+			{% if widget.social_links.yelp_username.value != ""  %}
+      	<a href="http://www.yelp.com/biz/{{ widget.social_links.yelp_username.value }}" class="yelp" title="Yelp">Yelp</a>
+			{% endif %}
+			{% if widget.social_links.foursquare_url.value != "" %}
+      	<a href="#" class="foursquare" title="Foursquare">Foursquare</a>
+			{% endif %}
+			{% if widget.social_links.pinterest_username.value != ""  %}
+      	<a href="http://pinterest.com/{{ widget.social_links.pinterest_username.value }}" class="pinterest" title="Pinterest">Pinterest</a>
+  		{% endif %}
+	  </div>
   </section>
 
 </div>
