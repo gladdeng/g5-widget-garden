@@ -11,22 +11,18 @@
   padding: .5em 1em;
   margin-bottom: .5em;
 }
-.storage-list .storage-head:hover {
-  color: #fff;
-  text-decoration: none;
-}
 .storage-list .storage-head p {
   margin-bottom: 0;
 }
-.storage-list .storage-head strong {
-  margin-right: 1em;
-}
-
 .storage-list .storage-item {
-  margin-bottom: .5em;
-  border-bottom: 1px solid #ccc;
+  margin-bottom: .625em;
+  overflow: hidden;
 }
 .storage-list .storage-item p {
+  margin-top: 0;
+}
+.storage-list .storage-info {
+  text-align: center;
   overflow: hidden;
 }
 .storage-list .storage-info span {
@@ -36,77 +32,47 @@
   display: inline-block;
 }
 .storage-list .storage-size,
-.storage-list .storage-special,
-.storage-list .storage-price {
+.storage-list .storage-price,
+.storage-list .storage-special
+ {
   float: left;
 }
-.storage-list .storage-size {
-  padding-right: 2%;
+.storage-list .storage-price {
+  padding: 0 1em;
 }
-.storage-list .storage-size {
-  padding-right: 2%;
-}
-
-.storage-list .storage-special {
-  padding-left: 2%;
-}
-
 .storage-list .strike {
   text-decoration: line-through;
   font-style: normal;
-  color: #666;
 }
 .storage-list .storage-action {
   float: right;
 }
 
-@media (max-width: 767px) {
-  .storage-list .storage-head span {
-    display: block;
-  }
-  .storage-list .storage-size {
-    width: 50%;
-  }
-  .storage-list .storage-special {
-    width: 50%;
-    float: left;
-    padding: .5em 0;
-    text-align: left;
-  }
-  .storage-list .storage-price {
-    width: 50%;
-    text-align: right;
-  }
-  .storage-list .storage-action {
-    width: 50%;
-    margin-top: .5em;
-    text-align: center;
-  }
-}
-
 @media (min-width: 768px) {
-  .storage-list .storage-item {
-    overflow: hidden;
-  }
+  .storage-list .storage-info,
   .storage-list .storage-desc {
     float: left;
-    width: 48%;
-    padding-right: 2%;
-  }
-  .storage-list .storage-info {
-    float: left;
-    width: 50%;
-  }
-  .storage-list .storage-size {
-    width: 25%;
-  }
-  .storage-list .storage-special {
-    clear: left;
-    padding-left: 0;
-    margin-top: 1em;
   }
   .storage-list .storage-action {
     float: right;
-    margin-top: -1em;
+  }
+  .storage-list .storage-info {
+    width: 30%;
+    text-align: left;
+  }
+  .storage-list .storage-size,
+  .storage-list .storage-price {
+    width: 50%;
+  }
+  .storage-list .storage-price {
+    padding: 0;
+  }
+  .storage-list .storage-special {
+    float: none;
+    margin-top: 1em;
+    text-align: center;
+  }
+  .storage-list .storage-desc {
+    width: 50%;
   }
 }
