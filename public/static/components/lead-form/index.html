@@ -34,51 +34,51 @@
 
       <p class="heading">Apply</p>
 
-      <form action="{{ widget.lead_form.submission_url.value }}">
+      <form action="{{ widget.lead_form.submission_url.value }}" method="POST">
 
         <div class="field">
-          <label for="first-name">First Name</label>
-          <input type="text" name="first-name" required />
+          <label for="first_name">First Name</label>
+          <input type="text" name="lead[first_name]" id="first_name" required />
         </div>
 
         <div class="field">
-          <label for="last-name">Last Name</label>
-          <input type="text" name="last-name" required />
+          <label for="last_name">Last Name</label>
+          <input type="text" name="lead[last-name" id="last_name" required />
         </div>
 
         <div class="field">
           <label for="email">Email</label>
-          <input type="email" name="email" required />
+          <input type="email" name="lead[email]" id="email" required />
         </div>
 
         <div class="field">
           <label for="phone">Phone</label>
-          <input type="tel" name="phone" />
+          <input type="tel" name="lead[phone]" id="phone" />
         </div>
 
         <div class="field">
-          <label for="street-address">Street Address</label>
-          <input type="text" name="street-address" />
+          <label for="street_address">Street Address</label>
+          <input type="text" name="lead[street_address]" id="street_address" />
         </div>
 
         <div class="field">
           <label for="city">City</label>
-          <input type="text" name="city" />
+          <input type="text" name="lead[city]" id="city" />
         </div>
 
         <div class="field">
           <label for="state">State</label>
-          <input type="text" name="state" />
+          <input type="text" name="lead[state]" id="state" />
         </div>
 
         <div class="field">
           <label for="zip">Zip</label>
-          <input type="text" name="zip" />
+          <input type="text" name="lead[zip]" id="zip" />
         </div>
 
         <div class="field">
           <label for="message">Message</label>
-          <textarea name="message"></textarea>
+          <textarea name="lead[message]" id="message"></textarea>
         </div>
 
         <input type="submit" value="Apply" />
