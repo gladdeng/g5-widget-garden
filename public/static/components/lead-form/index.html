@@ -30,11 +30,16 @@
   </header>
 
   <section role="main" class="e-content">
+    <script type="text/javascript">
+      $(function () {
+        $('lead_form').h5Validate();
+      });
+    </script>  
     <div class="lead widget">
 
       <p class="heading">Apply</p>
 
-      <form action="{{ widget.lead_form.submission_url.value }}" method="POST">
+      <form id="lead_form" action="{{ widget.lead_form.submission_url.value }}" method="POST">
 
         <div class="field">
           <label for="first_name">First Name</label>
