@@ -11,10 +11,9 @@ bundle
 ```
 
 1. Set up your database
+The rails-default-database gem will take care of most of this for you. 
 ```bash
-cp config/database.example.yml config/database.yml
-vi config/database.yml # edit username
-rake db:create db:schema:load db:seed
+rake db:setup
 ```
 
 

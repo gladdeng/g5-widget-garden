@@ -1,14 +1,13 @@
-source :rubygems
+source 'https://rubygems.org'
 source 'https://gems.gemfury.com/***REMOVED***/'
+ruby "1.9.3"
 
-gem "rails", "3.2.11"
-gem "pg"
+gem "rails", "3.2.12"
 gem "jquery-rails"
-
 gem "quiet_assets", "~> 1.0.1"
 gem "bootstrap-sass", "~> 2.1.0.1"
 
-gem "g5_component_garden", "~> 0.0.9"
+gem "g5_component_garden", "~> 0.1.0"
 
 group :assets do
   gem "sass-rails", "~> 3.2.3"
@@ -25,4 +24,10 @@ end
 
 group :production do
   gem "thin", "~> 1.5.0"
+  gem "pg"
+end
+
+group :test, :development do
+	gem "rails-default-database"
+	gem "sqlite3"
 end

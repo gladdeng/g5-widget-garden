@@ -1,0 +1,22 @@
+.ui-state-error {
+  background-color: #BB1100;
+  color: white;
+}
+
+.ui-state-error.message {
+  display: none;
+  margin-left: 5px;
+  float: left;
+}
+
+.clear { clear:both }
+
+#lead_form input, select {
+  float: left;
+  margin-bottom: 10px;
+}
+
+.submit_response { display: none; color: white; margin: 5px 5px; padding: 5px; width: 100px; }
+#success:target {display: block; background: green;}
+#failure:target {display: block; background: red;}
+

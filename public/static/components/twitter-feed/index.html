@@ -6,20 +6,48 @@
       <dd><span class="p-name">Twitter Feed</span></dd>
       <dt>Summary</dt>
       <dd><span class="p-summary">List of twitter posts</span></dd>
+			
+			<dt>Configuration</dt>
+			<dd>
+				<dl class="e-g5-configuration">  
+				  <dt>Name</dt>  
+				  <dd class="p-name">Twitter Feed</dd>  
+				  <dt>Category</dt>  
+				  <dd class="p-category">Instance</dd>  
+				  <dd class="p-category">Twitter</dd>  
+				  <dt>Attributes</dt>  
+				  <dd class="e-g5-attribute">  
+				    <dl>  
+				      <dt>Username</dt>  
+				      <dd class="p-g5-name">username</dd>  
+				      <dt>Editable</dt>  
+				      <dd class="p-g5-editable">true</dd>  
+				      <dt>Default Value</dt>  
+				      <dd class="p-g5-default-value">Twitter Feed</dd>  
+				    </dl>  
+				  </dd>  
+					<dd class='e-g5-attribute'>  
+				  	<dl>  
+				      <dt>Title</dt>  
+				      <dd class="p-g5-name">title</dd>  
+				    </dl>  
+				  </dd>
+				</dl>
+			</dd>  <!-- END e-g5-object-attributes -->
     </dl>
   </header>
 
   <section role="main" class="e-content">
     <div class="twitter-feed widget">
 
-      <p class="heading">Feed Heading</p>
+      <p class="heading">{{ widget.twitter_feed.title.value }}</p>
 
       <div class="media clearfix">
         <div class="img">
           <img src="http://placehold.it/30x30&text=avatar" />
         </div>
         <div class="body">
-          <p class="username">{{ g5_twitter.username }} <em class="alternative-name">alternative name</em></p>
+          <p class="username">{{ widget.twitter_feed.username.value }} <em class="alternative-name">alternative name</em></p>
         </div>
       </div>
 
