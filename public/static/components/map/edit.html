@@ -1,11 +1,17 @@
 <form>
-  <div class="field check">
-    <input type="check" />
-    <label>Use your current address, 123 Some Street</label>
-  </div>
   <div class="field">
     <label>Enter a new address you want to use</label>
-    <input type="text" />
+    <label for="address">Address</label>
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.map.address.id }}][id]"
+			value="{{ widget.map.address.id }}">
+
+    <input type="text"
+			placeholder="Address"
+			name="widget[widget_attributes_attributes][{{ widget.map.address.id }}][value]"
+      value="{{ widget.location.address }}"
+      id="address" />
   </div>
+
   <input type="submit" value="Save" />
 </form>
