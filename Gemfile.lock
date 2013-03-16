@@ -1,3 +1,16 @@
+PATH
+  remote: /Users/chrisstringer/g5/g5_component_garden
+  specs:
+    g5_component_garden (0.1.0)
+      g5_hentry_consumer (~> 0.5.5)
+      rails (~> 3.2.0)
+
+PATH
+  remote: /Users/chrisstringer/g5/g5_hentry_consumer
+  specs:
+    g5_hentry_consumer (0.5.5)
+      hentry_consumer (~> 0.8.1)
+
 GEM
   remote: https://rubygems.org/
   remote: https://gems.gemfury.com/***REMOVED***/
@@ -49,11 +62,6 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.4.0)
-    g5_component_garden (0.1.0)
-      g5_hentry_consumer (~> 0.5.5)
-      rails (~> 3.2.0)
-    g5_hentry_consumer (0.5.5)
-      hentry_consumer (~> 0.8.1)
     guard (1.6.2)
       listen (>= 0.6.0)
       lumberjack (>= 1.0.2)
@@ -172,7 +180,8 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 2.1.0.1)
   coffee-rails (~> 3.2.1)
-  g5_component_garden (~> 0.1.0)
+  g5_component_garden!
+  g5_hentry_consumer!
   guard-rspec
   guard-spork
   jquery-rails

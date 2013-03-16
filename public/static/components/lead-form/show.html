@@ -1,0 +1,122 @@
+<div id="success" class="submit_response">GREAT SUCCESS!</div>
+<div id="failure" class="submit_response">IZE NOT NICE!</div>
+<div class="lead widget">
+
+  <p class="heading">Apply NEW</p>
+
+  <form id="lead_form" action="{{ widget.lead_form.submission_url.value }}" method="POST">
+
+    <div class="field">
+      <label for="first_name">First Name</label>
+      <input type="text" name="lead[first_name]" id="first_name" data-h5-errorid="invalid_first_name" title="Required: Please provide your first name" required="">
+      <div id="invalid_first_name" class="ui-state-error message">Required: Please provide your first name.</div></div>
+    <div class="clear"></div>
+    <div class="field">
+      <label for="last_name">Last Name</label>
+      <input type="text" name="lead[last_name]" id="last_name" data-h5-errorid="invalid_last_name" title="Required: Please provide your last name" required="">
+      <div id="invalid_last_name" class="ui-state-error message">Required: Please provide your last name.</div>
+    </div>
+    <div class="clear"></div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" name="lead[email]" title="Required: Please provide your email address" data-h5-errorid="invalid_email" id="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="">
+      <div id="invalid_email" class="ui-state-error message">Required: Please provide your email.</div>
+    </div>
+    <div class="clear"></div>
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input type="tel" name="lead[phone]" id="phone">
+    </div>
+    <div class="clear"></div>
+    <div class="field">
+      <label for="street">Street Address</label>
+      <input type="text" name="lead[street]" id="street">
+    </div>
+    <div class="clear"></div>
+    <div class="field">
+      <label for="city">City</label>
+      <input type="text" name="lead[city]" id="city">
+    </div>
+    <div class="clear"></div>
+    <div class="field">
+      <label for="state">State</label>
+      <select name="lead[state]" required="" id="state" title="Required: Please provide your state" data-h5-errorid="invalid_state"> 
+        <option value="" selected="selected">Select a State</option> 
+        <option value="AL">Alabama</option> 
+        <option value="AK">Alaska</option> 
+        <option value="AZ">Arizona</option> 
+        <option value="AR">Arkansas</option> 
+        <option value="CA">California</option> 
+        <option value="CO">Colorado</option> 
+        <option value="CT">Connecticut</option> 
+        <option value="DE">Delaware</option> 
+        <option value="DC">District Of Columbia</option> 
+        <option value="FL">Florida</option> 
+        <option value="GA">Georgia</option> 
+        <option value="HI">Hawaii</option> 
+        <option value="ID">Idaho</option> 
+        <option value="IL">Illinois</option> 
+        <option value="IN">Indiana</option> 
+        <option value="IA">Iowa</option> 
+        <option value="KS">Kansas</option> 
+        <option value="KY">Kentucky</option> 
+        <option value="LA">Louisiana</option> 
+        <option value="ME">Maine</option> 
+        <option value="MD">Maryland</option> 
+        <option value="MA">Massachusetts</option> 
+        <option value="MI">Michigan</option> 
+        <option value="MN">Minnesota</option> 
+        <option value="MS">Mississippi</option> 
+        <option value="MO">Missouri</option> 
+        <option value="MT">Montana</option> 
+        <option value="NE">Nebraska</option> 
+        <option value="NV">Nevada</option> 
+        <option value="NH">New Hampshire</option> 
+        <option value="NJ">New Jersey</option> 
+        <option value="NM">New Mexico</option> 
+        <option value="NY">New York</option> 
+        <option value="NC">North Carolina</option> 
+        <option value="ND">North Dakota</option> 
+        <option value="OH">Ohio</option> 
+        <option value="OK">Oklahoma</option> 
+        <option value="OR">Oregon</option> 
+        <option value="PA">Pennsylvania</option> 
+        <option value="RI">Rhode Island</option> 
+        <option value="SC">South Carolina</option> 
+        <option value="SD">South Dakota</option> 
+        <option value="TN">Tennessee</option> 
+        <option value="TX">Texas</option> 
+        <option value="UT">Utah</option> 
+        <option value="VT">Vermont</option> 
+        <option value="VA">Virginia</option> 
+        <option value="WA">Washington</option> 
+        <option value="WV">West Virginia</option> 
+        <option value="WI">Wisconsin</option> 
+        <option value="WY">Wyoming</option>
+        </select>
+        <div id="invalid_state" class="ui-state-error message">Required: Please provide your state.</div>
+    </div>
+    <div class="clear"></div>
+    <div class="field">
+      <label for="zip">Zip</label>
+      <input type="text" name="lead[zip]" id="zip">
+    </div>
+    <div class="clear"></div>
+    <div class="field">
+      <label for="message">Message</label>
+      <textarea name="lead[message]" id="message"></textarea>
+    </div>
+    <div class="clear"></div>
+    <input type="submit" value="Apply">
+  </form>
+  <script type="text/javascript">
+    $(function () {
+      $('form').h5Validate();
+    });
+
+    $('#myForm').submit(function () {
+      // Return false and prevent submission if form does not pass validation
+      return $('#lead_form').h5Validate('allValid');
+    });
+  </script>
+</div>
