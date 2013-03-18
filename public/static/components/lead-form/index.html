@@ -51,7 +51,7 @@
         <div class="clear"></div>
         <div class="field">
           <label for="email">Email</label>
-          <input type="email" name="lead[email]" title="Required: Please provide your email address" data-h5-errorid="invalid_email" id="email" required="">
+          <input type="email" name="lead[email]" title="Required: Please provide your email address" data-h5-errorid="invalid_email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email" required="">
           <div id="invalid_email" class="ui-state-error message">Required: Please provide your email.</div>
         </div>
         <div class="clear"></div>
