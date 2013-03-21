@@ -7,8 +7,8 @@ gem "jquery-rails"
 gem "quiet_assets", "~> 1.0.1"
 gem "bootstrap-sass", "~> 2.1.0.1"
 
-gem "g5_component_garden", :path => "/Users/chrisstringer/g5/g5_component_garden"
-gem "g5_hentry_consumer", :path => "/Users/chrisstringer/g5/g5_hentry_consumer"
+gem "g5_component_garden", :path => "~/g5/g5_component_garden"
+gem "g5_hentry_consumer", :path => "~/g5/g5_hentry_consumer"
 
 group :assets do
   gem "sass-rails", "~> 3.2.3"
