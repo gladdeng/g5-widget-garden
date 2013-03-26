@@ -2,15 +2,36 @@
 
   <header>
     <dl>
-      <dt>Name</dt>
-      <dd><span class="p-name">Button</span></dd>
-      <dt>Summary</dt>
-      <dd><span class="p-summary">A link styled like a button</span></dd>
+      <dl>
+        <dt>Name</dt>
+        <dd><span class="p-name">Button</span></dd>
+        <dt>Summary</dt>
+        <dd><span class="p-summary">A link styled like a button</span></dd>
+        <dt>Congfiguration</dt>
+        <dd>
+          <dl class="e-g5-configuration">
+  				  <dt>Name</dt>
+  				  <dd class="p-name">Button</dd>
+  				  <dt>Category</dt>
+  				  <dd class="p-category">Instance</dd>
+  				  <dt>Attributes</dt>
+  				  <dd class="e-g5-attribute">
+  				    <dl>
+  				      <dt>Button</dt>
+  				      <dd class="p-g5-name">label</dd>
+  				      <dt>Url</dt>
+  				      <dd class="p-g5-name">url</dd>
+  				      <dt>Editable</dt>
+  				      <dd class="p-g5-editable">true</dd>
+  				    </dl>
+  				  </dd>
+  				</dl>
+        </dd>
     </dl>
   </header>
 
   <section role="main" class="e-content">
-    <a href="/" class="btn widget">a button</a>
+    <a href="{{ widget.button.url.value }}" class="btn widget">{{ widget.button.label.value }}</a>
   </section>
 
 </div>
