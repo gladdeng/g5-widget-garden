@@ -1,11 +1,13 @@
 <form>
   <div class="field">
-    <label>Enter button url</label>
-    <input type="text" />
+    <label>Enter button label</label>
+    <input type="hidden" name="widget[widget_attributes_attributes][{{ widget.button.label.id }}][id]" value="{{ widget.button.label.id }}">
+    <input type="text" name="widget[widget_attributes_attributes][{{ widget.button.label.id }}][value]" value="{{ widget.button.label.value }}" />
   </div>
   <div class="field">
-    <label>Enter button text</label>
-    <input type="text" />
+    <label>Enter button url</label>
+    <input type="hidden" name="widget[widget_attributes_attributes][{{ widget.button.url.id }}][id]" value="{{ widget.button.url.id }}">
+    <input type="text" name="widget[widget_attributes_attributes][{{ widget.button.url.id }}][value]" value="{{ widget.button.url.value }}" />
   </div>
   <input type="submit" value="Save" />
 </form>
