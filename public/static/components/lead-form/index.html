@@ -6,15 +6,15 @@
       <dd><span class="p-name">Lead Form</span></dd>
       <dt>Summary</dt>
       <dd><span class="p-summary">Lead Form</span></dd>
-      <dt>Configuration</dt>
+      <dt>Property Group</dt>
 			<dd>
-				<dl class="e-g5-configuration">
+				<dl class="e-g5-property-group h-g5-property-group">
 				  <dt>Name</dt>
 				  <dd class="p-name">Lead Form</dd>
 				  <dt>Category</dt>
 				  <dd class="p-category">Instance</dd>
-				  <dt>Attributes</dt>
-				  <dd class="e-g5-attribute">
+				  <dt>Properties</dt>
+				  <dd class="e-g5-property h-g5-property">
 				    <dl>
 				      <dt>Submission URL</dt>
 				      <dd class="p-g5-name">submission_url</dd>
@@ -25,7 +25,7 @@
 				    </dl>
 				  </dd>
 				</dl>
-			</dd>  <!-- END e-g5-object-attributes -->
+			</dd>  <!-- END e-g5-object-properties -->
     </dl>
   </header>
 
@@ -51,7 +51,7 @@
         <div class="clear"></div>
         <div class="field">
           <label for="email">Email</label>
-          <input type="email" name="lead[email]" title="Required: Please provide your email address" data-h5-errorid="invalid_email" id="email" required="">
+          <input type="email" name="lead[email]" title="Required: Please provide your email address" data-h5-errorid="invalid_email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email" required="">
           <div id="invalid_email" class="ui-state-error message">Required: Please provide your email.</div>
         </div>
         <div class="clear"></div>
