@@ -1,7 +1,8 @@
 <form>
   <div class="field">
     <label>Enter text</label>
-    <textarea></textarea>
+    <input type="hidden" name="widget[widget_attributes_attributes][{{ widget.text.input.id }}][id]" value="{{ widget.text.input.id }}">
+    <textarea id="ckeditor" name="widget[widget_attributes_attributes][{{ widget.text.input.id }}][value]">{{ widget.text.input.value }}</textarea>
   </div>
   <input type="submit" value="Save" />
 </form>
