@@ -1,6 +1,6 @@
 <div class="twitter-feed widget">
 
-  <p class="heading">{{ widget.twitter_feed.title.value }}</p>
+  {{ if widget.twitter_feed.title.value != ''}}<p class="heading">{{ widget.twitter_feed.title.value }}</p>{{ endif }}
 
   <div id="tweet">
     <p>Tweets are loading...</p>
@@ -16,6 +16,6 @@
     enableLinks: true,
     ignoreReplies: true,
     clearContents: true,
-    template: '{{ if widget.twitter_feed.avatars.value == 'true'}}"%user_profile_image_url%" "%text%"{{ endif }} <a href="http://twitter.com/%user_screen_name%/statuses/%id_str%/">%time%</a>'
+    template: '{{ if widget.twitter_feed.avatars.value == 'true'}}<img src="%user_profile_image_url%" /> "%text%"{{ endif }} <a href="http://twitter.com/%user_screen_name%/statuses/%id_str%/">%time%</a>'
   });
 </script>

@@ -16,8 +16,10 @@
   <div class="field check-field">
     <label>Show Avatars?</label>
 		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][id]" value="{{ widget.twitter_feed.avatars.id }}">
-    <input type="radio" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="true" />
-    <input type="radio" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="false" />
+		<label for="avatars-yes">Yes</label>
+    <input type="radio" id="avatars-yes" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="true" />
+    <lable for="avatars-no">No</lable>
+    <input type="radio" id="avatars-no" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="false" />
   </div>
 
   <div class="field">
