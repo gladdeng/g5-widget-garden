@@ -1,20 +1,31 @@
 <form>
+
   <div class="field">
-    <label>Enter Twitter username</label>
-		<input type="hidden" 
-			name="widget[widget_attributes_attributes][{{ widget.twitter_feed.username.id }}][id]" 
-			value="{{ widget.twitter_feed.username.id }}">
-			
-    <input type="text" 
-			placeholder="@username" 
-			name="widget[widget_attributes_attributes][{{ widget.twitter_feed.username.id }}][value]" 
-			value="{{ widget.twitter_feed.username.value }}" />
-			
+    <label>Twitter username</label>
+		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.username.id }}][id]" value="{{ widget.twitter_feed.username.id }}">
+    <input type="text"
+			placeholder="@username" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.username.id }}][value]" value="{{ widget.twitter_feed.username.value }}" />
   </div>
+
   <div class="field">
-    <label>Enter feed title</label>
+    <label>Feed title</label>
 		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.title.id }}][id]" value="{{ widget.twitter_feed.title.id }}">
     <input type="text" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.title.id }}][value]" value="{{ widget.twitter_feed.title.value }}" />
   </div>
+
+  <div class="field check-field">
+    <label>Show Avatars?</label>
+		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][id]" value="{{ widget.twitter_feed.avatars.id }}">
+    <input type="radio" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="true" />
+    <input type="radio" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="false" />
+  </div>
+
+  <div class="field">
+    <label>Number of Tweets to Show</label>
+		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.tweet_count.id }}][id]" value="{{ widget.twitter_feed.tweet_count.id }}">
+    <input type="number" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.tweet_count.id }}][value]" value="{{ widget.twitter_feed.tweet_count.value }}" />
+  </div>
+
   <input type="submit" value="Save" />
+
 </form>

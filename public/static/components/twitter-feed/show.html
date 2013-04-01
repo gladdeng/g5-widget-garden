@@ -12,9 +12,10 @@
 <script>
   getTwitters('tweet', {
     id: "{{ widget.twitter_feed.username.value }}",
-    count: 3,
+    count: {{ widget.twitter_feed.tweet_count.value }},
     enableLinks: true,
     ignoreReplies: true,
-    clearContents: true
+    clearContents: true,
+    template: '{{ if widget.twitter_feed.avatars.value == 'true'}}"%user_profile_image_url%" "%text%"{{ endif }} <a href="http://twitter.com/%user_screen_name%/statuses/%id_str%/">%time%</a>'
   });
 </script>
