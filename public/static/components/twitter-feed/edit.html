@@ -18,7 +18,7 @@
     <input type="hidden" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][id]" value="{{ widget.twitter_feed.avatars.id }}" />
 
     <label for="avatars-yes">Yes</label>
-    <input type="radio" id="avatars-yes" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="true" {% if widget.twitter_feed.avatars.value == 'true' %}checked="checked"{% endif %} />
+    <input type="radio" id="avatars-yes" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="true" checked="checked" />
 
     <label for="avatars-no">No</label>
     <input type="radio" id="avatars-no" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="false" {% if widget.twitter_feed.avatars.value == 'false' %}checked="checked"{% endif %} />
@@ -28,7 +28,7 @@
   <div class="field">
     <label>Number of Tweets to Show</label>
 		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.tweet_count.id }}][id]" value="{{ widget.twitter_feed.tweet_count.id }}" />
-    <input type="number" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.tweet_count.id }}][value]" value="{{ widget.twitter_feed.tweet_count.value }}" />
+    <input type="number" min="1" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.tweet_count.id }}][value]" value="{{ widget.twitter_feed.tweet_count.value }}" />
   </div>
 
   <input type="submit" value="Save" />
