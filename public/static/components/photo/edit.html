@@ -1,7 +1,21 @@
 <form>
   <div class="field">
-    <label>Choose photo</label>
-    <input type="file" />
+		<input type="hidden" 
+			name="widget[widget_attributes_attributes][{{ widget.photo.url.id }}][id]" 
+			value="{{ widget.photo.url.id }}">
+	  <input type="text" 
+			placeholder="url" 
+			name="widget[widget_attributes_attributes][{{ widget.photo.url.id }}][value]" 
+			value="{{ widget.photo.url.value }}" />
+  </div>
+  <div class="field">
+		<input type="hidden" 
+			name="widget[widget_attributes_attributes][{{ widget.photo.caption.id }}][id]" 
+			value="{{ widget.photo.caption.id }}">
+	  <input type="text" 
+			placeholder="caption" 
+			name="widget[widget_attributes_attributes][{{ widget.photo.caption.id }}][value]" 
+			value="{{ widget.photo.caption.value }}" />
   </div>
   <input type="submit" value="Save" />
 </form>

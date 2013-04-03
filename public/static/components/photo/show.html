@@ -1,1 +1,5 @@
-<img src="http://g5-widget-garden.herokuapp.com/static/tmp-images/img1.jpg" class="photo widget" />
+<figure>
+  <img src="{{ widget.photo.url.value }}" class="photo widget" />
+  <figcaption>{{ widget.photo.caption.value }}</figcaption>
+</figure>
+
