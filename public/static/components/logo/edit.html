@@ -1,7 +1,21 @@
 <form>
   <div class="field">
-    <label>Upload your logo</label>
-    <input type="file" />
+		<input type="hidden" 
+			name="widget[widget_attributes_attributes][{{ widget.logo.url.id }}][id]" 
+			value="{{ widget.logo.url.id }}">
+	  <input type="text" 
+			placeholder="url" 
+			name="widget[widget_attributes_attributes][{{ widget.logo.url.id }}][value]" 
+			value="{{ widget.logo.url.value }}" />
+  </div>
+  <div class="field">
+		<input type="hidden" 
+			name="widget[widget_attributes_attributes][{{ widget.logo.caption.id }}][id]" 
+			value="{{ widget.logo.caption.id }}">
+	  <input type="text" 
+			placeholder="caption" 
+			name="widget[widget_attributes_attributes][{{ widget.logo.caption.id }}][value]" 
+			value="{{ widget.logo.caption.value }}" />
   </div>
   <input type="submit" value="Save" />
 </form>
