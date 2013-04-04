@@ -50,7 +50,7 @@ GEM
       multi_json (~> 1.0)
     ffi (1.6.0)
     formatador (0.2.4)
-    g5_component_garden (0.2.1)
+    g5_component_garden (0.3.0)
       microformats2 (= 2.0.0.pre4)
       rails (~> 3.2.13)
     guard (1.7.0)
@@ -171,7 +171,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 2.1.0.1)
   coffee-rails (~> 3.2.1)
-  g5_component_garden (~> 0.2)
+  g5_component_garden (~> 0.3)
   guard-rspec
   guard-spork
   jquery-rails
