@@ -1,4 +1,8 @@
-<figure>
-  <h1><a href="/"><img src="{{ widget.photo.url.value }}" class="photo widget"/></a></h1>
-  <figcaption>{{ widget.photo.caption.value }}</figcaption>
+<figure class="logo widget">
+  <h1><a href="/">
+      <img src="{{ widget.photo.url.value }}" class="photo widget"/>
+  </a></h1>
+  {{% if widget.logo.caption.value != ''%}}
+    <figcaption>{{ widget.photo.caption.value }}</figcaption>
+  {{% endif %}}
 </figure>
