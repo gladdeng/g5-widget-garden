@@ -1,6 +1,5 @@
 <form>
   <div class="field">
-    <label>Enter a new address you want to use</label>
     <label for="address">Address</label>
 		<input type="hidden"
 			name="widget[widget_attributes_attributes][{{ widget.map.address.id }}][id]"
@@ -11,6 +10,52 @@
 			name="widget[widget_attributes_attributes][{{ widget.map.address.id }}][value]"
       value="{{ widget.location.address }}"
       id="address" />
+  </div>
+  <div class="field">
+    <label>Map Type</label>
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.map.map_type.id }}][id]"
+			value="{{ widget.map.map_type.id }}">
+    <label for="roadmap">
+      <input type="radio"
+        name="widget[widget_attributes_attributes][{{ widget.map.map_type.id }}][value]"
+        value="ROADMAP"
+        id="roadmap"
+        checked
+        style="vertical-align:top;"/>
+        Road Map
+    </label>
+    <label for="satellite">
+      <input type="radio"
+        name="widget[widget_attributes_attributes][{{ widget.map.map_type.id }}][value]"
+        value="SATELLITE"
+        id="satellite"
+        style="vertical-align:top;"/>
+        Satellite
+    </label>
+  </div>
+  <div class="field">
+    <label>Allow Panning and Zooming?</label>
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.map.pan_zoom.id }}][id]"
+			value="{{ widget.map.pan_zoom.id }}">
+    <label for="pan-zoom-true">
+      <input type="radio"
+        name="widget[widget_attributes_attributes][{{ widget.map.pan_zoom.id }}][value]"
+        value="true"
+        id="pan-zoom-true"
+        checked
+        style="vertical-align:top;"/>
+        True
+    </label>
+    <label for="pan-zoom-false">
+      <input type="radio"
+        name="widget[widget_attributes_attributes][{{ widget.map.pan_zoom.id }}][value]"
+        value="false"
+        id="pan-zoom-false"
+        style="vertical-align:top;"/>
+        False
+    </label>
   </div>
 
   <input type="submit" value="Save" />
