@@ -1,7 +1,39 @@
-<div class="map widget">
+<script type="text/javascript">
+  var coordinates = ''
 
-  <iframe width="425" height="350" frameborder="0" scrolling="no"
-    marginheight="0" marginwidth="0"
-    src="https://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;time=&amp;date=&amp;ttype=&amp;q={{widget.map.address.value | url_encode}}K&amp;ie=UTF8&amp;t=h&amp;om=1&amp;hq=&amp;hnear={{widget.map.address.value | url_encode}}&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;time=&amp;date=&amp;ttype=&amp;q={{widget.map.address.value | url_encode}}&amp;ie=UTF8&amp;t=h&amp;om=1&amp;hq=&amp;hnear={{widget.map.address.value | url_encode}}&amp;spn=0.002381,0.00456&amp;z=17&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+  function initialize() {
+    lat = coordinates.lat;
+    lng = coordinates.lng;
+    var mapOptions = {
+      scrollwheel: {{widget.map.pan_zoom.value}},
+      draggable: {{ widget.map.pan_zoom.value}},
+      disableDefaultUI: {{ widget.map.pan_zoom.value}} ? false : true,
+      disableDoubleClickZoom: {{ widget.map.pan_zoom.value}} ? false : true,
+      zoom: 18,
+      center: new google.maps.LatLng(lat, lng),
+      mapTypeId: google.maps.MapTypeId.{{widget.map.map_type.value}}
+    }
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  }
 
-</div>
+  function loadScript() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src =
+      "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+    document.body.appendChild(script);
+  }
+
+  function getCoordinates() {
+    $.get("http://maps.googleapis.com/maps/api/geocode/json",
+        { address: "{{ widget.map.address.value }}", sensor: "false" })
+          .done(function(data) {
+              coordinates = JSON.parse(data).results[0].geometry.location;
+              loadScript()
+          });
+  }
+
+  window.onload = getCoordinates;
+</script>
+
+<div id="map-canvas" style="width: 500px; height: 500px"></div>
