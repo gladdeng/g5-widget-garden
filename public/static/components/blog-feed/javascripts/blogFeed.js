@@ -57,7 +57,7 @@
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         entry = _ref[_i];
-        jli = $('<li>').css("margin-bottom", "5px");
+        jli = $('<li>');
         innerText = "<a href=\"" + entry.link + "\" target=\"_blank\">" + entry.title + "</a><br />";
         if (this.config.showDate) {
           innerText += "<span class=\"date\">" + (this.formatDate(entry.publishedDate)) + "</span>";
