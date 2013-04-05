@@ -25,28 +25,45 @@
 			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_author.id }}][id]"
 			value="{{ widget.blog_feed.show_author.id }}">
 
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_author.id }}][value]" value="false" />
+    
     <input type="checkbox"
-			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_author.id }}][value]"
-			checked="{{ widget.blog_feed.show_author.value }}" />	
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_author.id }}][value]" value="true"
+			{% if widget.blog_feed.show_author.value == "true" %} checked="checked"{% endif %} />	
 
 		<label>Show Entry Summary</label>
 		<input type="hidden"
 			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_summary.id }}][id]"
 			value="{{ widget.blog_feed.show_entry_summary.id }}">
 
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_summary.id }}][value]" value="false" />
+    
     <input type="checkbox"
-			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_summary.id }}][value]"
-			checked="{{ widget.blog_feed.show_entry_summary.value }}" />	
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_summary.id }}][value]" value="true"
+			{% if widget.blog_feed.show_entry_summary.value == "true" %} checked="checked"{% endif %} />	
 
+		<label>Show Entry Date</label>
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_date.id }}][id]"
+			value="{{ widget.blog_feed.show_entry_date.id }}">
+
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_date.id }}][value]" value="false" />
+			
+    <input type="checkbox"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_date.id }}][value]" value="true"
+			{% if widget.blog_feed.show_entry_date.value == "true" %} checked="checked"{% endif %} />
+	
 		<label>Number of Entries to Show</label>
 		<input type="hidden"
 			name="widget[widget_attributes_attributes][{{ widget.blog_feed.entries_to_show.id }}][id]"
 			value="{{ widget.blog_feed.entries_to_show.id }}">
 
     <input type="number", min="0" max="25"
-			name="widget[widget_attributes_attributes][{{ widget.entries_to_show.id }}][value]"
-			value="{{ widget.blog_feed.entries_to_show.value }}" />		
-
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.entries_to_show.id }}][value]"
+			value="{% if widget.blog_feed.entries_to_show.value %}{{ widget.blog_feed.entries_to_show.value }}{% else %}3{% endif %}" />		
   </div>
   <input type="submit" value="Save" />
 </form>
