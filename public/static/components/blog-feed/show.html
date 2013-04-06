@@ -1,32 +1,21 @@
-<div class="blog-feed widget">
+<script type="text/javascript">
+  $(
+  function(){
+    var blogConfig = new window.BlogConfig({
+      feedUrl: "{{ widget.blog_feed.feed_url.value }}",
+      feedTitle: "{{ widget.blog_feed.feed_title.value }}",
+      showAuthor: {% if widget.blog_feed.show_author.value == "true" %}true{% else %}false{% endif %},
+      showEntrySummary: {% if widget.blog_feed.show_entry_summary.value == "true" %}true{% else %}false{% endif %},
+      showDate: {% if widget.blog_feed.show_date.value == "true" %}true{% else %}false{% endif %},
+      entriesToShow: {% if widget.blog_feed.entries_to_show.value %}{{ widget.blog_feed.entries_to_show.value }}{% else %}3{% endif %}
+    });
+    new window.BlogInterface($("#blog-feed-container ul"), blogConfig);   
+  });
+</script>
 
-  <p class="heading">Blog Heading</p>
 
-  <ul>
-    <li>
-      <a href="#">
-        <span>Blog Article Title</span>
-        <em>Friday 10/16</em>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span>Blog Article Title</span>
-        <em>Friday 10/16</em>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span>Blog Article Title</span>
-        <em>Friday 10/16</em>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span>Blog Article Title</span>
-        <em>Friday 10/16</em>
-      </a>
-    </li>
-  </ul>
+<div class="blog-feed widget" id="blog-feed-container">
+
+  <ul></ul>
 
 </div>
