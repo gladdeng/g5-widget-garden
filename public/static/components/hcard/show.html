@@ -1,10 +1,10 @@
 <div class="hcard vcard widget">
   <p class="h-adr adr">
-    {% if widget.hcard.street.value != '' %}<span class="p-street-address street-address">{{ widget.hcard.street.value}}</span>{% endif %}
-    {% if widget.hcard.street_2.value != '' %}<span class="p-street-address street-address">{{ widget.hcard.street_2.value}}</span>{% endif %}
-    {% if widget.hcard.city.value != '' %}<span class="p-locality locality">{{ widget.hcard.city.value }}</span>, {% endif %}{% if widget.hcard.state.value != '' %}<span class="p-region region">{{ widget.hcard.state.value }}</span>{% endif %} {% if widget.hcard.zip.value != '' %}<span class="p-postal-code postal-code">{{ widget.hcard.zip.value }}</span>{% endif %}
-    {% if widget.hcard.country.value != '' %}<span class="p-country-name country-name">{{ widget.hcard.country.value }}</span>{% endif %}
+    {% if widget.hcard.street.value != empty %}<span class="p-street-address street-address">{{ widget.hcard.street.value}}</span>{% endif %}
+    {% if widget.hcard.street_2.value != empty %}<span class="p-street-address street-address">{{ widget.hcard.street_2.value}}</span>{% endif %}
+    {% if widget.hcard.city.value != empty %}<span class="p-locality locality">{{ widget.hcard.city.value }}</span>, {% endif %}{% if widget.hcard.state.value != empty %}<span class="p-region region">{{ widget.hcard.state.value }}</span>{% endif %} {% if widget.hcard.zip.value != empty %}<span class="p-postal-code postal-code">{{ widget.hcard.zip.value }}</span>{% endif %}
+    {% if widget.hcard.country.value != empty %}<span class="p-country-name country-name">{{ widget.hcard.country.value }}</span>{% endif %}
   </p>
-  {% if widget.hcard.tel.value != '' %}<p class="p-tel tel">T: <a href="tel://{{ widget.hcard.tel.value }}">{{ widget.hcard.tel.value }}</a></p>{% endif %}
-  {% if widget.hcard.fax.value != '' %}<p class="p-tel tel">F: {{ widget.hcard.fax.value }}</p>{% endif %}
+  {% if widget.hcard.tel.value != empty %}<p class="p-tel tel">T: <a href="tel:{{ widget.hcard.tel.value }}">{{ widget.hcard.tel.value }}</a></p>{% endif %}
+  {% if widget.hcard.fax.value != empty %}<p class="p-tel tel">F: {{ widget.hcard.fax.value }}</p>{% endif %}
 </div>
