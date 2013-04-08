@@ -1,11 +1,69 @@
 <form>
   <div class="field">
-    <label>Enter feed url</label>
-    <input type="text" />
-  </div>
-  <div class="field">
-    <label>Enter feed title</label>
-    <input type="text" />
+    <label>Enter the RSS/ATOM Feed URL</label>
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.feed_url.id }}][id]"
+			value="{{ widget.blog_feed.feed_url.id }}">
+
+    <input type="text"
+			placeholder="http://someurl.com/feed.rss"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.feed_url.id }}][value]"
+			value="{{ widget.blog_feed.feed_url.value }}" />
+
+		<label>Enter the Feed Title</label>
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.feed_title.id }}][id]"
+			value="{{ widget.blog_feed.feed_title.id }}">
+
+    <input type="text"
+			placeholder="Title of Feed"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.feed_title.id }}][value]"
+			value="{{ widget.blog_feed.feed_title.value }}" />
+
+		<label>Show Author</label>
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_author.id }}][id]"
+			value="{{ widget.blog_feed.show_author.id }}">
+
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_author.id }}][value]" value="false" />
+    
+    <input type="checkbox"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_author.id }}][value]" value="true"
+			{% if widget.blog_feed.show_author.value == "true" %} checked="checked"{% endif %} />	
+
+		<label>Show Entry Summary</label>
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_summary.id }}][id]"
+			value="{{ widget.blog_feed.show_entry_summary.id }}">
+
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_summary.id }}][value]" value="false" />
+    
+    <input type="checkbox"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_summary.id }}][value]" value="true"
+			{% if widget.blog_feed.show_entry_summary.value == "true" %} checked="checked"{% endif %} />	
+
+		<label>Show Entry Date</label>
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_date.id }}][id]"
+			value="{{ widget.blog_feed.show_entry_date.id }}">
+
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_date.id }}][value]" value="false" />
+			
+    <input type="checkbox"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.show_entry_date.id }}][value]" value="true"
+			{% if widget.blog_feed.show_entry_date.value == "true" %} checked="checked"{% endif %} />
+	
+		<label>Number of Entries to Show</label>
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.entries_to_show.id }}][id]"
+			value="{{ widget.blog_feed.entries_to_show.id }}">
+
+    <input type="number", min="0" max="25"
+			name="widget[widget_attributes_attributes][{{ widget.blog_feed.entries_to_show.id }}][value]"
+			value="{% if widget.blog_feed.entries_to_show.value %}{{ widget.blog_feed.entries_to_show.value }}{% else %}3{% endif %}" />		
   </div>
   <input type="submit" value="Save" />
 </form>
