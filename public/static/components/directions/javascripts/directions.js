@@ -6,14 +6,19 @@ function loadScript() {
   var script = document.createElement("script")
   script.type = "text/javascript"
   script.src =
-    "http://maps.googleapis.com/maps/api/js?sensor=true&callback=initializeGoogleMap"
+    "http://maps.googleapis.com/maps/api/js?sensor=true&callback=initialize"
   document.body.appendChild(script)
 }
 
-function initializeGoogleMap() {
+function initialize() {
+  getStoreCoords()
+  getClientCoords()
+}
+
+function setupMap(){
   directionsDisplay = new google.maps.DirectionsRenderer()
   var mapOptions = {
-    zoom:7,
+    zoom:15,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: storeCoords
   }
@@ -24,11 +29,12 @@ function initializeGoogleMap() {
 
 function getStoreCoords() {
   $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
-    { address: "{{ widget.map.address.value }}", sensor: "false" })
+    { address: widgetMapConfig.address, sensor: "false" })
       .done(function(data) {
-        alert(data.toString)
         storeCoords = data.results[0].geometry.location
-        loadScript()
+        storeCoords = new google.maps.LatLng(storeCoords.lat,
+                                             storeCoords.lng)
+        setupMap()
       });
 }
 
@@ -79,8 +85,7 @@ function calcRoute() {
 }
 
 $(function(){
-  getStoreCoords()
-  getClientCoords()
+  loadScript()
 })
 
 
