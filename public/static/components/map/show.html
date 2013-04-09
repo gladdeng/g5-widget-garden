@@ -1,39 +1,10 @@
 <script type="text/javascript">
-  var coordinates = ''
+  
+  var widgetMapConfig = {
+    panZoom: {{ widget.map.pan_zoom.value }},
+    address: "{{ widget.map.address.value }}",
+    mapType: "{{ widget.map.map_type.value }}"
+  };  
 
-  function initialize() {
-    lat = coordinates.lat;
-    lng = coordinates.lng;
-    var mapOptions = {
-      scrollwheel: {{widget.map.pan_zoom.value}},
-      draggable: {{ widget.map.pan_zoom.value}},
-      disableDefaultUI: {{ widget.map.pan_zoom.value}} ? false : true,
-      disableDoubleClickZoom: {{ widget.map.pan_zoom.value}} ? false : true,
-      zoom: 18,
-      center: new google.maps.LatLng(lat, lng),
-      mapTypeId: google.maps.MapTypeId.{{widget.map.map_type.value}}
-    }
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-  }
-
-  function loadScript() {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src =
-      "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
-    document.body.appendChild(script);
-  }
-
-  function getCoordinates() {
-    $.get("http://maps.googleapis.com/maps/api/geocode/json",
-        { address: "{{ widget.map.address.value }}", sensor: "false" })
-          .done(function(data) {
-              coordinates = JSON.parse(data).results[0].geometry.location;
-              loadScript()
-          });
-  }
-
-  window.onload = getCoordinates;
 </script>
-
-<div id="map-canvas" style="width: 500px; height: 500px"></div>
+<div id="map-canvas" class="widget map"></div>
