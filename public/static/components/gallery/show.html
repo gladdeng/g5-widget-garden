@@ -1,19 +1,31 @@
+<script>
+  $(window).load(function() {
+    $('.flexslider').flexslider();
+  });
+</script>
+
 <div class="gallery widget content">
 
-  <h2>Photos of our apartments</h2>
+  <h2>Photos of Nature</h2>
 
-  <div class = "photo">
-    <img src="http://g5-widget-garden.herokuapp.com/static/tmp-images/stock-photo.jpg" />
-  </div>
-
-  <div class="gallery-navigation">
-    <a href="#" class="active">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">7</a>
+  <div class = "flexslider">
+    <ul class="slides">
+      <li>
+        <img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/651/cache/manatees-kayakers-nicklen_65182_600x450.jpg" />
+      </li>
+      <li>
+        <img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/651/cache/cherry-blossoms-japan-cook-jenshel_65142_600x450.jpg" />
+      </li>
+      <li>
+        <img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/651/cache/kyrgyz-girls-paley_65146_600x450.jpg" />
+      </li>
+      <li>
+        <img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/651/cache/underwater-otter-james_65154_600x450.jpg" />
+      </li>
+      <li>
+        <img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/646/cache/methane-bubbles-thiessen_64694_600x450.jpg" />
+      </li>
+    </ul>
   </div>
 
 </div> <!-- end .content -->
