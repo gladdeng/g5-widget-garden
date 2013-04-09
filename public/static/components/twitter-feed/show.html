@@ -1,6 +1,6 @@
 <div class="twitter-feed widget">
 
-  {% if widget.twitter_feed.title.value != ''%}<p class="heading">{{ widget.twitter_feed.title.value }}</p>{% endif %}
+  {% if widget.twitter_feed_title.value != ''%}<p class="heading">{{ widget.twitter_feed_title.value }}</p>{% endif %}
 
   <div id="tweet">
   </div>
@@ -9,11 +9,11 @@
 
 <script>
   getTwitters('tweet', {
-    id: "{{ widget.twitter_feed.username.value }}",
-    count: {{ widget.twitter_feed.tweet_count.value }},
+    id: "{{ widget.twitter_username.value }}",
+    count: {{ widget.twitter_tweet_count.value }},
     enableLinks: true,
     ignoreReplies: true,
     clearContents: true,
-    template: '{% if widget.twitter_feed.avatars.value == "true" %}<img src="%user_profile_image_url%" /> {% endif %}%text% <a href="http://twitter.com/%user_screen_name%/statuses/%id_str%/">%time%</a>'
+    template: '{% if widget.twitter_display_avatars.value == "true" %}<img src="%user_profile_image_url%" /> {% endif %}%text% <a href="http://twitter.com/%user_screen_name%/statuses/%id_str%/">%time%</a>'
   });
 </script>
