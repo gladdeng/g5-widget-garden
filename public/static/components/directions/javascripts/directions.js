@@ -1,6 +1,6 @@
 var directionsDisplay
 var map
-var chicago
+var storeCoords
 
 function loadScript() {
   var script = document.createElement("script")
@@ -12,11 +12,10 @@ function loadScript() {
 
 function initializeGoogleMap() {
   directionsDisplay = new google.maps.DirectionsRenderer()
-  chicago = new google.maps.LatLng(41.850033, -87.6500523)
   var mapOptions = {
     zoom:7,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    center: chicago
+    center: storeCoords
   }
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
   directionsDisplay.setMap(map)
@@ -24,10 +23,11 @@ function initializeGoogleMap() {
 }
 
 function getStoreCoords() {
-  $.get("http://maps.googleapis.com/maps/api/geocode/json",
+  $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
     { address: "{{ widget.map.address.value }}", sensor: "false" })
       .done(function(data) {
-        coordinates = JSON.parse(data).results[0].geometry.location;
+        alert(data.toString)
+        storeCoords = data.results[0].geometry.location
         loadScript()
       });
 }
@@ -65,7 +65,7 @@ function populateStartAddress(latLng){
 function calcRoute() {
   var directionsService = new google.maps.DirectionsService()
   var start = document.getElementById("start").value
-  var end = chicago
+  var end = storeCoords
   var request = {
     origin:start,
     destination:end,
