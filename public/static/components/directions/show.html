@@ -1,87 +1,90 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
 <script type="text/javascript">
 
-  function getClientCoords(){
-    var watchID;
-    var nav = window.navigator;
-    if (nav != null) {
-      var geoloc = nav.geolocation;
-      watchID = geoloc.getCurrentPosition(successCallback, errorCallback);
-    }
-  }
-
-  function successCallback(position) {
-    var coords = new google.maps.LatLng(position.coords.latitude,
-      position.coords.longitude);
-    populateStartAddress(coords);
-  }
-
-  function errorCallback(error) {
-    alert(error);
-  }
-
-  function populateStartAddress(latLng){
-    var address;
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({'latLng': latLng}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        address = results[0].formatted_address;
-        $("#start").attr("value", address);
-      }
-    }) 
-  }
-
-  var directionsDisplay;
-  var map;
-  var chicago;
+  var directionsDisplay
+  var map
+  var chicago
 
   function loadScript() {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
+    var script = document.createElement("script")
+    script.type = "text/javascript"
     script.src =
-      "http://maps.googleapis.com/maps/api/js?sensor=true&callback=initialize";
-    document.body.appendChild(script);
-    getClientCoords();
+      "http://maps.googleapis.com/maps/api/js?sensor=true&callback=initializeGoogleMap"
+    document.body.appendChild(script)
   }
 
-  function initialize() {
-    directionsDisplay = new google.maps.DirectionsRenderer();
-    chicago = new google.maps.LatLng(41.850033, -87.6500523);
+  function initializeGoogleMap() {
+    directionsDisplay = new google.maps.DirectionsRenderer()
+    chicago = new google.maps.LatLng(41.850033, -87.6500523)
     var mapOptions = {
       zoom:7,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       center: chicago
     }
-    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-    directionsDisplay.setMap(map);
-    directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
+    directionsDisplay.setMap(map)
+    directionsDisplay.setPanel(document.getElementById("directionsPanel"))
+  }
+
+  function getClientCoords(){
+    var watchID
+    var nav = window.navigator
+    if (nav != null) {
+      var geoloc = nav.geolocation
+      watchID = geoloc.getCurrentPosition(successCallback, errorCallback)
+    }
+  }
+
+  function successCallback(position) {
+    var coords = new google.maps.LatLng(position.coords.latitude,
+      position.coords.longitude)
+    populateStartAddress(coords)
+  }
+
+  function errorCallback(error) {
+    alert('error')
+  }
+
+  function populateStartAddress(latLng){
+    var address
+    var geocoder = new google.maps.Geocoder()
+    geocoder.geocode({'latLng': latLng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        address = results[0].formatted_address
+        $("#start").attr("value", address)
+      }
+    }) 
   }
 
   function calcRoute() {
-    var directionsService = new google.maps.DirectionsService();
-    var start = document.getElementById("start").value;
+    var directionsService = new google.maps.DirectionsService()
+    var start = document.getElementById("start").value
     var end = chicago
     var request = {
       origin:start,
       destination:end,
       travelMode: google.maps.TravelMode.DRIVING
-    };
+    }
     directionsService.route(request, function(result, status) {
       if (status == google.maps.DirectionsStatus.OK) {
-        directionsDisplay.setDirections(result);
+        directionsDisplay.setDirections(result)
       }
-    });
+    })
   }
 
+  $(function(){
+    loadScript()
+    getClientCoords()
+  })
 
-  window.onload = loadScript;
 </script>
+
 <div class="directions widget">
   <h1>Driving Directions</h1>
-  <div id="map-canvas" style="width:500px;height:500px;">foo</div>
+  <div id="map-canvas" style="width:500px;height:500px;"></div>
   <strong>Start: </strong>
   <input type="text" id="start" onchange="calcRoute();">
-  <input type="submit" onclick="calcRoute();" value="Driving Directions">
+  <input type="submit" onclick="calcRoute();" value="Get Directions">
   <div id="directionsPanel" style="width:500px;"></div>
 </div>
 
