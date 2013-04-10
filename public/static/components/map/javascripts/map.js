@@ -25,8 +25,6 @@ function loadScript() {
 function getCoordinates() {
   $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
     { address: widgetMapConfig.address, sensor: "false" }).done(function(data) {
-      // Because Chrome already converts a JSON response to an object but some other browsers 
-      // don't we need to figure out whether or not to call JSON.parse
       coordinates = data.results[0].geometry.location;
       loadScript();
     });
