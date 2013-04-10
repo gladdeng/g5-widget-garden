@@ -1,19 +1,63 @@
+<script>
+  $('#photo-fields-container').nestedAttributes({
+    bindAddTo: $('#add-another')
+  });
+</script>
+
 <form>
   <div class="field">
-    <label>Enter gallery title</label>
-    <input type="text" />
+    <label for="gallery-title">Enter gallery title</label>
+    <input type="hidden"
+      name="widget[widget_attributes_attributes][{{ widget.gallery.title.id }}][id]"
+			value="{{ widget.map.address.id }}" />
+
+    <input type="text"
+			name="widget[widget_attributes_attributes][{{ widget.gallery.title.id }}][value]"
+      value="{{ widget.gallery.title }}" />
   </div>
-  <div class="field">
-    <label>Upload photo 1</label>
-    <input type"file" />
+
+  <div id="photo-fields-container">
+    <div class="field">
+      <h3>Photo {{ forloop.index }}</h3>
+      <label>Photo Source</label>
+      <input type="url"
+        name="widget[widget_attributes_attributes][{{ widget.gallery.photos.id }}][value][][src]"
+        value="" />
+
+        <label>Photo Caption</label>
+        <input type="text"
+          name="widget[widget_attributes_attributes][{{ widget.gallery.photos.id }}][value][][caption]"
+          value="" />
+
+      <a href="#" class="destroy btn">Destroy</a>
+    </div>
+
+    {% for photo in widget.gallery.photos.value %}
+      <div class="field">
+        <h3>Photo {{ forloop.index }}</h3>
+        <label>Photo Source</label>
+        <input type="hidden"
+          name="widget[widget_attributes_attributes][{{ widget.gallery.photos.id }}][value][{{ photo.id }}][id]"
+    			value="{{ photo.id }}" />
+
+        <input type="url"
+          name="widget[widget_attributes_attributes][{{ widget.gallery.photos.id }}][value][{{ photo.id }}][src]"
+          value="{{ photo.src }}" />
+
+          <label>Photo Caption</label>
+          <input type="hidden"
+            name="widget[widget_attributes_attributes][{{ widget.gallery.photos.id }}][value][{{ caption.id }}][id]"
+      			value="{{ caption.id }}" />
+
+          <input type="text"
+            name="widget[widget_attributes_attributes][{{ widget.gallery.photos.id }}][value][{{ photo.id }}][caption]"
+            value="{{ photo.caption }}" />
+
+        <a href="#" class="destroy btn">Destroy</a>
+      </div>
+    {% endfor %}
   </div>
-  <div class="field">
-    <label>Upload photo 2</label>
-    <input type"file" />
-  </div>
-  <div class="field">
-    <label>Upload photo 3</label>
-    <input type"file" />
-  </div>
+
+  <a href="#" id="add-another">Choose Another</a>
   <input type="submit" value="Save" />
 </form>

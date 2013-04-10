@@ -6,10 +6,16 @@
 
 <div class="gallery widget content">
 
-  <h2>Photos of Nature</h2>
+  <h2>{{ widget.gallery.title.value }}</h2>
 
   <div class = "flexslider">
     <ul class="slides">
+      {% for photo in widget.gallery.photos.value %}
+        <li>
+          <img src="{{ photo.src}}" alt="{{ photo.alt }}" />
+          <p class="caption">{{ photo.caption }}</p>
+        </li>
+      {% endfor %}
       <li>
         <img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/651/cache/manatees-kayakers-nicklen_65182_600x450.jpg" />
       </li>
