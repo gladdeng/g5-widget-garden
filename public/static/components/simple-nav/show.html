@@ -1,9 +1,7 @@
 <div class="navigation widget">
   <ul>
-    <li><a href="#">Link 1</a></li>
-    <li><a href="#">Link 2</a></li>
-    <li><a href="#">Link 3</a></li>
-    <li><a href="#">Link 4</a></li>
-    <li><a href="#">Link 5</a></li>
+    {% for web_page in widget.navigation.value %}
+    <li><a href="{{ web_page.url }}">{{ web_page.title }}</a></li>
+    {% endfor %}
   </ul>
 </div>
