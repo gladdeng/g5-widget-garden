@@ -54,7 +54,7 @@ function successCallback(position) {
 }
 
 function errorCallback(error) {
-  alert('error');
+  console.log("error detecting physical location");
 }
 
 function populateStartAddress(latLng){
