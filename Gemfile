@@ -24,10 +24,4 @@ end
 
 group :production do
   gem "thin", "~> 1.5.0"
-  gem "pg"
-end
-
-group :test, :development do
-	gem "rails-default-database"
-	gem "sqlite3"
 end
