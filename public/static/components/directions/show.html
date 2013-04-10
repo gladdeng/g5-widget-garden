@@ -1,17 +1,17 @@
 <script type="text/javascript">
   
   var widgetMapConfig = {
-    address: "{{ widget.directions.address.value }}",
+    address: "{{ widget.directions.address.value }}"
   };  
 
 </script>
 
 <div class="directions widget">
   <h1>Driving Directions</h1>
-  <div id="map-canvas" style="width:500px;height:500px;"></div>
+  <div id="map-canvas"></div>
   <strong>Start: </strong>
   <input type="text" id="start" onchange="calcRoute();">
   <input type="submit" onclick="calcRoute();" value="Get Directions">
-  <div id="directionsPanel" style="width:500px;"></div>
+  <div id="directionsPanel"></div>
 </div>
 
