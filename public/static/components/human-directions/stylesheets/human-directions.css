@@ -2,6 +2,7 @@ div#map-canvas{
   width: 500px; 
   height: 500px;
 }
+/*google map bootstrap fix*/
 #map-canvas img{
   max-width:none;
 }
