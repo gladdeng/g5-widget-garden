@@ -3,6 +3,7 @@ var coordinates;
 function initialize() {
   lat = coordinates.lat;
   lng = coordinates.lng;
+  var latLng = new google.maps.LatLng(lat, lng);
   var mapOptions = {
     scrollwheel: widgetMapConfig.panZoom,
     draggable: widgetMapConfig.panZoom,
@@ -12,7 +13,12 @@ function initialize() {
     center: new google.maps.LatLng(lat, lng),
     mapTypeId: google.maps.MapTypeId[widgetMapConfig.mapType]
   };
+  var markerOptions = {
+    position:latLng
+  };
+  var marker = new google.maps.Marker(markerOptions);
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  marker.setMap(map);
 }
 
 function loadScript() {
