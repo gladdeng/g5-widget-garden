@@ -19,7 +19,7 @@
       <option value="">Please Select</option>
       {% for cta in widget.available_calls_to_action %}
         <option value="{{ cta[1] }}"
-          {% if widget.calls_to_action.cta_one_url == cta[1] %}selected="selected"{% endif %}>
+          {% if widget.calls_to_action.cta_one_url.value == cta[1] %}selected="selected"{% endif %}>
           {{ cta[1] }}
         </option>
       {% endfor %}
@@ -45,7 +45,7 @@
       <option value="">Please Select</option>
       {% for cta in widget.available_calls_to_action %}
         <option value="{{ cta[1] }}"
-          {% if widget.calls_to_action.cta_two_url == cta[1] %}selected="selected"{% endif %}>
+          {% if widget.calls_to_action.cta_two_url.value == cta[1] %}selected="selected"{% endif %}>
           {{ cta[1] }}
         </option>
       {% endfor %}
@@ -71,7 +71,7 @@
       <option value="">Please Select</option>
       {% for cta in widget.available_calls_to_action %}
         <option value="{{ cta[1] }}"
-          {% if widget.calls_to_action.cta_three_url == cta[1] %}selected="selected"{% endif %}>
+          {% if widget.calls_to_action.cta_three_url.value == cta[1] %}selected="selected"{% endif %}>
           {{ cta[1] }}
         </option>
       {% endfor %}
@@ -97,7 +97,7 @@
       <option value="">Please Select</option>
       {% for cta in widget.available_calls_to_action %}
         <option value="{{ cta[1] }}"
-          {% if widget.calls_to_action.cta_four_url == cta[1] %}selected="selected"{% endif %}>
+          {% if widget.calls_to_action.cta_four_url.value == cta[1] %}selected="selected"{% endif %}>
           {{ cta[1] }}
         </option>
       {% endfor %}
