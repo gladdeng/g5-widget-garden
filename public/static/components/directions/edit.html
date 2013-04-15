@@ -1,7 +1,16 @@
 <form>
   <div class="field">
-    <label>Enter directions</label>
-    <textarea></textarea>
+    <label for="address">Address</label>
+		<input type="hidden"
+			name="widget[widget_attributes_attributes][{{ widget.directions.address.id }}][id]"
+			value="{{ widget.directions.address.id }}">
+
+    <input type="text"
+			placeholder="Address"
+			name="widget[widget_attributes_attributes][{{ widget.directions.address.id }}][value]"
+      value="{{ widget.location.address }}"
+      id="address" />
   </div>
+
   <input type="submit" value="Save" />
 </form>
