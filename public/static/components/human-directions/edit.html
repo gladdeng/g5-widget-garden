@@ -2,23 +2,23 @@
   <div class="field">
     <label for="address">Address</label>
 		<input type="hidden"
-			name="widget[widget_attributes_attributes][{{ widget.human_directions.address.id }}][id]"
+			name="widget[properties_attributes][{{ widget.human_directions.address.id }}][id]"
 			value="{{ widget.human_directions.address.id }}">
 
     <input type="text"
 			placeholder="Address"
-			name="widget[widget_attributes_attributes][{{ widget.human_directions.address.id }}][value]"
+			name="widget[properties_attributes][{{ widget.human_directions.address.id }}][value]"
       value="{{ widget.location.address }}"
       id="address" />
   </div>
   <div class="field">
     <label>Map Type</label>
 		<input type="hidden"
-			name="widget[widget_attributes_attributes][{{ widget.human_directions.map_type.id }}][id]"
+			name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][id]"
 			value="{{ widget.human_directions.map_type.id }}">
     <label for="roadmap">
       <input type="radio"
-        name="widget[widget_attributes_attributes][{{ widget.human_directions.map_type.id }}][value]"
+        name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][value]"
         value="ROADMAP"
         id="roadmap"
         checked
@@ -27,7 +27,7 @@
     </label>
     <label for="satellite">
       <input type="radio"
-        name="widget[widget_attributes_attributes][{{ widget.human_directions.map_type.id }}][value]"
+        name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][value]"
         value="SATELLITE"
         id="satellite"
         style="vertical-align:top;"/>
@@ -37,11 +37,11 @@
   <div class="field">
     <label>Allow Panning and Zooming?</label>
 		<input type="hidden"
-			name="widget[widget_attributes_attributes][{{ widget.human_directions.pan_zoom.id }}][id]"
+			name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][id]"
 			value="{{ widget.human_directions.pan_zoom.id }}">
     <label for="pan-zoom-true">
       <input type="radio"
-        name="widget[widget_attributes_attributes][{{ widget.human_directions.pan_zoom.id }}][value]"
+        name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][value]"
         value="true"
         id="pan-zoom-true"
         checked
@@ -50,7 +50,7 @@
     </label>
     <label for="pan-zoom-false">
       <input type="radio"
-        name="widget[widget_attributes_attributes][{{ widget.human_directions.pan_zoom.id }}][value]"
+        name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][value]"
         value="false"
         id="pan-zoom-false"
         style="vertical-align:top;"/>
@@ -60,11 +60,11 @@
   <div class="field">
     <label>Written Directions</label>
 		<input type="hidden"
-			name="widget[widget_attributes_attributes][{{ widget.human_directions.written_directions.id }}][id]"
+			name="widget[properties_attributes][{{ widget.human_directions.written_directions.id }}][id]"
 			value="{{ widget.human_directions.written_directions.id }}">
     <label for="written-directions">
       <textarea
-        name="widget[widget_attributes_attributes][{{ widget.human_directions.written_directions.id }}][value]"
+        name="widget[properties_attributes][{{ widget.human_directions.written_directions.id }}][value]"
         id="written-directions"
         style="vertical-align:top;"/>
     </label>

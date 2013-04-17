@@ -2,12 +2,12 @@
   <div class="field">
     <label for="address">Address</label>
 		<input type="hidden"
-			name="widget[widget_attributes_attributes][{{ widget.directions.address.id }}][id]"
+			name="widget[properties_attributes][{{ widget.directions.address.id }}][id]"
 			value="{{ widget.directions.address.id }}">
 
     <input type="text"
 			placeholder="Address"
-			name="widget[widget_attributes_attributes][{{ widget.directions.address.id }}][value]"
+			name="widget[properties_attributes][{{ widget.directions.address.id }}][value]"
       value="{{ widget.location.address }}"
       id="address" />
   </div>
