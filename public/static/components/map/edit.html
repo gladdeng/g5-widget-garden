@@ -1,61 +1,59 @@
 <form>
   <div class="field">
-    <label for="address">Address</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.map.address.id }}][id]"
-			value="{{ widget.map.address.id }}">
-
+    {{ widget.map_address.id_hidden_field }}
+    <label for="{{ widget.map_address.value_field_id }}" >
+      URL
+    </label>
     <input type="text"
-			placeholder="Address"
-			name="widget[properties_attributes][{{ widget.map.address.id }}][value]"
-      value="{{ widget.location.address }}"
-      id="address" />
+      id="{{ widget.map_address.value_field_id }}"
+      name="{{ widget.map_address.value_field_name }}"
+      value="{{ widget.map_address.value }}"
+    />
   </div>
+
   <div class="field">
     <label>Map Type</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.map.map_type.id }}][id]"
-			value="{{ widget.map.map_type.id }}">
-    <label for="roadmap">
-      <input type="radio"
-        name="widget[properties_attributes][{{ widget.map.map_type.id }}][value]"
-        value="ROADMAP"
-        id="roadmap"
-        checked
-        style="vertical-align:top;"/>
-        Road Map
+    {{ widget.map_type.id_hidden_field }}
+    <label for="{{ widget.map_type.value_field_id }}_roadmap" >
+      Road Map
     </label>
-    <label for="satellite">
-      <input type="radio"
-        name="widget[properties_attributes][{{ widget.map.map_type.id }}][value]"
-        value="SATELLITE"
-        id="satellite"
-        style="vertical-align:top;"/>
-        Satellite
+    <input type="radio"
+      id="{{ widget.map_type.value_field_id }}_roadmap"
+      name="{{ widget.map_type.value_field_name }}"
+      value="ROADMAP"
+      checked="checked"
+    />
+    <label for="{{ widget.map_type.value_field_id }}_satellite" >
+      Satellite
     </label>
+    <input type="radio"
+      id="{{ widget.map_type.value_field_id }}_satellite"
+      name="{{ widget.map_type.value_field_name }}"
+      value="SATELLITE"
+      {% if widget.map_type.value == "SATELLITE" %}
+      checked="checked"
+      {% endif %}
+    />
   </div>
+
   <div class="field">
-    <label>Allow Panning and Zooming?</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.map.pan_zoom.id }}][id]"
-			value="{{ widget.map.pan_zoom.id }}">
-    <label for="pan-zoom-true">
-      <input type="radio"
-        name="widget[properties_attributes][{{ widget.map.pan_zoom.id }}][value]"
-        value="true"
-        id="pan-zoom-true"
-        checked
-        style="vertical-align:top;"/>
-        True
+    {{ widget.map_allow_pan_zoom.id_hidden_field }}
+    <label for="{{ widget.map_allow_pan_zoom.value_field_id }}" >
+      map_allow Panning and Zooming
     </label>
-    <label for="pan-zoom-false">
-      <input type="radio"
-        name="widget[properties_attributes][{{ widget.map.pan_zoom.id }}][value]"
-        value="false"
-        id="pan-zoom-false"
-        style="vertical-align:top;"/>
-        False
-    </label>
+    <input type="hidden"
+      id="{{ widget.map_allow_pan_zoom.value_field_id }}_false"
+      name="{{ widget.map_allow_pan_zoom.value_field_name }}"
+      value="false"
+    />
+    <input type="checkbox"
+      id="{{ widget.map_allow_pan_zoom.value_field_id }}"
+      name="{{ widget.map_allow_pan_zoom.value_field_name }}"
+      value="true"
+      {% if widget.map_allow_pan_zoom.value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
   </div>
 
   <input type="submit" value="Save" />

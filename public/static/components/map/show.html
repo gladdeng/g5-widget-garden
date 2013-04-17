@@ -1,10 +1,9 @@
 <script type="text/javascript">
-  
   var widgetMapConfig = {
-    panZoom: {{ widget.map.pan_zoom.value }},
-    address: "{{ widget.map.address.value }}",
-    mapType: "{{ widget.map.map_type.value }}"
-  };  
-
+    panZoom: {{ widget.map_allow_pan_zoom.value }},
+    address: "{{ widget.map_address.value }}",
+    mapType: "{{ widget.map_type.value }}"
+  };
 </script>
+
 <div id="map-canvas" class="widget map"></div>
