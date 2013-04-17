@@ -1,21 +1,27 @@
 <form>
   <div class="field">
-		<input type="hidden" 
-			name="widget[properties_attributes][{{ widget.photo.url.id }}][id]" 
-			value="{{ widget.photo.url.id }}">
-	  <input type="text" 
-			placeholder="url" 
-			name="widget[properties_attributes][{{ widget.photo.url.id }}][value]" 
-			value="{{ widget.photo.url.value }}" />
+    {{ widget.photo_url.id_hidden_field }}
+    <label for="{{ widget.photo_url.value_field_id }}" >
+      URL
+    </label>
+    <input type="text"
+      id="{{ widget.photo_url.value_field_id }}"
+      name="{{ widget.photo_url.value_field_name }}"
+      value="{{ widget.photo_url.value }}"
+    />
   </div>
+
   <div class="field">
-		<input type="hidden" 
-			name="widget[properties_attributes][{{ widget.photo.caption.id }}][id]" 
-			value="{{ widget.photo.caption.id }}">
-	  <input type="text" 
-			placeholder="caption" 
-			name="widget[properties_attributes][{{ widget.photo.caption.id }}][value]" 
-			value="{{ widget.photo.caption.value }}" />
+    {{ widget.photo_caption.id_hidden_field }}
+    <label for="{{ widget.photo_caption.value_field_id }}" >
+      Caption
+    </label>
+    <input type="text"
+      id="{{ widget.photo_caption.value_field_id }}"
+      name="{{ widget.photo_caption.value_field_name }}"
+      value="{{ widget.photo_caption.value }}"
+    />
   </div>
+
   <input type="submit" value="Save" />
 </form>
