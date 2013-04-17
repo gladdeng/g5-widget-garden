@@ -2,12 +2,12 @@
   <div class="field">
     <label>Enter the submission URL</label>
 		<input type="hidden"
-			name="widget[widget_attributes_attributes][{{ widget.lead_form.submission_url.id }}][id]"
+			name="widget[properties_attributes][{{ widget.lead_form.submission_url.id }}][id]"
 			value="{{ widget.lead_form.submission_url.id }}">
 
     <input type="text"
 			placeholder="http://someurl.com"
-			name="widget[widget_attributes_attributes][{{ widget.lead_form.submission_url.id }}][value]"
+			name="widget[properties_attributes][{{ widget.lead_form.submission_url.id }}][value]"
 			value="{{ widget.lead_form.submission_url.value }}" />
 
   </div>

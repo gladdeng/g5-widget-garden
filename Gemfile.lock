@@ -50,7 +50,7 @@ GEM
       multi_json (~> 1.0)
     ffi (1.6.0)
     formatador (0.2.4)
-    g5_component_garden (0.3.1)
+    g5_component_garden (0.3.2)
       microformats2 (= 2.0.0.pre4)
       rails (~> 3.2.13)
     guard (1.7.0)

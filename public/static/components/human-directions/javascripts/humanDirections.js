@@ -5,16 +5,16 @@ function initialize() {
   lng = coordinates.lng;
   var latLng = new google.maps.LatLng(lat, lng);
   var mapOptions = {
-    scrollwheel: widgetMapConfig.panZoom,
-    draggable: widgetMapConfig.panZoom,
-    disableDefaultUI: !widgetMapConfig.panZoom,
-    disableDoubleClickZoom: !widgetMapConfig.panZoom,
+    scrollwheel: widgetHumanDirectionsConfig.panZoom,
+    draggable: widgetHumanDirectionsConfig.panZoom,
+    disableDefaultUI: !widgetHumanDirectionsConfig.panZoom,
+    disableDoubleClickZoom: !widgetHumanDirectionsConfig.panZoom,
     zoom: 18,
-    center: new google.maps.LatLng(lat, lng),
-    mapTypeId: google.maps.MapTypeId[widgetMapConfig.mapType]
+    center: latLng,
+    mapTypeId: google.maps.MapTypeId[widgetHumanDirectionsConfig.mapType]
   };
   var markerOptions = {
-    position:latLng
+    position: latLng
   };
   var marker = new google.maps.Marker(markerOptions);
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -30,7 +30,7 @@ function loadScript() {
 
 function getCoordinates() {
   $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
-    { address: widgetMapConfig.address, sensor: "false" }).done(function(data) {
+    { address: widgetHumanDirectionsConfig.address, sensor: "false" }).done(function(data) {
       coordinates = data.results[0].geometry.location;
       loadScript();
     });
