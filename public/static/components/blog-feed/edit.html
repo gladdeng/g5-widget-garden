@@ -27,10 +27,10 @@
 
 		<input type="hidden"
 			name="widget[properties_attributes][{{ widget.blog_feed.show_author.id }}][value]" value="false" />
-    
+
     <input type="checkbox"
 			name="widget[properties_attributes][{{ widget.blog_feed.show_author.id }}][value]" value="true"
-			{% if widget.blog_feed.show_author.value == "true" %} checked="checked"{% endif %} />	
+			{% if widget.blog_feed.show_author.value == "true" %} checked="checked"{% endif %} />
 
 		<label>Show Entry Summary</label>
 		<input type="hidden"
@@ -39,10 +39,10 @@
 
 		<input type="hidden"
 			name="widget[properties_attributes][{{ widget.blog_feed.show_entry_summary.id }}][value]" value="false" />
-    
+
     <input type="checkbox"
 			name="widget[properties_attributes][{{ widget.blog_feed.show_entry_summary.id }}][value]" value="true"
-			{% if widget.blog_feed.show_entry_summary.value == "true" %} checked="checked"{% endif %} />	
+			{% if widget.blog_feed.show_entry_summary.value == "true" %} checked="checked"{% endif %} />
 
 		<label>Show Entry Date</label>
 		<input type="hidden"
@@ -51,11 +51,11 @@
 
 		<input type="hidden"
 			name="widget[properties_attributes][{{ widget.blog_feed.show_entry_date.id }}][value]" value="false" />
-			
+
     <input type="checkbox"
 			name="widget[properties_attributes][{{ widget.blog_feed.show_entry_date.id }}][value]" value="true"
 			{% if widget.blog_feed.show_entry_date.value == "true" %} checked="checked"{% endif %} />
-	
+
 		<label>Number of Entries to Show</label>
 		<input type="hidden"
 			name="widget[properties_attributes][{{ widget.blog_feed.entries_to_show.id }}][id]"
@@ -63,7 +63,7 @@
 
     <input type="number", min="0" max="25"
 			name="widget[properties_attributes][{{ widget.blog_feed.entries_to_show.id }}][value]"
-			value="{% if widget.blog_feed.entries_to_show.value %}{{ widget.blog_feed.entries_to_show.value }}{% else %}3{% endif %}" />		
+			value="{% if widget.blog_feed.entries_to_show.value %}{{ widget.blog_feed.entries_to_show.value }}{% else %}{{ widget.blog_feed.entries_to_show.default_value }}{% endif %}" />
   </div>
   <input type="submit" value="Save" />
 </form>
