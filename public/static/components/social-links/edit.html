@@ -1,71 +1,62 @@
 <form>
-  <div class="field check">
-    <label for="twitter-username">Twitter</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.social_links.twitter_username.id }}][id]"
-			value="{{ widget.social_links.twitter_username.id }}" />
-
-	  <input type="text"
-  	  id="twitter-username"
-			placeholder="Twitter username"
-			name="widget[properties_attributes][{{ widget.social_links.twitter_username.id }}][value]"
-			value="{{ widget.social_links.twitter_username.value }}" />
-
-  </div>
-  <div class="field check">
-    <label for="facebook-url">Facebook</label>
-		<input
-			type="hidden"
-			name="widget[properties_attributes][{{ widget.social_links.facebook_url.id }}][id]"
-			value="{{ widget.social_links.facebook_url.id }}" />
-
-	  <input type="url"
-	    id="facebook-url"
-			placeholder="Facebook url"
-			name="widget[properties_attributes][{{ widget.social_links.facebook_url.id }}][value]"
-			value="{{ widget.social_links.facebook_url.value }}" />
-
-  </div>
-  <div class="field check">
-    <label for="yelp-username">Yelp</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.social_links.yelp_username.id }}][id]"
-			value="{{ widget.social_links.yelp_username.id }}" />
-
-	  <input type="text"
-	    id="yelp-username"
-			placeholder="Yelp username"
-			name="widget[properties_attributes][{{ widget.social_links.yelp_username.id }}][value]"
-			value="{{ widget.social_links.yelp_username.value }}" />
-
+  <div class="field">
+    <label for="{{ widget.twitter_username.value_field_id }}" >
+      Twitter Username
+    </label>
+    {{ widget.twitter_username.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.twitter_username.value_field_id }}"
+      name="{{ widget.twitter_username.value_field_name }}"
+      value="{{ widget.twitter_username.value }}"
+    />
   </div>
 
-  <div class="field check">
-    <label for="foursquare-url">FourSquare</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.social_links.foursquare_url.id }}][id]"
-			value="{{ widget.social_links.foursquare_url.id }}" />
-
-	  <input type="url"
-	    id="foursquare-url"
-			placeholder="FourSquare url"
-			name="widget[properties_attributes][{{ widget.social_links.foursquare_url.id }}][value]"
-			value="{{ widget.social_links.foursquare_url.value }}" />
-
+  <div class="field">
+    <label for="{{ widget.facebook_url.value_field_id }}" >
+      Facebook URL
+    </label>
+    {{ widget.facebook_url.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.facebook_url.value_field_id }}"
+      name="{{ widget.facebook_url.value_field_name }}"
+      value="{{ widget.facebook_url.value }}"
+    />
   </div>
 
-  <div class="field check">
-    <label for="pinterest-username">Pinterest</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.social_links.pinterest_username.id }}][id]"
-			value="{{ widget.social_links.pinterest_username.id }}" />
+  <div class="field">
+    <label for="{{ widget.yelp_username.value_field_id }}" >
+      Yelp Username
+    </label>
+    {{ widget.yelp_username.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.yelp_username.value_field_id }}"
+      name="{{ widget.yelp_username.value_field_name }}"
+      value="{{ widget.yelp_username.value }}"
+    />
+  </div>
 
-	  <input type="text"
-	    id="pinterest-username"
-			placeholder="Pinterest username"
-			name="widget[properties_attributes][{{ widget.social_links.pinterest_username.id }}][value]"
-			value="{{ widget.social_links.pinterest_username.value }}" />
+  <div class="field">
+    <label for="{{ widget.foursquare_url.value_field_id }}" >
+      Foursquare URL
+    </label>
+    {{ widget.foursquare_url.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.foursquare_url.value_field_id }}"
+      name="{{ widget.foursquare_url.value_field_name }}"
+      value="{{ widget.foursquare_url.value }}"
+    />
+  </div>
 
+  <div class="field">
+    <label for="{{ widget.pinterest_username.value_field_id }}" >
+      Pinterest Username
+    </label>
+    {{ widget.pinterest_username.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.pinterest_username.value_field_id }}"
+      name="{{ widget.pinterest_username.value_field_name }}"
+      value="{{ widget.pinterest_username.value }}"
+    />
   </div>
 
   <input type="submit" value="Save" />
