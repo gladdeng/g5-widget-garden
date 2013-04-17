@@ -1,15 +1,15 @@
 <form>
   <div class="field">
-    <label>Enter the submission URL</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.lead_form.submission_url.id }}][id]"
-			value="{{ widget.lead_form.submission_url.id }}">
-
+    <label for="{{ widget.lead_form_submission_url.value_field_id }}" >
+      Submission URL
+    </label>
+    {{ widget.lead_form_submission_url.id_hidden_field }}
     <input type="text"
-			placeholder="http://someurl.com"
-			name="widget[properties_attributes][{{ widget.lead_form.submission_url.id }}][value]"
-			value="{{ widget.lead_form.submission_url.value }}" />
-
+      id="{{ widget.lead_form_submission_url.value_field_id }}"
+      name="{{ widget.lead_form_submission_url.value_field_name }}"
+      value="{{ widget.lead_form_submission_url.value }}"
+    />
   </div>
+
   <input type="submit" value="Save" />
 </form>
