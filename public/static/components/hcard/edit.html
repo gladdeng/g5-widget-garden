@@ -2,26 +2,26 @@
 
   <div class="field">
     <label>Street Address</label>
-		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.hcard.street.id }}][id]" value="{{ widget.hcard.street.id }}" />
-    <input type="text" name="widget[widget_attributes_attributes][{{ widget.hcard.street.id }}][value]" value="{{ widget.hcard.street.value }}" />
+		<input type="hidden" name="widget[properties_attributes][{{ widget.hcard.street.id }}][id]" value="{{ widget.hcard.street.id }}" />
+    <input type="text" name="widget[properties_attributes][{{ widget.hcard.street.id }}][value]" value="{{ widget.hcard.street.value }}" />
   </div>
 
   <div class="field">
     <label>Street Address 2</label>
-		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.hcard.street_2.id }}][id]" value="{{ widget.hcard.street_2.id }}" />
-    <input type="text" name="widget[widget_attributes_attributes][{{ widget.hcard.street_2.id }}][value]" value="{{ widget.hcard.street_2.value }}" />
+		<input type="hidden" name="widget[properties_attributes][{{ widget.hcard.street_2.id }}][id]" value="{{ widget.hcard.street_2.id }}" />
+    <input type="text" name="widget[properties_attributes][{{ widget.hcard.street_2.id }}][value]" value="{{ widget.hcard.street_2.value }}" />
   </div>
 
   <div class="field">
     <label>City</label>
-		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.hcard.city.id }}][id]" value="{{ widget.hcard.city.id }}" />
-    <input type="text" name="widget[widget_attributes_attributes][{{ widget.hcard.city.id }}][value]" value="{{ widget.hcard.city.value }}" />
+		<input type="hidden" name="widget[properties_attributes][{{ widget.hcard.city.id }}][id]" value="{{ widget.hcard.city.id }}" />
+    <input type="text" name="widget[properties_attributes][{{ widget.hcard.city.id }}][value]" value="{{ widget.hcard.city.value }}" />
   </div>
 
   <div class="field">
     <label>State</label>
-		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.hcard.state.id }}][id]" value="{{ widget.hcard.state.id }}" />
-    <select name="widget[widget_attributes_attributes][{{ widget.hcard.state.id }}][value]">
+		<input type="hidden" name="widget[properties_attributes][{{ widget.hcard.state.id }}][id]" value="{{ widget.hcard.state.id }}" />
+    <select name="widget[properties_attributes][{{ widget.hcard.state.id }}][value]">
     <option value="">Choose a State</option>
     <option {% if widget.hcard.state.value == "AL" %}selected {% endif %}value="AL">Alabama</option>
     <option {% if widget.hcard.state.value == "AK" %}selected {% endif %}value="AK">Alaska</option>
@@ -80,26 +80,26 @@
 
   <div class="field">
     <label>Zip Code</label>
-		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.hcard.zip.id }}][id]" value="{{ widget.hcard.zip.id }}" />
-    <input type="text" name="widget[widget_attributes_attributes][{{ widget.hcard.zip.id }}][value]" value="{{ widget.hcard.zip.value }}" />
+		<input type="hidden" name="widget[properties_attributes][{{ widget.hcard.zip.id }}][id]" value="{{ widget.hcard.zip.id }}" />
+    <input type="text" name="widget[properties_attributes][{{ widget.hcard.zip.id }}][value]" value="{{ widget.hcard.zip.value }}" />
   </div>
 
   <div class="field">
     <label>Country</label>
-		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.hcard.country.id }}][id]" value="{{ widget.hcard.country.id }}" />
-    <input type="text" name="widget[widget_attributes_attributes][{{ widget.hcard.country.id }}][value]" value="{{ widget.hcard.country.value }}" />
+		<input type="hidden" name="widget[properties_attributes][{{ widget.hcard.country.id }}][id]" value="{{ widget.hcard.country.id }}" />
+    <input type="text" name="widget[properties_attributes][{{ widget.hcard.country.id }}][value]" value="{{ widget.hcard.country.value }}" />
   </div>
 
   <div class="field">
     <label>Telephone</label>
-		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.hcard.tel.id }}][id]" value="{{ widget.hcard.tel.id }}" />
-    <input type="tel" name="widget[widget_attributes_attributes][{{ widget.hcard.tel.id }}][value]" value="{{ widget.hcard.tel.value }}" />
+		<input type="hidden" name="widget[properties_attributes][{{ widget.hcard.tel.id }}][id]" value="{{ widget.hcard.tel.id }}" />
+    <input type="tel" name="widget[properties_attributes][{{ widget.hcard.tel.id }}][value]" value="{{ widget.hcard.tel.value }}" />
   </div>
 
   <div class="field">
     <label>Fax</label>
-		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.hcard.fax.id }}][id]" value="{{ widget.hcard.fax.id }}" />
-    <input type="tel" name="widget[widget_attributes_attributes][{{ widget.hcard.fax.id }}][value]" value="{{ widget.hcard.fax.value }}" />
+		<input type="hidden" name="widget[properties_attributes][{{ widget.hcard.fax.id }}][id]" value="{{ widget.hcard.fax.id }}" />
+    <input type="tel" name="widget[properties_attributes][{{ widget.hcard.fax.id }}][value]" value="{{ widget.hcard.fax.value }}" />
   </div>
 
   <input type="submit" value="Save" />

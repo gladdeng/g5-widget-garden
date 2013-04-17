@@ -2,33 +2,33 @@
 
   <div class="field">
     <label>Twitter username</label>
-		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.username.id }}][id]" value="{{ widget.twitter_feed.username.id }}" />
-    <input type="text" placeholder="username" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.username.id }}][value]" value="{{ widget.twitter_feed.username.value }}" />
+		<input type="hidden" name="widget[properties_attributes][{{ widget.twitter_feed.username.id }}][id]" value="{{ widget.twitter_feed.username.id }}" />
+    <input type="text" placeholder="username" name="widget[properties_attributes][{{ widget.twitter_feed.username.id }}][value]" value="{{ widget.twitter_feed.username.value }}" />
   </div>
 
   <div class="field">
     <label>Feed title</label>
-		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.title.id }}][id]" value="{{ widget.twitter_feed.title.id }}" />
-    <input type="text" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.title.id }}][value]" value="{{ widget.twitter_feed.title.value }}" />
+		<input type="hidden" name="widget[properties_attributes][{{ widget.twitter_feed.title.id }}][id]" value="{{ widget.twitter_feed.title.id }}" />
+    <input type="text" name="widget[properties_attributes][{{ widget.twitter_feed.title.id }}][value]" value="{{ widget.twitter_feed.title.value }}" />
   </div>
 
   <div class="field check-field">
     <label>Show Avatars?</label>
     <br />
-    <input type="hidden" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][id]" value="{{ widget.twitter_feed.avatars.id }}" />
+    <input type="hidden" name="widget[properties_attributes][{{ widget.twitter_feed.avatars.id }}][id]" value="{{ widget.twitter_feed.avatars.id }}" />
 
     <label for="avatars-yes">Yes</label>
-    <input type="radio" id="avatars-yes" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="true" checked="checked" />
+    <input type="radio" id="avatars-yes" name="widget[properties_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="true" checked="checked" />
 
     <label for="avatars-no">No</label>
-    <input type="radio" id="avatars-no" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="false" {% if widget.twitter_feed.avatars.value == 'false' %}checked="checked"{% endif %} />
+    <input type="radio" id="avatars-no" name="widget[properties_attributes][{{ widget.twitter_feed.avatars.id }}][value]" value="false" {% if widget.twitter_feed.avatars.value == 'false' %}checked="checked"{% endif %} />
 
   </div>
 
   <div class="field">
     <label>Number of Tweets to Show</label>
-		<input type="hidden" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.tweet_count.id }}][id]" value="{{ widget.twitter_feed.tweet_count.id }}" />
-    <input type="number" min="1" name="widget[widget_attributes_attributes][{{ widget.twitter_feed.tweet_count.id }}][value]" value="{{ widget.twitter_feed.tweet_count.value }}" />
+		<input type="hidden" name="widget[properties_attributes][{{ widget.twitter_feed.tweet_count.id }}][id]" value="{{ widget.twitter_feed.tweet_count.id }}" />
+    <input type="number" min="1" name="widget[properties_attributes][{{ widget.twitter_feed.tweet_count.id }}][value]" value="{{ widget.twitter_feed.tweet_count.value }}" />
   </div>
 
   <input type="submit" value="Save" />
