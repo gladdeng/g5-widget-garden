@@ -1,9 +1,9 @@
 <form>
   <div class="field">
+    {{ widget.twitter_username.id_hidden_field }}
     <label for="{{ widget.twitter_username.value_field_id }}" >
       Twitter Username
     </label>
-    {{ widget.twitter_username.id_hidden_field }}
     <input type="text"
       id="{{ widget.twitter_username.value_field_id }}"
       name="{{ widget.twitter_username.value_field_name }}"
@@ -12,10 +12,10 @@
   </div>
 
   <div class="field">
+    {{ widget.twitter_feed_title.id_hidden_field }}
     <label for="{{ widget.twitter_feed_title.value_field_id }}" >
       Feed Title
     </label>
-    {{ widget.twitter_feed_title.id_hidden_field }}
     <input type="text"
       id="{{ widget.twitter_feed_title.value_field_id }}"
       name="{{ widget.twitter_feed_title.value_field_name }}"
@@ -24,30 +24,19 @@
   </div>
 
   <div class="field check-field">
-    <label for="{{ widget.twitter_display_avatars.value_field_id }}" >
-      Show Avatars?
+    <label for="{{ widget.twitter_display_avatars.value_field_id }}">
+      Show Avatars
     </label>
-    {{ widget.twitter_display_avatars.id_hidden_field }}
-    <br />
-
-    <label for="{{ widget.twitter_display_avatars.value_field_id }}_true">
-      Yes
-    </label>
-    <input type="radio"
-      id="{{ widget.twitter_display_avatars.value_field_id }}_true"
-      name="{{ widget.twitter_display_avatars.value_field_name }}"
-      value="true"
-      checked="checked"
-    />
-
-    <label for="{{ widget.twitter_display_avatars.value_field_id }}_false">
-      No
-    </label>
-    <input type="radio"
+    <input type="hidden"
       id="{{ widget.twitter_display_avatars.value_field_id }}_false"
       name="{{ widget.twitter_display_avatars.value_field_name }}"
       value="false"
-      {% if widget.twitter_display_avatars.value == "false" %}
+    />
+    <input type="checkbox"
+      id="{{ widget.twitter_display_avatars.value_field_id }}"
+      name="{{ widget.twitter_display_avatars.value_field_name }}"
+      value="true"
+      {% if web_page.display == "true" %}
       checked="checked"
       {% endif %}
     />
