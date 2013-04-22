@@ -24,6 +24,7 @@
   </div>
 
   <div class="field check-field">
+    {{ widget.twitter_display_avatars.id_hidden_field }}
     <label for="{{ widget.twitter_display_avatars.value_field_id }}">
       Show Avatars
     </label>
@@ -43,10 +44,10 @@
   </div>
 
   <div class="field">
+    {{ widget.twitter_tweet_count.id_hidden_field }}
     <label for="{{ widget.twitter_tweet_count.value_field_id }}">
       Number of Tweets to Show
     </label>
-    {{ widget.twitter_tweet_count.id_hidden_field }}
     <input type="number"
       min="1"
       id="{{ widget.twitter_tweet_count.value_field_id }}"
