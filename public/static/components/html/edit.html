@@ -1,8 +1,16 @@
 <form>
   <div class="field">
-    <label>Enter text</label>
-    <input type="hidden" name="widget[properties_attributes][{{ widget.html.input.id }}][id]" value="{{ widget.html.input.id }}">
-    <textarea id="ckeditor" name="widget[properties_attributes][{{ widget.html.input.id }}][value]">{{ widget.html.input.value }}</textarea>
+    {{ widget.html.id_hidden_field }}
+    <label for="{{ widget.html.value_field_id }}" >
+      Enter text
+    </label>
+    <textarea
+      id="ckeditor"
+      <!-- id="{{ widget.html.value_field_id }}" -->
+      name="{{ widget.html.value_field_name }}"
+     >
+      {{ widget.html.value }}
+    </textarea>
   </div>
   <input type="submit" value="Save" />
 </form>
