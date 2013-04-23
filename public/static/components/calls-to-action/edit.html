@@ -1,108 +1,124 @@
 <form>
   <div class="field">
-    <label>CTA 1 Text</label>
-    <input type="hidden"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_one_text.id }}][id]"
-      value="{{ widget.calls_to_action.cta_one_text.id }}">
-
+    {{ widget.cta_one_text.id_hidden_field }}
+    <label name="{{ widget.cta_one_text.value_field_name }}">
+      CTA One Text
+    </label>
     <input type="text"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_one_text.id }}][value]"
-      value="{{ widget.calls_to_action.cta_one_text.value }}" />
+      id="{{ widget.cta_one_text.value_field_id }}"
+      name="{{ widget.cta_one_text.value_field_name }}"
+      value="{{ widget.cta_one_text.value }}" />
   </div>
-  <div class="field">
-    <label>CTA 1 URL</label>
-    <input type="hidden"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_one_url.id }}][id]"
-      value="{{ widget.calls_to_action.cta_one_url.id }}">
 
-    <select name="widget[properties_attributes][{{ widget.calls_to_action.cta_one_url.id }}][value]">
+  <div class="field">
+    {{ widget.cta_one_url.id_hidden_field }}
+    <label name="{{ widget.cta_one_url.value_field_name }}">
+      CTA One URL
+    </label>
+    <select
+      id="{{ widget.cta_one_url.value_field_id }}"
+      name="{{ widget.cta_one_url.value_field_name }}"
+    >
       <option value="">Please Select</option>
-      {% for cta in widget.available_calls_to_action %}
+      {% for cta in widget.available_calls_to_action.best_value %}
         <option value="{{ cta[1] }}"
-          {% if widget.calls_to_action.cta_one_url.value == cta[1] %}selected="selected"{% endif %}>
+          {% if widget.cta_one_url.value == cta[1] %}selected="selected"{% endif %}>
           {{ cta[1] }}
         </option>
       {% endfor %}
     </select>
   </div>
-  <div class="field">
-    <label>CTA 2 Text</label>
-    <input type="hidden"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_two_text.id }}][id]"
-      value="{{ widget.calls_to_action.cta_two_text.id }}">
 
+  <div class="field">
+    {{ widget.cta_two_text.id_hidden_field }}
+    <label name="{{ widget.cta_two_text.value_field_name }}">
+      CTA Two Text
+    </label>
     <input type="text"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_two_text.id }}][value]"
-      value="{{ widget.calls_to_action.cta_two_text.value }}" />
+      id="{{ widget.cta_two_text.value_field_id }}"
+      name="{{ widget.cta_two_text.value_field_name }}"
+      value="{{ widget.cta_two_text.value }}" />
   </div>
-  <div class="field">
-    <label>CTA 2 URL</label>
-    <input type="hidden"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_two_url.id }}][id]"
-      value="{{ widget.calls_to_action.cta_two_url.id }}">
 
-    <select name="widget[properties_attributes][{{ widget.calls_to_action.cta_two_url.id }}][value]">
+  <div class="field">
+    {{ widget.cta_two_url.id_hidden_field }}
+    <label name="{{ widget.cta_two_url.value_field_name }}">
+      CTA Two URL
+    </label>
+    <select
+      id="{{ widget.cta_two_url.value_field_id }}"
+      name="{{ widget.cta_two_url.value_field_name }}"
+    >
       <option value="">Please Select</option>
-      {% for cta in widget.available_calls_to_action %}
+      {% for cta in widget.available_calls_to_action.best_value %}
         <option value="{{ cta[1] }}"
-          {% if widget.calls_to_action.cta_two_url.value == cta[1] %}selected="selected"{% endif %}>
+          {% if widget.cta_two_url.value == cta[1] %}selected="selected"{% endif %}>
           {{ cta[1] }}
         </option>
       {% endfor %}
     </select>
   </div>
-  <div class="field">
-    <label>CTA 3 Text</label>
-    <input type="hidden"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_three_text.id }}][id]"
-      value="{{ widget.calls_to_action.cta_three_text.id }}">
 
+  <div class="field">
+    {{ widget.cta_three_text.id_hidden_field }}
+    <label name="{{ widget.cta_three_text.value_field_name }}">
+      CTA Three Text
+    </label>
     <input type="text"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_three_text.id }}][value]"
-      value="{{ widget.calls_to_action.cta_three_text.value }}" />
+      id="{{ widget.cta_three_text.value_field_id }}"
+      name="{{ widget.cta_three_text.value_field_name }}"
+      value="{{ widget.cta_three_text.value }}" />
   </div>
-  <div class="field">
-    <label>CTA 3 URL</label>
-    <input type="hidden"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_three_url.id }}][id]"
-      value="{{ widget.calls_to_action.cta_three_url.id }}">
 
-    <select name="widget[properties_attributes][{{ widget.calls_to_action.cta_three_url.id }}][value]">
+  <div class="field">
+    {{ widget.cta_three_url.id_hidden_field }}
+    <label name="{{ widget.cta_three_url.value_field_name }}">
+      CTA Three URL
+    </label>
+    <select
+      id="{{ widget.cta_three_url.value_field_id }}"
+      name="{{ widget.cta_three_url.value_field_name }}"
+    >
       <option value="">Please Select</option>
-      {% for cta in widget.available_calls_to_action %}
+      {% for cta in widget.available_calls_to_action.best_value %}
         <option value="{{ cta[1] }}"
-          {% if widget.calls_to_action.cta_three_url.value == cta[1] %}selected="selected"{% endif %}>
+          {% if widget.cta_three_url.value == cta[1] %}selected="selected"{% endif %}>
           {{ cta[1] }}
         </option>
       {% endfor %}
     </select>
   </div>
-  <div class="field">
-    <label>CTA 4 Text</label>
-    <input type="hidden"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_four_text.id }}][id]"
-      value="{{ widget.calls_to_action.cta_four_text.id }}">
 
+  <div class="field">
+    {{ widget.cta_four_text.id_hidden_field }}
+    <label name="{{ widget.cta_four_text.value_field_name }}">
+      CTA Four Text
+    </label>
     <input type="text"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_four_text.id }}][value]"
-      value="{{ widget.calls_to_action.cta_four_text.value }}" />
+      id="{{ widget.cta_four_text.value_field_id }}"
+      name="{{ widget.cta_four_text.value_field_name }}"
+      value="{{ widget.cta_four_text.value }}" />
   </div>
-  <div class="field">
-    <label>CTA 4 URL</label>
-    <input type="hidden"
-      name="widget[properties_attributes][{{ widget.calls_to_action.cta_four_url.id }}][id]"
-      value="{{ widget.calls_to_action.cta_four_url.id }}">
 
-    <select name="widget[properties_attributes][{{ widget.calls_to_action.cta_four_url.id }}][value]">
+  <div class="field">
+    {{ widget.cta_four_url.id_hidden_field }}
+    <label name="{{ widget.cta_four_url.value_field_name }}">
+      CTA Four URL
+    </label>
+    <select
+      id="{{ widget.cta_four_url.value_field_id }}"
+      name="{{ widget.cta_four_url.value_field_name }}"
+    >
       <option value="">Please Select</option>
-      {% for cta in widget.available_calls_to_action %}
+      {% for cta in widget.available_calls_to_action.best_value %}
         <option value="{{ cta[1] }}"
-          {% if widget.calls_to_action.cta_four_url.value == cta[1] %}selected="selected"{% endif %}>
+          {% if widget.cta_four_url.value == cta[1] %}selected="selected"{% endif %}>
           {{ cta[1] }}
         </option>
       {% endfor %}
     </select>
   </div>
+
   <input type="submit" value="Save" />
 </form>
 

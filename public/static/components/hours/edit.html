@@ -1,8 +1,14 @@
 <form>
   <div class="field">
-    <label>Enter Hours</label>
-    <input type="hidden" name="widget[properties_attributes][{{ widget.hours.hours.id }}][id]" value="{{ widget.hours.hours.id }}">
-    <textarea id="ckeditor" name="widget[properties_attributes][{{ widget.hours.hours.id }}][value]">{{ widget.hours.hours.value }}</textarea>
+    {{ widget.hours.id_hidden_field }}
+    <label for="{{ widget.hours.value_field_id }}" >
+      Hours
+    </label>
+    <textarea
+      id="ckeditor"
+      name="{{ widget.hours.value_field_name }}"
+    >{{ widget.hours.value }}</textarea>
   </div>
+
   <input type="submit" value="Save" />
 </form>

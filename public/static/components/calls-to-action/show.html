@@ -1,23 +1,23 @@
 <nav class="action-calls widget">
   <ul>
-    {% if widget.calls_to_action.cta_one_text.value != empty && widget.calls_to_action.cta_one_url.value != empty %}
+    {% if widget.cta_one_text.value != empty && widget.cta_one_url.value != empty %}
       <li>
-        <a href="{{ widget.calls_to_action.cta_one_url.value }}">{{ widget.calls_to_action.cta_one_text.value }}</a>
+        <a href="{{ widget.cta_one_url.value }}">{{ widget.cta_one_text.value }}</a>
       </li>
     {% endif %}
-    {% if widget.calls_to_action.cta_two_text.value != empty && widget.calls_to_action.cta_two_url.value != empty %}
+    {% if widget.cta_two_text.value != empty && widget.cta_two_url.value != empty %}
     <li>
-      <a href="{{ widget.calls_to_action.cta_two_url.value }}">{{ widget.calls_to_action.cta_two_text.value }}</a>
+      <a href="{{ widget.cta_two_url.value }}">{{ widget.cta_two_text.value }}</a>
     </li>
     {% endif %}
-    {% if widget.calls_to_action.cta_three_text.value != empty && widget.calls_to_action.cta_three_url.value != empty %}
+    {% if widget.cta_three_text.value != empty && widget.cta_three_url.value != empty %}
     <li>
-      <a href="{{ widget.calls_to_action.cta_three_url.value }}">{{ widget.calls_to_action.cta_three_text.value }}</a>
+      <a href="{{ widget.cta_three_url.value }}">{{ widget.cta_three_text.value }}</a>
     </li>
     {% endif %}
-    {% if widget.calls_to_action.cta_four_text.value != empty && widget.calls_to_action.cta_four_url.value != empty %}
+    {% if widget.cta_four_text.value != empty && widget.cta_four_url.value != empty %}
     <li>
-      <a href="{{ widget.calls_to_action.cta_four_url.value }}">{{ widget.calls_to_action.cta_four_text.value }}</a>
+      <a href="{{ widget.cta_four_url.value }}">{{ widget.cta_four_text.value }}</a>
     </li>
     {% endif %}
   </ul>
