@@ -1,14 +1,14 @@
 <form>
   <div class="field">
-    {{ widget.html.id_hidden_field }}
-    <label for="{{ widget.html.value_field_id }}" >
+    {{ widget.text.id_hidden_field }}
+    <label for="{{ widget.text.value_field_id }}" >
       Enter text
     </label>
     <textarea
       id="ckeditor"
-      name="{{ widget.html.value_field_name }}"
+      name="{{ widget.text.value_field_name }}"
      >
-      {{ widget.html.value }}
+      {{ widget.text.value }}
     </textarea>
   </div>
   <input type="submit" value="Save" />
