@@ -1,11 +1,9 @@
 <div class="coupon widget">
 
-  <p class="coupon-heading">Name of Special</p>
+  <p class="coupon-heading">{{ widget.title.value }}</p>
 
-  <img src="http://placehold.it/100x50&text=logo" />
+  <p class="coupon-number">{{ widget.description.value }}</p>
 
-  <p class="coupon-number">Offer #: xxxx-xx-xxxxxxxxxx</p>
-
-  <img src="http://placehold.it/200x100&text=barcode" />
+  <img src="{{ widget.barcode.value }}" />
 
 </div>

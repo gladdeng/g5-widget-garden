@@ -1,15 +1,39 @@
 <form>
   <div class="field">
-    <label>Enter coupon title</label>
-    <input type="text" />
+    {{ widget.title.id_hidden_field }}
+    <label for="{{ widget.title.value_field_id }}" >
+      Coupon Title
+    </label>
+    <input type="text"
+      id="{{ widget.title.value_field_id }}"
+      name="{{ widget.title.value_field_name }}"
+      value="{{ widget.title.value }}"
+    />
   </div>
+
   <div class="field">
-    <label>Enter coupon description</label>
-    <input type="text" />
+    {{ widget.description.id_hidden_field }}
+    <label for="{{ widget.description.value_field_id }}" >
+      Coupon Description
+    </label>
+    <input type="text"
+      id="{{ widget.description.value_field_id }}"
+      name="{{ widget.description.value_field_name }}"
+      value="{{ widget.description.value }}"
+    />
   </div>
+
   <div class="field">
-    <label>Upload barcode image</label>
-    <input type="file" />
+    {{ widget.barcode.id_hidden_field }}
+    <label for="{{ widget.barcode.value_field_id }}" >
+      Barcode URL
+    </label>
+    <input type="url"
+      id="{{ widget.barcode.value_field_id }}"
+      name="{{ widget.barcode.value_field_name }}"
+      value="{{ widget.barcode.value }}"
+    />
   </div>
+
   <input type="submit" value="Save" />
 </form>
