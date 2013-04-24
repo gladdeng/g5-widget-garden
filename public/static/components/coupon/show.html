@@ -4,6 +4,8 @@
 
   <p class="coupon-number">{{ widget.description.value }}</p>
 
-  <img src="{{ widget.barcode.value }}" />
+  {% if widget.barcode.value != empty %}
+    <img src="{{ widget.barcode.value }}" />
+  {% endif %}
 
 </div>
