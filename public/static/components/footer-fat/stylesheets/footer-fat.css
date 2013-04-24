@@ -7,6 +7,17 @@
 .fat-footer .hours span,
 .fat-footer .hours strong {
   display: block; }
+.hcard .p-organization-name,
+.hcard .h-adr,
+.hcard .p-street-address,
+.hcard .p-tel,
+.hcard .p-url,
+ {
+  display: block;
+}
+.hcard p {
+  margin: 0;
+}
 
 @media (min-width: 768px) {
   .fat-footer .widget {
