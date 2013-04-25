@@ -1,6 +1,12 @@
 <div class="content">
   <h1>
-    <a href="/" class="logo"><img src="http://placehold.it/400x100&text=logo"></a>
+    <a href="/" class="logo">
+      {% if widget.logo.value == empty %}
+        <img src="http://placehold.it/400x100&text=logo" />
+      {% else %}
+        <img src="{{ widget.logo.value }}" />
+      {% endif %}
+    </a>
   </h1>
 
   <a id="navigation"></a>
