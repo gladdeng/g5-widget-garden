@@ -1,4 +1,15 @@
 <form>
+  <div class="field">
+    <label for="{{ widget.contact_submission_url.value_field_id }}" >
+      Submission URL
+    </label>
+    {{ widget.contact_submission_url.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.contact_submission_url.value_field_id }}"
+      name="{{ widget.contact_submission_url.value_field_name }}"
+      value="{{ widget.contact_submission_url.value }}"
+    />
+  </div>
   <fieldset>
     <legend>Choose fields to include in form</legend>
 
@@ -38,7 +49,7 @@
           checked="checked"
           {% endif %}
         />
-        Name
+        Email
       </label>
     </div>
 
@@ -58,7 +69,7 @@
           checked="checked"
           {% endif %}
         />
-        Name
+        Phone Number
       </label>
     </div>
 
@@ -78,7 +89,7 @@
           checked="checked"
           {% endif %}
         />
-        Name
+        Address
       </label>
     </div>
     <div class="field check-field">
@@ -97,7 +108,7 @@
           checked="checked"
           {% endif %}
         />
-        Name
+        Message
       </label>
     </div>
 
