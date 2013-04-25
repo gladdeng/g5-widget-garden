@@ -1,26 +1,117 @@
 <form>
+  <div class="field">
+    <label for="{{ widget.contact_submission_url.value_field_id }}" >
+      Submission URL
+    </label>
+    {{ widget.contact_submission_url.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.contact_submission_url.value_field_id }}"
+      name="{{ widget.contact_submission_url.value_field_name }}"
+      value="{{ widget.contact_submission_url.value }}"
+    />
+  </div>
   <fieldset>
     <legend>Choose fields to include in form</legend>
-    <div class="field check">
-      <input type="checkbox" />
-      <label>Name</label>
+
+    <div class="field check-field">
+      {{ widget.contact_display_name.id_hidden_field }}
+      <input type="hidden"
+        id="{{ widget.contact_display_name.value_field_id }}_false"
+        name="{{ widget.contact_display_name.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.contact_display_name.value_field_id }}"
+        name="{{ widget.contact_display_name.value_field_name }}"
+        value="true"
+        {% if widget.contact_display_name.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.contact_display_name.value_field_id }}" >
+        Name
+      </label>
     </div>
-    <div class="field check">
-      <input type="checkbox" />
-      <label>Email</label>
+
+    <div class="field check-field">
+      {{ widget.contact_display_email.id_hidden_field }}
+      <input type="hidden"
+        id="{{ widget.contact_display_email.value_field_id }}_false"
+        name="{{ widget.contact_display_email.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.contact_display_email.value_field_id }}"
+        name="{{ widget.contact_display_email.value_field_name }}"
+        value="true"
+        {% if widget.contact_display_email.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.contact_display_email.value_field_id }}" >
+        Email
+      </label>
     </div>
-    <div class="field check">
-      <input type="checkbox" />
-      <label>Phone Number</label>
+
+    <div class="field check-field">
+      {{ widget.contact_display_phone.id_hidden_field }}
+      <input type="hidden"
+        id="{{ widget.contact_display_phone.value_field_id }}_false"
+        name="{{ widget.contact_display_phone.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.contact_display_phone.value_field_id }}"
+        name="{{ widget.contact_display_phone.value_field_name }}"
+        value="true"
+        {% if widget.contact_display_phone.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.contact_display_phone.value_field_id }}" >
+        Phone Number
+      </label>
     </div>
-    <div class="field check">
-      <input type="checkbox" />
-      <label>Address</label>
+
+    <div class="field check-field">
+      {{ widget.contact_display_address.id_hidden_field }}
+      <input type="hidden"
+        id="{{ widget.contact_display_address.value_field_id }}_false"
+        name="{{ widget.contact_display_address.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.contact_display_address.value_field_id }}"
+        name="{{ widget.contact_display_address.value_field_name }}"
+        value="true"
+        {% if widget.contact_display_address.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.contact_display_address.value_field_id }}" >
+        Address
+      </label>
     </div>
-    <div class="field check">
-      <input type="checkbox" />
-      <label>Message</label>
+    <div class="field check-field">
+      {{ widget.contact_display_message.id_hidden_field }}
+      <input type="hidden"
+        id="{{ widget.contact_display_message.value_field_id }}_false"
+        name="{{ widget.contact_display_message.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.contact_display_message.value_field_id }}"
+        name="{{ widget.contact_display_message.value_field_name }}"
+        value="true"
+        {% if widget.contact_display_message.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.contact_display_message.value_field_id }}" >
+        Message
+      </label>
     </div>
+
   </fieldset>
   <input type="submit" value="Save" />
 </form>
