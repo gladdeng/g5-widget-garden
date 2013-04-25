@@ -1,19 +1,14 @@
 <form>
   <div class="field">
-    <label>Enter gallery title</label>
-    <input type="text" />
-  </div>
-  <div class="field">
-    <label>Upload photo 1</label>
-    <input type"file" />
-  </div>
-  <div class="field">
-    <label>Upload photo 2</label>
-    <input type"file" />
-  </div>
-  <div class="field">
-    <label>Upload photo 3</label>
-    <input type"file" />
-  </div>
+     {{ widget.gallery_title.id_hidden_field }}
+     <label for="{{ widget.gallery_title.value_field_id }}" >
+       Gallery gallery_title
+     </label>
+     <input type="text"
+       id="{{ widget.gallery_title.value_field_id }}"
+       name="{{ widget.gallery_title.value_field_name }}"
+       value="{{ widget.gallery_title.value }}"
+     />
+   </div>
   <input type="submit" value="Save" />
 </form>

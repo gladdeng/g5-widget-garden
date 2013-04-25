@@ -1,25 +1,47 @@
 <form>
   <fieldset>
-    <legend>Choose 2 widgets to include in footer</legend>
-    <div class="field check">
-      <input type="checkbox" />
-      <label>HCard</label>
+    <legend>Choose which widgets to show</legend>
+
+    <div class="field check-field">
+      {{ widget.footer_display_hcard.id_hidden_field }}
+      <label for="{{ widget.footer_display_hcard.value_field_id }}" >
+        Show HCard
+      </label>
+      <input type="hidden"
+        id="{{ widget.footer_display_hcard.value_field_id }}_false"
+        name="{{ widget.footer_display_hcard.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.footer_display_hcard.value_field_id }}"
+        name="{{ widget.footer_display_hcard.value_field_name }}"
+        value="true"
+        {% if widget.footer_display_hcard.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
     </div>
-    <div class="field check">
-      <input type="checkbox" />
-      <label>Hours</label>
+
+    <div class="field check-field">
+      {{ widget.footer_display_hours.id_hidden_field }}
+      <label for="{{ widget.footer_display_hours.value_field_id }}" >
+        Show Hours
+      </label>
+      <input type="hidden"
+        id="{{ widget.footer_display_hours.value_field_id }}_false"
+        name="{{ widget.footer_display_hours.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.footer_display_hours.value_field_id }}"
+        name="{{ widget.footer_display_hours.value_field_name }}"
+        value="true"
+        {% if widget.footer_display_hours.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
     </div>
   </fieldset>
-  <fieldset>
-    <legend>Choose the links you want to include in the footer navigation</legend>
-    <div class="field check">
-      <input type="checkbox" />
-      <label>Privacy</label>
-    </div>
-    <div class="field check">
-      <input type="checkbox" />
-      <label>Terms and Conditions</label>
-    </div>
-  </fieldset>
+
   <input type="submit" value="Save" />
 </form>
