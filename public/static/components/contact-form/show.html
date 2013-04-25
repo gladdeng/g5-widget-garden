@@ -3,14 +3,14 @@
 <div class="contact widget">
   <p class="heading">Contact Us</p>
   <form id="contact-form" action="{{ widget.contact_submission_url.value }}" method="POST">
-    {% if widget.show_name.value == "true" %}
+    {% if widget.contact_display_name.value == "true" %}
       <div class="field">
         <label for="name">Name</label>
         <input type="text" name="contact[name]" id="name" data-h5-errorid="invalid_name" title="Required: Please provide your name" required="">
         <div id="invalid_name" class="ui-state-error message">Required: Please provide your name.</div></div>
     {% endif %}
 
-    {% if widget.show_email.value == "true" %}
+    {% if widget.contact_display_email.value == "true" %}
       <div class="field">
         <label for="contact-email">Email</label>
         <input id="contact-email" type="email" name="contact[email]" title="Required: Please provide your email address" data-h5-errorid="invalid_email" id="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="" />
@@ -19,21 +19,21 @@
 
     {% endif %}
 
-    {% if widget.show_phone.value == "true" %}
+    {% if widget.contact_display_phone.value == "true" %}
       <div class="field">
         <label for="contact-phone">Phone</label>
         <input type="text" id="contact-phone" name="contact[form]" />
       </div>
     {% endif %}
 
-    {% if widget.show_address.value == "true" %}
+    {% if widget.contact_display_address.value == "true" %}
       <div class="field">
         <label for="contact-address">Address</label>
         <input type="text" id="contact-address" name="contact[address]" />
       </div>
     {% endif %}
 
-    {% if widget.show_message.value == "true" %}
+    {% if widget.contact_display_message.value == "true" %}
       <div class="field">
         <label for="contact-message">Message</label>
         <textarea id="contact-message" name="contact[message]" data-h5-errorid="invalid_message" title="Required: Please leave us a message" required=""></textarea>
