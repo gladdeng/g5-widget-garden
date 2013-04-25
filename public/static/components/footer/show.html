@@ -8,6 +8,7 @@
       </ul>
     </nav>
 
+    {% if widget.hcard_show.value == 'true' %}
     <div class="hcard vcard widget">
       <strong class="p-organization-name org">Franklin Village</strong>
       <span class="h-adr adr">
@@ -16,7 +17,9 @@
       </span>
       <span class="p-tel tel">T: <a href="tel://">(323) 825-2132</a></span>
     </div>
+    {% endif %}
 
+    {% if widget.hours_show.value == 'true' %}
     <div class="hours widget">
       <strong>Office Hours</strong>
       <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
@@ -26,4 +29,5 @@
     <p class="copyright">&copy; 2012 Business Name</p>
     <a href="#" class="dxm ir">DXM by G5</a>
   </div>
+  {% endif %}
 </div>
