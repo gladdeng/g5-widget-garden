@@ -2,7 +2,7 @@
 <div id="failure" class="submit_response">IZE NOT NICE!</div>
 <div class="lead widget">
 
-  <p class="heading">Apply NEW</p>
+  <h2 class="heading">Apply NEW</h2>
 
   <form id="lead_form" action="{{ widget.lead_form_submission_url.value }}" method="POST">
 
@@ -10,34 +10,34 @@
       <label for="first_name">First Name</label>
       <input type="text" name="lead[first_name]" id="first_name" data-h5-errorid="invalid_first_name" title="Required: Please provide your first name" required="">
       <div id="invalid_first_name" class="ui-state-error message">Required: Please provide your first name.</div></div>
-    <div class="clear"></div>
+
     <div class="field">
       <label for="last_name">Last Name</label>
       <input type="text" name="lead[last_name]" id="last_name" data-h5-errorid="invalid_last_name" title="Required: Please provide your last name" required="">
       <div id="invalid_last_name" class="ui-state-error message">Required: Please provide your last name.</div>
     </div>
-    <div class="clear"></div>
+
     <div class="field">
       <label for="email">Email</label>
       <input type="email" name="lead[email]" title="Required: Please provide your email address" data-h5-errorid="invalid_email" id="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="">
       <div id="invalid_email" class="ui-state-error message">Required: Please provide your email.</div>
     </div>
-    <div class="clear"></div>
+
     <div class="field">
       <label for="phone">Phone</label>
       <input type="tel" name="lead[phone]" id="phone">
     </div>
-    <div class="clear"></div>
+
     <div class="field">
       <label for="street">Street Address</label>
       <input type="text" name="lead[street]" id="street">
     </div>
-    <div class="clear"></div>
+
     <div class="field">
       <label for="city">City</label>
       <input type="text" name="lead[city]" id="city">
     </div>
-    <div class="clear"></div>
+
     <div class="field">
       <label for="state">State</label>
       <select name="lead[state]" required="" id="state" title="Required: Please provide your state" data-h5-errorid="invalid_state">
@@ -96,17 +96,17 @@
         </select>
         <div id="invalid_state" class="ui-state-error message">Required: Please provide your state.</div>
     </div>
-    <div class="clear"></div>
+
     <div class="field">
       <label for="zip">Zip</label>
       <input type="text" name="lead[zip]" id="zip">
     </div>
-    <div class="clear"></div>
+
     <div class="field">
       <label for="message">Message</label>
       <textarea name="lead[message]" id="message"></textarea>
     </div>
-    <div class="clear"></div>
+
     <input type="submit" value="Apply">
   </form>
   <script type="text/javascript">

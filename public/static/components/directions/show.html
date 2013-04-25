@@ -5,10 +5,12 @@
 </script>
 
 <div class="directions widget">
-  <h1>Driving Directions</h1>
+  <h2>Driving Directions</h2>
   <div id="map-canvas"></div>
-  <strong>Start: </strong>
-  <input type="text" id="start" onchange="calcRoute();">
-  <input type="submit" onclick="calcRoute();" value="Get Directions">
-  <div id="directionsPanel"></div>
+  <div class="directions-text">
+    <strong>Start: </strong>
+    <input type="text" id="start" onchange="calcRoute();">
+    <input type="submit" onclick="calcRoute();" value="Get Directions">
+    <div id="directionsPanel"></div>
+  </div>
 </div>

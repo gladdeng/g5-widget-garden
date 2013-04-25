@@ -3,7 +3,6 @@
   function(){
     var blogConfig = new window.BlogConfig({
       feedUrl: "{{ widget.blog_feed_url.value }}",
-      feedTitle: "{{ widget.blog_feed_title.value }}",
       showAuthor:
         {% if widget.blog_feed_display_author.value == "true" %}
         true
