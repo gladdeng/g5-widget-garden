@@ -3,40 +3,40 @@
     <legend>Choose which widgets to show</legend>
 
     <div class="field check-field">
-      {{ widget.hcard_show.id_hidden_field }}
-      <label for="{{ widget.hcard_show.value_field_id }}" >
+      {{ widget.footer_display_hcard.id_hidden_field }}
+      <label for="{{ widget.footer_display_hcard.value_field_id }}" >
         Show HCard
       </label>
       <input type="hidden"
-        id="{{ widget.hcard_show.value_field_id }}_false"
-        name="{{ widget.hcard_show.value_field_name }}"
+        id="{{ widget.footer_display_hcard.value_field_id }}_false"
+        name="{{ widget.footer_display_hcard.value_field_name }}"
         value="false"
       />
       <input type="checkbox"
-        id="{{ widget.hcard_show.value_field_id }}"
-        name="{{ widget.hcard_show.value_field_name }}"
+        id="{{ widget.footer_display_hcard.value_field_id }}"
+        name="{{ widget.footer_display_hcard.value_field_name }}"
         value="true"
-        {% if widget.hcard_show.value == "true" %}
+        {% if widget.footer_display_hcard.value == "true" %}
         checked="checked"
         {% endif %}
       />
     </div>
 
     <div class="field check-field">
-      {{ widget.hours_show.id_hidden_field }}
-      <label for="{{ widget.hours_show.value_field_id }}" >
+      {{ widget.footer_display_hours.id_hidden_field }}
+      <label for="{{ widget.footer_display_hours.value_field_id }}" >
         Show Hours
       </label>
       <input type="hidden"
-        id="{{ widget.hours_show.value_field_id }}_false"
-        name="{{ widget.hours_show.value_field_name }}"
+        id="{{ widget.footer_display_hours.value_field_id }}_false"
+        name="{{ widget.footer_display_hours.value_field_name }}"
         value="false"
       />
       <input type="checkbox"
-        id="{{ widget.hours_show.value_field_id }}"
-        name="{{ widget.hours_show.value_field_name }}"
+        id="{{ widget.footer_display_hours.value_field_id }}"
+        name="{{ widget.footer_display_hours.value_field_name }}"
         value="true"
-        {% if widget.hours_show.value == "true" %}
+        {% if widget.footer_display_hours.value == "true" %}
         checked="checked"
         {% endif %}
       />
