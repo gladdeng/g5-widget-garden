@@ -15,99 +15,99 @@
 
     <div class="field check-field">
       {{ widget.show_name.id_hidden_field }}
+      <input type="hidden"
+        id="{{ widget.show_name.value_field_id }}_false"
+        name="{{ widget.show_name.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.show_name.value_field_id }}"
+        name="{{ widget.show_name.value_field_name }}"
+        value="true"
+        {% if widget.show_name.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
       <label for="{{ widget.show_name.value_field_id }}" >
-        <input type="hidden"
-          id="{{ widget.show_name.value_field_id }}_false"
-          name="{{ widget.show_name.value_field_name }}"
-          value="false"
-        />
-        <input type="checkbox"
-          id="{{ widget.show_name.value_field_id }}"
-          name="{{ widget.show_name.value_field_name }}"
-          value="true"
-          {% if widget.show_name.value == "true" %}
-          checked="checked"
-          {% endif %}
-        />
         Name
       </label>
     </div>
 
     <div class="field check-field">
       {{ widget.show_email.id_hidden_field }}
+      <input type="hidden"
+        id="{{ widget.show_email.value_field_id }}_false"
+        name="{{ widget.show_email.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.show_email.value_field_id }}"
+        name="{{ widget.show_email.value_field_name }}"
+        value="true"
+        {% if widget.show_email.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
       <label for="{{ widget.show_email.value_field_id }}" >
-        <input type="hidden"
-          id="{{ widget.show_email.value_field_id }}_false"
-          name="{{ widget.show_email.value_field_name }}"
-          value="false"
-        />
-        <input type="checkbox"
-          id="{{ widget.show_email.value_field_id }}"
-          name="{{ widget.show_email.value_field_name }}"
-          value="true"
-          {% if widget.show_email.value == "true" %}
-          checked="checked"
-          {% endif %}
-        />
         Email
       </label>
     </div>
 
     <div class="field check-field">
       {{ widget.show_phone.id_hidden_field }}
+      <input type="hidden"
+        id="{{ widget.show_phone.value_field_id }}_false"
+        name="{{ widget.show_phone.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.show_phone.value_field_id }}"
+        name="{{ widget.show_phone.value_field_name }}"
+        value="true"
+        {% if widget.show_phone.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
       <label for="{{ widget.show_phone.value_field_id }}" >
-        <input type="hidden"
-          id="{{ widget.show_phone.value_field_id }}_false"
-          name="{{ widget.show_phone.value_field_name }}"
-          value="false"
-        />
-        <input type="checkbox"
-          id="{{ widget.show_phone.value_field_id }}"
-          name="{{ widget.show_phone.value_field_name }}"
-          value="true"
-          {% if widget.show_phone.value == "true" %}
-          checked="checked"
-          {% endif %}
-        />
         Phone Number
       </label>
     </div>
 
     <div class="field check-field">
       {{ widget.show_address.id_hidden_field }}
+      <input type="hidden"
+        id="{{ widget.show_address.value_field_id }}_false"
+        name="{{ widget.show_address.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.show_address.value_field_id }}"
+        name="{{ widget.show_address.value_field_name }}"
+        value="true"
+        {% if widget.show_address.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
       <label for="{{ widget.show_address.value_field_id }}" >
-        <input type="hidden"
-          id="{{ widget.show_address.value_field_id }}_false"
-          name="{{ widget.show_address.value_field_name }}"
-          value="false"
-        />
-        <input type="checkbox"
-          id="{{ widget.show_address.value_field_id }}"
-          name="{{ widget.show_address.value_field_name }}"
-          value="true"
-          {% if widget.show_address.value == "true" %}
-          checked="checked"
-          {% endif %}
-        />
         Address
       </label>
     </div>
     <div class="field check-field">
       {{ widget.show_message.id_hidden_field }}
+      <input type="hidden"
+        id="{{ widget.show_message.value_field_id }}_false"
+        name="{{ widget.show_message.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.show_message.value_field_id }}"
+        name="{{ widget.show_message.value_field_name }}"
+        value="true"
+        {% if widget.show_message.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
       <label for="{{ widget.show_message.value_field_id }}" >
-        <input type="hidden"
-          id="{{ widget.show_message.value_field_id }}_false"
-          name="{{ widget.show_message.value_field_name }}"
-          value="false"
-        />
-        <input type="checkbox"
-          id="{{ widget.show_message.value_field_id }}"
-          name="{{ widget.show_message.value_field_name }}"
-          value="true"
-          {% if widget.show_message.value == "true" %}
-          checked="checked"
-          {% endif %}
-        />
         Message
       </label>
     </div>
