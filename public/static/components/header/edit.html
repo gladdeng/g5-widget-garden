@@ -10,5 +10,33 @@
       value="{{ widget.logo.value }}"
     />
   </div>
+  <fieldset>
+    <legend>Choose which links you would like to display</legend>
+    <div>
+      {{ widget.navigation.id_hidden_field }}
+      <ul>
+        {% for web_page in widget.navigation.best_value %}
+        <li class="field check-field">
+          <label for="{{ widget.navigation.value_field_id }}_{{ forloop.index0 }}_display">
+            {{ web_page.title }}
+          </label>
+          <input type="hidden"
+            id="{{ widget.navigation.value_field_id }}_{{ forloop.index0 }}_display"
+            name="{{ widget.navigation.value_field_name }}[{{ forloop.index0 }}][display]"
+            value="false"
+          />
+          <input type="checkbox"
+            id="{{ widget.navigation.value_field_id }}_{{ forloop.index0 }}_display"
+            name="{{ widget.navigation.value_field_name }}[{{ forloop.index0 }}][display]"
+            value="true"
+            {% if web_page.display != "false" %}
+            checked="checked"
+            {% endif %}
+          />
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </fieldset>
   <input type="submit" value="Save" />
 </form>

@@ -18,12 +18,9 @@
     </div>
     <nav role="navigation" class="collapsable-content">
       <ul>
-        <li><a href="floorplans.html">Floor Plans</a></li>
-        <li><a href="amenities.html">Amenities</a></li>
-        <li><a href="gallery.html">Photos</a></li>
-        <li><a href="#">Neighborhood</a></li>
-        <li><a href="#">Map + Directions</a></li>
-        <li><a href="#">Residents</a></li>
+        {% for web_page in widget.navigation.value %}
+        <li><a href="{{ web_page.url }}">{{ web_page.title }}</a></li>
+        {% endfor %}
       </ul>
     </nav>
   </div>
