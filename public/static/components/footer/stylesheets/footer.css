@@ -6,9 +6,6 @@
 .footer .hours  strong {
   display: block;
 }
-.footer .dxm {
-  clear: right;
-  float: right; }
 .hcard .p-organization-name,
 .hcard .h-adr,
 .hcard .p-street-address,
