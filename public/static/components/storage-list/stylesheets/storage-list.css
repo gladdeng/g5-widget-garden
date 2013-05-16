@@ -6,8 +6,6 @@
 .storage-list .storage-head {
   overflow: hidden;
   display: block;
-  background: #222;
-  color: #fff;
   padding: .5em 1em;
   margin-bottom: .5em;
 }
@@ -52,9 +50,6 @@
   .storage-list .storage-info,
   .storage-list .storage-desc {
     float: left;
-  }
-  .storage-list .storage-action {
-    float: right;
   }
   .storage-list .storage-info {
     width: 30%;
