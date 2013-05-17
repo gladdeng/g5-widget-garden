@@ -44,14 +44,4 @@
 
     <input type="submit" value="Send" />
   </form>
-  <script type="text/javascript">
-    $(function () {
-      $('form').h5Validate();
-    });
-
-    $('#contact-form').submit(function () {
-      // Return false and prevent submission if form does not pass validation
-      return $('#contact-form').h5Validate('allValid');
-    });
-  </script>
 </div>
