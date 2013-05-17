@@ -10,18 +10,11 @@ A garden of widgets that can be used in client location sites
 bundle
 ```
 
-1. Set up your database
-The rails-default-database gem will take care of most of this for you. 
-```bash
-rake db:setup
-```
-
-
 ## Authors
 
   * Jessica Lynn Suttles / [@jlsuttles](https://github.com/jlsuttles)
   * Bookis Smuin / [@bookis](https://github.com/bookis)
-
+  * Jessica Dillon / [@jessicard](https://github.com/jessicard)
 
 ## Contributing
 
