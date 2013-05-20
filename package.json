@@ -1,0 +1,15 @@
+{
+  "name": "g5-widget-garden",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-watch": "~0.4.3"
+  },
+  "description": "A garden of widgets that can be used in client location sites",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/g5search/g5-widget-garden.git"
+  },
+  "readmeFilename": "README.md"
+}
