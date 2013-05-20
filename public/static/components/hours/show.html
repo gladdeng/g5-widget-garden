@@ -1,3 +1,7 @@
 <div class="hours widget">
+	{% if widget.display_hours.best_value == "true" %}
+
   {{ widget.hours.value }}
+
+  {% endif %}
 </div>
