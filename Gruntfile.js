@@ -1,9 +1,19 @@
 module.exports = function(grunt) {
 
+  var componentSubdirs = grunt.file.expand('public/static/components/*/javascripts/*/')
+  var concatFiles = {}
+
+  componentSubdirs.forEach(function(subdir) {
+    var filesToConcat = subdir + "*.js"
+    var concattedFilename = subdir.substr(0, subdir.length - 1) + ".js"
+    concatFiles[concattedFilename] = filesToConcat
+  })
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     widgetPath: 'public/static/components',
-    relativeCoffeePath: '**/javascripts/**',
+    relativeCoffeePath: '*/javascripts/*',
+
     coffee: {
       compile: {
         files: [
@@ -11,30 +21,34 @@ module.exports = function(grunt) {
             expand: true,
             cwd: '<%= widgetPath %>',
             src: '<%= relativeCoffeePath %>/*.js.coffee',
-            dest: '<%= widgetPath %>/',
-            ext: '.js',
-            rename: function(dest, src){
-              // Split the src into an array of path components
-              srcComponents = src.split("/")
-              // Cut out the second to last one
-              srcComponents.splice(srcComponents.length - 2, 1)
-              // Join the path components back together into a path
-              newSrc = srcComponents.join("/")
-
-              return dest + newSrc
-            }
+            dest: '<%= widgetPath %>',
+            ext: '.compiled.js'
           }
         ]
       }
     },
+
+    concat: {
+      options: {
+        separator: ';'
+      },
+      dist: {
+        files: concatFiles
+      }
+    },
+
+    clean: ['<%= widgetPath %>/<%= relativeCoffeePath %>/*.compiled.js'],
+
     watch: {
       files: ['<%= widgetPath %>/<%= relativeCoffeePath %>/*.js.coffee'],
-      tasks: ['coffee']
+      tasks: ['coffee', 'concat']
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('default', ['coffee']);
+  grunt.registerTask('default', ['coffee', 'concat', 'clean']);
 };
