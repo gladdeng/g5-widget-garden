@@ -17,3 +17,9 @@
 /public/system
 /public/uploads
 .DS_Store
+
+# Ignore repo files
+.ruby-version
+
+# Ignore NPM Packages
+node_modules/*
