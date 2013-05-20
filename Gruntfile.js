@@ -2,16 +2,23 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    widgetPath: 'public/static/components',
+    relativeCoffeePath: '**/javascripts/**',
     coffee: {
       compile: {
-        files: {
-          'public/static/components/**/javascripts/show.js': ['public/static/components/**/javascripts/show/*.js.coffee'],
-          'public/static/components/**/javascripts/edit.js': ['public/static/components/**/javascripts/edit/*.js.coffee']
-        }
+        files: [
+          {
+            expand: true,
+            cwd: '<%= widgetPath %>',
+            src: ['<%= relativeCoffeePath %>/show.js.coffee', '<%= relativeCoffeePath %>/edit.js.coffee'],
+            dest: '<%= widgetPath %>',
+            ext: '.js'
+          }
+        ]
       }
     },
     watch: {
-      files: ['public/static/components/**/javascripts/**/*.js.coffee'],
+      files: ['<%= widgetPath %>/<%= relativeCoffeePath %>/*.js.coffee'],
       tasks: ['coffee']
     }
   });
