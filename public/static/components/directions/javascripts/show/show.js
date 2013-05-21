@@ -65,7 +65,7 @@ function populateStartAddress(latLng){
       address = results[0].formatted_address;
       $("#start").attr("value", address);
     }
-  }); 
+  });
 }
 
 function calcRoute() {

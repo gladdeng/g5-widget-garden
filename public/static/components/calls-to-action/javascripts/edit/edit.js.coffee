@@ -14,5 +14,3 @@ class window.UniqueSelectValues
   makeDisabled: (select) ->
     options = @selects.not(select).children("[value='#{select.value}']")
     options.attr('disabled','disabled')
-
-
