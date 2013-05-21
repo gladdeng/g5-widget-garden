@@ -40,8 +40,8 @@ module.exports = function(grunt) {
     clean: ['<%= widgetPath %>/<%= relativeCoffeePath %>/*.compiled.js'],
 
     watch: {
-      files: ['<%= widgetPath %>/<%= relativeCoffeePath %>/*.js.coffee'],
-      tasks: ['coffee', 'concat']
+      files: ['<%= widgetPath %>/<%= relativeCoffeePath %>/*'],
+      tasks: ['coffee', 'concat', 'clean']
     }
   });
 
