@@ -3,10 +3,10 @@ class window.BlogConfig
     {@feedUrl, @feedTitle, @showAuthor, @showEntrySummary, @showDate, @entriesToShow} = config
 
 class BlogFetcher
-	constructor: (@url) ->
+  constructor: (@url) ->
 
-	fetch: ->
-	  $.ajax
+  fetch: ->
+    $.ajax
       url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent(@url)
       dataType: 'json'
       success: (data) =>
@@ -37,4 +37,3 @@ class window.BlogInterface
     month = date.getMonth()
     year = date.getFullYear()
     "#{day}/#{month}/#{year}"
-
