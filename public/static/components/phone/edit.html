@@ -1,7 +1,15 @@
 <form>
-  <div class="field check">
-    <input type="checkbox" />
-    <label>Include call tracking</label>
+  <div class="field">
+    {{ widget.phone_number.id_hidden_field }}
+    <label for="{{ widget.phone_number.value_field_id }}" >
+      URL
+    </label>
+    <input type="tel"
+      id="{{ widget.phone_number.value_field_id }}"
+      name="{{ widget.phone_number.value_field_name }}"
+      value="{{ widget.phone_number.value }}"
+    />
   </div>
+
   <input type="submit" value="Save" />
 </form>
