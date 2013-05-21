@@ -2,7 +2,7 @@
   <div class="field">
     {{ widget.logo_url.id_hidden_field }}
     <label for="{{ widget.logo_url.value_field_id }}" >
-      URL
+      Logo URL
     </label>
     <input type="text"
       id="{{ widget.logo_url.value_field_id }}"
@@ -10,18 +10,5 @@
       value="{{ widget.logo_url.value }}"
     />
   </div>
-
-  <div class="field">
-    {{ widget.logo_caption.id_hidden_field }}
-    <label for="{{ widget.logo_caption.value_field_id }}" >
-      Caption
-    </label>
-    <input type="text"
-      id="{{ widget.logo_caption.value_field_id }}"
-      name="{{ widget.logo_caption.value_field_name }}"
-      value="{{ widget.logo_caption.value }}"
-    />
-  </div>
-
   <input type="submit" value="Save" />
 </form>
