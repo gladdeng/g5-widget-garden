@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.photo_url.value_field_id }}"
       name="{{ widget.photo_url.value_field_name }}"
-      value="{{ widget.photo_url.value }}"
+      value="{{ widget.photo_url.value | UrlEncode }}"
     />
   </div>
 

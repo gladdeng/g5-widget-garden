@@ -1,7 +1,7 @@
 <div class="navigation widget">
   <ul>
     {% for web_page in widget.navigation.value %}
-    <li><a href="{{ web_page.url }}">{{ web_page.title }}</a></li>
+    <li><a href="{{ web_page.url | UrlEncode }}">{{ web_page.title }}</a></li>
     {% endfor %}
   </ul>
 </div>

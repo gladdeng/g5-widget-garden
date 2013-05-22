@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.contact_submission_url.value_field_id }}"
       name="{{ widget.contact_submission_url.value_field_name }}"
-      value="{{ widget.contact_submission_url.value }}"
+      value="{{ widget.contact_submission_url.value | UrlEncode }}"
     />
   </div>
   <fieldset>

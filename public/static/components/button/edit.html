@@ -19,7 +19,7 @@
     <input type="text"
       id="{{ widget.button_url.value_field_id }}"
       name="{{ widget.button_url.value_field_name }}"
-      value="{{ widget.button_url.value }}"
+      value="{{ widget.button_url.value | UrlEncode }}"
     />
   </div>
 

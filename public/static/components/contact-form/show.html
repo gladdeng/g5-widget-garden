@@ -2,7 +2,7 @@
 <div id="failure" class="submit_response">IZE NOT NICE!</div>
 <div class="contact widget">
   <p class="heading">Contact Us</p>
-  <form id="contact-form" action="{{ widget.contact_submission_url.value }}" method="POST">
+  <form id="contact-form" action="{{ widget.contact_submission_url.value | UrlEncode }}" method="POST">
     {% if widget.contact_display_name.value == "true" %}
       <div class="field">
         <label for="name">Name</label>

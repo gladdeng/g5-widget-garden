@@ -19,7 +19,7 @@
     <input type="text"
       id="{{ widget.facebook_url.value_field_id }}"
       name="{{ widget.facebook_url.value_field_name }}"
-      value="{{ widget.facebook_url.value }}"
+      value="{{ widget.facebook_url.value | UrlEncode }}"
     />
   </div>
 
@@ -43,7 +43,7 @@
     <input type="text"
       id="{{ widget.foursquare_url.value_field_id }}"
       name="{{ widget.foursquare_url.value_field_name }}"
-      value="{{ widget.foursquare_url.value }}"
+      value="{{ widget.foursquare_url.value | UrlEncode }}"
     />
   </div>
 
