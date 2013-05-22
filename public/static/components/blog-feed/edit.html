@@ -8,7 +8,7 @@
       placeholder="http://someurl.com/feed.rss"
       id="{{ widget.blog_feed_url.value_field_id }}"
       name="{{ widget.blog_feed_url.value_field_name }}"
-      value="{{ widget.blog_feed_url.value | UrlEncode }}"
+      value="{{ widget.blog_feed_url.value | url_encode }}"
     />
   </div>
 

@@ -2,7 +2,7 @@
   $(
   function(){
     var blogConfig = new window.BlogConfig({
-      feedUrl: "{{ widget.blog_feed_url.value | UrlEncode }}",
+      feedUrl: "{{ widget.blog_feed_url.value | url_encode }}",
       showAuthor:
         {% if widget.blog_feed_display_author.value == "true" %}
         true

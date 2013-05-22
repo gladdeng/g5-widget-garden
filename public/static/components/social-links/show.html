@@ -1,6 +1,6 @@
 <div class="social-links widget">
   {% if widget.social_links.facebook_url.value != empty  %}
-    <a href="{{ widget.social_links.facebook_url.value | UrlEncode }}" class="facebook" title="Facebook">Facebook</a>
+    <a href="{{ widget.social_links.facebook_url.value | url_encode }}" class="facebook" title="Facebook">Facebook</a>
   {% endif %}
   {% if widget.social_links.twitter_username.value != empty  %}
     <a href="http://twitter.com/{{ widget.social_links.twitter_username.value }}" class="twitter" title="Twitter">Twitter</a>
@@ -9,7 +9,7 @@
     <a href="http://www.yelp.com/biz/{{ widget.social_links.yelp_username.value }}" class="yelp" title="Yelp">Yelp</a>
   {% endif %}
   {% if widget.social_links.foursquare_url.value != empty %}
-    <a href="{{ widget.social_links.foursquare_url.value | UrlEncode }}" class="foursquare" title="Foursquare">Foursquare</a>
+    <a href="{{ widget.social_links.foursquare_url.value | url_encode }}" class="foursquare" title="Foursquare">Foursquare</a>
   {% endif %}
   {% if widget.social_links.pinterest_username.value != empty  %}
     <a href="http://pinterest.com/{{ widget.social_links.pinterest_username.value }}" class="pinterest" title="Pinterest">Pinterest</a>

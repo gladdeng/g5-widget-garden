@@ -4,7 +4,7 @@
 
   <h2 class="heading">Apply NEW</h2>
 
-  <form id="lead_form" action="{{ widget.lead_form_submission_url.value | UrlEncode }}" method="POST">
+  <form id="lead_form" action="{{ widget.lead_form_submission_url.value | url_encode }}" method="POST">
 
     <div class="field">
       <label for="first_name">First Name</label>
