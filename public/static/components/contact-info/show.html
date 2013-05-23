@@ -1,0 +1,50 @@
+<div class="contact_info vcard widget">
+  <p class="h-adr adr">
+    {% if widget.contact_info_street.value != empty %}
+    <span class="p-street-address street-address">
+      {{ widget.contact_info_street.value}}
+    </span>
+    {% endif %}
+
+    {% if widget.contact_info_street_two.value != empty %}
+    <span class="p-street-address street-address">
+      {{ widget.contact_info_street_two.value}}
+    </span>
+    {% endif %}
+
+    {% if widget.contact_info_city.value != empty %}
+    <span class="p-locality locality">
+      {{ widget.contact_info_city.value }}</span>,
+    {% endif %}
+
+    {% if widget.contact_info_state.value != empty %}
+    <span class="p-region region">
+      {{ widget.contact_info_state.value }}
+    </span>
+    {% endif %}
+
+    {% if widget.contact_info_zip.value != empty %}
+    <span class="p-postal-code postal-code">
+      {{ widget.contact_info_zip.value }}
+    </span>
+    {% endif %}
+
+    {% if widget.contact_info_country.value != empty %}
+    <span class="p-country-name country-name">
+      {{ widget.contact_info_country.value }}
+    </span>
+    {% endif %}
+  </p>
+
+  {% if widget.contact_info_tel.value != empty %}
+  <p class="p-tel tel">
+    T: <a href="tel:{{ widget.contact_info_tel.value }}">{{ widget.contact_info_tel.value }}</a>
+  </p>
+  {% endif %}
+
+  {% if widget.contact_info_fax.value != empty %}
+  <p class="p-tel tel">
+    F: {{ widget.contact_info_fax.value }}
+  </p>
+  {% endif %}
+</div>
