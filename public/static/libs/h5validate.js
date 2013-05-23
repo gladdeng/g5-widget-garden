@@ -556,7 +556,7 @@ $(function () {
   $('form').h5Validate();
 });
 
-$('#contact-form').submit(function () {
+$('#myForm').submit(function () {
   // Return false and prevent submission if form does not pass validation
-  return $('#contact-form').h5Validate('allValid');
+  return $('#lead_form').h5Validate('allValid');
 });
