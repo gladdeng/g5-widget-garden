@@ -1,5 +1,5 @@
 <figure class="photo widget">
-  <img src="{{ widget.photo_url.value }}" class="photo widget" />
+  <img src="{{ widget.photo_url.value | url_encode }}" class="photo widget" />
   {{% if widget.photo_caption.value != '' %}}
   <figcaption>{{ widget.photo_caption.value }}</figcaption>
   {{% endif %}}
