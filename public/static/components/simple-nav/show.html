@@ -1,3 +1,4 @@
+{% if widget.display_navigation.best_value == "true" %}
 <div class="navigation widget">
   <ul>
     {% for web_page in widget.navigation.value %}
@@ -5,3 +6,4 @@
     {% endfor %}
   </ul>
 </div>
+{% endif %}
