@@ -1,4 +1,24 @@
 <form>
+  <div class="field check-field">
+    {{ widget.display_contact_info.id_hidden_field }}
+    <label for="{{ widget.display_contact_info.value_field_id }}" >
+      Display Contact Info
+    </label>
+    <input type="hidden"
+      id="{{ widget.display_contact_info.value_field_id }}_false"
+      name="{{ widget.display_contact_info.value_field_name }}"
+      value="false"
+    />
+    <input type="checkbox"
+      id="{{ widget.display_contact_info.value_field_id }}"
+      name="{{ widget.display_contact_info.value_field_name }}"
+      value="true"
+      {% if widget.display_contact_info.best_value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
+  </div>
+
   <div class="field">
     {{ widget.contact_info_street.id_hidden_field }}
     <label for="{{ widget.contact_info_street.value_field_id }}" >

@@ -1,3 +1,4 @@
+{% if widget.display_contact_info.best_value == "true" %}
 <div class="contact-info vcard widget">
   <p class="h-adr adr">
     {% if widget.contact_info_street.value != empty %}
@@ -48,3 +49,4 @@
   </p>
   {% endif %}
 </div>
+{% endif %}
