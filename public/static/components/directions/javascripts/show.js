@@ -31,7 +31,7 @@
 
   getStoreCoords = function() {
     return $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
-      address: widgetMapConfig.address,
+      address: directionsConfig.address,
       sensor: "false"
     }).done(function(data) {
       var storeCoords;
@@ -99,6 +99,7 @@
   storeCoords = void 0;
 
   $(function() {
+    window.directionsConfig = JSON.parse($('#directions-config:first').html());
     return loadScript();
   });
 
