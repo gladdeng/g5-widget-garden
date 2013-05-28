@@ -48,6 +48,7 @@
   coordinates = void 0;
 
   $(function() {
+    window.widgetMapConfig = JSON.parse($('#map-config:first').html());
     return getCoordinates();
   });
 
