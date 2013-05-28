@@ -1,3 +1,9 @@
+$ ->
+  blogVars = JSON.parse($('#blog-feed-config:first').html())
+  blogConfig = new window.BlogConfig(blogVars)
+
+  new window.BlogInterface($("#blog-feed-container ul"), blogConfig)
+
 class window.BlogConfig
   constructor: (config) ->
     {@feedUrl, @feedTitle, @showAuthor, @showEntrySummary, @showDate, @entriesToShow} = config
