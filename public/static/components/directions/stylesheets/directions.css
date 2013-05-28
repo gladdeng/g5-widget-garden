@@ -1,4 +1,4 @@
-#map-canvas{
+#map-canvas {
   width:100%;
   height:500px;
   margin-bottom: 1em;
@@ -19,6 +19,9 @@
 }
 
 @media (min-width: 980px) {
+  .directions {
+    overflow: hidden;
+  }
   #map-canvas {
     width: 50%;
     margin-right: 2.5%;
