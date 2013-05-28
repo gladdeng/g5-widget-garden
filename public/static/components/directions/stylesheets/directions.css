@@ -28,4 +28,7 @@
     width: 47.5%;
     float: left;
   }
+  .directions-text input[type=submit] {
+    margin-left: 5px;
+  }
 }

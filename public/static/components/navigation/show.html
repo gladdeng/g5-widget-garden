@@ -1,5 +1,5 @@
 {% if widget.display_navigation.best_value == "true" %}
-<nav class="navigation widget">
+<nav class="nav widget">
   <ul>
     {% for web_page in widget.navigation.value %}
       <li><a href="{{ web_page.url | url_encode }}">{{ web_page.title }}</a></li>
