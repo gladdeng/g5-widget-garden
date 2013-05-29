@@ -121,16 +121,11 @@
   border-top: 1px solid #ccc;
   padding: .625em 10px;
 }
-.floorplan:before,
 .floorplan:after {
-  display: table;
-  line-height: 0;
   content: "";
+  display: table;
+  clear:both;
 }
-.floorplan:after {
-  clear: both;
-}
-
 li.floorplan:first-child {
   border-top: none;
 }
