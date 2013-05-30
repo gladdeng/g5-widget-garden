@@ -1,9 +1,9 @@
-<script type="text/javascript">
-  var widgetMapConfig = {
-    panZoom: {{ widget.map_allow_pan_zoom.value }},
-    address: "{{ widget.map_address.value }}",
-    mapType: "{{ widget.map_type.value }}"
-  };
+<script id="map-config" type="application/json">
+  {
+    "panZoom": {{ widget.map_allow_pan_zoom.value }},
+    "address": "{{ widget.map_address.value }}",
+    "mapType": "{{ widget.map_type.value }}"
+  }
 </script>
 
 <div id="map-canvas" class="widget map"></div>

@@ -33,4 +33,5 @@ getCoordinates = ->
 coordinates = undefined
 
 $ ->
+  window.widgetMapConfig = JSON.parse($('#map-config:first').html())
   getCoordinates()

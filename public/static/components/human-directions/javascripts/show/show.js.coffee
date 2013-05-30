@@ -33,4 +33,5 @@ getCoordinates = ->
 coordinates = undefined
 
 $ ->
+  window.widgetHumanDirectionsConfig = JSON.parse($('#human-directions-config:first').html())
   getCoordinates()

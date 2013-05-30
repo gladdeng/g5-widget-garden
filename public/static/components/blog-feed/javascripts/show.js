@@ -1,6 +1,14 @@
 (function() {
   var BlogFetcher;
 
+  $(function() {
+    var blogConfig, blogVars;
+
+    blogVars = JSON.parse($('#blog-feed-config:first').html());
+    blogConfig = new window.BlogConfig(blogVars);
+    return new window.BlogInterface($("#blog-feed-container ul"), blogConfig);
+  });
+
   window.BlogConfig = (function() {
     function BlogConfig(config) {
       this.feedUrl = config.feedUrl, this.feedTitle = config.feedTitle, this.showAuthor = config.showAuthor, this.showEntrySummary = config.showEntrySummary, this.showDate = config.showDate, this.entriesToShow = config.entriesToShow;

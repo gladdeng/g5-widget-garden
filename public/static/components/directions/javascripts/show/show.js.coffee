@@ -21,7 +21,7 @@ setupMap = ->
 
 getStoreCoords = ->
   $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
-    address: widgetMapConfig.address
+    address: directionsConfig.address
     sensor: "false"
   ).done (data) ->
     storeCoords = data.results[0].geometry.location
@@ -69,4 +69,5 @@ map = undefined
 storeCoords = undefined
 
 $ ->
+  window.directionsConfig = JSON.parse($('#directions-config:first').html())
   loadScript()

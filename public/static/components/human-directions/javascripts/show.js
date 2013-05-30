@@ -48,6 +48,7 @@
   coordinates = void 0;
 
   $(function() {
+    window.widgetHumanDirectionsConfig = JSON.parse($('#human-directions-config:first').html());
     return getCoordinates();
   });
 
