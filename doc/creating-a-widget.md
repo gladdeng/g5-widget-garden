@@ -15,21 +15,23 @@ directory is below.
     * [static/](#publicstatic)
         * [components/](#publicstaticcomponents)
             * [:widget-name/](#publicstaticcomponentswidget-name) - a widget!
-              * [index.html](#publicstaticcomponentswidget-nameindexhtml) - required
-              * [edit.html](#publicstaticcomponentswidget-nameedithtml) - required
-              * [show.html](#publicstaticcomponentswidget-nameshowhtml) - required
-              * [images/](#publicstaticcomponentswidget-nameimages) - a widget's images
-                  * [thumbnail.png](#publicstaticcomponentswidget-nameimagesthumbnailpng) - required
-                  * [:custom.png](#publicstaticcomponentswidget-nameimagescustompng)
-              * [javascripts/](#publicstaticcomponentswidget-namejavascripts) - a widget's custom javascripts
-                  * [edit.js](#publicstaticcomponentswidget-namejavascriptseditjs) - generated from contents of edit directory
-                  * [edit/](#publicstaticcomponentswidget-namejavascriptsedit) - files will be included in alphabetical order
-                      * [:custom.js.coffee](#publicstaticcomponentswidget-namejavascriptseditcustomjscoffee)
-                  * [show.js](#publicstaticcomponentswidget-namejavascriptsshowjs) - generated from contents of show directory
-                  * [show/](#publicstaticcomponentswidget-namejavascriptsshow) - generated from contents of show directory
-                      * [:custom.js.coffee](#publicstaticcomponentswidget-namejavascriptsshowcustomjscoffee)
-              * [stylesheets/](#publicstaticcomponentswidget-namestylesheets) - a widget's custom stylesheets
-                  * [:custom.css](#publicstaticcomponentswidget-namestylesheetscustomcss)
+                * [index.html](#publicstaticcomponentswidget-nameindexhtml) - required
+                * [edit.html](#publicstaticcomponentswidget-nameedithtml) - required
+                * [show.html](#publicstaticcomponentswidget-nameshowhtml) - required
+                * [images/](#publicstaticcomponentswidget-nameimages) - a widget's images
+                    * [thumbnail.png](#publicstaticcomponentswidget-nameimagesthumbnailpng) - required
+                    * [:custom.png](#publicstaticcomponentswidget-nameimagescustompng)
+                * [javascripts/](#publicstaticcomponentswidget-namejavascripts) - a widget's custom javascripts
+                    * [edit.js](#publicstaticcomponentswidget-namejavascriptseditjs) - generated from contents of edit directory
+                    * [edit/](#publicstaticcomponentswidget-namejavascriptsedit) - files will be included in alphabetical order
+                        * [:custom.js.coffee](#publicstaticcomponentswidget-namejavascriptseditcustomjscoffee)
+                        * [:custom.js](#publicstaticcomponentswidget-namejavascriptseditcustomjs)
+                    * [show.js](#publicstaticcomponentswidget-namejavascriptsshowjs) - generated from contents of show directory
+                    * [show/](#publicstaticcomponentswidget-namejavascriptsshow) - generated from contents of show directory
+                        * [:custom.js.coffee](#publicstaticcomponentswidget-namejavascriptsshowcustomjscoffee)
+                        * [:custom.js](#publicstaticcomponentswidget-namejavascriptsshowcustomjs)
+                * [stylesheets/](#publicstaticcomponentswidget-namestylesheets) - a widget's custom stylesheets
+                    * [:custom.css](#publicstaticcomponentswidget-namestylesheetscustomcss)
 
 ## Documentation
 
