@@ -1,17 +1,39 @@
 <div class="social-links widget">
-  {% if widget.social_links.facebook_url.value != empty  %}
-    <a href="{{ widget.social_links.facebook_url.value | url_encode }}" class="facebook" title="Facebook">Facebook</a>
+
+  {% if widget.facebook_url.value != empty  %}
+    <a href="{{ widget.facebook_url.value | url_encode }}" class="facebook" title="Facebook">Facebook</a>
   {% endif %}
-  {% if widget.social_links.twitter_username.value != empty  %}
-    <a href="http://twitter.com/{{ widget.social_links.twitter_username.value | url_encode }}" class="twitter" title="Twitter">Twitter</a>
+
+  {% if widget.twitter_username.value != empty  %}
+    <a href="http://www.twitter.com/{{ widget.twitter_username.value | url_encode }}" class="twitter" title="Twitter">Twitter</a>
   {% endif %}
-  {% if widget.social_links.yelp_username.value != empty  %}
-    <a href="http://www.yelp.com/biz/{{ widget.social_links.yelp_username.value | url_encode }}" class="yelp" title="Yelp">Yelp</a>
+
+  {% if widget.yelp_username.value != empty  %}
+    <a href="http://www.yelp.com/biz/{{ widget.yelp_username.value | url_encode }}" class="yelp" title="Yelp">Yelp</a>
   {% endif %}
-  {% if widget.social_links.foursquare_url.value != empty %}
-    <a href="{{ widget.social_links.foursquare_url.value | url_encode }}" class="foursquare" title="Foursquare">Foursquare</a>
+
+  {% if widget.foursquare_url.value != empty %}
+    <a href="{{ widget.foursquare_url.value | url_encode }}" class="foursquare" title="Foursquare">Foursquare</a>
   {% endif %}
-  {% if widget.social_links.pinterest_username.value != empty  %}
-    <a href="http://pinterest.com/{{ widget.social_links.pinterest_username.value | url_encode }}" class="pinterest" title="Pinterest">Pinterest</a>
+
+  {% if widget.pinterest_username.value != empty  %}
+    <a href="http://www.pinterest.com/{{ widget.pinterest_username.value | url_encode }}" class="pinterest" title="Pinterest">Pinterest</a>
   {% endif %}
+
+  {% if widget.tumblr_username.value != empty  %}
+    <a href="http://{{ widget.tumblr_username.value | url_encode }}.tumblr.com/" class="tumblr" title="Tumblr">Tumblr</a>
+  {% endif %}
+
+  {% if widget.instagram_username.value != empty  %}
+    <a href="http://www.instagram.com/{{ widget.instagram_username.value | url_encode }}" class="instagram" title="Instagram">Instagram</a>
+  {% endif %}
+
+  {% if widget.vimeo_username.value != empty  %}
+    <a href="http://www.vimeo.com/{{ widget.vimeo_username.value | url_encode }}" class="vimeo" title="Vimeo">Vimeo</a>
+  {% endif %}
+
+  {% if widget.youtube_username.value != empty  %}
+    <a href="http://www.youtube.com/{{ widget.youtube_username.value | url_encode }}" class="youtube" title="YouTube">YouTube</a>
+  {% endif %}
+
 </div>
