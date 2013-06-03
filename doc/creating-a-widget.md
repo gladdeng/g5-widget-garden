@@ -37,50 +37,224 @@ directory is below.
 
 ### public/javascripts/
 
-- javascript libraries accessible by any widget
-- to include a particular library in a particular widget, hardcode the path in index.html
+- where lib javascripts live (javascript libraries accessible by any widget)
 
 [top](#directorystructure)
 
 ### public/javascripts/:lib-javascript.js
 
-- :lib-javascript is a placeholder for the name of a library
-- e.g. twitter, h5validate
+- :lib-javascript is a placeholder for the name of a library, e.g. twitter,
+  h5validate
+- to include a particular library in a particular widget, hardcode the
+  library's relative path in `index.html`'s `h-g5-component`  with a micrformat
+  class of `u-g5-lib-javascript`
+
+```html
+<div class="h-g5-component">
+  <!-- ...  -->
+  <a class="u-g5-lib-javascript" href="javascripts/libs/:lib-javascript.js">:lib-javascript.js</a>
+  <!-- ...  -->
+</div>
+```
 
 [top](#directorystructure)
 
 ### public/static/
 
-- this folder is unecessary besides avoid route collision
-- static/components/ should be renamed static-components ?
+- this folder serves to differentiate the paths between the static/uncompiled
+  version of the widget and the dynamic/compiled version of the widget
+    - `http://...//static/components/:widget-name` is the url to the
+      static/uncompiled version of the widget
+    - `http://.../components/:widget-name` is the url to the dynamic/compiled
+      version of the widget
 
 [top](#directorystructure)
 
 ### public/static/components/
 
-- all widgets live here
+- all static/uncompiled widgets live here
 
 [top](#directorystructure)
 
 ### public/static/components/:widget-name/
 
 - :widget-name is a placeholder for the name of the widget
-- a particular widget lives here
+- a particular static/uncompiledwidget lives here
 
 [top](#directorystructure)
 
 ### public/static/components/:widget-name/index.html
 
 - required
-- The index file displays in the Widget Garden.
+- :widget-name is a placeholder for the name of the widget
+- uses microformats to explictly defines information about the widget that
+  cannot be inferred from the directory contents, e.g. name, summary, lib
+  javascripts, properties/settings
+
+```html
+<div class="h-g5-component">
+  <h1 class="p-name">Widget Name</h1>
+  <p class="p-summary">Summary of what widget does.</p>
+  <a class="u-g5-lib-javascript" href="javascripts/libs/twitter.js">twitter.js</a>
+
+  <div class="e-g5-property-group h-g5-property-group">
+    <h2 class="p-name">Property Group Name</h2>
+    <ul>
+      <li class="p-category">Property Category</li>
+    </ul>
+    <div class="e-g5-property-group h-g5-property-group">
+      <h3 class="p-g5-name">Property Name</h3>
+      <p class="p-g5-editable">true</p>
+      <p class="p-g5-default-value">username</p>
+    </div>
+  </div>
+</div>
+```
 
 [top](#directorystructure)
 
 ### public/static/components/:widget-name/edit.html
 
 - required
-- The edit file displays in the Client Hub when configuring a widget.
-- Liquid may be used in this file.
+- :widget-name is a placeholder for the name of the widget
+- the form shown to a user on the Client Hub to configure the
+  properties/settings of a widget
+
+```html
+<form>
+  <!-- fields -->
+  <input type="submit" value="Save" />
+</form>
+```
+
+- label/input pairs should be wrapped in a `div.field`
+- self-closing tags, such as inputs, should include a slash `/` at the end of
+  the tag
+- liquid tags should be used for form fields
+- all properties/settings can be called as methods on the widget object, e.g.
+  `widget.property_name`
+- liquid methods availble on properties/settings:
+    - `id_hidden_field`
+    - `value_field_id`
+    - `value_field_name`
+    - `value`
+    - `best_value`
+- each property requires a pair of fields in the form to allow for persistence
+    - hidden field to represent the attribute id
+    - standard input field (text, select, etc.) to represent the value
+
+```html
+<div class="field">
+  {{ widget.property_name.id_hidden_field }}
+  <label for="{{ widget.property_name.value_field_id }}" >
+    Property Name
+  </label>
+  <input type="text"
+    id="{{ widget.property_name.value_field_id }}"
+    name="{{ widget.property_name.value_field_name }}"
+    value="{{ widget.property_name.best_value }}"
+  />
+</div>
+```
+
+#### Input Types
+
+- use appropriate input types for the content, e.g. text, email, url, tel,
+  number, etc.  [More information
+  here.](https://developer.mozilla.org/en-US/docs/HTML/Element/Input)
+
+```html
+<div class="field">
+  {{ widget.contact_info_email.id_hidden_field }}
+  <label for="{{ widget.contact_info_email.value_field_id }}" >
+    Email
+  </label>
+  <input type="email"
+    id="{{ widget.contact_info_email.value_field_id }}"
+    name="{{ widget.contact_info_email.value_field_name }}"
+    value="{{ widget.contact_info_email.best_value }}"
+  />
+</div>
+```
+
+#### Inline Fields
+
+- for multiple inline label/input pairs in one row, wrap each pair in a
+  `div.inline-field` and wrap the entire group in a `div.field`
+
+```html
+<div class="field">
+  <div class="inline-field">
+    <!-- label/input pair -->
+  </div>
+  <div class="inline-field">
+    <!-- label/input pair -->
+  </div>
+</div>
+```
+
+#### Checkboxes
+
+- a hidden field should appear before the checkbox with the same field name and
+  a value of "false"
+- if the checkbox is unchecked it pases no param, and the hidden value is
+  passed
+- if the checkbox is checked its value over-rides that of the hidden field
+- this is the same thing the Rails `checkbox_tag` helper does
+- label/checkbox pairs should be wrapped in a `div.field.check-field`
+
+```html
+<div class="field check-field">
+  {{ widget.checkbox_property.id_hidden_field }}
+  <label for="{{ widget.checkbox_property.value_field_id }}">
+    Checkbox Property
+  </label>
+  <input type="hidden"
+    id="{{ widget.checkbox_property.value_field_id }}_false"
+    name="{{ widget.checkbox_property.value_field_name }}"
+    value="false"
+  />
+  <input type="checkbox"
+    id="{{ widget.checkbox_property.value_field_id }}"
+    name="{{ widget.checkbox_property.value_field_name }}"
+    value="true"
+    {% if widget.checkbox_property.best_value == "true" %}
+    checked="checked"
+    {% endif %}
+  />
+</div>
+```
+
+#### Radio Buttons
+
+- label/radio button pairs should be wrapped in a `div.field.check-field`
+
+```html
+<div class="field check-field">
+  <label>Map Type</label>
+  {{ widget.map_type.id_hidden_field }}
+  <label for="{{ widget.map_type.value_field_id }}_roadmap" >
+    Road Map
+  </label>
+  <input type="radio"
+    id="{{ widget.map_type.value_field_id }}_roadmap"
+    name="{{ widget.map_type.value_field_name }}"
+    value="ROADMAP"
+    checked="checked"
+  />
+  <label for="{{ widget.map_type.value_field_id }}_satellite" >
+    Satellite
+  </label>
+  <input type="radio"
+    id="{{ widget.map_type.value_field_id }}_satellite"
+    name="{{ widget.map_type.value_field_name }}"
+    value="SATELLITE"
+    {% if widget.map_type.value == "SATELLITE" %}
+    checked="checked"
+    {% endif %}
+  />
+</div>
+```
 
 [top](#directorystructure)
 
