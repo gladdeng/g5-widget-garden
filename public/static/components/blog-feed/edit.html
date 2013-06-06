@@ -13,26 +13,6 @@
   </div>
 
   <div class="field check-field">
-    {{ widget.blog_feed_display_author.id_hidden_field }}
-    <label for="{{ widget.blog_feed_display_author.value_field_id }}_true">
-      Show Author
-    </label>
-    <input type="hidden"
-      id="{{ widget.blog_feed_display_author.value_field_id }}_false"
-      name="{{ widget.blog_feed_display_author.value_field_name }}"
-      value="false"
-    />
-    <input type="checkbox"
-      id="{{ widget.blog_feed_display_author.value_field_id }}_true"
-      name="{{ widget.blog_feed_display_author.value_field_name }}"
-      value="true"
-    {% if widget.blog_feed_display_author.value == "true" %}
-      checked="checked"
-      {% endif %}
-    />
-  </div>
-
-  <div class="field check-field">
     {{ widget.blog_feed_display_summary.id_hidden_field }}
     <label for="{{ widget.blog_feed_display_summary.value_field_id }}_true">
       Show Summary

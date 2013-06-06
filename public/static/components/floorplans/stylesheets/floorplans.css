@@ -5,6 +5,11 @@
   -moz-box-shadow: 1px solid #d7d7d7;
   box-shadow: 1px solid #d7d7d7;
 }
+#filters:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .filter-btn {
   padding: .3125em .5em;
   margin-bottom: .5em;
@@ -85,6 +90,7 @@
   background: -ms-linear-gradient(#fff, #f0f0f0);
   background: -o-linear-gradient(#fff, #f0f0f0);
   background: linear-gradient(#fff, #f0f0f0);
+  text-decoration: none;
 }
 .floorplans ul {
   list-style-type: none;
