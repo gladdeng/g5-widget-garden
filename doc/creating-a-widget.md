@@ -4,34 +4,38 @@
 
 A widget is defined by the contents of a directory located at
 `public/static/components/:widget-name` where :widget-name is the name of the
-widget, downcased and dashed. More information about the contents of this
-directory is below.
+widget, downcased and dashed. The `index.html` file located in this directory
+includes HTML marked up with
+[microformats2](http://microformats.org/wiki/microformats-2) classes to provide
+the widget's settings. More information about the contents of this directory is
+below.
 
 ## Directory Structure
 
-* public/
-    * [javascripts/](#publicjavascripts) - javascript libraries accessible by any widget
-        * [:lib-javascript.js](#publicjavascriptslib-javascriptjs) - a javascript library
-    * [static/](#publicstatic)
-        * [components/](#publicstaticcomponents)
-            * [:widget-name/](#publicstaticcomponentswidget-name) - a widget!
-                * [index.html](#publicstaticcomponentswidget-nameindexhtml) - required
-                * [edit.html](#publicstaticcomponentswidget-nameedithtml) - required
-                * [show.html](#publicstaticcomponentswidget-nameshowhtml) - required
-                * [images/](#publicstaticcomponentswidget-nameimages) - a widget's images
-                    * [thumbnail.png](#publicstaticcomponentswidget-nameimagesthumbnailpng) - required
-                    * [:custom.png](#publicstaticcomponentswidget-nameimagescustompng)
-                * [javascripts/](#publicstaticcomponentswidget-namejavascripts) - a widget's custom javascripts
-                    * [edit.js](#publicstaticcomponentswidget-namejavascriptseditjs) - generated from contents of edit directory
-                    * [edit/](#publicstaticcomponentswidget-namejavascriptsedit) - files will be included in alphabetical order
-                        * [:custom.js.coffee](#publicstaticcomponentswidget-namejavascriptseditcustomjscoffee)
-                        * [:custom.js](#publicstaticcomponentswidget-namejavascriptseditcustomjs)
-                    * [show.js](#publicstaticcomponentswidget-namejavascriptsshowjs) - generated from contents of show directory
-                    * [show/](#publicstaticcomponentswidget-namejavascriptsshow) - generated from contents of show directory
-                        * [:custom.js.coffee](#publicstaticcomponentswidget-namejavascriptsshowcustomjscoffee)
-                        * [:custom.js](#publicstaticcomponentswidget-namejavascriptsshowcustomjs)
-                * [stylesheets/](#publicstaticcomponentswidget-namestylesheets) - a widget's custom stylesheets
-                    * [:custom.css](#publicstaticcomponentswidget-namestylesheetscustomcss)
+* "#{Rails.root}"
+    * public/
+        * [javascripts/](#publicjavascripts)
+            * [:lib-javascript.js](#publicjavascriptslib-javascriptjs)
+        * [static/](#publicstatic)
+            * [components/](#publicstaticcomponents)
+                * [:widget-name/](#publicstaticcomponentswidget-name)
+                    * [index.html](#publicstaticcomponentswidget-nameindexhtml)
+                    * [edit.html](#publicstaticcomponentswidget-nameedithtml)
+                    * [show.html](#publicstaticcomponentswidget-nameshowhtml)
+                    * [images/](#publicstaticcomponentswidget-nameimages)
+                        * [thumbnail.png](#publicstaticcomponentswidget-nameimagesthumbnailpng)
+                        * [:custom.png](#publicstaticcomponentswidget-nameimagescustompng)
+                    * [javascripts/](#publicstaticcomponentswidget-namejavascripts)
+                        * [edit.js](#publicstaticcomponentswidget-namejavascriptseditjs)
+                        * [edit/](#publicstaticcomponentswidget-namejavascriptsedit)
+                            * [:custom.js.coffee](#publicstaticcomponentswidget-namejavascriptseditcustomjscoffee)
+                            * [:custom.js](#publicstaticcomponentswidget-namejavascriptseditcustomjs)
+                        * [show.js](#publicstaticcomponentswidget-namejavascriptsshowjs)
+                        * [show/](#publicstaticcomponentswidget-namejavascriptsshow)
+                            * [:custom.js.coffee](#publicstaticcomponentswidget-namejavascriptsshowcustomjscoffee)
+                            * [:custom.js](#publicstaticcomponentswidget-namejavascriptsshowcustomjs)
+                    * [stylesheets/](#publicstaticcomponentswidget-namestylesheets)
+                        * [:custom.css](#publicstaticcomponentswidget-namestylesheetscustomcss)
 
 ## Documentation
 
