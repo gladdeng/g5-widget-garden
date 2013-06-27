@@ -4,7 +4,6 @@ ruby "1.9.3"
 
 gem "rails", "3.2.13"
 gem "jquery-rails"
-gem "newrelic_rpm"
 gem "quiet_assets", "~> 1.0.1"
 gem "bootstrap-sass", "~> 2.1.0.1"
 
@@ -25,4 +24,5 @@ end
 
 group :production do
   gem "thin", "~> 1.5.0"
+  gem "newrelic_rpm"
 end
