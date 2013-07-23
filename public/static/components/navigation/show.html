@@ -2,7 +2,9 @@
 <nav class="navigation widget">
   <ul>
     {% for web_page in widget.navigation.best_value %}
+      {% if web_page.display != "false" %}
       <li><a href="{{ web_page.url | url_encode }}">{{ web_page.title }}</a></li>
+      {% endif %}
     {% endfor %}
   </ul>
 </nav>
