@@ -1,6 +1,6 @@
 <script id="directions-config" type="application/json">
   {
-    "address": "{{ widget.address.value }}"
+    "address": "{{ widget.address.best_value }}"
   }
 </script>
 
@@ -10,7 +10,7 @@
   <div class="directions-text">
     <strong>Start: </strong>
     <input type="text" id="start" onchange="calcRoute();">
-    <input type="submit" onclick="calcRoute();" value="Get Directions">
+    <input type="submit" onclick="calcRoute();" best_value="Get Directions">
     <div id="directionsPanel"></div>
   </div>
 </div>

@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.map_address.value_field_id }}"
       name="{{ widget.map_address.value_field_name }}"
-      value="{{ widget.map_address.value }}"
+      value="{{ widget.map_address.best_value }}"
     />
   </div>
 
@@ -30,7 +30,7 @@
       id="{{ widget.map_type.value_field_id }}_satellite"
       name="{{ widget.map_type.value_field_name }}"
       value="SATELLITE"
-      {% if widget.map_type.value == "SATELLITE" %}
+      {% if widget.map_type.best_value == "SATELLITE" %}
       checked="checked"
       {% endif %}
     />
@@ -50,7 +50,7 @@
       id="{{ widget.map_allow_pan_zoom.value_field_id }}"
       name="{{ widget.map_allow_pan_zoom.value_field_name }}"
       value="true"
-      {% if widget.map_allow_pan_zoom.value == "true" %}
+      {% if widget.map_allow_pan_zoom.best_value == "true" %}
       checked="checked"
       {% endif %}
     />

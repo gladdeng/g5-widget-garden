@@ -1,51 +1,51 @@
 {% if widget.display_contact_info.best_value == "true" %}
 <div class="contact-info vcard widget">
   <p class="h-adr adr">
-    {% if widget.contact_info_street.value != empty %}
+    {% if widget.contact_info_street.best_value != empty %}
     <span class="p-street-address street-address">
-      {{ widget.contact_info_street.value}}
+      {{ widget.contact_info_street.best_value}}
     </span>
     {% endif %}
 
-    {% if widget.contact_info_street_two.value != empty %}
+    {% if widget.contact_info_street_two.best_value != empty %}
     <span class="p-street-address street-address">
-      {{ widget.contact_info_street_two.value}}
+      {{ widget.contact_info_street_two.best_value}}
     </span>
     {% endif %}
 
-    {% if widget.contact_info_city.value != empty %}
+    {% if widget.contact_info_city.best_value != empty %}
     <span class="p-locality locality">
-      {{ widget.contact_info_city.value }}</span>,
+      {{ widget.contact_info_city.best_value }}</span>,
     {% endif %}
 
-    {% if widget.contact_info_state.value != empty %}
+    {% if widget.contact_info_state.best_value != empty %}
     <span class="p-region region">
-      {{ widget.contact_info_state.value }}
+      {{ widget.contact_info_state.best_value }}
     </span>
     {% endif %}
 
-    {% if widget.contact_info_zip.value != empty %}
+    {% if widget.contact_info_zip.best_value != empty %}
     <span class="p-postal-code postal-code">
-      {{ widget.contact_info_zip.value }}
+      {{ widget.contact_info_zip.best_value }}
     </span>
     {% endif %}
 
-    {% if widget.contact_info_country.value != empty %}
+    {% if widget.contact_info_country.best_value != empty %}
     <span class="p-country-name country-name">
-      {{ widget.contact_info_country.value }}
+      {{ widget.contact_info_country.best_value }}
     </span>
     {% endif %}
   </p>
 
-  {% if widget.contact_info_tel.value != empty %}
+  {% if widget.contact_info_tel.best_value != empty %}
   <p class="p-tel tel">
-    T: <a href="tel:{{ widget.contact_info_tel.value }}">{{ widget.contact_info_tel.value }}</a>
+    T: <a href="tel:{{ widget.contact_info_tel.best_value }}">{{ widget.contact_info_tel.best_value }}</a>
   </p>
   {% endif %}
 
-  {% if widget.contact_info_fax.value != empty %}
+  {% if widget.contact_info_fax.best_value != empty %}
   <p class="p-tel tel">
-    F: {{ widget.contact_info_fax.value }}
+    F: {{ widget.contact_info_fax.best_value }}
   </p>
   {% endif %}
 </div>

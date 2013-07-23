@@ -1,11 +1,11 @@
 <div class="coupon widget">
 
-  <p class="coupon-heading">{{ widget.title.value }}</p>
+  <p class="coupon-heading">{{ widget.title.best_value }}</p>
 
-  <p class="coupon-number">{{ widget.description.value }}</p>
+  <p class="coupon-number">{{ widget.description.best_value }}</p>
 
-  {% if widget.barcode.value != empty %}
-    <img src="{{ widget.barcode.value }}" />
+  {% if widget.barcode.best_value != empty %}
+    <img src="{{ widget.barcode.best_value }}" />
   {% endif %}
 
 </div>
