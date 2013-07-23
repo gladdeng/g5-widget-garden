@@ -8,7 +8,7 @@
       placeholder="http://someurl.com/feed.rss"
       id="{{ widget.blog_feed_url.value_field_id }}"
       name="{{ widget.blog_feed_url.value_field_name }}"
-      value="{{ widget.blog_feed_url.value | url_encode }}"
+      value="{{ widget.blog_feed_url.best_value | url_encode }}"
     />
   </div>
 
@@ -26,7 +26,7 @@
       id="{{ widget.blog_feed_display_summary.value_field_id }}_true"
       name="{{ widget.blog_feed_display_summary.value_field_name }}"
       value="true"
-      {% if widget.blog_feed_display_summary.value == "true" %}
+      {% if widget.blog_feed_display_summary.best_value == "true" %}
       checked="checked"
       {% endif %}
     />
@@ -46,7 +46,7 @@
       id="{{ widget.blog_feed_display_published_at.value_field_id }}_true"
       name="{{ widget.blog_feed_display_published_at.value_field_name }}"
       value="true"
-      {% if widget.blog_feed_display_published_at.value == "true" %}
+      {% if widget.blog_feed_display_published_at.best_value == "true" %}
       checked="checked"
       {% endif %}
     />
@@ -61,8 +61,8 @@
       placeholder="number_to_display of Feed"
       id="{{ widget.blog_feed_number_to_display.value_field_id }}"
       name="{{ widget.blog_feed_number_to_display.value_field_name }}"
-      {% if widget.blog_feed_number_to_display.value %}
-      value="{{ widget.blog_feed_number_to_display.value }}"
+      {% if widget.blog_feed_number_to_display.best_value %}
+      value="{{ widget.blog_feed_number_to_display.best_value }}"
       {% else %}
       value="3"
       {% endif %}

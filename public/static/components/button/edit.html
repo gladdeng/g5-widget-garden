@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.button_label.value_field_id }}"
       name="{{ widget.button_label.value_field_name }}"
-      value="{{ widget.button_label.value }}"
+      value="{{ widget.button_label.best_value }}"
     />
   </div>
 
@@ -19,7 +19,7 @@
     <input type="text"
       id="{{ widget.button_url.value_field_id }}"
       name="{{ widget.button_url.value_field_name }}"
-      value="{{ widget.button_url.value | url_encode }}"
+      value="{{ widget.button_url.best_value | url_encode }}"
     />
   </div>
 

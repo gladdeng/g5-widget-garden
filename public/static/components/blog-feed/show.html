@@ -1,21 +1,21 @@
 <script id="blog-feed-config" type="application/json">
   {
-    "feedUrl": "{{ widget.blog_feed_url.value | url_encode }}",
+    "feedUrl": "{{ widget.blog_feed_url.best_value | url_encode }}",
     "showEntrySummary":
-      {% if widget.blog_feed_display_summary.value == "true" %}
+      {% if widget.blog_feed_display_summary.best_value == "true" %}
       true
       {% else %}
       false
       {% endif %},
     "showDate":
-      {% if widget.blog_feed_display_published_at.value == "true" %}
+      {% if widget.blog_feed_display_published_at.best_value == "true" %}
       true
       {% else %}
       false
       {% endif %},
     "entriesToShow":
-      {% if widget.blog_feed_number_to_display.value %}
-      {{ widget.blog_feed_number_to_display.value }}
+      {% if widget.blog_feed_number_to_display.best_value %}
+      {{ widget.blog_feed_number_to_display.best_value }}
       {% else %}
       3
       {% endif %}

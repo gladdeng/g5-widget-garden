@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.contact_submission_url.value_field_id }}"
       name="{{ widget.contact_submission_url.value_field_name }}"
-      value="{{ widget.contact_submission_url.value | url_encode }}"
+      value="{{ widget.contact_submission_url.best_value | url_encode }}"
     />
   </div>
   <fieldset>
@@ -24,7 +24,7 @@
         id="{{ widget.contact_display_name.value_field_id }}"
         name="{{ widget.contact_display_name.value_field_name }}"
         value="true"
-        {% if widget.contact_display_name.value == "true" %}
+        {% if widget.contact_display_name.best_value == "true" %}
         checked="checked"
         {% endif %}
       />
@@ -44,7 +44,7 @@
         id="{{ widget.contact_display_email.value_field_id }}"
         name="{{ widget.contact_display_email.value_field_name }}"
         value="true"
-        {% if widget.contact_display_email.value == "true" %}
+        {% if widget.contact_display_email.best_value == "true" %}
         checked="checked"
         {% endif %}
       />
@@ -64,7 +64,7 @@
         id="{{ widget.contact_display_phone.value_field_id }}"
         name="{{ widget.contact_display_phone.value_field_name }}"
         value="true"
-        {% if widget.contact_display_phone.value == "true" %}
+        {% if widget.contact_display_phone.best_value == "true" %}
         checked="checked"
         {% endif %}
       />
@@ -84,7 +84,7 @@
         id="{{ widget.contact_display_address.value_field_id }}"
         name="{{ widget.contact_display_address.value_field_name }}"
         value="true"
-        {% if widget.contact_display_address.value == "true" %}
+        {% if widget.contact_display_address.best_value == "true" %}
         checked="checked"
         {% endif %}
       />
@@ -103,7 +103,7 @@
         id="{{ widget.contact_display_message.value_field_id }}"
         name="{{ widget.contact_display_message.value_field_name }}"
         value="true"
-        {% if widget.contact_display_message.value == "true" %}
+        {% if widget.contact_display_message.best_value == "true" %}
         checked="checked"
         {% endif %}
       />
