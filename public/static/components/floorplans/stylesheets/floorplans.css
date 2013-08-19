@@ -22,18 +22,8 @@
   margin-right: .5em;
 }
 .filter-btn a {
-  display: inline-block;
   font-weight: bold;
-  color: #504e4e;
   padding: .3125em .5em;
-  border: 1px solid #bcbcbc;
-  border-radius: 5px;
-  background: #fff;
-  background: -webkit-linear-gradient(#fff, #f0f0f0);
-  background: -moz-linear-gradient(#fff, #f0f0f0);
-  background: -ms-linear-gradient(#fff, #f0f0f0);
-  background: -o-linear-gradient(#fff, #f0f0f0);
-  background: linear-gradient(#fff, #f0f0f0);
 }
 .available-filter {
   text-align: right;
@@ -80,7 +70,7 @@
 
 
 /* SELECT FLOORPLAN STYLES =========================*/
-.floorplans .btn {
+.floorplan-btn {
   overflow: hidden;
   border: 1px solid #cbcbcb;
   border-radius: 5px;
@@ -182,7 +172,7 @@ li.floorplan:nth-child(even) {
   float: left;
   width: 15%;
 }
-.floorplan-img .btn {
+.floorplan-img .floorplan-btn {
   padding: 2px;
   display: inline-block;
 }
