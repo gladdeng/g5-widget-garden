@@ -3,7 +3,6 @@
 
   loadScript = function() {
     var script;
-
     script = document.createElement("script");
     script.type = "text/javascript";
     script.src = "http://maps.googleapis.com/maps/api/js?sensor=true&callback=initialize";
@@ -17,7 +16,6 @@
 
   setupMap = function() {
     var directionsDisplay, map, mapOptions;
-
     directionsDisplay = new google.maps.DirectionsRenderer();
     mapOptions = {
       zoom: 15,
@@ -35,7 +33,6 @@
       sensor: "false"
     }).done(function(data) {
       var storeCoords;
-
       storeCoords = data.results[0].geometry.location;
       storeCoords = new google.maps.LatLng(storeCoords.lat, storeCoords.lng);
       return setupMap();
@@ -44,7 +41,6 @@
 
   getClientCoords = function() {
     var geoloc, nav, watchID;
-
     watchID = void 0;
     nav = window.navigator;
     if (nav != null) {
@@ -55,7 +51,6 @@
 
   successCallback = function(position) {
     var coords;
-
     coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     return populateStartAddress(coords);
   };
@@ -66,7 +61,6 @@
 
   populateStartAddress = function(latLng) {
     var address, geocoder;
-
     address = void 0;
     geocoder = new google.maps.Geocoder();
     return geocoder.geocode({
@@ -76,7 +70,6 @@
 
   calcRoute = function() {
     var directionsService, end, request, start;
-
     directionsService = new google.maps.DirectionsService();
     start = document.getElementById("start").value;
     end = storeCoords;
