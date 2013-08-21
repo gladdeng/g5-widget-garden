@@ -64,7 +64,7 @@
         jli = $('<li class="h-entry">');
         innerText = "<a class='p-name p-url' href=\"" + entry.link + "\" target=\"_blank\">" + entry.title + "</a><br />";
         if (this.config.showDate) {
-          innerText += "<span class=\"dt-published date\">" + entry.publishedDate + "</span>";
+          innerText += "<span class=\"dt-published date\">" + (this.formatDate(entry.publishedDate)) + "</span>";
         }
         if (this.config.showEntrySummary) {
           innerText += "<div class='p-summary'>" + entry.contentSnippet + "</div>";

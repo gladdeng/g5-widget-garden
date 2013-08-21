@@ -1,6 +1,6 @@
 {% if widget.display_contact_info.best_value == "true" %}
-<div class="contact-info vcard widget">
-  <p class="h-adr adr">
+<div class="contact-info h-card vcard widget">
+  <p class="h-adr p-adr adr">
     {% if widget.contact_info_street.best_value != empty %}
     <span class="p-street-address street-address">
       {{ widget.contact_info_street.best_value}}
