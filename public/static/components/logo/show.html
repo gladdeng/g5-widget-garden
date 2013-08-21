@@ -1,7 +1,7 @@
 {% if widget.display_logo.best_value == "true" %}
 <h1 class="h-card">
   <a class="logo widget u-url" href="/">
-    <img class="u-logo" src="{{ widget.logo_url.best_value | url_encode }}" />
+    <img class="u-logo" src="{{ widget.logo_url.best_value | url_encode }}" alt="{{ widget.business_name.best_value }}" />
   </a>
 </h1>
 {% endif %}
