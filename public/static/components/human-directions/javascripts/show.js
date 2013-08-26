@@ -3,7 +3,6 @@
 
   initialize = function() {
     var lat, latLng, lng, map, mapOptions, marker, markerOptions;
-
     lat = coordinates.lat;
     lng = coordinates.lng;
     latLng = new google.maps.LatLng(lat, lng);
@@ -26,7 +25,6 @@
 
   loadScript = function() {
     var script;
-
     script = document.createElement("script");
     script.type = "text/javascript";
     script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
@@ -39,7 +37,6 @@
       sensor: "false"
     }).done(function(data) {
       var coordinates;
-
       coordinates = data.results[0].geometry.location;
       return loadScript();
     });

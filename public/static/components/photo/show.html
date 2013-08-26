@@ -1,6 +1,6 @@
-<figure class="photo widget">
-  <img src="{{ widget.photo_url.best_value | url_encode }}" />
+<figure class="photo widget h-media">
+  <img class="u-photo" src="{{ widget.photo_url.best_value | url_encode }}" />
   {% if widget.photo_caption.best_value != empty %}
-    <figcaption>{{ widget.photo_caption.best_value }}</figcaption>
+    <figcaption class="p-name">{{ widget.photo_caption.best_value }}</figcaption>
   {% endif %}
 </figure>

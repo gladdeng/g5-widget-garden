@@ -1,4 +1,16 @@
 <form>
+  <div class="field">
+    {{ widget.business_name.id_hidden_field }}
+    <label for="{{ widget.business_name.value_field_id }}" >
+      Business Name
+    </label>
+    <input type="text"
+      id="{{ widget.business_name.value_field_id }}"
+      name="{{ widget.business_name.value_field_name }}"
+      value="{{ widget.business_name.best_value | url_encode }}"
+    />
+  </div>
+
   <div class="field check-field">
     {{ widget.display_logo.id_hidden_field }}
     <label for="{{ widget.display_logo.value_field_id }}" >

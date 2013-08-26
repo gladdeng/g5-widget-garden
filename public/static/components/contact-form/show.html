@@ -2,16 +2,16 @@
 <div id="failure" class="submit_response">IZE NOT NICE!</div>
 <div class="contact widget">
   <p class="heading">Contact Us</p>
-  <form id="contact-form" action="{{ widget.contact_submission_url.best_value | url_encode }}" method="POST">
+  <form id="contact-form" class="form" action="{{ widget.contact_submission_url.best_value | url_encode }}" method="POST">
     {% if widget.contact_display_name.best_value == "true" %}
-      <div class="field">
+      <div class="form-field">
         <label for="name">Name</label>
         <input type="text" name="contact[name]" id="name" data-h5-errorid="invalid_name" title="Required: Please provide your name" required="">
         <div id="invalid_name" class="ui-state-error message">Required: Please provide your name.</div></div>
     {% endif %}
 
     {% if widget.contact_display_email.best_value == "true" %}
-      <div class="field">
+      <div class="form-field">
         <label for="contact-email">Email</label>
         <input id="contact-email" type="email" name="contact[email]" title="Required: Please provide your email address" data-h5-errorid="invalid_email" id="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="" />
         <div id="invalid_email" class="ui-state-error message">Required: Please provide your email.</div>
@@ -20,21 +20,21 @@
     {% endif %}
 
     {% if widget.contact_display_phone.best_value == "true" %}
-      <div class="field">
+      <div class="form-field">
         <label for="contact-phone">Phone</label>
         <input type="text" id="contact-phone" name="contact[form]" />
       </div>
     {% endif %}
 
     {% if widget.contact_display_address.best_value == "true" %}
-      <div class="field">
+      <div class="form-field">
         <label for="contact-address">Address</label>
         <input type="text" id="contact-address" name="contact[address]" />
       </div>
     {% endif %}
 
     {% if widget.contact_display_message.best_value == "true" %}
-      <div class="field">
+      <div class="form-field">
         <label for="contact-message">Message</label>
         <textarea id="contact-message" name="contact[message]" data-h5-errorid="invalid_message" title="Required: Please leave us a message" required=""></textarea>
         <div id="invalid_message" class="ui-state-error message">Required: Please leave us a message.</div>
