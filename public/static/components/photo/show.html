@@ -1,6 +1,6 @@
-<figure class="photo widget h-media">
-  <img class="u-photo" src="{{ widget.photo_url.best_value | url_encode }}" />
+<figure class="photo widget h-media" itemscope itemtype="http://schema.org/Photograph">
+  <img class="u-photo" src="{{ widget.photo_url.best_value | url_encode }}" itemprop="image" />
   {% if widget.photo_caption.best_value != empty %}
-    <figcaption class="p-name">{{ widget.photo_caption.best_value }}</figcaption>
+    <figcaption class="p-name" itemprop="description">{{ widget.photo_caption.best_value }}</figcaption>
   {% endif %}
 </figure>
