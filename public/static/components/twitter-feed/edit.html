@@ -1,5 +1,5 @@
 <form>
-  <div class="field">
+  <div class="form-field">
     {{ widget.twitter_username.id_hidden_field }}
     <label for="{{ widget.twitter_username.value_field_id }}" >
       Twitter Username
@@ -11,7 +11,7 @@
     />
   </div>
 
-  <div class="field check-field">
+  <div class="form-field check-field">
     {{ widget.twitter_display_avatars.id_hidden_field }}
     <label for="{{ widget.twitter_display_avatars.value_field_id }}">
       Show Avatars
@@ -31,7 +31,7 @@
     />
   </div>
 
-  <div class="field">
+  <div class="form-field">
     {{ widget.twitter_tweet_count.id_hidden_field }}
     <label for="{{ widget.twitter_tweet_count.value_field_id }}">
       Number of Tweets to Show
@@ -44,5 +44,5 @@
     />
   </div>
 
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save" class="btn" />
 </form>

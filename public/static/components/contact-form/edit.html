@@ -1,5 +1,5 @@
 <form>
-  <div class="field">
+  <div class="form-field">
     <label for="{{ widget.contact_submission_url.value_field_id }}" >
       Submission URL
     </label>
@@ -13,7 +13,7 @@
   <fieldset>
     <legend>Choose fields to include in form</legend>
 
-    <div class="field check-field">
+    <div class="form-field check-field">
       {{ widget.contact_display_name.id_hidden_field }}
       <input type="hidden"
         id="{{ widget.contact_display_name.value_field_id }}_false"
@@ -33,7 +33,7 @@
       </label>
     </div>
 
-    <div class="field check-field">
+    <div class="form-field check-field">
       {{ widget.contact_display_email.id_hidden_field }}
       <input type="hidden"
         id="{{ widget.contact_display_email.value_field_id }}_false"
@@ -53,7 +53,7 @@
       </label>
     </div>
 
-    <div class="field check-field">
+    <div class="form-field check-field">
       {{ widget.contact_display_phone.id_hidden_field }}
       <input type="hidden"
         id="{{ widget.contact_display_phone.value_field_id }}_false"
@@ -73,7 +73,7 @@
       </label>
     </div>
 
-    <div class="field check-field">
+    <div class="form-field check-field">
       {{ widget.contact_display_address.id_hidden_field }}
       <input type="hidden"
         id="{{ widget.contact_display_address.value_field_id }}_false"
@@ -92,7 +92,7 @@
         Address
       </label>
     </div>
-    <div class="field check-field">
+    <div class="form-field check-field">
       {{ widget.contact_display_message.id_hidden_field }}
       <input type="hidden"
         id="{{ widget.contact_display_message.value_field_id }}_false"
@@ -113,5 +113,5 @@
     </div>
 
   </fieldset>
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save" class="btn" />
 </form>

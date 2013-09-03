@@ -1,5 +1,5 @@
 <form>
-  <div class="field check-field">
+  <div class="form-field check-field">
     {{ widget.display_hours.id_hidden_field }}
     <label for="{{ widget.display_hours.value_field_id }}" >
       Display Hours
@@ -19,7 +19,7 @@
     />
   </div>
 
-  <div class="field">
+  <div class="form-field">
     {{ widget.hours.id_hidden_field }}
     <label for="{{ widget.hours.value_field_id }}" >
       Hours
@@ -30,5 +30,5 @@
     >{{ widget.hours.best_value }}</textarea>
   </div>
 
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save" class="btn" />
 </form>
