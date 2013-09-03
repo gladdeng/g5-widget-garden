@@ -1,5 +1,5 @@
 <form>
-  <div class="field">
+  <div class="form-field">
     {{ widget.blog_feed_url.id_hidden_field }}
     <label for="{{ widget.blog_feed_url.value_field_id }}">
       Enter the RSS/ATOM Feed URL
@@ -12,7 +12,7 @@
     />
   </div>
 
-  <div class="field check-field">
+  <div class="form-field check-field">
     {{ widget.blog_feed_display_summary.id_hidden_field }}
     <label for="{{ widget.blog_feed_display_summary.value_field_id }}_true">
       Show Summary
@@ -32,7 +32,7 @@
     />
   </end>
 
-  <div class="field check-field">
+  <div class="form-field check-field">
     {{ widget.blog_feed_display_published_at.id_hidden_field }}
     <label for="{{ widget.blog_feed_display_published_at.value_field_id }}_true">
       Show Published At
@@ -52,7 +52,7 @@
     />
   </end>
 
-  <div class="field">
+  <div class="form-field">
     {{ widget.blog_feed_number_to_display.id_hidden_field }}
     <label for="{{ widget.blog_feed_number_to_display.value_field_id }}">
       Number of Entries to Show
@@ -69,5 +69,5 @@
     />
   </div>
 
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save" class="btn" />
 </form>

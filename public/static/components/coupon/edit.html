@@ -1,5 +1,5 @@
 <form>
-  <div class="field">
+  <div class="form-field">
     {{ widget.title.id_hidden_field }}
     <label for="{{ widget.title.value_field_id }}" >
       Coupon Title
@@ -11,7 +11,7 @@
     />
   </div>
 
-  <div class="field">
+  <div class="form-field">
     {{ widget.description.id_hidden_field }}
     <label for="{{ widget.description.value_field_id }}" >
       Coupon Description
@@ -23,7 +23,7 @@
     />
   </div>
 
-  <div class="field">
+  <div class="form-field">
     {{ widget.barcode.id_hidden_field }}
     <label for="{{ widget.barcode.value_field_id }}" >
       Barcode URL
@@ -35,5 +35,5 @@
     />
   </div>
 
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save" class="btn" />
 </form>

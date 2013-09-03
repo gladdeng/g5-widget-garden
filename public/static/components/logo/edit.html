@@ -1,5 +1,5 @@
 <form>
-  <div class="field">
+  <div class="form-field">
     {{ widget.business_name.id_hidden_field }}
     <label for="{{ widget.business_name.value_field_id }}" >
       Business Name
@@ -11,7 +11,7 @@
     />
   </div>
 
-  <div class="field check-field">
+  <div class="form-field check-field">
     {{ widget.display_logo.id_hidden_field }}
     <label for="{{ widget.display_logo.value_field_id }}" >
       Display Logo
@@ -31,7 +31,7 @@
     />
   </div>
 
-  <div class="field">
+  <div class="form-field">
     {{ widget.logo_url.id_hidden_field }}
     <label for="{{ widget.logo_url.value_field_id }}" >
       Logo URL
@@ -42,5 +42,5 @@
       value="{{ widget.logo_url.best_value | url_encode }}"
     />
   </div>
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save" class="btn" />
 </form>
