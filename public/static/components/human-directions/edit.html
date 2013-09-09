@@ -1,5 +1,5 @@
 <form>
-  <div class="field">
+  <div class="form-field">
     <label for="address">Address</label>
 		<input type="hidden"
 			name="widget[properties_attributes][{{ widget.human_directions.address.id }}][id]"
@@ -11,7 +11,7 @@
       value="{{ widget.location.address }}"
       id="address" />
   </div>
-  <div class="field">
+  <div class="form-field">
     <label>Map Type</label>
 		<input type="hidden"
 			name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][id]"
@@ -34,7 +34,7 @@
         Satellite
     </label>
   </div>
-  <div class="field">
+  <div class="form-field">
     <label>Allow Panning and Zooming?</label>
 		<input type="hidden"
 			name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][id]"
@@ -57,18 +57,19 @@
         False
     </label>
   </div>
-  <div class="field">
+  <div class="form-field">
     <label>Written Directions</label>
 		<input type="hidden"
 			name="widget[properties_attributes][{{ widget.human_directions.written_directions.id }}][id]"
 			value="{{ widget.human_directions.written_directions.id }}">
-    <label for="written-directions">
+    <label>
       <textarea
         name="widget[properties_attributes][{{ widget.human_directions.written_directions.id }}][value]"
         id="written-directions"
+        class="editor"
         />
     </label>
   </div>
 
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save" class="btn" />
 </form>

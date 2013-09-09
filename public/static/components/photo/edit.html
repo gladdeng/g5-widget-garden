@@ -1,5 +1,5 @@
 <form>
-  <div class="field">
+  <div class="form-field">
     {{ widget.photo_url.id_hidden_field }}
     <label for="{{ widget.photo_url.value_field_id }}" >
       URL
@@ -11,7 +11,7 @@
     />
   </div>
 
-  <div class="field">
+  <div class="form-field">
     {{ widget.photo_caption.id_hidden_field }}
     <label for="{{ widget.photo_caption.value_field_id }}" >
       Caption
@@ -23,5 +23,5 @@
     />
   </div>
 
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save" class="btn" />
 </form>
