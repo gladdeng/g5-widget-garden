@@ -61,16 +61,16 @@
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         entry = _ref[_i];
-        jli = $('<li class="h-entry">');
-        innerText = "<a class='p-name p-url' href=\"" + entry.link + "\" target=\"_blank\">" + entry.title + "</a><br />";
+        jli = $('<li class="h-entry hentry" itemscope itemtype="http://schema.org/BlogPosting">');
+        innerText = "<a class='p-name entry-title u-url url' href=\"" + entry.link + "\" target=\"_blank\" itemprop='url'><span itemprop='headline'>" + entry.title + "</span></a><br />";
         if (this.config.showDate) {
-          innerText += "<span class=\"dt-published date\">" + (this.formatDate(entry.publishedDate)) + "</span>";
+          innerText += "<span class=\"dt-published published date\" itemprop='datePublished'>" + (this.formatDate(entry.publishedDate)) + "</span>";
         }
         if (this.config.showEntrySummary) {
-          innerText += "<div class='p-summary'>" + entry.contentSnippet + "</div>";
+          innerText += "<div class='p-summary summary' itemprop='description'>" + entry.contentSnippet + "</div>";
         }
         if (this.config.showAuthor) {
-          innerText += "<div class='p-author'>Posted By: " + entry.author + "</div>";
+          innerText += "<div class='p-author author' itemprop='author'>Posted By: " + entry.author + "</div>";
         }
         jli.append(innerText);
         _results.push(this.list.append(jli));

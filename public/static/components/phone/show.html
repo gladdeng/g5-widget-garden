@@ -1,35 +1,3 @@
-<script>
-  $('.p-tel').css('visibility', 'hidden');
-
-  var client_urn = "6bqypn2";
-  var client_name = "farmhouse";
-  var location_urn = "6bqypn2";
-  var location_name = "hollywood";
-  var row_id = "#" + location_urn + "-" + location_name;
-
-  $.get("http://g5-cpns-" + client_urn + "-" + client_name + ".herokuapp.com", function(data) {
-    var $data = $(data);
-    var numbers = $data.find(row_id);
-    var screen = document.documentElement.clientWidth;
-    var phone;
-
-    if (localStorage["ppc"]) {
-      phone = numbers.find('.p-tel-ppc').val();
-    }
-    else if (screen < 768) {
-      phone = numbers.find('.p-tel-mobile').val();
-    }
-    else {
-      phone = numbers.find('.p-tel-default').val();
-    }
-
-    $('.phone.widget').attr('href', 'tel://' + phone)
-      .find('.p-tel').html(phone.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3'));
-
-    $('.p-tel').css('visibility', 'visible');
-  });
-</script>
-
 <a href="tel://{{ widget.phone_number.best_value }}" class="phone widget h-card vcard" itemscope itemtype="http://schema.org/LocalBusiness">
   <span class="p-tel tel" itemprop="telephone">{{ widget.phone_number.best_value }}</span>
 </a>
