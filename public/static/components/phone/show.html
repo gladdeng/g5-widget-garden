@@ -1,3 +1,10 @@
+<script id="phone-number-config" type="application/json">
+  {
+    "clientUrn": "{{ widget.client_urn.best_value }}",
+    "locationUrn": "{{ widget.location_urn.best_value }}"
+  }
+</script>
+
 <a href="tel://{{ widget.phone_number.best_value }}" class="phone widget h-card vcard" itemscope itemtype="http://schema.org/LocalBusiness">
   <span class="p-tel tel" itemprop="telephone">{{ widget.phone_number.best_value }}</span>
 </a>
