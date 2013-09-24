@@ -1,9 +1,6 @@
 <form>
   <div class="form-field check-field">
     {{ widget.sorting.id_hidden_field }}
-    <label for="{{ widget.sorting.value_field_id }}" >
-      Allow sorting
-    </label>
     <input type="hidden"
       id="{{ widget.sorting.value_field_id }}_false"
       name="{{ widget.sorting.value_field_name }}"
@@ -17,6 +14,9 @@
       checked="checked"
       {% endif %}
     />
+    <label for="{{ widget.sorting.value_field_id }}" >
+      Allow sorting
+    </label>
   </div>
   <input type="submit" value="Save" class="btn" />
 </form>
