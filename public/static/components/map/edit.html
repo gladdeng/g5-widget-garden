@@ -12,35 +12,34 @@
   </div>
 
   <div class="form-field check-field">
-    <label>Map Type</label>
-    {{ widget.map_type.id_hidden_field }}
-    <label for="{{ widget.map_type.value_field_id }}_roadmap" >
-      Road Map
-    </label>
-    <input type="radio"
-      id="{{ widget.map_type.value_field_id }}_roadmap"
-      name="{{ widget.map_type.value_field_name }}"
-      value="ROADMAP"
-      checked="checked"
-    />
-    <label for="{{ widget.map_type.value_field_id }}_satellite" >
-      Satellite
-    </label>
-    <input type="radio"
-      id="{{ widget.map_type.value_field_id }}_satellite"
-      name="{{ widget.map_type.value_field_name }}"
-      value="SATELLITE"
-      {% if widget.map_type.best_value == "SATELLITE" %}
-      checked="checked"
-      {% endif %}
-    />
+    <fieldset>
+      <legend>Map Type</legend>
+      {{ widget.map_type.id_hidden_field }}
+      <input type="radio"
+        id="{{ widget.map_type.value_field_id }}_roadmap"
+        name="{{ widget.map_type.value_field_name }}"
+        value="ROADMAP"
+        checked="checked"
+      />
+      <label for="{{ widget.map_type.value_field_id }}_roadmap" >
+        Road Map
+      </label>
+      <input type="radio"
+        id="{{ widget.map_type.value_field_id }}_satellite"
+        name="{{ widget.map_type.value_field_name }}"
+        value="SATELLITE"
+        {% if widget.map_type.best_value == "SATELLITE" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.map_type.value_field_id }}_satellite" >
+        Satellite
+      </label>
+    </fieldset>
   </div>
 
   <div class="form-field check-field">
     {{ widget.map_allow_pan_zoom.id_hidden_field }}
-    <label for="{{ widget.map_allow_pan_zoom.value_field_id }}" >
-      map_allow Panning and Zooming
-    </label>
     <input type="hidden"
       id="{{ widget.map_allow_pan_zoom.value_field_id }}_false"
       name="{{ widget.map_allow_pan_zoom.value_field_name }}"
@@ -54,6 +53,9 @@
       checked="checked"
       {% endif %}
     />
+    <label for="{{ widget.map_allow_pan_zoom.value_field_id }}" >
+      map_allow Panning and Zooming
+    </label>
   </div>
 
   <input type="submit" value="Save" class="btn" />

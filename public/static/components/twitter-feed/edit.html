@@ -13,9 +13,6 @@
 
   <div class="form-field check-field">
     {{ widget.twitter_display_avatars.id_hidden_field }}
-    <label for="{{ widget.twitter_display_avatars.value_field_id }}">
-      Show Avatars
-    </label>
     <input type="hidden"
       id="{{ widget.twitter_display_avatars.value_field_id }}_false"
       name="{{ widget.twitter_display_avatars.value_field_name }}"
@@ -29,6 +26,9 @@
       checked="checked"
       {% endif %}
     />
+    <label for="{{ widget.twitter_display_avatars.value_field_id }}">
+      Show Avatars
+    </label>
   </div>
 
   <div class="form-field">

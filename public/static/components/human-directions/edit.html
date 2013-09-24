@@ -12,63 +12,66 @@
       id="address" />
   </div>
   <div class="form-field">
-    <label>Map Type</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][id]"
-			value="{{ widget.human_directions.map_type.id }}">
-    <label for="roadmap">
-      <input type="radio"
-        name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][value]"
-        value="ROADMAP"
-        id="roadmap"
-        checked
-        />
-        Road Map
-    </label>
-    <label for="satellite">
-      <input type="radio"
-        name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][value]"
-        value="SATELLITE"
-        id="satellite"
-        />
-        Satellite
-    </label>
+    <fieldset>
+      <legend>Map Type</legend>
+  		<input type="hidden"
+  			name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][id]"
+  			value="{{ widget.human_directions.map_type.id }}">
+      <label for="roadmap">
+        <input type="radio"
+          name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][value]"
+          value="ROADMAP"
+          id="roadmap"
+          checked
+          />
+          Road Map
+      </label>
+      <label for="satellite">
+        <input type="radio"
+          name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][value]"
+          value="SATELLITE"
+          id="satellite"
+          />
+          Satellite
+      </label>
+    </fieldset>
   </div>
   <div class="form-field">
-    <label>Allow Panning and Zooming?</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][id]"
-			value="{{ widget.human_directions.pan_zoom.id }}">
-    <label for="pan-zoom-true">
-      <input type="radio"
-        name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][value]"
-        value="true"
-        id="pan-zoom-true"
-        checked
-        />
-        True
-    </label>
-    <label for="pan-zoom-false">
-      <input type="radio"
-        name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][value]"
-        value="false"
-        id="pan-zoom-false"
-        />
-        False
-    </label>
+    <fieldset>
+    <legend>Allow Panning and Zooming?</legend>
+  		<input type="hidden"
+  			name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][id]"
+  			value="{{ widget.human_directions.pan_zoom.id }}">
+      <label for="pan-zoom-true">
+        <input type="radio"
+          name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][value]"
+          value="true"
+          id="pan-zoom-true"
+          checked
+          />
+          True
+      </label>
+      <label for="pan-zoom-false">
+        <input type="radio"
+          name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][value]"
+          value="false"
+          id="pan-zoom-false"
+          />
+          False
+      </label>
+    </fieldset>
   </div>
   <div class="form-field">
-    <label>Written Directions</label>
+    <label for="written-directions-text">Written Directions</label>
 		<input type="hidden"
 			name="widget[properties_attributes][{{ widget.human_directions.written_directions.id }}][id]"
 			value="{{ widget.human_directions.written_directions.id }}">
-    <label>
-      <textarea
-        name="widget[properties_attributes][{{ widget.human_directions.written_directions.id }}][value]"
-        id="written-directions"
-        class="editor"
-        />
-    </label>
+    <textarea
+      name="widget[properties_attributes][{{ widget.human_directions.written_directions.id }}][value]"
+      id="written-directions"
+      class="editor"
+      id="written-directions-text"
+      />
   </div>
 
   <input type="submit" value="Save" class="btn" />
