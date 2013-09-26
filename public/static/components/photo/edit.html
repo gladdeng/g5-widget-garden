@@ -23,5 +23,43 @@
     />
   </div>
 
+  <div class="form-field check-field">
+    <fieldset>
+    <legend>Photo Alignment</legend>
+      {{ widget.photo_alignment.id_hidden_field }}
+      <input type="radio"
+        id="{{ widget.photo_alignment.value_field_id }}_left"
+        name="{{ widget.photo_alignment.value_field_name }}"
+        value="photo-left"
+        checked="checked"
+      />
+      <label for="{{ widget.photo_alignment.value_field_id }}_left" >
+        Left
+      </label>
+      <input type="radio"
+        id="{{ widget.photo_alignment.value_field_id }}_right"
+        name="{{ widget.photo_alignment.value_field_name }}"
+        value="photo-right"
+        {% if widget.photo_alignment.best_value == "photo-right" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.photo_alignment.value_field_id }}_right" >
+        Right
+      </label>
+      <input type="radio"
+        id="{{ widget.photo_alignment.value_field_id }}_block"
+        name="{{ widget.photo_alignment.value_field_name }}"
+        value="photo-block"
+        {% if widget.photo_alignment.best_value == "photo-block" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.photo_alignment.value_field_id }}_block" >
+        Block
+      </label>
+    </fieldset>
+  </div>
+
   <input type="submit" value="Save" class="btn" />
 </form>

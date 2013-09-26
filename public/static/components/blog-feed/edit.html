@@ -14,9 +14,6 @@
 
   <div class="form-field check-field">
     {{ widget.blog_feed_display_summary.id_hidden_field }}
-    <label for="{{ widget.blog_feed_display_summary.value_field_id }}_true">
-      Show Summary
-    </label>
     <input type="hidden"
       id="{{ widget.blog_feed_display_summary.value_field_id }}_false"
       name="{{ widget.blog_feed_display_summary.value_field_name }}"
@@ -30,13 +27,13 @@
       checked="checked"
       {% endif %}
     />
-  </end>
+    <label for="{{ widget.blog_feed_display_summary.value_field_id }}_true">
+      Show Summary
+    </label>
+  </div>
 
   <div class="form-field check-field">
     {{ widget.blog_feed_display_published_at.id_hidden_field }}
-    <label for="{{ widget.blog_feed_display_published_at.value_field_id }}_true">
-      Show Published At
-    </label>
     <input type="hidden"
       id="{{ widget.blog_feed_display_published_at.value_field_id }}_false"
       name="{{ widget.blog_feed_display_published_at.value_field_name }}"
@@ -50,7 +47,10 @@
       checked="checked"
       {% endif %}
     />
-  </end>
+    <label for="{{ widget.blog_feed_display_published_at.value_field_id }}_true">
+      Show Published At
+    </label>
+  </div>
 
   <div class="form-field">
     {{ widget.blog_feed_number_to_display.id_hidden_field }}

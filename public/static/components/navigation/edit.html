@@ -1,9 +1,6 @@
 <form>
   <div class="form-field check-field">
     {{ widget.display_navigation.id_hidden_field }}
-    <label for="{{ widget.display_navigation.value_field_id }}" >
-      Display Navigation
-    </label>
     <input type="hidden"
       id="{{ widget.display_navigation.value_field_id }}_false"
       name="{{ widget.display_navigation.value_field_name }}"
@@ -17,6 +14,9 @@
       checked="checked"
       {% endif %}
     />
+    <label for="{{ widget.display_navigation.value_field_id }}" >
+      Display Navigation
+    </label>
   </div>
 
   <fieldset>
@@ -26,9 +26,6 @@
       <ul>
         {% for web_page in widget.navigation.best_value %}
         <li class="field check-field">
-          <label for="{{ widget.navigation.value_field_id }}_{{ forloop.index0 }}_display">
-            {{ web_page.title }}
-          </label>
           <input type="hidden"
             id="{{ widget.navigation.value_field_id }}_{{ forloop.index0 }}_display_false"
             name="{{ widget.navigation.value_field_name }}[{{ forloop.index0 }}][display]"
@@ -42,6 +39,9 @@
             checked="checked"
             {% endif %}
           />
+          <label for="{{ widget.navigation.value_field_id }}_{{ forloop.index0 }}_display">
+            {{ web_page.title }}
+          </label>
         </li>
         {% endfor %}
       </ul>

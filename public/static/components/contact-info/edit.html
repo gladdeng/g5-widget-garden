@@ -1,9 +1,6 @@
 <form>
   <div class="form-field check-field">
     {{ widget.display_contact_info.id_hidden_field }}
-    <label for="{{ widget.display_contact_info.value_field_id }}" >
-      Display Contact Info
-    </label>
     <input type="hidden"
       id="{{ widget.display_contact_info.value_field_id }}_false"
       name="{{ widget.display_contact_info.value_field_name }}"
@@ -17,6 +14,9 @@
       checked="checked"
       {% endif %}
     />
+    <label for="{{ widget.display_contact_info.value_field_id }}" >
+      Display Contact Info
+    </label>
   </div>
 
   <div class="form-field">
