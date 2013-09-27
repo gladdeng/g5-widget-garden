@@ -1,12 +1,16 @@
-$ ->
-  phoneOptions = JSON.parse($('#phone-number-config:first').html())
-
-  client_urn = phoneOptions["clientUrn"].replace(/^g5-c-/, "g5-cpns-")
-  location_urn = phoneOptions["locationUrn"]
-
-  if client_urn && location_urn
+class phoneNumber
+  constructor: (phoneOptions) ->
     $(".p-tel").css "visibility", "hidden"
 
+    client_urn = phoneOptions["clientUrn"].replace(/^g5-c-/, "g5-cpns-")
+    location_urn = phoneOptions["locationUrn"]
+
+    if client_urn && location_urn
+      @getPhoneNumber(client_urn, location_urn)
+
+    $(".p-tel").css "visibility", "visible"
+
+  getPhoneNumber: (client_urn, location_urn) ->
     row_id = "#" + location_urn
 
     $.get "http://" + client_urn + ".herokuapp.com", (data) ->
@@ -23,5 +27,13 @@ $ ->
       else
         phone = numbers.find(".p-tel-default").val()
 
-      $(".phone.widget").attr("href", "tel://" + phone).find(".p-tel").html phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
-      $(".p-tel").css "visibility", "visible"
+      formattedPhone = phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
+
+      $(".phone.widget").attr("href", "tel://" + phone)
+                        .find(".p-tel")
+                        .html formattedPhone
+
+$ ->
+  phoneOptions = JSON.parse($('#phone-number-config:first').html())
+
+  new phoneNumber(phoneOptions)
