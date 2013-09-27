@@ -1,7 +1,7 @@
 $ ->
   phoneOptions = JSON.parse($('#phone-number-config:first').html())
 
-  client_urn = phoneOptions["clientUrn"]
+  client_urn = phoneOptions["clientUrn"].replace(/^g5-c-/, "g5-cpns-")
   location_urn = phoneOptions["locationUrn"]
 
   if client_urn && location_urn
@@ -9,7 +9,7 @@ $ ->
 
     row_id = "#" + location_urn
 
-    $.get "http://g5-cpns-" + client_urn + ".herokuapp.com", (data) ->
+    $.get "http://" + client_urn + ".herokuapp.com", (data) ->
 
       $data = $(data)
       numbers = $data.find(row_id)

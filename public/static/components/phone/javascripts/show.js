@@ -2,12 +2,12 @@
   $(function() {
     var client_urn, location_urn, phoneOptions, row_id;
     phoneOptions = JSON.parse($('#phone-number-config:first').html());
-    client_urn = phoneOptions["clientUrn"];
+    client_urn = phoneOptions["clientUrn"].replace(/^g5-c-/, "g5-cpns-");
     location_urn = phoneOptions["locationUrn"];
     if (client_urn && location_urn) {
       $(".p-tel").css("visibility", "hidden");
       row_id = "#" + location_urn;
-      return $.get("http://g5-cpns-" + client_urn + ".herokuapp.com", function(data) {
+      return $.get("http://" + client_urn + ".herokuapp.com", function(data) {
         var $data, numbers, phone, screen;
         $data = $(data);
         numbers = $data.find(row_id);
