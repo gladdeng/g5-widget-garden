@@ -23,5 +23,42 @@
     />
   </div>
 
+  <div class="form-field">
+    {{ widget.video_type.id_hidden_field }}
+    <label for="{{ widget.video_type.value_field_id }}" >
+      Type
+    </label>
+    <input type="text"
+      id="{{ widget.video_type.value_field_id }}"
+      name="{{ widget.video_type.value_field_name }}"
+      value="{{ widget.video_type.best_value }}"
+      placeholder="mp4/webm/ogg"
+    />
+  </div>
+
+  <div class="form-field">
+    {{ widget.video_width.id_hidden_field }}
+    <label for="{{ widget.video_width.value_field_id }}" >
+      Width
+    </label>
+    <input type="text"
+      id="{{ widget.video_width.value_field_id }}"
+      name="{{ widget.video_width.value_field_name }}"
+      value="{{ widget.video_width.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    {{ widget.video_height.id_hidden_field }}
+    <label for="{{ widget.video_height.value_field_id }}" >
+      Height
+    </label>
+    <input type="text"
+      id="{{ widget.video_height.value_field_id }}"
+      name="{{ widget.video_height.value_field_name }}"
+      value="{{ widget.video_height.best_value }}"
+    />
+  </div>
+
   <input type="submit" value="Save" class="btn" />
 </form>
