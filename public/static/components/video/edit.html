@@ -1,0 +1,27 @@
+<form>
+  <div class="form-field">
+    {{ widget.video_title.id_hidden_field }}
+    <label for="{{ widget.video_title.value_field_id }}" >
+      title
+    </label>
+    <input type="text"
+      id="{{ widget.video_title.value_field_id }}"
+      name="{{ widget.video_title.value_field_name }}"
+      value="{{ widget.video_title.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    {{ widget.video_url.id_hidden_field }}
+    <label for="{{ widget.video_url.value_field_id }}" >
+      URL
+    </label>
+    <input type="url"
+      id="{{ widget.video_url.value_field_id }}"
+      name="{{ widget.video_url.value_field_name }}"
+      value="{{ widget.video_url.best_value | url_encode }}"
+    />
+  </div>
+
+  <input type="submit" value="Save" class="btn" />
+</form>

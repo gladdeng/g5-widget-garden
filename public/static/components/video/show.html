@@ -1,0 +1,12 @@
+<div class="video widget h-media" itemscope itemtype="http://schema.org/VideoObject">
+
+  {% if widget.video_video.best_value != empty %}
+    <p class="p-name" itemprop="name">{{ widget.video_title.best_value }}</p>
+  {% endif %}
+
+  <video class="e-player" itemprop="video">
+    <source src="{{ widget.video_url.best_value | url_encode }}" />
+    Video tag not supported. Download the video <a href="{{ widget.video_url.best_value | url_encode }}">here</a>
+  </video>
+
+</div>
