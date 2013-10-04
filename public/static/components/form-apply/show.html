@@ -21,15 +21,12 @@
         <input type="email" id="u-email" class="u-email" name="u-email" required>
       </div>
 
-      <div class="form-field">
-        <label for="p-tel">Phone Number <span class="form-optional">optional</span></label>
-        <input type="email" id="p-tel" class="p-tel" name="p-tel">
-      </div>
-    </div>
-
-    <div class="form-field">
-      <label for="e-content">Message</label>
-      <input type="text" id="e-content" class="e-content" name="e-content" required>
+      {% if widget.form_display_phone.best_value == "true" %}
+        <div class="form-field">
+          <label for="p-tel">Phone Number <span class="form-optional">optional</span></label>
+          <input type="email" id="p-tel" class="p-tel" name="p-tel">
+        </div>
+      <% endif %>
     </div>
 
     <input type="submit" value="Send" />
