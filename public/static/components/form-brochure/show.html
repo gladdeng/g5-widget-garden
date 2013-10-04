@@ -1,6 +1,8 @@
 <div class="form-template widget">
 
-  <p class="heading">{{ widget.form_title.best_value}}</p>
+  <h2 class="form-heading">{{ widget.form_title.best_value}}</h2>
+
+  <p class="form-note">{{ widget.form_note.best_value }}</p>
 
   <form id="form-template" class="form h-entry" action="{{ widget.form_url.best_value | url_encode }}" method="POST">
     <input type="hidden" class="u-syndication" name="u-syndication" value="{{ widget.form_syndication.best_value | url_encode }}" />
@@ -23,7 +25,7 @@
 
       <div class="form-field">
         <label for="p-tel">Phone Number <span class="form-optional">optional</span></label>
-        <input type="email" id="p-tel" class="p-tel" name="p-tel" />
+        <input type="tel" id="p-tel" class="p-tel" name="p-tel" />
       </div>
 
       <div class="h-adr p-adr">

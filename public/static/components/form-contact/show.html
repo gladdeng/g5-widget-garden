@@ -23,12 +23,26 @@
         <input type="email" id="u-email" class="u-email" name="u-email" required />
       </div>
 
-      {% if widget.form_display_phone.best_value == "true" %}
-        <div class="form-field">
-          <label for="p-tel">Phone Number <span class="form-optional">optional</span></label>
-          <input type="tel" id="p-tel" class="p-tel" name="p-tel" />
-        </div>
-      <% endif %>
+      <div class="form-field">
+        <label for="p-tel">Phone Number <span class="form-optional">optional</span></label>
+        <input type="tel" id="p-tel" class="p-tel" name="p-tel" />
+      </div>
+
+    </div>
+
+    <div class="form-field">
+      <label for="p-rooms">How many bedrooms would you like? <span class="form-optional">optional</span></label>
+      <input type="number" id="p-rooms" class="p-rooms" name="p-rooms" />
+    </div>
+
+    <div class="form-field">
+      <label for="dt-start">Desired move-in date? <span class="form-optional">optional</span></label>
+      <input type="date" id="dt-start" class="dt-start" name="dt-start" />
+    </div>
+
+    <div class="form-field">
+      <label for="e-content">Any Questions? <span class="form-optional">optional</span></label>
+      <textarea id="e-content" class="e-content" name="e-content" required></textarea>
     </div>
 
     <input type="submit" value="Send" />
