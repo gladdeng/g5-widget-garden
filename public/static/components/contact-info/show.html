@@ -1,49 +1,49 @@
 {% if widget.display_contact_info.best_value == "true" %}
 <div class="contact-info h-card vcard widget" itemscope itemtype="http://schema.org/LocalBusiness">
   <p class="h-adr p-adr adr" itemscope itemtype="http://schema.org/PostalAddress">
-    {% if widget.contact_info_street.best_value != empty %}
+    {% if widget.contact_info_street.best_value != "" %}
     <span class="p-street-address street-address" itemprop="streetAddress">
       {{ widget.contact_info_street.best_value}}
     </span>
     {% endif %}
 
-    {% if widget.contact_info_street_two.best_value != empty %}
+    {% if widget.contact_info_street_two.best_value != "" %}
     <span class="p-street-address street-address" itemprop="streetAddress">
       {{ widget.contact_info_street_two.best_value}}
     </span>
     {% endif %}
 
-    {% if widget.contact_info_city.best_value != empty %}
+    {% if widget.contact_info_city.best_value != "" %}
     <span class="p-locality locality" itemprop="addressLocality">
       {{ widget.contact_info_city.best_value }}</span>,
     {% endif %}
 
-    {% if widget.contact_info_state.best_value != empty %}
+    {% if widget.contact_info_state.best_value != "" %}
     <span class="p-region region" itemprop="addressRegion">
       {{ widget.contact_info_state.best_value }}
     </span>
     {% endif %}
 
-    {% if widget.contact_info_zip.best_value != empty %}
+    {% if widget.contact_info_zip.best_value != "" %}
     <span class="p-postal-code postal-code" itemprop="postalCode">
       {{ widget.contact_info_zip.best_value }}
     </span>
     {% endif %}
 
-    {% if widget.contact_info_country.best_value != empty %}
+    {% if widget.contact_info_country.best_value != "" %}
     <span class="p-country-name country-name" itemprop="addressCountry">
       {{ widget.contact_info_country.best_value }}
     </span>
     {% endif %}
   </p>
 
-  {% if widget.contact_info_tel.best_value != empty %}
+  {% if widget.contact_info_tel.best_value != "" %}
   <p class="p-tel tel" itemprop="telephone">
     T: <a href="tel:{{ widget.contact_info_tel.best_value }}">{{ widget.contact_info_tel.best_value }}</a>
   </p>
   {% endif %}
 
-  {% if widget.contact_info_fax.best_value != empty %}
+  {% if widget.contact_info_fax.best_value != "" %}
   <p class="p-tel tel" itemprop="telephone">
     F: {{ widget.contact_info_fax.best_value }}
   </p>

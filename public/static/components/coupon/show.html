@@ -4,7 +4,7 @@
 
   <p class="coupon-number">{{ widget.description.best_value }}</p>
 
-  {% if widget.barcode.best_value != empty %}
+  {% if widget.barcode.best_value != "" %}
     <img src="{{ widget.barcode.best_value }}" />
   {% endif %}
 
