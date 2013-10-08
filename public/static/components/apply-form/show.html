@@ -1,4 +1,4 @@
-<div class="form-template widget">
+<div class="apply-form widget">
 
   {% if widget.form_title.best_value != empty %}
     <h2 class="form-heading">{{ widget.form_title.best_value}}</h2>
@@ -9,7 +9,7 @@
   {% endif %}
 
   <form id="form-template" class="form h-entry" action="{{ widget.form_url.best_value | url_encode }}" method="POST">
-    <input type="hidden" class="u-syndication" name="u-syndication" value="{{ widget.form_syndication.best_value | url_encode }}" />
+    <input type="hidden" class="u-syndication" name="u-syndication" value="{{ widget.form_syndication_url.best_value | url_encode }}" />
 
     <div class="p-author h-card">
       <div class="form-field">
@@ -32,7 +32,7 @@
           <label for="p-tel">Phone Number <span class="form-optional">optional</span></label>
           <input type="tel" id="p-tel" class="p-tel" name="p-tel" />
         </div>
-      <% endif %>
+      {% endif %}
     </div>
 
     <input type="submit" value="Send" />
