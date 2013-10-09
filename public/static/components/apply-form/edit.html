@@ -1,0 +1,62 @@
+<form action="{{ widget.form_action.best_value | url_encode }}" class="h-entry">
+
+  <div class="form-field">
+    <label for="{{ widget.form_syndication_url.value_field_id }}" >
+      3rd Party Syndication URL
+    </label>
+    {{ widget.form_syndication_url.id_hidden_field }}
+    <input type="url"
+      id="{{ widget.form_syndication_url.value_field_id }}"
+      class="u-syndication"
+      name="{{ widget.form_syndication_url.value_field_name }}"
+      value="{{ widget.form_syndication_url.best_value | url_encode }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.form_title.value_field_id }}" >
+      Form Title
+    </label>
+    {{ widget.form_title.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.form_title.value_field_id }}"
+      class="p-name"
+      name="{{ widget.form_title.value_field_name }}"
+      value="{{ widget.form_title.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.form_note.value_field_id }}" >
+      Form Note
+    </label>
+    {{ widget.form_note.id_hidden_field }}
+    <textarea
+      id="{{ widget.form_note.value_field_id }}"
+      class="p-summary"
+      name="{{ widget.form_note.value_field_name }}"
+    >{{ widget.form_note.best_value }}</textarea>
+  </div>
+
+  <div class="form-field check-field">
+    {{ widget.form_display_phone.id_hidden_field }}
+    <input type="hidden"
+      id="{{ widget.form_display_phone.value_field_id }}_false"
+      name="{{ widget.form_display_phone.value_field_name }}"
+      value="false"
+    />
+    <input type="checkbox"
+      id="{{ widget.form_display_phone.value_field_id }}"
+      name="{{ widget.form_display_phone.value_field_name }}"
+      value="true"
+      {% if widget.form_display_phone.best_value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
+    <label for="{{ widget.form_display_phone.value_field_id }}" >
+      Show Phone Number Field
+    </label>
+  </div>
+
+  <input type="submit" value="Save" class="btn" />
+</form>

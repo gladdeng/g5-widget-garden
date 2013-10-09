@@ -1,12 +1,12 @@
 <div class="video widget h-media" itemscope itemtype="http://schema.org/VideoObject">
 
-  {% if widget.video_title.best_value != empty %}
+  {% if widget.video_title.best_value != "" %}
     <p class="p-name" itemprop="name">{{ widget.video_title.best_value }}</p>
   {% endif %}
 
   <video
-    {% if widget.video_width.best_value != empty %}width="{{ widget.video_width.best_value }}"{% endif %}
-    {% if widget.video_height.best_value != empty %}height="{{ widget.video_height.best_value }}"{% endif %}
+    {% if widget.video_width.best_value != "" %}width="{{ widget.video_width.best_value }}"{% endif %}
+    {% if widget.video_height.best_value != "" %}height="{{ widget.video_height.best_value }}"{% endif %}
     controls
     class="e-player"
     itemprop="video">

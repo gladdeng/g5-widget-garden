@@ -1,38 +1,38 @@
 <div class="social-links widget">
 
-  {% if widget.facebook_url.best_value != empty  %}
+  {% if widget.facebook_url.best_value != ""  %}
     <a href="{{ widget.facebook_url.best_value | url_encode }}" class="facebook" title="Facebook" rel="me">Facebook</a>
   {% endif %}
 
-  {% if widget.twitter_username.best_value != empty  %}
+  {% if widget.twitter_username.best_value != ""  %}
     <a href="http://www.twitter.com/{{ widget.twitter_username.best_value | url_encode }}" class="twitter" title="Twitter" rel="me">Twitter</a>
   {% endif %}
 
-  {% if widget.yelp_username.best_value != empty  %}
+  {% if widget.yelp_username.best_value != ""  %}
     <a href="http://www.yelp.com/biz/{{ widget.yelp_username.best_value | url_encode }}" class="yelp" title="Yelp" rel="me">Yelp</a>
   {% endif %}
 
-  {% if widget.foursquare_url.best_value != empty %}
+  {% if widget.foursquare_url.best_value != "" %}
     <a href="{{ widget.foursquare_url.best_value | url_encode }}" class="foursquare" title="Foursquare" rel="me">Foursquare</a>
   {% endif %}
 
-  {% if widget.pinterest_username.best_value != empty  %}
+  {% if widget.pinterest_username.best_value != ""  %}
     <a href="http://www.pinterest.com/{{ widget.pinterest_username.best_value | url_encode }}" class="pinterest" title="Pinterest" rel="me">Pinterest</a>
   {% endif %}
 
-  {% if widget.tumblr_username.best_value != empty  %}
+  {% if widget.tumblr_username.best_value != ""  %}
     <a href="http://{{ widget.tumblr_username.best_value | url_encode }}.tumblr.com/" class="tumblr" title="Tumblr" rel="me">Tumblr</a>
   {% endif %}
 
-  {% if widget.instagram_username.best_value != empty  %}
+  {% if widget.instagram_username.best_value != ""  %}
     <a href="http://www.instagram.com/{{ widget.instagram_username.best_value | url_encode }}" class="instagram" title="Instagram" rel="me">Instagram</a>
   {% endif %}
 
-  {% if widget.vimeo_username.best_value != empty  %}
+  {% if widget.vimeo_username.best_value != ""  %}
     <a href="http://www.vimeo.com/{{ widget.vimeo_username.best_value | url_encode }}" class="vimeo" title="Vimeo" rel="me">Vimeo</a>
   {% endif %}
 
-  {% if widget.youtube_username.best_value != empty  %}
+  {% if widget.youtube_username.best_value != ""  %}
     <a href="http://www.youtube.com/{{ widget.youtube_username.best_value | url_encode }}" class="youtube" title="YouTube" rel="me">YouTube</a>
   {% endif %}
 
