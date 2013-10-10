@@ -14,54 +14,42 @@
       {% if widget.gallery_photo1_url.best_value != "" %}
       <li>
         <img src="{{ widget.gallery_photo1_url.best_value | url_encode}}" alt="{{ widget.gallery_photo1_caption.best_value }}" />
-        {% if widget.gallery_photo1_caption.best_value != "" %}
         <p class="gallery-photo-caption">{{ widget.gallery_photo1_caption.best_value }}</p>
-        {% endif %}
       </li>
       {% endif %}
 
       {% if widget.gallery_photo2_url.best_value != "" %}
       <li>
         <img src="{{ widget.gallery_photo2_url.best_value | url_encode}}" alt="{{ widget.gallery_photo2_caption.best_value }}" />
-        {% if widget.gallery_photo2_caption.best_value != "" %}
         <p class="gallery-photo-caption">{{ widget.gallery_photo2_caption.best_value }}</p>
-        {% endif %}
       </li>
       {% endif %}
 
       {% if widget.gallery_photo3_url.best_value != "" %}
       <li>
         <img src="{{ widget.gallery_photo3_url.best_value | url_encode}}" alt="{{ widget.gallery_photo3_caption.best_value }}" />
-        {% if widget.gallery_photo3_caption.best_value != "" %}
         <p class="gallery-photo-caption">{{ widget.gallery_photo3_caption.best_value }}</p>
-        {% endif %}
       </li>
       {% endif %}
 
       {% if widget.gallery_photo4_url.best_value != "" %}
       <li>
         <img src="{{ widget.gallery_photo4_url.best_value | url_encode}}" alt="{{ widget.gallery_photo4_caption.best_value }}" />
-        {% if widget.gallery_photo4_caption.best_value != "" %}
         <p class="gallery-photo-caption">{{ widget.gallery_photo4_caption.best_value }}</p>
-        {% endif %}
       </li>
       {% endif %}
 
       {% if widget.gallery_photo5_url.best_value != "" %}
       <li>
         <img src="{{ widget.gallery_photo5_url.best_value | url_encode}}" alt="{{ widget.gallery_photo5_caption.best_value }}" />
-        {% if widget.gallery_photo5_caption.best_value != "" %}
         <p class="gallery-photo-caption">{{ widget.gallery_photo5_caption.best_value }}</p>
-        {% endif %}
       </li>
       {% endif %}
 
       {% if widget.gallery_photo6_url.best_value != "" %}
       <li>
         <img src="{{ widget.gallery_photo6_url.best_value | url_encode}}" alt="{{ widget.gallery_photo6_caption.best_value }}" />
-        {% if widget.gallery_photo6_caption.best_value != "" %}
         <p class="gallery-photo-caption">{{ widget.gallery_photo6_caption.best_value }}</p>
-        {% endif %}
       </li>
       {% endif %}
     </ul>

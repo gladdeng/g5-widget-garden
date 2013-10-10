@@ -48,6 +48,8 @@ html[xmlns] .slides {display: block;}
 
 /* Photo Caption */
 .gallery-photo-caption {
+  line-height: 1;
+  min-height: 1em;
 }
 
 
