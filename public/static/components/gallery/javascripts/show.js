@@ -1,7 +1,5 @@
 $(window).load(function() {
-  $('.flexslider').flexslider({
-    useCSS: true,
-    touch: true,
-    directionNav: true
-  });
+  var galleryOptions;
+  galleryOptions = JSON.parse($('#gallery-config:first').html());
+  $('.flexslider').flexslider(galleryOptions);
 });

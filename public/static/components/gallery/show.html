@@ -1,6 +1,13 @@
-<div class="gallery widget content">
+<script id="gallery-config" type="application/json">
+  {
+    "animation": "{{ widget.gallery_transition.best_value }}",
+    "useCSS": true,
+    "touch": true,
+    "directionNav": true
+  }
+</script>
 
-  <h2>{{ widget.gallery_title.best_value }}</h2>
+<div class="gallery widget content">
 
   <div class = "flexslider">
     <ul class="slides">
@@ -59,5 +66,7 @@
       {% endif %}
     </ul>
   </div>
+
+  <h2>{{ widget.gallery_title.best_value }}</h2>
 
 </div> <!-- end .content -->

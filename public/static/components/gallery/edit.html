@@ -11,6 +11,33 @@
     />
   </div>
 
+  <div class="form-field check-field">
+    <fieldset>
+      <legend>Transition</legend>
+      {{ widget.gallery_transition.id_hidden_field }}
+      <input type="radio"
+        id="{{ widget.gallery_transition.value_field_id }}_fade"
+        name="{{ widget.gallery_transition.value_field_name }}"
+        value="fade"
+        checked="checked"
+      />
+      <label for="{{ widget.gallery_transition.value_field_id }}_fade" >
+        Fade
+      </label>
+      <input type="radio"
+        id="{{ widget.gallery_transition.value_field_id }}_slide"
+        name="{{ widget.gallery_transition.value_field_name }}"
+        value="slide"
+        {% if widget.gallery_transition.best_value == "slide" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.gallery_transition.value_field_id }}_slide" >
+        Slide
+      </label>
+    </fieldset>
+  </div>
+
   <div class="form-field">
     {{ widget.gallery_photo1_url.id_hidden_field }}
     <label for="{{ widget.gallery_photo1_url.value_field_id }}" >
