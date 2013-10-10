@@ -1,3 +1,7 @@
 $(window).load(function() {
-  $('.flexslider').flexslider();
+  $('.flexslider').flexslider({
+    useCSS: true,
+    touch: true,
+    directionNav: true
+  });
 });
