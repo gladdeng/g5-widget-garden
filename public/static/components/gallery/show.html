@@ -9,6 +9,10 @@
 
 <div class="gallery widget content">
 
+  {% if widget.gallery_title.best_value != "" %}
+  <h2>{{ widget.gallery_title.best_value }}</h2>
+  {% endif %}
+
   <div class = "flexslider">
     <ul class="slides">
       {% if widget.gallery_photo1_url.best_value != "" %}
@@ -54,7 +58,5 @@
       {% endif %}
     </ul>
   </div>
-
-  <h2>{{ widget.gallery_title.best_value }}</h2>
 
 </div> <!-- end .content -->
