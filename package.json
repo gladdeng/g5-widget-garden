@@ -6,7 +6,8 @@
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-watch": "~0.4.3",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-clean": "~0.4.1"
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-cli": "~0.1.9"
   },
   "description": "A garden of widgets that can be used in client location sites",
   "repository": {
