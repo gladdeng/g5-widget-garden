@@ -1,19 +1,62 @@
-<div class="gallery widget">
+<script id="gallery-config" type="application/json">
+  {
+    "animation": "{{ widget.gallery_transition.best_value }}",
+    "useCSS": true,
+    "touch": true,
+    "directionNav": true
+  }
+</script>
 
+<div class="gallery widget content">
+
+  {% if widget.gallery_title.best_value != "" %}
   <h2>{{ widget.gallery_title.best_value }}</h2>
+  {% endif %}
 
-  <div class = "photo">
-    <img src="http://g5-widget-garden.herokuapp.com/static/tmp-images/stock-photo.jpg" />
-  </div>
+  <div class = "flexslider">
+    <ul class="slides">
+      {% if widget.gallery_photo1_url.best_value != "" %}
+      <li>
+        <img src="{{ widget.gallery_photo1_url.best_value | url_encode}}" alt="{{ widget.gallery_photo1_caption.best_value }}" />
+        <p class="gallery-photo-caption">{{ widget.gallery_photo1_caption.best_value }}</p>
+      </li>
+      {% endif %}
 
-  <div class="gallery-navigation">
-    <a href="#" class="active">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">7</a>
+      {% if widget.gallery_photo2_url.best_value != "" %}
+      <li>
+        <img src="{{ widget.gallery_photo2_url.best_value | url_encode}}" alt="{{ widget.gallery_photo2_caption.best_value }}" />
+        <p class="gallery-photo-caption">{{ widget.gallery_photo2_caption.best_value }}</p>
+      </li>
+      {% endif %}
+
+      {% if widget.gallery_photo3_url.best_value != "" %}
+      <li>
+        <img src="{{ widget.gallery_photo3_url.best_value | url_encode}}" alt="{{ widget.gallery_photo3_caption.best_value }}" />
+        <p class="gallery-photo-caption">{{ widget.gallery_photo3_caption.best_value }}</p>
+      </li>
+      {% endif %}
+
+      {% if widget.gallery_photo4_url.best_value != "" %}
+      <li>
+        <img src="{{ widget.gallery_photo4_url.best_value | url_encode}}" alt="{{ widget.gallery_photo4_caption.best_value }}" />
+        <p class="gallery-photo-caption">{{ widget.gallery_photo4_caption.best_value }}</p>
+      </li>
+      {% endif %}
+
+      {% if widget.gallery_photo5_url.best_value != "" %}
+      <li>
+        <img src="{{ widget.gallery_photo5_url.best_value | url_encode}}" alt="{{ widget.gallery_photo5_caption.best_value }}" />
+        <p class="gallery-photo-caption">{{ widget.gallery_photo5_caption.best_value }}</p>
+      </li>
+      {% endif %}
+
+      {% if widget.gallery_photo6_url.best_value != "" %}
+      <li>
+        <img src="{{ widget.gallery_photo6_url.best_value | url_encode}}" alt="{{ widget.gallery_photo6_caption.best_value }}" />
+        <p class="gallery-photo-caption">{{ widget.gallery_photo6_caption.best_value }}</p>
+      </li>
+      {% endif %}
+    </ul>
   </div>
 
 </div> <!-- end .content -->
