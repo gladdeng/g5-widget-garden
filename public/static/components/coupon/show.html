@@ -1,13 +1,13 @@
 <div class="coupon widget">
   <div class="coupon-info h-card">
     <h2 class="coupon-offer">{{ widget.coupon_text.best_value }}</h2>
-    <img src="{{ widget.business_logo_url.best_value | url_encode }}" class="coupon-logo" />
+    <img src="{{ widget.location_logo_url.best_value | url_encode }}" class="coupon-logo" />
     <div class="coupon-address">
-      <p class="p-name"><strong>{{ widget.business_name.best_value }}</strong></p>
+      <p class="p-name"><strong>{{ widget.location_name.best_value }}</strong></p>
       <p class="p-adr h-adr">
-        <span class="p-street-address">{{ widget.business_street_address.best_value }}</span>
-        <span class="p-locality">{{ widget.business_city.best_value }}</span>, <span class="p-region">{{ widget.business_city.best_value }}</span> <span class="p-postal-code">{{ widget.business_postal_code.best_value }}</span>
-        <span class="p-tel">{{ widget.business_tel.best_value }}</span>
+        <span class="p-street-address">{{ widget.location_street_address.best_value }}</span>
+        <span class="p-locality">{{ widget.location_city.best_value }}</span>, <span class="p-region">{{ widget.location_city.best_value }}</span> <span class="p-postal-code">{{ widget.location_postal_code.best_value }}</span>
+        <span class="p-tel">{{ widget.location_tel.best_value }}</span>
       </p>
     </div>
     <p class="coupon-code"><strong>Offer #: {{ widget.coupon_number.best_value }}</strong></p>
@@ -17,7 +17,7 @@
   </div>
   <div class="coupon-map">
     <div id="map-canvas">
-      <img src="http://maps.googleapis.com/maps/api/staticmap?markers={{ widget.business_street_address.best_value | HtmlEncode}},{{ widget.business_city.best_value | HtmlEncode}},{{ widget.business_state.best_value | HtmlEncode}},{{ widget.business_postal_code.best_value | HtmlEncode}}&zoom=15&size=400x400&scale=2&sensor=false" />
+      <img src="http://maps.googleapis.com/maps/api/staticmap?markers={{ widget.location_street_address.best_value | HtmlEncode}},{{ widget.location_city.best_value | HtmlEncode}},{{ widget.location_state.best_value | HtmlEncode}},{{ widget.location_postal_code.best_value | HtmlEncode}}&zoom=15&size=400x400&scale=2&sensor=false" />
     </div>
   </div>
 </div>
