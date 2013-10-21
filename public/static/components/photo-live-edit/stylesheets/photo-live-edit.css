@@ -1,0 +1,45 @@
+/* GLOBAL STYLES */
+.media:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+.media .media-img {
+  float: left;
+  margin-right: 20px;
+}
+
+.edit-widget-lightbox {
+  box-shadow: 0 2px 6px #000;
+  box-sizing: border-box;
+  left: 0;
+  padding: 25px 25px 20px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.edit-widget input {
+  border: 1px solid #c2c2c2;
+  box-sizing: border-box;
+  padding: .5em 1em;
+  width: 100%;
+}
+
+.edit-buttons:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.edit-buttons .cancel {
+  color: #222222;
+  float: left;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.edit-buttons .btn {
+  float: right;
+  margin-left: 15px;
+}
