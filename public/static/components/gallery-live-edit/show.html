@@ -1,6 +1,26 @@
 <div class="edit-photo-widget edit-widget-lightbox edit-widget">
   <form>
+
     <div class="form-fields">
+      <fieldset>
+        <input class="photo-url" type="url" placeholder="IMAGE URL "/>
+        <div class="media">
+          <div class="media-img">
+            <img src="http://placehold.it/125x80" .>
+          </div>
+          <div class="media-body">
+            <input class="photo-title" type="text" placeholder="TITLE" />
+            <input class="photo-caption" type="text" placeholder="CAPTION" />
+          </div>
+        </div>
+        <a class="photo-delete" href="#" title="Delete Photo">x</a>
+        <span class="photo-move" title="drag to order photos">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </fieldset>
+
       <fieldset>
         <input class="photo-url" type="url" placeholder="IMAGE URL "/>
         <div class="media">
@@ -24,6 +44,7 @@
     <div class="edit-buttons">
       <a class="cancel" href="#">Cancel</a>
       <a class="btn" href="#">Save</a>
+      <a class="btn btn--b" href="#">Add Photo</a>
     </div>
   </form>
 </div>
