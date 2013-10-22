@@ -1,4 +1,8 @@
 /* GLOBAL STYLES */
+.preview [role=main] {
+  position: relative;
+}
+
 .media:after {
   clear: both;
   content: '';
@@ -6,10 +10,10 @@
 }
 .media .media-img {
   float: left;
-  margin-right: 20px;
 }
 
 .edit-widget-lightbox {
+  background: #fff;
   box-shadow: 0 2px 6px #000;
   box-sizing: border-box;
   left: 0;
@@ -20,10 +24,12 @@
 }
 
 .edit-widget input {
-  border: 1px solid #c2c2c2;
-  box-sizing: border-box;
-  padding: .5em 1em;
-  width: 100%;
+  border: 1px solid #c2c2c2 !important;
+  box-sizing: border-box !important;
+  font-size: 12px  !important;
+  padding: .5em 1em !important;
+  margin: 0 0 10px  !important;
+  width: 100% !important;
 }
 
 .edit-buttons:after {
@@ -41,5 +47,41 @@
 
 .edit-buttons .btn {
   float: right;
-  margin-left: 15px;
+}
+
+.cancel,
+.btn {
+  font-size: 12px !important;
+}
+
+.btn {
+  background: #f17c4f !important;
+  border: none !important;
+  margin: 0 0 0 15px!important;
+  padding: .3em 4em !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+}
+
+
+/* LIVE EDIT PHOTOS */
+.edit-photo-widget {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.edit-photo-widget .form-fields {
+  border: 1px solid #c2c2c2;
+  margin-bottom: 1em;
+  padding: 20px 30px;
+}
+
+.edit-photo-widget .media-img {
+  padding-right: 3%;
+  width: 23%;
+}
+
+.edit-photo-widget .media-body {
+  float: left;
+  width: 74%;
 }
