@@ -1,4 +1,8 @@
 /* GLOBAL STYLES */
+.preview .wrapper {
+  overflow: visible;
+}
+
 .preview [role=main] {
   position: relative;
 }
@@ -27,7 +31,7 @@
   border: 1px solid #c2c2c2 !important;
   box-sizing: border-box !important;
   font-size: 12px  !important;
-  padding: .5em 1em !important;
+  padding: .7em 1em !important;
   margin: 0 0 10px  !important;
   width: 100% !important;
 }
@@ -66,14 +70,14 @@
 
 /* LIVE EDIT PHOTOS */
 .edit-photo-widget {
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 16%;
+  padding-right: 16%;
 }
 
 .edit-photo-widget .form-fields {
   border: 1px solid #c2c2c2;
   margin-bottom: 1em;
-  padding: 20px 30px;
+  padding: 20px 50px;
 }
 
 .edit-photo-widget .media-img {
