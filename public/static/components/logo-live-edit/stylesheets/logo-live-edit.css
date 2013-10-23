@@ -1,0 +1,87 @@
+/* GLOBAL STYLES */
+.preview .wrapper {
+  overflow: visible;
+}
+
+.preview [role=banner],
+.preview [role=main] {
+  position: relative;
+}
+
+.media:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.media .media-img {
+  float: left;
+}
+
+.edit-widget-lightbox {
+  background: #fff;
+  box-shadow: 0 2px 6px #000;
+  box-sizing: border-box;
+  left: 0;
+  padding: 25px 25px 20px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.edit-widget fieldset {
+  padding: 1em 20px;
+}
+
+.edit-widget label {
+  font-size: 12px !important;
+  text-transform: uppercase;
+}
+
+.edit-widget input {
+  border: 1px solid #c2c2c2 !important;
+  box-sizing: border-box !important;
+  font-size: 12px  !important;
+  padding: .7em 1em !important;
+  margin: 0 0 10px  !important;
+  width: 100% !important;
+}
+
+.edit-buttons:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.edit-buttons .cancel {
+  color: #222;
+  float: left;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.edit-buttons .btn {
+  float: right;
+}
+
+.cancel,
+.btn {
+  font-size: 12px !important;
+}
+
+.btn {
+  background: #f17c4f !important;
+  border: none !important;
+  margin: 0 0 0 15px!important;
+  padding: .3em 1em !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  width: 8em;
+}
+
+.btn--b {
+  background: #222 !important;
+}
+
+
+/* LIVE EDIT LOGO */
