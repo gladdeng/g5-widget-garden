@@ -1,7 +1,22 @@
-initialize = ->
+window.initializeMap = ->
+  $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
+    address: widgetMapConfig.address
+    sensor: "false"
+  ).done (data) ->
+    coordinates = data.results[0].geometry.location
+    setMap(coordinates)
+
+loadScript = ->
+  script = document.createElement("script")
+  script.type = "text/javascript"
+  script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initializeMap"
+  document.body.appendChild script
+
+setMap = (coordinates) ->
   lat = coordinates.lat
   lng = coordinates.lng
   latLng = new google.maps.LatLng(lat, lng)
+
   mapOptions =
     scrollwheel: widgetMapConfig.panZoom
     draggable: widgetMapConfig.panZoom
@@ -16,22 +31,6 @@ initialize = ->
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
   marker.setMap map
 
-loadScript = ->
-  script = document.createElement("script")
-  script.type = "text/javascript"
-  script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize"
-  document.body.appendChild script
-
-getCoordinates = ->
-  $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
-    address: widgetMapConfig.address
-    sensor: "false"
-  ).done (data) ->
-    coordinates = data.results[0].geometry.location
-    loadScript()
-
-coordinates = undefined
-
 $ ->
   window.widgetMapConfig = JSON.parse($('#map-config:first').html())
-  getCoordinates()
+  loadScript()
