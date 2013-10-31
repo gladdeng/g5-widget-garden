@@ -23,3 +23,6 @@
 
 # Ignore NPM Packages
 node_modules/*
+
+# Ignore environment specific env
+.env.*
