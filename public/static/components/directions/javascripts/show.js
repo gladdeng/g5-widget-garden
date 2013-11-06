@@ -1,30 +1,30 @@
 (function() {
-  var calcRoute, directionsDisplay, errorCallback, getClientCoords, getStoreCoords, initialize, loadScript, map, populateStartAddress, setupMap, storeCoords, successCallback;
+  var errorCallback, getClientCoords, getStoreCoords, loadScript, populateStartAddress, setupMap, storeCoords, successCallback;
 
   loadScript = function() {
     var script;
     script = document.createElement("script");
     script.type = "text/javascript";
-    script.src = "http://maps.googleapis.com/maps/api/js?sensor=true&callback=initialize";
+    script.src = "http://maps.googleapis.com/maps/api/js?sensor=true&callback=initializeDirections";
     return document.body.appendChild(script);
   };
 
-  initialize = function() {
+  window.initializeDirections = function() {
     getStoreCoords();
     return getClientCoords();
   };
 
   setupMap = function() {
-    var directionsDisplay, map, mapOptions;
-    directionsDisplay = new google.maps.DirectionsRenderer();
+    var map, mapOptions;
+    window.directionsDisplay = new google.maps.DirectionsRenderer();
     mapOptions = {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       center: storeCoords
     };
     map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-    directionsDisplay.setMap(map);
-    return directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+    window.directionsDisplay.setMap(map);
+    return window.directionsDisplay.setPanel(document.getElementById("directionsPanel"));
   };
 
   getStoreCoords = function() {
@@ -32,9 +32,9 @@
       address: directionsConfig.address,
       sensor: "false"
     }).done(function(data) {
-      var storeCoords;
-      storeCoords = data.results[0].geometry.location;
-      storeCoords = new google.maps.LatLng(storeCoords.lat, storeCoords.lng);
+      window.lat = data.results[0].geometry.location.lat;
+      window.lng = data.results[0].geometry.location.lng;
+      window.storeCoords = new google.maps.LatLng(window.lat, window.lng);
       return setupMap();
     });
   };
@@ -68,11 +68,11 @@
     }, function(results, status) {}, status === google.maps.GeocoderStatus.OK ? (address = results[0].formatted_address, $("#start").attr("value", address)) : void 0);
   };
 
-  calcRoute = function() {
+  window.calcRoute = function() {
     var directionsService, end, request, start;
     directionsService = new google.maps.DirectionsService();
     start = document.getElementById("start").value;
-    end = storeCoords;
+    end = window.storeCoords;
     request = {
       origin: start,
       destination: end,
@@ -80,14 +80,10 @@
     };
     return directionsService.route(request, function(result, status) {
       if (status === google.maps.DirectionsStatus.OK) {
-        return directionsDisplay.setDirections(result);
+        return window.directionsDisplay.setDirections(result);
       }
     });
   };
-
-  directionsDisplay = void 0;
-
-  map = void 0;
 
   storeCoords = void 0;
 
