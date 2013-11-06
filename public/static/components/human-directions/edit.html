@@ -1,77 +1,61 @@
 <form>
   <div class="form-field">
-    <label for="address">Address</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.human_directions.address.id }}][id]"
-			value="{{ widget.human_directions.address.id }}">
-
+    {{ widget.address.id_hidden_field }}
+    <label for="{{ widget.address.value_field_id }}" >
+      Address
+    </label>
     <input type="text"
-			placeholder="Address"
-			name="widget[properties_attributes][{{ widget.human_directions.address.id }}][value]"
-      value="{{ widget.location.address }}"
-      id="address" />
+      id="{{ widget.address.value_field_id }}"
+      name="{{ widget.address.value_field_name }}"
+      value="{{ widget.address.best_value }}"
+    />
+  </div>
+
+  <label>Map Type</label>
+  <div class="form-field check-field">
+    {{ widget.map_type.id_hidden_field }}
+    <label for="{{ widget.map_type.value_field_id }}_roadmap" >
+      Road Map
+    </label>
+    <input type="radio"
+      id="{{ widget.map_type.value_field_id }}_roadmap"
+      name="{{ widget.map_type.value_field_name }}"
+      value="ROADMAP"
+      checked="checked"
+    />
+    <label for="{{ widget.map_type.value_field_id }}_satellite" >
+      Satellite
+    </label>
+    <input type="radio"
+      id="{{ widget.map_type.value_field_id }}_satellite"
+      name="{{ widget.map_type.value_field_name }}"
+      value="SATELLITE"
+      {% if widget.map_type.best_value == "SATELLITE" %}
+      checked="checked"
+      {% endif %}
+    />
+  </div>
+  <div class="form-field check-field">
+    {{ widget.allow_pan_zoom.id_hidden_field }}
+    <label for="{{ widget.allow_pan_zoom.value_field_id }}" >
+      Allow Panning and Zooming
+    </label>
+    <input type="checkbox"
+      id="{{ widget.allow_pan_zoom.value_field_id }}"
+      name="{{ widget.allow_pan_zoom.value_field_name }}"
+      value="true"
+      {% if widget.allow_pan_zoom.best_value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
   </div>
   <div class="form-field">
-    <fieldset>
-      <legend>Map Type</legend>
-  		<input type="hidden"
-  			name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][id]"
-  			value="{{ widget.human_directions.map_type.id }}">
-      <label for="roadmap">
-        <input type="radio"
-          name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][value]"
-          value="ROADMAP"
-          id="roadmap"
-          checked
-          />
-          Road Map
-      </label>
-      <label for="satellite">
-        <input type="radio"
-          name="widget[properties_attributes][{{ widget.human_directions.map_type.id }}][value]"
-          value="SATELLITE"
-          id="satellite"
-          />
-          Satellite
-      </label>
-    </fieldset>
-  </div>
-  <div class="form-field">
-    <fieldset>
-    <legend>Allow Panning and Zooming?</legend>
-  		<input type="hidden"
-  			name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][id]"
-  			value="{{ widget.human_directions.pan_zoom.id }}">
-      <label for="pan-zoom-true">
-        <input type="radio"
-          name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][value]"
-          value="true"
-          id="pan-zoom-true"
-          checked
-          />
-          True
-      </label>
-      <label for="pan-zoom-false">
-        <input type="radio"
-          name="widget[properties_attributes][{{ widget.human_directions.pan_zoom.id }}][value]"
-          value="false"
-          id="pan-zoom-false"
-          />
-          False
-      </label>
-    </fieldset>
-  </div>
-  <div class="form-field">
-    <label for="written-directions-text">Written Directions</label>
-		<input type="hidden"
-			name="widget[properties_attributes][{{ widget.human_directions.written_directions.id }}][id]"
-			value="{{ widget.human_directions.written_directions.id }}">
+    {{ widget.written_directions.id_hidden_field }}
+    <label for="{{ widget.written_directions.value_field_id }}">Written Directions</label>
     <textarea
-      name="widget[properties_attributes][{{ widget.human_directions.written_directions.id }}][value]"
-      id="written-directions"
-      class="editor"
-      id="written-directions-text"
-      />
+      name="{{ widget.written_directions.value_field_name }}"
+      id="{{ widget.written_directions.value_field_id }}"
+      style="vertical-align:top;">{{ widget.written_directions.best_value }}</textarea>
   </div>
 
   <input type="submit" value="Save" class="btn" />
