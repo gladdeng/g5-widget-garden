@@ -1,7 +1,26 @@
 (function() {
-  var coordinates, getCoordinates, initialize, loadScript;
+  var getCoordinates, loadScript;
 
-  initialize = function() {
+  window.initializeHumanDirections = function() {
+    return $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
+      address: widgetHumanDirectionsConfig.address,
+      sensor: "false"
+    }).done(function(data) {
+      var coordinates;
+      coordinates = data.results[0].geometry.location;
+      return getCoordinates(coordinates);
+    });
+  };
+
+  loadScript = function() {
+    var script;
+    script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initializeHumanDirections";
+    return document.body.appendChild(script);
+  };
+
+  getCoordinates = function(coordinates) {
     var lat, latLng, lng, map, mapOptions, marker, markerOptions;
     lat = coordinates.lat;
     lng = coordinates.lng;
@@ -23,30 +42,9 @@
     return marker.setMap(map);
   };
 
-  loadScript = function() {
-    var script;
-    script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
-    return document.body.appendChild(script);
-  };
-
-  getCoordinates = function() {
-    return $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
-      address: widgetHumanDirectionsConfig.address,
-      sensor: "false"
-    }).done(function(data) {
-      var coordinates;
-      coordinates = data.results[0].geometry.location;
-      return loadScript();
-    });
-  };
-
-  coordinates = void 0;
-
   $(function() {
     window.widgetHumanDirectionsConfig = JSON.parse($('#human-directions-config:first').html());
-    return getCoordinates();
+    return loadScript();
   });
 
 }).call(this);
