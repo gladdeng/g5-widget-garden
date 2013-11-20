@@ -12,7 +12,7 @@
     }
 
     pricingAndAvailability.prototype.getPricing = function(client_urn, location_urn) {
-      return $.get("http://localhost:5000/locations/g5-cl-6cx7rin-hollywood", function(data) {
+      return $.get("http://" + client_urn + ".herokuapp.com/locations/" + location_urn, function(data) {
         var $data, floorplans;
         $data = $(data);
         floorplans = $data.find('.e-content');

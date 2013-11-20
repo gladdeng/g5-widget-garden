@@ -8,7 +8,7 @@ class pricingAndAvailability
       @getPricing(client_urn, location_urn)
 
   getPricing: (client_urn, location_urn) ->
-    $.get "http://localhost:5000/locations/g5-cl-6cx7rin-hollywood", (data) ->
+    $.get "http://" + client_urn + ".herokuapp.com/locations/" + location_urn, (data) ->
       $data = $(data)
       floorplans = $data.find('.e-content')
       $("#floorplans").append(floorplans);
