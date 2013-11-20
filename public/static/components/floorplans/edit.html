@@ -1,22 +1,26 @@
 <form>
-  <div class="form-field check-field">
-    {{ widget.sorting.id_hidden_field }}
-    <input type="hidden"
-      id="{{ widget.sorting.value_field_id }}_false"
-      name="{{ widget.sorting.value_field_name }}"
-      value="false"
-    />
-    <input type="checkbox"
-      id="{{ widget.sorting.value_field_id }}"
-      name="{{ widget.sorting.value_field_name }}"
-      value="true"
-      {% if widget.sorting.best_value == "true" %}
-      checked="checked"
-      {% endif %}
-    />
-    <label for="{{ widget.sorting.value_field_id }}" >
-      Allow sorting
+  <div class="form-field">
+    {{ widget.client_urn.id_hidden_field }}
+    <label for="{{ widget.client_urn.value_field_id }}" >
+      Client URN
     </label>
+    <input type="text"
+      id="{{ widget.client_urn.value_field_id }}"
+      name="{{ widget.client_urn.value_field_name }}"
+      value="{{ widget.client_urn.best_value }}"
+    />
   </div>
+  <div class="form-field">
+    {{ widget.location_urn.id_hidden_field }}
+    <label for="{{ widget.location_urn.value_field_id }}" >
+      Location URN
+    </label>
+    <input type="text"
+      id="{{ widget.location_urn.value_field_id }}"
+      name="{{ widget.location_urn.value_field_name }}"
+      value="{{ widget.location_urn.best_value }}"
+    />
+  </div>
+
   <input type="submit" value="Save" class="btn" />
 </form>
