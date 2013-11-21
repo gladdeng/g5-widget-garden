@@ -1,4 +1,42 @@
-.social-links a {
+.edit-social-links-widget {
+  border-top: 1px solid #d7d7d7;
+  margin-top: 1em;
+  padding-top: 2em;
+}
+
+.edit-social-links-widget input {
+  border: 1px solid #c1c1c1;
+  font-size: 12px;
+  padding: .75em .75em .75em 50px;
+  width: 100%;
+}
+
+.edit-social-links-widget input:focus {
+  color: #f17c4f;
+}
+
+.edit-social-links-widget {
+  overflow: hidden;
+}
+
+.edit-social-links-widget .edit-cancel,
+.edit-social-links-widget .edit-btn {
+  border: none;
   display: inline-block;
-  margin-right: 5px;
+  font-size: 12px;
+  padding: .5em 3em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.edit-social-links-widget .edit-cancel {
+  background: #fff;
+  float: left;
+  text-decoration: underline;
+}
+
+.edit-social-links-widget .edit-btn {
+  background: #f17c4f;
+  color: #fff;
+  float: right;
 }
