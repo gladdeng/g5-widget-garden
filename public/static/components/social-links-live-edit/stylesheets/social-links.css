@@ -5,17 +5,78 @@
 }
 
 .edit-social-links-widget input {
+  background-image: url(http://g5-widget-garden.herokuapp.com/static/images/icons--social-edit@1x.png);
+  background-repeat: no-repeat;
   border: 1px solid #c1c1c1;
   font-size: 12px;
   padding: .75em .75em .75em 50px;
+  text-transform: uppercase;
   width: 100%;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background-image: url(http://g5-widget-garden.herokuapp.com/static/images/icons--social-edit@2x.png);
+    background-size: 27px 378px;
+  }
+}
+
+.edit-social-links-widget .twitter-field {
+	background-position: 5px 8px;
+}
+.edit-social-links-widget .tumblr-field {
+	background-position: 5px -34px ;
+}
+.edit-social-links-widget .facebook-field {
+	background-position: 5px -79px ;
+}
+.edit-social-links-widget .instagram-field {
+	background-position: 5px -122px ;
+}
+.edit-social-links-widget .pinterest-field {
+	background-position: 5px -170px ;
+}
+.edit-social-links-widget .foursquare-field {
+	background-position: 5px -219px ;
+}
+.edit-social-links-widget .yelp-field {
+	background-position: 5px -265px ;
+}
+.edit-social-links-widget .vimeo-field {
+	background-position: 5px -310px ;
+}
+.edit-social-links-widget .youtube-field {
+	background-position: 5px -349px ;
+}
+
+// preload hover sprite image
+.edit-social-links-widget {
+  background: url(http://g5-widget-garden.herokuapp.com/static/images/icons--social-edit-active@1x.png) no-repeat -9999px -9999px;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url(http://g5-widget-garden.herokuapp.com/static/images/icons--social-edit-active@2x.png) no-repeat -9999px -9999px;
+  }
 }
 
 .edit-social-links-widget input:focus {
+  background-image: url(http://g5-widget-garden.herokuapp.com/static/images/icons--social-edit-active@1x.png);
   color: #f17c4f;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background-image: url(http://g5-widget-garden.herokuapp.com/static/images/icons--social-edit-active@2x.png);
+    background-size: 27px 378px;
+  }
 }
 
-.edit-social-links-widget {
+.edit-social-links-widget .empty {
+  opacity: 0.5;
+}
+
+.edit-social-links-widget .empty:hover,
+.edit-social-links-widget .empty:active,
+.edit-social-links-widget .empty:focus {
+  opacity: 1;
+}
+
+.edit-social-links-widget .edit-buttons {
   overflow: hidden;
 }
 
