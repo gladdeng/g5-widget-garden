@@ -2,13 +2,10 @@
   {
     "id": "{{ widget.twitter_username.best_value }}",
     "count": {{ widget.twitter_tweet_count.best_value }},
-    "enableLinks": true,
-    "ignoreReplies": true,
-    "clearContents": true,
-    "template": "{% if widget.twitter_display_avatars.best_value == 'true' %} <img src=\\'%user_profile_image_url%\\' class=\\'tweet-avatar\\' /> {% endif %} <span class=\\'tweet-text\\'>%text% <a href=\\'http://twitter.com/%user_screen_name%/statuses/%id_str%/\\' class=\\'tweet-date\\'>%time%</a></span>"
+    "avatar": {{widget.twitter_display_avatars.best_value}}
   }
 </script>
 
 <div id="tweets" class="twitter-feed widget">
-
+  <img class='tweet-avatar' />
 </div>
