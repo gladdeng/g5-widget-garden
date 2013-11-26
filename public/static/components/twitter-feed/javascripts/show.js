@@ -20,7 +20,7 @@
         tweetTime = tweetTimestamp.text();
         tweetAvatar = $(avatar[0]).attr('src');
         tweetUrl = "http://www.twitter.com" + tweetTimestamp.find("a").attr("href");
-        tweetTemplate = "<img class='tweet-avatar' src='" + tweetAvatar + "'/>        <span class='tweet-text'> <a href='" + atReplyUrl + "' target='_blank'>" + atReplyUser + "</a> " + tweetText + "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span>";
+        tweetTemplate = "<li><img class='tweet-avatar' src='" + tweetAvatar + "'/>        <span class='tweet-text'> <a href='" + atReplyUrl + "' target='_blank'>" + atReplyUser + "</a> " + tweetText + "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span></li>";
         if (tweetOptions.avatar !== true) {
           $('.tweet-avatar').hide();
         }

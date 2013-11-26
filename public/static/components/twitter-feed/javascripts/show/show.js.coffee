@@ -19,9 +19,9 @@ $ ->
       tweetAvatar = $(avatar[0]).attr('src')
       tweetUrl = "http://www.twitter.com" + tweetTimestamp.find("a").attr("href")
 
-      tweetTemplate = "<img class='tweet-avatar' src='" + tweetAvatar + "'/>
+      tweetTemplate = "<li><img class='tweet-avatar' src='" + tweetAvatar + "'/>
         <span class='tweet-text'> <a href='" + atReplyUrl + "' target='_blank'>" + atReplyUser + "</a> " + tweetText +
-        "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span>"
+        "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span></li>"
 
       $('.tweet-avatar').hide() unless tweetOptions.avatar is true
       $('.tweet-list').append(tweetTemplate)
