@@ -11,13 +11,16 @@
       tweets = $(".timeline .tweet:lt(" + tweetOptions.count + ")", data.results[0]).toArray();
       avatar = $(".avatar:lt(1) img", data.results[0]);
       return tweets.forEach(function(tweet) {
-        var tweetAvatar, tweetTemplate, tweetText, tweetTime, tweetTimestamp, tweetUrl;
+        var atReply, atReplyUrl, atReplyUser, tweetAvatar, tweetTemplate, tweetText, tweetTime, tweetTimestamp, tweetUrl;
+        atReply = $(tweet).find(".tweet-text .twitter-atreply");
+        atReplyUser = atReply.text();
+        atReplyUrl = 'http://www.twitter.com' + atReply.attr("href");
         tweetText = $(tweet).find(".tweet-text p").text();
         tweetTimestamp = $(tweet).find(".timestamp");
         tweetTime = tweetTimestamp.text();
         tweetAvatar = $(avatar[0]).attr('src');
         tweetUrl = "http://www.twitter.com" + tweetTimestamp.find("a").attr("href");
-        tweetTemplate = "<img class='tweet-avatar' src='" + tweetAvatar + "'/> <span class='tweet-text'>" + tweetText + "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span>";
+        tweetTemplate = "<img class='tweet-avatar' src='" + tweetAvatar + "'/>        <span class='tweet-text'> <a href='" + atReplyUrl + "' target='_blank'>" + atReplyUser + "</a> " + tweetText + "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span>";
         if (tweetOptions.avatar !== true) {
           $('.tweet-avatar').hide();
         }
