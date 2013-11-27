@@ -2,6 +2,8 @@ class pricingAndAvailability
   constructor: (pricingOptions) ->
 
     cpas_urn = pricingOptions["clientUrn"].replace(/^-c-/, "-cpas-")
+    cpas_urn = cpas_urn.substring(0,30)
+
     location_urn = pricingOptions["locationUrn"]
 
     if cpas && location_urn
