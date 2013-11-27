@@ -1,8 +1,10 @@
 class pricingAndAvailability
   constructor: (pricingOptions) ->
 
+    heroku_app_name_max_length = 30
+
     cpas_urn = pricingOptions["clientUrn"].replace(/^-c-/, "-cpas-")
-    cpas_urn = cpas_urn.substring(0,30)
+    cpas_urn = cpas_urn.substring(0, heroku_app_name_max_length)
 
     location_urn = pricingOptions["locationUrn"]
 

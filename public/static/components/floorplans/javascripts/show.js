@@ -3,16 +3,20 @@
 
   pricingAndAvailability = (function() {
     function pricingAndAvailability(pricingOptions) {
-      var client_urn, location_urn;
-      client_urn = pricingOptions["clientUrn"].replace(/^g5-c-/, "g5-cpas-");
+      var cpas_urn, heroku_app_name_max_length, location_urn;
+      heroku_app_name_max_length = 30;
+      cpas_urn = pricingOptions["clientUrn"].replace(/^-c-/, "-cpas-");
+      cpas_urn = cpas_urn.substring(0, heroku_app_name_max_length);
       location_urn = pricingOptions["locationUrn"];
-      if (client_urn && location_urn) {
-        this.getPricing(client_urn, location_urn);
+      if (cpas && location_urn) {
+        this.getPricing(cpas_urn, location_urn);
       }
     }
 
     pricingAndAvailability.prototype.getPricing = function(client_urn, location_urn) {
-      return $.get("http://" + client_urn + ".herokuapp.com/locations/" + location_urn, function(data) {
+      var pricingURL;
+      pricingURL = "http://" + cpas_urn + ".herokuapp.com/locations/" + location_urn;
+      return $.get(pricingURL, function(data) {
         var $data, floorplans;
         $data = $(data);
         floorplans = $data.find('.e-content');
