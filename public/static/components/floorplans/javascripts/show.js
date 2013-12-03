@@ -13,7 +13,7 @@
       }
     }
 
-    pricingAndAvailability.prototype.getPricing = function(client_urn, location_urn) {
+    pricingAndAvailability.prototype.getPricing = function(cpas_urn, location_urn) {
       var pricingURL;
       pricingURL = "http://" + cpas_urn + ".herokuapp.com/locations/" + location_urn;
       return $.get(pricingURL, function(data) {
