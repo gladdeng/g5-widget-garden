@@ -5,8 +5,9 @@
     function pricingAndAvailability(pricingOptions) {
       var cpas_urn, heroku_app_name_max_length, location_urn;
       heroku_app_name_max_length = 30;
-      cpas_urn = pricingOptions["clientUrn"].replace(/^-c-/, "-cpas-");
+      cpas_urn = pricingOptions["clientUrn"].replace(/-c-/, "-cpas-");
       cpas_urn = cpas_urn.substring(0, heroku_app_name_max_length);
+      console.log("CPAS = " + cpas_urn)
       location_urn = pricingOptions["locationUrn"];
       if (cpas_urn && location_urn) {
         this.getPricing(cpas_urn, location_urn);
