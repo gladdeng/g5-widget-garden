@@ -1,0 +1,27 @@
+<form>
+  <div class="field">
+    {{ widget.tracking_code.id_hidden_field }}
+    <label for="{{ widget.tracking_code.value_field_id }}" >
+      Tracking Code
+    </label>
+    <input type="text"
+      id="{{ widget.tracking_code.value_field_id }}"
+      name="{{ widget.tracking_code.value_field_name }}"
+      value="{{ widget.tracking_code.best_value }}"
+    />
+  </div>
+
+  <div class="field">
+    {{ widget.domain_name.id_hidden_field }}
+    <label for="{{ widget.domain_name.value_field_id }}" >
+      Domain Name
+    </label>
+    <input type="url"
+      id="{{ widget.domain_name.value_field_id }}"
+      name="{{ widget.domain_name.value_field_name }}"
+      value="{{ widget.domain_name.best_value }}"
+    />
+  </div>
+
+  <input type="submit" value="Save" />
+</form>
