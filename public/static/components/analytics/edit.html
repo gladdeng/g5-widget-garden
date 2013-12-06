@@ -19,7 +19,7 @@
     <input type="url"
       id="{{ widget.domain_name.value_field_id }}"
       name="{{ widget.domain_name.value_field_name }}"
-      value="{{ widget.domain_name.best_value }}"
+      value="{{ widget.domain_name.best_value | url_encode }}"
     />
   </div>
 
