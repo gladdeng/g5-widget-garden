@@ -1,7 +1,7 @@
 <div class="social-links widget">
 
   {% if widget.facebook_username.best_value != ""  %}
-    <a href="http://facebook.com/{{ widget.facebook_username.best_value }}" class="facebook" title="Facebook" rel="me">Facebook</a>
+    <a href="http://facebook.com/{{ widget.facebook_username.best_value | url_encode }}" class="facebook" title="Facebook" rel="me">Facebook</a>
   {% endif %}
 
   {% if widget.twitter_username.best_value != ""  %}
@@ -13,7 +13,7 @@
   {% endif %}
 
   {% if widget.foursquare_username.best_value != "" %}
-    <a href="http://foursquare.com/{{ widget.foursquare_username.best_value }}" class="foursquare" title="Foursquare" rel="me">Foursquare</a>
+    <a href="http://foursquare.com/{{ widget.foursquare_username.best_value | url_encode }}" class="foursquare" title="Foursquare" rel="me">Foursquare</a>
   {% endif %}
 
   {% if widget.pinterest_username.best_value != ""  %}
