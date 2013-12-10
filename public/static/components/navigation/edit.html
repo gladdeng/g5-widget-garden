@@ -27,20 +27,20 @@
         {% for web_page in widget.navigation.best_value %}
         <li class="field check-field">
           <input type="hidden"
-            id="{{ widget.navigation.value_field_id }}_{{ forloop.index0 }}_display_false"
-            name="{{ widget.navigation.value_field_name }}[{{ forloop.index0 }}][display]"
+            id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display_false"
+            name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
             value="false"
           />
           <input type="checkbox"
-            id="{{ widget.navigation.value_field_id }}_{{ forloop.index0 }}_display"
-            name="{{ widget.navigation.value_field_name }}[{{ forloop.index0 }}][display]"
+            id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display"
+            name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
             value="true"
-            {% if web_page.display != "false" %}
+            {% if web_page[1].display != "false" %}
             checked="checked"
             {% endif %}
           />
-          <label for="{{ widget.navigation.value_field_id }}_{{ forloop.index0 }}_display">
-            {{ web_page.title }}
+          <label for="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display">
+            {{ web_page[1].name }}
           </label>
         </li>
         {% endfor %}
