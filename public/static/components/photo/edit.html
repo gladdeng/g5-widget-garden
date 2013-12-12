@@ -1,13 +1,25 @@
 <form>
   <div class="form-field">
-    {{ widget.photo_url.id_hidden_field }}
-    <label for="{{ widget.photo_url.value_field_id }}" >
-      URL
+    {{ widget.photo_source_url.id_hidden_field }}
+    <label for="{{ widget.photo_source_url.value_field_id }}" >
+      Source URL
     </label>
     <input type="text"
-      id="{{ widget.photo_url.value_field_id }}"
-      name="{{ widget.photo_url.value_field_name }}"
-      value="{{ widget.photo_url.best_value | url_encode }}"
+      id="{{ widget.photo_source_url.value_field_id }}"
+      name="{{ widget.photo_source_url.value_field_name }}"
+      value="{{ widget.photo_source_url.best_value | url_encode }}"
+    />
+  </div>
+  
+  <div class="form-field">
+    {{ widget.photo_link_url.id_hidden_field }}
+    <label for="{{ widget.photo_link_url.value_field_id }}" >
+      Link URL
+    </label>
+    <input type="text"
+      id="{{ widget.photo_link_url.value_field_id }}"
+      name="{{ widget.photo_link_url.value_field_name }}"
+      value="{{ widget.photo_link_url.best_value | url_encode }}"
     />
   </div>
 
