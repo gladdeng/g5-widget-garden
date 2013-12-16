@@ -22,6 +22,18 @@
       value="{{ widget.photo_link_url.best_value | url_encode }}"
     />
   </div>
+  
+  <div class="form-field">
+    {{ widget.photo_alt_tag.id_hidden_field }}
+    <label for="{{ widget.photo_alt_tag.value_field_id }}" >
+      Caption
+    </label>
+    <input type="text"
+      id="{{ widget.photo_alt_tag.value_field_id }}"
+      name="{{ widget.photo_alt_tag.value_field_name }}"
+      value="{{ widget.photo_alt_tag.best_value }}"
+    />
+  </div>
 
   <div class="form-field">
     {{ widget.photo_caption.id_hidden_field }}
