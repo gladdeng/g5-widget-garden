@@ -2,7 +2,7 @@
   {% if widget.photo_link_url.best_value != "" %}
     <a href="{{ widget.photo_link_url.best_value | url_encode }}">
   {% endif %}
-  <img class="u-photo" src="{{ widget.photo_source_url.best_value | url_encode }}" itemprop="image" />
+  <img class="u-photo" src="{{ widget.photo_source_url.best_value | url_encode }}" alt="{{ widget.photo_alt_tag.best_value }}" itemprop="image" />
   {% if widget.photo_link_url.best_value != "" %}
     </a>
   {% endif %}
