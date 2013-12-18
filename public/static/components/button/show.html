@@ -1,3 +1,5 @@
+<h1>Location ZIP: {{ widget.location_postal_code.best_value }}</h1>
+
 {% if widget.display_button.best_value == "true" %}
   <a href="{{ widget.button_url.best_value | url_encode }}" class="btn widget">
     {{ widget.button_label.best_value }}
