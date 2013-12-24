@@ -170,7 +170,8 @@ li.floorplan:nth-child(even) {
 }
 .floorplan-img {
   float: left;
-  width: 15%;
+  margin-right: 2%;
+  width: 13%;
 }
 .floorplan-img .floorplan-btn {
   padding: 2px;
