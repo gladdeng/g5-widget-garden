@@ -13,39 +13,36 @@
 
     <div class="p-author h-card">
       <div class="form-field">
-        <label for="p-given-name">First Name</label>
-        <input type="text" id="p-given-name" class="p-name p-given-name" name="p-given-name" required />
+        <label for="p-name">Name</label>
+        <input type="text" id="p-name" class="p-name" name="p-name" required />
       </div>
-
+      
       <div class="form-field">
-        <label for="p-family-name">Last Name</label>
-        <input type="text" id="p-family-name" class="p-name p-family-name" name="p-family-name" required />
+        <fieldset>
+          <legend>Are you a current resident?</legend>
+          <label><input type="radio" class="p-g5-resident" name="p-g5-resident"> Yes</label>
+          <label><input type="radio" class="p-g5-resident" name="p-g5-resident" checked> No</label>
+        </fieldset>
+      </div>
+    
+      <div class="form-field">
+        <label for="p-g5-resident-2">If not, How'd your hear about us?</label>
+        <input type="text" id="p-g5-resident-2" class="p-g5-resident-2" name="p-g5-resident-2" />
+      </div>
+      
+      <div class="form-field">
+        <label for="p-tel">Phone Number <span class="form-optional">optional</span></label>
+        <input type="tel" id="p-tel" class="p-tel" name="p-tel" />
       </div>
 
       <div class="form-field">
         <label for="u-email">Email</label>
         <input type="email" id="u-email" class="u-email" name="u-email" required />
       </div>
-
-      <div class="form-field">
-        <label for="p-tel">Phone Number <span class="form-optional">optional</span></label>
-        <input type="tel" id="p-tel" class="p-tel" name="p-tel" />
-      </div>
-
     </div>
 
     <div class="form-field">
-      <label for="p-g5-rooms">How many bedrooms would you like? <span class="form-optional">optional</span></label>
-      <input type="number" id="p-g5-rooms" class="p-g5-rooms" name="p-g5-rooms" />
-    </div>
-
-    <div class="form-field">
-      <label for="dt-start">Desired move-in date? <span class="form-optional">optional</span></label>
-      <input type="date" id="dt-start" class="dt-start" name="dt-start" />
-    </div>
-
-    <div class="form-field">
-      <label for="e-content">Any Questions? <span class="form-optional">optional</span></label>
+      <label for="e-content">Message</label>
       <textarea id="e-content" class="e-content" name="e-content"></textarea>
     </div>
 

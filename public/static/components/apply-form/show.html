@@ -13,13 +13,8 @@
 
     <div class="p-author h-card">
       <div class="form-field">
-        <label for="p-given-name">First Name</label>
-        <input type="text" id="p-given-name" class="p-name p-given-name" name="p-given-name" required />
-      </div>
-
-      <div class="form-field">
-        <label for="p-family-name">Last Name</label>
-        <input type="text" id="p-family-name" class="p-name p-family-name" name="p-family-name" required />
+        <label for="p-name">Name</label>
+        <input type="text" id="p-name" class="p-name" name="p-name" required />
       </div>
 
       <div class="form-field">
@@ -33,6 +28,11 @@
           <input type="tel" id="p-tel" class="p-tel" name="p-tel" />
         </div>
       {% endif %}
+    </div>
+    
+    <div class="form-field">
+      <label for="e-content">Message <span class="form-optional">optional</span></label>
+      <textarea id="e-content" class="e-content" name="e-content"></textarea>
     </div>
 
     <input type="submit" value="Send" />
