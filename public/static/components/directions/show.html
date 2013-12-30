@@ -1,11 +1,10 @@
 <script id="directions-config" type="application/json">
   {
-    "address": "{{ widget.address.best_value }}"
+    "address": "{{ widget.location_street_address.best_value }}, {{ widget.location_city.best_value }}, {{ widget.location_state.best_value }} {{ widget.location_postal_code.best_value }}"
   }
 </script>
 
 <div class="directions widget">
-  <h2>Driving Directions</h2>
   <div id="map-canvas"></div>
   <div class="directions-text">
     <strong>Start: </strong>

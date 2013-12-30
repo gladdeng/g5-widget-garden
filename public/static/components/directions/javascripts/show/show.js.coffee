@@ -49,9 +49,9 @@ populateStartAddress = (latLng) ->
   geocoder.geocode
     latLng: latLng,
     (results, status) ->
-    if status is google.maps.GeocoderStatus.OK
-      address = results[0].formatted_address
-      $("#start").attr "value", address
+      if status is google.maps.GeocoderStatus.OK
+        address = results[0].formatted_address
+        $("#start").attr "value", address
 
 window.calcRoute = ->
   directionsService = new google.maps.DirectionsService()

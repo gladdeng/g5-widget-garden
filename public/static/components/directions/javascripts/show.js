@@ -65,7 +65,13 @@
     geocoder = new google.maps.Geocoder();
     return geocoder.geocode({
       latLng: latLng
-    }, function(results, status) {}, status === google.maps.GeocoderStatus.OK ? (address = results[0].formatted_address, $("#start").attr("value", address)) : void 0);
+    }, function(results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        address = results[0].formatted_address;
+        $("#start").attr("value", address);
+        return calcRoute();
+      }
+    });
   };
 
   window.calcRoute = function() {
