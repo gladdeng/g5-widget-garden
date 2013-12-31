@@ -5,9 +5,10 @@
 </script>
 
 <div class="directions widget">
+  
   <div id="map-canvas"></div>
   <div class="directions-text">
-    <strong>Start: </strong>
+    <label for="start">Start Address:</label>
     <input type="text" id="start" onchange="calcRoute();">
     <input type="submit" onclick="calcRoute();" best_value="Get Directions">
     <div id="directionsPanel"></div>

@@ -14,6 +14,10 @@
   display:inline;
 }
 
+.directions .directions-text label {
+  display: block;
+}
+
 .directions #directionsPanel {
   margin-top: 1em;
 }
