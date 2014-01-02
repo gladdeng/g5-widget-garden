@@ -3,15 +3,15 @@ class pricingAndAvailability
 
     heroku_app_name_max_length = 30
 
-    cpas_urn = pricingOptions["clientUrn"].replace(/^-c-/, "-cpas-")
+    cpas_urn = pricingOptions["clientUrn"].replace(/-c-/, "-cpas-")
     cpas_urn = cpas_urn.substring(0, heroku_app_name_max_length)
 
     location_urn = pricingOptions["locationUrn"]
 
-    if cpas && location_urn
+    if cpas_urn && location_urn
       @getPricing(cpas_urn, location_urn)
 
-  getPricing: (client_urn, location_urn) ->
+  getPricing: (cpas_urn, location_urn) ->
     pricingURL = "http://" + cpas_urn + ".herokuapp.com/locations/" + location_urn;
 
     $.get pricingURL, (data) ->
