@@ -68,8 +68,7 @@
     }, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         address = results[0].formatted_address;
-        $("#start").attr("value", address);
-        return calcRoute();
+        return $("#start").attr("value", address);
       }
     });
   };
