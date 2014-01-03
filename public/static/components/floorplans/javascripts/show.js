@@ -31,7 +31,8 @@
   $(function() {
     var pricingOptions;
     pricingOptions = JSON.parse($('#pricing-service-config:first').html());
-    return new pricingAndAvailability(pricingOptions);
+    new pricingAndAvailability(pricingOptions);
+    return $(".floorplan .floorplan-btn").fancybox();
   });
 
 }).call(this);

@@ -22,3 +22,4 @@ class pricingAndAvailability
 $ ->
   pricingOptions = JSON.parse($('#pricing-service-config:first').html())
   new pricingAndAvailability(pricingOptions)
+  $(".floorplan .floorplan-btn").fancybox()
