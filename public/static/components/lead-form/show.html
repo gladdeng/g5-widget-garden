@@ -7,9 +7,9 @@
   <form class="form" id="lead_form" action="{{ widget.lead_form_submission_url.best_value | url_encode }}" method="POST">
 
     <div class="form-field">
-      <label for="p-name">Name</label>
-      <input type="text" name="lead[p-name]" id="p-name" class="p-name" data-h5-errorid="invalid_p-name" title="Required: Please provide your first name" required="">
-      <div id="invalid_p-name" class="ui-state-error message">Required: Please provide your first name.</div></div>
+      <label for="p-name">Full Name</label>
+      <input type="text" name="lead[p-name]" id="p-name" class="p-name" data-h5-errorid="invalid_p-name" title="Required: Please provide your name" required="">
+      <div id="invalid_p-name" class="ui-state-error message">Required: Please provide your name.</div></div>
 
     <div class="form-field">
       <label for="email">Email</label>
