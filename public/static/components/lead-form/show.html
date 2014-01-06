@@ -8,12 +8,12 @@
 
     <div class="form-field">
       <label for="p-name">Full Name</label>
-      <input type="text" name="lead[p-name]" id="p-name" class="p-name" data-h5-errorid="invalid_p-name" title="Required: Please provide your name" required="">
+      <input type="text" name="lead[p-name]" id="p-name" class="p-name" data-h5-errorid="invalid_p-name" title="Required: Please provide your name" required>
       <div id="invalid_p-name" class="ui-state-error message">Required: Please provide your name.</div></div>
 
     <div class="form-field">
       <label for="email">Email</label>
-      <input type="email" name="lead[email]" title="Required: Please provide your email address" data-h5-errorid="invalid_email" id="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="">
+      <input type="email" name="lead[email]" title="Required: Please provide your email address" data-h5-errorid="invalid_email" id="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
       <div id="invalid_email" class="ui-state-error message">Required: Please provide your email.</div>
     </div>
 
@@ -34,7 +34,7 @@
 
     <div class="form-field">
       <label for="state">State</label>
-      <select name="lead[state]" required="" id="state" title="Required: Please provide your state" data-h5-errorid="invalid_state">
+      <select name="lead[state]" required id="state" title="Required: Please provide your state" data-h5-errorid="invalid_state">
         <option value="" selected="selected">Select a State</option>
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
