@@ -28,9 +28,9 @@ setMap = (coordinates) ->
 
   markerOptions = position: latLng
   marker = new google.maps.Marker(markerOptions)
-  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
+  map = new google.maps.Map($("#map .canvas")[0], mapOptions)
   marker.setMap map
 
 $ ->
-  window.widgetMapConfig = JSON.parse($('#map-config:first').html())
+  window.widgetMapConfig = JSON.parse($('#map .config:first').html())
   loadScript()
