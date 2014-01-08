@@ -22,9 +22,9 @@
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       center: storeCoords
     };
-    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    map = new google.maps.Map($("#directions .canvas")[0], mapOptions);
     window.directionsDisplay.setMap(map);
-    return window.directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+    return window.directionsDisplay.setPanel($("#directions .panel")[0]);
   };
 
   getStoreCoords = function() {
@@ -93,7 +93,7 @@
   storeCoords = void 0;
 
   $(function() {
-    window.directionsConfig = JSON.parse($('#directions-config:first').html());
+    window.directionsConfig = JSON.parse($('#directions .config:first').html());
     return loadScript();
   });
 
