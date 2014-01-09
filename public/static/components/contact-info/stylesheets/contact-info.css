@@ -9,3 +9,6 @@
 .contact-info p {
   margin-top: 0;
 }
+.contact-info p:last-child {
+  margin-bottom: 0;
+}
