@@ -46,6 +46,7 @@ populateStartAddress = (latLng) ->
       if status is google.maps.GeocoderStatus.OK
         address = results[0].formatted_address
         $("#start").attr "value", address
+        calcRoute();
 
 window.calcRoute = ->
   directionsService = new google.maps.DirectionsService()
