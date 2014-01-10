@@ -1,10 +1,4 @@
-loadScript = ->
-  script = document.createElement("script")
-  script.type = "text/javascript"
-  script.src = "http://maps.googleapis.com/maps/api/js?sensor=true&callback=initializeDirections"
-  document.body.appendChild script
-
-window.initializeDirections = ->
+window.getDirectionsCoords = ->
   getStoreCoords()
   getClientCoords()
 
@@ -68,5 +62,4 @@ window.calcRoute = ->
 storeCoords = undefined
 
 $ ->
-  window.directionsConfig = JSON.parse($('#directions .config:first').html())
-  loadScript()
+  window.directionsConfig = JSON.parse($('#directions .config:first').html());

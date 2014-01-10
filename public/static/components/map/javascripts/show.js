@@ -1,7 +1,7 @@
 (function() {
-  var loadScript, setMap;
+  var setMap;
 
-  window.initializeMap = function() {
+  window.getMapCoords = function() {
     return $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
       address: widgetMapConfig.address,
       sensor: "false"
@@ -10,14 +10,6 @@
       coordinates = data.results[0].geometry.location;
       return setMap(coordinates);
     });
-  };
-
-  loadScript = function() {
-    var script;
-    script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initializeMap";
-    return document.body.appendChild(script);
   };
 
   setMap = function(coordinates) {
@@ -43,8 +35,7 @@
   };
 
   $(function() {
-    window.widgetMapConfig = JSON.parse($('#map .config:first').html());
-    return loadScript();
+    return window.widgetMapConfig = JSON.parse($('#map .config:first').html());
   });
 
 }).call(this);

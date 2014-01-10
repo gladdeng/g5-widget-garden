@@ -1,15 +1,7 @@
 (function() {
-  var errorCallback, getClientCoords, getStoreCoords, loadScript, populateStartAddress, setupMap, storeCoords, successCallback;
+  var errorCallback, getClientCoords, getStoreCoords, populateStartAddress, setupMap, storeCoords, successCallback;
 
-  loadScript = function() {
-    var script;
-    script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "http://maps.googleapis.com/maps/api/js?sensor=true&callback=initializeDirections";
-    return document.body.appendChild(script);
-  };
-
-  window.initializeDirections = function() {
+  window.getDirectionsCoords = function() {
     getStoreCoords();
     return getClientCoords();
   };
@@ -93,8 +85,7 @@
   storeCoords = void 0;
 
   $(function() {
-    window.directionsConfig = JSON.parse($('#directions .config:first').html());
-    return loadScript();
+    return window.directionsConfig = JSON.parse($('#directions .config:first').html());
   });
 
 }).call(this);
