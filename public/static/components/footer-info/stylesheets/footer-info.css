@@ -13,7 +13,7 @@
 .footer-info .access {
   background: url(http://g5-widget-garden.herokuapp.com/static/images/access-icons.png) 0 0 no-repeat;
   overflow: hidden;
-  text-indent: -999em;
+  text-indent: 999em;
 }
 
 .footer-info .housing-icon {
@@ -25,4 +25,8 @@
   background-position: -43px 0;
   height: 23px;
   width: 20px;
+}
+
+.footer-info .corporate-logo {
+  width: 200px;
 }
