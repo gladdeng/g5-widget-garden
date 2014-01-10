@@ -1,10 +1,4 @@
-loadScript = ->
-  script = document.createElement("script")
-  script.type = "text/javascript"
-  script.src = "http://maps.googleapis.com/maps/api/js?sensor=true&callback=initializeDirections"
-  document.body.appendChild script
-
-window.initializeDirections = ->
+window.getDirectionsCoords = ->
   getStoreCoords()
   getClientCoords()
 
@@ -15,9 +9,9 @@ setupMap = ->
     mapTypeId: google.maps.MapTypeId.ROADMAP
     center: storeCoords
 
-  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
+  map = new google.maps.Map($("#directions .canvas")[0], mapOptions)
   window.directionsDisplay.setMap map
-  window.directionsDisplay.setPanel document.getElementById("directionsPanel")
+  window.directionsDisplay.setPanel $("#directions .panel")[0]
 
 getStoreCoords = ->
   $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
@@ -52,6 +46,7 @@ populateStartAddress = (latLng) ->
       if status is google.maps.GeocoderStatus.OK
         address = results[0].formatted_address
         $("#start").attr "value", address
+        calcRoute();
 
 window.calcRoute = ->
   directionsService = new google.maps.DirectionsService()
@@ -68,5 +63,4 @@ window.calcRoute = ->
 storeCoords = undefined
 
 $ ->
-  window.directionsConfig = JSON.parse($('#directions-config:first').html())
-  loadScript()
+  window.directionsConfig = JSON.parse($('#directions .config:first').html());

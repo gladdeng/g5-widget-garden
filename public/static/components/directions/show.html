@@ -1,16 +1,16 @@
-<script id="directions-config" type="application/json">
-  {
-    "address": "{{ widget.location_street_address.best_value }}, {{ widget.location_city.best_value }}, {{ widget.location_state.best_value }} {{ widget.location_postal_code.best_value }}"
-  }
-</script>
+<div id="directions">
 
-<div class="directions widget">
-  
-  <div id="map-canvas"></div>
-  <div class="directions-text">
+  <script class="config" type="application/json">
+    {
+      "address": "{{ widget.location_street_address.best_value }}, {{ widget.location_city.best_value }}, {{ widget.location_state.best_value }} {{ widget.location_postal_code.best_value }}"
+    }
+  </script>
+
+  <div class="canvas"></div>
+  <div class="text">
     <label for="start">Start Address:</label>
-    <input type="text" id="start" onchange="calcRoute();">
+    <input type="text" id="start">
     <input type="submit" onclick="calcRoute();" value="Get Directions">
-    <div id="directionsPanel"></div>
+    <div class="panel"></div>
   </div>
 </div>

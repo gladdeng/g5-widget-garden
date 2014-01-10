@@ -1,16 +1,10 @@
-window.initializeMap = ->
+window.getMapCoords = ->
   $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
     address: widgetMapConfig.address
     sensor: "false"
   ).done (data) ->
     coordinates = data.results[0].geometry.location
     setMap(coordinates)
-
-loadScript = ->
-  script = document.createElement("script")
-  script.type = "text/javascript"
-  script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initializeMap"
-  document.body.appendChild script
 
 setMap = (coordinates) ->
   lat = coordinates.lat
@@ -28,9 +22,8 @@ setMap = (coordinates) ->
 
   markerOptions = position: latLng
   marker = new google.maps.Marker(markerOptions)
-  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
+  map = new google.maps.Map($("#map .canvas")[0], mapOptions)
   marker.setMap map
 
 $ ->
-  window.widgetMapConfig = JSON.parse($('#map-config:first').html())
-  loadScript()
+  window.widgetMapConfig = JSON.parse($('#map .config:first').html());

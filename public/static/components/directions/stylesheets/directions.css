@@ -1,41 +1,38 @@
-.directions #map-canvas {
+#directions .canvas {
   width:100%;
   height:500px;
   margin-bottom: 1em;
 }
 
 /*google map bootstrap fix*/
-.directions #map-canvas img,
-.directions #directionsPanel img {
+#directions .canvas img,
+#directions .panel img {
   max-width:none;
 }
-.directions #map-canvas label{
+#directions .canvas label{
   width:auto;
   display:inline;
 }
 
-.directions .directions-text label {
+#directions .text label {
   display: block;
 }
 
-.directions #directionsPanel {
+#directions .panel {
   margin-top: 1em;
 }
 
 @media (min-width: 980px) {
-  .directions {
-    overflow: hidden;
-  }
-  .directions #map-canvas {
+  #directions .canvas {
     width: 50%;
     margin-right: 2.5%;
     float: left;
   }
-  .directions .directions-text {
+  #directions .text {
     width: 47.5%;
     float: left;
   }
-  .directions .directions-text input[type=submit] {
+  #directions .text input[type=submit] {
     margin-left: 5px;
   }
 }

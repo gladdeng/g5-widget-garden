@@ -1,15 +1,7 @@
 (function() {
-  var errorCallback, getClientCoords, getStoreCoords, loadScript, populateStartAddress, setupMap, storeCoords, successCallback;
+  var errorCallback, getClientCoords, getStoreCoords, populateStartAddress, setupMap, storeCoords, successCallback;
 
-  loadScript = function() {
-    var script;
-    script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "http://maps.googleapis.com/maps/api/js?sensor=true&callback=initializeDirections";
-    return document.body.appendChild(script);
-  };
-
-  window.initializeDirections = function() {
+  window.getDirectionsCoords = function() {
     getStoreCoords();
     return getClientCoords();
   };
@@ -22,9 +14,9 @@
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       center: storeCoords
     };
-    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    map = new google.maps.Map($("#directions .canvas")[0], mapOptions);
     window.directionsDisplay.setMap(map);
-    return window.directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+    return window.directionsDisplay.setPanel($("#directions .panel")[0]);
   };
 
   getStoreCoords = function() {
@@ -68,7 +60,8 @@
     }, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         address = results[0].formatted_address;
-        return $("#start").attr("value", address);
+        $("#start").attr("value", address);
+        return calcRoute();
       }
     });
   };
@@ -93,8 +86,7 @@
   storeCoords = void 0;
 
   $(function() {
-    window.directionsConfig = JSON.parse($('#directions-config:first').html());
-    return loadScript();
+    return window.directionsConfig = JSON.parse($('#directions .config:first').html());
   });
 
 }).call(this);
