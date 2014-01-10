@@ -6,7 +6,7 @@ function app(jQuery) {
     script.type = "text/javascript";
     script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
 
-    document.body.appendChild(script);
+    $("body").append(script);
   };
 };
 
