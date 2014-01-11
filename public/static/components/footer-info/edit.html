@@ -1,0 +1,80 @@
+<form>
+
+  <div class="form-field">
+    {{ widget.location_name.id_hidden_field }}
+    <label for="{{ widget.location_name.value_field_id }}" >
+      Location Name
+    </label>
+    <input type="text"
+      id="{{ widget.location_name.value_field_id }}"
+      name="{{ widget.location_name.value_field_name }}"
+      value="{{ widget.location_name.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.corporate_url.value_field_id }}" >
+      Corporate Site URL
+    </label>
+    {{ widget.corporate_url.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.corporate_url.value_field_id }}"
+      name="{{ widget.corporate_url.value_field_name }}"
+      value="{{ widget.corporate_url.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    {{ widget.corporate_logo_url.id_hidden_field }}
+    <label for="{{ widget.corporate_logo_url.value_field_id }}" >
+      Corporate Logo URL
+    </label>
+    <input type="text"
+      id="{{ widget.corporate_logo_url.value_field_id }}"
+      name="{{ widget.corporate_logo_url.value_field_name }}"
+      value="{{ widget.corporate_logo_url.best_value }}"
+    />
+  </div>
+
+  <div class="form-field check-field">
+    {{ widget.display_housing_icon.id_hidden_field }}
+    <input type="hidden"
+      id="{{ widget.display_housing_icon.value_field_id }}_false"
+      name="{{ widget.display_housing_icon.value_field_name }}"
+      value="false"
+    />
+    <input type="checkbox"
+      id="{{ widget.display_housing_icon.value_field_id }}"
+      name="{{ widget.display_housing_icon.value_field_name }}"
+      value="true"
+      {% if widget.display_housing_icon.best_value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
+    <label for="{{ widget.display_housing_icon.value_field_id }}" >
+      Display Equal Opportunity Housing Icon
+    </label>
+  </div>
+  
+  <div class="form-field check-field">
+    {{ widget.display_handicap_icon.id_hidden_field }}
+    <input type="hidden"
+      id="{{ widget.display_handicap_icon.value_field_id }}_false"
+      name="{{ widget.display_handicap_icon.value_field_name }}"
+      value="false"
+    />
+    <input type="checkbox"
+      id="{{ widget.display_handicap_icon.value_field_id }}"
+      name="{{ widget.display_handicap_icon.value_field_name }}"
+      value="true"
+      {% if widget.display_handicap_icon.best_value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
+    <label for="{{ widget.display_handicap_icon.value_field_id }}" >
+      Display Handicap Friendly Icon
+    </label>
+  </div>
+
+  <input type="submit" value="Save" class="btn" />
+</form>

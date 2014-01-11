@@ -1,0 +1,32 @@
+.footer-info {
+  clear: both;
+  text-align: right;
+}
+
+.footer-info .access,
+.footer-info img {
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: top;
+}
+
+.footer-info .access {
+  background: url(http://g5-widget-garden.herokuapp.com/static/images/access-icons.png) 0 0 no-repeat;
+  overflow: hidden;
+  text-indent: 999em;
+}
+
+.footer-info .housing-icon {
+  height: 23px;
+  width: 31px;
+}
+
+.footer-info .handicap-icon {
+  background-position: -43px 0;
+  height: 23px;
+  width: 20px;
+}
+
+.footer-info .corporate-logo {
+  width: 200px;
+}
