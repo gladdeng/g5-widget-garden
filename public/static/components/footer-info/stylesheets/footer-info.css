@@ -28,5 +28,5 @@
 }
 
 .footer-info .corporate-logo {
-  width: 200px;
+  max-width: 200px;
 }
