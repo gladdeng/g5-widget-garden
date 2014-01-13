@@ -1,11 +1,15 @@
 {% if widget.display_navigation.best_value == "true" %}
-<nav class="navigation widget">
-  <ul>
-    {% for web_page in widget.navigation.best_value %}
-      {% if web_page[1].display != "false" %}
-      <li><a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a></li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</nav>
+  {% if widget.display_as_calls_to_action.best_value == "true" %}
+  <nav class="action-calls widget">
+  {% else %}
+  <nav class="navigation widget">
+  {% endif %}
+    <ul>
+      {% for web_page in widget.navigation.best_value %}
+        {% if web_page[1].display != "false" %}
+        <li><a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
 {% endif %}

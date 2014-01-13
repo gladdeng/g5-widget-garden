@@ -19,6 +19,27 @@
     </label>
   </div>
 
+  <div class="form-field check-field">
+    {{ widget.display_as_calls_to_action.id_hidden_field }}
+    <input type="hidden"
+      id="{{ widget.display_as_calls_to_action.value_field_id }}_false"
+      name="{{ widget.display_as_calls_to_action.value_field_name }}"
+      value="false"
+    />
+    <input type="checkbox"
+      id="{{ widget.display_as_calls_to_action.value_field_id }}"
+      name="{{ widget.display_as_calls_to_action.value_field_name }}"
+      value="true"
+      {% if widget.display_as_calls_to_action.best_value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
+    <label for="{{ widget.display_as_calls_to_action.value_field_id }}" >
+      Display As Calls To Action
+    </label>
+  </div>
+
+
   <fieldset>
     <legend>Choose which links you would like to display</legend>
     <div>
