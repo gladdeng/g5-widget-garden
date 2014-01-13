@@ -39,13 +39,13 @@
 
   {% if widget.contact_info_tel.best_value != "" %}
   <p class="p-tel tel" itemprop="telephone">
-    T: <a href="tel:{{ widget.contact_info_tel.best_value }}">{{ widget.contact_info_tel.best_value }}</a>
+    <a href="tel:{{ widget.contact_info_tel.best_value }}">{{ widget.contact_info_tel.best_value }}</a>
   </p>
   {% endif %}
 
   {% if widget.contact_info_fax.best_value != "" %}
-  <p class="p-tel tel" itemprop="telephone">
-    F: {{ widget.contact_info_fax.best_value }}
+  <p class="p-tel tel fax" itemprop="telephone">
+    {{ widget.contact_info_fax.best_value }}
   </p>
   {% endif %}
 </div>
