@@ -163,6 +163,9 @@ li.floorplan:nth-child(even) {
   position: relative;
   min-height: 50px;
 }
+.floorplan-info div {
+  min-height: 1px;
+}
 .floorplan-info p {
   font-size: 13px;
   line-height: 1.5;
