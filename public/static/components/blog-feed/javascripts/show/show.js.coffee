@@ -1,8 +1,8 @@
 $ ->
-  blogVars = JSON.parse($('#blog-feed-config:first').html())
+  blogVars = JSON.parse($('.blog-feed .config:first').html())
   blogConfig = new window.BlogConfig(blogVars)
 
-  new window.BlogInterface($("#blog-feed-container ul"), blogConfig)
+  new window.BlogInterface($(".blog-feed ul"), blogConfig)
 
 class window.BlogConfig
   constructor: (config) ->
