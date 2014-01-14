@@ -1,7 +1,7 @@
 (function() {
   $(function() {
     var tweetOptions;
-    tweetOptions = JSON.parse($('#twitter-feed-config:first').html());
+    tweetOptions = JSON.parse($('.twitter-feed .config:first').html());
     return $.ajax({
       url: "https://mobile.twitter.com/" + tweetOptions.id,
       dataType: "html",
