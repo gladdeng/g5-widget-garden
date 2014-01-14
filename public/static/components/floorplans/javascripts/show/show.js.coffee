@@ -17,9 +17,9 @@ class pricingAndAvailability
     $.get pricingURL, (data) ->
       $data = $(data)
       floorplans = $data.find('.e-content')
-      $("#floorplans").append(floorplans);
+      $(".floorplans").append(floorplans);
 
 $ ->
-  pricingOptions = JSON.parse($('#pricing-service-config:first').html())
+  pricingOptions = JSON.parse($('.floorplans .config:first').html())
   new pricingAndAvailability(pricingOptions)
-  $(".floorplan .floorplan-btn").fancybox()
+  $(".floorplans .floorplan-btn").fancybox()
