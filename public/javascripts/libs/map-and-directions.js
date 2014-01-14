@@ -11,11 +11,14 @@ function app(jQuery) {
 };
 
 function initialize() {
-  if ($("#map .canvas").length) {
+  if ($(".map .canvas").length) {
     window.getMapCoords();
   }
-  if ($("#directions .canvas").length) {
+  if ($(".directions .canvas").length) {
     window.getDirectionsCoords();
+  }
+  if ($(".human-directions .canvas").length) {
+    window.getHumanDirectionsCoords();
   }
 }
 
