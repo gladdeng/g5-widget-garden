@@ -14,7 +14,6 @@ class phoneNumber
     row_id = "#" + location_urn
 
     $.get "http://" + client_urn + ".herokuapp.com", (data) ->
-
       $data = $(data)
       numbers = $data.find(row_id)
       screen = document.documentElement.clientWidth
@@ -29,11 +28,10 @@ class phoneNumber
 
       formattedPhone = phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
 
-      $(".phone.widget").attr("href", "tel://" + phone)
+      $(".phone .number").attr("href", "tel://" + phone)
                         .find(".p-tel")
                         .html formattedPhone
 
 $ ->
-  phoneOptions = JSON.parse($('#phone-number-config:first').html())
-
+  phoneOptions = JSON.parse($('.phone .config:first').html())
   new phoneNumber(phoneOptions)
