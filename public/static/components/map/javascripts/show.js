@@ -30,12 +30,12 @@
       position: latLng
     };
     marker = new google.maps.Marker(markerOptions);
-    map = new google.maps.Map($("#map .canvas")[0], mapOptions);
+    map = new google.maps.Map($(".map .canvas")[0], mapOptions);
     return marker.setMap(map);
   };
 
   $(function() {
-    return window.widgetMapConfig = JSON.parse($('#map .config:first').html());
+    return window.widgetMapConfig = JSON.parse($('.map .config:first').html());
   });
 
 }).call(this);
