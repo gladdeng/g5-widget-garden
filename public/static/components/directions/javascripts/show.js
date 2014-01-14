@@ -14,9 +14,9 @@
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       center: storeCoords
     };
-    map = new google.maps.Map($("#directions .canvas")[0], mapOptions);
+    map = new google.maps.Map($(".directions .canvas")[0], mapOptions);
     window.directionsDisplay.setMap(map);
-    return window.directionsDisplay.setPanel($("#directions .panel")[0]);
+    return window.directionsDisplay.setPanel($(".directions .panel")[0]);
   };
 
   getStoreCoords = function() {
@@ -86,7 +86,7 @@
   storeCoords = void 0;
 
   $(function() {
-    return window.directionsConfig = JSON.parse($('#directions .config:first').html());
+    return window.directionsConfig = JSON.parse($('.directions .config:first').html());
   });
 
 }).call(this);

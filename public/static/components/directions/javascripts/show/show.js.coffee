@@ -9,9 +9,9 @@ setupMap = ->
     mapTypeId: google.maps.MapTypeId.ROADMAP
     center: storeCoords
 
-  map = new google.maps.Map($("#directions .canvas")[0], mapOptions)
+  map = new google.maps.Map($(".directions .canvas")[0], mapOptions)
   window.directionsDisplay.setMap map
-  window.directionsDisplay.setPanel $("#directions .panel")[0]
+  window.directionsDisplay.setPanel $(".directions .panel")[0]
 
 getStoreCoords = ->
   $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
@@ -63,4 +63,4 @@ window.calcRoute = ->
 storeCoords = undefined
 
 $ ->
-  window.directionsConfig = JSON.parse($('#directions .config:first').html());
+  window.directionsConfig = JSON.parse($('.directions .config:first').html());
