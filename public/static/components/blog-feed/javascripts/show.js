@@ -3,9 +3,9 @@
 
   $(function() {
     var blogConfig, blogVars;
-    blogVars = JSON.parse($('#blog-feed-config:first').html());
+    blogVars = JSON.parse($('.blog-feed .config:first').html());
     blogConfig = new window.BlogConfig(blogVars);
-    return new window.BlogInterface($("#blog-feed-container ul"), blogConfig);
+    return new window.BlogInterface($(".blog-feed ul"), blogConfig);
   });
 
   window.BlogConfig = (function() {

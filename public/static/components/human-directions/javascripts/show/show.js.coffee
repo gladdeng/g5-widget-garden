@@ -1,18 +1,15 @@
-window.initializeHumanDirections = ->
+window.getHumanDirectionsCoords = ->
+  getCoords()
+
+getCoords = ->
   $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
     address: widgetHumanDirectionsConfig.address
     sensor: "false"
   ).done (data) ->
     coordinates = data.results[0].geometry.location
-    getCoordinates(coordinates)
+    setMap(coordinates)
 
-loadScript = ->
-  script = document.createElement("script")
-  script.type = "text/javascript"
-  script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initializeHumanDirections"
-  document.body.appendChild script
-
-getCoordinates = (coordinates) ->
+setMap = (coordinates) ->
   lat = coordinates.lat
   lng = coordinates.lng
   latLng = new google.maps.LatLng(lat, lng)
@@ -27,9 +24,8 @@ getCoordinates = (coordinates) ->
 
   markerOptions = position: latLng
   marker = new google.maps.Marker(markerOptions)
-  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
+  map = new google.maps.Map($(".human-directions .canvas")[0], mapOptions)
   marker.setMap map
 
 $ ->
-  window.widgetHumanDirectionsConfig = JSON.parse($('#human-directions-config:first').html())
-  loadScript()
+  window.widgetHumanDirectionsConfig = JSON.parse($('.human-directions .config:first').html())

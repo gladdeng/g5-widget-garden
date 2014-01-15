@@ -30,7 +30,7 @@
           phone = numbers.find(".p-tel-default").val();
         }
         formattedPhone = phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
-        return $(".phone.widget").attr("href", "tel://" + phone).find(".p-tel").html(formattedPhone);
+        return $(".phone .number").attr("href", "tel://" + phone).find(".p-tel").html(formattedPhone);
       });
     };
 
@@ -40,7 +40,7 @@
 
   $(function() {
     var phoneOptions;
-    phoneOptions = JSON.parse($('#phone-number-config:first').html());
+    phoneOptions = JSON.parse($('.phone .config:first').html());
     return new phoneNumber(phoneOptions);
   });
 

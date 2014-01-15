@@ -1,5 +1,5 @@
 $ ->
-  tweetOptions = JSON.parse($('#twitter-feed-config:first').html())
+  tweetOptions = JSON.parse($('.twitter-feed .config:first').html())
 
   $.ajax(
     url: "https://mobile.twitter.com/" + tweetOptions.id

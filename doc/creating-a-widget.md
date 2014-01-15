@@ -161,6 +161,37 @@ below.
 </div>
 ```
 
+[top](#directorystructure)
+
+### public/static/components/:widget-name/show.html
+
+- :widget-name is a placeholder for the name of the widget
+- the html that gets shown on the web_template for the user to view or interact with
+
+```html
+<div class=":widget-name">
+  <script class="config" type="application/json">
+    {
+      "id": "{{ widget.property_name.best_value }}",
+      "name": {{ widget.property_name.best_value }},
+      "value": {{widget.property_name.best_value}}
+    }
+  </script>
+</div>
+```
+
+- self-closing tags, such as inputs, should include a slash `/` at the end of
+  the tag
+- all properties/settings can be called as methods on the widget object, e.g.
+  `widget.property_name`
+- liquid methods availble on properties/settings:
+    - `id_hidden_field`
+    - `value_field_id`
+    - `value_field_name`
+    - `value`
+    - `best_value`
+
+
 #### Input Types
 
 - use appropriate input types for the content, e.g. text, email, url, tel,

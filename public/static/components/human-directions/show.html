@@ -1,12 +1,14 @@
-<script id="human-directions-config" type="application/json">
-  {
-    "panZoom": {{ widget.allow_pan_zoom.best_value }},
-    "address": "{{ widget.address.best_value }}",
-    "mapType": "{{ widget.map_type.best_value }}"
-  }
-</script>
+<div class="human-directions">
 
-<div id="map-canvas" class="widget map"></div>
-<div class="human-directions directions">
+  <script class="config" type="application/json">
+    {
+      "panZoom": {{ widget.allow_pan_zoom.best_value }},
+      "address": "{{ widget.address.best_value }}",
+      "mapType": "{{ widget.map_type.best_value }}"
+    }
+  </script>
+
+  <div class="canvas"></div>
   <p>{{ widget.written_directions.best_value }}</p>
 </div>
+

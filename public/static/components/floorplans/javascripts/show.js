@@ -20,7 +20,7 @@
         var $data, floorplans;
         $data = $(data);
         floorplans = $data.find('.e-content');
-        return $("#floorplans").append(floorplans);
+        return $(".floorplans").append(floorplans);
       });
     };
 
@@ -30,9 +30,9 @@
 
   $(function() {
     var pricingOptions;
-    pricingOptions = JSON.parse($('#pricing-service-config:first').html());
+    pricingOptions = JSON.parse($('.floorplans .config:first').html());
     new pricingAndAvailability(pricingOptions);
-    return $(".floorplan .floorplan-btn").fancybox();
+    return $(".floorplans .floorplan-btn").fancybox();
   });
 
 }).call(this);
