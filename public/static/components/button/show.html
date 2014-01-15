@@ -1,5 +1,7 @@
-{% if widget.display_button.best_value == "true" %}
-  <a href="{{ widget.button_url.best_value | url_encode }}" class="btn widget">
-    {{ widget.button_label.best_value }}
-  </a>
+<a href="{{ widget.button_url.best_value | url_encode }}" class="btn widget">
+  {{ widget.button_label.best_value }}
+</a>
+
+{% if widget.button_description != "" %}
+  <p class="button-description">{{ widget.button_description }}</p>
 {% endif %}
