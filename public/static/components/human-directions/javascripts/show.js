@@ -34,7 +34,7 @@
       position: latLng
     };
     marker = new google.maps.Marker(markerOptions);
-    map = new google.maps.Map($(".human-directions .canvas"), mapOptions);
+    map = new google.maps.Map($(".human-directions .canvas")[0], mapOptions);
     return marker.setMap(map);
   };
 

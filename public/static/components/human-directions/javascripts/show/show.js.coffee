@@ -24,7 +24,7 @@ setMap = (coordinates) ->
 
   markerOptions = position: latLng
   marker = new google.maps.Marker(markerOptions)
-  map = new google.maps.Map($(".human-directions .canvas"), mapOptions)
+  map = new google.maps.Map($(".human-directions .canvas")[0], mapOptions)
   marker.setMap map
 
 $ ->
