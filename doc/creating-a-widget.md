@@ -182,7 +182,6 @@ below.
 
 - self-closing tags, such as inputs, should include a slash `/` at the end of
   the tag
-- liquid tags should be used for form fields
 - all properties/settings can be called as methods on the widget object, e.g.
   `widget.property_name`
 - liquid methods availble on properties/settings:
