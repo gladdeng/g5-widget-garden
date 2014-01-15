@@ -1,0 +1,16 @@
+.button .btn-img,
+.button a {
+  display: block;
+}
+
+.button-left {
+  overflow: hidden;
+}
+.button-left .btn-img {
+  float: left;
+  margin-right: 1em;
+}
+
+.button-top .btn-img {
+  margin-bottom: 1em;
+}

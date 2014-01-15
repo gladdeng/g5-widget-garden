@@ -16,7 +16,7 @@
     <label for="{{ widget.button_url.value_field_id }}" >
       Button URL
     </label>
-    <input type="text"
+    <input type="url"
       id="{{ widget.button_url.value_field_id }}"
       name="{{ widget.button_url.value_field_name }}"
       value="{{ widget.button_url.best_value | url_encode }}"
@@ -26,13 +26,52 @@
   <div class="form-field">
     {{ widget.button_description.id_hidden_field }}
     <label for="{{ widget.button_description.value_field_id }}" >
-      Button Label
+      Button Description
     </label>
     <input type="text"
       id="{{ widget.button_description.value_field_id }}"
       name="{{ widget.button_description.value_field_name }}"
       value="{{ widget.button_description.best_value }}"
     />
+  </div>
+  
+  <div class="form-field">
+    {{ widget.button_image_url.id_hidden_field }}
+    <label for="{{ widget.button_image_url.value_field_id }}" >
+      Button Image URL
+    </label>
+    <input type="url"
+      id="{{ widget.button_image_url.value_field_id }}"
+      name="{{ widget.button_image_url.value_field_name }}"
+      value="{{ widget.button_image_url.best_value | url_encode }}"
+    />
+  </div>
+  
+  <div class="form-field check-field">
+    <fieldset>
+      <legend>Image Position</legend>
+      {{ widget.button_image_position.id_hidden_field }}
+      <input type="radio"
+        id="{{ widget.button_image_position.value_field_id }}_left"
+        name="{{ widget.button_image_position.value_field_name }}"
+        value="left"
+        checked="checked"
+      />
+      <label for="{{ widget.button_image_position.value_field_id }}_left" >
+        Left
+      </label>
+      <input type="radio"
+        id="{{ widget.button_image_position.value_field_id }}_top"
+        name="{{ widget.button_image_position.value_field_name }}"
+        value="top"
+        {% if widget.button_image_position.best_value == "top" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.button_image_position.value_field_id }}_top" >
+        Top
+      </label>
+    </fieldset>
   </div>
 
   <input type="submit" value="Save" class="btn" />
