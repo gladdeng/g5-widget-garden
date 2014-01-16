@@ -64,3 +64,5 @@ storeCoords = undefined
 
 $ ->
   window.directionsConfig = JSON.parse($('.directions .config:first').html());
+  $('.directions input[type="submit"]').on 'click', ->
+    calcRoute()

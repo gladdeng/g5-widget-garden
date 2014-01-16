@@ -86,7 +86,10 @@
   storeCoords = void 0;
 
   $(function() {
-    return window.directionsConfig = JSON.parse($('.directions .config:first').html());
+    window.directionsConfig = JSON.parse($('.directions .config:first').html());
+    return $('.directions input[type="submit"]').on('click', function() {
+      return calcRoute();
+    });
   });
 
 }).call(this);
