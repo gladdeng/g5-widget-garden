@@ -1,47 +1,59 @@
-<div id="success" class="submit_response">GREAT SUCCESS!</div>
-<div id="failure" class="submit_response">IZE NOT NICE!</div>
-<div class="contact widget">
-  <p class="heading">Contact Us</p>
-  <form id="contact-form" class="form" action="{{ widget.contact_submission_url.best_value | url_encode }}" method="POST">
-    {% if widget.contact_display_name.best_value == "true" %}
-      <div class="form-field">
-        <label for="name">Full Name</label>
-        <input type="text" name="contact[name]" id="name" data-h5-errorid="invalid_name" title="Required: Please provide your name" required="">
-        <div id="invalid_name" class="ui-state-error message">Required: Please provide your name.</div></div>
-    {% endif %}
+<div class="contact-form widget g5-enhanced-form">
 
-    {% if widget.contact_display_email.best_value == "true" %}
+  {% if widget.form_title.best_value != "" %}
+    <h2 class="form-heading">{{ widget.form_title.best_value}}</h2>
+  {% endif %}
+
+  {% if widget.form_note.best_value != "" %}
+    <p class="form-note">{{ widget.form_note.best_value }}</p>
+  {% endif %}
+
+  <form id="form-template" class="form h-entry" action="{{ widget.form_url.best_value | url_encode }}" method="POST">
+    <input type="hidden" class="u-syndication" name="u-syndication" value="{{ widget.form_syndication_url.best_value | url_encode }}" />
+
+    <div class="p-author h-card">
       <div class="form-field">
-        <label for="contact-email">Email</label>
-        <input id="contact-email" type="email" name="contact[email]" title="Required: Please provide your email address" data-h5-errorid="invalid_email" id="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="" />
-        <div id="invalid_email" class="ui-state-error message">Required: Please provide your email.</div>
+        <label for="p-name">Full Name</label>
+        <input type="text" id="p-name" class="p-name" name="p-name" required />
+      </div>
+      
+      <div class="form-field">
+        <fieldset>
+          <legend>Are you a current resident?</legend>
+          <label><input type="radio" class="p-g5-resident" name="p-g5-resident"> Yes</label>
+          <label><input type="radio" class="p-g5-resident" name="p-g5-resident" checked> No</label>
+        </fieldset>
+      </div>
+    
+      <div class="form-field">
+        <label for="p-g5-resident-2">If not, How'd your hear about us?</label>
+        <input type="text" id="p-g5-resident-2" class="p-g5-resident-2" name="p-g5-resident-2" />
+      </div>
+      
+      <div class="form-field">
+        <label for="p-tel">Phone Number <span class="form-optional">optional</span></label>
+        <input type="tel" id="p-tel" class="p-tel" name="p-tel" />
       </div>
 
-    {% endif %}
-
-    {% if widget.contact_display_phone.best_value == "true" %}
       <div class="form-field">
-        <label for="contact-phone">Phone</label>
-        <input type="text" id="contact-phone" name="contact[form]" />
+        <label for="u-email">Email</label>
+        <input type="email" id="u-email" class="u-email" name="u-email" required />
       </div>
-    {% endif %}
+    </div>
 
-    {% if widget.contact_display_address.best_value == "true" %}
-      <div class="form-field">
-        <label for="contact-address">Address</label>
-        <input type="text" id="contact-address" name="contact[address]" />
-      </div>
-    {% endif %}
+    <div class="form-field">
+      <label for="e-content">Message</label>
+      <textarea id="e-content" class="e-content" name="e-content"></textarea>
+    </div>
+    
+    <!-- for bots only. inline js/css necessary to make sure this is always hidden -->
+    <input id="lead_comments" name="lead_comments" onfocus="this.blur();" style="margin-left: -9999px; float: left;" type="text" value="">
 
-    {% if widget.contact_display_message.best_value == "true" %}
-      <div class="form-field">
-        <label for="contact-message">Message</label>
-        <textarea id="contact-message" name="contact[message]" data-h5-errorid="invalid_message" title="Required: Please leave us a message" required=""></textarea>
-        <div id="invalid_message" class="ui-state-error message">Required: Please leave us a message.</div>
-      </div>
-
-    {% endif %}
-
-    <input type="submit" best_value="Send" />
+    <input type="submit" value="Send" />
   </form>
+  
+  <div class="submitting" style="display: none">Submitting</div>
+  <div class="error" style="display: none">Error</div>
+  <div class="success" style="display: none">Success</div>
+
 </div>

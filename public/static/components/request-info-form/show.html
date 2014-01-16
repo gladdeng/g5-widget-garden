@@ -1,4 +1,4 @@
-<div class="request-info-form widget">
+<div class="request-info-form widget g5-enhanced-form">
 
   {% if widget.form_title.best_value != "" %}
     <h2 class="form-heading">{{ widget.form_title.best_value}}</h2>
@@ -119,8 +119,15 @@
       <label for="e-content">Message <span class="form-optional">optional</span></label>
       <textarea id="e-content" class="e-content" name="e-content"></textarea>
     </div>
+    
+    <!-- for bots only. inline js/css necessary to make sure this is always hidden -->
+    <input id="lead_comments" name="lead_comments" onfocus="this.blur();" style="margin-left: -9999px; float: left;" type="text" value="">
 
     <input type="submit" value="Send" />
   </form>
+  
+  <div class="submitting" style="display: none">Submitting</div>
+  <div class="error" style="display: none">Error</div>
+  <div class="success" style="display: none">Success</div>
 
 </div>
