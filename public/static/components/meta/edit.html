@@ -37,6 +37,18 @@
   </div>
   
   <div class="field">
+    {{ widget.google_webmaster_tools_verification.id_hidden_field }}
+    <label for="{{ widget.google_webmaster_tools_verification.value_field_id }}" >
+      Google Webmaster Tools Verification Tag
+    </label>
+    <input type="text"
+      id="{{ widget.google_webmaster_tools_verification.value_field_id }}"
+      name="{{ widget.google_webmaster_tools_verification.value_field_name }}"
+      value="{{ widget.google_webmaster_tools_verification.best_value }}"
+    />
+  </div>
+  
+  <div class="field">
     {{ widget.optimizely_id.id_hidden_field }}
     <label for="{{ widget.optimizely_id.value_field_id }}" >
       Optimizely ID
