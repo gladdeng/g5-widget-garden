@@ -1,0 +1,117 @@
+<form>
+  <div class="form-field">
+    {{ widget.photo1_url.id_hidden_field }}
+    <label for="{{ widget.photo1_url.value_field_id }}" >
+      Source URL
+    </label>
+    <input type="url"
+      id="{{ widget.photo1_url.value_field_id }}"
+      name="{{ widget.photo1_url.value_field_name }}"
+      value="{{ widget.photo1_url.best_value | url_encode }}"
+    />
+  </div>
+  
+  <div class="form-field">
+    {{ widget.photo1_alt.id_hidden_field }}
+    <label for="{{ widget.photo1_alt.value_field_id }}" >
+      Photo 1 Alt Tag
+    </label>
+    <input type="text"
+      id="{{ widget.photo1_alt.value_field_id }}"
+      name="{{ widget.photo1_alt.value_field_name }}"
+      value="{{ widget.photo1_alt.best_value | url_encode }}"
+    />
+  </div>
+  
+  <div class="form-field">
+    {{ widget.photo2_url.id_hidden_field }}
+    <label for="{{ widget.photo2_url.value_field_id }}" >
+      Source URL
+    </label>
+    <input type="url"
+      id="{{ widget.photo2_url.value_field_id }}"
+      name="{{ widget.photo2_url.value_field_name }}"
+      value="{{ widget.photo2_url.best_value | url_encode }}"
+    />
+  </div>
+  
+  <div class="form-field">
+    {{ widget.photo2_alt.id_hidden_field }}
+    <label for="{{ widget.photo2_alt.value_field_id }}" >
+      Photo 2 Alt Tag
+    </label>
+    <input type="text"
+      id="{{ widget.photo2_alt.value_field_id }}"
+      name="{{ widget.photo2_alt.value_field_name }}"
+      value="{{ widget.photo2_alt.best_value | url_encode }}"
+    />
+  </div>
+  
+  <div class="form-field">
+    {{ widget.photo3_url.id_hidden_field }}
+    <label for="{{ widget.photo3_url.value_field_id }}" >
+      Source URL
+    </label>
+    <input type="url"
+      id="{{ widget.photo3_url.value_field_id }}"
+      name="{{ widget.photo3_url.value_field_name }}"
+      value="{{ widget.photo3_url.best_value | url_encode }}"
+    />
+  </div>
+  
+  <div class="form-field">
+    {{ widget.photo3_alt.id_hidden_field }}
+    <label for="{{ widget.photo3_alt.value_field_id }}" >
+      Photo 3 Alt Tag
+    </label>
+    <input type="text"
+      id="{{ widget.photo3_alt.value_field_id }}"
+      name="{{ widget.photo3_alt.value_field_name }}"
+      value="{{ widget.photo3_alt.best_value | url_encode }}"
+    />
+  </div>
+
+
+  <div class="form-field check-field">
+    <fieldset>
+    <legend>Photo Layout</legend>
+      {{ widget.photo_layout.id_hidden_field }}
+      
+      <input type="radio"
+        id="{{ widget.photo_layout.value_field_id }}_a"
+        name="{{ widget.photo_layout.value_field_name }}"
+        value="photo_layout_a"
+        checked="checked"
+      />
+      <label for="{{ widget.photo_layout.value_field_id }}_a" >
+        [Large][Small]
+      </label>
+      
+      <input type="radio"
+        id="{{ widget.photo_layout.value_field_id }}_b"
+        name="{{ widget.photo_layout.value_field_name }}"
+        value="photo_layout_b"
+        {% if widget.photo_layout.best_value == "photo_layout_b" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.photo_layout.value_field_id }}_b" >
+        [Small][Large]
+      </label>
+      
+      <input type="radio"
+        id="{{ widget.photo_layout.value_field_id }}_c"
+        name="{{ widget.photo_layout.value_field_name }}"
+        value="photo_layout_c"
+        {% if widget.photo_layout.best_value == "photo_layout_c" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.photo_layout.value_field_id }}_c" >
+        [Photo][Photo][Photo]
+      </label>
+    </fieldset>
+  </div>
+
+  <input type="submit" value="Save" class="btn" />
+</form>

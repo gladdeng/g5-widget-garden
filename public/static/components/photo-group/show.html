@@ -1,0 +1,21 @@
+<div class="photo-group {{ widget.photo_layout.best_value }} widget ">
+  
+  {% if widget.photo1_url != ""}
+    <figure class="h-media" itemscope itemtype="http://schema.org/Photograph">
+      <img class="u-photo" src="{{ widget.photo1_url.best_value | url_encode }}" alt="{{ widget.photo1_alt.best_value }}" itemprop="image" />
+    </figure>
+  {% endif %}
+  
+  {% if widget.photo2_url != ""}
+    <figure class="h-media" itemscope itemtype="http://schema.org/Photograph">
+      <img class="u-photo" src="{{ widget.photo2_url.best_value | url_encode }}" alt="{{ widget.photo2_alt.best_value }}" itemprop="image" />
+    </figure>
+  {% endif %}
+  
+  {% if widget.photo3_url != ""}
+    <figure class="h-media" itemscope itemtype="http://schema.org/Photograph">
+      <img class="u-photo" src="{{ widget.photo3_url.best_value | url_encode }}" alt="{{ widget.photo3_alt.best_value }}" itemprop="image" />
+    </figure>
+  {% endif %}
+  
+</div>
