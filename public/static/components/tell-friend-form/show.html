@@ -1,4 +1,10 @@
 <div class="tell-friend-form widget g5-enhanced-form">
+  
+  <script class="config" type="application/json">
+    {
+      "clientUrn": "{{ widget.client_urn.best_value }}"
+    }
+  </script>
 
   {% if widget.form_title.best_value != "" %}
     <h2 class="form-heading">{{ widget.form_title.best_value}}</h2>
