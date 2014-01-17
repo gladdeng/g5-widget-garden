@@ -1,4 +1,10 @@
 <div class="service-request-form widget g5-enhanced-form">
+  
+  <script class="config" type="application/json">
+    {
+      "clientUrn": "{{ widget.client_urn.best_value }}"
+    }
+  </script>
 
   {% if widget.form_title.best_value != "" %}
     <h2 class="form-heading">{{ widget.form_title.best_value}}</h2>
@@ -8,7 +14,7 @@
     <p class="form-note">{{ widget.form_note.best_value }}</p>
   {% endif %}
 
-  <form id="form-template" class="form h-entry" action="{{ widget.form_url.best_value | url_encode }}" method="POST">
+  <form id="form-template" class="form h-entry" action="{{ widget.client_leads_url.best_value | url_encode }}" method="POST">
     <input type="hidden" class="u-syndication" name="u-syndication" value="{{ widget.form_syndication_url.best_value | url_encode }}" />
 
     <div class="p-author h-card">
