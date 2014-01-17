@@ -1,15 +1,4 @@
 <form>
-  <div class="field">
-    {{ widget.meta_keywords.id_hidden_field }}
-    <label for="{{ widget.meta_keywords.value_field_id }}" >
-      Keywords
-    </label>
-    <input type="text"
-      id="{{ widget.meta_keywords.value_field_id }}"
-      name="{{ widget.meta_keywords.value_field_name }}"
-      value="{{ widget.meta_keywords.best_value }}"
-    />
-  </div>
 
   <div class="field">
     {{ widget.meta_description.id_hidden_field }}
@@ -20,6 +9,54 @@
       id="{{ widget.meta_description.value_field_id }}"
       name="{{ widget.meta_description.value_field_name }}"
       value="{{ widget.meta_description.best_value }}"
+    />
+  </div>
+  
+  <div class="field">
+    {{ widget.google_plus_id.id_hidden_field }}
+    <label for="{{ widget.google_plus_id.value_field_id }}" >
+      Google+ ID
+    </label>
+    <input type="text"
+      id="{{ widget.google_plus_id.value_field_id }}"
+      name="{{ widget.google_plus_id.value_field_name }}"
+      value="{{ widget.google_plus_id.best_value }}"
+    />
+  </div>
+  
+  <div class="field">
+    {{ widget.google_analytics_id.id_hidden_field }}
+    <label for="{{ widget.google_analytics_id.value_field_id }}" >
+      Google Analytics ID
+    </label>
+    <input type="text"
+      id="{{ widget.google_analytics_id.value_field_id }}"
+      name="{{ widget.google_analytics_id.value_field_name }}"
+      value="{{ widget.google_analytics_id.best_value }}"
+    />
+  </div>
+  
+  <div class="field">
+    {{ widget.google_webmaster_tools_verification.id_hidden_field }}
+    <label for="{{ widget.google_webmaster_tools_verification.value_field_id }}" >
+      Google Webmaster Tools Verification Tag
+    </label>
+    <input type="text"
+      id="{{ widget.google_webmaster_tools_verification.value_field_id }}"
+      name="{{ widget.google_webmaster_tools_verification.value_field_name }}"
+      value="{{ widget.google_webmaster_tools_verification.best_value }}"
+    />
+  </div>
+  
+  <div class="field">
+    {{ widget.optimizely_id.id_hidden_field }}
+    <label for="{{ widget.optimizely_id.value_field_id }}" >
+      Optimizely ID
+    </label>
+    <input type="text"
+      id="{{ widget.optimizely_id.value_field_id }}"
+      name="{{ widget.optimizely_id.value_field_name }}"
+      value="{{ widget.optimizely_id.best_value }}"
     />
   </div>
 
