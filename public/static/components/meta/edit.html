@@ -23,6 +23,18 @@
       value="{{ widget.google_plus_id.best_value }}"
     />
   </div>
+  
+  <div class="field">
+    {{ widget.optimizely_id.id_hidden_field }}
+    <label for="{{ widget.optimizely_id.value_field_id }}" >
+      Description
+    </label>
+    <input type="text"
+      id="{{ widget.optimizely_id.value_field_id }}"
+      name="{{ widget.optimizely_id.value_field_name }}"
+      value="{{ widget.optimizely_id.best_value }}"
+    />
+  </div>
 
   <input type="submit" value="Save" />
 </form>
