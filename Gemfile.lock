@@ -70,6 +70,8 @@ GEM
       guard (>= 1.1)
       spork (>= 0.8.4)
     hike (1.2.2)
+    honeybadger (1.10.1)
+      json
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -175,6 +177,7 @@ DEPENDENCIES
   g5_component_garden (~> 0.4.2)
   guard-rspec
   guard-spork
+  honeybadger
   jquery-rails
   newrelic_rpm
   quiet_assets (~> 1.0.1)
