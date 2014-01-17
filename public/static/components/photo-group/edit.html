@@ -2,7 +2,7 @@
   <div class="form-field">
     {{ widget.photo1_url.id_hidden_field }}
     <label for="{{ widget.photo1_url.value_field_id }}" >
-      Source URL
+      Photo 1 Url
     </label>
     <input type="url"
       id="{{ widget.photo1_url.value_field_id }}"
@@ -26,7 +26,7 @@
   <div class="form-field">
     {{ widget.photo2_url.id_hidden_field }}
     <label for="{{ widget.photo2_url.value_field_id }}" >
-      Source URL
+      Photo 2 Url
     </label>
     <input type="url"
       id="{{ widget.photo2_url.value_field_id }}"
@@ -50,7 +50,7 @@
   <div class="form-field">
     {{ widget.photo3_url.id_hidden_field }}
     <label for="{{ widget.photo3_url.value_field_id }}" >
-      Source URL
+      Photo 3 Url
     </label>
     <input type="url"
       id="{{ widget.photo3_url.value_field_id }}"
@@ -80,7 +80,7 @@
       <input type="radio"
         id="{{ widget.photo_layout.value_field_id }}_a"
         name="{{ widget.photo_layout.value_field_name }}"
-        value="photo_layout_a"
+        value="photo-layout-a"
         checked="checked"
       />
       <label for="{{ widget.photo_layout.value_field_id }}_a" >
@@ -90,8 +90,8 @@
       <input type="radio"
         id="{{ widget.photo_layout.value_field_id }}_b"
         name="{{ widget.photo_layout.value_field_name }}"
-        value="photo_layout_b"
-        {% if widget.photo_layout.best_value == "photo_layout_b" %}
+        value="photo-layout-b"
+        {% if widget.photo_layout.best_value == "photo-layout-b" %}
         checked="checked"
         {% endif %}
       />
@@ -102,8 +102,8 @@
       <input type="radio"
         id="{{ widget.photo_layout.value_field_id }}_c"
         name="{{ widget.photo_layout.value_field_name }}"
-        value="photo_layout_c"
-        {% if widget.photo_layout.best_value == "photo_layout_c" %}
+        value="photo-layout-c"
+        {% if widget.photo_layout.best_value == "photo-layout-c" %}
         checked="checked"
         {% endif %}
       />
