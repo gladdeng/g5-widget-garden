@@ -25,6 +25,18 @@
   </div>
   
   <div class="field">
+    {{ widget.google_analytics_id.id_hidden_field }}
+    <label for="{{ widget.google_analytics_id.value_field_id }}" >
+      Description
+    </label>
+    <input type="text"
+      id="{{ widget.google_analytics_id.value_field_id }}"
+      name="{{ widget.google_analytics_id.value_field_name }}"
+      value="{{ widget.google_analytics_id.best_value }}"
+    />
+  </div>
+  
+  <div class="field">
     {{ widget.optimizely_id.id_hidden_field }}
     <label for="{{ widget.optimizely_id.value_field_id }}" >
       Description
