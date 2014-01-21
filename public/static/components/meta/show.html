@@ -5,6 +5,12 @@
   <link href="http://plus.google.com/{{ widget.google_plus_id.best_value }}" rel="publisher" />
 {% endif %}
 
-<meta name="google-analytics" content="{{ widget.google_analytics_id.best_value }}" />
-<meta name="google-webmaster-tools" content="{{ widget.google_webmaster_tools_verification.best_value }}" />
+{% if widget.google_analytics_id.best_value != "" %}
+  <meta name="google-analytics" content="{{ widget.google_analytics_id.best_value }}" />
+{% endif %}
+
+{% if widget.google_site_verification.best_value != "" %}
+  <meta name='google-site-verification' content="{{ widget.google_site_verification.best_value }}" />
+{% endif %}
+
 <meta name="optimizely" content="{{ widget.optimizely_id.best_value }}" />
