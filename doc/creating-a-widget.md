@@ -148,7 +148,7 @@ below.
     - standard input field (text, select, etc.) to represent the value
 
 ```html
-<div class="field">
+<div class="form-field">
   {{ widget.property_name.id_hidden_field }}
   <label for="{{ widget.property_name.value_field_id }}" >
     Property Name

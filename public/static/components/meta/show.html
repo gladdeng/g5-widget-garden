@@ -1,6 +1,14 @@
 <meta name="keywords" content="" />
 <meta name="description" content="{{ widget.meta_description.best_value }}" />
-<meta name="google-plus" content="{{ widget.google_plus_id.best_value }}" />
-<meta name="google-analytics" content="{{ widget.google_analytics_id.best_value }}" />
-<meta name="google-webmaster-tools" content="{{ widget.google_webmaster_tools_verification.best_value }}" />
-<meta name="optimizely" content="{{ widget.optimizely_id.best_value }}" />
+
+{% if widget.google_site_verification.best_value != "" %}
+  <meta name='google-site-verification' content="{{ widget.google_site_verification.best_value }}" />
+{% endif %}
+
+{% if widget.google_plus_id.best_value != "" %}
+  <link href="http://plus.google.com/{{ widget.google_plus_id.best_value }}" rel="publisher" />
+{% endif %}
+
+{% if widget.optimizely_id.best_value != "" %}
+  <script type="text/javascript" src="//cdn.optimizely.com/js/{{ widget.optimizely_id.best_value }}.js"></script>
+{% endif %}
