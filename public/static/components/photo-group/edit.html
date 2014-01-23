@@ -10,7 +10,7 @@
       value="{{ widget.photo1_url.best_value | url_encode }}"
     />
   </div>
-  
+
   <div class="form-field">
     {{ widget.photo1_alt.id_hidden_field }}
     <label for="{{ widget.photo1_alt.value_field_id }}" >
@@ -22,7 +22,7 @@
       value="{{ widget.photo1_alt.best_value | url_encode }}"
     />
   </div>
-  
+
   <div class="form-field">
     {{ widget.photo2_url.id_hidden_field }}
     <label for="{{ widget.photo2_url.value_field_id }}" >
@@ -34,7 +34,7 @@
       value="{{ widget.photo2_url.best_value | url_encode }}"
     />
   </div>
-  
+
   <div class="form-field">
     {{ widget.photo2_alt.id_hidden_field }}
     <label for="{{ widget.photo2_alt.value_field_id }}" >
@@ -46,7 +46,7 @@
       value="{{ widget.photo2_alt.best_value | url_encode }}"
     />
   </div>
-  
+
   <div class="form-field">
     {{ widget.photo3_url.id_hidden_field }}
     <label for="{{ widget.photo3_url.value_field_id }}" >
@@ -58,7 +58,7 @@
       value="{{ widget.photo3_url.best_value | url_encode }}"
     />
   </div>
-  
+
   <div class="form-field">
     {{ widget.photo3_alt.id_hidden_field }}
     <label for="{{ widget.photo3_alt.value_field_id }}" >
@@ -69,48 +69,6 @@
       name="{{ widget.photo3_alt.value_field_name }}"
       value="{{ widget.photo3_alt.best_value | url_encode }}"
     />
-  </div>
-
-
-  <div class="form-field check-field">
-    <fieldset>
-    <legend>Photo Layout</legend>
-      {{ widget.photo_layout.id_hidden_field }}
-      
-      <input type="radio"
-        id="{{ widget.photo_layout.value_field_id }}_a"
-        name="{{ widget.photo_layout.value_field_name }}"
-        value="photo-layout-a"
-        checked="checked"
-      />
-      <label for="{{ widget.photo_layout.value_field_id }}_a" >
-        [Large][Small]
-      </label>
-      
-      <input type="radio"
-        id="{{ widget.photo_layout.value_field_id }}_b"
-        name="{{ widget.photo_layout.value_field_name }}"
-        value="photo-layout-b"
-        {% if widget.photo_layout.best_value == "photo-layout-b" %}
-        checked="checked"
-        {% endif %}
-      />
-      <label for="{{ widget.photo_layout.value_field_id }}_b" >
-        [Small][Large]
-      </label>
-      
-      <input type="radio"
-        id="{{ widget.photo_layout.value_field_id }}_c"
-        name="{{ widget.photo_layout.value_field_name }}"
-        value="photo-layout-c"
-        {% if widget.photo_layout.best_value == "photo-layout-c" %}
-        checked="checked"
-        {% endif %}
-      />
-      <label for="{{ widget.photo_layout.value_field_id }}_c" >
-        [Photo][Photo][Photo]
-      </label>
-    </fieldset>
   </div>
 
   <input type="submit" value="Save" class="btn" />
