@@ -1,0 +1,19 @@
+<div class="photo-group widget ">
+  <div class="photo-group-container">
+
+    <figure class="h-media" itemscope itemtype="http://schema.org/Photograph">
+      <img class="u-photo" src="{{ widget.photo1_url.best_value | url_encode }}" alt="{{ widget.photo1_alt.best_value }}" itemprop="image" />
+    </figure>
+
+    <figure class="h-media" itemscope itemtype="http://schema.org/Photograph">
+      <img class="u-photo" src="{{ widget.photo2_url.best_value | url_encode }}" alt="{{ widget.photo2_alt.best_value }}" itemprop="image" />
+    </figure>
+
+    {% if widget.photo3_url.best_value != "" %}
+    <figure class="h-media" itemscope itemtype="http://schema.org/Photograph">
+      <img class="u-photo" src="{{ widget.photo3_url.best_value | url_encode }}" alt="{{ widget.photo3_alt.best_value }}" itemprop="image" />
+    </figure>
+    {% endif %}
+
+  </div>
+</div>
