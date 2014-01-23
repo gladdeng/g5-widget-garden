@@ -1,16 +1,20 @@
+{% if widget.button_label.best_value != "" or widget.button_image_url.best_value != "" %}
 <div class="button button-{{widget.button_image_position.best_value}} widget">
-    
+
   <a href="{{ widget.button_url.best_value | url_encode }}">
     {% if widget.button_image_url.best_value != "" %}
       <img class="btn-img" src="{{ widget.button_image_url.best_value | url_encode }}" />
     {% endif %}
-    
-    <span class="btn">
-      {{ widget.button_label.best_value }}
-    </span>
+
+    {% if widget.button_label.best_value != "" %}
+      <span class="btn">
+        {{ widget.button_label.best_value }}
+      </span>
+    {% endif %}
   </a>
 
   {% if widget.button_description.best_value != "" %}
     <p class="button-description">{{ widget.button_description.best_value }}</p>
   {% endif %}
 </div>
+{% endif %}

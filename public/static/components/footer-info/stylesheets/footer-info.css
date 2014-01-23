@@ -6,14 +6,15 @@
 .footer-info .access,
 .footer-info img {
   display: inline-block;
-  margin-left: 5px;
+  margin-left: 10px;
   vertical-align: top;
 }
 
 .footer-info .access {
   background: url(http://g5-widget-garden.herokuapp.com/static/images/access-icons.png) 0 0 no-repeat;
-  overflow: hidden;
-  text-indent: 999em;
+  text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .footer-info .housing-icon {
@@ -28,5 +29,6 @@
 }
 
 .footer-info .corporate-logo {
+  display: inline-block;
   max-width: 200px;
 }

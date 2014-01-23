@@ -1,25 +1,14 @@
 <form>
-  <div class="field">
-    {{ widget.tracking_code.id_hidden_field }}
-    <label for="{{ widget.tracking_code.value_field_id }}" >
-      Tracking Code
+  <div class="form-field">
+    {{ widget.tracking_id.id_hidden_field }}
+    <label for="{{ widget.tracking_id.value_field_id }}" >
+      Tracking ID
     </label>
     <input type="text"
-      id="{{ widget.tracking_code.value_field_id }}"
-      name="{{ widget.tracking_code.value_field_name }}"
-      value="{{ widget.tracking_code.best_value }}"
-    />
-  </div>
-
-  <div class="field">
-    {{ widget.domain_name.id_hidden_field }}
-    <label for="{{ widget.domain_name.value_field_id }}" >
-      Domain Name
-    </label>
-    <input type="text"
-      id="{{ widget.domain_name.value_field_id }}"
-      name="{{ widget.domain_name.value_field_name }}"
-      value="{{ widget.domain_name.best_value | url_encode }}"
+      id="{{ widget.tracking_id.value_field_id }}"
+      name="{{ widget.tracking_id.value_field_name }}"
+      value="{{ widget.tracking_id.best_value }}"
+      placeholder="UA-XXXXXXXX-X"
     />
   </div>
 
