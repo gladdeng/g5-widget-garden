@@ -32,7 +32,26 @@
     var pricingOptions;
     pricingOptions = JSON.parse($('.floorplans .config:first').html());
     new pricingAndAvailability(pricingOptions);
-    return $(".floorplans .floorplan-btn").fancybox();
+    $(".floorplans .floorplan-btn").fancybox();
+    return $(".filter-btn").live("click", function(e) {
+      var filterName, filterValue, floorplans;
+      e.stopPropagation();
+      floorplans = $("#sortable li");
+      filterName = $(this).attr("for").split("-")[0];
+      filterValue = $(this).text();
+      return floorplans.each(function(i) {
+        var actual, filterClass;
+        filterClass = "." + filterName + "-val";
+        actual = $(this).find(filterClass).text();
+        if (filterValue === "All") {
+          return $(this).show();
+        } else if (actual === filterValue) {
+          return $(this).show();
+        } else {
+          return $(this).hide();
+        }
+      });
+    });
   });
 
 }).call(this);
