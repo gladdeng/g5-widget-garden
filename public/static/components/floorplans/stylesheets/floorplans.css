@@ -1,29 +1,14 @@
 /* FILTER STYLES =============================*/
-#filters {
-  border-bottom: 1px solid #e4e4e4;
-  -webkit-box-shadow: 1px solid #d7d7d7;
-  -moz-box-shadow: 1px solid #d7d7d7;
-  box-shadow: 1px solid #d7d7d7;
-}
-#filters:after {
+.filters:after {
   content: "";
   display: table;
   clear: both;
 }
 .filter-btn {
-  padding: .3125em .5em;
-  margin-bottom: .5em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.filter-btn strong {
   display: inline-block;
-  margin-right: .5em;
 }
-.filter-btn a {
-  font-weight: bold;
-  padding: .3125em .5em;
+.filter-name {
+  margin-right: .5em;
 }
 .available-filter {
   text-align: right;
@@ -37,32 +22,12 @@
   vertical-align: .1em;
 }
 @media (min-width: 768px) {
-  #filters {
-    border-bottom: none;
-  }
   .filter {
     float: left;
-  }
-  .filter-btn {
     margin-right: 2%;
   }
 }
 @media (min-width: 980px) {
-  #filters {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-  }
-  .filter-btn {
-    padding: .75em 1em;
-  }
-  .filter-btn strong {
-    font-size: 22px;
-  }
-  .filter-btn a {
-    margin-right: .3em;
-    font-size: 18px;
-  }
   .available-filter {
     font-size: 18px;
   }
