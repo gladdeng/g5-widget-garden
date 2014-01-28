@@ -26,12 +26,12 @@ class pricingAndAvailability
         bathSelector = ''
 
         if bedFilter is 'beds-all' and bathFilter is 'baths-all'
-          $('.floorplan').show()
+          $('.floorplan').fadeIn()
         else
           bedSelector = '.' + bedFilter unless bedFilter is 'beds-all'
           bathSelector = '.' + bathFilter unless bathFilter is 'baths-all'
-          $('.floorplan').hide()
-          $(bedSelector + bathSelector).show()
+          $('.floorplan').fadeOut()
+          $(bedSelector + bathSelector).fadeIn('fast')
 
 
 $ ->

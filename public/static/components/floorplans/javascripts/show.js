@@ -28,7 +28,7 @@
           bedSelector = '';
           bathSelector = '';
           if (bedFilter === 'beds-all' && bathFilter === 'baths-all') {
-            return $('.floorplan').show();
+            return $('.floorplan').fadeIn();
           } else {
             if (bedFilter !== 'beds-all') {
               bedSelector = '.' + bedFilter;
@@ -36,8 +36,8 @@
             if (bathFilter !== 'baths-all') {
               bathSelector = '.' + bathFilter;
             }
-            $('.floorplan').hide();
-            return $(bedSelector + bathSelector).show();
+            $('.floorplan').fadeOut();
+            return $(bedSelector + bathSelector).fadeIn('fast');
           }
         });
       });
