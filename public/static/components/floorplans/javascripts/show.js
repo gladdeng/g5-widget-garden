@@ -20,7 +20,26 @@
         var $data, floorplans;
         $data = $(data);
         floorplans = $data.find('.e-content');
-        return $(".floorplans").append(floorplans);
+        $(".floorplans").append(floorplans);
+        return $(".filters input").on("change", function(e) {
+          var bathFilter, bathSelector, bedFilter, bedSelector;
+          bedFilter = $('#beds-filter input:checked').val();
+          bathFilter = $('#baths-filter input:checked').val();
+          bedSelector = '';
+          bathSelector = '';
+          if (bedFilter === 'beds-all' && bathFilter === 'baths-all') {
+            return $('.floorplan').show();
+          } else {
+            if (bedFilter !== 'beds-all') {
+              bedSelector = '.' + bedFilter;
+            }
+            if (bathFilter !== 'baths-all') {
+              bathSelector = '.' + bathFilter;
+            }
+            $('.floorplan').hide();
+            return $(bedSelector + bathSelector).show();
+          }
+        });
       });
     };
 
@@ -32,26 +51,7 @@
     var pricingOptions;
     pricingOptions = JSON.parse($('.floorplans .config:first').html());
     new pricingAndAvailability(pricingOptions);
-    $(".floorplans .floorplan-btn").fancybox();
-    return $(".filter-btn").live("click", function(e) {
-      var filterName, filterValue, floorplans;
-      e.stopPropagation();
-      floorplans = $("#sortable li");
-      filterName = $(this).attr("for").split("-")[0];
-      filterValue = $(this).text();
-      return floorplans.each(function(i) {
-        var actual, filterClass;
-        filterClass = "." + filterName + "-val";
-        actual = $(this).find(filterClass).text();
-        if (filterValue === "All") {
-          return $(this).show();
-        } else if (actual === filterValue) {
-          return $(this).show();
-        } else {
-          return $(this).hide();
-        }
-      });
-    });
+    return $(".floorplans .floorplan-btn").fancybox();
   });
 
 }).call(this);
