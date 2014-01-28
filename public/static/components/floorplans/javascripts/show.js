@@ -20,7 +20,26 @@
         var $data, floorplans;
         $data = $(data);
         floorplans = $data.find('.e-content');
-        return $(".floorplans").append(floorplans);
+        $(".floorplans").append(floorplans);
+        return $(".filters input").on("change", function(e) {
+          var bathFilter, bathSelector, bedFilter, bedSelector;
+          bedFilter = $('#beds-filter input:checked').val();
+          bathFilter = $('#baths-filter input:checked').val();
+          bedSelector = '';
+          bathSelector = '';
+          if (bedFilter === 'beds-all' && bathFilter === 'baths-all') {
+            return $('.floorplan').fadeIn();
+          } else {
+            if (bedFilter !== 'beds-all') {
+              bedSelector = '.' + bedFilter;
+            }
+            if (bathFilter !== 'baths-all') {
+              bathSelector = '.' + bathFilter;
+            }
+            $('.floorplan').fadeOut();
+            return $(bedSelector + bathSelector).fadeIn('fast');
+          }
+        });
       });
     };
 

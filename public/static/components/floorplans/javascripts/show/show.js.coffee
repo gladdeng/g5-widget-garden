@@ -19,7 +19,23 @@ class pricingAndAvailability
       floorplans = $data.find('.e-content')
       $(".floorplans").append(floorplans);
 
+      $(".filters input").on "change", (e) ->
+        bedFilter = $('#beds-filter input:checked').val()
+        bathFilter = $('#baths-filter input:checked').val()
+        bedSelector = ''
+        bathSelector = ''
+
+        if bedFilter is 'beds-all' and bathFilter is 'baths-all'
+          $('.floorplan').fadeIn()
+        else
+          bedSelector = '.' + bedFilter unless bedFilter is 'beds-all'
+          bathSelector = '.' + bathFilter unless bathFilter is 'baths-all'
+          $('.floorplan').fadeOut()
+          $(bedSelector + bathSelector).fadeIn('fast')
+
+
 $ ->
   pricingOptions = JSON.parse($('.floorplans .config:first').html())
   new pricingAndAvailability(pricingOptions)
   $(".floorplans .floorplan-btn").fancybox()
+
