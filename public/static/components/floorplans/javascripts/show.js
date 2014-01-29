@@ -23,7 +23,7 @@
         $data = $(data);
         floorplans = $data.find('.e-content');
         $(".floorplans").append(floorplans).fadeIn();
-        $('#loading-floorplans').fadeOut().delay(1000).remove();
+        $('#loading-floorplans').fadeOut().remove();
         return $(".filters input").on("change", function(e) {
           var bathFilter, bathSelector, bedFilter, bedSelector;
           bedFilter = $('#beds-filter input:checked').val();

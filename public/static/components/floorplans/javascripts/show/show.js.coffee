@@ -23,7 +23,7 @@ class pricingAndAvailability
       floorplans = $data.find('.e-content')
 
       $(".floorplans").append(floorplans).fadeIn()
-      $('#loading-floorplans').fadeOut().delay(1000).remove()
+      $('#loading-floorplans').fadeOut().remove()
 
       $(".filters input").on "change", (e) ->
         bedFilter = $('#beds-filter input:checked').val()
