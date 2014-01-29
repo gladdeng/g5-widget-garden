@@ -12,14 +12,19 @@ class pricingAndAvailability
       @getPricing(cpas_urn, location_urn)
 
   getPricing: (cpas_urn, location_urn) ->
-    $('.floorplans').append('<div class="loading">Loading</div>')
+
     pricingURL = "http://" + cpas_urn + ".herokuapp.com/locations/" + location_urn
 
     $.get pricingURL, (data) ->
+      $(".floorplans").hide()
+      $('[role=main]').append('<div id="loading-floorplans">Loading&hellip;</div>')
+
       $data = $(data)
       floorplans = $data.find('.e-content')
-      $(".floorplans").append(floorplans)
-      $('.loading').fadeOut('fast').remove()
+
+      $(".floorplans").append(floorplans).fadeIn()
+      $('#loading-floorplans').fadeOut().delay(1000).remove()
+
       $(".filters input").on "change", (e) ->
         bedFilter = $('#beds-filter input:checked').val()
         bathFilter = $('#baths-filter input:checked').val()

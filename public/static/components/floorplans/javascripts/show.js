@@ -15,14 +15,15 @@
 
     pricingAndAvailability.prototype.getPricing = function(cpas_urn, location_urn) {
       var pricingURL;
-      $('.floorplans').append('<div class="loading">Loading</div>');
       pricingURL = "http://" + cpas_urn + ".herokuapp.com/locations/" + location_urn;
       return $.get(pricingURL, function(data) {
         var $data, floorplans;
+        $(".floorplans").hide();
+        $('[role=main]').append('<div id="loading-floorplans">Loading&hellip;</div>');
         $data = $(data);
         floorplans = $data.find('.e-content');
-        $(".floorplans").append(floorplans);
-        $('.loading').fadeOut('fast').remove();
+        $(".floorplans").append(floorplans).fadeIn();
+        $('#loading-floorplans').fadeOut().delay(1000).remove();
         return $(".filters input").on("change", function(e) {
           var bathFilter, bathSelector, bedFilter, bedSelector;
           bedFilter = $('#beds-filter input:checked').val();
