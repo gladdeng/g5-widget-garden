@@ -23,10 +23,17 @@
 
   })();
 
+  var canonicalUrl = function() {
+    var inputs = $('input.u-canonical');
+    var loc = $(location).attr('href');
+    inputs.val(loc);
+  };
+
   $(function() {
     var clientUrn;
     clientUrn = JSON.parse($('.g5-enhanced-form .config:first').html());
-    return new clientLeadsService(clientUrn);
+    new clientLeadsService(clientUrn);
+    canonicalUrl();
   });
 
 }).call(this);

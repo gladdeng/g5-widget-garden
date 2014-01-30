@@ -1,5 +1,5 @@
 <div class="service-request-form widget g5-enhanced-form">
-  
+
   <script class="config" type="application/json">
     {
       "clientUrn": "{{ widget.client_urn.best_value }}"
@@ -15,6 +15,7 @@
   {% endif %}
 
   <form id="form-template" class="form h-entry" action="{{ widget.client_leads_url.best_value | url_encode }}" method="POST">
+    <input type="hidden" class="u-canonical" name="u-canonical" value="" />
     <input type="hidden" class="u-syndication" name="u-syndication" value="{{ widget.form_syndication_url.best_value | url_encode }}" />
 
     <div class="p-author h-card">
@@ -43,8 +44,8 @@
     <div class="form-field">
       <fieldset>
         <legend>Permission to enter?</legend>
-        <label><input type="radio" class="p-g5-permission" name="p-g5-permission" checked> Yes</label>
-        <label><input type="radio" class="p-g5-permission" name="p-g5-permission"> No</label>
+        <label><input type="radio" class="p-g5-permission" name="p-g5-permission" value="Yes" checked> Yes</label>
+        <label><input type="radio" class="p-g5-permission" name="p-g5-permission" value="No"> No</label>
       </fieldset>
     </div>
 
@@ -61,13 +62,13 @@
     <div class="form-field">
       <label><input type="checkbox" id="p-g5-permission" class="p-g5-permission" name="p-g5-permission" checked> Permission is granted to enter my home</label>
     </div>
-    
+
     <!-- for bots only. inline js/css necessary to make sure this is always hidden -->
     <input id="lead_comments" name="lead_comments" onfocus="this.blur();" style="margin-left: -9999px; float: left;" type="text" value="">
 
     <input type="submit" value="Send" />
   </form>
-  
+
   <div class="submitting" style="display: none">Submitting</div>
   <div class="error" style="display: none">Error</div>
   <div class="success" style="display: none">Success</div>
