@@ -16,7 +16,7 @@ setMap = (coordinates) ->
     draggable: widgetMapConfig.panZoom
     disableDefaultUI: not widgetMapConfig.panZoom
     disableDoubleClickZoom: not widgetMapConfig.panZoom
-    zoom: 18
+    zoom: 16
     center: new google.maps.LatLng(lat, lng)
     mapTypeId: google.maps.MapTypeId[widgetMapConfig.mapType]
 
