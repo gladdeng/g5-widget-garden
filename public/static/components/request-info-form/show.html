@@ -1,5 +1,5 @@
 <div class="request-info-form widget g5-enhanced-form">
-  
+
   <script class="config" type="application/json">
     {
       "clientUrn": "{{ widget.client_urn.best_value }}"
@@ -107,15 +107,15 @@
         </fieldset>
       </div>
     </div>
-    
+
     <div class="form-field">
       <fieldset>
         <legend>Are you a current resident?</legend>
-        <label><input type="radio" class="p-g5-resident" name="p-g5-resident"> Yes</label>
-        <label><input type="radio" class="p-g5-resident" name="p-g5-resident" checked> No</label>
+        <label><input type="radio" class="p-g5-resident" name="p-g5-resident" value="Yes"> Yes</label>
+        <label><input type="radio" class="p-g5-resident" name="p-g5-resident" value="No" checked> No</label>
       </fieldset>
     </div>
-    
+
     <div class="form-field">
       <label for="p-g5-resident-2">If not, How'd your hear about us?</label>
       <input type="text" id="p-g5-resident-2" class="p-g5-resident-2" name="p-g5-resident-2" />
@@ -125,13 +125,13 @@
       <label for="e-content">Message <span class="form-optional">optional</span></label>
       <textarea id="e-content" class="e-content" name="e-content"></textarea>
     </div>
-    
+
     <!-- for bots only. inline js/css necessary to make sure this is always hidden -->
     <input id="lead_comments" name="lead_comments" onfocus="this.blur();" style="margin-left: -9999px; float: left;" type="text" value="">
 
     <input type="submit" value="Send" />
   </form>
-  
+
   <div class="submitting" style="display: none">Submitting</div>
   <div class="error" style="display: none">Error</div>
   <div class="success" style="display: none">Success</div>
