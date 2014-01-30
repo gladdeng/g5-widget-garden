@@ -24,7 +24,7 @@
   })();
 
   canonicalUrl = (function() {
-    var inputs = $('[rel=canonical]');
+    var inputs = $('input.u-canonical');
     var loc = $(location).attr('href');
     inputs.val(loc);
   })();
