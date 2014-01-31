@@ -14,10 +14,12 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 1em;
   text-align: center;
-  @media (min-width: 500px) {
+}
+@media (min-width: 500px) {
+  .button-grid {
     float: left;
+    padding: 0 1em;
     width: 50%;
   }
 }
