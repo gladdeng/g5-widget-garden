@@ -1,5 +1,5 @@
 {% if widget.button_label.best_value != "" or widget.button_image_url.best_value != "" %}
-<div class="button button-{{widget.button_image_position.best_value}} widget">
+<div class="button button-{{widget.button_layout.best_value}} widget">
 
   <a href="{{ widget.button_url.best_value | url_encode }}">
     {% if widget.button_image_url.best_value != "" %}

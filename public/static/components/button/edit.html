@@ -22,7 +22,7 @@
       value="{{ widget.button_url.best_value | url_encode }}"
     />
   </div>
-  
+
   <div class="form-field">
     {{ widget.button_description.id_hidden_field }}
     <label for="{{ widget.button_description.value_field_id }}" >
@@ -34,7 +34,7 @@
       value="{{ widget.button_description.best_value }}"
     />
   </div>
-  
+
   <div class="form-field">
     {{ widget.button_image_url.id_hidden_field }}
     <label for="{{ widget.button_image_url.value_field_id }}" >
@@ -46,30 +46,30 @@
       value="{{ widget.button_image_url.best_value | url_encode }}"
     />
   </div>
-  
+
   <div class="form-field check-field">
     <fieldset>
-      <legend>Image Position</legend>
-      {{ widget.button_image_position.id_hidden_field }}
+      <legend>Button Layout</legend>
+      {{ widget.button_layout.id_hidden_field }}
       <input type="radio"
-        id="{{ widget.button_image_position.value_field_id }}_left"
-        name="{{ widget.button_image_position.value_field_name }}"
-        value="left"
+        id="{{ widget.button_layout.value_field_id }}_list"
+        name="{{ widget.button_layout.value_field_name }}"
+        value="list"
         checked="checked"
       />
-      <label for="{{ widget.button_image_position.value_field_id }}_left" >
-        Left
+      <label for="{{ widget.button_layout.value_field_id }}_list" >
+        List
       </label>
       <input type="radio"
-        id="{{ widget.button_image_position.value_field_id }}_top"
-        name="{{ widget.button_image_position.value_field_name }}"
-        value="top"
-        {% if widget.button_image_position.best_value == "top" %}
+        id="{{ widget.button_layout.value_field_id }}_grid"
+        name="{{ widget.button_layout.value_field_name }}"
+        value="grid"
+        {% if widget.button_layout.best_value == "grid" %}
         checked="checked"
         {% endif %}
       />
-      <label for="{{ widget.button_image_position.value_field_id }}_top" >
-        Top
+      <label for="{{ widget.button_layout.value_field_id }}_grid" >
+        Grid
       </label>
     </fieldset>
   </div>
