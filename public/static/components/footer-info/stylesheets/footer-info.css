@@ -1,8 +1,10 @@
 .footer-info {
-  clear: both;
+  float: right;
   text-align: right;
 }
-
+.footer-info .copyright {
+  margin-top: 0;
+}
 .footer-info .access,
 .footer-info img {
   display: inline-block;
