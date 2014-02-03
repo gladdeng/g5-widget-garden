@@ -1,14 +1,14 @@
 <div class="contact-info h-card vcard widget" itemscope itemtype="http://schema.org/LocalBusiness">
   {% if widget.location_name.best_value != "" %}
-  <h3 class="p-name">{{ widget.location_name.best_value }}</h3>
+  <h4 class="p-name">{{ widget.location_name.best_value }}</h4>
   {% endif %}
-  
+
   {% if widget.location_tel.best_value != "" %}
   <p class="p-tel tel" itemprop="telephone">
     <a href="tel:{{ widget.location_tel.best_value }}">{{ widget.location_tel.best_value }}</a>
   </p>
   {% endif %}
-  
+
   <p class="h-adr p-adr adr" itemscope itemtype="http://schema.org/PostalAddress">
     {% if widget.location_street_address.best_value != "" %}
     <span class="p-street-address street-address" itemprop="streetAddress">
@@ -38,14 +38,14 @@
       {{ widget.location_country.best_value }}
     </span>
     {% endif %}
-  </p>  
+  </p>
 
   {% if widget.location_fax.best_value != "" %}
   <p class="p-tel tel fax" itemprop="telephone">
     {{ widget.location_fax.best_value }}
   </p>
   {% endif %}
-  
+
   {% if widget.location_email.best_value != "" %}
   <p class="u-email email" itemprop="email">
     <a href="mailto:{{ widget.location_email.best_value | url_encode}}">Email Us</a>
