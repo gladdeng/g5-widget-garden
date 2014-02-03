@@ -10,7 +10,7 @@
       value="{{ widget.photo_source_url.best_value | url_encode }}"
     />
   </div>
-  
+
   <div class="form-field">
     {{ widget.photo_link_url.id_hidden_field }}
     <label for="{{ widget.photo_link_url.value_field_id }}" >
@@ -22,11 +22,11 @@
       value="{{ widget.photo_link_url.best_value | url_encode }}"
     />
   </div>
-  
+
   <div class="form-field">
     {{ widget.photo_alt_tag.id_hidden_field }}
     <label for="{{ widget.photo_alt_tag.value_field_id }}" >
-      Caption
+      Alt Tag
     </label>
     <input type="text"
       id="{{ widget.photo_alt_tag.value_field_id }}"
