@@ -5,7 +5,7 @@
   clear: both;
 }
 .filter-btn {
-  display: inline-block;
+  display: block;
 }
 .filter-name {
   margin-right: .5em;
