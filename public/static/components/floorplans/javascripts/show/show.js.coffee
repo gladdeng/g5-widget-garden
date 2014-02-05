@@ -40,7 +40,7 @@ class pricingAndAvailability
 
 
 
-$(window).load ->
+$ ->
   pricingOptions = JSON.parse($('.floorplans .config:first').html())
   new pricingAndAvailability(pricingOptions)
   $(".floorplans .floorplan-btn").fancybox()

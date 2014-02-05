@@ -57,7 +57,7 @@
 
   })();
 
-  $(window).load(function() {
+  $(function() {
     var pricingOptions;
     pricingOptions = JSON.parse($('.floorplans .config:first').html());
     new pricingAndAvailability(pricingOptions);
