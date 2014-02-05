@@ -5,7 +5,7 @@
   clear: both;
 }
 .filter-btn {
-  display: block;
+  display: inline-block;
 }
 .filter-name {
   margin-right: .5em;
@@ -143,7 +143,7 @@ li.floorplan:nth-child(even) {
 }
 .floorplan-img .floorplan-btn {
   padding: 2px;
-  display: inline-block;
+  display: block;
 }
 .floorplan-img img {
   display: block;

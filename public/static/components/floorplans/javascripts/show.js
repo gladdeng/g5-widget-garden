@@ -18,34 +18,38 @@
       pricingURL = "http://" + cpas_urn + ".herokuapp.com/locations/" + location_urn;
       floorplanContainer = $('.floorplans');
       loader = '<div id="loading-floorplans"><div class="loader">Loading&hellip;</div>Loading Pricing &amp; Availibility Information&hellip;</div>';
-      return $.get(pricingURL, function(data) {
-        var $data, floorplanList, floorplans;
-        floorplanContainer.hide();
-        $('[role=main]').append(loader);
-        $data = $(data);
-        floorplanList = $data.find('.e-content');
-        floorplanContainer.append(floorplanList).fadeIn();
-        $('#loading-floorplans').fadeOut().remove();
-        floorplans = $('.floorplan');
-        return $(".filters input").on("change", function(e) {
-          var bathFilter, bathSelector, bedFilter, bedSelector;
-          bedFilter = $('#beds-filter input:checked').val();
-          bathFilter = $('#baths-filter input:checked').val();
-          bedSelector = '';
-          bathSelector = '';
-          if (bedFilter === 'beds-all' && bathFilter === 'baths-all') {
-            return floorplans.fadeIn();
-          } else {
-            if (bedFilter !== 'beds-all') {
-              bedSelector = '.' + bedFilter;
+      return $.ajax({
+        type: "GET",
+        url: pricingURL,
+        success: function(data) {
+          var $data, floorplanList, floorplans;
+          floorplanContainer.hide();
+          $("[role=main]").append(loader);
+          $data = $(data);
+          floorplanList = $data.find(".e-content");
+          floorplanContainer.append(floorplanList).fadeIn();
+          $("#loading-floorplans").fadeOut().remove();
+          floorplans = $(".floorplan");
+          return $(".filters input").on("change", function(e) {
+            var bathFilter, bathSelector, bedFilter, bedSelector;
+            bedFilter = $("#beds-filter input:checked").val();
+            bathFilter = $("#baths-filter input:checked").val();
+            bedSelector = "";
+            bathSelector = "";
+            if (bedFilter === "beds-all" && bathFilter === "baths-all") {
+              return floorplans.fadeIn();
+            } else {
+              if (bedFilter !== "beds-all") {
+                bedSelector = "." + bedFilter;
+              }
+              if (bathFilter !== "baths-all") {
+                bathSelector = "." + bathFilter;
+              }
+              floorplans.fadeOut();
+              return $(bedSelector + bathSelector).fadeIn("fast");
             }
-            if (bathFilter !== 'baths-all') {
-              bathSelector = '.' + bathFilter;
-            }
-            floorplans.fadeOut();
-            return $(bedSelector + bathSelector).fadeIn('fast');
-          }
-        });
+          });
+        }
       });
     };
 
@@ -53,7 +57,7 @@
 
   })();
 
-  $(function() {
+  $(window).load(function() {
     var pricingOptions;
     pricingOptions = JSON.parse($('.floorplans .config:first').html());
     new pricingAndAvailability(pricingOptions);
