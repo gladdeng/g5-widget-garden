@@ -22,7 +22,12 @@ class pricingAndAvailability
         $data = $(data)
         floorplanList = $data.find(".e-content")
         floorplanContainer.append(floorplanList).fadeIn()
+
         $("#loading-floorplans").fadeOut().remove()
+
+        floorplansHeight = floorplanContainer.outerHeight()
+        floorplanContainer.css('height', floorplansHeight)
+
         floorplans = $(".floorplan")
         $(".filters input").on "change", (e) ->
           bedFilter = $("#beds-filter input:checked").val()
@@ -37,11 +42,11 @@ class pricingAndAvailability
             floorplans.fadeOut()
             $(bedSelector + bathSelector).fadeIn "fast"
 
-
+        $(".floorplans .floorplan-btn").fancybox()
 
 
 $ ->
+  $.getScript "http://g5-widget-garden.herokuapp.com/javascripts/libs/fancybox/jquery.fancybox.pack.js"
+
   pricingOptions = JSON.parse($('.floorplans .config:first').html())
   new pricingAndAvailability(pricingOptions)
-  $(".floorplans .floorplan-btn").fancybox()
-
