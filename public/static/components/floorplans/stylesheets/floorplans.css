@@ -8,7 +8,7 @@
   display: inline-block;
 }
 .filter-name {
-  margin-right: .5em;
+  margin-right: .25em;
 }
 .available-filter {
   text-align: right;
@@ -25,6 +25,9 @@
   .filter {
     float: left;
     margin-right: 2%;
+  }
+  .filter-name {
+    margin-right: .5em;
   }
 }
 @media (min-width: 980px) {
