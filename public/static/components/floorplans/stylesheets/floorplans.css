@@ -218,3 +218,7 @@ li.floorplan:nth-child(even) {
   margin: 0 auto 1em;
   width: 32px;
 }
+
+.filters .filter .disabled {
+  cursor: default;
+}

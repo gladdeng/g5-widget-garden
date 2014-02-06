@@ -29,6 +29,12 @@ class pricingAndAvailability
         floorplanContainer.css('height', floorplansHeight)
 
         floorplans = $(".floorplan")
+
+        $('.filters input[type=radio]').each ->
+          klass = $(this).attr 'id'
+          unless floorplans.hasClass(klass) or klass.match(/^\w+-all/)
+            $(this).prop("disabled", true).next().addClass 'disabled'
+
         $(".filters input").on "change", (e) ->
           bedFilter = $("#beds-filter input:checked").val()
           bathFilter = $("#baths-filter input:checked").val()

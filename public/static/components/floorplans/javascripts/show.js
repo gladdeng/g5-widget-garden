@@ -32,6 +32,13 @@
           floorplansHeight = floorplanContainer.outerHeight();
           floorplanContainer.css('height', floorplansHeight);
           floorplans = $(".floorplan");
+          $('.filters input[type=radio]').each(function() {
+            var klass;
+            klass = $(this).attr('id');
+            if (!(floorplans.hasClass(klass) || klass.match(/^\w+-all/))) {
+              return $(this).prop("disabled", true).next().addClass('disabled');
+            }
+          });
           $(".filters input").on("change", function(e) {
             var bathFilter, bathSelector, bedFilter, bedSelector;
             bedFilter = $("#beds-filter input:checked").val();
