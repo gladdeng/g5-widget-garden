@@ -1,4 +1,10 @@
 function app(jQuery) {
+
+  // If <= IE 9
+  if (window.XDomainRequest) {
+    loadIEScript();
+  }
+
   loadScript();
 
   function loadScript() {
@@ -8,6 +14,15 @@ function app(jQuery) {
 
     $("body").append(script);
   };
+
+  function loadIEScript() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://g5-widget-garden.herokuapp.com/javascripts/libs/jquery.xdomainrequest.min.js";
+
+    $("body").append(script);
+  }
+
 };
 
 function initialize() {
