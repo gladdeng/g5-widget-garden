@@ -22,15 +22,24 @@
         type: "GET",
         url: pricingURL,
         success: function(data) {
-          var $data, floorplanList, floorplans;
+          var $data, floorplanList, floorplans, floorplansHeight;
           floorplanContainer.hide();
           $("[role=main]").append(loader);
           $data = $(data);
           floorplanList = $data.find(".e-content");
           floorplanContainer.append(floorplanList).fadeIn();
           $("#loading-floorplans").fadeOut().remove();
+          floorplansHeight = floorplanContainer.outerHeight();
+          floorplanContainer.css('height', floorplansHeight);
           floorplans = $(".floorplan");
-          return $(".filters input").on("change", function(e) {
+          $('.filters input[type=radio]').each(function() {
+            var klass;
+            klass = $(this).attr('id');
+            if (!(floorplans.hasClass(klass) || klass.match(/^\w+-all/))) {
+              return $(this).prop("disabled", true).next().addClass('disabled');
+            }
+          });
+          $(".filters input").on("change", function(e) {
             var bathFilter, bathSelector, bedFilter, bedSelector;
             bedFilter = $("#beds-filter input:checked").val();
             bathFilter = $("#baths-filter input:checked").val();
@@ -49,6 +58,7 @@
               return $(bedSelector + bathSelector).fadeIn("fast");
             }
           });
+          return $(".floorplans .floorplan-btn").fancybox();
         }
       });
     };
@@ -59,9 +69,9 @@
 
   $(function() {
     var pricingOptions;
+    $.getScript("http://g5-widget-garden.herokuapp.com/javascripts/libs/fancybox/jquery.fancybox.pack.js");
     pricingOptions = JSON.parse($('.floorplans .config:first').html());
-    new pricingAndAvailability(pricingOptions);
-    return $(".floorplans .floorplan-btn").fancybox();
+    return new pricingAndAvailability(pricingOptions);
   });
 
 }).call(this);
