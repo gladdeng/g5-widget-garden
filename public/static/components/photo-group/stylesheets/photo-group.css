@@ -2,6 +2,7 @@
   display: table;
   margin-left: -.5%;
   margin-right: -.5%;
+  width: 100%;
 }
 .photo-group-container {
   display: table-row;
