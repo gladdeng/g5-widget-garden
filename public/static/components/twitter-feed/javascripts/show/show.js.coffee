@@ -10,12 +10,12 @@ $ ->
     avatar = $(".avatar:lt(1) img", data.results[0])
 
     tweets.forEach (tweet) ->
-      atReply = $(tweet).find(".tweet-text .twitter-atreply")
+      atReplyHTML = $(tweet).find(".tweet-text .twitter-atreply")
 
-      atReplyUser = ->
+      atReply = ->
         replyTemplates = []
-        atReply.each (reply) ->
-          fullReply = atReply.get(reply)
+        atReplyHTML.each (reply) ->
+          fullReply = atReplyHTML.get(reply)
           replyUrl = 'http://www.twitter.com' + $(fullReply).attr("href")
           replyText = $(fullReply).text()
           template = "<a href='" + replyUrl + "' target='_blank'>" + replyText + "</a> "
@@ -30,7 +30,7 @@ $ ->
       tweetUrl = "http://www.twitter.com" + tweetTimestamp.find("a").attr("href")
 
       tweetTemplate = "<li><img class='tweet-avatar' src='" + tweetAvatar + "'/>
-        <span class='tweet-text'> " + atReplyUser() + tweetText +
+        <span class='tweet-text'> " + atReply() + tweetText +
         "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span></li>"
 
       $('.tweet-avatar').hide() unless tweetOptions.avatar is true

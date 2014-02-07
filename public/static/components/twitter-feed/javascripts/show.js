@@ -11,14 +11,14 @@
       tweets = $(".timeline .tweet:lt(" + tweetOptions.count + ")", data.results[0]).toArray();
       avatar = $(".avatar:lt(1) img", data.results[0]);
       return tweets.forEach(function(tweet) {
-        var atReply, atReplyUser, tweetAvatar, tweetTemplate, tweetText, tweetTime, tweetTimestamp, tweetUrl;
-        atReply = $(tweet).find(".tweet-text .twitter-atreply");
-        atReplyUser = function() {
+        var atReply, atReplyHTML, tweetAvatar, tweetTemplate, tweetText, tweetTime, tweetTimestamp, tweetUrl;
+        atReplyHTML = $(tweet).find(".tweet-text .twitter-atreply");
+        atReply = function() {
           var replyTemplates;
           replyTemplates = [];
-          atReply.each(function(reply) {
+          atReplyHTML.each(function(reply) {
             var fullReply, replyText, replyUrl, template;
-            fullReply = atReply.get(reply);
+            fullReply = atReplyHTML.get(reply);
             replyUrl = 'http://www.twitter.com' + $(fullReply).attr("href");
             replyText = $(fullReply).text();
             template = "<a href='" + replyUrl + "' target='_blank'>" + replyText + "</a> ";
@@ -31,7 +31,7 @@
         tweetTime = tweetTimestamp.text();
         tweetAvatar = $(avatar[0]).attr('src');
         tweetUrl = "http://www.twitter.com" + tweetTimestamp.find("a").attr("href");
-        tweetTemplate = "<li><img class='tweet-avatar' src='" + tweetAvatar + "'/>        <span class='tweet-text'> " + atReplyUser() + tweetText + "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span></li>";
+        tweetTemplate = "<li><img class='tweet-avatar' src='" + tweetAvatar + "'/>        <span class='tweet-text'> " + atReply() + tweetText + "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span></li>";
         if (tweetOptions.avatar !== true) {
           $('.tweet-avatar').hide();
         }
