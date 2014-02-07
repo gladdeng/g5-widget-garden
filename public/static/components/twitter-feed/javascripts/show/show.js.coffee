@@ -11,16 +11,22 @@ $ ->
 
     tweets.forEach (tweet) ->
       atReply = $(tweet).find(".tweet-text .twitter-atreply")
-      atReplyUser = atReply.text()
+      atReplyUser = ->
+        replyText = []
+        atReply.each (reply) ->
+          username = atReply.get(reply)
+          replyText.push($(username).text())
+        replyText.join(" ")
+
       atReplyUrl = 'http://www.twitter.com' + atReply.attr("href")
-      tweetText = $(tweet).find(".tweet-text p").text()
+      tweetText = $(tweet).find(".tweet-text p").text().trim()
       tweetTimestamp = $(tweet).find(".timestamp")
       tweetTime = tweetTimestamp.text()
       tweetAvatar = $(avatar[0]).attr('src')
       tweetUrl = "http://www.twitter.com" + tweetTimestamp.find("a").attr("href")
 
       tweetTemplate = "<li><img class='tweet-avatar' src='" + tweetAvatar + "'/>
-        <span class='tweet-text'> <a href='" + atReplyUrl + "' target='_blank'>" + atReplyUser + "</a> " + tweetText +
+        <span class='tweet-text'> <a href='" + atReplyUrl + "' target='_blank'>" + atReplyUser() + "</a> " + tweetText +
         "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span></li>"
 
       $('.tweet-avatar').hide() unless tweetOptions.avatar is true
