@@ -11,25 +11,27 @@
       tweets = $(".timeline .tweet:lt(" + tweetOptions.count + ")", data.results[0]).toArray();
       avatar = $(".avatar:lt(1) img", data.results[0]);
       return tweets.forEach(function(tweet) {
-        var atReply, atReplyUrl, atReplyUser, tweetAvatar, tweetTemplate, tweetText, tweetTime, tweetTimestamp, tweetUrl;
+        var atReply, atReplyUser, tweetAvatar, tweetTemplate, tweetText, tweetTime, tweetTimestamp, tweetUrl;
         atReply = $(tweet).find(".tweet-text .twitter-atreply");
         atReplyUser = function() {
-          var replyText;
-          replyText = [];
+          var replyTemplates;
+          replyTemplates = [];
           atReply.each(function(reply) {
-            var username;
-            username = atReply.get(reply);
-            return replyText.push($(username).text());
+            var fullReply, replyText, replyUrl, template;
+            fullReply = atReply.get(reply);
+            replyUrl = 'http://www.twitter.com' + $(fullReply).attr("href");
+            replyText = $(fullReply).text();
+            template = "<a href='" + replyUrl + "' target='_blank'>" + replyText + "</a> ";
+            return replyTemplates.push(template);
           });
-          return replyText.join(" ");
+          return replyTemplates.join(" ");
         };
-        atReplyUrl = 'http://www.twitter.com' + atReply.attr("href");
-        tweetText = $(tweet).find(".tweet-text p").text().trim();
+        tweetText = $(tweet).find(".tweet-text p").text();
         tweetTimestamp = $(tweet).find(".timestamp");
         tweetTime = tweetTimestamp.text();
         tweetAvatar = $(avatar[0]).attr('src');
         tweetUrl = "http://www.twitter.com" + tweetTimestamp.find("a").attr("href");
-        tweetTemplate = "<li><img class='tweet-avatar' src='" + tweetAvatar + "'/>        <span class='tweet-text'> <a href='" + atReplyUrl + "' target='_blank'>" + atReplyUser() + "</a> " + tweetText + "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span></li>";
+        tweetTemplate = "<li><img class='tweet-avatar' src='" + tweetAvatar + "'/>        <span class='tweet-text'> " + atReplyUser() + tweetText + "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span></li>";
         if (tweetOptions.avatar !== true) {
           $('.tweet-avatar').hide();
         }
