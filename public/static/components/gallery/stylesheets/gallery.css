@@ -89,3 +89,21 @@ html[xmlns] .slides {display: block;}
     position: static;
   }
 }
+
+
+/* -------------------
+CUSTOM STYLES
+--------------------*/
+.flexslider {
+  margin: 0;
+}
+.flex-control-nav.flex-control-paging {
+  height: 13px;
+  line-height: .8125;
+  margin-top: 20px;
+  position: static;
+}
+.flex-control-paging li a {
+  width: 13px;
+  height: 13px;
+}
