@@ -40,7 +40,7 @@
       after: function(slider) {
         var currHeight;
         currHeight = $('.flexslider').find('.slides > li').eq(slider.currentSlide).outerHeight(true);
-        return $('.flexslider').height(currHeight);
+        return $('.flexslider .slides').height(currHeight);
       }
     });
     return $(window).resize(function() {

@@ -105,6 +105,9 @@ html[xmlns] .slides {display: block;}
 CUSTOM STYLES
 --------------------*/
 .flexslider {
+  overflow: hidden;
+}
+.flexslider {
   margin: 0;
 }
 .flex-control-nav.flex-control-paging {

@@ -42,10 +42,6 @@ $ ->
     useCSS: true
     touch: true
     directionNav: true
-    after: (slider) ->
-      currHeight = $('.flexslider').find('.slides > li').eq(slider.currentSlide).outerHeight(true)
-      $('.flexslider').height(currHeight)
-
 
   # Recalculate slider heights with window change
   $(window).resize ->
