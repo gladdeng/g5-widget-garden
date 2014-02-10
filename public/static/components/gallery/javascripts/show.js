@@ -32,14 +32,19 @@
 
   $(function() {
     setupFlexslider();
-    $(window).resize(function() {
-      return setupFlexslider();
-    });
-    return $('.flexslider').flexslider({
+    $('.flexslider').flexslider({
       animation: "fade",
       useCSS: true,
       touch: true,
-      directionNav: true
+      directionNav: true,
+      after: function(slider) {
+        var currHeight;
+        currHeight = $('.flexslider').find('.slides > li').eq(slider.currentSlide).outerHeight(true);
+        return $('.flexslider').height(currHeight);
+      }
+    });
+    return $(window).resize(function() {
+      return setupFlexslider();
     });
   });
 

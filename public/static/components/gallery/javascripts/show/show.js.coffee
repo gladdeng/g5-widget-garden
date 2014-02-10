@@ -31,12 +31,10 @@ setupFlexslider = ->
   wrapper.css('height', wrapper_height)
   images.css('max-height', image_height)
 
+
 $ ->
   # Set heights of flexslider container and images
   setupFlexslider()
-
-  $(window).resize ->
-    setupFlexslider()
 
   # Instanciate Flexslider Plugin
   $('.flexslider').flexslider
@@ -44,3 +42,11 @@ $ ->
     useCSS: true
     touch: true
     directionNav: true
+    after: (slider) ->
+      currHeight = $('.flexslider').find('.slides > li').eq(slider.currentSlide).outerHeight(true)
+      $('.flexslider').height(currHeight)
+
+
+  # Recalculate slider heights with window change
+  $(window).resize ->
+    setupFlexslider()
