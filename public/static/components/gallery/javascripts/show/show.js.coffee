@@ -9,7 +9,7 @@ setupFlexslider = ->
   tallest_image = 0
   wrapper_height = 0
   image_height = 0
-  nav_height = 33
+  bottom_space = 33 + 10
 
   # Get height of tallest image
   slides.each ->
@@ -20,11 +20,11 @@ setupFlexslider = ->
   slides.removeClass('loading')
 
   # Compare window height to tallest image height
-  if window_height < tallest_image + nav_height
+  if window_height < tallest_image + bottom_space
     wrapper_height = window_height
-    image_height = window_height - nav_height
+    image_height = window_height - bottom_space
   else
-    wrapper_height = tallest_image + nav_height
+    wrapper_height = tallest_image + bottom_space
     image_height = tallest_image
 
   # Set container height and max image height

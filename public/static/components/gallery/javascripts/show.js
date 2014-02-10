@@ -2,7 +2,7 @@
   var setupFlexslider;
 
   setupFlexslider = function() {
-    var image_height, images, nav_height, slides, tallest_image, window_height, wrapper, wrapper_height;
+    var bottom_space, image_height, images, slides, tallest_image, window_height, wrapper, wrapper_height;
     wrapper = $('.flexslider-container');
     slides = wrapper.find('.flexslider li').addClass('loading');
     images = slides.find('img');
@@ -10,7 +10,7 @@
     tallest_image = 0;
     wrapper_height = 0;
     image_height = 0;
-    nav_height = 33;
+    bottom_space = 33 + 10;
     slides.each(function() {
       var cur_height;
       cur_height = $(this).find('img').height();
@@ -19,11 +19,11 @@
       }
     });
     slides.removeClass('loading');
-    if (window_height < tallest_image + nav_height) {
+    if (window_height < tallest_image + bottom_space) {
       wrapper_height = window_height;
-      image_height = window_height - nav_height;
+      image_height = window_height - bottom_space;
     } else {
-      wrapper_height = tallest_image + nav_height;
+      wrapper_height = tallest_image + bottom_space;
       image_height = tallest_image;
     }
     wrapper.css('height', wrapper_height);
