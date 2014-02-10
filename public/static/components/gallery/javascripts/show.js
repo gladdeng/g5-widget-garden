@@ -31,18 +31,10 @@
   };
 
   $(function() {
+    var galleryOptions;
     setupFlexslider();
-    $('.flexslider').flexslider({
-      animation: "fade",
-      useCSS: true,
-      touch: true,
-      directionNav: true,
-      after: function(slider) {
-        var currHeight;
-        currHeight = $('.flexslider').find('.slides > li').eq(slider.currentSlide).outerHeight(true);
-        return $('.flexslider .slides').height(currHeight);
-      }
-    });
+    galleryOptions = JSON.parse($(".gallery .config:first").html());
+    $(".flexslider").flexslider(galleryOptions);
     return $(window).resize(function() {
       return setupFlexslider();
     });

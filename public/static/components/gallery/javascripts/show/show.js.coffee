@@ -37,11 +37,8 @@ $ ->
   setupFlexslider()
 
   # Instanciate Flexslider Plugin
-  $('.flexslider').flexslider
-    animation: "fade"
-    useCSS: true
-    touch: true
-    directionNav: true
+  galleryOptions = JSON.parse($(".gallery .config:first").html())
+  $(".flexslider").flexslider galleryOptions
 
   # Recalculate slider heights with window change
   $(window).resize ->
