@@ -23,7 +23,7 @@ $ ->
 
         replyTemplates.join(" ")
 
-      tweetText = $(tweet).find(".tweet-text p").text()
+      tweetText = $(tweet).find(".tweet-text p").html()
       tweetTimestamp = $(tweet).find(".timestamp")
       tweetTime = tweetTimestamp.text()
       tweetAvatar = $(avatar[0]).attr('src')
