@@ -1,7 +1,7 @@
 (function() {
-  $(function() {
-    var tweetOptions;
-    tweetOptions = JSON.parse($('.twitter-feed .config:first').html());
+  var composeTweet, tweetTemplate;
+
+  window.initTweets = function(tweetOptions) {
     return $.ajax({
       url: "https://mobile.twitter.com/" + tweetOptions.id,
       dataType: "html",
@@ -10,34 +10,42 @@
       var avatar, tweets;
       tweets = $(".timeline .tweet:lt(" + tweetOptions.count + ")", data.results[0]).toArray();
       avatar = $(".avatar:lt(1) img", data.results[0]);
-      return tweets.forEach(function(tweet) {
-        var atReply, atReplyHTML, tweetAvatar, tweetTemplate, tweetText, tweetTime, tweetTimestamp, tweetUrl;
-        atReplyHTML = $(tweet).find(".tweet-text .twitter-atreply");
-        atReply = function() {
-          var replyTemplates;
-          replyTemplates = [];
-          atReplyHTML.each(function(reply) {
-            var fullReply, replyText, replyUrl, template;
-            fullReply = atReplyHTML.get(reply);
-            replyUrl = 'http://www.twitter.com' + $(fullReply).attr("href");
-            replyText = $(fullReply).text();
-            template = "<a href='" + replyUrl + "' target='_blank'>" + replyText + "</a> ";
-            return replyTemplates.push(template);
-          });
-          return replyTemplates.join(" ");
-        };
-        tweetText = $(tweet).find(".tweet-text p").html();
-        tweetTimestamp = $(tweet).find(".timestamp");
-        tweetTime = tweetTimestamp.text();
-        tweetAvatar = $(avatar[0]).attr('src');
-        tweetUrl = "http://www.twitter.com" + tweetTimestamp.find("a").attr("href");
-        tweetTemplate = "<li><img class='tweet-avatar' src='" + tweetAvatar + "'/>        <span class='tweet-text'> " + atReply() + tweetText + "<a href=" + tweetUrl + " class='tweet-date' target='_blank'>" + tweetTime + " ago</a></span></li>";
-        if (tweetOptions.avatar !== true) {
-          $('.tweet-avatar').hide();
-        }
-        return $('.tweet-list').append(tweetTemplate);
-      });
+      return composeTweet(data, tweets, avatar);
     });
+  };
+
+  composeTweet = function(tweetOptions, tweets, avatar) {
+    var composedTweets, twitterUrl;
+    twitterUrl = "http://www.twitter.com";
+    composedTweets = [];
+    tweets.forEach(function(tweet) {
+      var avatarUrl, replyHtml, time, timestamp, tweetHtml, url, user;
+      timestamp = $(tweet).find(".timestamp");
+      user = timestamp.find("a").attr("href");
+      time = timestamp.text();
+      avatarUrl = $(avatar[0]).attr('src');
+      url = twitterUrl + user;
+      tweetHtml = $(tweet).find(".tweet-text");
+      replyHtml = tweetHtml.find(".twitter-atreply");
+      replyHtml.each(function() {
+        return $(this).attr("href", twitterUrl + $(this).attr("href"));
+      });
+      return composedTweets.push(tweetTemplate(avatarUrl, tweetHtml.html(), url, time));
+    });
+    if (tweetOptions.avatar !== true) {
+      $('.tweet-avatar').hide();
+    }
+    return $('.tweet-list').append(composedTweets);
+  };
+
+  tweetTemplate = function(avatar, text, url, time) {
+    return "<li><img class='tweet-avatar' src='" + avatar + "'/>  <span class='tweet-text'> " + text + "<a href=" + url + " class='tweet-date' target='_blank'>" + time + " ago</a></span></li>";
+  };
+
+  $(function() {
+    var tweetOptions;
+    tweetOptions = JSON.parse($('.twitter-feed .config:first').html());
+    return initTweets(tweetOptions);
   });
 
 }).call(this);
