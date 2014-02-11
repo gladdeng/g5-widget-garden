@@ -1,5 +1,5 @@
 (function() {
-  var composeAtReply, composeTweet, tweetTemplate;
+  var composeTweet, tweetTemplate;
 
   window.initTweets = function(tweetOptions) {
     return $.ajax({
@@ -15,17 +15,22 @@
   };
 
   composeTweet = function(tweetOptions, tweets, avatar) {
-    var composedTweets;
+    var composedTweets, twitterUrl;
+    twitterUrl = "http://www.twitter.com";
     composedTweets = [];
     tweets.forEach(function(tweet) {
-      var avatarUrl, text, time, timestamp, url, user;
+      var avatarUrl, replyHtml, time, timestamp, tweetHtml, url, user;
       timestamp = $(tweet).find(".timestamp");
       user = timestamp.find("a").attr("href");
       time = timestamp.text();
       avatarUrl = $(avatar[0]).attr('src');
-      url = "http://www.twitter.com" + user;
-      text = composeAtReply(tweet) + $(tweet).find(".tweet-text p").html();
-      return composedTweets.push(tweetTemplate(avatarUrl, text, url, time));
+      url = twitterUrl + user;
+      tweetHtml = $(tweet).find(".tweet-text");
+      replyHtml = tweetHtml.find(".twitter-atreply");
+      replyHtml.each(function() {
+        return $(this).attr("href", twitterUrl + $(this).attr("href"));
+      });
+      return composedTweets.push(tweetTemplate(avatarUrl, tweetHtml.html(), url, time));
     });
     if (tweetOptions.avatar !== true) {
       $('.tweet-avatar').hide();
@@ -35,21 +40,6 @@
 
   tweetTemplate = function(avatar, text, url, time) {
     return "<li><img class='tweet-avatar' src='" + avatar + "'/>  <span class='tweet-text'> " + text + "<a href=" + url + " class='tweet-date' target='_blank'>" + time + " ago</a></span></li>";
-  };
-
-  composeAtReply = function(tweet) {
-    var atReplyHTML, replyTemplates;
-    atReplyHTML = $(tweet).find(".tweet-text .twitter-atreply");
-    replyTemplates = [];
-    atReplyHTML.each(function(reply) {
-      var fullReply, replyText, replyUrl, template;
-      fullReply = atReplyHTML.get(reply);
-      replyUrl = 'http://www.twitter.com' + $(fullReply).attr("href");
-      replyText = $(fullReply).text();
-      template = "<a href='" + replyUrl + "' target='_blank'>" + replyText + "</a> ";
-      return replyTemplates.push(template);
-    });
-    return replyTemplates.join(" ");
   };
 
   $(function() {

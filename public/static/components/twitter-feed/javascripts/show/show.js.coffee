@@ -11,6 +11,7 @@ window.initTweets = (tweetOptions) ->
     composeTweet(data, tweets, avatar)
 
 composeTweet = (tweetOptions, tweets, avatar) ->
+  twitterUrl = "http://www.twitter.com"
   composedTweets = []
 
   tweets.forEach (tweet) ->
@@ -18,10 +19,14 @@ composeTweet = (tweetOptions, tweets, avatar) ->
     user = timestamp.find("a").attr("href")
     time = timestamp.text()
     avatarUrl = $(avatar[0]).attr('src')
-    url = "http://www.twitter.com" + user
-    text = composeAtReply(tweet) + $(tweet).find(".tweet-text p").html()
+    url = twitterUrl + user
+    tweetHtml = $(tweet).find(".tweet-text")
+    replyHtml = tweetHtml.find(".twitter-atreply")
 
-    composedTweets.push(tweetTemplate(avatarUrl, text, url, time))
+    replyHtml.each ->
+      $(this).attr("href", twitterUrl + $(this).attr("href"))
+
+    composedTweets.push(tweetTemplate(avatarUrl, tweetHtml.html(), url, time))
 
   $('.tweet-avatar').hide() unless tweetOptions.avatar is true
   $('.tweet-list').append(composedTweets)
@@ -30,19 +35,6 @@ tweetTemplate = (avatar, text, url, time) ->
   "<li><img class='tweet-avatar' src='" + avatar + "'/>
   <span class='tweet-text'> " + text +
   "<a href=" + url + " class='tweet-date' target='_blank'>" + time + " ago</a></span></li>"
-
-composeAtReply = (tweet) ->
-  atReplyHTML = $(tweet).find(".tweet-text .twitter-atreply")
-
-  replyTemplates = []
-  atReplyHTML.each (reply) ->
-    fullReply = atReplyHTML.get(reply)
-    replyUrl = 'http://www.twitter.com' + $(fullReply).attr("href")
-    replyText = $(fullReply).text()
-    template = "<a href='" + replyUrl + "' target='_blank'>" + replyText + "</a> "
-    replyTemplates.push(template)
-
-  replyTemplates.join(" ")
 
 $ ->
   tweetOptions = JSON.parse($('.twitter-feed .config:first').html())
