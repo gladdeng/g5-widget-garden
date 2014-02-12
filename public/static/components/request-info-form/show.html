@@ -20,23 +20,23 @@
 
     <div class="p-author h-card">
       <div class="form-field">
-        <label for="p-name">Full Name</label>
+        <label for="p-name" class="required">Full Name</label>
         <input type="text" id="p-name" class="p-name" name="p-name" required />
       </div>
 
       <div class="form-field">
-        <label for="u-email">Email</label>
+        <label for="u-email" class="required">Email</label>
         <input type="email" id="u-email" class="u-email" name="u-email" required />
       </div>
 
       <div class="form-field">
-        <label for="p-tel">Phone Number <span class="form-optional">optional</span></label>
+        <label for="p-tel">Phone Number</label>
         <input type="tel" id="p-tel" class="p-tel" name="p-tel" />
       </div>
 
       <div class="h-adr p-adr">
         <div class="form-field">
-          <label for="p-street-address">Street Address  <span class="form-optional">optional</span></label>
+          <label for="p-street-address">Street Address</label>
           <input type="text" id="p-street-address" class="p-street-address" name="p-street-address" />
         </div>
         <fieldset class="inline-fields">
@@ -123,7 +123,7 @@
     </div>
 
     <div class="form-field">
-      <label for="e-content">Message <span class="form-optional">optional</span></label>
+      <label for="e-content">Message</label>
       <textarea id="e-content" class="e-content" name="e-content"></textarea>
     </div>
 
@@ -131,6 +131,7 @@
     <input id="lead_comments" name="lead_comments" onfocus="this.blur();" style="margin-left: -9999px; float: left;" type="text" value="">
 
     <input type="submit" value="Send" />
+    <span class="form-instruction">* Required Field</span>
   </form>
 
   <div class="submitting" style="display: none">Your submission is being sent...</div>
