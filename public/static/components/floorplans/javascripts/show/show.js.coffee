@@ -44,9 +44,7 @@ appendFloorplans = (data, floorplanContainer, loader) ->
   $.each images, (i, item)->
     $(item).load ->
       loadCounter++
-      console.log('image ' + i + 'loaded')
       if loadCounter == images.length
-        console.log('all images loaded')
         setPricingHeight(floorplanContainer)
 
 

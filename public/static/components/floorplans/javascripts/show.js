@@ -39,14 +39,12 @@
     floorplanList = $data.find(".e-content");
     floorplanContainer.append(floorplanList).fadeIn();
     $("#loading-floorplans").fadeOut().remove();
-    loadCounter = 0;
     images = floorplanContainer.find('img');
+    loadCounter = 0;
     return $.each(images, function(i, item) {
       return $(item).load(function() {
         loadCounter++;
-        console.log('image ' + i + 'loaded');
         if (loadCounter === images.length) {
-          console.log('all images loaded');
           return setPricingHeight(floorplanContainer);
         }
       });
