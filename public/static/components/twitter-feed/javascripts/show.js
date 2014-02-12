@@ -19,7 +19,7 @@
     twitterUrl = "http://www.twitter.com";
     composedTweets = [];
     tweets.forEach(function(tweet) {
-      var avatarUrl, replyHtml, time, timestamp, tweetHtml, url, user;
+      var avatarUrl, replyHtml, time, timestamp, tweetHtml, url, user, userInfo;
       timestamp = $(tweet).find(".timestamp");
       user = timestamp.find("a").attr("href");
       time = timestamp.text();
@@ -27,6 +27,10 @@
       url = twitterUrl + user;
       tweetHtml = $(tweet).find(".tweet-text");
       replyHtml = tweetHtml.find(".twitter-atreply");
+      if ($(tweet).has('.context').length > 0) {
+        userInfo = $(tweet).find('.tweet-header');
+        avatarUrl = userInfo.find(".avatar img").attr("src");
+      }
       replyHtml.each(function() {
         return $(this).attr("href", twitterUrl + $(this).attr("href"));
       });

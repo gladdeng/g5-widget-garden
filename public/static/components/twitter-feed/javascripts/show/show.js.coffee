@@ -23,6 +23,12 @@ composeTweet = (tweetOptions, tweets, avatar) ->
     tweetHtml = $(tweet).find(".tweet-text")
     replyHtml = tweetHtml.find(".twitter-atreply")
 
+    # Handle Retweets
+    if $(tweet).has('.context').length > 0
+      userInfo = $(tweet).find('.tweet-header')
+      avatarUrl = userInfo.find(".avatar img").attr("src")
+
+    # Handle Replies
     replyHtml.each ->
       $(this).attr("href", twitterUrl + $(this).attr("href"))
 
