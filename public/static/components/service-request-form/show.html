@@ -20,17 +20,17 @@
 
     <div class="p-author h-card">
       <div class="form-field">
-        <label for="p-name">Resident Name</label>
+        <label for="p-name" class="required">Resident Name</label>
         <input type="text" id="p-name" class="p-name" name="p-name" required />
       </div>
 
       <div class="form-field">
-        <label for="u-email">Email</label>
+        <label for="u-email" class="required">Email</label>
         <input type="email" id="u-email" class="u-email" name="u-email" required />
       </div>
 
       <div class="form-field">
-        <label for="p-tel">Phone Number <span class="form-optional">optional</span></label>
+        <label for="p-tel">Phone Number</label>
         <input type="tel" id="p-tel" class="p-tel" name="p-tel" />
       </div>
 
@@ -42,23 +42,24 @@
     </div>
 
     <div class="form-field">
-      <label for="dt-published">Date preferred</label>
+      <label for="dt-published" class="required">Date preferred</label>
       <input type="date" id="dt-published" class="dt-published" name="dt-published" />
     </div>
 
-    <div class="form-field">
+    <div class="form-field" class="required">
       <label for="e-content">Provide Details</label>
       <textarea id="e-content" class="e-content" name="e-content"></textarea>
     </div>
 
     <div class="form-field">
-      <label><input type="checkbox" id="p-g5-permission" class="p-g5-permission" name="p-g5-permission" checked> Permission is granted to enter my home</label>
+      <label class="required"><input type="checkbox" id="p-g5-permission" class="p-g5-permission" name="p-g5-permission" checked> Permission is granted to enter my home</label>
     </div>
 
     <!-- for bots only. inline js/css necessary to make sure this is always hidden -->
     <input id="lead_comments" name="lead_comments" onfocus="this.blur();" style="margin-left: -9999px; float: left;" type="text" value="">
 
     <input type="submit" value="Send" />
+    <span class="form-instruction">* Required Field</span>
   </form>
 
   <div class="submitting" style="display: none">Your submission is being sent...</div>
