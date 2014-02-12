@@ -50,10 +50,13 @@ appendFloorplans = (data, floorplanContainer, loader) ->
 
 setPricingHeight = (floorplanContainer) ->
   # Sets height of floorplan container so browser doesn't jump when filtering
-  floorplanContainer = $('.floorplans')
   floorplansHeight = floorplanContainer.outerHeight()
   floorplanContainer.css('height', floorplansHeight)
+  console.log('new height = ' + floorplansHeight)
 
+resetPricingHeight = (floorplanContainer) ->
+  floorplanContainer.css('height', 'auto')
+  setPricingHeight(floorplanContainer)
 
 setupFilters = ->
   floorplans = $(".floorplan")
@@ -83,9 +86,39 @@ setupFilters = ->
       $(bedSelector + bathSelector).fadeIn "fast"
 
 
+# debouncing function from John Hann
+# http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+(($, sr) ->
+  debounce = (func, threshold, execAsap) ->
+    timeout = undefined
+    debounced = ->
+      delayed = ->
+        func.apply obj  unless execAsap
+        timeout = null
+        return
+      obj = this
+      if timeout
+        clearTimeout timeout
+      else func.apply obj  if execAsap
+      timeout = setTimeout(delayed, threshold or 100)
+      return
+
+  # smartresize
+  jQuery.fn[sr] = (fn) ->
+    (if fn then @bind("resize", debounce(fn)) else @trigger(sr))
+
+  return
+) jQuery, "smartresize"
+
+
 $ ->
+
   pricingOptions = JSON.parse($('.floorplans .config:first').html())
   new pricingAndAvailability(pricingOptions)
 
   $.getScript("http://g5-widget-garden.herokuapp.com/javascripts/libs/fancybox/jquery.fancybox.pack.js").done ->
     $(".floorplans .floorplan-btn").fancybox()
+
+  floorplanContainer = $('.floorplans')
+  $(window).smartresize ->
+    resetPricingHeight(floorplanContainer)
