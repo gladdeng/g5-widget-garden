@@ -38,6 +38,9 @@
 
 
 /* SELECT FLOORPLAN STYLES =========================*/
+.floorplans {
+  margin-bottom: 2em;
+}
 .floorplan-btn {
   overflow: hidden;
   border: 1px solid #cbcbcb;
