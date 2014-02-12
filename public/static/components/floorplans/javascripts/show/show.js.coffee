@@ -52,7 +52,6 @@ setPricingHeight = (floorplanContainer) ->
   # Sets height of floorplan container so browser doesn't jump when filtering
   floorplansHeight = floorplanContainer.outerHeight()
   floorplanContainer.css('height', floorplansHeight)
-  console.log('new height = ' + floorplansHeight)
 
 resetPricingHeight = (floorplanContainer) ->
   floorplanContainer.css('height', 'auto')

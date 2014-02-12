@@ -54,8 +54,7 @@
   setPricingHeight = function(floorplanContainer) {
     var floorplansHeight;
     floorplansHeight = floorplanContainer.outerHeight();
-    floorplanContainer.css('height', floorplansHeight);
-    return console.log('new height = ' + floorplansHeight);
+    return floorplanContainer.css('height', floorplansHeight);
   };
 
   resetPricingHeight = function(floorplanContainer) {
