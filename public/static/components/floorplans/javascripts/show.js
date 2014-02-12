@@ -1,5 +1,5 @@
 (function() {
-  var appendFloorplans, pricingAndAvailability, setPricingHeight, setupFilters;
+  var appendFloorplans, pricingAndAvailability, resetPricingHeight, setPricingHeight, setupFilters;
 
   pricingAndAvailability = (function() {
     function pricingAndAvailability(pricingOptions) {
@@ -53,9 +53,13 @@
 
   setPricingHeight = function(floorplanContainer) {
     var floorplansHeight;
-    floorplanContainer = $('.floorplans');
     floorplansHeight = floorplanContainer.outerHeight();
     return floorplanContainer.css('height', floorplansHeight);
+  };
+
+  resetPricingHeight = function(floorplanContainer) {
+    floorplanContainer.css('height', 'auto');
+    return setPricingHeight(floorplanContainer);
   };
 
   setupFilters = function() {
@@ -89,12 +93,49 @@
     });
   };
 
+  (function($, sr) {
+    var debounce;
+    debounce = function(func, threshold, execAsap) {
+      var debounced, timeout;
+      timeout = void 0;
+      return debounced = function() {
+        var delayed, obj;
+        delayed = function() {
+          if (!execAsap) {
+            func.apply(obj);
+          }
+          timeout = null;
+        };
+        obj = this;
+        if (timeout) {
+          clearTimeout(timeout);
+        } else {
+          if (execAsap) {
+            func.apply(obj);
+          }
+        }
+        timeout = setTimeout(delayed, threshold || 100);
+      };
+    };
+    jQuery.fn[sr] = function(fn) {
+      if (fn) {
+        return this.bind("resize", debounce(fn));
+      } else {
+        return this.trigger(sr);
+      }
+    };
+  })(jQuery, "smartresize");
+
   $(function() {
-    var pricingOptions;
+    var floorplanContainer, pricingOptions;
     pricingOptions = JSON.parse($('.floorplans .config:first').html());
     new pricingAndAvailability(pricingOptions);
-    return $.getScript("http://g5-widget-garden.herokuapp.com/javascripts/libs/fancybox/jquery.fancybox.pack.js").done(function() {
+    $.getScript("http://g5-widget-garden.herokuapp.com/javascripts/libs/fancybox/jquery.fancybox.pack.js").done(function() {
       return $(".floorplans .floorplan-btn").fancybox();
+    });
+    floorplanContainer = $('.floorplans');
+    return $(window).smartresize(function() {
+      return resetPricingHeight(floorplanContainer);
     });
   });
 
