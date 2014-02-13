@@ -13,6 +13,18 @@
   </div>
 
   <div class="form-field">
+    {{ widget.client_name.id_hidden_field }}
+    <label for="{{ widget.client_name.value_field_id }}" >
+      Client Name
+    </label>
+    <input type="text"
+      id="{{ widget.client_name.value_field_id }}"
+      name="{{ widget.client_name.value_field_name }}"
+      value="{{ widget.client_name.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
     <label for="{{ widget.corporate_url.value_field_id }}" >
       Corporate Site URL
     </label>
@@ -55,7 +67,7 @@
       Display Equal Opportunity Housing Icon
     </label>
   </div>
-  
+
   <div class="form-field check-field">
     {{ widget.display_handicap_icon.id_hidden_field }}
     <input type="hidden"
