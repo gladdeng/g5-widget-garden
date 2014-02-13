@@ -17,6 +17,7 @@ composeTweet = (tweetOptions, tweets, avatar) ->
   tweets.forEach (tweet) ->
     timestamp = $(tweet).find(".timestamp")
     user = timestamp.find("a").attr("href")
+    userName = $(tweet).find('.fullname').html()
     time = timestamp.text()
     avatarUrl = $(avatar[0]).attr('src')
     url = twitterUrl + user
@@ -32,15 +33,17 @@ composeTweet = (tweetOptions, tweets, avatar) ->
     replyHtml.each ->
       $(this).attr("href", twitterUrl + $(this).attr("href"))
 
-    composedTweets.push(tweetTemplate(avatarUrl, tweetHtml.html(), url, time))
+    composedTweets.push(tweetTemplate(avatarUrl, userName, tweetHtml.html(), url, time))
 
   $('.tweet-avatar').hide() unless tweetOptions.avatar is true
   $('.tweet-list').append(composedTweets)
 
-tweetTemplate = (avatar, text, url, time) ->
+tweetTemplate = (avatar, userName, text, url, time) ->
   "<li><img class='tweet-avatar' src='" + avatar + "'/>
+  <a href=" + url + " class='tweet-date' target='_blank'>" + time + " ago</a>
+  <span class='tweet-name'>" + userName + "</span>
   <span class='tweet-text'> " + text +
-  "<a href=" + url + " class='tweet-date' target='_blank'>" + time + " ago</a></span></li>"
+  "</span></li>"
 
 $ ->
   tweetOptions = JSON.parse($('.twitter-feed .config:first').html())

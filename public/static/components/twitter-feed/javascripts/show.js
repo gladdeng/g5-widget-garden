@@ -19,9 +19,10 @@
     twitterUrl = "http://www.twitter.com";
     composedTweets = [];
     tweets.forEach(function(tweet) {
-      var avatarUrl, replyHtml, time, timestamp, tweetHtml, url, user, userInfo;
+      var avatarUrl, replyHtml, time, timestamp, tweetHtml, url, user, userInfo, userName;
       timestamp = $(tweet).find(".timestamp");
       user = timestamp.find("a").attr("href");
+      userName = $(tweet).find('.fullname').html();
       time = timestamp.text();
       avatarUrl = $(avatar[0]).attr('src');
       url = twitterUrl + user;
@@ -34,7 +35,7 @@
       replyHtml.each(function() {
         return $(this).attr("href", twitterUrl + $(this).attr("href"));
       });
-      return composedTweets.push(tweetTemplate(avatarUrl, tweetHtml.html(), url, time));
+      return composedTweets.push(tweetTemplate(avatarUrl, userName, tweetHtml.html(), url, time));
     });
     if (tweetOptions.avatar !== true) {
       $('.tweet-avatar').hide();
@@ -42,8 +43,8 @@
     return $('.tweet-list').append(composedTweets);
   };
 
-  tweetTemplate = function(avatar, text, url, time) {
-    return "<li><img class='tweet-avatar' src='" + avatar + "'/>  <span class='tweet-text'> " + text + "<a href=" + url + " class='tweet-date' target='_blank'>" + time + " ago</a></span></li>";
+  tweetTemplate = function(avatar, userName, text, url, time) {
+    return "<li><img class='tweet-avatar' src='" + avatar + "'/>  <a href=" + url + " class='tweet-date' target='_blank'>" + time + " ago</a>  <span class='tweet-name'>" + userName + "</span>  <span class='tweet-text'> " + text + "</span></li>";
   };
 
   $(function() {
