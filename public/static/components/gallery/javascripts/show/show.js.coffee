@@ -38,7 +38,15 @@ $ ->
 
   # Instanciate Flexslider Plugin
   galleryOptions = JSON.parse($(".gallery .config:first").html())
-  $(".flexslider").flexslider galleryOptions
+  $(".flexslider").flexslider
+    animation: galleryOptions['animation']
+    useCSS: true
+    touch: true
+    directionNav: true
+    after: (slider) ->
+      currHeight = $(".flexslider").find(".slides > li").eq(slider.currentSlide).outerHeight()
+      console.log('currHeight = ' + currHeight)
+      $(".slides").css 'height', currHeight
 
   # Recalculate slider heights with window change
   $(window).resize ->
