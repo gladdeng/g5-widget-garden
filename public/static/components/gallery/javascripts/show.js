@@ -31,9 +31,11 @@
   };
 
   $(function() {
+    var galleryOptions;
     setupFlexslider();
+    galleryOptions = JSON.parse($(".gallery .config:first").html());
     $(".flexslider").flexslider({
-      animation: "fade",
+      animation: galleryOptions['animation'],
       useCSS: true,
       touch: true,
       directionNav: true,
