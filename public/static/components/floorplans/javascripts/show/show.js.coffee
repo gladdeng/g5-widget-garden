@@ -24,7 +24,6 @@ class pricingAndAvailability
       appendFloorplans(data, floorplanContainer, loader)
       setupFilters()
 
-
 appendFloorplans = (data, floorplanContainer, loader) ->
   # Hide container and add loading div
   floorplanContainer.hide()
@@ -46,7 +45,6 @@ appendFloorplans = (data, floorplanContainer, loader) ->
       loadCounter++
       if loadCounter == images.length
         setPricingHeight(floorplanContainer)
-
 
 setPricingHeight = (floorplanContainer) ->
   # Sets height of floorplan container so browser doesn't jump when filtering
@@ -84,7 +82,6 @@ setupFilters = ->
       floorplans.fadeOut()
       $(bedSelector + bathSelector).fadeIn "fast"
 
-
 # debouncing function from John Hann
 # http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
 (($, sr) ->
@@ -109,12 +106,9 @@ setupFilters = ->
   return
 ) jQuery, "smartresize"
 
-
 $ ->
-
   pricingOptions = JSON.parse($('.floorplans .config:first').html())
   new pricingAndAvailability(pricingOptions)
-
 
   floorplanContainer = $('.floorplans')
   $(window).smartresize ->
