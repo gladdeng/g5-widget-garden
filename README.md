@@ -1,6 +1,6 @@
 # G5 Widget Garden
 
-A garden of widgets that can be used in client location sites
+A garden of widgets that can be used in client location sites. Uses the [g5_component_garden](https://github.com/g5search/g5_component_garden) to generate components from `public/static/components` and provide routes.
 
 
 ## Setup
