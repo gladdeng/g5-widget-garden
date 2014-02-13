@@ -130,9 +130,6 @@
     var floorplanContainer, pricingOptions;
     pricingOptions = JSON.parse($('.floorplans .config:first').html());
     new pricingAndAvailability(pricingOptions);
-    $.getScript("http://g5-widget-garden.herokuapp.com/javascripts/libs/fancybox/jquery.fancybox.pack.js").done(function() {
-      return $(".floorplans .floorplan-btn").fancybox();
-    });
     floorplanContainer = $('.floorplans');
     return $(window).smartresize(function() {
       return resetPricingHeight(floorplanContainer);

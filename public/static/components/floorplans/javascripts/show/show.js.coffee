@@ -115,8 +115,6 @@ $ ->
   pricingOptions = JSON.parse($('.floorplans .config:first').html())
   new pricingAndAvailability(pricingOptions)
 
-  $.getScript("http://g5-widget-garden.herokuapp.com/javascripts/libs/fancybox/jquery.fancybox.pack.js").done ->
-    $(".floorplans .floorplan-btn").fancybox()
 
   floorplanContainer = $('.floorplans')
   $(window).smartresize ->
