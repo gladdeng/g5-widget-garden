@@ -21,12 +21,12 @@
     <div class="p-author h-card">
       <div class="form-field">
         <label for="p-name" class="required">Full Name</label>
-        <input type="text" id="p-name" class="p-name" name="p-name" />
+        <input type="text" id="p-name" class="p-name" name="p-name" required />
       </div>
 
       <div class="form-field">
         <label for="u-email" class="required">Email</label>
-        <input type="email" id="u-email" class="u-email" name="u-email">
+        <input type="email" id="u-email" class="u-email" name="u-email" required />
       </div>
 
     </div>
@@ -37,7 +37,7 @@
     </div>
 
     <!-- for bots only. inline js/css necessary to make sure this is always hidden -->
-    <input id="lead_comments" name="lead_comments" onfocus="this.blur();" style="margin-left: -9999px; float: left;" type="text" value="">
+    <input id="lead_comments" name="lead_comments" onfocus="this.blur();" style="margin-left: -9999px; float: left;" type="text" value="" />
 
     <input type="submit" value="Send" />
     <span class="form-instruction">* Required Field</span>
