@@ -110,6 +110,8 @@ $ ->
   pricingOptions = JSON.parse($('.floorplans .config:first').html())
   new pricingAndAvailability(pricingOptions)
 
+  $(".floorplans .floorplan-btn").fancybox()
+
   floorplanContainer = $('.floorplans')
   $(window).smartresize ->
     resetPricingHeight(floorplanContainer)
