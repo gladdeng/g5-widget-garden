@@ -130,6 +130,7 @@
     var floorplanContainer, pricingOptions;
     pricingOptions = JSON.parse($('.floorplans .config:first').html());
     new pricingAndAvailability(pricingOptions);
+    $(".floorplans .floorplan-btn").fancybox();
     floorplanContainer = $('.floorplans');
     return $(window).smartresize(function() {
       return resetPricingHeight(floorplanContainer);
