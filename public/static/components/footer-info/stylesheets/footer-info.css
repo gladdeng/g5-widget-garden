@@ -5,8 +5,7 @@
 .footer-info .copyright {
   margin-top: 0;
 }
-.footer-info .access,
-.footer-info img {
+.footer-info .access {
   display: inline-block;
   margin-left: 10px;
   vertical-align: top;
