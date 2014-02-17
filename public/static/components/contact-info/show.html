@@ -1,11 +1,20 @@
 <div class="contact-info h-card vcard widget" itemscope itemtype="http://schema.org/LocalBusiness">
+  <script class="config" type="application/json">
+    {
+      "clientUrn": "{{ widget.client_urn.best_value }}",
+      "locationUrn": "{{ widget.location_urn.best_value }}"
+    }
+  </script>
+
   {% if widget.location_name.best_value != "" %}
   <h4 class="p-name">{{ widget.location_name.best_value }}</h4>
   {% endif %}
 
   {% if widget.location_tel.best_value != "" %}
-  <p class="p-tel tel" itemprop="telephone">
-    <a href="tel:{{ widget.location_tel.best_value }}">{{ widget.location_tel.best_value }}</a>
+  <p class="phone">
+    <a class="number" href="tel:{{ widget.location_tel.best_value }}">
+      <span class="p-tel tel" itemprop="telephone">{{ widget.location_tel.best_value }}</span>
+    </a>
   </p>
   {% endif %}
 
