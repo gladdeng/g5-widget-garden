@@ -1,7 +1,7 @@
 (function() {
   $(function() {
     var phoneOptions;
-    phoneOptions = JSON.parse($('.phone .config:first').html());
+    phoneOptions = JSON.parse($('.contact-info .config:first').html());
     return new phoneNumber(phoneOptions);
   });
 
