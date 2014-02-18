@@ -1,0 +1,4 @@
+{% if widget.typekit_filename.best_value != "" %}
+  <script type="text/javascript" src="//use.typekit.net/{{ widget.typekit_filename.best_value }}.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+{% endif %}
