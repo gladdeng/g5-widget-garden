@@ -57,7 +57,7 @@ html[xmlns] .slides {display: block;}
 
 /* Direction Nav */
 .flex-direction-nav {*height: 0;}
-.flex-direction-nav a {width: 54px; height: 54px; margin: -40px 0 0; display: block; background: url("http://widgets.g5dxm.com.s3.amazonaws.com/gallery/gallery-nav.png") no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
+.flex-direction-nav a {width: 54px; height: 54px; margin: -40px 0 0; display: block; background: url("http://widgets.g5dxm.com/gallery/gallery-nav.png") no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
 .flex-direction-nav .flex-next {background-position: -54px 0; right: -54px; }
 .flex-direction-nav .flex-prev {left: -54px;}
 .flexslider:hover .flex-next {opacity: 0.8; right: 0;}
