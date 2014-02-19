@@ -12,7 +12,7 @@
 }
 
 .footer-info .access {
-  background: url(http://g5-widget-garden.herokuapp.com/static/images/access-icons.png) 0 0 no-repeat;
+  background: url(http://themes.g5dxm.com.s3.amazonaws.com/shared/access-icons.png) 0 0 no-repeat;
   text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
