@@ -57,7 +57,7 @@ html[xmlns] .slides {display: block;}
 
 /* Direction Nav */
 .flex-direction-nav {*height: 0;}
-.flex-direction-nav a {width: 54px; height: 54px; margin: -40px 0 0; display: block; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAAA2CAMAAAAVrYxuAAAAk1BMVEX///9JSUmrq6u0tLRKSkpSUlJLS0u/v7/8/PxZWVmxsbFeXl7n5+fm5ua9vb2NjY1oaGhubm7FxcWzs7OQkJBOTk7S0tKkpKTY2Nifn5/Z2dlUVFSVlZXg4OC7u7uOjo7IyMiJiYn+/v7f39+BgYFTU1Pt7e1iYmJ7e3tKSkry8vJkZGR4eHj6+vqlpaVtbW339/cNV3KsAAAAMXRSTlPM+t/c+vf52s313fTR0drm8e/Z3eb41uHU4tT25NLb5tjozNLq99Dy7PnP8uzN4e/OmuWwOwAAAR9JREFUeAHt1ceuwkAMheHjCQkQQu+99wLv/3QXPGJ9x5Zmg/ytbf0oIxkYY4wxX64HiaaDXk60QLgGkb6WlIjSLULV96SvlTN6ayFUm0hd63CLEtGHeOtCbtUX/9CcN0oJpAYpbw4h4XS1kW+Ngfi1yZS3ZkD82rzKO0sgfq3wrfUG8WtFjed3FSB67XDk6RO39LVzGf+7XHn2dofagz6ygNqTJ2sv6L38OzxDLyI9oHa/0cf1goDaWX1QWeXE+8eD5KA6ZWvn36EAotc2a96tcit2belbcyB+bcZ70wkQvzbmrXQExK8NfWsA6Gq5+E71V5DrSv8sEl7IOtAf1DZCtb4XUV3b1xFqm/oPoa81EG7BT6yvNSHRc/gBxhjzB4g0C3dWjPGQAAAAAElFTkSuQmCC") no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
+.flex-direction-nav a {width: 54px; height: 54px; margin: -40px 0 0; display: block; background: url("http://widgets.g5dxm.com/gallery/gallery-nav.png") no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
 .flex-direction-nav .flex-next {background-position: -54px 0; right: -54px; }
 .flex-direction-nav .flex-prev {left: -54px;}
 .flexslider:hover .flex-next {opacity: 0.8; right: 0;}
