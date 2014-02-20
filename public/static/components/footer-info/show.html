@@ -1,7 +1,5 @@
 <div class="footer-info widget">
-  <p class="copyright">
-    Copyright &copy; <span id="current-year"></span> {{ widget.location_name.best_value }}
-  </p>
+  <p class="copyright">Copyright &copy; <span id="current-year"></span> {{widget.location_name.best_value}}</p>
 
   <p>
     <a href="http://getg5.com" class="dxm">DXM by G5</a>
@@ -16,5 +14,4 @@
   <a class="corporate-logo" href="{{ widget.corporate_url.best_value | url_encode }}">
     <img src="{{ widget.corporate_logo_url.best_value | url_encode }}" alt="{{ widget.client_name.best_value }}" />
   </a>
-
 </div>
