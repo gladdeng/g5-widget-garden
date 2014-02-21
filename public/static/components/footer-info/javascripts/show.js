@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    return $("#current-year").html(new Date().getFullYear());
+    return $(".footer-info #current-year").html(new Date().getFullYear());
   });
 
 }).call(this);
