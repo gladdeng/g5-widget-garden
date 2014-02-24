@@ -111,9 +111,8 @@ CUSTOM STYLES
   margin: 0;
 }
 .flex-control-nav.flex-control-paging {
-  height: 38px;
   line-height: .8125;
-  margin-top: 20px;
+  margin-top: 0;
   position: static;
 }
 .flex-control-paging li a {
@@ -124,5 +123,5 @@ CUSTOM STYLES
   text-align: center;
 }
 .flex-control-nav li {
-  margin-bottom: 12px;
+  margin-top: 20px;
 }
