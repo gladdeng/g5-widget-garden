@@ -43,7 +43,8 @@
     tallest_image = 0;
     wrapper_height = 0;
     image_height = 0;
-    bottom_space = slides.each(function() {
+    bottom_space = 58 + 10;
+    slides.each(function() {
       var cur_height;
       cur_height = $(this).find('img').height();
       if (cur_height > tallest_image) {
@@ -71,6 +72,19 @@
     return setupFlexslider();
   };
 
-  $(function() {});
+  $(function() {
+    var galleryOptions;
+    setupFlexslider();
+    galleryOptions = JSON.parse($(".gallery .config:first").html());
+    $(".flexslider").flexslider({
+      animation: galleryOptions['animation'],
+      useCSS: true,
+      touch: true,
+      directionNav: true
+    });
+    return $(window).smartresize(function() {
+      return resetFlexslider();
+    });
+  });
 
 }).call(this);

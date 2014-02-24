@@ -34,7 +34,7 @@ setupFlexslider = ->
   tallest_image = 0
   wrapper_height = 0
   image_height = 0
-  bottom_space =
+  bottom_space = 58 + 10
 
   # Get height of tallest image
   slides.each ->
@@ -68,3 +68,17 @@ resetFlexslider = ->
 
 
 $ ->
+  # Set heights of flexslider container and images
+  setupFlexslider()
+
+  # Instanciate Flexslider Plugin
+  galleryOptions = JSON.parse($(".gallery .config:first").html())
+  $(".flexslider").flexslider
+    animation: galleryOptions['animation']
+    useCSS: true
+    touch: true
+    directionNav: true
+
+  # Recalculate slider heights with window change
+  $(window).smartresize ->
+    resetFlexslider()
