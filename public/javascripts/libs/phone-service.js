@@ -6,8 +6,6 @@ phoneNumber = (function() {
     $(".p-tel").css("visibility", "hidden");
     client_urn = phoneOptions["clientUrn"].replace(/^g5-c-/, "g5-cpns-");
     location_urn = phoneOptions["locationUrn"];
-    console.log('client urn: ' + client_urn);
-    console.log('location urn: ' + location_urn);
     if (client_urn && location_urn) {
       this.getPhoneNumber(client_urn, location_urn);
     }
