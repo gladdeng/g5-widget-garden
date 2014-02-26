@@ -1,6 +1,5 @@
 GEM
   remote: https://rubygems.org/
-  remote: https://gems.gemfury.com/***REMOVED***/
   specs:
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
@@ -53,9 +52,6 @@ GEM
       multi_json (~> 1.0)
     ffi (1.6.0)
     formatador (0.2.4)
-    g5_component_garden (0.4.4)
-      microformats2 (= 2.0.0.pre4)
-      rails (~> 3.2.13)
     guard (1.7.0)
       formatador (>= 0.2.4)
       listen (>= 0.6.0)
@@ -85,14 +81,16 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.1)
-    microformats2 (2.0.0.pre4)
-      activesupport (~> 3.2.13)
-      json (~> 1.7.6)
-      nokogiri (~> 1.5.6)
+    microformats2 (2.0.0)
+      activesupport
+      json
+      nokogiri
     mime-types (1.22)
+    mini_portile (0.5.2)
     multi_json (1.7.2)
     newrelic_rpm (3.7.1.182)
-    nokogiri (1.5.11)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
     polyglot (0.3.3)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -174,11 +172,11 @@ DEPENDENCIES
   bootstrap-sass (~> 2.1.0.1)
   coffee-rails (~> 3.2.1)
   dotenv-rails (~> 0.9.0)
-  g5_component_garden (~> 0.4.4)
   guard-rspec
   guard-spork
   honeybadger
   jquery-rails
+  microformats2 (~> 2.0.0)
   newrelic_rpm
   quiet_assets (~> 1.0.1)
   rails (= 3.2.13)
