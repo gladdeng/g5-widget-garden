@@ -6,6 +6,8 @@ phoneNumber = (function() {
     $(".p-tel").css("visibility", "hidden");
     client_urn = phoneOptions["clientUrn"].replace(/^g5-c-/, "g5-cpns-");
     location_urn = phoneOptions["locationUrn"];
+    console.log('client urn: ' + client_urn);
+    console.log('location urn: ' + location_urn);
     if (client_urn && location_urn) {
       this.getPhoneNumber(client_urn, location_urn);
     }
@@ -22,11 +24,11 @@ phoneNumber = (function() {
       screen = document.documentElement.clientWidth;
       phone = void 0;
       if (localStorage["ppc"]) {
-        phone = numbers.find(".p-tel-ppc").val();
+        phone = $.trim(numbers.find(".p-tel-ppc").text());
       } else if (screen < 768) {
-        phone = numbers.find(".p-tel-mobile").val();
+        phone = $.trim(numbers.find(".p-tel-mobile").text());
       } else {
-        phone = numbers.find(".p-tel-default").val();
+        phone = $.trim(numbers.find(".p-tel-default").text());
       }
       formattedPhone = phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
       return $(".phone .number").attr("href", "tel://" + phone).find(".p-tel").html(formattedPhone);
