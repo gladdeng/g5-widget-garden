@@ -10,7 +10,12 @@
   <div id="iui-container"></div>
 
   <script>
-    window.App = require('appkit/app')["default"].create();
+    window.onload = function() {
+      DS.RESTAdapter.reopen({
+        host: 'https://www.g5search.com'
+      });
+      window.App = require('appkit/app')["default"].create();
+    };
   </script>
 
 </div>
