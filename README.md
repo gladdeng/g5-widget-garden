@@ -1,5 +1,8 @@
 # G5 Widget Garden
 
+[![Build Status](https://travis-ci.org/G5/g5-widget-garden)](https://travis-ci.org/G5/g5-widget-garden)
+[![Code Climate](https://codeclimate.com/repos/530e8e8ce30ba005cb00272e/badges/5d8d2116d20f27e82639/gpa.png)](https://codeclimate.com/repos/530e8e8ce30ba005cb00272e/feed)
+
 A garden of widgets that can be used in client location sites.
 
 
