@@ -1,13 +1,24 @@
 (function() {
-  var getTallestImage, resetFlexslider, setupFlexslider;
+  var gallery, getTallestImage, initializeFlexSlider, resetFlexslider, setImageHeight, setupFlexslider;
+
+  gallery = {
+    wrapper: $(".slides"),
+    slides: $(".slides li"),
+    images: $(".slides img")
+  };
 
   (function($, sr) {
     var debounce;
+    debounce = void 0;
     debounce = function(func, threshold, execAsap) {
       var debounced, timeout;
+      debounced = void 0;
+      timeout = void 0;
       timeout = void 0;
       return debounced = function() {
         var delayed, obj;
+        delayed = void 0;
+        obj = void 0;
         delayed = function() {
           if (!execAsap) {
             func.apply(obj);
@@ -34,63 +45,58 @@
     };
   })(jQuery, "smartresize");
 
-  getTallestImage = function() {};
-
-  setupFlexslider = function() {
-    var fixed_height, galleryOptions, images, nav_height, slides, tallest_image, window_height, wrapper;
-    wrapper = $('.slides');
-    slides = wrapper.find('li').addClass('loading');
-    images = wrapper.find('img');
-    window_height = $(window).height();
+  getTallestImage = function() {
+    var tallest_image;
+    gallery.slides.addClass("loading");
+    gallery.images.css("max-height", "none");
     tallest_image = 0;
-    fixed_height = 0;
-    images.each(function() {
+    gallery.images.each(function() {
       var cur_height;
+      cur_height = void 0;
       cur_height = $(this).height();
       if (cur_height > tallest_image) {
-        return tallest_image = cur_height;
+        tallest_image = cur_height;
       }
     });
-    slides.removeClass('loading');
+    gallery.slides.removeClass("loading");
+    return tallest_image;
+  };
+
+  initializeFlexSlider = function() {
+    var galleryOptions;
     galleryOptions = JSON.parse($(".gallery .config:first").html());
-    $(".flexslider").flexslider({
-      animation: galleryOptions['animation'],
+    return $(".flexslider").flexslider({
+      animation: galleryOptions["animation"],
       useCSS: true,
       touch: true,
       directionNav: true
     });
-    nav_height = $('.flexslider .flex-control-nav').outerHeight();
+  };
+
+  setImageHeight = function(tallest_image) {
+    var fixed_height, nav_height, window_height;
+    window_height = $(window).height();
+    nav_height = $(".flexslider .flex-control-nav").outerHeight();
+    fixed_height = void 0;
     if (window_height <= tallest_image + nav_height) {
-      fixed_height = window_height - nav_height;
+      fixed_height = window_height - nav_height - 10;
     } else {
-      fixed_height = tallest_image;
+      fixed_height = tallest_image - 10;
     }
-    return images.css('max-height', fixed_height);
+    return gallery.images.css("max-height", fixed_height);
+  };
+
+  setupFlexslider = function() {
+    var tallest_image;
+    tallest_image = getTallestImage();
+    initializeFlexSlider();
+    return setImageHeight(tallest_image);
   };
 
   resetFlexslider = function() {
-    var fixed_height, images, nav_height, slides, tallest_image, window_height, wrapper;
-    wrapper = $('.slides');
-    slides = wrapper.find('li').addClass('loading');
-    images = wrapper.find('img').css('max-height', 'none');
-    window_height = $(window).height();
-    tallest_image = 0;
-    fixed_height = 0;
-    images.each(function() {
-      var cur_height;
-      cur_height = $(this).height();
-      if (cur_height > tallest_image) {
-        return tallest_image = cur_height;
-      }
-    });
-    slides.removeClass('loading');
-    nav_height = $('.flexslider .flex-control-nav').outerHeight();
-    if (window_height <= tallest_image + nav_height) {
-      fixed_height = window_height - nav_height;
-    } else {
-      fixed_height = tallest_image;
-    }
-    return images.css('max-height', fixed_height);
+    var tallest_image;
+    tallest_image = getTallestImage();
+    return setImageHeight(tallest_image);
   };
 
   $(function() {

@@ -1,107 +1,85 @@
-# debouncing function from John Hann
-# http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+# Sets variables for the pieces of the gallery
+gallery =
+  wrapper: $(".slides")
+  slides: $(".slides li")
+  images: $(".slides img")
+
+# Sets a handler for window resize that doesn't trigger a billion times
 (($, sr) ->
+  debounce = undefined
   debounce = (func, threshold, execAsap) ->
+    debounced = undefined
+    timeout = undefined
     timeout = undefined
     debounced = ->
+      delayed = undefined
+      obj = undefined
       delayed = ->
         func.apply obj  unless execAsap
         timeout = null
         return
+
       obj = this
       if timeout
         clearTimeout timeout
-      else func.apply obj  if execAsap
+      else
+        func.apply obj  if execAsap
       timeout = setTimeout(delayed, threshold or 100)
       return
 
-  # smartresize
   jQuery.fn[sr] = (fn) ->
-    (if fn then @bind("resize", debounce(fn)) else @trigger(sr))
+    if fn
+      @bind "resize", debounce(fn)
+    else
+      @trigger sr
 
   return
 ) jQuery, "smartresize"
 
-
+# Gets the height of the tallest image
 getTallestImage = ->
-
-setupFlexslider = ->
-  # Slider Elements
-  wrapper = $('.slides')
-  slides = wrapper.find('li').addClass('loading')
-  images = wrapper.find('img')
-
-  # Sizing Variables
-  window_height = $(window).height()
+  gallery.slides.addClass "loading"
+  gallery.images.css "max-height", "none"
   tallest_image = 0
-  fixed_height = 0
-
-  # Get height of tallest image
-  images.each ->
+  gallery.images.each ->
+    cur_height = undefined
     cur_height = $(this).height()
-    if cur_height > tallest_image
-      tallest_image = cur_height
+    tallest_image = cur_height  if cur_height > tallest_image
+    return
 
-  slides.removeClass('loading')
+  gallery.slides.removeClass "loading"
+  tallest_image
 
-  # Instanciate Flexslider Plugin
+# Creates the slideshow
+initializeFlexSlider = ->
   galleryOptions = JSON.parse($(".gallery .config:first").html())
   $(".flexslider").flexslider
-    animation: galleryOptions['animation']
+    animation: galleryOptions["animation"]
     useCSS: true
     touch: true
     directionNav: true
 
-  nav_height = $('.flexslider .flex-control-nav').outerHeight()
-
-  # Compare window height to tallest image height
+# Sets max height of images so they all fit in the window
+setImageHeight = (tallest_image) ->
+  window_height = $(window).height()
+  nav_height = $(".flexslider .flex-control-nav").outerHeight()
+  fixed_height = undefined
   if window_height <= tallest_image + nav_height
-    fixed_height = window_height - nav_height
+    fixed_height = window_height - nav_height - 10
   else
-    fixed_height = tallest_image
+    fixed_height = tallest_image - 10
+  gallery.images.css "max-height", fixed_height
 
-  # Set container height and max image height
-  images.css('max-height', fixed_height)
-
+setupFlexslider = ->
+  tallest_image = getTallestImage()
+  initializeFlexSlider()
+  setImageHeight tallest_image
 
 resetFlexslider = ->
-
-  # Slider Elements
-  wrapper = $('.slides')
-  slides = wrapper.find('li').addClass('loading')
-  images = wrapper.find('img').css('max-height', 'none')
-
-  # Sizing Variables
-  window_height = $(window).height()
-  tallest_image = 0
-  fixed_height = 0
-
-
-  # Get height of tallest image
-  images.each ->
-    cur_height = $(this).height()
-    if cur_height > tallest_image
-      tallest_image = cur_height
-
-  slides.removeClass('loading')
-
-  nav_height = $('.flexslider .flex-control-nav').outerHeight()
-
-  # Compare window height to tallest image height
-  if window_height <= tallest_image + nav_height
-    fixed_height = window_height - nav_height
-  else
-    fixed_height = tallest_image
-
-  # Set container height and max image height
-  images.css('max-height', fixed_height)
-
+  tallest_image = getTallestImage()
+  setImageHeight tallest_image
 
 $ ->
-  # Set heights of flexslider container and images
   setupFlexslider()
-
   $(window).smartresize ->
     resetFlexslider()
-
-
