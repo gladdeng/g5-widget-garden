@@ -1,6 +1,6 @@
 # G5 Widget Garden
 
-A garden of widgets that can be used in client location sites. Uses the [g5_component_garden](https://github.com/g5search/g5_component_garden) to generate components from `public/static/components` and provide routes.
+A garden of widgets that can be used in client location sites.
 
 
 ## Setup
@@ -52,12 +52,12 @@ The Gruntfile is watching *.js & *.js.coffee files under public/static/component
 1. Create new Pull Request
 
 If you find bugs, have feature requests or questions, please
-[file an issue](https://github.com/g5search/g5-widget-garden/issues).
+[file an issue](https://github.com/G5/g5-widget-garden/issues).
 
 ## Specs
 
 ```bash
-guard
+bundle exec rspec
 ```
 
 ## License
