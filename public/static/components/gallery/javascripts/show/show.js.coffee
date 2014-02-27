@@ -23,53 +23,26 @@
 ) jQuery, "smartresize"
 
 
+getTallestImage = ->
+
 setupFlexslider = ->
   # Slider Elements
-  wrapper = $('.flexslider-container')
-  slides = wrapper.find('.flexslider li').addClass('loading')
-  images = slides.find('img')
+  wrapper = $('.slides')
+  slides = wrapper.find('li').addClass('loading')
+  images = wrapper.find('img')
 
   # Sizing Variables
   window_height = $(window).height()
   tallest_image = 0
-  wrapper_height = 0
-  image_height = 0
-  bottom_space = 58 + 10
+  fixed_height = 0
 
   # Get height of tallest image
-  slides.each ->
-    cur_height = $(this).find('img').height()
+  images.each ->
+    cur_height = $(this).height()
     if cur_height > tallest_image
       tallest_image = cur_height
 
   slides.removeClass('loading')
-
-  # Compare window height to tallest image height
-  if window_height < tallest_image + bottom_space
-    wrapper_height = window_height
-    image_height = window_height - bottom_space
-  else
-    wrapper_height = tallest_image + bottom_space
-    image_height = tallest_image
-
-  # Set container height and max image height
-  wrapper.css('height', wrapper_height)
-  images.css('max-height', image_height)
-
-
-resetFlexslider = ->
-  wrapper = $('.flexslider-container')
-  images = wrapper.find('.slides img')
-
-  wrapper.css('height', 'auto')
-  images.css('max-height', 'none')
-
-  setupFlexslider()
-
-
-$ ->
-  # Set heights of flexslider container and images
-  setupFlexslider()
 
   # Instanciate Flexslider Plugin
   galleryOptions = JSON.parse($(".gallery .config:first").html())
@@ -79,6 +52,56 @@ $ ->
     touch: true
     directionNav: true
 
-  # Recalculate slider heights with window change
+  nav_height = $('.flexslider .flex-control-nav').outerHeight()
+
+  # Compare window height to tallest image height
+  if window_height <= tallest_image + nav_height
+    fixed_height = window_height - nav_height
+  else
+    fixed_height = tallest_image
+
+  # Set container height and max image height
+  images.css('max-height', fixed_height)
+
+
+resetFlexslider = ->
+
+  # Slider Elements
+  wrapper = $('.slides')
+  slides = wrapper.find('li').addClass('loading')
+  images = wrapper.find('img').css('max-height', 'none')
+
+  # Sizing Variables
+  window_height = $(window).height()
+  tallest_image = 0
+  fixed_height = 0
+
+
+  # Get height of tallest image
+  images.each ->
+    cur_height = $(this).height()
+    if cur_height > tallest_image
+      tallest_image = cur_height
+
+  slides.removeClass('loading')
+
+  nav_height = $('.flexslider .flex-control-nav').outerHeight()
+
+  # Compare window height to tallest image height
+  if window_height <= tallest_image + nav_height
+    fixed_height = window_height - nav_height
+  else
+    fixed_height = tallest_image
+
+  # Set container height and max image height
+  images.css('max-height', fixed_height)
+
+
+$ ->
+  # Set heights of flexslider container and images
+  setupFlexslider()
+
   $(window).smartresize ->
     resetFlexslider()
+
+
