@@ -40,6 +40,7 @@ The Gruntfile is watching *.js & *.js.coffee files under public/static/component
   * Jessica Lynn Suttles / [@jlsuttles](https://github.com/jlsuttles)
   * Bookis Smuin / [@bookis](https://github.com/bookis)
   * Jessica Dillon / [@jessicard](https://github.com/jessicard)
+  * Chad Crissman / [@crissmancd](https://github.com/crissmancd)
 
 ## Contributing
 
