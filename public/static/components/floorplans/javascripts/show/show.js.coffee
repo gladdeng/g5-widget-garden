@@ -12,7 +12,7 @@ class pricingAndAvailability
       @getPricing(cpas_urn, location_urn)
 
   getPricing: (cpas_urn, location_urn) ->
-    pricingURL = "http://" + cpas_urn + ".herokuapp.com/locations/" + location_urn
+    pricingURL = "http://" + cpas_urn + ".herokuapp.com/locations/" + location_urn + '/widget'
     floorplanContainer = $('.floorplans')
     loader = '<div id="loading-floorplans"><div class="loader">Loading&hellip;</div>Loading Pricing &amp; Availibility Information&hellip;</div>'
 
