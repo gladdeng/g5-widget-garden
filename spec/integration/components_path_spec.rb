@@ -61,7 +61,7 @@ describe "components_path" do
     end
 
     it "have lib-javascripts" do
-      expect(all(".h-g5-component .u-g5-lib-javascript").length).to be 21
+      expect(all(".h-g5-component .u-g5-lib-javascript").length).to be 22
     end
   end
 end
