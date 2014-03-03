@@ -18,7 +18,7 @@
       curHeight = null;
       curHeight = $(this).height();
       if (curHeight > tallestImage) {
-        tallestImage = curHeight;
+        return tallestImage = curHeight;
       }
     });
     gallery.slides.removeClass('loading');

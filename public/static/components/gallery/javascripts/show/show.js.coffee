@@ -14,7 +14,6 @@ getTallestImage = ->
     curHeight = null
     curHeight = $(this).height()
     tallestImage = curHeight  if curHeight > tallestImage
-    return
 
   gallery.slides.removeClass 'loading'
   tallestImage
@@ -28,10 +27,12 @@ initializeFlexSlider = ->
     touch: true
     directionNav: true
     after: (slider) ->
+      # Set height of gallery based on shown image (iOS bug fix)
       currHeight = gallery.slides.eq(slider.currentSlide).outerHeight(true)
       gallery.flexContainer.height(currHeight)
       gallery.wrapper.height(currHeight)
 
+  # Set placement of gallery nav based on its height
   navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight()
   gallery.flexContainer.css 'margin-bottom', navHeight
   gallery.flexContainer.find('.flex-control-nav').css 'bottom', -navHeight
