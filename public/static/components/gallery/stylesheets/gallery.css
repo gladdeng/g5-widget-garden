@@ -105,20 +105,21 @@ html[xmlns] .slides {display: block;}
 CUSTOM STYLES
 --------------------*/
 .flexslider {
+  margin: 0 0 33px 0;
+}
+.flexslider .slides {
   overflow: hidden;
 }
-.flexslider {
-  margin: 0;
-}
 .flex-control-nav.flex-control-paging {
+  bottom: -33px;
   line-height: .8125;
-  position: static;
 }
 .flex-control-paging li a {
   width: 13px;
   height: 13px;
 }
 .flex-control-nav {
+  overflow: hidden;
   text-align: center;
 }
 .flex-control-nav li {
