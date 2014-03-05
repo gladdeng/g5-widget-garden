@@ -130,6 +130,7 @@ CUSTOM STYLES
 .flex-control-nav.flex-control-paging {
   bottom: 0;
   line-height: .8125;
+  position: absolute;
 }
 .flex-control-paging li a {
   width: 13px;
