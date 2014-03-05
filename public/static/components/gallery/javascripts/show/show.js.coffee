@@ -46,6 +46,7 @@ setImageHeight = (tallestImage) ->
 
   gallery.images.css 'max-height', fixedHeight
   gallery.slides.css 'height', fixedHeight
+  gallery.flexContainer.css 'padding-bottom', navHeight
 
 setupFlexslider = ->
   tallestImage = getTallestImage()

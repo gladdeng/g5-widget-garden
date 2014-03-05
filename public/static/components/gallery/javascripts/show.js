@@ -50,7 +50,8 @@
       fixedHeight = tallestImage - padding;
     }
     gallery.images.css('max-height', fixedHeight);
-    return gallery.slides.css('height', fixedHeight);
+    gallery.slides.css('height', fixedHeight);
+    return gallery.flexContainer.css('padding-bottom', navHeight);
   };
 
   setupFlexslider = function() {
