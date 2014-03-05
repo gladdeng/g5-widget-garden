@@ -15,7 +15,7 @@
 
     pricingAndAvailability.prototype.getPricing = function(cpas_urn, location_urn) {
       var floorplanContainer, loader, pricingURL;
-      pricingURL = "http://" + cpas_urn + ".herokuapp.com/locations/" + location_urn;
+      pricingURL = "http://" + cpas_urn + ".herokuapp.com/locations/" + location_urn + '/widget';
       floorplanContainer = $('.floorplans');
       loader = '<div id="loading-floorplans"><div class="loader">Loading&hellip;</div>Loading Pricing &amp; Availibility Information&hellip;</div>';
       return $.ajax({

@@ -1,6 +1,9 @@
 # G5 Widget Garden
 
-A garden of widgets that can be used in client location sites. Uses the [g5_component_garden](https://github.com/g5search/g5_component_garden) to generate components from `public/static/components` and provide routes.
+[![Build Status](https://travis-ci.org/G5/g5-widget-garden.png?branch=master)](https://travis-ci.org/G5/g5-widget-garden)
+[![Code Climate](https://codeclimate.com/repos/530e8e8ce30ba005cb00272e/badges/5d8d2116d20f27e82639/gpa.png)](https://codeclimate.com/repos/530e8e8ce30ba005cb00272e/feed)
+
+A garden of widgets that can be used in client location sites.
 
 
 ## Setup
@@ -40,6 +43,7 @@ The Gruntfile is watching *.js & *.js.coffee files under public/static/component
   * Jessica Lynn Suttles / [@jlsuttles](https://github.com/jlsuttles)
   * Bookis Smuin / [@bookis](https://github.com/bookis)
   * Jessica Dillon / [@jessicard](https://github.com/jessicard)
+  * Chad Crissman / [@crissmancd](https://github.com/crissmancd)
 
 ## Contributing
 
@@ -52,10 +56,35 @@ The Gruntfile is watching *.js & *.js.coffee files under public/static/component
 1. Create new Pull Request
 
 If you find bugs, have feature requests or questions, please
-[file an issue](https://github.com/g5search/g5-widget-garden/issues).
+[file an issue](https://github.com/G5/g5-widget-garden/issues).
 
 ## Specs
 
 ```bash
-guard
+bundle exec rspec
 ```
+
+## License
+
+Copyright (c) 2013 G5
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

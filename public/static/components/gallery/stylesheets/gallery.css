@@ -105,24 +105,41 @@ html[xmlns] .slides {display: block;}
 CUSTOM STYLES
 --------------------*/
 .flexslider {
+  margin: 0;
+  padding-bottom: 33px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flexslider .slides {
   overflow: hidden;
 }
-.flexslider {
-  margin: 0;
+.csstransforms .flexslider img {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .flex-control-nav.flex-control-paging {
-  height: 38px;
+  bottom: 0;
   line-height: .8125;
-  margin-top: 20px;
-  position: static;
+  position: absolute;
 }
 .flex-control-paging li a {
   width: 13px;
   height: 13px;
 }
 .flex-control-nav {
+  overflow: hidden;
   text-align: center;
 }
 .flex-control-nav li {
-  margin-bottom: 12px;
+  margin-top: 20px;
 }
