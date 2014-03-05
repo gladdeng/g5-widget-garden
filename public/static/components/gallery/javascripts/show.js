@@ -35,8 +35,7 @@
       directionNav: true
     });
     navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight();
-    gallery.flexContainer.css('margin-bottom', navHeight);
-    return gallery.flexContainer.find('.flex-control-nav').css('bottom', -navHeight);
+    return gallery.flexContainer.css('padding-bottom', navHeight);
   };
 
   setImageHeight = function(tallestImage) {

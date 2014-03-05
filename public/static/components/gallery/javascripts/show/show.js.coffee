@@ -29,8 +29,7 @@ initializeFlexSlider = ->
 
   # Set placement of gallery nav based on its height
   navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight()
-  gallery.flexContainer.css 'margin-bottom', navHeight
-  gallery.flexContainer.find('.flex-control-nav').css 'bottom', -navHeight
+  gallery.flexContainer.css 'padding-bottom', navHeight
 
 
 # Sets max height of images so they all fit in the window
