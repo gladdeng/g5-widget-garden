@@ -105,7 +105,17 @@ html[xmlns] .slides {display: block;}
 CUSTOM STYLES
 --------------------*/
 .flexslider {
-  margin: 0 0 33px 0;
+  margin: 0;
+  padding-bottom: 33px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .flexslider .slides {
   overflow: hidden;
@@ -118,7 +128,7 @@ CUSTOM STYLES
   transform: translateY(-50%);
 }
 .flex-control-nav.flex-control-paging {
-  bottom: -33px;
+  bottom: 0;
   line-height: .8125;
 }
 .flex-control-paging li a {
