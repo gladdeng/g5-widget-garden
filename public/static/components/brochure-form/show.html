@@ -15,7 +15,7 @@
       <p class="form-note">{{ widget.form_note.best_value }}</p>
     {% endif %}
 
-    <input type="hidden" class="u-canonical" name="u-canonical" value="" />
+    <input type="hidden" class="u-uid" name="u-uid" value="{{ widget.form_uid.best_value | url_encode }}" />
     <input type="hidden" class="u-syndication" name="u-syndication" value="{{ widget.form_syndication_url.best_value | url_encode }}" />
 
     <div class="p-author h-card">
