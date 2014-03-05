@@ -32,13 +32,7 @@
       animation: galleryOptions['animation'],
       useCSS: true,
       touch: true,
-      directionNav: true,
-      after: function(slider) {
-        var currHeight;
-        currHeight = gallery.slides.eq(slider.currentSlide).outerHeight(true);
-        gallery.flexContainer.height(currHeight);
-        return gallery.wrapper.height(currHeight);
-      }
+      directionNav: true
     });
     navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight();
     gallery.flexContainer.css('margin-bottom', navHeight);
@@ -56,7 +50,8 @@
     } else {
       fixedHeight = tallestImage - padding;
     }
-    return gallery.images.css('max-height', fixedHeight);
+    gallery.images.css('max-height', fixedHeight);
+    return gallery.slides.css('height', fixedHeight);
   };
 
   setupFlexslider = function() {
@@ -69,8 +64,7 @@
   resetFlexslider = function() {
     var tallestImage;
     tallestImage = getTallestImage();
-    setImageHeight(tallestImage);
-    return gallery.wrapper.height('auto');
+    return setImageHeight(tallestImage);
   };
 
   $(function() {

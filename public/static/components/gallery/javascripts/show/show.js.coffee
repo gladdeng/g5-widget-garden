@@ -26,11 +26,6 @@ initializeFlexSlider = ->
     useCSS: true
     touch: true
     directionNav: true
-    after: (slider) ->
-      # Set height of gallery based on shown image (iOS bug fix)
-      currHeight = gallery.slides.eq(slider.currentSlide).outerHeight(true)
-      gallery.flexContainer.height(currHeight)
-      gallery.wrapper.height(currHeight)
 
   # Set placement of gallery nav based on its height
   navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight()
@@ -51,6 +46,7 @@ setImageHeight = (tallestImage) ->
     fixedHeight = tallestImage - padding
 
   gallery.images.css 'max-height', fixedHeight
+  gallery.slides.css 'height', fixedHeight
 
 setupFlexslider = ->
   tallestImage = getTallestImage()
@@ -60,7 +56,6 @@ setupFlexslider = ->
 resetFlexslider = ->
   tallestImage = getTallestImage()
   setImageHeight tallestImage
-  gallery.wrapper.height 'auto'
 
 $ ->
   setupFlexslider()
