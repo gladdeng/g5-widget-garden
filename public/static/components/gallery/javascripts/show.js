@@ -64,7 +64,6 @@
   resetFlexslider = function() {
     var tallestImage;
     tallestImage = getTallestImage();
-    gallery.slides.height('auto');
     return setImageHeight(tallestImage);
   };
 

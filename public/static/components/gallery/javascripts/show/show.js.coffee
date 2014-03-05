@@ -55,7 +55,6 @@ setupFlexslider = ->
 
 resetFlexslider = ->
   tallestImage = getTallestImage()
-  gallery.slides.height 'auto'
   setImageHeight tallestImage
 
 $ ->
