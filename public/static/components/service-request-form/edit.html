@@ -22,6 +22,8 @@
       class="u-syndication"
       name="{{ widget.cls_url.value_field_name }}"
       value="{{ widget.cls_url.best_value | url_encode }}"
+      pattern="^https:\/\/.+"
+      title="The URL must be HTTPS"
     />
   </div>
 
