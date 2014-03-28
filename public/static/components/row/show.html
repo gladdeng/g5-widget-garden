@@ -1,16 +1,18 @@
-<div class="row">
+<div class="row" style="background-color: {{ widget.row_bg_color.best_value }}">
   <div class="content row-{{ widget.row_layout.best_value }}">
 
-    <div class="column" id="drop-target-first-col"></div>
+    <div class="col col-1" id="drop-target-first-col"></div>
 
-    <div class="column" id="drop-target-second-col"></div>
+    {% if widget.row_layout.best_value != "single" %}
+      <div class="col col-2" id="drop-target-second-col"></div>
+    {% endif %}
 
     {% if widget.row_layout.best_value == "thirds" or widget.row_layout.best_value == "quarters" %}
-      <div class="column" id="drop-target-third-col"></div>
+      <div class="col col-3" id="drop-target-third-col"></div>
     {% endif %}
 
     {% if widget.row_layout.best_value == "quarters" %}
-      <div class="column" id="drop-target-fourth-col"></div>
+      <div class="col col-4" id="drop-target-fourth-col"></div>
     {% endif %}
 
   </div>
