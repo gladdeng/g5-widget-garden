@@ -9,7 +9,6 @@ describe "components_path" do
     expect(page).to have_content "G5 Widget Garden"
   end
 
-  it "has 37 widgets marked up as .h-g5-component" do
     expect(all(".h-g5-component").length).to eq 37
   end
 
