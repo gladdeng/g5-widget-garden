@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="content row-{{ widget.row_layout.best_value }}">
+
+    <div class="column" id="drop-target-first-col"></div>
+
+    <div class="column" id="drop-target-second-col"></div>
+
+    {% if widget.row_layout.best_value == "thirds" or widget.row_layout.best_value == "quarters" %}
+      <div class="column" id="drop-target-third-col"></div>
+    {% endif %}
+
+    {% if widget.row_layout.best_value == "quarters" %}
+      <div class="column" id="drop-target-fourth-col"></div>
+    {% endif %}
+
+  </div>
+</div>
