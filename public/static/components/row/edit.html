@@ -26,5 +26,56 @@
     </select>
   </div>
 
-  <input type="submit" value="Save" />
+  <div class="form-field">
+    <label for="{{ widget.column_one_widget.value_field_id }}" class="inline">Column One Widget</label>
+    <a class="edit-widget" id="edit-{{ widget.column_one_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
+    {{ widget.column_one_widget.id_hidden_field }}
+
+    <select id="{{ widget.column_one_widget.value_field_id }}" name="{{ widget.column_one_widget.value_field_name }}">
+      {% for garden_widget in widget.available_garden_widgets %}
+        <option value="{{ garden_widget[1].name }}">{{ garden_widget[1].name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.column_two_widget.value_field_id }}" class="inline">Column Two Widget</label>
+    <a class="edit-widget" id="edit-{{ widget.column_two_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
+    {{ widget.column_two_widget.id_hidden_field }}
+
+    <select id="{{ widget.column_two_widget.value_field_id }}" name="{{ widget.column_two_widget.value_field_name }}">
+      {% for garden_widget in widget.available_garden_widgets %}
+        <option value="{{ garden_widget[1].name }}">{{ garden_widget[1].name }}</option>
+      {% endfor %}
+    </select>
+
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.column_three_widget.value_field_id }}" class="inline">Column Three Widget</label>
+    <a class="edit-widget" id="edit-{{ widget.column_three_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
+    {{ widget.column_three_widget.id_hidden_field }}
+
+    <select id="{{ widget.column_three_widget.value_field_id }}" name="{{ widget.column_three_widget.value_field_name }}">
+      {% for garden_widget in widget.available_garden_widgets %}
+        <option value="{{ garden_widget[1].name }}">{{ garden_widget[1].name }}</option>
+      {% endfor %}
+    </select>
+
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.column_four_widget.value_field_id }}" class="inline">Column Four Widget</label>
+    <a class="edit-widget" id="edit-{{ widget.column_four_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
+    {{ widget.column_four_widget.id_hidden_field }}
+
+    <select id="{{ widget.column_four_widget.value_field_id }}" name="{{ widget.column_four_widget.value_field_name }}">
+      {% for garden_widget in widget.available_garden_widgets %}
+        <option value="{{ garden_widget[1].name }}">{{ garden_widget[1].name }}</option>
+      {% endfor %}
+    </select>
+
+  </div>
+
+  <input type="submit" value="Save" class="btn" />
 </form>
