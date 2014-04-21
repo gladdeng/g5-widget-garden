@@ -1,4 +1,6 @@
 <form>
+
+  <!-- Row Background Color (Optional) -->
   <div class="form-field">
     {{ widget.row_bg_color.id_hidden_field }}
     <label for="{{ widget.row_bg_color.value_field_id }}" >
@@ -12,6 +14,7 @@
     />
   </div>
 
+  <!-- Select Row Layout -->
   <div class="form-field">
     <label for="{{ widget.row_layout.value_field_id }}">Row Layout</label>
     {{ widget.row_layout.id_hidden_field }}
@@ -26,7 +29,8 @@
     </select>
   </div>
 
-  <div class="form-field">
+  <!-- Select Column One Widget -->
+  <div class="form-field col-widgets single halves thirds-1 thirds-2 thirds quarters">
     <label for="{{ widget.column_one_widget.value_field_id }}" class="inline">Column One Widget</label>
     <a class="edit-widget" id="edit-{{ widget.column_one_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
     {{ widget.column_one_widget.id_hidden_field }}
@@ -38,7 +42,8 @@
     </select>
   </div>
 
-  <div class="form-field">
+  <!-- Select Column Two Widget -->
+  <div class="form-field col-widgets halves thirds-1 thirds-2 thirds quarters">
     <label for="{{ widget.column_two_widget.value_field_id }}" class="inline">Column Two Widget</label>
     <a class="edit-widget" id="edit-{{ widget.column_two_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
     {{ widget.column_two_widget.id_hidden_field }}
@@ -48,10 +53,10 @@
         <option value="{{ garden_widget[1].name }}">{{ garden_widget[1].name }}</option>
       {% endfor %}
     </select>
-
   </div>
 
-  <div class="form-field">
+  <!-- Select Column Three Widget -->
+  <div class="form-field col-widgets thirds quarters">
     <label for="{{ widget.column_three_widget.value_field_id }}" class="inline">Column Three Widget</label>
     <a class="edit-widget" id="edit-{{ widget.column_three_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
     {{ widget.column_three_widget.id_hidden_field }}
@@ -61,10 +66,10 @@
         <option value="{{ garden_widget[1].name }}">{{ garden_widget[1].name }}</option>
       {% endfor %}
     </select>
-
   </div>
 
-  <div class="form-field">
+  <!-- Select Column Four Widget -->
+  <div class="form-field col-widgets quarters">
     <label for="{{ widget.column_four_widget.value_field_id }}" class="inline">Column Four Widget</label>
     <a class="edit-widget" id="edit-{{ widget.column_four_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
     {{ widget.column_four_widget.id_hidden_field }}
@@ -74,8 +79,22 @@
         <option value="{{ garden_widget[1].name }}">{{ garden_widget[1].name }}</option>
       {% endfor %}
     </select>
-
   </div>
 
   <input type="submit" value="Save" class="btn" />
 </form>
+
+<script>
+  var chooseLayout = $("#{{ widget.row_layout.value_field_id }}");
+  var selectedLayout = chooseLayout.val();
+
+  $('.col-widgets').hide();
+  $('.' + selectedLayout).show();
+
+  chooseLayout.on('change', function() {
+    selectedLayout = $(this).val();
+    $('.col-widgets').hide();
+    $('.' + selectedLayout).show();
+  });
+
+</script>
