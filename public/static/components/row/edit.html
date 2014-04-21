@@ -12,64 +12,18 @@
     />
   </div>
 
-  <div class="form-field check-field">
-    <fieldset>
-      <legend>Row Layout</legend>
-      {{ widget.row_layout.id_hidden_field }}
-      <label for="{{ widget.row_layout.value_field_id }}_roadmap" >
-        1/2 - 1/2
-      </label>
-      <input type="radio"
-        id="{{ widget.row_layout.value_field_id }}_halves"
-        name="{{ widget.row_layout.value_field_name }}"
-        value="halves"
-        checked="checked"
-      />
-      <label for="{{ widget.row_layout.value_field_id }}_thirds-1" >
-        1/3 - 2/3
-      </label>
-      <input type="radio"
-        id="{{ widget.row_layout.value_field_id }}_thirds-1"
-        name="{{ widget.row_layout.value_field_name }}"
-        value="thirds-1"
-        {% if widget.row_layout.best_value == "thirds-1" %}
-        checked="checked"
-        {% endif %}
-      />
-      <label for="{{ widget.row_layout.value_field_id }}_thirds-2" >
-        2/3 - 1/3
-      </label>
-      <input type="radio"
-        id="{{ widget.row_layout.value_field_id }}_thirds-2"
-        name="{{ widget.row_layout.value_field_name }}"
-        value="thirds-2"
-        {% if widget.row_layout.best_value == "thirds-2" %}
-        checked="checked"
-        {% endif %}
-      />
-      <label for="{{ widget.row_layout.value_field_id }}_thirds" >
-        1/3 - 1/3 - 1/3
-      </label>
-      <input type="radio"
-        id="{{ widget.row_layout.value_field_id }}_thirds"
-        name="{{ widget.row_layout.value_field_name }}"
-        value="thirds"
-        {% if widget.row_layout.best_value == "thirds" %}
-        checked="checked"
-        {% endif %}
-      />
-      <label for="{{ widget.row_layout.value_field_id }}_quarters" >
-        1/4 - 1/4 - 1/4 - 1/4
-      </label>
-      <input type="radio"
-        id="{{ widget.row_layout.value_field_id }}_quarters"
-        name="{{ widget.row_layout.value_field_name }}"
-        value="quarters"
-        {% if widget.row_layout.best_value == "quarters" %}
-        checked="checked"
-        {% endif %}
-      />
-    </fieldset>
+  <div class="form-field">
+    <label for="{{ widget.row_layout.value_field_id }}">Row Layout</label>
+    {{ widget.row_layout.id_hidden_field }}
+
+    <select id="{{ widget.row_layout.value_field_id }}" name="{{ widget.row_layout.value_field_name }}">
+      <option {% if widget.row_layout.best_value == "single" %}selected{% endif %} value="single">Single Column</option>
+      <option {% if widget.row_layout.best_value == "halves" %}selected{% endif %} value="halves">Two Columns: 1/2-1/2</option>
+      <option {% if widget.row_layout.best_value == "thirds-1" %}selected{% endif %} value="thirds-1">Two Columns: 1/3-2/3</option>
+      <option {% if widget.row_layout.best_value == "thirds-2" %}selected{% endif %} value="thirds-2">Two Columns: 2/3-1/3</option>
+      <option {% if widget.row_layout.best_value == "thirds" %}selected{% endif %} value="thirds">Three Columns: 1/3-1/3-1/3</option>
+      <option {% if widget.row_layout.best_value == "quarters" %}selected{% endif %} value="quarters">Four Columns: 1/4-1/4-1/4-1/4</option>
+    </select>
   </div>
 
   <input type="submit" value="Save" />
