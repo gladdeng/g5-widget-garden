@@ -3,81 +3,162 @@
   <!-- Row Background Color (Optional) -->
   <div class="form-field">
     {{ widget.row_bg_color.id_hidden_field }}
+
     <label for="{{ widget.row_bg_color.value_field_id }}" >
       Background Color
     </label>
+
     <input type="text"
       id="{{ widget.row_bg_color.value_field_id }}"
       name="{{ widget.row_bg_color.value_field_name }}"
       value="{{ widget.row_bg_color.best_value }}"
-      placeholder="example: #fff"
-    />
+      placeholder="example: #fff" />
   </div>
 
   <!-- Select Row Layout -->
   <div class="form-field">
-    <label for="{{ widget.row_layout.value_field_id }}">Row Layout</label>
     {{ widget.row_layout.id_hidden_field }}
 
-    <select id="{{ widget.row_layout.value_field_id }}" class="select-row-layout" name="{{ widget.row_layout.value_field_name }}">
-      <option {% if widget.row_layout.best_value == "single" %}selected{% endif %} value="single">Single Column</option>
-      <option {% if widget.row_layout.best_value == "halves" %}selected{% endif %} value="halves">Two Columns: 1/2-1/2</option>
-      <option {% if widget.row_layout.best_value == "thirds-1" %}selected{% endif %} value="thirds-1">Two Columns: 1/3-2/3</option>
-      <option {% if widget.row_layout.best_value == "thirds-2" %}selected{% endif %} value="thirds-2">Two Columns: 2/3-1/3</option>
-      <option {% if widget.row_layout.best_value == "thirds" %}selected{% endif %} value="thirds">Three Columns: 1/3-1/3-1/3</option>
-      <option {% if widget.row_layout.best_value == "quarters" %}selected{% endif %} value="quarters">Four Columns: 1/4-1/4-1/4-1/4</option>
+    <label for="{{ widget.row_layout.value_field_id }}">
+      Row Layout
+    </label>
+
+    <select id="{{ widget.row_layout.value_field_id }}"
+      class="select-row-layout"
+      name="{{ widget.row_layout.value_field_name }}">
+
+      <option value="single" {% if widget.row_layout.best_value =="single" %}selected{% endif %}>
+        Single Column
+      </option>
+      
+      <option value="halves" {% if widget.row_layout.best_value == "halves" %}selected{% endif %}>
+        Two Columns: 1/2-1/2
+      </option>
+
+      <option value="thirds-1" {% if widget.row_layout.best_value == "thirds-1" %}selected{% endif %}>
+        Two Columns: 1/3-2/3
+      </option>
+
+      <option value="thirds-2" {% if widget.row_layout.best_value == "thirds-2" %}selected{% endif %}>
+        Two Columns: 2/3-1/3
+      </option>
+
+      <option value="thirds" {% if widget.row_layout.best_value == "thirds" %}selected{% endif %}>
+        Three Columns: 1/3-1/3-1/3
+      </option>
+
+      <option value="quarters" {% if widget.row_layout.best_value == "quarters" %}selected{% endif %}>
+        Four Columns: 1/4-1/4-1/4-1/4
+      </option>
+
     </select>
   </div>
 
   <!-- Select Column One Widget -->
   <div class="form-field col-widgets single halves thirds-1 thirds-2 thirds quarters">
-    <label for="{{ widget.column_one_widget.value_field_id }}" class="inline">Column One Widget</label>
-    <a class="edit-widget" id="edit-{{ widget.column_one_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
-    {{ widget.column_one_widget.id_hidden_field }}
+    {{ widget.column_one_widget_name.id_hidden_field }}
 
-    <select id="{{ widget.column_one_widget.value_field_id }}" name="{{ widget.column_one_widget.value_field_name }}">
-      {% for garden_widget in widget.available_garden_widgets %}
-        <option value="{{ garden_widget[1].name }}">{{ garden_widget[1].name }}</option>
+    <label for="{{ widget.column_one_widget_name.value_field_id }}"
+      class="inline">
+      Column One Widget
+    </label>
+
+    <a id="edit-{{ widget.column_one_widget_name.value_field_id }}"
+      class="edit-widget"
+      href="#">
+      <small>(Edit)</small>
+    </a>
+
+    <select  id="{{ widget.column_one_widget_name.value_field_id }}"
+      name="{{ widget.column_one_widget_name.value_field_name }}">
+
+      {% for garden_widget in widget.available_garden_widgets.best_value %}
+        <option value="{{ garden_widget[1].name }}">
+          {{ garden_widget[1].name }}
+        </option>
       {% endfor %}
+
     </select>
   </div>
 
   <!-- Select Column Two Widget -->
   <div class="form-field col-widgets halves thirds-1 thirds-2 thirds quarters">
-    <label for="{{ widget.column_two_widget.value_field_id }}" class="inline">Column Two Widget</label>
-    <a class="edit-widget" id="edit-{{ widget.column_two_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
-    {{ widget.column_two_widget.id_hidden_field }}
+    {{ widget.column_two_widget_name.id_hidden_field }}
 
-    <select id="{{ widget.column_two_widget.value_field_id }}" name="{{ widget.column_two_widget.value_field_name }}">
-      {% for garden_widget in widget.available_garden_widgets %}
-        <option value="{{ garden_widget[1].name }}">{{ garden_widget[1].name }}</option>
+    <label for="{{ widget.column_two_widget_name.value_field_id }}"
+      class="inline">
+      Column Two Widget
+    </label>
+
+    <a id="edit-{{ widget.column_two_widget_name.value_field_id }}"
+      class="edit-widget"
+      href="#">
+      <small>(Edit)</small>
+    </a>
+
+    <select id="{{ widget.column_two_widget_name.value_field_id }}"
+      name="{{ widget.column_two_widget_name.value_field_name }}">
+
+      {% for garden_widget in widget.available_garden_widgets.best_value %}
+        <option value="{{ garden_widget[1].name }}">
+          {{ garden_widget[1].name }}
+        </option>
       {% endfor %}
+
     </select>
   </div>
 
   <!-- Select Column Three Widget -->
   <div class="form-field col-widgets thirds quarters">
-    <label for="{{ widget.column_three_widget.value_field_id }}" class="inline">Column Three Widget</label>
-    <a class="edit-widget" id="edit-{{ widget.column_three_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
-    {{ widget.column_three_widget.id_hidden_field }}
+    {{ widget.column_three_widget_name.id_hidden_field }}
 
-    <select id="{{ widget.column_three_widget.value_field_id }}" name="{{ widget.column_three_widget.value_field_name }}">
-      {% for garden_widget in widget.available_garden_widgets %}
-        <option value="{{ garden_widget[1].name }}">{{ garden_widget[1].name }}</option>
+    <label for="{{ widget.column_three_widget_name.value_field_id }}"
+      class="inline">
+      Column Three Widget
+    </label>
+
+    <a id="edit-{{ widget.column_three_widget_name.value_field_id }}"
+      class="edit-widget"
+      href="#">
+      <small>(Edit)</small>
+    </a>
+
+    <select id="{{ widget.column_three_widget_name.value_field_id }}"
+      name="{{ widget.column_three_widget_name.value_field_name }}">
+
+      {% for garden_widget in widget.available_garden_widgets.best_value %}
+        <option value="{{ garden_widget[1].name }}">
+          {{ garden_widget[1].name }}
+        </option>
       {% endfor %}
+
     </select>
   </div>
 
   <!-- Select Column Four Widget -->
   <div class="form-field col-widgets quarters">
-    <label for="{{ widget.column_four_widget.value_field_id }}" class="inline">Column Four Widget</label>
-    <a class="edit-widget" id="edit-{{ widget.column_four_widget.value_field_id }}" href="#"><small>(Edit)</small></a>
-    {{ widget.column_four_widget.id_hidden_field }}
+    {{ widget.column_four_widget_name.id_hidden_field }}
 
-    <select id="{{ widget.column_four_widget.value_field_id }}" name="{{ widget.column_four_widget.value_field_name }}">
-      {% for garden_widget in widget.available_garden_widgets %}
-        <option value="{{ garden_widget[1].name }}">{{ garden_widget[1].name }}</option>
+    <label for="{{ widget.column_four_widget_name.value_field_id }}"
+      class="inline">
+      Column Four Widget
+    </label>
+
+    <a id="edit-{{ widget.column_four_widget_name.value_field_id }}"
+      class="edit-widget"
+      href="#">
+      <small>(Edit)</small>
+    </a>
+
+    <select id="{{ widget.column_four_widget_name.value_field_id }}"
+      name="{{ widget.column_four_widget_name.value_field_name }}">
+
+      {% for garden_widget in widget.available_garden_widgets.best_value %}
+        <option value="{{ garden_widget[1].name }}">
+          {{ garden_widget[1].name }}
+        </option>
       {% endfor %}
+
     </select>
   </div>
 
