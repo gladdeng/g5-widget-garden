@@ -26,3 +26,6 @@ node_modules/*
 
 # Ignore environment specific env
 .env.*
+
+# Ignore coverage directory
+/coverage
