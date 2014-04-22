@@ -30,7 +30,7 @@
       <option value="single" {% if widget.row_layout.best_value =="single" %}selected{% endif %}>
         Single Column
       </option>
-      
+
       <option value="halves" {% if widget.row_layout.best_value == "halves" %}selected{% endif %}>
         Two Columns: 1/2-1/2
       </option>
@@ -73,8 +73,8 @@
       name="{{ widget.column_one_widget_name.value_field_name }}">
 
       {% for garden_widget in widget.available_garden_widgets.best_value %}
-        <option value="{{ garden_widget[1].name }}">
-          {{ garden_widget[1].name }}
+        <option value="{{ garden_widget }}">
+          {{ garden_widget }}
         </option>
       {% endfor %}
 
@@ -100,8 +100,8 @@
       name="{{ widget.column_two_widget_name.value_field_name }}">
 
       {% for garden_widget in widget.available_garden_widgets.best_value %}
-        <option value="{{ garden_widget[1].name }}">
-          {{ garden_widget[1].name }}
+        <option value="{{ garden_widget }}">
+          {{ garden_widget }}
         </option>
       {% endfor %}
 
@@ -127,8 +127,8 @@
       name="{{ widget.column_three_widget_name.value_field_name }}">
 
       {% for garden_widget in widget.available_garden_widgets.best_value %}
-        <option value="{{ garden_widget[1].name }}">
-          {{ garden_widget[1].name }}
+        <option value="{{ garden_widget }}">
+          {{ garden_widget }}
         </option>
       {% endfor %}
 
@@ -154,8 +154,8 @@
       name="{{ widget.column_four_widget_name.value_field_name }}">
 
       {% for garden_widget in widget.available_garden_widgets.best_value %}
-        <option value="{{ garden_widget[1].name }}">
-          {{ garden_widget[1].name }}
+        <option value="{{ garden_widget }}">
+          {{ garden_widget }}
         </option>
       {% endfor %}
 
