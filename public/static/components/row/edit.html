@@ -76,7 +76,11 @@
       name="{{ widget.column_one_widget_name.value_field_name }}">
 
       {% for garden_widget in widget.available_garden_widgets.best_value %}
-        <option value="{{ garden_widget }}">
+        <option value="{{ garden_widget }}"
+          {% if garden_widget == widget.column_one_widget_name.value %}
+            selected
+          {% endif %}
+        >
           {{ garden_widget }}
         </option>
       {% endfor %}
@@ -106,7 +110,11 @@
       name="{{ widget.column_two_widget_name.value_field_name }}">
 
       {% for garden_widget in widget.available_garden_widgets.best_value %}
-        <option value="{{ garden_widget }}">
+        <option value="{{ garden_widget }}"
+          {% if garden_widget == widget.column_two_widget_name.value %}
+            selected
+          {% endif %}
+        >
           {{ garden_widget }}
         </option>
       {% endfor %}
@@ -136,7 +144,11 @@
       name="{{ widget.column_three_widget_name.value_field_name }}">
 
       {% for garden_widget in widget.available_garden_widgets.best_value %}
-        <option value="{{ garden_widget }}">
+        <option value="{{ garden_widget }}"
+          {% if garden_widget == widget.column_three_widget_name.value %}
+            selected
+          {% endif %}
+        >
           {{ garden_widget }}
         </option>
       {% endfor %}
@@ -166,7 +178,11 @@
       name="{{ widget.column_four_widget_name.value_field_name }}">
 
       {% for garden_widget in widget.available_garden_widgets.best_value %}
-        <option value="{{ garden_widget }}">
+        <option value="{{ garden_widget }}"
+          {% if garden_widget == widget.column_four_widget_name.value %}
+            selected
+          {% endif %}
+        >
           {{ garden_widget }}
         </option>
       {% endfor %}
