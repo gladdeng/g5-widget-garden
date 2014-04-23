@@ -63,12 +63,14 @@
       Column One Widget
     </label>
 
+    {% if widget.column_one_widget_name.value %}
     <a id="edit-{{ widget.column_one_widget_name.value_field_id }}"
       data-widget-id="{{ widget.column_one_widget_id.value }}"
       class="edit-widget"
       href="#">
       <small>(Edit)</small>
     </a>
+    {% endif %}
 
     <select  id="{{ widget.column_one_widget_name.value_field_id }}"
       name="{{ widget.column_one_widget_name.value_field_name }}">
@@ -91,12 +93,14 @@
       Column Two Widget
     </label>
 
+    {% if widget.column_two_widget_name.value %}
     <a id="edit-{{ widget.column_two_widget_name.value_field_id }}"
       data-widget-id="{{ widget.column_two_widget_id.value }}"
       class="edit-widget"
       href="#">
       <small>(Edit)</small>
     </a>
+    {% endif %}
 
     <select id="{{ widget.column_two_widget_name.value_field_id }}"
       name="{{ widget.column_two_widget_name.value_field_name }}">
@@ -119,12 +123,14 @@
       Column Three Widget
     </label>
 
+    {% if widget.column_three_widget_id.value %}
     <a id="edit-{{ widget.column_three_widget_name.value_field_id }}"
       data-widget-id="{{ widget.column_three_widget_id.value }}"
       class="edit-widget"
       href="#">
       <small>(Edit)</small>
     </a>
+    {% endif %}
 
     <select id="{{ widget.column_three_widget_name.value_field_id }}"
       name="{{ widget.column_three_widget_name.value_field_name }}">
@@ -147,12 +153,14 @@
       Column Four Widget
     </label>
 
+    {% if widget.column_four_widget_id.value %}
     <a id="edit-{{ widget.column_four_widget_name.value_field_id }}"
       data-widget-id="{{ widget.column_four_widget_id.value }}"
       class="edit-widget"
       href="#">
       <small>(Edit)</small>
     </a>
+    {% endif %}
 
     <select id="{{ widget.column_four_widget_name.value_field_id }}"
       name="{{ widget.column_four_widget_name.value_field_name }}">
