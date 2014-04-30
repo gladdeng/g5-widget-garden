@@ -21,6 +21,7 @@ group :development, :test do
   gem "simplecov", require: false
   gem "codeclimate-test-reporter", require: false
   gem "foreman"
+  gem "pry"
 end
 
 group :production do

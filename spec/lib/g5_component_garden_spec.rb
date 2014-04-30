@@ -74,6 +74,16 @@ describe G5ComponentGarden do
       end
     end
 
+    describe "#targets" do
+      it "is a Text Property" do
+        component.g5_targets.first.should be_an_instance_of Microformats2::Property::Text
+      end
+
+      it "contains the summary" do
+        component.g5_targets.first.to_s.should == "What this component does/looks like"
+      end
+    end
+
     describe "#content" do
       it "is an Embedded Property" do
         component.content.should be_an_instance_of Microformats2::Property::Embedded
