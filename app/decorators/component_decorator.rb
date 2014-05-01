@@ -11,7 +11,7 @@ class ComponentDecorator < SimpleDelegator
     body ||= url
     _h.link_to(body, url, args[:html])
   end
-
+  
   def _h
     @view_context
   end
