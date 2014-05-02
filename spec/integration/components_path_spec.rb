@@ -52,6 +52,10 @@ describe "components_path" do
   end
 
   describe "some widgets" do
+    it "have targets" do
+      expect(all(".h-g5-component .u-g5-target").length).to be 2
+    end
+
     it "have stylesheets" do
       expect(all(".h-g5-component .u-g5-stylesheet").length).to be 31
     end
