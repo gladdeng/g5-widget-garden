@@ -75,12 +75,12 @@ describe G5ComponentGarden do
     end
 
     describe "#targets" do
-      it "is a Text Property" do
-        component.g5_targets.first.should be_an_instance_of Microformats2::Property::Text
+      it "is a Url Property" do
+        component.g5_targets.first.should be_an_instance_of Microformats2::Property::Url
       end
 
-      it "contains the summary" do
-        component.g5_targets.first.to_s.should == "What this component does/looks like"
+      it "contains a target UID" do
+        component.g5_targets.first.to_s.should == "http://example.herokuapp.com/apps/1s7nay2b-storage-client"
       end
     end
 
