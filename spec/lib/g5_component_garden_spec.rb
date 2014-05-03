@@ -74,6 +74,16 @@ describe G5ComponentGarden do
       end
     end
 
+    describe "#targets" do
+      it "is a Url Property" do
+        component.g5_targets.first.should be_an_instance_of Microformats2::Property::Url
+      end
+
+      it "contains a target UID" do
+        component.g5_targets.first.to_s.should == "http://example.herokuapp.com/apps/1s7nay2b-storage-client"
+      end
+    end
+
     describe "#content" do
       it "is an Embedded Property" do
         component.content.should be_an_instance_of Microformats2::Property::Embedded

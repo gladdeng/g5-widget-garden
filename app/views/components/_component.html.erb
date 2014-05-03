@@ -5,7 +5,15 @@
                                    html: {class: "u-url u-uid", rel: "bookmark"},
                                    body: component.name}) %>
     </h2>
-    <p class="p-summary"><%= component.summary %></p>
+    <p class="p-summary"><%= component.summary %>
+      <% if component.respond_to?(:g5_targets) %>
+        <h3>Targets</h3>
+        <% component.g5_targets.each do |target| %>
+          <%= link_to target.to_s, target.to_s, class: "u-g5-target" %>
+        <% end %>
+      <% end %>
+    </p>
+
     <p>
       <%= component.resource_link({uri: component.photo,
                                    html: {class: "u-photo u-url"},
