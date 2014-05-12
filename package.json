@@ -1,6 +1,7 @@
 {
   "name": "g5-widget-garden",
   "devDependencies": {
+    "grunt-cli": "~0.1.13",
     "grunt": "~0.4.1",
     "grunt-contrib-nodeunit": "~0.1.2",
     "grunt-contrib-coffee": "~0.7.0",
