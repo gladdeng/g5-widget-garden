@@ -32,21 +32,21 @@
   </script>
 
   {% if widget.blog_feed_url.best_value != '' and  widget.twitter_username.best_value != '' %}
-  <a class="feed-switch" href="#blog-feed">Show Blog Feed</a>
+  <a class="feed-switch active" href="#blog-feed">Show Blog Feed</a>
   <a class="feed-switch" href="#twitter-feed">Show Twitter Feed</a>
   {% endif %}
 
   {% if widget.blog_feed_url.best_value != '' %}
-  <div id="blog-feed" class="blog-feed feed">
+  <div id="blog-feed" class="blog-feed">
     <ul class="h-feed feed"></ul>
   </div>
   {% endif %}
 
   {% if widget.twitter_username.best_value != '' %}
-  <div id="twitter-feed" class="twitter-feed feed">
+  <div id="twitter-feed" class="twitter-feed">
     <ul class="tweet-list">
     </ul>
     <a class="follow" href="http://www.twitter.com/{{ widget.twitter_username.best_value }}" href="#" target="_blank">Follow @{{ widget.twitter_username.best_value }} on Twitter</a>
   </div>
-  {%% endif %}
+  {% endif %}
 </div>

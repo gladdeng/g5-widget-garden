@@ -16,9 +16,12 @@ $ ->
     $('#twitter-feed').hide()
 
     $('.social-feed').on 'click', '.feed-switch', (e) ->
-      feed = $(this).attr 'href'
-      $('.social-feed .feed').hide()
+      $('.social-feed .feed-switch').removeClass('active')
+      $(this).addClass('active')
+      feed = $(this).attr('href')
+      $('#blog-feed, #twitter-feed').hide()
       $(feed).show()
+      return false
 
 
 

@@ -7,7 +7,19 @@
     twitterVars = JSON.parse($('#twitter-config').html());
     blogConfig = new window.BlogConfig(blogVars);
     new window.BlogInterface($("#blog-feed .feed"), blogConfig);
-    return initTweets(twitterVars);
+    initTweets(twitterVars);
+    if (blogVars.feedUrl !== '' && twitterVars.id !== '') {
+      $('#twitter-feed').hide();
+      return $('.social-feed').on('click', '.feed-switch', function(e) {
+        var feed;
+        $('.social-feed .feed-switch').removeClass('active');
+        $(this).addClass('active');
+        feed = $(this).attr('href');
+        $('#blog-feed, #twitter-feed').hide();
+        $(feed).show();
+        return false;
+      });
+    }
   });
 
   window.BlogConfig = (function() {
