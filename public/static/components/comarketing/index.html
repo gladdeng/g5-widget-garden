@@ -1,0 +1,56 @@
+<div class="h-g5-component">
+  <header>
+    <dl>
+      <dt>Name</dt>
+      <dd><span class="p-name">Comarketing</span></dd>
+      <dt>Summary</dt>
+      <dd>
+        <span class="p-summary">Collection of locations specified for a particular marketing campaign</span>
+      </dd>
+			<dt>Property Group</dt>
+			<dd>
+				<dl class="e-g5-property-group h-g5-property-group">
+				  <dt>Name</dt>
+				  <dd class="p-name">Comarketing</dd>
+				  <dt>Category</dt>
+				  <dd class="p-category">Instance</dd>
+				  <dt>Properties</dt>
+				  <dd class="e-g5-property h-g5-property">
+				    <dl>
+              {% for location in client.locations %}
+                {{location}}
+                <dt>Location</dt>
+                <dd class="p-g5-name">twitter_username</dd>
+              {% endfor %}
+				      <dt>Editable</dt>
+				      <dd class="p-g5-editable">true</dd>
+				      <dt>Default Value</dt>
+				      <dd class="p-g5-default-value">username</dd>
+				    </dl>
+				  </dd>
+				  <dd class='e-g5-property h-g5-property'>
+				  	<dl>
+				      <dt>Show Avatars</dt>
+				      <dd class="p-g5-name">twitter_display_avatars</dd>
+				      <dt>Editable</dt>
+				      <dd class="p-g5-editable">true</dd>
+				      <dt>Default Value</dt>
+				      <dd class="p-g5-default-value">true</dd>
+				    </dl>
+				  </dd>
+				  <dd class='e-g5-property h-g5-property'>
+				  	<dl>
+				      <dt>Tweet Count</dt>
+				      <dd class="p-g5-name">twitter_tweet_count</dd>
+				      <dt>Editable</dt>
+				      <dd class="p-g5-editable">true</dd>
+				      <dt>Default Value</dt>
+				      <dd class="p-g5-default-value">3</dd>
+				    </dl>
+				  </dd>
+				</dl>
+			</dd>  <!-- END e-g5-object-properties -->
+    </dl>
+  </header>
+</div>
+
