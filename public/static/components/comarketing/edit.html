@@ -1,5 +1,34 @@
 <form>
   <div class="form-field">
+    {% for location in widget.client.locations %}
+      {{ location }}
+      <input type="checkbox"
+        id="{{ widget.locations.value_field_id }}"
+        name="{{ widget.locations.value_field_name }}"
+        value="true"
+      />
+    {% endfor %}
+    <label for="{{ widget.twitter_username.value_field_id }}" >
+      Twitter Username
+    </label>
+    <input type="text"
+      id="{{ widget.twitter_username.value_field_id }}"
+      name="{{ widget.twitter_username.value_field_name }}"
+      value="{{ widget.twitter_username.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.twitter_username.id_hidden_field }}
+    <label for="{{ widget.twitter_username.value_field_id }}" >
+      Twitter Username
+    </label>
+    <input type="text"
+      id="{{ widget.twitter_username.value_field_id }}"
+      name="{{ widget.twitter_username.value_field_name }}"
+      value="{{ widget.twitter_username.best_value }}"
+    />
+  </div>
+  <div class="form-field">
     {{ widget.twitter_username.id_hidden_field }}
     <label for="{{ widget.twitter_username.value_field_id }}" >
       Twitter Username
