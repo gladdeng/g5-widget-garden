@@ -11,6 +11,16 @@ $ ->
   # Twitter feed setup
   initTweets(twitterVars)
 
+  # Set up tabs
+  if blogVars.feedUrl != '' && twitterVars.id != ''
+    $('#twitter-feed').hide()
+
+    $('.social-feed').on 'click', '.feed-switch', (e) ->
+      feed = $(this).attr 'href'
+      $('.social-feed .feed').hide()
+      $(feed).show()
+
+
 
 class window.BlogConfig
   constructor: (config) ->
