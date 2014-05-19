@@ -1,38 +1,22 @@
 <form>
   <div class="form-field">
-    {% for location in widget.client.locations %}
-      {{ location }}
+    {% for location in widget.client_locations %}
+      {{ widget.included_locations.id_hidden_field }}
       <input type="checkbox"
-        id="{{ widget.locations.value_field_id }}"
-        name="{{ widget.locations.value_field_name }}"
-        value="true"
+        id="{{ widget.included_locations.value_field_id }}{{ location.id}}"
+        name="{{ widget.included_locations.value_field_name }}[]"
+        value="{{ location.id }}"
+        {% assign locations_array = widget.included_locations.value %}
+        {% if locations_array contains location.id %}
+         checked
+        {% endif %}
       />
+      <label for="{{ widget.included_locations.value_field_id }}{{location.id}}" >
+        {{ location.name }}
+        {{ location.id }}
+      </label>
+      <br>
     {% endfor %}
-    <label for="{{ widget.twitter_username.value_field_id }}" >
-      Twitter Username
-    </label>
-    <input type="text"
-      id="{{ widget.twitter_username.value_field_id }}"
-      name="{{ widget.twitter_username.value_field_name }}"
-      value="{{ widget.twitter_username.best_value }}"
-    />
-  </div>
-  <div class="form-field">
-    {{ widget.twitter_username.id_hidden_field }}
-    <label for="{{ widget.twitter_username.value_field_id }}" >
-      Twitter Username
-    </label>
-    <input type="text"
-      id="{{ widget.twitter_username.value_field_id }}"
-      name="{{ widget.twitter_username.value_field_name }}"
-      value="{{ widget.twitter_username.best_value }}"
-    />
-  </div>
-  <div class="form-field">
-    {{ widget.twitter_username.id_hidden_field }}
-    <label for="{{ widget.twitter_username.value_field_id }}" >
-      Twitter Username
-    </label>
     <input type="text"
       id="{{ widget.twitter_username.value_field_id }}"
       name="{{ widget.twitter_username.value_field_name }}"
