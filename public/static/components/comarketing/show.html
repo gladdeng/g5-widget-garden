@@ -1,13 +1,14 @@
-<div class="twitter-feed widget">
-  <script class="config" type="application/json">
-    {
-      "id": "{{ widget.twitter_username.best_value }}",
-      "count": {{ widget.twitter_tweet_count.best_value }},
-      "avatar": {{widget.twitter_display_avatars.best_value}}
-    }
-  </script>
-
-  <ul class="tweet-list">
-  </ul>
-  <a class="follow" href="http://www.twitter.com/{{ widget.twitter_username.best_value }}" href="#" target="_blank">Follow @{{ widget.twitter_username.best_value }} on Twitter</a>
+<div class="comarketing widget">
+  <h2>This is the comarketing page.</h2>
+  {% for location_id in widget.included_locations.value %}
+    {% for location in widget.client_locations %}
+      {% if location_id == location.id %}
+        <h3><a href="{{location.website.heroku_url}}">{{ location.name }}</a></h3>
+        location: {{location}}<br>
+        inspect: {{location.inspect}}<br>
+        {{location.website.decorate.heroku_url}}<br>
+      {% endif %}
+    {% endfor %}
+    <br>
+  {% endfor %}
 </div>
