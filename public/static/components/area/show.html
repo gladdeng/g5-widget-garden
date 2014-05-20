@@ -1,0 +1,15 @@
+<div class="comarketing widget">
+  <h2>This is the comarketing page.</h2>
+  {% for location_id in widget.included_locations.value %}
+    {% for location in widget.client_locations %}
+      {% if location_id == location.id %}
+        <h3><a href="{{location.website.heroku_url}}">{{ location.name }}</a></h3>
+        location: {{location}}<br>
+        inspect: {{location.inspect}}<br>
+        {{location.website.decorate.heroku_url}}<br>
+      {% endif %}
+    {% endfor %}
+    <br>
+  {% endfor %}
+</div>
+
