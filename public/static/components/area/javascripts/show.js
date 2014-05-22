@@ -1,19 +1,30 @@
 (function() {
   var setMap;
 
-  coordinates = new google.maps.LatLng(widgetAreaConfig.latitude, widgetAreaConfig.longitude);
-  setMap(coordinates);
+  window.getMapCoords = function() {
+    return $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
+      address: widgetAreaConfig.address,
+      sensor: "false"
+    }).done(function(data) {
+      var coordinates;
+      coordinates = data.results[0].geometry.location;
+      return setMap(coordinates);
+    });
+  };
 
-  setMap = function(latLng) {
-    var map, mapOptions, marker, markerOptions;
+  setMap = function(coordinates) {
+    var lat, latLng, lng, map, mapOptions, marker, markerOptions;
+    lat = coordinates.lat;
+    lng = coordinates.lng;
+    latLng = new google.maps.LatLng(lat, lng);
     mapOptions = {
-      scrollwheel: widgetMapConfig.panZoom,
-      draggable: widgetMapConfig.panZoom,
-      disableDefaultUI: !widgetMapConfig.panZoom,
-      disableDoubleClickZoom: !widgetMapConfig.panZoom,
+      scrollwheel: widgetAreaConfig.panZoom,
+      draggable: widgetAreaConfig.panZoom,
+      disableDefaultUI: !widgetAreaConfig.panZoom,
+      disableDoubleClickZoom: !widgetAreaConfig.panZoom,
       zoom: 16,
       center: new google.maps.LatLng(lat, lng),
-      mapTypeId: google.maps.MapTypeId[widgetMapConfig.mapType]
+      mapTypeId: google.maps.MapTypeId[widgetAreaConfig.mapType]
     };
     markerOptions = {
       position: latLng
@@ -24,7 +35,7 @@
   };
 
   $(function() {
-    return window.widgetMapConfig = JSON.parse($('.map .config:first').html());
+    return window.widgetAreaConfig = JSON.parse($('.area .config:first').html());
   });
 
 }).call(this);

@@ -1,20 +1,8 @@
-<div class="area widget">
-  <h2>This is the area widget.</h2>
-  {% for location_id in widget.included_locations.value %}
-    {% for location in widget.client_locations %}
-      {% if location_id == location.id %}
-        <h3><a href="{{location.website.heroku_url}}">{{ location.name }}</a></h3>
-        location: {{location}}<br>
-        inspect: {{location.inspect}}<br>
-        {{location.website.decorate.heroku_url}}<br>
-      {% endif %}
-    {% endfor %}
-    <br>
-  {% endfor %}
+<div class="area widget map">
 
   <script class="config" type="application/json">
     {
-      "address": "{{ widget.latitude }}, {{ widget.longitude }}, {{ widget.location_state.best_value }} {{ widget.location_postal_code.best_value }}",
+      "address": "{{ widget.city.best_value }}",
       "panZoom": {{ widget.map_allow_pan_zoom.best_value }},
       "mapType": "{{ widget.map_type.best_value }}"
     }

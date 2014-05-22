@@ -1,61 +1,23 @@
 <form>
   <div class="form-field">
-    {% for location in widget.client_locations %}
-      {{ widget.included_locations.id_hidden_field }}
-      <input type="checkbox"
-        id="{{ widget.included_locations.value_field_id }}{{ location.id}}"
-        name="{{ widget.included_locations.value_field_name }}[]"
-        value="{{ location.id }}"
-        {% assign locations_array = widget.included_locations.value %}
-        {% if locations_array contains location.id %}
+    This is the edit form for the area widget. Please select a city.
+    {{ widget.city.id_hidden_field }}
+    {% for city in widget.client_cities %}
+      <input type="radio"
+        id="{{ widget.city.value_field_id }}{{ city | remove: " "}}"
+        name="{{ widget.city.value_field_name }}"
+        value="{{ city }}"
+        {% assign locations_array = widget.city.best_value %}
+        {% if locations_array contains city %}
          checked
         {% endif %}
       />
-      <label for="{{ widget.included_locations.value_field_id }}{{location.id}}" >
-        {{ location.name }}
-        {{ location.id }}
+      <label for="{{ widget.city.value_field_id }}{{ city | remove: " "}}" >
+        {{ city }}
       </label>
       <br>
     {% endfor %}
-    <input type="text"
-      id="{{ widget.twitter_username.value_field_id }}"
-      name="{{ widget.twitter_username.value_field_name }}"
-      value="{{ widget.twitter_username.best_value }}"
-    />
   </div>
-
-  <div class="form-field check-field">
-    {{ widget.twitter_display_avatars.id_hidden_field }}
-    <input type="hidden"
-      id="{{ widget.twitter_display_avatars.value_field_id }}_false"
-      name="{{ widget.twitter_display_avatars.value_field_name }}"
-      value="false"
-    />
-    <input type="checkbox"
-      id="{{ widget.twitter_display_avatars.value_field_id }}"
-      name="{{ widget.twitter_display_avatars.value_field_name }}"
-      value="true"
-      {% if web_page.display == "true" %}
-      checked="checked"
-      {% endif %}
-    />
-    <label for="{{ widget.twitter_display_avatars.value_field_id }}">
-      Show Avatars
-    </label>
-  </div>
-
-  <div class="form-field">
-    {{ widget.twitter_tweet_count.id_hidden_field }}
-    <label for="{{ widget.twitter_tweet_count.value_field_id }}">
-      Number of Tweets to Show
-    </label>
-    <input type="number"
-      min="1"
-      id="{{ widget.twitter_tweet_count.value_field_id }}"
-      name="{{ widget.twitter_tweet_count.value_field_name }}"
-      value="{{ widget.twitter_tweet_count.best_value }}"
-    />
-  </div>
-
   <input type="submit" value="Save" class="btn" />
 </form>
+
