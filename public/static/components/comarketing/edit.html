@@ -6,7 +6,7 @@
         id="{{ widget.included_locations.value_field_id }}{{ location.id}}"
         name="{{ widget.included_locations.value_field_name }}[]"
         value="{{ location.id }}"
-        {% assign locations_array = widget.included_locations.value %}
+        {% assign locations_array = widget.included_locations.best_value %}
         {% if locations_array contains location.id %}
          checked
         {% endif %}
@@ -17,11 +17,6 @@
       </label>
       <br>
     {% endfor %}
-    <input type="text"
-      id="{{ widget.twitter_username.value_field_id }}"
-      name="{{ widget.twitter_username.value_field_name }}"
-      value="{{ widget.twitter_username.best_value }}"
-    />
   </div>
 
   <div class="form-field check-field">
