@@ -1,5 +1,5 @@
-<div class="comarketing widget">
-  <h2>This is the comarketing page.</h2>
+<div class="area widget">
+  <h2>This is the area widget.</h2>
   {% for location_id in widget.included_locations.value %}
     {% for location in widget.client_locations %}
       {% if location_id == location.id %}
@@ -11,5 +11,15 @@
     {% endfor %}
     <br>
   {% endfor %}
+
+  <script class="config" type="application/json">
+    {
+      "address": "{{ widget.latitude }}, {{ widget.longitude }}, {{ widget.location_state.best_value }} {{ widget.location_postal_code.best_value }}",
+      "panZoom": {{ widget.map_allow_pan_zoom.best_value }},
+      "mapType": "{{ widget.map_type.best_value }}"
+    }
+  </script>
+
+  <div class="canvas"></div>
 </div>
 
