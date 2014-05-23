@@ -1,5 +1,6 @@
-(function() {
-  var setMap;
+window.onload = function() {
+  var googleMaps = {};
+  widgetAreaConfig = JSON.parse($('.area .config:first').html());
 
   window.getMapCoords = function() {
     return $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
@@ -11,6 +12,21 @@
       return setMap(coordinates);
     });
   };
+
+  setMapMarker = function(address){
+    locationMarker = new google.maps.Marker({
+      position: coordinates,
+      map: googleMaps.map,
+      title: 'Teh Location'
+    });
+    $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
+      address: address,
+      sensor: "false"
+    }).done(function(data) {
+      var coordinates;
+      coordinates = data.results[0].geometry.location;
+    });
+  }
 
   setMap = function(coordinates) {
     var lat, latLng, lng, map, mapOptions, marker, markerOptions;
@@ -30,12 +46,11 @@
       position: latLng
     };
     marker = new google.maps.Marker(markerOptions);
-    map = new google.maps.Map($(".map .canvas")[0], mapOptions);
+    googleMaps.map = new google.maps.Map($(".map .canvas")[0], mapOptions);
+
+
     return marker.setMap(map);
   };
+  setMapMarker("2800 W Pico Blvd Los Angeles, CA 90006");
+};
 
-  $(function() {
-    return window.widgetAreaConfig = JSON.parse($('.area .config:first').html());
-  });
-
-}).call(this);

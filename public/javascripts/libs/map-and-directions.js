@@ -25,7 +25,7 @@ function app(jQuery) {
 
 };
 
-function initialize() {
+$(function initialize() {
   if ($(".map").length) {
     window.getMapCoords();
   }
@@ -35,6 +35,6 @@ function initialize() {
   if ($(".human-directions").length) {
     window.getHumanDirectionsCoords();
   }
-}
+});
 
 $(document).ready(app);
