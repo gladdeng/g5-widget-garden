@@ -4,10 +4,34 @@
   {% for location_id in widget.included_locations.best_value %}
     {% for location in widget.client_locations %}
       {% if location_id == location.id %}
-        <h3><a href="{{location.website.heroku_url}}">{{ location.name }}</a></h3>
-        location: {{location}}<br>
-        inspect: {{location.inspect}}<br>
-        {{location.website.decorate.heroku_url}}<br>
+      <h3><a href="{{location.website.heroku_url}}">{{ location.name }}</a></h3>
+
+      <p class="phone">
+        <a class="number" href="tel:{{ location.phone_number }}">
+          <span class="p-tel tel" itemprop="telephone">{{ location.phone_number }}</span>
+        </a>
+      </p>
+
+      <p class="h-adr p-adr adr" itemscope itemtype="http://schema.org/PostalAddress">
+        <span class="p-street-address street-address" itemprop="streetAddress">
+          {{ location.street_address }}
+        </span>
+
+        <br>
+
+        <span class="p-locality locality" itemprop="addressLocality">
+          {{ location.city }}
+        </span>,
+
+        <span class="p-region region" itemprop="addressRegion">
+          {{ location.state }}
+        </span>
+
+        <span class="p-postal-code postal-code" itemprop="postalCode">
+          {{ location.postal_code }}
+        </span>
+      </p>
+
       {% endif %}
     {% endfor %}
     <br>
