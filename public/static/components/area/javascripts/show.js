@@ -1,30 +1,38 @@
-window.onload = function() {
+(function() {
   var googleMaps = {};
   widgetAreaConfig = JSON.parse($('.area .config:first').html());
 
   window.getMapCoords = function() {
-    return $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
+    $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
       address: widgetAreaConfig.address,
       sensor: "false"
     }).done(function(data) {
       var coordinates;
       coordinates = data.results[0].geometry.location;
-      return setMap(coordinates);
+      setMap(coordinates);
+
+      googleMaps.latlngbounds = new google.maps.LatLngBounds();
+      for (var i=0; i < widgetAreaConfig.addresses.length; i++){
+        setMapMarker(widgetAreaConfig.addresses[i]);
+      }
+      googleMaps.map.fitBounds(googleMaps.latlngbounds);
     });
   };
 
   setMapMarker = function(address){
-    locationMarker = new google.maps.Marker({
-      position: coordinates,
-      map: googleMaps.map,
-      title: 'Teh Location'
-    });
     $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
       address: address,
       sensor: "false"
     }).done(function(data) {
-      var coordinates;
       coordinates = data.results[0].geometry.location;
+      var latlng = new google.maps.LatLng(coordinates.lat, coordinates.lng)
+
+      locationMarker = new google.maps.Marker({
+        position: latlng,
+        map: googleMaps.map,
+        title: address
+      });
+      googleMaps.latlngbounds.extend(latlng);
     });
   }
 
@@ -51,6 +59,5 @@ window.onload = function() {
 
     return marker.setMap(map);
   };
-  setMapMarker("2800 W Pico Blvd Los Angeles, CA 90006");
-};
+})();
 
