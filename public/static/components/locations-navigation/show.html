@@ -1,0 +1,7 @@
+<nav class="locations-navigation widget">
+  <ul>
+    {% for location_page in widget.locations_navigation.best_value %}
+      <li><a href="{{ location_page[1].url | url_encode }}">{{ location_page[1].name }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
