@@ -1,5 +1,18 @@
 <form>
   <div class="form-field">
+    {{ widget.text.id_hidden_field }}
+    <label for="{{ widget.text.value_field_id }}" >
+      Enter text
+    </label>
+    <textarea
+      id="ckeditor"
+      name="{{ widget.text.value_field_name }}"
+     >
+      {{ widget.text.best_value }}
+    </textarea>
+  </div>
+
+  <div class="form-field">
     {% for location in widget.client_locations %}
       {{ widget.included_locations.id_hidden_field }}
       <input type="checkbox"
@@ -17,39 +30,6 @@
       </label>
       <br>
     {% endfor %}
-  </div>
-
-  <div class="form-field check-field">
-    {{ widget.twitter_display_avatars.id_hidden_field }}
-    <input type="hidden"
-      id="{{ widget.twitter_display_avatars.value_field_id }}_false"
-      name="{{ widget.twitter_display_avatars.value_field_name }}"
-      value="false"
-    />
-    <input type="checkbox"
-      id="{{ widget.twitter_display_avatars.value_field_id }}"
-      name="{{ widget.twitter_display_avatars.value_field_name }}"
-      value="true"
-      {% if web_page.display == "true" %}
-      checked="checked"
-      {% endif %}
-    />
-    <label for="{{ widget.twitter_display_avatars.value_field_id }}">
-      Show Avatars
-    </label>
-  </div>
-
-  <div class="form-field">
-    {{ widget.twitter_tweet_count.id_hidden_field }}
-    <label for="{{ widget.twitter_tweet_count.value_field_id }}">
-      Number of Tweets to Show
-    </label>
-    <input type="number"
-      min="1"
-      id="{{ widget.twitter_tweet_count.value_field_id }}"
-      name="{{ widget.twitter_tweet_count.value_field_name }}"
-      value="{{ widget.twitter_tweet_count.best_value }}"
-    />
   </div>
 
   <input type="submit" value="Save" class="btn" />

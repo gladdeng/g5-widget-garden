@@ -1,5 +1,6 @@
 <div class="comarketing widget">
-  <h2>This is the comarketing page.</h2>
+  {{ widget.text.best_value }}
+
   {% for location_id in widget.included_locations.best_value %}
     {% for location in widget.client_locations %}
       {% if location_id == location.id %}
