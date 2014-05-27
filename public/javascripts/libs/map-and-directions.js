@@ -35,6 +35,9 @@ function initialize() {
   if ($(".human-directions").length) {
     window.getHumanDirectionsCoords();
   }
+  if ($(".comarketing").length) {
+    window.getComarketingCoords();
+  }
 }
 
 $(document).ready(app);

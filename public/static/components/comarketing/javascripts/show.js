@@ -1,58 +1,61 @@
 (function() {
-  var composeTweet, tweetTemplate;
+  var googleMaps = {};
+  widgetAreaConfig = JSON.parse($('.comarketing .config:first').html());
 
-  window.initTweets = function(tweetOptions) {
-    return $.ajax({
-      url: "https://mobile.twitter.com/" + tweetOptions.id,
-      dataType: "html",
-      type: "GET"
+  window.getComarketingCoords = function() {
+    $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
+      address: widgetAreaConfig.address,
+      sensor: "false"
     }).done(function(data) {
-      var avatar, tweets;
-      tweets = $(".timeline .tweet:lt(" + tweetOptions.count + ")", data.results[0]).toArray();
-      avatar = $(".avatar:lt(1) img", data.results[0]);
-      return composeTweet(data, tweets, avatar);
-    });
-  };
+      var coordinates;
+      coordinates = data.results[0].geometry.location;
+      setMap(coordinates);
 
-  composeTweet = function(tweetOptions, tweets, avatar) {
-    var composedTweets, twitterUrl;
-    twitterUrl = "http://www.twitter.com";
-    composedTweets = [];
-    tweets.forEach(function(tweet) {
-      var avatarUrl, replyHtml, time, timestamp, tweetHtml, url, user, userInfo, userName, userUrl;
-      timestamp = $(tweet).find(".timestamp");
-      user = timestamp.find("a").attr("href");
-      userName = $(tweet).find('.fullname').html();
-      time = timestamp.text();
-      avatarUrl = $(avatar[0]).attr('src');
-      userUrl = twitterUrl + '/' + userName;
-      url = twitterUrl + user;
-      tweetHtml = $(tweet).find(".tweet-text");
-      replyHtml = tweetHtml.find(".twitter-atreply");
-      if ($(tweet).has('.context').length > 0) {
-        userInfo = $(tweet).find('.tweet-header');
-        avatarUrl = userInfo.find(".avatar img").attr("src");
-        userName = userInfo.find(".fullname").html();
+      googleMaps.latlngbounds = new google.maps.LatLngBounds();
+      for (var i=0; i < widgetAreaConfig.addresses.length; i++){
+        setMapMarker(widgetAreaConfig.addresses[i]);
       }
-      replyHtml.each(function() {
-        return $(this).attr("href", twitterUrl + $(this).attr("href"));
-      });
-      return composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url, time));
+      googleMaps.map.fitBounds(googleMaps.latlngbounds);
     });
-    if (tweetOptions.avatar !== true) {
-      $('.tweet-avatar').hide();
-    }
-    return $('.tweet-list').append(composedTweets);
   };
 
-  tweetTemplate = function(avatar, userName, userUrl, text, url, time) {
-    return "<li><img class='tweet-avatar' src='" + avatar + "'/>  <a href=" + url + " class='tweet-date' target='_blank'>" + time + " ago</a>  <a href=" + userUrl + " class='tweet-name' target='_blank'>" + userName + "</a>  <span class='tweet-text'> " + text + "</span></li>";
+  setMapMarker = function(address){
+    $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
+      address: address,
+      sensor: "false"
+    }).done(function(data) {
+      coordinates = data.results[0].geometry.location;
+      var latlng = new google.maps.LatLng(coordinates.lat, coordinates.lng)
+
+      locationMarker = new google.maps.Marker({
+        position: latlng,
+        map: googleMaps.map,
+        title: address
+      });
+      googleMaps.latlngbounds.extend(latlng);
+    });
+  }
+
+  setMap = function(coordinates) {
+    var lat, latLng, lng, map, mapOptions, marker, markerOptions;
+    lat = coordinates.lat;
+    lng = coordinates.lng;
+    latLng = new google.maps.LatLng(lat, lng);
+    mapOptions = {
+      scrollwheel: widgetAreaConfig.panZoom,
+      draggable: widgetAreaConfig.panZoom,
+      disableDefaultUI: !widgetAreaConfig.panZoom,
+      disableDoubleClickZoom: !widgetAreaConfig.panZoom,
+      zoom: 16,
+      center: new google.maps.LatLng(lat, lng),
+      mapTypeId: google.maps.MapTypeId[widgetAreaConfig.mapType]
+    };
+    markerOptions = {
+      position: latLng
+    };
+    marker = new google.maps.Marker(markerOptions);
+    googleMaps.map = new google.maps.Map($(".comarketing .canvas")[0], mapOptions);
+
+    return marker.setMap(map);
   };
-
-  $(function() {
-    var tweetOptions;
-    tweetOptions = JSON.parse($('.twitter-feed .config:first').html());
-    return initTweets(tweetOptions);
-  });
-
-}).call(this);
+})();

@@ -36,4 +36,15 @@
     {% endfor %}
     <br>
   {% endfor %}
+
+  <script class="config" type="application/json">
+    {
+      "address": "Los Angeles",
+      "addresses": {{ widget.addresses }},
+      "panZoom": true,
+      "mapType": "ROADMAP"
+    }
+  </script>
+
+  <div class="canvas"></div>
 </div>
