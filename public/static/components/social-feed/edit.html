@@ -35,26 +35,6 @@
       </label>
     </div>
 
-    <div class="form-field check-field">
-      {{ widget.blog_feed_display_published_at.id_hidden_field }}
-      <input type="hidden"
-        id="{{ widget.blog_feed_display_published_at.value_field_id }}_false"
-        name="{{ widget.blog_feed_display_published_at.value_field_name }}"
-        value="false"
-      />
-      <input type="checkbox"
-        id="{{ widget.blog_feed_display_published_at.value_field_id }}_true"
-        name="{{ widget.blog_feed_display_published_at.value_field_name }}"
-        value="true"
-        {% if widget.blog_feed_display_published_at.best_value == "true" %}
-        checked="checked"
-        {% endif %}
-      />
-      <label for="{{ widget.blog_feed_display_published_at.value_field_id }}_true">
-        Show Published At
-      </label>
-    </div>
-
     <div class="form-field">
       {{ widget.blog_feed_number_to_display.id_hidden_field }}
       <label for="{{ widget.blog_feed_number_to_display.value_field_id }}">

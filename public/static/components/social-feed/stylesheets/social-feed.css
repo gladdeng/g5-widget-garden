@@ -1,87 +1,62 @@
-.blog-feed {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding-top: 65px;
-  background-image: url(http://widgets.g5dxm.com/blog-feed/rss-icon.png);
-  background-position: center 20px;
-  background-repeat: no-repeat; }
-
-.blog-feed ul,
-.blog-feed li {
-  list-style-type: none;
-  margin: 0; }
-
-.blog-feed ul {
-  padding: 0; }
-
-.blog-feed li {
-  padding: 1em 0;
-  border-bottom: 1px dashed #000; }
-
-.blog-feed li:first-child {
-  padding-top: 0; }
-
-.blog-feed li:last-child {
-  border-bottom: none;
-  padding-bottom: 0; }
-
-.blog-feed a {
-  font-weight: bold; }
-
-.blog-feed .date {
-  margin-right: 10px; }
-
-.blog-feed div {
-  display: inline;
-  color: #707070; }
-
-.twitter-feed {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+.social-feed {
+  background-color: white;
+}
+.social-feed .feed-switcher:before,
+.social-feed .feed-switcher:after {
+  content: "";
+  display: table;
+}
+.social-feed .feed-switcher:after {
+  clear: both;
+}
+.social-feed .feed-switcher {
+  border-bottom: 1px solid grey;
+}
+.social-feed .feed-switch {
+  text-indent: 100%;
   overflow: hidden;
-  padding-top: 65px;
-  background-image: url(http://widgets.g5dxm.com/twitter-feed/twitter-icon.png);
-  background-position: center 20px;
-  background-repeat: no-repeat;
-}
-
-.twitter-feed ul,
-.twitter-feed li {
-  list-style-type: none;
-  margin: 0;
-}
-
-.twitter-feed ul {
-  padding: 0;
-}
-
-.twitter-feed li {
-  padding: 10px;
-  margin-top: .5em;
-  overflow: hidden;
-}
-
-.twitter-feed li:first-child {
-  margin-top: 0;
-}
-
-.tweet-avatar {
-  float: left;
-  margin-right: 10px;
-}
-.tweet-date {
-  float: right;
-}
-.tweet-text {
-  clear: right;
-}
-.tweet-text p {
-  display: inline;
-  margin: 0;
-}
-.twitter-feed .follow {
+  white-space: nowrap;
   display: block;
-  float: right;
+  width: 60px;
+  height: 60px;
+  float: left;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-color: white;
+  border-right: 1px solid grey;
+  position: relative;
+}
+.social-feed .feed-switch.active {
+  bottom: -1px;
+}
+#feed-switch-twitter {
+  background-image: url(http://widgets.g5dxm.com/twitter-feed/twitter-icon.png);
+}
+#feed-switch-blog {
+  background-image: url(http://widgets.g5dxm.com/blog-feed/rss-icon.png);
+}
+.social-feed .feed-section {
+  padding: 15px;
+}
+.social-feed .feed-section li {
+  background-color: #ececec;
+  margin-bottom: 10px;
+  padding: 10px;
+  overflow: hidden;
+}
+.social-feed p {
+  margin: 0;
+}
+.social-feed .tweet-avatar {
+  float: left;
+  margin-right: 2%;
+  width: 10%;
+}
+.social-feed .tweet-avatar img {
+  width: 100%;
+}
+.social-feed .tweet-text {
+  float: left;
+  width: 88%;
 }
