@@ -9,16 +9,23 @@ class populateUnitData
     unitsMarkup = ""
     for index, floorplan of unitData
       unitsMarkup += "<div class='floorplan-card'>
-                        <div>#{floorplan["title"]}</div>
-                        <div>
-                          <a href='#{floorplan["image_url"]}' target='_blank'>View</a>
+                        <div class='floorplan-card-title'>#{floorplan["title"]}</div>
+                        
+                        <a href='#{floorplan["image_url"]}' target='_blank' class='floorplan-view-link'>View</a>
+                        <div class='unit-details'>
+                          <div class='unit-beds'>#{bedroomMarkup floorplan["beds"]}</div>
+                          <div class='unit-baths'><span>#{floorplan["baths"]}</span> Bathroom</div>
+                          <div class='unit-size'>#{floorplan["size"]} Sq. Ft.</div>
+                          <div class='unit-rate'>From #{floorplan["price"]}</div>
                         </div>
-                        <div>#{floorplan["beds"]} Bedroom</div>
-                        <div>#{floorplan["baths"]} Bathroom</div>
-                        <div>#{floorplan["size"]} Sq. Ft.</div>
-                        <div>From #{floorplan["price"]}</div>
                       </div>"
 
-    unitsDiv.html(unitsMarkup)
+    unitsDiv.append(unitsMarkup)
+
+  bedroomMarkup = (bedrooms) ->
+    if bedrooms > 0
+      "<span>#{bedrooms}</span> Bedroom"
+    else
+      "Studio"
 
  

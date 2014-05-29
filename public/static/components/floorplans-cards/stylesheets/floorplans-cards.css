@@ -1,6 +1,68 @@
+.floorplans-cards div,
+.floorplans-cards span,
+.floorplans-cards a{ box-sizing:border-box; }
+
+.floorplans-cards{
+  width:100%;
+  text-align:center;
+}
+
+.floorplans-cards h2{
+  text-align:left;
+  width:100%;
+
+}
+
 .floorplan-card{
-  padding:10px;
-  margin:10px;
-  border:1px solid #000;
+  display:inline-block;
+  padding:0;
+  margin:20px 20px 0 0;
   width:300px;
+  height:309px;
+  background:#fff;
+  text-align:left;
+}
+
+.floorplan-card-title{
+  color:#fff;
+  background:#252b32; /* variableize me */
+  padding:10px;
+  margin:0 0 20px 0;
+
+  font-size: 21px;
+  font-weight: normal;
+  line-height: 1em;
+}
+
+.unit-details{
+  float:left;
+  margin:0 0 0 20px;
+  background:#eee;
+}
+
+.unit-beds,
+.unit-baths{
+  margin:0 0 10px 0;
+}
+
+.unit-beds span,
+.unit-baths span{
+  display:inline-block;
+  height:25px;
+  width:25px;
+  text-align:center;
+  font-size:15px;
+  padding:5px 0 0 0;
+  line-height: 1em;
+  color:#fff;
+  background:#ccc; /* variableize me */
+}
+
+a.floorplan-view-link{
+  display:block;
+  float:right;
+  margin:0 20px 0 0;
+  width:77px;
+  height:111px;
+  background:#ddd;
 }
