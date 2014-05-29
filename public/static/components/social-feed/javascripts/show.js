@@ -114,8 +114,8 @@
       var avatarUrl, replyHtml, timestamp, tweetHtml, url, user, userInfo, userName, userUrl;
       timestamp = $(tweet).find(".timestamp");
       user = timestamp.find("a").attr("href");
-      userName = $(tweet).find('.fullname').html();
       avatarUrl = $(avatar[0]).attr('src');
+      userName = $(tweet).find('.fullname').html();
       userUrl = twitterUrl + '/' + userName;
       url = twitterUrl + user;
       tweetHtml = $(tweet).find(".tweet-text");
@@ -125,14 +125,14 @@
         avatarUrl = userInfo.find(".avatar img").attr("src");
         userName = userInfo.find(".fullname").html();
       }
+      if (twitterVars.avatar === false) {
+        avatarUrl = 'http://widgets.g5dxm.com/social-feed/icon-speech.png';
+      }
       replyHtml.each(function() {
         return $(this).attr("href", twitterUrl + $(this).attr("href"));
       });
       return composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url));
     });
-    if (twitterVars.avatar !== true) {
-      $('#twitter-feed .tweet-avatar').hide();
-    }
     return $('#twitter-feed .tweet-list').append(composedTweets);
   };
 

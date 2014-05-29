@@ -75,8 +75,8 @@ composeTweet = (twitterVars, tweets, avatar) ->
   tweets.forEach (tweet) ->
     timestamp = $(tweet).find(".timestamp")
     user = timestamp.find("a").attr("href")
-    userName = $(tweet).find('.fullname').html()
     avatarUrl = $(avatar[0]).attr('src')
+    userName = $(tweet).find('.fullname').html()
     userUrl = twitterUrl + '/' + userName
     url = twitterUrl + user
     tweetHtml = $(tweet).find(".tweet-text")
@@ -88,13 +88,15 @@ composeTweet = (twitterVars, tweets, avatar) ->
       avatarUrl = userInfo.find(".avatar img").attr("src")
       userName = userInfo.find(".fullname").html()
 
+    if twitterVars.avatar is false
+      avatarUrl = 'http://widgets.g5dxm.com/social-feed/icon-speech.png'
+
     # Handle Replies
     replyHtml.each ->
       $(this).attr("href", twitterUrl + $(this).attr("href"))
 
     composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url))
 
-  $('#twitter-feed .tweet-avatar').hide() unless twitterVars.avatar is true
   $('#twitter-feed .tweet-list').append(composedTweets)
 
 tweetTemplate = (avatar, userName, userUrl, text, url) ->
