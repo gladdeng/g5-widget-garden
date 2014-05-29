@@ -9,7 +9,7 @@
     new window.BlogInterface($("#blog-feed .feed"), blogConfig);
     initTweets(twitterVars);
     if (blogVars.feedUrl !== '' && twitterVars.id !== '') {
-      $('#twitter-feed').hide();
+      $('#blog-feed').hide();
       return $('.social-feed').on('click', '.feed-switch', function(e) {
         var feed;
         $('.social-feed .feed-switch').removeClass('active');
@@ -24,7 +24,7 @@
 
   window.BlogConfig = (function() {
     function BlogConfig(config) {
-      this.feedUrl = config.feedUrl, this.feedTitle = config.feedTitle, this.showAuthor = config.showAuthor, this.showEntrySummary = config.showEntrySummary, this.showDate = config.showDate, this.entriesToShow = config.entriesToShow;
+      this.feedUrl = config.feedUrl, this.feedTitle = config.feedTitle, this.showAuthor = config.showAuthor, this.showEntrySummary = config.showEntrySummary, this.entriesToShow = config.entriesToShow;
     }
 
     return BlogConfig;
@@ -77,28 +77,16 @@
         entry = _ref[_i];
         jli = $('<li class="h-entry hentry" itemscope itemtype="http://schema.org/BlogPosting">');
         innerText = "<a class='p-name entry-title u-url url' href=\"" + entry.link + "\" target=\"_blank\" itemprop='url'><span itemprop='headline'>" + entry.title + "</span></a><br />";
-        if (this.config.showDate) {
-          innerText += "<span class=\"dt-published published date\" itemprop='datePublished'>" + (this.formatDate(entry.publishedDate)) + "</span>";
-        }
         if (this.config.showEntrySummary) {
-          innerText += "<div class='p-summary summary' itemprop='description'>" + entry.contentSnippet + "</div>";
+          innerText += "<p class='p-summary summary' itemprop='description'>" + entry.contentSnippet + "</p>";
         }
         if (this.config.showAuthor) {
-          innerText += "<div class='p-author author' itemprop='author'>Posted By: " + entry.author + "</div>";
+          innerText += "<p class='p-author author' itemprop='author'>Posted By: " + entry.author + "</p>";
         }
         jli.append(innerText);
         _results.push(this.list.append(jli));
       }
       return _results;
-    };
-
-    BlogInterface.prototype.formatDate = function(postDate) {
-      var date, day, month, year;
-      date = new Date(Date.parse(postDate));
-      day = date.getDate();
-      month = date.getMonth();
-      year = date.getFullYear();
-      return "" + day + "/" + month + "/" + year;
     };
 
     return BlogInterface;
@@ -123,12 +111,11 @@
     twitterUrl = "http://www.twitter.com";
     composedTweets = [];
     tweets.forEach(function(tweet) {
-      var avatarUrl, replyHtml, time, timestamp, tweetHtml, url, user, userInfo, userName, userUrl;
+      var avatarUrl, replyHtml, timestamp, tweetHtml, url, user, userInfo, userName, userUrl;
       timestamp = $(tweet).find(".timestamp");
       user = timestamp.find("a").attr("href");
-      userName = $(tweet).find('.fullname').html();
-      time = timestamp.text();
       avatarUrl = $(avatar[0]).attr('src');
+      userName = $(tweet).find('.fullname').html();
       userUrl = twitterUrl + '/' + userName;
       url = twitterUrl + user;
       tweetHtml = $(tweet).find(".tweet-text");
@@ -138,19 +125,19 @@
         avatarUrl = userInfo.find(".avatar img").attr("src");
         userName = userInfo.find(".fullname").html();
       }
+      if (twitterVars.avatar === false) {
+        avatarUrl = 'http://widgets.g5dxm.com/social-feed/icon-speech.png';
+      }
       replyHtml.each(function() {
         return $(this).attr("href", twitterUrl + $(this).attr("href"));
       });
-      return composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url, time));
+      return composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url));
     });
-    if (twitterVars.avatar !== true) {
-      $('#twitter-feed .tweet-avatar').hide();
-    }
     return $('#twitter-feed .tweet-list').append(composedTweets);
   };
 
-  tweetTemplate = function(avatar, userName, userUrl, text, url, time) {
-    return "<li><img class='tweet-avatar' src='" + avatar + "'/>  <a href=" + url + " class='tweet-date' target='_blank'>" + time + " ago</a>  <a href=" + userUrl + " class='tweet-name' target='_blank'>" + userName + "</a>  <span class='tweet-text'> " + text + "</span></li>";
+  tweetTemplate = function(avatar, userName, userUrl, text, url) {
+    return "<li><span class='tweet-avatar'><img src='" + avatar + "'/></span>  <a href=" + userUrl + " class='tweet-name' target='_blank'>" + userName + " says:</a>  <span class='tweet-text'> " + text + "</span></li>";
   };
 
 }).call(this);
