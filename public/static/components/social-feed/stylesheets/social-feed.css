@@ -1,10 +1,16 @@
-.feed-switcher:before,
-.feed-switcher:after {
+.social-feed {
+  background-color: white;
+}
+.social-feed .feed-switcher:before,
+.social-feed .feed-switcher:after {
   content: "";
   display: table;
 }
-.feed-switcher:after {
+.social-feed .feed-switcher:after {
   clear: both;
+}
+.social-feed .feed-switcher {
+  border-bottom: 1px solid grey;
 }
 .social-feed .feed-switch {
   text-indent: 100%;
@@ -17,6 +23,12 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 40%;
+  background-color: white;
+  border-right: 1px solid grey;
+  position: relative;
+}
+.social-feed .feed-switch.active {
+  bottom: -1px;
 }
 #feed-switch-twitter {
   background-image: url(http://widgets.g5dxm.com/twitter-feed/twitter-icon.png);
