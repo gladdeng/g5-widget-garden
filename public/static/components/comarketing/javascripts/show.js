@@ -1,25 +1,17 @@
 (function() {
-  var googleMaps = {};
+  window.googleMaps = {};
   widgetAreaConfig = JSON.parse($('.comarketing .config:first').html());
 
   window.getComarketingCoords = function() {
-    $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
-      address: widgetAreaConfig.address,
-      sensor: "false"
-    }).done(function(data) {
-      var coordinates;
-      coordinates = data.results[0].geometry.location;
-      setMap(coordinates);
+    setMap();
+    window.googleMaps.latlngbounds = new google.maps.LatLngBounds();
 
-      googleMaps.latlngbounds = new google.maps.LatLngBounds();
-      for (var i=0; i < widgetAreaConfig.addresses.length; i++){
-        setMapMarker(widgetAreaConfig.addresses[i]);
-      }
-      googleMaps.map.fitBounds(googleMaps.latlngbounds);
-    });
+    for (var i=0; i < widgetAreaConfig.addresses.length; i++){
+      setMapMarker(widgetAreaConfig.addresses[i], i, widgetAreaConfig.addresses.length);
+    }
   };
 
-  setMapMarker = function(address){
+  setMapMarker = function(address, i, count){
     $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
       address: address,
       sensor: "false"
@@ -29,33 +21,24 @@
 
       locationMarker = new google.maps.Marker({
         position: latlng,
-        map: googleMaps.map,
+        map: window.googleMaps.map,
         title: address
       });
-      googleMaps.latlngbounds.extend(latlng);
+      window.googleMaps.latlngbounds.extend(latlng);
+      window.googleMaps.map.fitBounds(window.googleMaps.latlngbounds);
     });
   }
 
-  setMap = function(coordinates) {
-    var lat, latLng, lng, map, mapOptions, marker, markerOptions;
-    lat = coordinates.lat;
-    lng = coordinates.lng;
-    latLng = new google.maps.LatLng(lat, lng);
+  setMap = function() {
+    var map, mapOptions, marker, markerOptions;
     mapOptions = {
       scrollwheel: widgetAreaConfig.panZoom,
       draggable: widgetAreaConfig.panZoom,
       disableDefaultUI: !widgetAreaConfig.panZoom,
       disableDoubleClickZoom: !widgetAreaConfig.panZoom,
       zoom: 16,
-      center: new google.maps.LatLng(lat, lng),
       mapTypeId: google.maps.MapTypeId[widgetAreaConfig.mapType]
     };
-    markerOptions = {
-      position: latLng
-    };
-    marker = new google.maps.Marker(markerOptions);
-    googleMaps.map = new google.maps.Map($(".comarketing .canvas")[0], mapOptions);
-
-    return marker.setMap(map);
+    window.googleMaps.map = new google.maps.Map($(".comarketing .canvas")[0], mapOptions);
   };
 })();
