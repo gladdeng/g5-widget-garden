@@ -10,7 +10,7 @@ describe "components_path" do
   end
 
   it "has 39 widgets marked up as .h-g5-component" do
-    expect(all(".h-g5-component").length).to eq 40
+    expect(all(".h-g5-component").length).to eq 41
   end
 
   describe "every widget" do
@@ -62,7 +62,7 @@ describe "components_path" do
     end
 
     it "have show-javascripts" do
-      expect(all(".h-g5-component .u-g5-show-javascript").length).to be 14
+      expect(all(".h-g5-component .u-g5-show-javascript").length).to be 15
     end
 
     it "have lib-javascripts" do
