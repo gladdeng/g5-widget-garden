@@ -48,3 +48,9 @@
 
   <div class="canvas"></div>
 </div>
+
+{% if widget.display_navigation.best_value == "false" %}
+<script type="text/javascript">
+  document.getElementsByTagName('body')[0].className+=' hide-navigation'
+</script>
+{% endif %}

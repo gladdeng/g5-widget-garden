@@ -14,3 +14,8 @@
   width: auto;
   display: inline;
 }
+
+.hide-navigation [role=banner] .navigation,
+.hide-navigation .action-calls {
+  display:none;
+}
