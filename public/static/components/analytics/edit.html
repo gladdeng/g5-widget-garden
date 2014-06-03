@@ -8,6 +8,8 @@
       id="{{ widget.tracking_code.value_field_id }}"
       name="{{ widget.tracking_code.value_field_name }}"
       value="{{ widget.tracking_code.best_value }}"
+      placeholder="UA-XXXXXXXX"
+      required
     />
   </div>
 
@@ -20,6 +22,8 @@
       id="{{ widget.domain_name.value_field_id }}"
       name="{{ widget.domain_name.value_field_name }}"
       value="{{ widget.domain_name.best_value | url_encode }}"
+      placeholder="example.com"
+      required
     />
   </div>
 
