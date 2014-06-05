@@ -35,11 +35,11 @@
         Two Columns: 1/2-1/2
       </option>
 
-      <option value="thirds-1" {% if widget.row_layout.best_value == "unveven-thirds-1" %}selected{% endif %}>
+      <option value="uneven-thirds-1" {% if widget.row_layout.best_value == "unveven-thirds-1" %}selected{% endif %}>
         Two Columns: 1/3-2/3
       </option>
 
-      <option value="thirds-2" {% if widget.row_layout.best_value == "uneven-thirds-2" %}selected{% endif %}>
+      <option value="uneven-thirds-2" {% if widget.row_layout.best_value == "uneven-thirds-2" %}selected{% endif %}>
         Two Columns: 2/3-1/3
       </option>
 
@@ -55,7 +55,7 @@
   </div>
 
   <!-- Select Column One Widget -->
-  <div class="form-field col-widgets single halves thirds-1 thirds-2 thirds quarters">
+  <div class="form-field col-widgets single halves uneven-thirds-1 uneven-thirds-2 thirds quarters">
     {{ widget.column_one_widget_name.id_hidden_field }}
 
     <label for="{{ widget.column_one_widget_name.value_field_id }}"
@@ -89,7 +89,7 @@
   </div>
 
   <!-- Select Column Two Widget -->
-  <div class="form-field col-widgets halves thirds-1 thirds-2 thirds quarters">
+  <div class="form-field col-widgets halves uneven-thirds-1 uneven-thirds-2 thirds quarters">
     {{ widget.column_two_widget_name.id_hidden_field }}
 
     <label for="{{ widget.column_two_widget_name.value_field_id }}"
