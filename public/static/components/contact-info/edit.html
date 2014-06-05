@@ -9,6 +9,7 @@
       id="{{ widget.location_name.value_field_id }}"
       name="{{ widget.location_name.value_field_name }}"
       value="{{ widget.location_name.best_value }}"
+      required
     />
   </div>
 
@@ -21,6 +22,7 @@
       id="{{ widget.location_street_address.value_field_id }}"
       name="{{ widget.location_street_address.value_field_name }}"
       value="{{ widget.location_street_address.best_value }}"
+      required
     />
   </div>
 
@@ -33,6 +35,7 @@
       id="{{ widget.location_city.value_field_id }}"
       name="{{ widget.location_city.value_field_name }}"
       value="{{ widget.location_city.best_value }}"
+      required
     />
   </div>
 
@@ -44,6 +47,7 @@
     <select
       id="{{ widget.location_state.value_field_id }}"
       name="{{ widget.location_state.value_field_name }}"
+      required
     >
       <option value="">Choose a State</option>
       <option {% if widget.location_state.best_value == "AL" %}selected {% endif %}value="AL">Alabama</option>
@@ -109,6 +113,7 @@
       id="{{ widget.location_postal_code.value_field_id }}"
       name="{{ widget.location_postal_code.value_field_name }}"
       value="{{ widget.location_postal_code.best_value }}"
+      required
     />
   </div>
 
@@ -133,6 +138,7 @@
       id="{{ widget.location_tel.value_field_id }}"
       name="{{ widget.location_tel.value_field_name }}"
       value="{{ widget.location_tel.best_value }}"
+      required
     />
   </div>
 

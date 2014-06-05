@@ -22,6 +22,10 @@
   margin-top: 1em;
 }
 
+.adp-marker {
+  margin: 5px;
+}
+
 @media (min-width: 980px) {
   .directions .canvas {
     width: 50%;
