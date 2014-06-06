@@ -1,3 +1,7 @@
+.col-widgets{
+  display:hidden;
+}
+
 .row:before,
 .row:after {
   content: " ";

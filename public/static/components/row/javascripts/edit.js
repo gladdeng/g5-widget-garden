@@ -1,15 +1,31 @@
 (function() {
-  var EditWidgetModal, chooseLayout, selectedLayout;
+  var widgetsDiv = $('.col-widgets')[0];
+  var i = $('.col-widgets p').size() + 1;
+  
+  $('.col-widgets').first().on('click', '#addWidget', function() {
+    //$('<p><label for="p_widget"><input type="text" id="p_widget" size="20" name="p_widget' + i +'" value="" placeholder="Input Value" /></label> <a href="#" id="remWidget">Remove</a></p>').appendTo(widgetsDiv);
+    $('.col-widgets select:first').clone().appendTo(widgetsDiv);
+    i++;
+    return false;
+  });
+  
+  $('.col-widgets').on('click', '#remWidget', function() { 
+          if( i > 2 ) {
+                  $(this).parents('p').remove();
+                  i--;
+          }
+          return false;
+  });
 
-  chooseLayout = $(".select-row-layout");
+  var EditWidgetModal, rowLayoutSelector, selectedLayout;
 
-  selectedLayout = chooseLayout.val();
+  rowLayoutSelector = $(".select-row-layout");
 
-  $('.col-widgets').hide();
+  selectedLayout = rowLayoutSelector.val();
 
   $('.' + selectedLayout).show();
 
-  chooseLayout.on('change', function() {
+  rowLayoutSelector.on('change', function() {
     selectedLayout = $(this).val();
     $('.col-widgets').hide();
     return $('.' + selectedLayout).show();
@@ -97,3 +113,4 @@
   });
 
 }).call(this);
+

@@ -1,10 +1,25 @@
-chooseLayout = $(".select-row-layout")
-selectedLayout = chooseLayout.val()
+$ ->
+  widgetsDiv = $(".col-widgets:first")
+  i = $("#p_scents p").size() + 1
+  $("#addScnt").live "click", ->
+    $("<p><label for=\"p_scnts\"><input type=\"text\" id=\"p_scnt\" size=\"20\" name=\"p_scnt_" + i + "\" value=\"\" placeholder=\"Input Value\" /></label> <a href=\"#\" id=\"remScnt\">Remove</a></p>").appendTo scntDiv
+    i++
+    false
 
-$('.col-widgets').hide()
+  $("#remScnt").live "click", ->
+    if i > 2
+      $(this).parents("p").remove()
+      i--
+    false
+
+  return
+
+rowLayoutSelector = $("select .row-layout")
+selectedLayout = rowLayoutSelector.val()
+
 $('.' + selectedLayout).show()
 
-chooseLayout.on 'change', ->
+rowLayoutSelector.on 'change', ->
   selectedLayout = $(this).val()
   $('.col-widgets').hide()
   $('.' + selectedLayout).show()

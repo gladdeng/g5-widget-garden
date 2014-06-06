@@ -1,5 +1,4 @@
 <form>
-
   <!-- Row Background Color (Optional) -->
   <div class="form-field">
     {{ widget.row_bg_color.id_hidden_field }}
@@ -60,33 +59,36 @@
 
     <label for="{{ widget.column_one_widget_name.value_field_id }}"
       class="inline">
-      Column One Widget
+      Column One Widgets
     </label>
+    <small><a href="#" id="addWidget">Add Widget</a></small>
+    <p>
+      {% if widget.column_one_widget_name.value %}
+      <a id="edit-{{ widget.column_one_widget_name.value_field_id }}"
+        data-widget-id="{{ widget.column_one_widget_id.value }}"
+        class="edit-widget"
+        href="#">
+        <small>(Edit)</small>
+      </a>
+      {% endif %}
 
-    {% if widget.column_one_widget_name.value %}
-    <a id="edit-{{ widget.column_one_widget_name.value_field_id }}"
-      data-widget-id="{{ widget.column_one_widget_id.value }}"
-      class="edit-widget"
-      href="#">
-      <small>(Edit)</small>
-    </a>
-    {% endif %}
+      <select  id="{{ widget.column_one_widget_name.value_field_id }}"
+        name="{{ widget.column_one_widget_name.value_field_name }}">
 
-    <select  id="{{ widget.column_one_widget_name.value_field_id }}"
-      name="{{ widget.column_one_widget_name.value_field_name }}">
+        {% for garden_widget in widget.row_widget_garden_widgets.best_value %}
+          <option value="{{ garden_widget }}"
+            {% if garden_widget == widget.column_one_widget_name.value %}
+              selected
+            {% endif %}
+          >
+            {{ garden_widget }}
+          </option>
+        {% endfor %}
 
-      {% for garden_widget in widget.row_widget_garden_widgets.best_value %}
-        <option value="{{ garden_widget }}"
-          {% if garden_widget == widget.column_one_widget_name.value %}
-            selected
-          {% endif %}
-        >
-          {{ garden_widget }}
-        </option>
-      {% endfor %}
-
-    </select>
+      </select>
+    </p>
   </div>
+  <hr>
 
   <!-- Select Column Two Widget -->
   <div class="form-field col-widgets halves uneven-thirds-1 uneven-thirds-2 thirds quarters">
@@ -94,7 +96,7 @@
 
     <label for="{{ widget.column_two_widget_name.value_field_id }}"
       class="inline">
-      Column Two Widget
+      Column Two Widgets
     </label>
 
     {% if widget.column_two_widget_name.value %}
@@ -192,3 +194,4 @@
 
   <input type="submit" value="Save" class="btn" />
 </form>
+
