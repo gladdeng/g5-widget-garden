@@ -27,26 +27,26 @@
       class="select-row-count"
       name="{{ widget.row_count.value_field_name }}">
 
-      <option value="1" {% if widget.row_count.best_value =="1" %}selected{% endif %}>
+      <option value="one" {% if widget.row_count.best_value =="one" %}selected{% endif %}>
         1
       </option>
 
-      <option value="2" {% if widget.row_count.best_value == "2" %}selected{% endif %}>
+      <option value="two" {% if widget.row_count.best_value == "two" %}selected{% endif %}>
         2
       </option>
 
-      <option value="3" {% if widget.row_count.best_value == "3" %}selected{% endif %}>
+      <option value="three" {% if widget.row_count.best_value == "three" %}selected{% endif %}>
         3
       </option>
 
-      <option value="4" {% if widget.row_count.best_value == "4" %}selected{% endif %}>
+      <option value="four" {% if widget.row_count.best_value == "four" %}selected{% endif %}>
         4
       </option>
     </select>
   </div>
 
   <!-- Select Row One Widget -->
-  <div class="form-field row-widgets">
+  <div class="form-field row-widgets one two three four">
     {{ widget.row_one_widget_name.id_hidden_field }}
 
     <label for="{{ widget.row_one_widget_name.value_field_id }}"
@@ -80,7 +80,7 @@
   </div>
 
   <!-- Select Row Two Widget -->
-  <div class="form-field row-widgets">
+  <div class="form-field row-widgets two three four">
     {{ widget.row_two_widget_name.id_hidden_field }}
 
     <label for="{{ widget.row_two_widget_name.value_field_id }}"
@@ -114,7 +114,7 @@
   </div>
 
   <!-- Select Row Three Widget -->
-  <div class="form-field col-widgets">
+  <div class="form-field row-widgets three four">
     {{ widget.row_three_widget_name.id_hidden_field }}
 
     <label for="{{ widget.row_three_widget_name.value_field_id }}"
@@ -148,7 +148,7 @@
   </div>
 
   <!-- Select Row Four Widget -->
-  <div class="form-field col-widgets">
+  <div class="form-field row-widgets four">
     {{ widget.row_four_widget_name.id_hidden_field }}
 
     <label for="{{ widget.row_four_widget_name.value_field_id }}"

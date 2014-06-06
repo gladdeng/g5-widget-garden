@@ -1,18 +1,18 @@
 (function() {
-  var EditWidgetModal, chooseLayout, selectedLayout;
+  var EditWidgetModal, chooseRowCount, selectedRowCount;
 
-  chooseLayout = $(".select-column-layout");
+  chooseRowCount = $(".select-row-count");
 
-  selectedLayout = chooseLayout.val();
+  selectedRowCount = chooseRowCount.val();
 
-  $('.col-widgets').hide();
+  $('.row-widgets').hide();
 
-  $('.' + selectedLayout).show();
+  $('.' + selectedRowCount).show();
 
-  chooseLayout.on('change', function() {
-    selectedLayout = $(this).val();
-    $('.col-widgets').hide();
-    return $('.' + selectedLayout).show();
+  chooseRowCount.on('change', function() {
+    selectedRowCount = $(this).val();
+    $('.row-widgets').hide();
+    return $('.' + selectedRowCount).show();
   });
 
   EditWidgetModal = (function() {
