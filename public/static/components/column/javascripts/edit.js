@@ -1,7 +1,7 @@
 (function() {
   var EditWidgetModal, chooseLayout, selectedLayout;
 
-  chooseLayout = $(".select-row-layout");
+  chooseLayout = $(".select-column-layout");
 
   selectedLayout = chooseLayout.val();
 
