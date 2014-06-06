@@ -10,7 +10,7 @@ function app(jQuery) {
   function loadScript() {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+    script.src = "https://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
 
     $("body").append(script);
   };
@@ -18,7 +18,7 @@ function app(jQuery) {
   function loadIEScript() {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src = "http://g5-widget-garden.herokuapp.com/javascripts/libs/jquery.xdomainrequest.min.js";
+    script.src = "https://g5-widget-garden.herokuapp.com/javascripts/libs/jquery.xdomainrequest.min.js";
 
     $("body").append(script);
   }

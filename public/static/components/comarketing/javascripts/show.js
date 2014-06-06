@@ -12,7 +12,7 @@
   };
 
   setMapMarker = function(address, i, count){
-    $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
+    $.getJSON("https://maps.googleapis.com/maps/api/geocode/json", {
       address: address,
       sensor: "false"
     }).done(function(data) {
