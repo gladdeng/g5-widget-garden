@@ -6,7 +6,7 @@
   };
 
   getCoords = function() {
-    return $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
+    return $.getJSON("https://maps.googleapis.com/maps/api/geocode/json", {
       address: widgetHumanDirectionsConfig.address,
       sensor: "false"
     }).done(function(data) {

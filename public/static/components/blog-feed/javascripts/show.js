@@ -25,7 +25,7 @@
     BlogFetcher.prototype.fetch = function() {
       var _this = this;
       return $.ajax({
-        url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent(this.url),
+        url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent(this.url),
         dataType: 'json',
         success: function(data) {
           _this.feed = data.responseData.feed;
