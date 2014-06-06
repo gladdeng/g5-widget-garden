@@ -14,7 +14,7 @@ setupMap = ->
   window.directionsDisplay.setPanel $(".directions .panel")[0]
 
 getStoreCoords = ->
-  $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
+  $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
     address: directionsConfig.address
     sensor: "false"
   ).done (data) ->
