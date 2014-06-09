@@ -1,21 +1,5 @@
 <form>
-
-  <!-- column Background Color (Optional) -->
-  <div class="form-field">
-    {{ widget.column_bg_color.id_hidden_field }}
-
-    <label for="{{ widget.column_bg_color.value_field_id }}" >
-      Background Color
-    </label>
-
-    <input type="text"
-      id="{{ widget.column_bg_color.value_field_id }}"
-      name="{{ widget.column_bg_color.value_field_name }}"
-      value="{{ widget.column_bg_color.best_value }}"
-      placeholder="example: #fff" />
-  </div>
-
-  <!-- Select column Layout -->
+  <!-- Select row count -->
   <div class="form-field">
     {{ widget.row_count.id_hidden_field }}
 
