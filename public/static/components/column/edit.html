@@ -29,6 +29,8 @@
     </select>
   </div>
 
+  <p class="alert alert-info">Please save in order to configure changed widgets</p>
+
   <!-- Select Row One Widget -->
   <div class="form-field row-widgets one two three four">
     {{ widget.row_one_widget_name.id_hidden_field }}
@@ -47,7 +49,7 @@
     </a>
     {% endif %}
 
-    <select  id="{{ widget.row_one_widget_name.value_field_id }}"
+    <select id="{{ widget.row_one_widget_name.value_field_id }}"
       name="{{ widget.row_one_widget_name.value_field_name }}">
 
       {% for garden_widget in widget.column_widget_garden_widgets.best_value %}

@@ -1,9 +1,12 @@
 (function() {
-  var EditWidgetModal, chooseRowCount, selectedRowCount;
+  var EditWidgetModal, chooseRowCount, selectedRowCount, chooseWidget, editNotice;
 
   chooseRowCount = $(".select-row-count");
+  chooseWidget = $(".row-widgets select");
+  editNotice = $('.alert');
 
   selectedRowCount = chooseRowCount.val();
+  editNotice.hide();
 
   $('.row-widgets').hide();
 
@@ -13,6 +16,11 @@
     selectedRowCount = $(this).val();
     $('.row-widgets').hide();
     return $('.' + selectedRowCount).show();
+  });
+
+  chooseWidget.on('change', function() {
+    editNotice.show();
+    $(this).parent().find("a").hide();
   });
 
   EditWidgetModal = (function() {
