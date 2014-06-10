@@ -1,13 +1,10 @@
 (function() {
-  var EditWidgetModal, chooseLayout, selectedLayout, chooseWidget, editNotice;
+  var EditWidgetModal, chooseLayout, selectedLayout;
 
   chooseLayout = $(".select-row-layout");
-  chooseWidget = $(".col-widgets select");
-  editNotice = $('.alert');
 
   selectedLayout = chooseLayout.val();
 
-  editNotice.hide();
   $('.col-widgets').hide();
 
   $('.' + selectedLayout).show();
@@ -16,11 +13,6 @@
     selectedLayout = $(this).val();
     $('.col-widgets').hide();
     return $('.' + selectedLayout).show();
-  });
-
-  chooseWidget.on('change', function() {
-    editNotice.show();
-    $(this).parent().find("a").hide();
   });
 
   EditWidgetModal = (function() {

@@ -1,26 +1,18 @@
 (function() {
-  var EditWidgetModal, chooseRowCount, selectedRowCount, chooseWidget, editNotice;
+  var EditWidgetModal, chooseLayout, selectedLayout;
 
-  chooseRowCount = $(".select-row-count");
-  chooseWidget = $(".row-widgets select");
-  editNotice = $('.alert');
+  chooseLayout = $(".select-row-layout");
 
-  selectedRowCount = chooseRowCount.val();
-  editNotice.hide();
+  selectedLayout = chooseLayout.val();
 
-  $('.row-widgets').hide();
+  $('.col-widgets').hide();
 
-  $('.' + selectedRowCount).show();
+  $('.' + selectedLayout).show();
 
-  chooseRowCount.on('change', function() {
-    selectedRowCount = $(this).val();
-    $('.row-widgets').hide();
-    return $('.' + selectedRowCount).show();
-  });
-
-  chooseWidget.on('change', function() {
-    editNotice.show();
-    $(this).parent().find("a").hide();
+  chooseLayout.on('change', function() {
+    selectedLayout = $(this).val();
+    $('.col-widgets').hide();
+    return $('.' + selectedLayout).show();
   });
 
   EditWidgetModal = (function() {
