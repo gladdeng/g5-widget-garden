@@ -58,7 +58,7 @@ describe "components_path" do
     end
 
     it "have stylesheets" do
-      expect(all(".h-g5-component .u-g5-stylesheet").length).to be 34
+      expect(all(".h-g5-component .u-g5-stylesheet").length).to be 33
     end
 
     it "have show-javascripts" do
