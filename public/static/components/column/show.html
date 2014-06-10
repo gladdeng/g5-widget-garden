@@ -1,18 +1,18 @@
 <div class="column">
-  <div class="row-content column-{{ widget.column_layout.best_value }}">
+  <div class="column-content column-{{ widget.row_count.best_value }}">
 
-    <div class="row row-1" id="drop-target-first-row"></div>
+    <div class="row-1" id="drop-target-first-row"></div>
 
-    {% if widget.row_count.best_value == "two" %}
-      <div class="row row-2" id="drop-target-second-row"></div>
+    {% if widget.row_count.best_value != "one" %}
+      <div class="row-2" id="drop-target-second-row"></div>
     {% endif %}
 
-    {% if widget.row_count.best_value == "three" %}
-      <div class="row row-3" id="drop-target-third-row"></div>
+    {% if widget.row_count.best_value == "three" or widget.row_count.best_value == "four" %}
+      <div class="row-3" id="drop-target-third-row"></div>
     {% endif %}
 
     {% if widget.row_count.best_value == "four" %}
-      <div class="row row-4" id="drop-target-fourth-row"></div>
+      <div class="row-4" id="drop-target-fourth-row"></div>
     {% endif %}
 
   </div>
