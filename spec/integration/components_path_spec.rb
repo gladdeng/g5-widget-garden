@@ -10,7 +10,7 @@ describe "components_path" do
   end
 
   it "has 41 widgets marked up as .h-g5-component" do
-    expect(all(".h-g5-component").length).to eq 41
+    expect(all(".h-g5-component").length).to eq 42
   end
 
   describe "every widget" do
