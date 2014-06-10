@@ -12,7 +12,6 @@ function app(jQuery) {
     script.type = "text/javascript";
     script.src = "https://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
 
-    //$("body").append(script);
     document.body.appendChild(script);
   };
 
@@ -21,7 +20,6 @@ function app(jQuery) {
     script.type = "text/javascript";
     script.src = "https://g5-widget-garden.herokuapp.com/javascripts/libs/jquery.xdomainrequest.min.js";
 
-    //$("body").append(script);
     document.body.appendChild(script);
   }
 
