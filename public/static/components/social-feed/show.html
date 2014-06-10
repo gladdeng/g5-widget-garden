@@ -33,7 +33,7 @@
   {% endif %}
 
   {% if widget.twitter_username.best_value != '' %}
-  <div id="twitter-feed">
+  <div id="twitter-feed" class="twitter-feed feed-section">
     <ul class="tweet-list">
     </ul>
     <a class="btn" href="http://www.twitter.com/{{ widget.twitter_username.best_value }}" href="#" target="_blank">Read All</a>
@@ -41,7 +41,7 @@
   {% endif %}
 
   {% if widget.blog_feed_url.best_value != '' %}
-  <div id="blog-feed">
+  <div id="blog-feed"  class="blog-feed feed-section">
     <ul class="h-feed feed"></ul>
   </div>
   {% endif %}
