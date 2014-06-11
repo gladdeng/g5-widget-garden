@@ -1,18 +1,18 @@
 (function() {
-  var populateUnitData;
+  var customizeUnitGrid, initializeUnitGrid, populateUnitData;
 
   populateUnitData = (function() {
-    var bedroomMarkup, buildHTML, floorplanConfig, url;
+    var bedroomMarkup, buildHTML;
 
-    function populateUnitData() {}
-
-    floorplanConfig = JSON.parse($('#floorplan-cards-config').html());
-
-    url = floorplanConfig["floorplanDataFeed"];
-
-    $.getJSON(url, function(unitData) {
-      return buildHTML(unitData);
-    });
+    function populateUnitData(floorplanConfig) {
+      var dataFeed;
+      dataFeed = floorplanConfig['floorplanDataFeed'];
+      $.getJSON(dataFeed, function(unitData) {
+        return buildHTML(unitData);
+      }).then(function(response) {
+        return new customizeUnitGrid(floorplanConfig);
+      });
+    }
 
     buildHTML = function(unitData) {
       var floorplan, index, unitsDiv, unitsMarkup;
@@ -20,7 +20,7 @@
       unitsMarkup = "";
       for (index in unitData) {
         floorplan = unitData[index];
-        unitsMarkup += "<div class='floorplan-card'>                        <div class='floorplan-card-title'>" + floorplan["title"] + "</div>                                                <a href='" + floorplan["image_url"] + "' target='_blank' class='floorplan-view-link'><span>View</span></a>                        <div class='unit-details'>                          <div class='unit-beds'>" + (bedroomMarkup(floorplan["beds"])) + "</div>                          <div class='unit-baths'><span>" + floorplan["baths"] + "</span> Bathroom</div>                          <div class='unit-size'>" + floorplan["size"] + " Sq. Ft.</div>                          <div class='unit-rate'>From " + floorplan["price"] + "</div>                        </div>                        <a href='#' class='unit-cta-button'>Unit CTA</a>                      </div>";
+        unitsMarkup += "<div class='floorplan-card'>                        <div class='floorplan-card-title'>" + floorplan["title"] + "</div>                        <a href='" + floorplan["image_url"] + "' target='_blank' class='floorplan-view-link'>                          <div>View<span></span></div>                        </a>                        <div class='unit-details'>                          <div class='unit-beds'>" + (bedroomMarkup(floorplan["beds"])) + "</div>                          <div class='unit-baths'><span>" + floorplan["baths"] + "</span> Bathroom</div>                          <div class='unit-size'>" + floorplan["size"] + " Sq. Ft.</div>                          <div class='unit-rate'>From " + floorplan["price"] + "</div>                        </div>                        <a href='#' class='unit-cta-button'>Unit CTA</a>                      </div>";
       }
       return unitsDiv.append(unitsMarkup);
     };
@@ -34,6 +34,56 @@
     };
 
     return populateUnitData;
+
+  })();
+
+  customizeUnitGrid = (function() {
+    var setAccents1, setAccents2, setCtaColor, setHeadingColor;
+
+    function customizeUnitGrid(colorConfigurations) {
+      setHeadingColor(colorConfigurations['headingColor']);
+      setCtaColor(colorConfigurations['ctaColor'], colorConfigurations['accentColor1']);
+      setAccents1(colorConfigurations['accentColor1']);
+      setAccents2(colorConfigurations['accentColor2']);
+    }
+
+    setHeadingColor = function(color) {
+      return $('.floorplan-card-title').css('background-color', color);
+    };
+
+    setCtaColor = function(color, hoverColor) {
+      var ctaButtons;
+      ctaButtons = $('.unit-cta-button');
+      ctaButtons.css('background-color', color);
+      return ctaButtons.hover(function() {
+        return $(this).css('background-color', hoverColor);
+      }, function() {
+        return $(this).css('background-color', color);
+      });
+    };
+
+    setAccents1 = function(color) {
+      return $('.floorplan-view-link span').css('background-color', color);
+    };
+
+    setAccents2 = function(color) {
+      return $('.unit-beds span, .unit-baths span, .floorplan-view-link div').css('background-color', color);
+    };
+
+    return customizeUnitGrid;
+
+  })();
+
+  initializeUnitGrid = (function() {
+    var floorplanConfig;
+
+    function initializeUnitGrid() {}
+
+    floorplanConfig = JSON.parse($('#floorplan-cards-config').html());
+
+    new populateUnitData(floorplanConfig);
+
+    return initializeUnitGrid;
 
   })();
 

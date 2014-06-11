@@ -78,17 +78,30 @@ a.floorplan-view-link{
   margin:0 20px 0 0;
   width:77px;
   height:111px;
-  background:#ddd;
+  background:url(http://cdn11.g5search.com/assets/269134/floorplan-icon.png);
+}
+
+a.floorplan-view-link div{
+  display:block;
+  position:absolute;
+  top:30%;
+  left:0;
+  height:30px;
+  padding:5px;
+  width:100%;
+  color:#fff;
 }
 
 a.floorplan-view-link span{
   display:block;
   position:absolute;
-  top:30%;
-  left:0;
-  padding:5px;
-  width:100%;
-  background: green;
+  top:0;
+  right:0;
+  height:30px;
+  width:30px;
+  background-image:url(http://cdn11.g5search.com/assets/269135/magnifying-glass.png);
+  background-repeat:no-repeat;
+  background-position:center;
 }
 
 a.unit-cta-button{
@@ -101,4 +114,9 @@ a.unit-cta-button{
   padding:10px 0;
   text-decoration:none;
   background:#eee;
+  color:#fff;
+}
+
+a.unit-cta-button:hover{
+  color:#fff;
 }
