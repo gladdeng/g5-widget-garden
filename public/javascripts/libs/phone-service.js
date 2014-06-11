@@ -28,7 +28,7 @@ phoneNumber = (function() {
       } else {
         phone = $.trim(numbers.find(".p-tel-default").text());
       }
-      if (phone != '') {
+      if (phone != '' || phone.length > 0) {
         formattedPhone = phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
         return $(".phone .number").attr("href", "tel://" + phone).find(".p-tel").html(formattedPhone);
       }
