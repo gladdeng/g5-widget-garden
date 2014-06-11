@@ -1,13 +1,21 @@
-chooseLayout = $(".select-row-layout")
-selectedLayout = chooseLayout.val()
+chooseRowCount = $(".select-row-count")
+chooseWidget = $(".row-widgets select")
+editNotice = $(".alert")
 
-$('.col-widgets').hide()
-$('.' + selectedLayout).show()
+selectedRowCount = chooseRowCount.val()
+editNotice.hide()
 
-chooseLayout.on 'change', ->
-  selectedLayout = $(this).val()
-  $('.col-widgets').hide()
-  $('.' + selectedLayout).show()
+$('.row-widgets').hide()
+$('.' + selectedRowCount).show()
+
+chooseRowCount.on 'change', ->
+  selectedRowCount = $(this).val()
+  $('.row-widgets').hide()
+  $('.' + selectedRowCount).show()
+
+chooseWidget.on 'change', ->
+  editNotice.show()
+  $(this).parent().find("a").hide()
 
 class EditWidgetModal
   constructor: (@widgetId) ->
