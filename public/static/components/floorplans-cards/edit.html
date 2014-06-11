@@ -1,14 +1,14 @@
 <form>
   <div class="form-field">
-    {{ widget.floorplan_data_urn.id_hidden_field }}
-    <label for="{{ widget.floorplan_data_urn.value_field_id }}">
-      Floorplan Data URN
+    {{ widget.floorplan_data_feed.id_hidden_field }}
+    <label for="{{ widget.floorplan_data_feed.value_field_id }}">
+      Floorplan Data Feed
     </label>
     <input type="text"
-      placeholder="client urn"
-      id="{{ widget.floorplan_data_urn.value_field_id }}"
-      name="{{ widget.floorplan_data_urn.value_field_name }}"
-      value="{{ widget.floorplan_data_urn.best_value }}"
+      placeholder="Data URL"
+      id="{{ widget.floorplan_data_feed.value_field_id }}"
+      name="{{ widget.floorplan_data_feed.value_field_name }}"
+      value="{{ widget.floorplan_data_feed.best_value }}"
     />
   </div>
   <div class="form-field">
