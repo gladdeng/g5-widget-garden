@@ -16,7 +16,6 @@ phoneNumber = (function() {
     var row_id;
     row_id = "#" + location_urn;
     return $.get("https://" + client_urn + ".herokuapp.com", function(data) {
-      console.log('working!!!!');
       var $data, formattedPhone, numbers, phone, screen;
       $data = $(data);
       numbers = $data.find(row_id);
