@@ -1,5 +1,5 @@
 (function() {
-  var EditWidgetModal, chooseLayout, chooseWidget, editNotice, selectedLayout;
+  var EditWidgetModal, chooseLayout, chooseWidget, editNotice, openRowWidgetModal, selectedLayout;
 
   chooseLayout = $(".select-row-layout");
 
@@ -27,8 +27,9 @@
   });
 
   EditWidgetModal = (function() {
-    function EditWidgetModal(widgetId) {
+    function EditWidgetModal(widgetId, rowWidgetId) {
       this.widgetId = widgetId;
+      this.rowWidgetId = rowWidgetId;
     }
 
     EditWidgetModal.prototype.getEditForm = function() {
@@ -70,9 +71,13 @@
         data: $('.modal-body .edit_widget').serialize(),
         success: function() {
           var url;
-          $('#modal').modal('hide');
-          url = $('.preview iframe').prop('src');
-          return $('iframe').prop('src', url);
+          if (_this.widgetId === _this.rowWidgetId) {
+            $('#modal').modal('hide');
+            url = $('.preview iframe').prop('src');
+            return $('iframe').prop('src', url);
+          } else {
+            return openRowWidgetModal(_this.rowWidgetId);
+          }
         },
         error: function(xhr) {
           if (xhr.status === 204) {
@@ -101,10 +106,17 @@
   })();
 
   $(".edit-widget").on('click', function() {
-    var editWidgetModal, widgetId;
+    var editWidgetModal, rowWidgetId, widgetId;
     widgetId = $(this).data("widget-id");
-    editWidgetModal = new EditWidgetModal(widgetId);
+    rowWidgetId = $(".row-edit").data("row-id");
+    editWidgetModal = new EditWidgetModal(widgetId, rowWidgetId);
     return editWidgetModal.getEditForm();
   });
+
+  openRowWidgetModal = function(rowWidgetId) {
+    var editWidgetModal;
+    editWidgetModal = new EditWidgetModal(rowWidgetId, null);
+    return editWidgetModal.getEditForm();
+  };
 
 }).call(this);
