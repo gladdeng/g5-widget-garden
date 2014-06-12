@@ -24,6 +24,18 @@
     />
   </div>
   <div class="form-field">
+    {{ widget.cta_text.id_hidden_field }}
+    <label for="{{ widget.cta_text.value_field_id }}">
+      CTA Text
+    </label>
+    <input type="text"
+      placeholder="Contact Us"
+      id="{{ widget.cta_text.value_field_id }}"
+      name="{{ widget.cta_text.value_field_name }}"
+      value="{{ widget.cta_text.best_value }}"
+    />
+  </div>
+  <div class="form-field">
     {{ widget.heading_color.id_hidden_field }}
     <label for="{{ widget.heading_color.value_field_id }}">
       Heading Color

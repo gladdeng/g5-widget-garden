@@ -1,19 +1,13 @@
 <script id="floorplan-cards-config" type="application/json">
   {
     "floorplanDataFeed": "{{ widget.floorplan_data_feed.best_value }}",
+    "ctaText": "{{ widget.cta_text.best_value }}",
     "headingColor": "{{ widget.heading_color.best_value }}",
     "ctaColor": "{{ widget.cta_color.best_value }}",
     "accentColor1": "{{ widget.accent_color_1.best_value }}",
     "accentColor2": "{{ widget.accent_color_2.best_value }}"
   }
 </script>
-
-<h1>Cards Floorplans</h1>
-<p>Data URN: {{ widget.floorplan_data_feed.best_value}}</p>
-<p>Heading Color: {{ widget.heading_color.best_value}}</p>
-<p>CTA Color: {{ widget.cta_color.best_value}}</p>
-<p>Accent Color 1: {{ widget.accent_color_1.best_value}}</p>
-<p>Accent Color 2: {{ widget.accent_color_2.best_value}}</p>
 
 <div class="floorplans-cards">
   <h2>{{ widget.header_text.best_value}}</h2>

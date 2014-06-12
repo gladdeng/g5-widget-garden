@@ -65,11 +65,14 @@
 .unit-size{
   border-top:1px solid #dcdddf;
   border-bottom:1px solid #dcdddf;
+  font-weight:bold;
 }
 
 .unit-rate{
   border-bottom:1px solid #dcdddf;
 }
+
+.unit-rate span{font-weight:bold;}
 
 a.floorplan-view-link{
   display:block;
@@ -115,6 +118,7 @@ a.unit-cta-button{
   text-decoration:none;
   background:#eee;
   color:#fff;
+  border-radius:3px;
 }
 
 a.unit-cta-button:hover{
