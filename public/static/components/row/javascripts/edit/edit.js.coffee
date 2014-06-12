@@ -18,7 +18,7 @@ chooseWidget.on 'change', ->
   $(this).parent().find("a").hide()
 
 class EditWidgetModal
-  constructor: (@widgetId) ->
+  constructor: (@widgetId, @rowWidgetId) ->
 
   getEditForm: ->
     callback = (response) => @openModal response
@@ -37,6 +37,9 @@ class EditWidgetModal
     false
 
   editURL: ->
+    if @widgetId == null
+      @widgetId = $(".row-edit").data("row-id")
+
     '/widgets/' + @widgetId + "/edit"
 
   #  Submits the widget configuration to the widget controller
@@ -48,9 +51,12 @@ class EditWidgetModal
       data: $('.modal-body .edit_widget').serialize(),
       # Hide the configuration form if the request is successful
       success: =>
-        $('#modal').modal('hide')
-        url = $('.preview iframe').prop('src')
-        $('iframe').prop('src', url)
+        if @widgetId == @rowWidgetId
+          $('#modal').modal('hide')
+          url = $('.preview iframe').prop('src')
+          $('iframe').prop('src', url)
+        else
+          openRowWidgetModal(@rowWidgetId)
       error: (xhr) =>
         # This is/was needed because of a bug in jQuery, it's actually successful
         if xhr.status == 204
@@ -71,5 +77,10 @@ class EditWidgetModal
 
 $(".edit-widget").on 'click', ->
   widgetId = $(this).data("widget-id")
-  editWidgetModal = new EditWidgetModal(widgetId)
+  rowWidgetId = $(".row-edit").data("row-id")
+  editWidgetModal = new EditWidgetModal(widgetId, rowWidgetId)
+  editWidgetModal.getEditForm()
+
+openRowWidgetModal = (rowWidgetId) ->
+  editWidgetModal = new EditWidgetModal(rowWidgetId, null)
   editWidgetModal.getEditForm()

@@ -1,5 +1,5 @@
 (function() {
-  var EditWidgetModal, chooseRowCount, chooseWidget, editNotice, selectedRowCount;
+  var EditWidgetModal, chooseRowCount, chooseWidget, editNotice, openColumnWidgetModal, selectedRowCount;
 
   chooseRowCount = $(".select-row-count");
 
@@ -27,8 +27,9 @@
   });
 
   EditWidgetModal = (function() {
-    function EditWidgetModal(widgetId) {
+    function EditWidgetModal(widgetId, columnWidgetId) {
       this.widgetId = widgetId;
+      this.columnWidgetId = columnWidgetId;
     }
 
     EditWidgetModal.prototype.getEditForm = function() {
@@ -58,6 +59,9 @@
     };
 
     EditWidgetModal.prototype.editURL = function() {
+      if (this.widgetId === null) {
+        this.widgetId = $(".column-edit").data("column-id");
+      }
       return '/widgets/' + this.widgetId + "/edit";
     };
 
@@ -70,9 +74,13 @@
         data: $('.modal-body .edit_widget').serialize(),
         success: function() {
           var url;
-          $('#modal').modal('hide');
-          url = $('.preview iframe').prop('src');
-          return $('iframe').prop('src', url);
+          if (_this.widgetId === _this.columnWidgetId) {
+            $('#modal').modal('hide');
+            url = $('.preview iframe').prop('src');
+            return $('iframe').prop('src', url);
+          } else {
+            return openColumnWidgetModal(_this.columnWidgetId);
+          }
         },
         error: function(xhr) {
           if (xhr.status === 204) {
@@ -101,10 +109,28 @@
   })();
 
   $(".edit-widget").on('click', function() {
-    var editWidgetModal, widgetId;
+    var columnWidgetId, editWidgetModal, widgetId;
     widgetId = $(this).data("widget-id");
-    editWidgetModal = new EditWidgetModal(widgetId);
+    columnWidgetId = $(".column-edit").data("column-id");
+    editWidgetModal = new EditWidgetModal(widgetId, columnWidgetId);
     return editWidgetModal.getEditForm();
   });
+
+  $(".go-back").on('click', function() {
+    var editWidgetModal, rowWidgetId;
+    rowWidgetId = $(".column-edit").data("row-id");
+    if (rowWidgetId) {
+      editWidgetModal = new EditWidgetModal(rowWidgetId, rowWidgetId);
+      return editWidgetModal.getEditForm();
+    } else {
+      return $('#modal').modal('hide');
+    }
+  });
+
+  openColumnWidgetModal = function(columnWidgetId) {
+    var editWidgetModal;
+    editWidgetModal = new EditWidgetModal(columnWidgetId, null);
+    return editWidgetModal.getEditForm();
+  };
 
 }).call(this);
