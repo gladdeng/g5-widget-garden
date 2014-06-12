@@ -37,6 +37,9 @@ class EditWidgetModal
     false
 
   editURL: ->
+    if @widgetId == null
+      @widgetId = $(".row-edit").data("row-id")
+
     '/widgets/' + @widgetId + "/edit"
 
   #  Submits the widget configuration to the widget controller
@@ -71,7 +74,6 @@ class EditWidgetModal
       errors["errors"]["base"][0] +
       "</div>"
     $('#modal .modal-body').prepend error
-
 
 $(".edit-widget").on 'click', ->
   widgetId = $(this).data("widget-id")

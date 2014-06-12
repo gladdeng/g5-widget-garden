@@ -59,6 +59,9 @@
     };
 
     EditWidgetModal.prototype.editURL = function() {
+      if (this.widgetId === null) {
+        this.widgetId = $(".row-edit").data("row-id");
+      }
       return '/widgets/' + this.widgetId + "/edit";
     };
 

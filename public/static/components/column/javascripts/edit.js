@@ -59,6 +59,9 @@
     };
 
     EditWidgetModal.prototype.editURL = function() {
+      if (this.widgetId === null) {
+        this.widgetId = $(".column-edit").data("column-id");
+      }
       return '/widgets/' + this.widgetId + "/edit";
     };
 
@@ -111,6 +114,17 @@
     columnWidgetId = $(".column-edit").data("column-id");
     editWidgetModal = new EditWidgetModal(widgetId, columnWidgetId);
     return editWidgetModal.getEditForm();
+  });
+
+  $(".go-back").on('click', function() {
+    var editWidgetModal, rowWidgetId;
+    rowWidgetId = $(".column-edit").data("row-id");
+    if (rowWidgetId) {
+      editWidgetModal = new EditWidgetModal(rowWidgetId, rowWidgetId);
+      return editWidgetModal.getEditForm();
+    } else {
+      return $('#modal').modal('hide');
+    }
   });
 
   openColumnWidgetModal = function(columnWidgetId) {

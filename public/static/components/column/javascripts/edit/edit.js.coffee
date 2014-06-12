@@ -37,6 +37,9 @@ class EditWidgetModal
     false
 
   editURL: ->
+    if @widgetId == null
+      @widgetId = $(".column-edit").data("column-id")
+
     '/widgets/' + @widgetId + "/edit"
 
   #  Submits the widget configuration to the widget controller
@@ -77,6 +80,15 @@ $(".edit-widget").on 'click', ->
   columnWidgetId = $(".column-edit").data("column-id")
   editWidgetModal = new EditWidgetModal(widgetId, columnWidgetId)
   editWidgetModal.getEditForm()
+
+$(".go-back").on 'click', ->
+  rowWidgetId = $(".column-edit").data("row-id")
+
+  if rowWidgetId
+    editWidgetModal = new EditWidgetModal(rowWidgetId, rowWidgetId)
+    editWidgetModal.getEditForm()
+  else
+    $('#modal').modal('hide')
 
 openColumnWidgetModal = (columnWidgetId) ->
   editWidgetModal = new EditWidgetModal(columnWidgetId, null)

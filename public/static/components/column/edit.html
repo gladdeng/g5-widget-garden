@@ -1,5 +1,5 @@
 <form>
-  <div class="column-edit" data-column-id="{{widget.id}}">
+  <div class="column-edit" data-column-id="{{widget.id}}" data-row-id="{{widget.parent_widget_id}}">
     <!-- Select row count -->
     <div class="form-field">
       {{ widget.row_count.id_hidden_field }}
@@ -169,5 +169,7 @@
     </div>
 
     <input type="submit" value="Save" class="btn" />
+
+    <a href="#" class="btn go-back">Go Back</a>
   </div>
 </form>
