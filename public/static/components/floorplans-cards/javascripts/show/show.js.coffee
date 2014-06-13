@@ -20,7 +20,7 @@ class populateUnitData
                           <div class='unit-size'>#{floorplan["size"]} Sq. Ft.</div>
                           <div class='unit-rate'>From <span>$#{floorplan["price"]}</span></div>
                         </div>
-                        <a href='#' class='unit-cta-button'>#{ctaText}</a>
+                        <a href='#{floorplan["price_url"]}' class='unit-cta-button'>#{ctaText}</a>
                       </div>"
 
     unitsDiv.append(unitsMarkup)
