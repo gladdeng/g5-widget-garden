@@ -2,7 +2,7 @@ window.getHumanDirectionsCoords = ->
   getCoords()
 
 getCoords = ->
-  $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
+  $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
     address: widgetHumanDirectionsConfig.address
     sensor: "false"
   ).done (data) ->
