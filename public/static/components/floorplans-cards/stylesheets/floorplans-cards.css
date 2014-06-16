@@ -4,13 +4,13 @@
 
 .floorplans-cards{
   width:100%;
+  padding:10px 5px;
   text-align:center;
 }
 
 .floorplans-cards h2{
   text-align:left;
   width:100%;
-
 }
 
 .floorplan-card{
@@ -22,6 +22,7 @@
   height:309px;
   background:#fff;
   text-align:left;
+  box-shadow:0px 2px 4px -1px #aaa;;
 }
 
 .floorplan-card-title{
@@ -106,7 +107,7 @@ a.floorplan-view-link span{
   background-position:center;
 }
 
-a.unit-cta-button{
+.floorplans-cards a.unit-cta-button{
   display:block;
   position:absolute;
   bottom:20px;
