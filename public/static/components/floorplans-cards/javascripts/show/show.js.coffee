@@ -80,6 +80,3 @@ class initializeUnitGrid
   floorplanConfig = JSON.parse($('#floorplan-cards-config').html())
   new populateUnitData(floorplanConfig)
   
-
-
-  
