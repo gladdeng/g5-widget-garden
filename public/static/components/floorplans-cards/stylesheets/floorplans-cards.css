@@ -27,7 +27,7 @@
 
 .floorplan-card-title{
   color:#fff;
-  background:#252b32; /* variableize me */
+  background:#252b32; /* variableized */
   padding:10px;
   margin:0 0 20px 0;
 
@@ -55,7 +55,7 @@
   padding:5px 0 0 0;
   line-height: 1em;
   color:#fff;
-  background:#ccc; /* variableize me */
+  background:#ccc; /* variableized */
 }
 
 .unit-size,
