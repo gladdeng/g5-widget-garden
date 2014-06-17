@@ -83,5 +83,17 @@
       value="{{ widget.accent_color_2.best_value }}"
     />
   </div>
+  <div class="form-field">
+    {{ widget.text_color.id_hidden_field }}
+    <label for="{{ widget.text_color.value_field_id }}">
+      Text Color
+    </label>
+    <input type="text"
+      placeholder="#000000"
+      id="{{ widget.text_color.value_field_id }}"
+      name="{{ widget.text_color.value_field_name }}"
+      value="{{ widget.text_color.best_value }}"
+    />
+  </div>
   <input type="submit" value="Save" class="btn" />
 </form>
