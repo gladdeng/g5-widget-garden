@@ -22,7 +22,6 @@ function app(jQuery) {
 
     document.body.appendChild(script);
   }
-
 };
 
 function initialize() {
@@ -31,9 +30,6 @@ function initialize() {
   }
   if ($(".directions").length) {
     window.getDirectionsCoords();
-  }
-  if ($(".human-directions").length) {
-    window.getHumanDirectionsCoords();
   }
   if ($(".comarketing").length) {
     window.getComarketingCoords();

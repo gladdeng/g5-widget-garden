@@ -1,6 +1,4 @@
-var phoneNumber;
-
-phoneNumber = (function() {
+var phoneNumber = (function() {
   function phoneNumber(phoneOptions) {
     var client_urn, location_urn;
     $(".p-tel").css("visibility", "hidden");
