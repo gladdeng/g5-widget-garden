@@ -1,5 +1,4 @@
 $ ->
-  console.log "the js has been updated"
 
   # Get social feed config options
   feedVars = JSON.parse($('#social-feed-config').html())

@@ -3,7 +3,6 @@
 
   $(function() {
     var blogConfig, feedVars;
-    console.log("the js has been updated");
     feedVars = JSON.parse($('#social-feed-config').html());
     if (feedVars.feed_url !== '') {
       blogConfig = new window.BlogConfig(feedVars);
