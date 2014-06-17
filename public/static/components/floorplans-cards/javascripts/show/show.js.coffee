@@ -56,6 +56,7 @@ class customizeUnitGrid
     setCtaColor colorConfigurations['ctaColor'], colorConfigurations['accentColor1']
     setAccents1 colorConfigurations['accentColor1']
     setAccents2 colorConfigurations['accentColor2']
+    setText colorConfigurations['textColor']
     $(".floorplan-view-link").fancybox()
 
   setHeadingColor = (color) ->
@@ -75,7 +76,9 @@ class customizeUnitGrid
   setAccents2 = (color) ->
     $('.unit-beds span, .unit-baths span, .floorplan-view-link div').css('background-color', color)
 
-    
+  setText = (color) ->
+    $('.unit-beds, .unit-baths, .unit-size, .unit-rate').css('color', color)
+
 class initializeUnitGrid
   floorplanConfig = JSON.parse($('#floorplan-cards-config').html())
   new populateUnitData(floorplanConfig)

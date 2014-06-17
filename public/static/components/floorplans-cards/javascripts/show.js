@@ -43,13 +43,14 @@
   })();
 
   customizeUnitGrid = (function() {
-    var setAccents1, setAccents2, setCtaColor, setHeadingColor;
+    var setAccents1, setAccents2, setCtaColor, setHeadingColor, setText;
 
     function customizeUnitGrid(colorConfigurations) {
       setHeadingColor(colorConfigurations['headingColor']);
       setCtaColor(colorConfigurations['ctaColor'], colorConfigurations['accentColor1']);
       setAccents1(colorConfigurations['accentColor1']);
       setAccents2(colorConfigurations['accentColor2']);
+      setText(colorConfigurations['textColor']);
       $(".floorplan-view-link").fancybox();
     }
 
@@ -74,6 +75,10 @@
 
     setAccents2 = function(color) {
       return $('.unit-beds span, .unit-baths span, .floorplan-view-link div').css('background-color', color);
+    };
+
+    setText = function(color) {
+      return $('.unit-beds, .unit-baths, .unit-size, .unit-rate').css('color', color);
     };
 
     return customizeUnitGrid;
