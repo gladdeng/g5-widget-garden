@@ -1,27 +1,22 @@
 <div class="social-feed widget">
-  <script id="blog-config" type="application/json">
+  <script id="social-feed-config" type="application/json">
     {
-      "feedUrl": "{{ widget.blog_feed_url.best_value | url_encode }}",
-      "showEntrySummary":
+      "twitter_username": "{{ widget.twitter_username.best_value }}",
+      "tweet_count": {{ widget.twitter_tweet_count.best_value }},
+      "display_avatar": {{widget.twitter_display_avatars.best_value}},
+      "feed_url": "{{ widget.blog_feed_url.best_value | url_encode }}",
+      "show_entry_summary":
         {% if widget.blog_feed_display_summary.best_value == "true" %}
         true
         {% else %}
         false
         {% endif %},
-      "entriesToShow":
+      "entries_to_show":
         {% if widget.blog_feed_number_to_display.best_value %}
         {{ widget.blog_feed_number_to_display.best_value }}
         {% else %}
         3
         {% endif %}
-    }
-  </script>
-
-  <script id="twitter-config" type="application/json">
-    {
-      "id": "{{ widget.twitter_username.best_value }}",
-      "count": {{ widget.twitter_tweet_count.best_value }},
-      "avatar": {{widget.twitter_display_avatars.best_value}}
     }
   </script>
 
