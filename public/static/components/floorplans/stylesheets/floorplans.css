@@ -214,14 +214,12 @@ li.floorplan:nth-child(even) {
   text-align: center;
   width: 200px;
 }
-
 #loading-floorplans .loader {
   background: url(http://widgets.g5dxm.com/shared/loader.gif) center no-repeat;
   height: 32px;
   margin: 0 auto 1em;
   width: 32px;
 }
-
 .filters .filter .disabled {
   cursor: default;
 }

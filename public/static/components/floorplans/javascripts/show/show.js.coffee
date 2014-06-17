@@ -82,30 +82,6 @@ setupFilters = ->
       floorplans.fadeOut()
       $(bedSelector + bathSelector).fadeIn "fast"
 
-# debouncing function from John Hann
-# http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
-(($, sr) ->
-  debounce = (func, threshold, execAsap) ->
-    timeout = undefined
-    debounced = ->
-      delayed = ->
-        func.apply obj  unless execAsap
-        timeout = null
-        return
-      obj = this
-      if timeout
-        clearTimeout timeout
-      else func.apply obj  if execAsap
-      timeout = setTimeout(delayed, threshold or 100)
-      return
-
-  # smartresize
-  jQuery.fn[sr] = (fn) ->
-    (if fn then @bind("resize", debounce(fn)) else @trigger(sr))
-
-  return
-) jQuery, "smartresize"
-
 $ ->
   pricingOptions = JSON.parse($('.floorplans .config:first').html())
   new pricingAndAvailability(pricingOptions)
@@ -113,5 +89,6 @@ $ ->
   $(".floorplans .floorplan-btn").fancybox()
 
   floorplanContainer = $('.floorplans')
+
   $(window).smartresize ->
     resetPricingHeight(floorplanContainer)

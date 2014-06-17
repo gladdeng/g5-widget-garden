@@ -1,18 +1,20 @@
 $ ->
+  console.log "the js has been updated"
 
-  # Get feed config options
-  blogVars = JSON.parse($('#blog-config').html())
-  twitterVars = JSON.parse($('#twitter-config').html())
+  # Get social feed config options
+  feedVars = JSON.parse($('#social-feed-config').html())
 
   # Blog feed setup
-  blogConfig = new window.BlogConfig(blogVars)
-  new window.BlogInterface($("#blog-feed .feed"), blogConfig)
+  if feedVars.feed_url != ''
+    blogConfig = new window.BlogConfig(feedVars)
+    new window.BlogInterface($("#blog-feed .feed"), blogConfig)
 
   # Twitter feed setup
-  initTweets(twitterVars)
+  if feedVars.twitter_username != ''
+    initTweets(feedVars)
 
   # Set up tabs
-  if blogVars.feedUrl != '' && twitterVars.id != ''
+  if feedVars.feed_url != '' && feedVars.twitter_username != ''
     $('#blog-feed').hide()
 
     $('.social-feed').on 'click', '.feed-switch', (e) ->
@@ -24,10 +26,9 @@ $ ->
       return false
 
 
-
 class window.BlogConfig
   constructor: (config) ->
-    {@feedUrl, @feedTitle, @showAuthor, @showEntrySummary, @entriesToShow} = config
+    {@feed_url, @feedTitle, @showAuthor, @show_entry_summary, @entries_to_show} = config
 
 class BlogFetcher
   constructor: (@url) ->
@@ -42,33 +43,36 @@ class BlogFetcher
 
 class window.BlogInterface
   constructor: (@list, @config) ->
-    fetcher = new BlogFetcher(@config.feedUrl)
+    fetcher = new BlogFetcher(@config.feed_url)
     $(fetcher).bind("feedReady", (event) => @updateDom(event))
     fetcher.fetch()
 
-   updateDom: (event) ->
-     feed = event.currentTarget.feed
-     @list.before("<h2 class=\"title\">#{@config.feedTitle}</h2>") if @config.feedTitle?
-     for entry in feed.entries
-       jli = $('<li class="h-entry hentry" itemscope itemtype="http://schema.org/BlogPosting">')
-       innerText = "<a class='p-name entry-title u-url url' href=\"#{entry.link}\" target=\"_blank\" itemprop='url'><span itemprop='headline'>#{entry.title}</span></a><br />"
-       innerText += "<p class='p-summary summary' itemprop='description'>#{entry.contentSnippet}</p>" if @config.showEntrySummary
-       innerText += "<p class='p-author author' itemprop='author'>Posted By: #{entry.author}</p>" if @config.showAuthor
-       jli.append(innerText)
-       @list.append(jli)
+  updateDom: (event) ->
+    feed = event.currentTarget.feed
+    @list.before("<h2 class=\"title\">#{@config.feedTitle}</h2>") if @config.feedTitle?
+    for entry in feed.entries
+      jli = $('<li class="h-entry hentry" itemscope itemtype="http://schema.org/BlogPosting">')
+      innerText = "<a class='p-name entry-title u-url url' href=\"#{entry.link}\" target=\"_blank\" itemprop='url'>
+        <span itemprop='headline'>#{entry.title}</span></a><br />"
+      if @config.show_entry_summary
+        innerText += "<p class='p-summary summary' itemprop='description'>#{entry.contentSnippet}</p>"
+      if @config.showAuthor
+        innerText += "<p class='p-author author' itemprop='author'>Posted By: #{entry.author}</p>"
+      jli.append(innerText)
+      @list.append(jli)
 
-window.initTweets = (twitterVars) ->
+window.initTweets = (feedVars) ->
  $.ajax(
-    url: "https://mobile.twitter.com/" + twitterVars.id
+    url: "https://mobile.twitter.com/" + feedVars.twitter_username
     dataType: "html"
     type: "GET"
   ).done (data) ->
-    tweets = $(".timeline .tweet:lt(" + twitterVars.count + ")", data.results[0]).toArray()
+    tweets = $(".timeline .tweet:lt(" + feedVars.tweet_count + ")", data.results[0]).toArray()
     avatar = $(".avatar:lt(1) img", data.results[0])
 
     composeTweet(data, tweets, avatar)
 
-composeTweet = (twitterVars, tweets, avatar) ->
+composeTweet = (feedVars, tweets, avatar) ->
   twitterUrl = "http://www.twitter.com"
   composedTweets = []
 
@@ -88,7 +92,7 @@ composeTweet = (twitterVars, tweets, avatar) ->
       avatarUrl = userInfo.find(".avatar img").attr("src")
       userName = userInfo.find(".fullname").html()
 
-    if twitterVars.avatar is false
+    if feedVars.display_avatar is false
       avatarUrl = 'https://widgets.g5dxm.com/social-feed/icon-speech.png'
 
     # Handle Replies
