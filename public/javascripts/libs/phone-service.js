@@ -1,6 +1,4 @@
-var phoneNumber;
-
-phoneNumber = (function() {
+var phoneNumber = (function() {
   function phoneNumber(phoneOptions) {
     var client_urn, location_urn;
     $(".p-tel").css("visibility", "hidden");
@@ -15,7 +13,7 @@ phoneNumber = (function() {
   phoneNumber.prototype.getPhoneNumber = function(client_urn, location_urn) {
     var row_id;
     row_id = "#" + location_urn;
-    return $.get("http://" + client_urn + ".herokuapp.com", function(data) {
+    return $.get("https://" + client_urn + ".herokuapp.com", function(data) {
       var $data, formattedPhone, numbers, phone, screen;
       $data = $(data);
       numbers = $data.find(row_id);
@@ -28,8 +26,10 @@ phoneNumber = (function() {
       } else {
         phone = $.trim(numbers.find(".p-tel-default").text());
       }
-      formattedPhone = phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
-      return $(".phone .number").attr("href", "tel://" + phone).find(".p-tel").html(formattedPhone);
+      if (phone != '' || phone.length > 0) {
+        formattedPhone = phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+        return $(".phone .number").attr("href", "tel://" + phone).find(".p-tel").html(formattedPhone);
+      }
     });
   };
 

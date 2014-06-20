@@ -1,24 +1,24 @@
-chooseLayout = $(".select-row-layout")
-chooseWidget = $(".col-widgets select")
+chooseRowCount = $(".select-row-count")
+chooseWidget = $(".row-widgets select")
 editNotice = $(".alert")
 
-selectedLayout = chooseLayout.val()
+selectedRowCount = chooseRowCount.val()
 editNotice.hide()
 
-$('.col-widgets').hide()
-$('.' + selectedLayout).show()
+$('.row-widgets').hide()
+$('.' + selectedRowCount).show()
 
-chooseLayout.on 'change', ->
-  selectedLayout = $(this).val()
-  $('.col-widgets').hide()
-  $('.' + selectedLayout).show()
+chooseRowCount.on 'change', ->
+  selectedRowCount = $(this).val()
+  $('.row-widgets').hide()
+  $('.' + selectedRowCount).show()
 
 chooseWidget.on 'change', ->
   editNotice.show()
   $(this).parent().find("a").hide()
 
 class EditWidgetModal
-  constructor: (@widgetId, @rowWidgetId) ->
+  constructor: (@widgetId, @columnWidgetId) ->
 
   getEditForm: ->
     callback = (response) => @openModal response
@@ -38,7 +38,7 @@ class EditWidgetModal
 
   editURL: ->
     if @widgetId == null
-      @widgetId = $(".row-edit").data("row-id")
+      @widgetId = $(".column-edit").data("column-id")
 
     '/widgets/' + @widgetId + "/edit"
 
@@ -51,12 +51,12 @@ class EditWidgetModal
       data: $('.modal-body .edit_widget').serialize(),
       # Hide the configuration form if the request is successful
       success: =>
-        if @widgetId == @rowWidgetId
+        if @widgetId == @columnWidgetId
           $('#modal').modal('hide')
           url = $('.preview iframe').prop('src')
           $('iframe').prop('src', url)
         else
-          openRowWidgetModal(@rowWidgetId)
+          openColumnWidgetModal(@columnWidgetId)
       error: (xhr) =>
         # This is/was needed because of a bug in jQuery, it's actually successful
         if xhr.status == 204
@@ -77,10 +77,19 @@ class EditWidgetModal
 
 $(".edit-widget").on 'click', ->
   widgetId = $(this).data("widget-id")
-  rowWidgetId = $(".row-edit").data("row-id")
-  editWidgetModal = new EditWidgetModal(widgetId, rowWidgetId)
+  columnWidgetId = $(".column-edit").data("column-id")
+  editWidgetModal = new EditWidgetModal(widgetId, columnWidgetId)
   editWidgetModal.getEditForm()
 
-openRowWidgetModal = (rowWidgetId) ->
-  editWidgetModal = new EditWidgetModal(rowWidgetId, null)
+$(".go-back").on 'click', ->
+  rowWidgetId = $(".column-edit").data("row-id")
+
+  if rowWidgetId
+    editWidgetModal = new EditWidgetModal(rowWidgetId, rowWidgetId)
+    editWidgetModal.getEditForm()
+  else
+    $('#modal').modal('hide')
+
+openColumnWidgetModal = (columnWidgetId) ->
+  editWidgetModal = new EditWidgetModal(columnWidgetId, null)
   editWidgetModal.getEditForm()

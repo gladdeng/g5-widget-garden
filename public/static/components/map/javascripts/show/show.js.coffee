@@ -1,5 +1,5 @@
 window.getMapCoords = ->
-  $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",
+  $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
     address: widgetMapConfig.address
     sensor: "false"
   ).done (data) ->

@@ -93,39 +93,6 @@
     });
   };
 
-  (function($, sr) {
-    var debounce;
-    debounce = function(func, threshold, execAsap) {
-      var debounced, timeout;
-      timeout = void 0;
-      return debounced = function() {
-        var delayed, obj;
-        delayed = function() {
-          if (!execAsap) {
-            func.apply(obj);
-          }
-          timeout = null;
-        };
-        obj = this;
-        if (timeout) {
-          clearTimeout(timeout);
-        } else {
-          if (execAsap) {
-            func.apply(obj);
-          }
-        }
-        timeout = setTimeout(delayed, threshold || 100);
-      };
-    };
-    jQuery.fn[sr] = function(fn) {
-      if (fn) {
-        return this.bind("resize", debounce(fn));
-      } else {
-        return this.trigger(sr);
-      }
-    };
-  })(jQuery, "smartresize");
-
   $(function() {
     var floorplanContainer, pricingOptions;
     pricingOptions = JSON.parse($('.floorplans .config:first').html());

@@ -20,7 +20,7 @@
   };
 
   getStoreCoords = function() {
-    return $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
+    return $.getJSON("https://maps.googleapis.com/maps/api/geocode/json", {
       address: directionsConfig.address,
       sensor: "false"
     }).done(function(data) {

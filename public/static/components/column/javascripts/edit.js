@@ -1,24 +1,24 @@
 (function() {
-  var EditWidgetModal, chooseLayout, chooseWidget, editNotice, openRowWidgetModal, selectedLayout;
+  var EditWidgetModal, chooseRowCount, chooseWidget, editNotice, openColumnWidgetModal, selectedRowCount;
 
-  chooseLayout = $(".select-row-layout");
+  chooseRowCount = $(".select-row-count");
 
-  chooseWidget = $(".col-widgets select");
+  chooseWidget = $(".row-widgets select");
 
   editNotice = $(".alert");
 
-  selectedLayout = chooseLayout.val();
+  selectedRowCount = chooseRowCount.val();
 
   editNotice.hide();
 
-  $('.col-widgets').hide();
+  $('.row-widgets').hide();
 
-  $('.' + selectedLayout).show();
+  $('.' + selectedRowCount).show();
 
-  chooseLayout.on('change', function() {
-    selectedLayout = $(this).val();
-    $('.col-widgets').hide();
-    return $('.' + selectedLayout).show();
+  chooseRowCount.on('change', function() {
+    selectedRowCount = $(this).val();
+    $('.row-widgets').hide();
+    return $('.' + selectedRowCount).show();
   });
 
   chooseWidget.on('change', function() {
@@ -27,9 +27,9 @@
   });
 
   EditWidgetModal = (function() {
-    function EditWidgetModal(widgetId, rowWidgetId) {
+    function EditWidgetModal(widgetId, columnWidgetId) {
       this.widgetId = widgetId;
-      this.rowWidgetId = rowWidgetId;
+      this.columnWidgetId = columnWidgetId;
     }
 
     EditWidgetModal.prototype.getEditForm = function() {
@@ -60,7 +60,7 @@
 
     EditWidgetModal.prototype.editURL = function() {
       if (this.widgetId === null) {
-        this.widgetId = $(".row-edit").data("row-id");
+        this.widgetId = $(".column-edit").data("column-id");
       }
       return '/widgets/' + this.widgetId + "/edit";
     };
@@ -74,12 +74,12 @@
         data: $('.modal-body .edit_widget').serialize(),
         success: function() {
           var url;
-          if (_this.widgetId === _this.rowWidgetId) {
+          if (_this.widgetId === _this.columnWidgetId) {
             $('#modal').modal('hide');
             url = $('.preview iframe').prop('src');
             return $('iframe').prop('src', url);
           } else {
-            return openRowWidgetModal(_this.rowWidgetId);
+            return openColumnWidgetModal(_this.columnWidgetId);
           }
         },
         error: function(xhr) {
@@ -109,16 +109,27 @@
   })();
 
   $(".edit-widget").on('click', function() {
-    var editWidgetModal, rowWidgetId, widgetId;
+    var columnWidgetId, editWidgetModal, widgetId;
     widgetId = $(this).data("widget-id");
-    rowWidgetId = $(".row-edit").data("row-id");
-    editWidgetModal = new EditWidgetModal(widgetId, rowWidgetId);
+    columnWidgetId = $(".column-edit").data("column-id");
+    editWidgetModal = new EditWidgetModal(widgetId, columnWidgetId);
     return editWidgetModal.getEditForm();
   });
 
-  openRowWidgetModal = function(rowWidgetId) {
+  $(".go-back").on('click', function() {
+    var editWidgetModal, rowWidgetId;
+    rowWidgetId = $(".column-edit").data("row-id");
+    if (rowWidgetId) {
+      editWidgetModal = new EditWidgetModal(rowWidgetId, rowWidgetId);
+      return editWidgetModal.getEditForm();
+    } else {
+      return $('#modal').modal('hide');
+    }
+  });
+
+  openColumnWidgetModal = function(columnWidgetId) {
     var editWidgetModal;
-    editWidgetModal = new EditWidgetModal(rowWidgetId, null);
+    editWidgetModal = new EditWidgetModal(columnWidgetId, null);
     return editWidgetModal.getEditForm();
   };
 

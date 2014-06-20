@@ -2,13 +2,16 @@
   var BlogFetcher, composeTweet, tweetTemplate;
 
   $(function() {
-    var blogConfig, blogVars, twitterVars;
-    blogVars = JSON.parse($('#blog-config').html());
-    twitterVars = JSON.parse($('#twitter-config').html());
-    blogConfig = new window.BlogConfig(blogVars);
-    new window.BlogInterface($("#blog-feed .feed"), blogConfig);
-    initTweets(twitterVars);
-    if (blogVars.feedUrl !== '' && twitterVars.id !== '') {
+    var blogConfig, feedVars;
+    feedVars = JSON.parse($('#social-feed-config').html());
+    if (feedVars.feed_url !== '') {
+      blogConfig = new window.BlogConfig(feedVars);
+      new window.BlogInterface($("#blog-feed .feed"), blogConfig);
+    }
+    if (feedVars.twitter_username !== '') {
+      initTweets(feedVars);
+    }
+    if (feedVars.feed_url !== '' && feedVars.twitter_username !== '') {
       $('#blog-feed').hide();
       return $('.social-feed').on('click', '.feed-switch', function(e) {
         var feed;
@@ -24,7 +27,7 @@
 
   window.BlogConfig = (function() {
     function BlogConfig(config) {
-      this.feedUrl = config.feedUrl, this.feedTitle = config.feedTitle, this.showAuthor = config.showAuthor, this.showEntrySummary = config.showEntrySummary, this.entriesToShow = config.entriesToShow;
+      this.feed_url = config.feed_url, this.feedTitle = config.feedTitle, this.showAuthor = config.showAuthor, this.show_entry_summary = config.show_entry_summary, this.entries_to_show = config.entries_to_show;
     }
 
     return BlogConfig;
@@ -39,7 +42,7 @@
     BlogFetcher.prototype.fetch = function() {
       var _this = this;
       return $.ajax({
-        url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent(this.url),
+        url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent(this.url),
         dataType: 'json',
         success: function(data) {
           _this.feed = data.responseData.feed;
@@ -58,7 +61,7 @@
         _this = this;
       this.list = list;
       this.config = config;
-      fetcher = new BlogFetcher(this.config.feedUrl);
+      fetcher = new BlogFetcher(this.config.feed_url);
       $(fetcher).bind("feedReady", function(event) {
         return _this.updateDom(event);
       });
@@ -76,8 +79,8 @@
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         entry = _ref[_i];
         jli = $('<li class="h-entry hentry" itemscope itemtype="http://schema.org/BlogPosting">');
-        innerText = "<a class='p-name entry-title u-url url' href=\"" + entry.link + "\" target=\"_blank\" itemprop='url'><span itemprop='headline'>" + entry.title + "</span></a><br />";
-        if (this.config.showEntrySummary) {
+        innerText = "<a class='p-name entry-title u-url url' href=\"" + entry.link + "\" target=\"_blank\" itemprop='url'>        <span itemprop='headline'>" + entry.title + "</span></a><br />";
+        if (this.config.show_entry_summary) {
           innerText += "<p class='p-summary summary' itemprop='description'>" + entry.contentSnippet + "</p>";
         }
         if (this.config.showAuthor) {
@@ -93,20 +96,20 @@
 
   })();
 
-  window.initTweets = function(twitterVars) {
+  window.initTweets = function(feedVars) {
     return $.ajax({
-      url: "https://mobile.twitter.com/" + twitterVars.id,
+      url: "https://mobile.twitter.com/" + feedVars.twitter_username,
       dataType: "html",
       type: "GET"
     }).done(function(data) {
       var avatar, tweets;
-      tweets = $(".timeline .tweet:lt(" + twitterVars.count + ")", data.results[0]).toArray();
+      tweets = $(".timeline .tweet:lt(" + feedVars.tweet_count + ")", data.results[0]).toArray();
       avatar = $(".avatar:lt(1) img", data.results[0]);
       return composeTweet(data, tweets, avatar);
     });
   };
 
-  composeTweet = function(twitterVars, tweets, avatar) {
+  composeTweet = function(feedVars, tweets, avatar) {
     var composedTweets, twitterUrl;
     twitterUrl = "http://www.twitter.com";
     composedTweets = [];
@@ -125,8 +128,8 @@
         avatarUrl = userInfo.find(".avatar img").attr("src");
         userName = userInfo.find(".fullname").html();
       }
-      if (twitterVars.avatar === false) {
-        avatarUrl = 'http://widgets.g5dxm.com/social-feed/icon-speech.png';
+      if (feedVars.display_avatar === false) {
+        avatarUrl = 'https://widgets.g5dxm.com/social-feed/icon-speech.png';
       }
       replyHtml.each(function() {
         return $(this).attr("href", twitterUrl + $(this).attr("href"));
