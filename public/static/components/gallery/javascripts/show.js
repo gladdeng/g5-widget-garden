@@ -26,20 +26,20 @@
   };
 
   initializeFlexSlider = function() {
-    var galleryOptions, navHeight;
+    var galleryOptions, navHeight, showThumbs;
     galleryOptions = JSON.parse($('.gallery .config:first').html());
+    if (galleryOptions['show_thumbnails'] === 'true') {
+      showThumbs = "thumbnails";
+    } else {
+      showThumbs = true;
+    }
+    console.log('setting: ' + galleryOptions['show_thumbnails'] + '\nVar: ' + showThumbs);
     gallery.flexContainer.flexslider({
       animation: galleryOptions['animation'],
       useCSS: true,
       touch: true,
       directionNav: true,
-      controlNav: function() {
-        if (galleryOptions['show_thumbnails'] === true) {
-          return "thumbnails";
-        } else {
-          return false;
-        }
-      }
+      controlNav: showThumbs
     });
     navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight();
     return gallery.flexContainer.css('padding-bottom', navHeight);

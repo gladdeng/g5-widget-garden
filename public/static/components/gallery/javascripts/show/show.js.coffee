@@ -21,16 +21,19 @@ getTallestImage = ->
 # Creates the slideshow
 initializeFlexSlider = ->
   galleryOptions = JSON.parse($('.gallery .config:first').html())
+  if galleryOptions['show_thumbnails'] == 'true'
+    showThumbs = "thumbnails"
+  else
+    showThumbs = true
+
+  console.log('setting: ' + galleryOptions['show_thumbnails'] + '\nVar: ' + showThumbs)
   gallery.flexContainer.flexslider
     animation: galleryOptions['animation']
     useCSS: true
     touch: true
     directionNav: true
-    controlNav: ->
-      if galleryOptions['show_thumbnails'] is true
-        "thumbnails"
-      else
-        false
+    controlNav: showThumbs
+
 
   # Set placement of gallery nav based on its height
   navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight()
