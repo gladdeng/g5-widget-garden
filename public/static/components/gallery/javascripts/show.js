@@ -32,7 +32,14 @@
       animation: galleryOptions['animation'],
       useCSS: true,
       touch: true,
-      directionNav: true
+      directionNav: true,
+      controlNav: function() {
+        if (galleryOptions['show_thumbnails'] === true) {
+          return "thumbnails";
+        } else {
+          return false;
+        }
+      }
     });
     navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight();
     return gallery.flexContainer.css('padding-bottom', navHeight);

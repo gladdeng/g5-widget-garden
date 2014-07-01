@@ -38,6 +38,27 @@
     </fieldset>
   </div>
 
+  <div class="form-field check-field">
+    {{ widget.gallery_thumbnails.id_hidden_field }}
+    <input type="hidden"
+      id="{{ widget.gallery_thumbnails.value_field_id }}_false"
+      name="{{ widget.gallery_thumbnails.value_field_name }}"
+      value="false"
+    />
+    <input type="checkbox"
+      class="display-navigation"
+      id="{{ widget.gallery_thumbnails.value_field_id }}"
+      name="{{ widget.gallery_thumbnails.value_field_name }}"
+      value="true"
+      {% if widget.gallery_thumbnails.best_value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
+    <label for="{{ widget.gallery_thumbnails.value_field_id }}" >
+      Show Thumbnails
+    </label>
+  </div>
+
   <p class="note">To remove photos, simply delete the URL and Caption</p>
 
   <div class="photo-field">

@@ -26,6 +26,11 @@ initializeFlexSlider = ->
     useCSS: true
     touch: true
     directionNav: true
+    controlNav: ->
+      if galleryOptions['show_thumbnails'] is true
+        "thumbnails"
+      else
+        false
 
   # Set placement of gallery nav based on its height
   navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight()
