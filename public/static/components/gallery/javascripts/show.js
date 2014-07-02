@@ -26,13 +26,15 @@
   };
 
   initializeFlexSlider = function() {
-    var galleryOptions, navHeight;
+    var galleryOptions, navHeight, showThumbs;
     galleryOptions = JSON.parse($('.gallery .config:first').html());
+    showThumbs = (galleryOptions['show_thumbnails'] === "yes" ? "thumbnails" : true);
     gallery.flexContainer.flexslider({
       animation: galleryOptions['animation'],
       useCSS: true,
       touch: true,
-      directionNav: true
+      directionNav: true,
+      controlNav: showThumbs
     });
     navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight();
     return gallery.flexContainer.css('padding-bottom', navHeight);
