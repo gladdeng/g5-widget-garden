@@ -43,14 +43,14 @@
     <input type="hidden"
       id="{{ widget.gallery_thumbnails.value_field_id }}_false"
       name="{{ widget.gallery_thumbnails.value_field_name }}"
-      value="false"
+      value="no"
     />
     <input type="checkbox"
       class="display-navigation"
       id="{{ widget.gallery_thumbnails.value_field_id }}"
       name="{{ widget.gallery_thumbnails.value_field_name }}"
-      value="true"
-      {% if widget.gallery_thumbnails.best_value == "true" %}
+      value="yes"
+      {% if widget.gallery_thumbnails.best_value == "yes" %}
       checked="checked"
       {% endif %}
     />

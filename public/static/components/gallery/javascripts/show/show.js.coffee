@@ -21,12 +21,9 @@ getTallestImage = ->
 # Creates the slideshow
 initializeFlexSlider = ->
   galleryOptions = JSON.parse($('.gallery .config:first').html())
-  if galleryOptions['show_thumbnails'] == 'true'
-    showThumbs = "thumbnails"
-  else
-    showThumbs = true
+  showThumbs = (if galleryOptions['show_thumbnails'] is "yes" then "thumbnails" else true)
 
-  console.log('setting: ' + galleryOptions['show_thumbnails'] + '\nVar: ' + showThumbs)
+  console.log('JSON: ' + galleryOptions['show_thumbnails'] + '\nVar: ' + showThumbs)
   gallery.flexContainer.flexslider
     animation: galleryOptions['animation']
     useCSS: true
