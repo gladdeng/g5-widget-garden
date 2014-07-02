@@ -23,7 +23,6 @@ initializeFlexSlider = ->
   galleryOptions = JSON.parse($('.gallery .config:first').html())
   showThumbs = (if galleryOptions['show_thumbnails'] is "yes" then "thumbnails" else true)
 
-  console.log('JSON: ' + galleryOptions['show_thumbnails'] + '\nVar: ' + showThumbs)
   gallery.flexContainer.flexslider
     animation: galleryOptions['animation']
     useCSS: true

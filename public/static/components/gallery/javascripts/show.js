@@ -29,7 +29,6 @@
     var galleryOptions, navHeight, showThumbs;
     galleryOptions = JSON.parse($('.gallery .config:first').html());
     showThumbs = (galleryOptions['show_thumbnails'] === "yes" ? "thumbnails" : true);
-    console.log('JSON: ' + galleryOptions['show_thumbnails'] + '\nVar: ' + showThumbs);
     gallery.flexContainer.flexslider({
       animation: galleryOptions['animation'],
       useCSS: true,
