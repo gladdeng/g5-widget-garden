@@ -131,14 +131,14 @@ CUSTOM STYLES
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.flex-control-paging {
+.flex-control-nav.flex-control-paging {
   bottom: 0;
   line-height: .8125;
   position: absolute;
   overflow: hidden;
   text-align: center;
 }
-.flex-control-pagine li {
+.flex-control-paging li {
   margin-top: 20px;
 }
 .flex-control-paging li a {
@@ -146,6 +146,10 @@ CUSTOM STYLES
   height: 13px;
 }
 .flex-control-thumbs {
+  position: absolute;
+  bottom: 0;
+}
+.flex-caption {
   position: absolute;
   bottom: 0;
 }
