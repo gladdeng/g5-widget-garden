@@ -31,8 +31,7 @@ getTallestCaption = ->
   tallestCaption
 
 # Creates the slideshow
-initializeFlexSlider = ->
-  galleryOptions = JSON.parse($('.gallery .config:first').html())
+initializeFlexSlider = (galleryOptions) ->
   showThumbs = (if galleryOptions['show_thumbnails'] is "yes" then "thumbnails" else true)
 
   gallery.flexContainer.flexslider
@@ -43,12 +42,13 @@ initializeFlexSlider = ->
     controlNav: showThumbs
 
 
-  # Set placement of gallery nav based on its height
-  navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight()
-  captionHeight = getTallestCaption()
-  bottomSpace = navHeight + captionHeight
-  gallery.flexContainer.find('.flex-control-nav').css('bottom', -bottomSpace)
-  gallery.flexContainer.css 'margin-bottom', -bottomSpace
+  if galleryOptions['mini_gallery'] is 'no'
+    # Set placement of gallery nav based on its height
+    navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight()
+    captionHeight = getTallestCaption()
+    bottomSpace = navHeight + captionHeight
+    gallery.flexContainer.find('.flex-control-nav').css('bottom', -bottomSpace)
+    gallery.flexContainer.css 'margin-bottom', -bottomSpace
 
 
 # Sets max height of images so they all fit in the window
@@ -69,17 +69,21 @@ setImageHeight = (tallestImage) ->
   gallery.slides.css 'height', fixedHeight
   gallery.flexContainer.css 'margin-bottom', bottomSpace
 
-setupFlexslider = ->
+setupFlexslider = (galleryOptions) ->
   tallestImage = getTallestImage()
-  initializeFlexSlider()
-  setImageHeight tallestImage
+  initializeFlexSlider(galleryOptions)
+  if galleryOptions['mini_gallery'] is 'no'
+    setImageHeight tallestImage
 
 resetFlexslider = ->
   tallestImage = getTallestImage()
   setImageHeight tallestImage
 
 $ ->
-  setupFlexslider()
+  galleryOptions = JSON.parse($('.gallery .config:first').html())
+
+  setupFlexslider(galleryOptions)
 
   $(window).smartresize ->
-    resetFlexslider()
+    if galleryOptions['mini_gallery'] is 'no'
+      resetFlexslider()

@@ -41,9 +41,8 @@
     return tallestCaption;
   };
 
-  initializeFlexSlider = function() {
-    var bottomSpace, captionHeight, galleryOptions, navHeight, showThumbs;
-    galleryOptions = JSON.parse($('.gallery .config:first').html());
+  initializeFlexSlider = function(galleryOptions) {
+    var bottomSpace, captionHeight, navHeight, showThumbs;
     showThumbs = (galleryOptions['show_thumbnails'] === "yes" ? "thumbnails" : true);
     gallery.flexContainer.flexslider({
       animation: galleryOptions['animation'],
@@ -52,11 +51,13 @@
       directionNav: true,
       controlNav: showThumbs
     });
-    navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight();
-    captionHeight = getTallestCaption();
-    bottomSpace = navHeight + captionHeight;
-    gallery.flexContainer.find('.flex-control-nav').css('bottom', -bottomSpace);
-    return gallery.flexContainer.css('margin-bottom', -bottomSpace);
+    if (galleryOptions['mini_gallery'] === 'no') {
+      navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight();
+      captionHeight = getTallestCaption();
+      bottomSpace = navHeight + captionHeight;
+      gallery.flexContainer.find('.flex-control-nav').css('bottom', -bottomSpace);
+      return gallery.flexContainer.css('margin-bottom', -bottomSpace);
+    }
   };
 
   setImageHeight = function(tallestImage) {
@@ -77,11 +78,13 @@
     return gallery.flexContainer.css('margin-bottom', bottomSpace);
   };
 
-  setupFlexslider = function() {
+  setupFlexslider = function(galleryOptions) {
     var tallestImage;
     tallestImage = getTallestImage();
-    initializeFlexSlider();
-    return setImageHeight(tallestImage);
+    initializeFlexSlider(galleryOptions);
+    if (galleryOptions['mini_gallery'] === 'no') {
+      return setImageHeight(tallestImage);
+    }
   };
 
   resetFlexslider = function() {
@@ -91,9 +94,13 @@
   };
 
   $(function() {
-    setupFlexslider();
+    var galleryOptions;
+    galleryOptions = JSON.parse($('.gallery .config:first').html());
+    setupFlexslider(galleryOptions);
     return $(window).smartresize(function() {
-      return resetFlexslider();
+      if (galleryOptions['mini_gallery'] === 'no') {
+        return resetFlexslider();
+      }
     });
   });
 
