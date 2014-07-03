@@ -122,7 +122,7 @@ CUSTOM STYLES
 .flexslider .slides {
   overflow: hidden;
 }
-.csstransforms .flexslider img {
+.csstransforms .flexslider .slides img {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -135,15 +135,21 @@ CUSTOM STYLES
   bottom: 0;
   line-height: .8125;
   position: absolute;
+  overflow: hidden;
+  text-align: center;
+}
+.flex-control-paging li {
+  margin-top: 20px;
 }
 .flex-control-paging li a {
   width: 13px;
   height: 13px;
 }
-.flex-control-nav {
-  overflow: hidden;
-  text-align: center;
+.flex-control-thumbs {
+  position: absolute;
+  bottom: 0;
 }
-.flex-control-nav li {
-  margin-top: 20px;
+.flex-caption {
+  position: absolute;
+  bottom: 0;
 }
