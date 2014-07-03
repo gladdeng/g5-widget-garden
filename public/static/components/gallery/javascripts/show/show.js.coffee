@@ -18,6 +18,18 @@ getTallestImage = ->
   gallery.slides.removeClass 'loading'
   tallestImage
 
+# Gets the height of the tallest caption
+getTallestCaption = ->
+  gallery.slides.addClass 'loading'
+  tallestCaption = 0
+  gallery.flexContainer.find('.flex-caption').each ->
+    curHeight = null
+    curHeight = $(this).outerHeight(true)
+    tallestCaption = curHeight  if curHeight > tallestCaption
+
+  gallery.slides.removeClass 'loading'
+  tallestCaption
+
 # Creates the slideshow
 initializeFlexSlider = ->
   galleryOptions = JSON.parse($('.gallery .config:first').html())
@@ -33,24 +45,29 @@ initializeFlexSlider = ->
 
   # Set placement of gallery nav based on its height
   navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight()
-  gallery.flexContainer.css 'padding-bottom', navHeight
+  captionHeight = getTallestCaption()
+  bottomSpace = navHeight + captionHeight
+  gallery.flexContainer.find('.flex-control-nav').css('bottom', -bottomSpace)
+  gallery.flexContainer.css 'margin-bottom', -bottomSpace
 
 
 # Sets max height of images so they all fit in the window
 setImageHeight = (tallestImage) ->
   windowHeight = $(window).height()
-  navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight()
+  navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight(true)
+  captionHeight = getTallestCaption()
+  bottomSpace = navHeight + captionHeight
   fixedHeight = null
   padding = 10
 
-  if windowHeight <= tallestImage + navHeight
+  if windowHeight <= tallestImage + bottomSpace
     fixedHeight = windowHeight - navHeight - padding
   else
     fixedHeight = tallestImage - padding
 
   gallery.images.css 'max-height', fixedHeight
   gallery.slides.css 'height', fixedHeight
-  gallery.flexContainer.css 'padding-bottom', navHeight
+  gallery.flexContainer.css 'margin-bottom', bottomSpace
 
 setupFlexslider = ->
   tallestImage = getTallestImage()

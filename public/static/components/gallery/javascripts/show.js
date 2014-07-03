@@ -1,5 +1,5 @@
 (function() {
-  var gallery, getTallestImage, initializeFlexSlider, resetFlexslider, setImageHeight, setupFlexslider;
+  var gallery, getTallestCaption, getTallestImage, initializeFlexSlider, resetFlexslider, setImageHeight, setupFlexslider;
 
   gallery = {
     flexContainer: $('.flexslider'),
@@ -25,8 +25,24 @@
     return tallestImage;
   };
 
+  getTallestCaption = function() {
+    var tallestCaption;
+    gallery.slides.addClass('loading');
+    tallestCaption = 0;
+    gallery.flexContainer.find('.flex-caption').each(function() {
+      var curHeight;
+      curHeight = null;
+      curHeight = $(this).outerHeight(true);
+      if (curHeight > tallestCaption) {
+        return tallestCaption = curHeight;
+      }
+    });
+    gallery.slides.removeClass('loading');
+    return tallestCaption;
+  };
+
   initializeFlexSlider = function() {
-    var galleryOptions, navHeight, showThumbs;
+    var bottomSpace, captionHeight, galleryOptions, navHeight, showThumbs;
     galleryOptions = JSON.parse($('.gallery .config:first').html());
     showThumbs = (galleryOptions['show_thumbnails'] === "yes" ? "thumbnails" : true);
     gallery.flexContainer.flexslider({
@@ -37,23 +53,28 @@
       controlNav: showThumbs
     });
     navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight();
-    return gallery.flexContainer.css('padding-bottom', navHeight);
+    captionHeight = getTallestCaption();
+    bottomSpace = navHeight + captionHeight;
+    gallery.flexContainer.find('.flex-control-nav').css('bottom', -bottomSpace);
+    return gallery.flexContainer.css('margin-bottom', -bottomSpace);
   };
 
   setImageHeight = function(tallestImage) {
-    var fixedHeight, navHeight, padding, windowHeight;
+    var bottomSpace, captionHeight, fixedHeight, navHeight, padding, windowHeight;
     windowHeight = $(window).height();
-    navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight();
+    navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight(true);
+    captionHeight = getTallestCaption();
+    bottomSpace = navHeight + captionHeight;
     fixedHeight = null;
     padding = 10;
-    if (windowHeight <= tallestImage + navHeight) {
+    if (windowHeight <= tallestImage + bottomSpace) {
       fixedHeight = windowHeight - navHeight - padding;
     } else {
       fixedHeight = tallestImage - padding;
     }
     gallery.images.css('max-height', fixedHeight);
     gallery.slides.css('height', fixedHeight);
-    return gallery.flexContainer.css('padding-bottom', navHeight);
+    return gallery.flexContainer.css('margin-bottom', bottomSpace);
   };
 
   setupFlexslider = function() {
