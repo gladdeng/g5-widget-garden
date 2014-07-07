@@ -69,21 +69,36 @@ setImageHeight = (tallestImage) ->
   gallery.slides.css 'height', fixedHeight
   gallery.flexContainer.css 'margin-bottom', bottomSpace
 
+setMiniNavHeight = (tallestImage) ->
+  $('.flex-direction-nav a').height(tallestImage)
+
 setupFlexslider = (galleryOptions) ->
   tallestImage = getTallestImage()
   initializeFlexSlider(galleryOptions)
+
   if galleryOptions['mini_gallery'] is 'no'
     setImageHeight tallestImage
+
+  if galleryOptions['mini_gallery'] is 'yes'
+    setMiniNavHeight tallestImage
 
 resetFlexslider = ->
   tallestImage = getTallestImage()
   setImageHeight tallestImage
+
+resetMiniFlexslider = ->
+  tallestImage = getTallestImage()
+  setMiniNavHeight tallestImage
 
 $ ->
   galleryOptions = JSON.parse($('.gallery .config:first').html())
 
   setupFlexslider(galleryOptions)
 
-  $(window).smartresize ->
-    if galleryOptions['mini_gallery'] is 'no'
+  if galleryOptions['mini_gallery'] is 'no'
+    $(window).smartresize ->
       resetFlexslider()
+
+  if galleryOptions['mini_gallery'] is 'yes'
+    $(window).smartresize ->
+      resetMiniFlexslider()

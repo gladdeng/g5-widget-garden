@@ -1,5 +1,5 @@
 (function() {
-  var gallery, getTallestCaption, getTallestImage, initializeFlexSlider, resetFlexslider, setImageHeight, setupFlexslider;
+  var gallery, getTallestCaption, getTallestImage, initializeFlexSlider, resetFlexslider, resetMiniFlexslider, setImageHeight, setMiniNavHeight, setupFlexslider;
 
   gallery = {
     flexContainer: $('.flexslider'),
@@ -78,12 +78,19 @@
     return gallery.flexContainer.css('margin-bottom', bottomSpace);
   };
 
+  setMiniNavHeight = function(tallestImage) {
+    return $('.flex-direction-nav a').height(tallestImage);
+  };
+
   setupFlexslider = function(galleryOptions) {
     var tallestImage;
     tallestImage = getTallestImage();
     initializeFlexSlider(galleryOptions);
     if (galleryOptions['mini_gallery'] === 'no') {
-      return setImageHeight(tallestImage);
+      setImageHeight(tallestImage);
+    }
+    if (galleryOptions['mini_gallery'] === 'yes') {
+      return setMiniNavHeight(tallestImage);
     }
   };
 
@@ -93,15 +100,26 @@
     return setImageHeight(tallestImage);
   };
 
+  resetMiniFlexslider = function() {
+    var tallestImage;
+    tallestImage = getTallestImage();
+    return setMiniNavHeight(tallestImage);
+  };
+
   $(function() {
     var galleryOptions;
     galleryOptions = JSON.parse($('.gallery .config:first').html());
     setupFlexslider(galleryOptions);
-    return $(window).smartresize(function() {
-      if (galleryOptions['mini_gallery'] === 'no') {
+    if (galleryOptions['mini_gallery'] === 'no') {
+      $(window).smartresize(function() {
         return resetFlexslider();
-      }
-    });
+      });
+    }
+    if (galleryOptions['mini_gallery'] === 'yes') {
+      return $(window).smartresize(function() {
+        return resetMiniFlexslider();
+      });
+    }
   });
 
 }).call(this);
