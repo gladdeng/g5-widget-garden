@@ -116,17 +116,14 @@ CUSTOM STYLES
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.flexslider .slides {
-  overflow: hidden;
-}
-.csstransforms .flexslider .slides img {
+.csstransforms .full-gallery .slides img {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.flex-control-nav {
+.full-gallery .flex-control-nav {
   bottom: 0;
   line-height: .8125;
   position: absolute;

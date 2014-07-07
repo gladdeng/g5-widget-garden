@@ -13,7 +13,7 @@
   {% endif %}
 
   <div class="flexslider-container">
-    <div class = "flexslider">
+    <div class = "flexslider {% if widget.gallery_mini.best_value == 'yes' %}mini-gallery{% else %}full-gallery{% endif %}">
       <ul class="slides">
         {% if widget.gallery_photo1_url.best_value != "" %}
         <li data-thumb="{{ widget.gallery_photo1_url.best_value | url_encode}}"><img src="{{ widget.gallery_photo1_url.best_value | url_encode}}" alt="{{ widget.gallery_photo1_alt_tag.best_value }}" />{% if widget.gallery_photo1_caption.best_value != '' %}<p class="flex-caption">{{ widget.gallery_photo1_caption.best_value }}</p>{% endif %}</li>
