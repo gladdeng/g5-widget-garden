@@ -19,8 +19,7 @@ initializeFlexSlider = (galleryOptions) ->
 
   if galleryOptions['mini_gallery'] is 'no'
     # Set placement of gallery nav based on its height
-    navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight()
-    captionHeight = getTallestCaption()
+    navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight(true)
     gallery.flexContainer.find('.flex-control-nav').css('bottom', -navHeight)
     gallery.flexContainer.css 'margin-bottom', -navHeight
 
@@ -51,7 +50,7 @@ setImageHeight = (tallestImage) ->
 
   gallery.images.css 'max-height', fixedHeight
   gallery.slides.css 'height', fixedHeight
-  gallery.flexContainer.find('.flex-control-nav').css('bottom', -navHeight)
+  gallery.flexContainer.find('.flex-control-nav').css 'bottom', -navHeight
   gallery.flexContainer.css 'margin-bottom', navHeight
 
 setMiniNavHeight = (tallestImage) ->
@@ -63,7 +62,6 @@ setupFlexslider = (galleryOptions) ->
 
   if galleryOptions['mini_gallery'] is 'yes'
     setMiniNavHeight tallestImage
-
   else
     setImageHeight tallestImage
 
@@ -84,7 +82,6 @@ $ ->
   if galleryOptions['mini_gallery'] is 'yes'
     $(window).smartresize ->
       resetMiniFlexslider()
-
   else
     $(window).smartresize ->
       resetFlexslider()

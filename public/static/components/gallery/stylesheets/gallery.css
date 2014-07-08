@@ -116,6 +116,9 @@ CUSTOM STYLES
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+.flex-caption {
+  text-align: center;
+}
 .flex-control-nav {
   text-align: center;
   overflow: hidden;

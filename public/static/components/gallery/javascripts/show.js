@@ -9,7 +9,7 @@
   };
 
   initializeFlexSlider = function(galleryOptions) {
-    var captionHeight, navHeight, showThumbs;
+    var navHeight, showThumbs;
     showThumbs = (galleryOptions['show_thumbnails'] === "yes" ? "thumbnails" : true);
     gallery.flexContainer.flexslider({
       animation: galleryOptions['animation'],
@@ -19,8 +19,7 @@
       controlNav: showThumbs
     });
     if (galleryOptions['mini_gallery'] === 'no') {
-      navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight();
-      captionHeight = getTallestCaption();
+      navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight(true);
       gallery.flexContainer.find('.flex-control-nav').css('bottom', -navHeight);
       return gallery.flexContainer.css('margin-bottom', -navHeight);
     }
