@@ -7,7 +7,16 @@
     <ul>
       {% for web_page in widget.navigation.best_value %}
         {% if web_page[1].display != "false" %}
-        <li><a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a></li>
+        <li>
+          <a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a>
+          {% if web_page[1].top_level == "true" }
+            <ul>
+              {% for child_page in web_page[1].child_templates %}
+              <li><a href="{{ child_page.url | url_encode }}">{{ child_page.name }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
         {% endif %}
       {% endfor %}
     </ul>
