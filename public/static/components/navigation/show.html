@@ -6,7 +6,7 @@
   {% endif %}
     <ul>
       {% for web_page in widget.navigation.best_value %}
-        {% if web_page[1].display != "false" %}
+        {% if web_page[1].display != "false" and web_page[1].child_template? == false %}
         <li>
           <a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a>
           {% if web_page[1].top_level == true %}
