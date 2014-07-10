@@ -9,10 +9,10 @@
         {% if web_page[1].display != "false" and web_page[1].child_template? == false %}
         <li>
           <a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a>
-          {% if web_page[1].top_level == true %}
+          {% if web_page[1].child_templates != blank %}
             <ul>
               {% for child_page in web_page[1].child_templates %}
-              <li><a href="{{ child_page.url | url_encode }}">{{ child_page.name }}</a></li>
+              <li><a href="{{ child_page[1].url | url_encode }}">{{ child_page[1].name }}</a></li>
               {% endfor %}
             </ul>
           {% endif %}
@@ -22,3 +22,4 @@
     </ul>
   </nav>
 {% endif %}
+
