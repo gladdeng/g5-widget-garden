@@ -5,22 +5,22 @@
       Lead Form URL
     </label>
     <input type="text"
-      placeholder="Lead Form URL"
+      placeholder="http://path.to.my.leads.service"
       id="{{ widget.lead_form_url.value_field_id }}"
       name="{{ widget.lead_form_url.value_field_name }}"
       value="{{ widget.lead_form_url.best_value }}"
     />
   </div>
   <div class="form-field">
-    {{ widget.floorplans_service_url.id_hidden_field }}
-    <label for="{{ widget.floorplans_service_url.value_field_id }}">
-      Floorplans Service URL
+    {{ widget.core_store_id.id_hidden_field }}
+    <label for="{{ widget.core_store_id.value_field_id }}">
+      Core Store ID
     </label>
     <input type="text"
-      placeholder="client urn"
-      id="{{ widget.floorplans_service_url.value_field_id }}"
-      name="{{ widget.floorplans_service_url.value_field_name }}"
-      value="{{ widget.floorplans_service_url.best_value }}"
+      placeholder="1234"
+      id="{{ widget.core_store_id.value_field_id }}"
+      name="{{ widget.core_store_id.value_field_name }}"
+      value="{{ widget.core_store_id.best_value }}"
     />
   </div>
   <input type="submit" value="Save" class="btn" />
