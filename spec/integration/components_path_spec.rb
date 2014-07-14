@@ -9,10 +9,6 @@ describe "components_path" do
     expect(page).to have_content "G5 Widget Garden"
   end
 
-  it "has 38 widgets marked up as .h-g5-component" do
-    expect(all(".h-g5-component").length).to eq 38
-  end
-
   describe "every widget" do
     it "has a name" do
       all(".h-g5-component").each do |widget|
@@ -51,22 +47,4 @@ describe "components_path" do
     end
   end
 
-  describe "some widgets" do
-    it "have targets" do
-      pending "implement this spec when a widget goes live with targets"
-      expect(all(".h-g5-component .u-g5-target").length).to be 2
-    end
-
-    it "have stylesheets" do
-      expect(all(".h-g5-component .u-g5-stylesheet").length).to be 20
-    end
-
-    it "have show-javascripts" do
-      expect(all(".h-g5-component .u-g5-show-javascript").length).to be 14
-    end
-
-    it "have lib-javascripts" do
-      expect(all(".h-g5-component .u-g5-lib-javascript").length).to be 24
-    end
-  end
 end
