@@ -3,14 +3,11 @@
     var G5 = {
         iuiContainer: 'iui-container',
         coreStoreId: '{{ widget.core_store_id.best_value }}',
-        leadFormUrl: '{{ widget.lead_form_url.best_value }}',
-        floorplansServiceHost: "{{ widget.floorplans_service_host.best_value }}"
+        leadFormUrl: '{{ widget.lead_form_url.best_value | url_encode }}',
+        floorplansServiceHost: "{{ widget.floorplans_service_host.best_value | url_encode }}"
     };
     window.MultiFamilyIuiCardsENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"PER_PAGE":20},"APP":{}};
     window.EmberENV = window.MultiFamilyIuiCardsENV.EmberENV;
   </script>
 
   <div id="iui-container"></div>
-  <script>
-    //window.MultiFamilyIuiCards = require('multi-family-iui-cards/app')['default'].create(MultiFamilyIuiCardsENV.APP);
-  </script>
