@@ -23,5 +23,17 @@
       value="{{ widget.core_store_id.best_value }}"
     />
   </div>
+  <div class="form-field">
+    {{ widget.floorplans_service_host.id_hidden_field }}
+    <label for="{{ widget.floorplans_service_host.value_field_id }}">
+      Floorplans Service Host
+    </label>
+    <input type="text"
+      placeholder="http://www.mydomain.com"
+      id="{{ widget.floorplans_service_host.value_field_id }}"
+      name="{{ widget.floorplans_service_host.value_field_name }}"
+      value="{{ widget.floorplans_service_host.best_value }}"
+    />
+  </div>
   <input type="submit" value="Save" class="btn" />
 </form>
