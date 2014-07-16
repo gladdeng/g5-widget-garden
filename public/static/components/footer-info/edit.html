@@ -13,28 +13,52 @@
   </div>
 
   <div class="form-field">
-    <label for="{{ widget.custom_link_1.value_field_id }}" >
-      Custom Link 1
+    <label for="{{ widget.custom_link_1_text.value_field_id }}" >
+      Custom Link 1 Text
     </label>
-    {{ widget.custom_link_1.id_hidden_field }}
-    <input type="url"
-      id="{{ widget.custom_link_1.value_field_id }}"
-      name="{{ widget.custom_link_1.value_field_name }}"
-      value="{{ widget.custom_link_1.best_value | url_encode }}"
+    {{ widget.custom_link_1_text.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.custom_link_1_text.value_field_id }}"
+      name="{{ widget.custom_link_1_text.value_field_name }}"
+      value="{{ widget.custom_link_1_text.best_value }}"
       placeholder="e.g. Privacy Policy"
     />
   </div>
 
   <div class="form-field">
-    <label for="{{ widget.custom_link_2.value_field_id }}" >
-      Custom Link 2
+    <label for="{{ widget.custom_link_1_url.value_field_id }}" >
+      Custom Link 1 URL
     </label>
-    {{ widget.custom_link_2.id_hidden_field }}
+    {{ widget.custom_link_1_url.id_hidden_field }}
     <input type="url"
-      id="{{ widget.custom_link_2.value_field_id }}"
-      name="{{ widget.custom_link_2.value_field_name }}"
-      value="{{ widget.custom_link_2.best_value | url_encode }}"
+      id="{{ widget.custom_link_1_url.value_field_id }}"
+      name="{{ widget.custom_link_1_url.value_field_name }}"
+      value="{{ widget.custom_link_1_url.best_value | url_encode }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.custom_link_2_text.value_field_id }}" >
+      Custom Link 2 Text
+    </label>
+    {{ widget.custom_link_2_text.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.custom_link_2_text.value_field_id }}"
+      name="{{ widget.custom_link_2_text.value_field_name }}"
+      value="{{ widget.custom_link_2_text.best_value }}"
       placeholder="e.g. Terms and Conditions"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.custom_link_2_url.value_field_id }}" >
+      Custom Link 2 URL
+    </label>
+    {{ widget.custom_link_2_url.id_hidden_field }}
+    <input type="url"
+      id="{{ widget.custom_link_2_url.value_field_id }}"
+      name="{{ widget.custom_link_2_url.value_field_name }}"
+      value="{{ widget.custom_link_2_url.best_value | url_encode }}"
     />
   </div>
 

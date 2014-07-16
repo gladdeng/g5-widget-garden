@@ -1,7 +1,7 @@
 <div class="footer-info widget">
 
   {% if widget.facebook_username.best_value != '' or widget.twitter_username.best_value != "" or widget.yelp_username.best_value != "" or widget.google_plus_id.best_value != "" %}
-  <div class="social-links widget">
+  <div class="social-links">
     {% if widget.facebook_username.best_value != ""  %}
     <a href="http://facebook.com/{{ widget.facebook_username.best_value | url_encode }}" class="facebook" title="Facebook" rel="me">Facebook</a>
     {% endif %}
@@ -20,13 +20,13 @@
   </div>
   {% endif %}
 
-  {% if widget.custom_link_1.best_value != '' or widget.custom_link_2.best_value != '' %}
+  {% if widget.custom_link_1_url.best_value != '' or widget.custom_link_2_url.best_value != '' %}
   <div class="nav">
-    {% if widget.custom_link_1.best_value != ''%}
-    <a href="/">Privacy Policy</a>
+    {% if widget.custom_link_1_url.best_value != ''%}
+    <a href="{{ widget.custom_link_1_url.best_value | url_encode }}">{{ widget.custom_link_1_text.best_value }}</a>
     {% endif %}
-    {% if widget.custom_link_2.best_value != '' %}
-    <a href="/">Terms of Use</a>
+    {% if widget.custom_link_2_url.best_value != '' %}
+    <a href="{{ widget.custom_link_2_url.best_value | url_encode }}">{{ widget.custom_link_2_text.best_value }}</a>
     {% endif %}
   </div>
   {% endif %}
