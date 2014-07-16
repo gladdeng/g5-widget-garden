@@ -2,6 +2,10 @@
   float: right;
   text-align: right;
 }
+.footer-info .social-links,
+.footer-info .nav {
+  margin-bottom: .5em;
+}
 .footer-info .copyright {
   margin-top: 0;
 }
