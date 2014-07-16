@@ -1,17 +1,57 @@
 <div class="footer-info widget">
-  <p class="copyright">Copyright &copy; <span id="current-year">    </span> {{widget.location_name.best_value}}</p>
 
+  {% if widget.facebook_username.best_value != '' or widget.twitter_username.best_value != "" or widget.yelp_username.best_value != "" or widget.google_plus_id.best_value != "" %}
+  <div class="social-links">
+    {% if widget.facebook_username.best_value != ""  %}
+    <a href="http://facebook.com/{{ widget.facebook_username.best_value | url_encode }}" class="facebook" title="Facebook" rel="me">Facebook</a>
+    {% endif %}
+
+    {% if widget.twitter_username.best_value != ""  %}
+      <a href="http://www.twitter.com/{{ widget.twitter_username.best_value | url_encode }}" class="twitter" title="Twitter" rel="me">Twitter</a>
+    {% endif %}
+
+    {% if widget.yelp_username.best_value != ""  %}
+      <a href="http://www.yelp.com/biz/{{ widget.yelp_username.best_value | url_encode }}" class="yelp" title="Yelp" rel="me">Yelp</a>
+    {% endif %}
+
+    {% if widget.google_plus_id.best_value != ""  %}
+      <a href="https://plus.google.com/{{ widget.google_plus_id.best_value | url_encode }}" class="google-plus" title="Google Plus" rel="me">Google Plus</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if widget.custom_link_1_url.best_value != '' or widget.custom_link_2_url.best_value != '' %}
+  <div class="nav">
+    {% if widget.custom_link_1_url.best_value != ''%}
+    <a href="{{ widget.custom_link_1_url.best_value | url_encode }}">{{ widget.custom_link_1_text.best_value }}</a>
+    {% endif %}
+    {% if widget.custom_link_2_url.best_value != '' %}
+    <a href="{{ widget.custom_link_2_url.best_value | url_encode }}">{{ widget.custom_link_2_text.best_value }}</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if widget.display_copyright.best_value == "true" %}
+  <p class="copyright">Copyright &copy; <span id="current-year">    </span> {{widget.location_name.best_value}}</p>
+  {% endif %}
+
+  {% if widget.display_housing_icon.best_value == "true"  or widget.display_handicap_icon.best_value == "true" %}
   <p>
     <a href="http://getg5.com" class="dxm">DXM by G5</a>
     {% if widget.display_housing_icon.best_value == "true" %}
-      <span class="housing-icon access">Equal Opportunity Housing</span>
+    <span class="housing-icon access">Equal Opportunity Housing</span>
     {% endif %}
+
     {% if widget.display_handicap_icon.best_value == "true" %}
-      <span class="handicap-icon access">Handicap Friendly</span>
+    <span class="handicap-icon access">Handicap Friendly</span>
     {% endif %}
   </p>
+  {% endif %}
 
+  {% if widget.corporate_logo_url.best_value != '' %}
   <a class="corporate-logo" href="{{ widget.corporate_url.best_value | url_encode }}">
     <img src="{{ widget.corporate_logo_url.best_value | url_encode }}" alt="{{ widget.client_name.best_value }}" />
   </a>
+  {% endif %}
+
 </div>
