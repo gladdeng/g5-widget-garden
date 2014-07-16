@@ -1,5 +1,5 @@
-<div class="contact-info-sheet widget">
-  
+<div class="contact-info-sheet widget g5-enhanced-form">
+
   <script class="config" type="application/json">
     {
       "clientUrn": "{{ widget.client_urn.best_value }}",
@@ -9,17 +9,17 @@
 
   <div class="info-sheet-nav">
     <!-- use phone service for this number -->
-    <a class="info-sheet-phone-btn info-sheet-toggle" href="tel://8881234567">888-123-4567</a>
+    <a class="info-sheet-phone-btn info-sheet-toggle" href="tel://{{ widget.phone_number.best_value }}">{{ widget.phone_number.best_value }}</a>
     <a class="info-sheet-email-btn info-sheet-toggle" href="#">Email</a>
     <div class="info-sheet-page-up info-sheet-pagination">UP</div>
     <div class="info-sheet-page-down info-sheet-pagination">DOWN</div>
   </div> <!-- end .info-sheet-nav -->
 
   <div class="info-sheet-content">
-    <div class="info-sheet-phone">888-123-4567</div> <!-- end .info-sheet-phone -->
+    <div class="info-sheet-phone">{{ widget.phone_number.best_value }}</div> <!-- end .info-sheet-phone -->
     <div class="info-sheet-email">
 
-      <div class="g5-enhanced-form">
+      <div class="">
 
         {% if widget.form_title.best_value != "" %}
           <h3 class="form-heading">{{ widget.form_title.best_value}}</h3>
