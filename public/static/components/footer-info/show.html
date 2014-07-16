@@ -1,4 +1,16 @@
 <div class="footer-info widget">
+
+  {% if widget.custom_link_1.best_value != '' or widget.custom_link_2.best_value != '' %}
+  <div class="nav">
+    {% if widget.custom_link_1.best_value != ''%}
+    <a href="/">Privacy Policy</a>
+    {% endif %}
+    {% if widget.custom_link_2.best_value != '' %}
+    <a href="/">Terms of Use</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
   {% if widget.display_copyright.best_value == "true" %}
   <p class="copyright">Copyright &copy; <span id="current-year">    </span> {{widget.location_name.best_value}}</p>
   {% endif %}
@@ -21,4 +33,5 @@
     <img src="{{ widget.corporate_logo_url.best_value | url_encode }}" alt="{{ widget.client_name.best_value }}" />
   </a>
   {% endif %}
+
 </div>

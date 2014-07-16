@@ -13,6 +13,32 @@
   </div>
 
   <div class="form-field">
+    <label for="{{ widget.custom_link_1.value_field_id }}" >
+      Custom Link 1
+    </label>
+    {{ widget.custom_link_1.id_hidden_field }}
+    <input type="url"
+      id="{{ widget.custom_link_1.value_field_id }}"
+      name="{{ widget.custom_link_1.value_field_name }}"
+      value="{{ widget.custom_link_1.best_value | url_encode }}"
+      placeholder="e.g. Privacy Policy"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.custom_link_2.value_field_id }}" >
+      Custom Link 2
+    </label>
+    {{ widget.custom_link_2.id_hidden_field }}
+    <input type="url"
+      id="{{ widget.custom_link_2.value_field_id }}"
+      name="{{ widget.custom_link_2.value_field_name }}"
+      value="{{ widget.custom_link_2.best_value | url_encode }}"
+      placeholder="e.g. Terms and Conditions"
+    />
+  </div>
+
+  <div class="form-field">
     {{ widget.client_name.id_hidden_field }}
     <label for="{{ widget.client_name.value_field_id }}" >
       Client Name
@@ -29,10 +55,10 @@
       Corporate Site URL
     </label>
     {{ widget.corporate_url.id_hidden_field }}
-    <input type="text"
+    <input type="url"
       id="{{ widget.corporate_url.value_field_id }}"
       name="{{ widget.corporate_url.value_field_name }}"
-      value="{{ widget.corporate_url.best_value }}"
+      value="{{ widget.corporate_url.best_value | url_encode }}"
     />
   </div>
 
@@ -41,10 +67,10 @@
     <label for="{{ widget.corporate_logo_url.value_field_id }}" >
       Corporate Logo URL
     </label>
-    <input type="text"
+    <input type="url"
       id="{{ widget.corporate_logo_url.value_field_id }}"
       name="{{ widget.corporate_logo_url.value_field_name }}"
-      value="{{ widget.corporate_logo_url.best_value }}"
+      value="{{ widget.corporate_logo_url.best_value | url_encode }}"
     />
   </div>
 
