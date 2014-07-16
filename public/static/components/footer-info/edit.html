@@ -39,6 +39,54 @@
   </div>
 
   <div class="form-field">
+    <label for="{{ widget.twitter_username.value_field_id }}" >
+      Twitter Username
+    </label>
+    {{ widget.twitter_username.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.twitter_username.value_field_id }}"
+      name="{{ widget.twitter_username.value_field_name }}"
+      value="{{ widget.twitter_username.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.facebook_username.value_field_id }}" >
+      Facebook Username
+    </label>
+    {{ widget.facebook_username.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.facebook_username.value_field_id }}"
+      name="{{ widget.facebook_username.value_field_name }}"
+      value="{{ widget.facebook_username.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.yelp_username.value_field_id }}" >
+      Yelp Username
+    </label>
+    {{ widget.yelp_username.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.yelp_username.value_field_id }}"
+      name="{{ widget.yelp_username.value_field_name }}"
+      value="{{ widget.yelp_username.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.google_plus_id.value_field_id }}" >
+      Google + ID
+    </label>
+    {{ widget.google_plus_id.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.google_plus_id.value_field_id }}"
+      name="{{ widget.google_plus_id.value_field_name }}"
+      value="{{ widget.google_plus_id.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
     {{ widget.client_name.id_hidden_field }}
     <label for="{{ widget.client_name.value_field_id }}" >
       Client Name
