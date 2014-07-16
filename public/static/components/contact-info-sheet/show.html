@@ -10,7 +10,7 @@
   <div class="info-sheet-nav">
     <!-- use phone service for this number -->
     <a class="info-sheet-phone-btn info-sheet-toggle" href="tel://{{ widget.phone_number.best_value }}">{{ widget.phone_number.best_value }}</a>
-    <a class="info-sheet-email-btn info-sheet-toggle" href="#">Email</a>
+    <a class="info-sheet-email-btn info-sheet-toggle" href="{{ widget.contact_url.best_value | url_encode }}">Email</a>
     <div class="info-sheet-page-up info-sheet-pagination">UP</div>
     <div class="info-sheet-page-down info-sheet-pagination">DOWN</div>
   </div> <!-- end .info-sheet-nav -->

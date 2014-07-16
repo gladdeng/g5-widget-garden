@@ -37,6 +37,19 @@
   </div>
 
   <div class="form-field">
+    {{ widget.contact_url.id_hidden_field }}
+    <label for="{{ widget.contact_url.value_field_id }}" >
+      Contact Page URL
+    </label>
+    <input type="url"
+      id="{{ widget.contact_url.value_field_id }}"
+      name="{{ widget.contact_url.value_field_name }}"
+      value="{{ widget.contact_url.best_value | url_encode }}"
+      pattern="^https:\/\/.+"
+    />
+  </div>
+
+  <div class="form-field">
     <label for="{{ widget.cls_url.value_field_id }}" >
       Client Leads Service URL
     </label>
