@@ -60,4 +60,10 @@
     <a href="mailto:{{ widget.location_email.best_value | url_encode}}">Email Us</a>
   </p>
   {% endif %}
+
+  {% if widget.location_chat_url.best_value != "" %}
+  <p class="g5-chat chat">
+    <a href="{{ widget.location_chat_url.best_value | url_encode}}">Live Chat</a>
+  </p>
+  {% endif %}
 </div>
