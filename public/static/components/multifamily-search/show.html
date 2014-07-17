@@ -1,0 +1,14 @@
+  <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+  <base href="/" />
+  <script>
+    var G5 = {
+        corpSearchContainer: 'corp-search-container',
+        clientId: '{{ widget.core_client_id.best_value }}',
+        serviceHost: "{{ widget.core_service_url.best_value | url_encode }}"
+    };
+    window.MultiFamilySearchENV = {"environment":"production","baseURL":"/","EmberENV":{"FEATURES":{}},"APP":{}};
+    window.EmberENV = window.MultiFamilySearchENV.EmberENV;
+  </script>
+
+  <div id="corp-search-container"></div>
