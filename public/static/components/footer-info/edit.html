@@ -13,6 +13,104 @@
   </div>
 
   <div class="form-field">
+    <label for="{{ widget.custom_link_1_text.value_field_id }}" >
+      Custom Link 1 Text
+    </label>
+    {{ widget.custom_link_1_text.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.custom_link_1_text.value_field_id }}"
+      name="{{ widget.custom_link_1_text.value_field_name }}"
+      value="{{ widget.custom_link_1_text.best_value }}"
+      placeholder="e.g. Privacy Policy"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.custom_link_1_url.value_field_id }}" >
+      Custom Link 1 URL
+    </label>
+    {{ widget.custom_link_1_url.id_hidden_field }}
+    <input type="url"
+      id="{{ widget.custom_link_1_url.value_field_id }}"
+      name="{{ widget.custom_link_1_url.value_field_name }}"
+      value="{{ widget.custom_link_1_url.best_value | url_encode }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.custom_link_2_text.value_field_id }}" >
+      Custom Link 2 Text
+    </label>
+    {{ widget.custom_link_2_text.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.custom_link_2_text.value_field_id }}"
+      name="{{ widget.custom_link_2_text.value_field_name }}"
+      value="{{ widget.custom_link_2_text.best_value }}"
+      placeholder="e.g. Terms and Conditions"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.custom_link_2_url.value_field_id }}" >
+      Custom Link 2 URL
+    </label>
+    {{ widget.custom_link_2_url.id_hidden_field }}
+    <input type="url"
+      id="{{ widget.custom_link_2_url.value_field_id }}"
+      name="{{ widget.custom_link_2_url.value_field_name }}"
+      value="{{ widget.custom_link_2_url.best_value | url_encode }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.twitter_username.value_field_id }}" >
+      Twitter Username
+    </label>
+    {{ widget.twitter_username.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.twitter_username.value_field_id }}"
+      name="{{ widget.twitter_username.value_field_name }}"
+      value="{{ widget.twitter_username.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.facebook_username.value_field_id }}" >
+      Facebook Username
+    </label>
+    {{ widget.facebook_username.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.facebook_username.value_field_id }}"
+      name="{{ widget.facebook_username.value_field_name }}"
+      value="{{ widget.facebook_username.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.yelp_username.value_field_id }}" >
+      Yelp Username
+    </label>
+    {{ widget.yelp_username.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.yelp_username.value_field_id }}"
+      name="{{ widget.yelp_username.value_field_name }}"
+      value="{{ widget.yelp_username.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.google_plus_id.value_field_id }}" >
+      Google + ID
+    </label>
+    {{ widget.google_plus_id.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.google_plus_id.value_field_id }}"
+      name="{{ widget.google_plus_id.value_field_name }}"
+      value="{{ widget.google_plus_id.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
     {{ widget.client_name.id_hidden_field }}
     <label for="{{ widget.client_name.value_field_id }}" >
       Client Name
@@ -29,10 +127,10 @@
       Corporate Site URL
     </label>
     {{ widget.corporate_url.id_hidden_field }}
-    <input type="text"
+    <input type="url"
       id="{{ widget.corporate_url.value_field_id }}"
       name="{{ widget.corporate_url.value_field_name }}"
-      value="{{ widget.corporate_url.best_value }}"
+      value="{{ widget.corporate_url.best_value | url_encode }}"
     />
   </div>
 
@@ -41,11 +139,31 @@
     <label for="{{ widget.corporate_logo_url.value_field_id }}" >
       Corporate Logo URL
     </label>
-    <input type="text"
+    <input type="url"
       id="{{ widget.corporate_logo_url.value_field_id }}"
       name="{{ widget.corporate_logo_url.value_field_name }}"
-      value="{{ widget.corporate_logo_url.best_value }}"
+      value="{{ widget.corporate_logo_url.best_value | url_encode }}"
     />
+  </div>
+
+  <div class="form-field check-field">
+    {{ widget.display_copyright.id_hidden_field }}
+    <input type="hidden"
+      id="{{ widget.display_copyright.value_field_id }}_false"
+      name="{{ widget.display_copyright.value_field_name }}"
+      value="false"
+    />
+    <input type="checkbox"
+      id="{{ widget.display_copyright.value_field_id }}"
+      name="{{ widget.display_copyright.value_field_name }}"
+      value="true"
+      {% if widget.display_copyright.best_value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
+    <label for="{{ widget.display_copyright.value_field_id }}" >
+      Display Copyright
+    </label>
   </div>
 
   <div class="form-field check-field">

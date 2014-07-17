@@ -12,6 +12,10 @@
     <a href="http://www.yelp.com/biz/{{ widget.yelp_username.best_value | url_encode }}" class="yelp" title="Yelp" rel="me">Yelp</a>
   {% endif %}
 
+  {% if widget.google_plus_id.best_value != ""  %}
+      <a href="https://plus.google.com/{{ widget.google_plus_id.best_value | url_encode }}" class="google-plus" title="Google Plus" rel="me">Google Plus</a>
+    {% endif %}
+
   {% if widget.foursquare_username.best_value != "" %}
     <a href="http://foursquare.com/{{ widget.foursquare_username.best_value | url_encode }}" class="foursquare" title="Foursquare" rel="me">Foursquare</a>
   {% endif %}
