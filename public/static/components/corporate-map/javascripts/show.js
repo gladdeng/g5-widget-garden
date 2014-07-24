@@ -435,9 +435,18 @@
       map.countries[key] = path;
 
       if (this.canvas.mode == 'svg') {
-        path.setAttribute('class', 'jvectormap-region');
+
+        if (params.selectedRegions.indexOf(key.toUpperCase()) > -1) {
+          path.setAttribute('class', 'jvectormap-region selected');
+        } else {
+          path.setAttribute('class', 'jvectormap-region deselected');
+        }
       } else {
         jQuery(path).addClass('jvectormap-region');
+
+        if (params.selectedRegions.indexOf(key.toUpperCase()) > -1) {
+          jQuery(path).addClass('selected');
+        }
       }
 
       jQuery(this.rootGroup).append(path);
