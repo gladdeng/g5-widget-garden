@@ -70,7 +70,9 @@
       selectedRegions: null,
       multiSelectRegion: false,
       onRegionClick: function(element, code, region) {
-        window.location.href = "/" + stateMapping[code.toUpperCase()];
+        if (options.selectedRegions.indexOf(code.toUpperCase()) > -1) {
+          window.location.href = "/" + stateMapping[code.toUpperCase()];
+        }
       }
     }, map = this.data('mapObject');
 
@@ -439,7 +441,7 @@
         if (params.selectedRegions.indexOf(key.toUpperCase()) > -1) {
           path.setAttribute('class', 'jvectormap-region selected');
         } else {
-          path.setAttribute('class', 'jvectormap-region deselected');
+          path.setAttribute('class', 'jvectormap-region disabled');
         }
       } else {
         jQuery(path).addClass('jvectormap-region');
@@ -460,17 +462,21 @@
 
       if (e.type == 'mouseover') {
         jQuery(params.container).trigger(regionMouseOverEvent, [code, mapData.pathes[code].name]);
-        if (!regionMouseOverEvent.isDefaultPrevented()) {
-          map.highlight(code, path);
-        }
-        if (params.showTooltip) {
-          map.label.text(mapData.pathes[code].name);
-          jQuery(params.container).trigger(labelShowEvent, [map.label, code]);
 
-          if (!labelShowEvent.isDefaultPrevented()) {
-            map.label.show();
-            map.labelWidth = map.label.width();
-            map.labelHeight = map.label.height();
+        if ($(this).attr("class").indexOf("selected") >= 0) {
+          if (!regionMouseOverEvent.isDefaultPrevented()) {
+            map.highlight(code, path);
+          }
+
+          if (params.showTooltip) {
+            map.label.text(mapData.pathes[code].name);
+            jQuery(params.container).trigger(labelShowEvent, [map.label, code]);
+
+            if (!labelShowEvent.isDefaultPrevented()) {
+              map.label.show();
+              map.labelWidth = map.label.width();
+              map.labelHeight = map.label.height();
+            }
           }
         }
       } else {
@@ -496,11 +502,11 @@
       jQuery(params.container).trigger('regionClick.jqvmap', [code, mapData.pathes[code].name]);
 
       //if (!regionClickEvent.isDefaultPrevented()) {
-        //if (map.selectedRegions.indexOf(code) !== -1) {
-          //map.deselect(code, path);
-        //} else {
-          //map.select(code, path);
-        //}
+      //if (map.selectedRegions.indexOf(code) !== -1) {
+      //map.deselect(code, path);
+      //} else {
+      //map.select(code, path);
+      //}
       //}
 
       //console.log(selectedRegions);
@@ -510,17 +516,17 @@
     if (params.showTooltip) {
       params.container.mousemove(function (e) {
         if (map.label.is(':visible')) {
-            var left = e.pageX - 15 - map.labelWidth;
-            var top = e.pageY - 15 - map.labelHeight;
-            
-            if(left < 0)
-               left = e.pageX + 15;
-            if(top < 0)
-                top = e.pageY + 15;
-            
-            map.label.css({
-                left: left,
-                top: top
+          var left = e.pageX - 15 - map.labelWidth;
+          var top = e.pageY - 15 - map.labelHeight;
+
+          if(left < 0)
+            left = e.pageX + 15;
+          if(top < 0)
+            top = e.pageY + 15;
+
+          map.label.css({
+            left: left,
+            top: top
           });
         }
       });
@@ -550,15 +556,15 @@
     }
 
     this.bindZoomButtons();
-    
+
     if(params.pins) {
       /*if(params.pinMode) {
-          if(params.pinMode != "id" && params.pinMode != "content") {
-              params.pinMode = "content";
-          }
-      } else {
-          params.pinMode = "content";
-      }*/
+        if(params.pinMode != "id" && params.pinMode != "content") {
+        params.pinMode = "content";
+        }
+        } else {
+        params.pinMode = "content";
+        }*/
       this.pinHandlers = false;
       this.placePins(params.pins, params.pinMode);
     }
