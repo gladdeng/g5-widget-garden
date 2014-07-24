@@ -11,6 +11,7 @@
  */
 (function() {
   var regionClickEvent
+
   var stateMapping = {
     "AL": "alabama", "AK": "alaska", "AS": "american-samoa", "AZ": "arizona",
     "AR": "arkansas", "CA": "california", "CO": "colorado", "CT": "connecticut",
@@ -65,7 +66,7 @@
       enableZoom: false,
       showTooltip: true,
       borderColor: '#818181',
-      borderWidth: 1.2,
+      borderWidth: 1.3,
       borderOpacity: 1,
       selectedRegions: null,
       multiSelectRegion: false,
@@ -469,7 +470,8 @@
           }
 
           if (params.showTooltip) {
-            map.label.text(mapData.pathes[code].name);
+            map.label.html("<div class='jqvmap-label-header'>" + mapData.pathes[code].name + "</div><div class='jqvmap-label-body'>" + params.locationCounts[code.toUpperCase()] + " Locations</div>");
+
             jQuery(params.container).trigger(labelShowEvent, [map.label, code]);
 
             if (!labelShowEvent.isDefaultPrevented()) {

@@ -1,24 +1,27 @@
-/*!
- * jQVMap Version 1.0 
- *
- * http://jqvmap.com
- *
- * Copyright 2012, Peter Schmalfeldt <manifestinteractive@gmail.com>
- * Licensed under the MIT license.
- *
- * Fork Me @ https://github.com/manifestinteractive/jqvmap
- */
 .jqvmap-label {
   position: absolute;
   display: none;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background: #292929;
-  color: white;
-  font-family: sans-serif, Verdana;
-  font-size: smaller;
-  padding: 3px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border:1px solid #bbb;
+  color: #666;
+  font-family: sans-serif;
+  font-size: 0.9em;
+  text-align:center;
+  background:#fff;
+  padding: 1px;
+}
+
+.jqvmap-label-header {
+  background: #f6f6f6;
+  padding:5px 8px;
+  border-bottom:1px solid #ddd;
+}
+
+.jqvmap-label-body {
+  background:#fff;
+  padding:5px 8px;
 }
 
 .jqvmap-zoomin, .jqvmap-zoomout {
