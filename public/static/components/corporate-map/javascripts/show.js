@@ -56,17 +56,17 @@
 
     var defaultParams = {
       map: 'world_en',
-      backgroundColor: '#a5bfdd',
+      backgroundColor: null,
       color: '#f4f3f0',
       hoverColor: '#c9dfaf',
       selectedColor: '#c9dfaf',
       scaleColors: ['#b6d6ff', '#005ace'],
       normalizeFunction: 'linear',
-      enableZoom: true,
+      enableZoom: false,
       showTooltip: true,
       borderColor: '#818181',
-      borderWidth: 1,
-      borderOpacity: 0.25,
+      borderWidth: 1.2,
+      borderOpacity: 1,
       selectedRegions: null,
       multiSelectRegion: false,
       onRegionClick: function(element, code, region) {
