@@ -4,18 +4,10 @@
       "map": "usa_en",
       "borderColor": "#FFFFFF",
       "color": "#d6d6d6",
-      "hoverColor": "#333333",
-      "selectedColor": "#222222",
-      "selectedRegions": ["CA", "OR", "WA", "NV", "WY", "ID"],
-      "locationCounts": {
-        "MO": 2,
-        "OR": 3,
-        "NV": 145,
-        "WY": 34,
-        "ID": 10,
-        "CA": 4,
-        "WA": 5
-      }
+      "hoverColor": {{ widget.corporate_map.best_value.hover_color }},
+      "selectedColor": {{ widget.corporate_map.best_value.primary_color }},
+      "selectedRegions": {{ widget.corporate_map.best_value.populated_states }},
+      "locationCounts": {{ widget.corporate_map.best_value.state_location_counts }}
     }
   </script>
 
