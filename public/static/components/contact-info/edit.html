@@ -107,7 +107,7 @@
   <div class="form-field">
     {{ widget.location_postal_code.id_hidden_field }}
     <label for="{{ widget.location_postal_code.value_field_id }}" >
-      zip
+      Postal Code
     </label>
     <input type="text"
       id="{{ widget.location_postal_code.value_field_id }}"
@@ -120,7 +120,7 @@
   <div class="form-field">
     {{ widget.location_country.id_hidden_field }}
     <label for="{{ widget.location_country.value_field_id }}" >
-      country
+      Country
     </label>
     <input type="text"
       id="{{ widget.location_country.value_field_id }}"
@@ -132,7 +132,7 @@
   <div class="form-field">
     {{ widget.location_tel.id_hidden_field }}
     <label for="{{ widget.location_tel.value_field_id }}" >
-      tel
+      Tel
     </label>
     <input type="tel"
       id="{{ widget.location_tel.value_field_id }}"
@@ -145,7 +145,7 @@
   <div class="form-field">
     {{ widget.location_fax.id_hidden_field }}
     <label for="{{ widget.location_fax.value_field_id }}" >
-      fax
+      Fax
     </label>
     <input type="tel"
       id="{{ widget.location_fax.value_field_id }}"
@@ -157,12 +157,24 @@
   <div class="form-field">
     {{ widget.location_email.id_hidden_field }}
     <label for="{{ widget.location_email.value_field_id }}" >
-      email
+      Email
     </label>
     <input type="email"
       id="{{ widget.location_email.value_field_id }}"
       name="{{ widget.location_email.value_field_name }}"
       value="{{ widget.location_email.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    {{ widget.location_chat_url.id_hidden_field }}
+    <label for="{{ widget.location_chat_url.value_field_id }}" >
+      Chat URL
+    </label>
+    <input type="url"
+      id="{{ widget.location_chat_url.value_field_id }}"
+      name="{{ widget.location_chat_url.value_field_name }}"
+      value="{{ widget.location_chat_url.best_value | url_encode }}"
     />
   </div>
 
