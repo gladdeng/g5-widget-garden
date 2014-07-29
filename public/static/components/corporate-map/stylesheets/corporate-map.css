@@ -1,0 +1,66 @@
+.jqvmap-label {
+  position: absolute;
+  display: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border:1px solid #bbb;
+  color: #666;
+  font-family: sans-serif;
+  font-size: 0.9em;
+  text-align:center;
+  background:#fff;
+  padding: 1px;
+}
+
+.jqvmap-label-header {
+  background: #f6f6f6;
+  padding:5px 8px;
+  border-bottom:1px solid #ddd;
+}
+
+.jqvmap-label-body {
+  background:#fff;
+  padding:5px 8px;
+}
+
+.jqvmap-zoomin, .jqvmap-zoomout {
+  position: absolute;
+  left: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #000000;
+  padding: 3px;
+  color: white;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  line-height: 10px;
+  text-align: center;
+}
+
+.jqvmap-zoomin {
+  top: 10px;
+}
+
+.jqvmap-zoomout {
+  top: 30px;
+}
+
+.jqvmap-region {
+  cursor: pointer;
+}
+
+.jqvmap-ajax_response {
+  width: 100%;
+}
+
+.selected {
+  cursor:pointer;
+}
+
+.corporate-map {
+  width:100%;
+  min-height:400px;
+}
