@@ -12,7 +12,6 @@
 
   <style>
     /* Primary color customizations */
-    #iui-cards-wrapper .iui-cards-nav a.active span{ color:{{widget.primary_color.best_value}}; }
     #iui-cards-wrapper .iui-cards-unit-categories .category-card-title,
     #iui-cards-wrapper .floorplan-card .floorplan-card-title,
     #iui-cards-wrapper .unit-numbers{ background:{{widget.primary_color.best_value}}; }
@@ -34,28 +33,27 @@
 
     /* Accent-Color-2 color customizations */
     #iui-cards-wrapper .iui-cards-nav div{ border-top: 1px solid {{widget.accent_color_2.best_value}}; }
-    #iui-cards-wrapper .iui-cards-nav a{ background: {{widget.accent_color_2.best_value}}; }
+
+    #iui-cards-wrapper .iui-cards-nav a,
+    #iui-cards-wrapper.medium .iui-cards-floorplan-details,
+    #iui-cards-wrapper.narrow .iui-cards-floorplan-details,
+    #iui-cards-wrapper .floorplan-card .unit-baths span,
+    #iui-cards-wrapper .floorplan-card .unit-beds span{ background: {{widget.accent_color_2.best_value}}; }
+
     #iui-cards-wrapper .floorplan-card a.floorplan-image svg line{ stroke:{{widget.accent_color_2.best_value}}; }
     #iui-cards-wrapper .floorplan-card a.floorplan-image svg circle{ fill:{{widget.accent_color_2.best_value}}; }
-    #iui-cards-wrapper .floorplan-card a.floorplan-image span{background-color:{{widget.accent_color_2.best_value}};}
+
+    #iui-cards-wrapper .floorplan-card a.floorplan-image span,
+    #iui-cards-wrapper .iui-cards-pagination div span a,
+    #iui-cards-wrapper .filter-select select{background-color:{{widget.accent_color_2.best_value}};}
+
     #iui-cards-wrapper .iui-cards-floorplan-details{
       background-image: linear-gradient(to right, transparent, transparent 299px, {{widget.accent_color_2.best_value}} 299px);
     }
-    #iui-cards-wrapper.medium .iui-cards-floorplan-details,
-    #iui-cards-wrapper.narrow .iui-cards-floorplan-details{ background:{{widget.accent_color_2.best_value}}; }
-    #iui-cards-wrapper .iui-cards-pagination div span a,
-    #iui-cards-wrapper.filter-select select{ background-color:{{widget.accent_color_2.best_value}}; }
-
-    #iui-cards-wrapper .floorplan-card .unit-baths span,
-    #iui-cards-wrapper .floorplan-card .unit-beds span{ background:{{widget.accent_color_2.best_value}}; }
-
     
-    /* Dark Text */
+    /* Text Colors */
     #iui-cards-wrapper .floorplan-card{ color:{{widget.text_color_dark.best_value}}; }
-    
-
+    #iui-cards-wrapper .iui-cards-nav a.active span{ color:{{widget.nav_text_color.best_value}}; }
   </style>
 
   <div id="iui-container"></div>
-
-  <h1>(.Y.) ahhhhh</h1>
