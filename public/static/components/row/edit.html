@@ -15,6 +15,33 @@
       placeholder="example: #fff" />
     </div>
 
+    <div class="form-field check-field">
+      <fieldset>
+      <legend>Row Text Color</legend>
+        {{ widget.row_text_color.id_hidden_field }}
+        <input type="radio"
+          id="{{ widget.row_text_color.value_field_id }}_light"
+          name="{{ widget.row_text_color.value_field_name }}"
+          value="light"
+          checked="checked"
+        />
+        <label for="{{ widget.row_text_color.value_field_id }}_light" >
+          Light
+        </label>
+        <input type="radio"
+          id="{{ widget.row_text_color.value_field_id }}_dark"
+          name="{{ widget.row_text_color.value_field_name }}"
+          value="dark"
+          {% if widget.row_text_color.best_value == "dark" %}
+          checked="checked"
+          {% endif %}
+        />
+        <label for="{{ widget.row_text_color.value_field_id }}_dark" >
+          Dark
+        </label>
+      </fieldset>
+    </div>
+
     <!-- Select Row Layout -->
     <div class="form-field">
       {{ widget.row_layout.id_hidden_field }}
