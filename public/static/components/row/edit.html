@@ -20,13 +20,13 @@
       <legend>Row Text Color</legend>
         {{ widget.row_text_color.id_hidden_field }}
         <input type="radio"
-          id="{{ widget.row_text_color.value_field_id }}_light"
+          id="{{ widget.row_text_color.value_field_id }}_default"
           name="{{ widget.row_text_color.value_field_name }}"
-          value="light"
+          value="default"
           checked="checked"
         />
-        <label for="{{ widget.row_text_color.value_field_id }}_light" >
-          Light
+        <label for="{{ widget.row_text_color.value_field_id }}_default" >
+          Default
         </label>
         <input type="radio"
           id="{{ widget.row_text_color.value_field_id }}_dark"
@@ -39,6 +39,18 @@
         <label for="{{ widget.row_text_color.value_field_id }}_dark" >
           Dark
         </label>
+        <input type="radio"
+          id="{{ widget.row_text_color.value_field_id }}_light"
+          name="{{ widget.row_text_color.value_field_name }}"
+          value="light"
+          {% if widget.row_text_color.best_value == "light" %}
+          checked="checked"
+          {% endif %}
+        />
+        <label for="{{ widget.row_text_color.value_field_id }}_light" >
+          Light
+        </label>
+
       </fieldset>
     </div>
 
