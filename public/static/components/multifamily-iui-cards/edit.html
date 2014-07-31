@@ -35,5 +35,77 @@
       value="{{ widget.floorplans_service_host.best_value }}"
     />
   </div>
+  <div class="form-field">
+    {{ widget.primary_color.id_hidden_field }}
+    <label for="{{ widget.primary_color.value_field_id }}">
+      Primary Color
+    </label>
+    <input type="text"
+      placeholder="#252b32"
+      id="{{ widget.primary_color.value_field_id }}"
+      name="{{ widget.primary_color.value_field_name }}"
+      value="{{ widget.primary_color.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.secondary_color.id_hidden_field }}
+    <label for="{{ widget.secondary_color.value_field_id }}">
+      Secondary Color
+    </label>
+    <input type="text"
+      placeholder="#005892"
+      id="{{ widget.secondary_color.value_field_id }}"
+      name="{{ widget.secondary_color.value_field_name }}"
+      value="{{ widget.secondary_color.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.accent_color_1.id_hidden_field }}
+    <label for="{{ widget.accent_color_1.value_field_id }}">
+      Accent Color 1
+    </label>
+    <input type="text"
+      placeholder="#fe7b6f"
+      id="{{ widget.accent_color_1.value_field_id }}"
+      name="{{ widget.accent_color_1.value_field_name }}"
+      value="{{ widget.accent_color_1.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.accent_color_2.id_hidden_field }}
+    <label for="{{ widget.accent_color_2.value_field_id }}">
+      Accent Color 2
+    </label>
+    <input type="text"
+      placeholder="#526173"
+      id="{{ widget.accent_color_2.value_field_id }}"
+      name="{{ widget.accent_color_2.value_field_name }}"
+      value="{{ widget.accent_color_2.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.text_color_dark.id_hidden_field }}
+    <label for="{{ widget.text_color_dark.value_field_id }}">
+      Text Color Dark
+    </label>
+    <input type="text"
+      placeholder="#000000"
+      id="{{ widget.text_color_dark.value_field_id }}"
+      name="{{ widget.text_color_dark.value_field_name }}"
+      value="{{ widget.text_color_dark.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.nav_text_color.id_hidden_field }}
+    <label for="{{ widget.nav_text_color.value_field_id }}">
+      Nav Text Color
+    </label>
+    <input type="text"
+      placeholder="#000000"
+      id="{{ widget.nav_text_color.value_field_id }}"
+      name="{{ widget.nav_text_color.value_field_name }}"
+      value="{{ widget.nav_text_color.best_value }}"
+    />
+  </div>
   <input type="submit" value="Save" class="btn" />
 </form>
