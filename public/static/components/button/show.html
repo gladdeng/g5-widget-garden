@@ -7,7 +7,7 @@
     {% endif %}
 
     {% if widget.button_label.best_value != "" %}
-      <span class="btn">
+      <span class="btn" {% if widget.button_color.best_value != '' %}style="background-color: {{widget.button_color.best_value}}"{% endif %}>
         {{ widget.button_label.best_value }}
       </span>
     {% endif %}
