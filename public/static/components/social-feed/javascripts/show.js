@@ -119,7 +119,7 @@
       user = timestamp.find("a").attr("href");
       avatarUrl = $(avatar[0]).attr('src');
       userName = $(tweet).find('.fullname').html();
-      userUrl = twitterUrl + '/' + userName;
+      userUrl = twitterUrl + '/' + feedVars.twitter_username;
       url = twitterUrl + user;
       tweetHtml = $(tweet).find(".tweet-text");
       replyHtml = tweetHtml.find(".twitter-atreply");
@@ -140,7 +140,7 @@
   };
 
   tweetTemplate = function(avatar, userName, userUrl, text, url) {
-    return "<li><span class='tweet-avatar'><img src='" + avatar + "'/></span>  <a href=" + userUrl + " class='tweet-name' target='_blank'>" + userName + " says:</a>  <span class='tweet-text'> " + text + "</span></li>";
+    return " <li>      <span class='tweet-avatar'><img src='" + avatar + "'/></span>      <a href='" + url + "' class='tweet-name' target='_blank'> " + userName + " says:</a>      <span class='tweet-text'> " + text + "</span>    </li>";
   };
 
 }).call(this);

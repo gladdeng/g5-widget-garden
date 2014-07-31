@@ -1,5 +1,7 @@
 $ ->
 
+  # play defense on show_entry_summary and entries_to_show in case we get bad inputs
+
   # Get social feed config options
   feedVars = JSON.parse($('#social-feed-config').html())
 
@@ -80,7 +82,7 @@ composeTweet = (feedVars, tweets, avatar) ->
     user = timestamp.find("a").attr("href")
     avatarUrl = $(avatar[0]).attr('src')
     userName = $(tweet).find('.fullname').html()
-    userUrl = twitterUrl + '/' + userName
+    userUrl = twitterUrl + '/' + feedVars.twitter_username
     url = twitterUrl + user
     tweetHtml = $(tweet).find(".tweet-text")
     replyHtml = tweetHtml.find(".twitter-atreply")
@@ -103,7 +105,8 @@ composeTweet = (feedVars, tweets, avatar) ->
   $('#twitter-feed .tweet-list').append(composedTweets)
 
 tweetTemplate = (avatar, userName, userUrl, text, url) ->
-  "<li><span class='tweet-avatar'><img src='" + avatar + "'/></span>
-  <a href=" + userUrl + " class='tweet-name' target='_blank'>" + userName + " says:</a>
-  <span class='tweet-text'> " + text +
-  "</span></li>"
+  " <li>
+      <span class='tweet-avatar'><img src='#{avatar}'/></span>
+      <a href='#{url}' class='tweet-name' target='_blank'> #{userName} says:</a>
+      <span class='tweet-text'> #{text}</span>
+    </li>"
