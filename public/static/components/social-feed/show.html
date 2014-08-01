@@ -10,25 +10,25 @@
     }
   </script>
 
-  {% if widget.blog_feed_url.best_value != '' and  widget.twitter_username.best_value != '' %}
+  
   <div class="feed-switcher">
     <a class="feed-switch active" id="feed-switch-twitter" href="#twitter-feed" title="Show Tweets">Show Twitter Feed</a>
     <a class="feed-switch" id="feed-switch-blog" href="#blog-feed" title="Show Blog Feed">Show Blog Feed</a>
   </div>
-  {% endif %}
 
-  {% if widget.twitter_username.best_value != '' %}
+
+  
   <div id="twitter-feed" class="twitter-feed feed-section">
     <ul class="tweet-list">
     </ul>
     <a class="btn" href="http://www.twitter.com/{{ widget.twitter_username.best_value }}" href="#" target="_blank">Read All</a>
   </div>
-  {% endif %}
+  
 
-  {% if widget.blog_feed_url.best_value != '' %}
+  
   <div id="blog-feed"  class="blog-feed feed-section">
     <ul class="h-feed feed"></ul>
   </div>
-  {% endif %}
+  
 
 </div>

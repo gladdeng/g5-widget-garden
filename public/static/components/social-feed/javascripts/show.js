@@ -1,15 +1,15 @@
 (function() {
-  var BlogFetcher, composeTweet, tweetTemplate;
+  var BlogFetcher, tweetBuilder, tweetInitializer;
 
   $(function() {
     var blogConfig, feedVars;
     feedVars = JSON.parse($('#social-feed-config').html());
-    if (feedVars.feed_url !== '') {
+    if (feedVars.feed_url.length > 10) {
       blogConfig = new window.BlogConfig(feedVars);
       new window.BlogInterface($("#blog-feed .feed"), blogConfig);
     }
-    if (feedVars.twitter_username !== '') {
-      initTweets(feedVars);
+    if (feedVars.twitter_username.length > 1) {
+      new tweetInitializer(feedVars);
     }
     if (feedVars.feed_url !== '' && feedVars.twitter_username !== '') {
       $('#blog-feed').hide();
@@ -36,7 +36,10 @@
 
   BlogFetcher = (function() {
     function BlogFetcher(url) {
+      var spot;
       this.url = url;
+      spot = "how the fuck did we get here?";
+      debugger;
     }
 
     BlogFetcher.prototype.fetch = function() {
@@ -96,51 +99,63 @@
 
   })();
 
-  window.initTweets = function(feedVars) {
-    return $.ajax({
-      url: "https://mobile.twitter.com/" + feedVars.twitter_username,
-      dataType: "html",
-      type: "GET"
-    }).done(function(data) {
-      var avatar, tweets;
-      tweets = $(".timeline .tweet:lt(" + feedVars.tweet_count + ")", data.results[0]).toArray();
-      avatar = $(".avatar:lt(1) img", data.results[0]);
-      return composeTweet(data, tweets, avatar);
-    });
-  };
-
-  composeTweet = function(feedVars, tweets, avatar) {
-    var composedTweets, twitterUrl;
-    twitterUrl = "http://www.twitter.com";
-    composedTweets = [];
-    tweets.forEach(function(tweet) {
-      var avatarUrl, replyHtml, timestamp, tweetHtml, url, user, userInfo, userName, userUrl;
-      timestamp = $(tweet).find(".timestamp");
-      user = timestamp.find("a").attr("href");
-      avatarUrl = $(avatar[0]).attr('src');
-      userName = $(tweet).find('.fullname').html();
-      userUrl = twitterUrl + '/' + feedVars.twitter_username;
-      url = twitterUrl + user;
-      tweetHtml = $(tweet).find(".tweet-text");
-      replyHtml = tweetHtml.find(".twitter-atreply");
-      if ($(tweet).has('.context').length > 0) {
-        userInfo = $(tweet).find('.tweet-header');
-        avatarUrl = userInfo.find(".avatar img").attr("src");
-        userName = userInfo.find(".fullname").html();
-      }
-      if (feedVars.display_avatar === false) {
-        avatarUrl = 'https://widgets.g5dxm.com/social-feed/icon-speech.png';
-      }
-      replyHtml.each(function() {
-        return $(this).attr("href", twitterUrl + $(this).attr("href"));
+  tweetInitializer = (function() {
+    function tweetInitializer(feedVars) {
+      $.ajax({
+        url: "https://mobile.twitter.com/" + feedVars.twitter_username,
+        dataType: "html",
+        type: "GET"
+      }).done(function(data) {
+        var avatar, tweets;
+        tweets = $(".timeline .tweet:lt(" + feedVars.tweet_count + ")", data.results[0]).toArray();
+        avatar = $(".avatar:lt(1) img", data.results[0]);
+        return new tweetBuilder(data, tweets, avatar);
       });
-      return composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url));
-    });
-    return $('#twitter-feed .tweet-list').append(composedTweets);
-  };
+    }
 
-  tweetTemplate = function(avatar, userName, userUrl, text, url) {
-    return " <li>      <span class='tweet-avatar'><img src='" + avatar + "'/></span>      <a href='" + url + "' class='tweet-name' target='_blank'> " + userName + " says:</a>      <span class='tweet-text'> " + text + "</span>    </li>";
-  };
+    return tweetInitializer;
+
+  })();
+
+  tweetBuilder = (function() {
+    var tweetTemplate;
+
+    function tweetBuilder(feedVars, tweets, avatar) {
+      var composedTweets, twitterUrl;
+      twitterUrl = "http://www.twitter.com";
+      composedTweets = [];
+      tweets.forEach(function(tweet) {
+        var avatarUrl, replyHtml, timestamp, tweetHtml, url, user, userInfo, userName, userUrl;
+        timestamp = $(tweet).find(".timestamp");
+        user = timestamp.find("a").attr("href");
+        avatarUrl = $(avatar[0]).attr('src');
+        userName = $(tweet).find('.fullname').html();
+        userUrl = twitterUrl + '/' + feedVars.twitter_username;
+        url = twitterUrl + user;
+        tweetHtml = $(tweet).find(".tweet-text");
+        replyHtml = tweetHtml.find(".twitter-atreply");
+        if ($(tweet).has('.context').length > 0) {
+          userInfo = $(tweet).find('.tweet-header');
+          avatarUrl = userInfo.find(".avatar img").attr("src");
+          userName = userInfo.find(".fullname").html();
+        }
+        if (feedVars.display_avatar === false) {
+          avatarUrl = 'https://widgets.g5dxm.com/social-feed/icon-speech.png';
+        }
+        replyHtml.each(function() {
+          return $(this).attr("href", twitterUrl + $(this).attr("href"));
+        });
+        return composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url));
+      });
+      $('#twitter-feed .tweet-list').append(composedTweets);
+    }
+
+    tweetTemplate = function(avatar, userName, userUrl, text, url) {
+      return " <li>        <span class='tweet-avatar'><img src='" + avatar + "'/></span>        <a href='" + url + "' class='tweet-name' target='_blank'> " + userName + " says:</a>        <span class='tweet-text'> " + text + "</span>      </li>";
+    };
+
+    return tweetBuilder;
+
+  })();
 
 }).call(this);

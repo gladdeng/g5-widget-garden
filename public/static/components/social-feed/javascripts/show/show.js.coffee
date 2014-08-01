@@ -1,18 +1,27 @@
 $ ->
-
-  # play defense on show_entry_summary and entries_to_show in case we get bad inputs
+  # Random TODO's:
+  # * play defense on show_entry_summary and entries_to_show in case we get bad inputs
+  # * Refactor so an arbitrary number and combo of feeds can be used
+  # * Move check on feed_url into utilities
+  # * Move the check on twitter_username into utilities
+  # *
 
   # Get social feed config options
   feedVars = JSON.parse($('#social-feed-config').html())
 
   # Blog feed setup
-  if feedVars.feed_url != ''
+  # A valid blog feed url will probably be longer than 10 chars
+  if feedVars.feed_url.length > 10
     blogConfig = new window.BlogConfig(feedVars)
     new window.BlogInterface($("#blog-feed .feed"), blogConfig)
-
+  
   # Twitter feed setup
-  if feedVars.twitter_username != ''
-    initTweets(feedVars)
+  if feedVars.twitter_username.length > 1
+    new tweetInitializer(feedVars)
+
+  # Facebook Setup
+
+  # Google+ Setup
 
   # Set up tabs
   if feedVars.feed_url != '' && feedVars.twitter_username != ''
@@ -26,13 +35,16 @@ $ ->
       $(feed).show()
       return false
 
-
+# BLOG FEED UTILITIES
+# *******************
 class window.BlogConfig
   constructor: (config) ->
     {@feed_url, @feedTitle, @showAuthor, @show_entry_summary, @entries_to_show} = config
 
 class BlogFetcher
   constructor: (@url) ->
+    spot="how the fuck did we get here?"
+    debugger
 
   fetch: ->
     $.ajax
@@ -62,51 +74,63 @@ class window.BlogInterface
       jli.append(innerText)
       @list.append(jli)
 
-window.initTweets = (feedVars) ->
- $.ajax(
-    url: "https://mobile.twitter.com/" + feedVars.twitter_username
-    dataType: "html"
-    type: "GET"
-  ).done (data) ->
-    tweets = $(".timeline .tweet:lt(" + feedVars.tweet_count + ")", data.results[0]).toArray()
-    avatar = $(".avatar:lt(1) img", data.results[0])
+#TWITTER UTILITIES
+# *******************
+class tweetInitializer
+  constructor: (feedVars) ->
+    $.ajax(
+      url: "https://mobile.twitter.com/" + feedVars.twitter_username
+      dataType: "html"
+      type: "GET"
+    ).done (data) ->
+      tweets = $(".timeline .tweet:lt(" + feedVars.tweet_count + ")", data.results[0]).toArray()
+      avatar = $(".avatar:lt(1) img", data.results[0])
 
-    composeTweet(data, tweets, avatar)
+      new tweetBuilder(data, tweets, avatar)
 
-composeTweet = (feedVars, tweets, avatar) ->
-  twitterUrl = "http://www.twitter.com"
-  composedTweets = []
 
-  tweets.forEach (tweet) ->
-    timestamp = $(tweet).find(".timestamp")
-    user = timestamp.find("a").attr("href")
-    avatarUrl = $(avatar[0]).attr('src')
-    userName = $(tweet).find('.fullname').html()
-    userUrl = twitterUrl + '/' + feedVars.twitter_username
-    url = twitterUrl + user
-    tweetHtml = $(tweet).find(".tweet-text")
-    replyHtml = tweetHtml.find(".twitter-atreply")
+class tweetBuilder
+  constructor: (feedVars, tweets, avatar) ->
+    twitterUrl = "http://www.twitter.com"
+    composedTweets = []
 
-    # Handle Retweets
-    if $(tweet).has('.context').length > 0
-      userInfo = $(tweet).find('.tweet-header')
-      avatarUrl = userInfo.find(".avatar img").attr("src")
-      userName = userInfo.find(".fullname").html()
+    tweets.forEach (tweet) ->
+      timestamp = $(tweet).find(".timestamp")
+      user = timestamp.find("a").attr("href")
+      avatarUrl = $(avatar[0]).attr('src')
+      userName = $(tweet).find('.fullname').html()
+      userUrl = twitterUrl + '/' + feedVars.twitter_username
+      url = twitterUrl + user
+      tweetHtml = $(tweet).find(".tweet-text")
+      replyHtml = tweetHtml.find(".twitter-atreply")
 
-    if feedVars.display_avatar is false
-      avatarUrl = 'https://widgets.g5dxm.com/social-feed/icon-speech.png'
+      # Handle Retweets
+      if $(tweet).has('.context').length > 0
+        userInfo = $(tweet).find('.tweet-header')
+        avatarUrl = userInfo.find(".avatar img").attr("src")
+        userName = userInfo.find(".fullname").html()
 
-    # Handle Replies
-    replyHtml.each ->
-      $(this).attr("href", twitterUrl + $(this).attr("href"))
+      if feedVars.display_avatar is false
+        avatarUrl = 'https://widgets.g5dxm.com/social-feed/icon-speech.png'
 
-    composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url))
+      # Handle Replies
+      replyHtml.each ->
+        $(this).attr("href", twitterUrl + $(this).attr("href"))
 
-  $('#twitter-feed .tweet-list').append(composedTweets)
+      composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url))
 
-tweetTemplate = (avatar, userName, userUrl, text, url) ->
-  " <li>
-      <span class='tweet-avatar'><img src='#{avatar}'/></span>
-      <a href='#{url}' class='tweet-name' target='_blank'> #{userName} says:</a>
-      <span class='tweet-text'> #{text}</span>
-    </li>"
+    $('#twitter-feed .tweet-list').append(composedTweets)
+
+  tweetTemplate = (avatar, userName, userUrl, text, url) ->
+    " <li>
+        <span class='tweet-avatar'><img src='#{avatar}'/></span>
+        <a href='#{url}' class='tweet-name' target='_blank'> #{userName} says:</a>
+        <span class='tweet-text'> #{text}</span>
+      </li>"
+
+# FACEBOOK UTILITIES
+# *******************
+
+
+# GOOGLE+ UTILITIES
+# *******************
