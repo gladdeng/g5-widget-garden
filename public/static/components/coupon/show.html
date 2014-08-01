@@ -1,8 +1,24 @@
 <div class="coupon widget">
 
   <div class="coupon-info h-card">
+
+    {% if widget.location_logo_url != '' %}
+      <img src="{{widget.location_logo_url.best_value | url_encode}}" alt="{{widget.location_name.best_value}}" class="coupon-logo" />
+    {% endif %}
+
     <h2 class="coupon-offer">{{ widget.coupon_text.best_value }}</h2>
-    <img src="{{ widget.location_logo_url.best_value | url_encode }}" class="coupon-logo" />
+
+    {% if widget.coupon_description != '' %}
+      <p clas="coupon-description">{{ widget.coupon_description.best_value}}</p>
+    {% endif %}
+
+    {% if widget.coupon_barcode_url != '' %}
+      <img src="{{widget.coupon_barcode_url.best_value | url_encode}}" alt="{{widget.coupon_number.best_value}}" />
+    {% endif %}
+
+    {% if widget.coupon_number != '' %}
+      <p class="coupon-code"><strong>Offer #: {{ widget.coupon_number.best_value }}</strong></p>
+    {% endif %}
 
     <div class="coupon-address">
       <p class="p-name"><strong>{{ widget.location_name.best_value }}</strong></p>
@@ -13,10 +29,15 @@
       </p>
     </div> <!-- end .coupon-address -->
 
-    <p class="coupon-code"><strong>Offer #: {{ widget.coupon_number.best_value }}</strong></p>
+    {% if widget.location_directions.best_value != '' %}
+      <div class="coupon-directions">
+        {{ widget.location_directions.best_value }}
+      </div>
+    {% endif %}
 
     <div class="coupon-actions">
-      <a href="#" class="coupon-print btn">Print Coupon &amp; Directions</a><a href="{{ widget.coupon_email_url.best_value | url_encode }}" class="coupon-email btn">Email Coupon</a><a href="{{ widget.coupon_text_url.best_value | url_encode }}" class="coupon-text btn">Text Coupon</a>
+      <a href="#" class="coupon-print btn">Print Coupon</a>
+      <a href="{{ widget.coupon_email_url.best_value | url_encode }}" class="coupon-email btn">Send Me the Coupon</a>
     </div> <!-- end .coupon-actions -->
   </div> <!-- end .coupon-info -->
 
