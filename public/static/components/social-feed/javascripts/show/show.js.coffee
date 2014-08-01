@@ -5,12 +5,14 @@ $ ->
   # * Move check on feed_url into utilities
   # * Move the check on twitter_username into utilities
   # *
+  # *
+  # *
 
   # Get social feed config options
   feedVars = JSON.parse($('#social-feed-config').html())
 
   # Blog feed setup
-  # A valid blog feed url will probably be longer than 10 chars
+  # 10 chars is probably a safe bare minimum for a valid blog feed
   if feedVars.feed_url.length > 10
     blogConfig = new window.BlogConfig(feedVars)
     new window.BlogInterface($("#blog-feed .feed"), blogConfig)
@@ -43,9 +45,7 @@ class window.BlogConfig
 
 class BlogFetcher
   constructor: (@url) ->
-    spot="how the fuck did we get here?"
-    debugger
-
+    
   fetch: ->
     $.ajax
       url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent(@url)
