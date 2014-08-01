@@ -2,18 +2,18 @@ var phoneNumber = (function() {
   function phoneNumber(phoneOptions) {
     var client_urn, location_urn;
     $(".p-tel").css("visibility", "hidden");
-    client_urn = phoneOptions["clientUrn"].replace(/^g5-c-/, "g5-cpns-");
+    cpns_url = phoneOptions["cpnsUrl"];
     location_urn = phoneOptions["locationUrn"];
-    if (client_urn && location_urn) {
-      this.getPhoneNumber(client_urn, location_urn);
+    if (cpns_url && location_urn) {
+      this.getPhoneNumber(cpns_url, location_urn);
     }
     $(".p-tel").css("visibility", "visible");
   }
 
-  phoneNumber.prototype.getPhoneNumber = function(client_urn, location_urn) {
+  phoneNumber.prototype.getPhoneNumber = function(cpns_url, location_urn) {
     var row_id;
     row_id = "#" + location_urn;
-    return $.get("https://" + client_urn + ".herokuapp.com", function(data) {
+    return $.get(cpns_url, function(data) {
       var $data, formattedPhone, numbers, phone, screen;
       $data = $(data);
       numbers = $data.find(row_id);
