@@ -62,7 +62,7 @@ class window.BlogInterface
 
   updateDom: (event) ->
     feed = event.currentTarget.feed
-    @list.before("<h2 class=\"title\">#{@config.feedTitle}</h2>") if @config.feedTitle?
+  
     for entry in feed.entries
       jli = $('<li class="h-entry hentry" itemscope itemtype="http://schema.org/BlogPosting">')
       innerText = "<a class='p-name entry-title u-url url' href=\"#{entry.link}\" target=\"_blank\" itemprop='url'>

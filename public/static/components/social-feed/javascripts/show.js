@@ -71,9 +71,6 @@
     BlogInterface.prototype.updateDom = function(event) {
       var entry, feed, innerText, jli, _i, _len, _ref, _results;
       feed = event.currentTarget.feed;
-      if (this.config.feedTitle != null) {
-        this.list.before("<h2 class=\"title\">" + this.config.feedTitle + "</h2>");
-      }
       _ref = feed.entries;
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
