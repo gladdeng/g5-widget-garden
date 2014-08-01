@@ -62,17 +62,29 @@ class window.BlogInterface
 
   updateDom: (event) ->
     feed = event.currentTarget.feed
-  
+    feedList = ""
+
     for entry in feed.entries
-      jli = $('<li class="h-entry hentry" itemscope itemtype="http://schema.org/BlogPosting">')
-      innerText = "<a class='p-name entry-title u-url url' href=\"#{entry.link}\" target=\"_blank\" itemprop='url'>
-        <span itemprop='headline'>#{entry.title}</span></a><br />"
+      feedEntry = '<li class="h-entry hentry" itemscope itemtype="http://schema.org/BlogPosting">'
+      innerText = " <a class='p-name entry-title u-url url' href='#{entry.link}' target='_blank' itemprop='url'>
+                      <span itemprop='headline'>#{entry.title}</span>
+                    </a>
+                    <br /> "
       if @config.show_entry_summary
         innerText += "<p class='p-summary summary' itemprop='description'>#{entry.contentSnippet}</p>"
       if @config.showAuthor
         innerText += "<p class='p-author author' itemprop='author'>Posted By: #{entry.author}</p>"
-      jli.append(innerText)
-      @list.append(jli)
+
+      feedEntry += "#{innerText}</li>"
+      feedList += feedEntry
+
+
+    feedBlock = " <div id='blog-feed' class='blog-feed feed-section' style='display: none;'>
+                    <ul class='h-feed feed'>#{feedList}</ul>
+                  </div>"
+
+    $('.social-feed').append(feedBlock)
+
 
 #TWITTER UTILITIES
 # *******************

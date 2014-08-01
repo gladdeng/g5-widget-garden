@@ -69,24 +69,25 @@
     }
 
     BlogInterface.prototype.updateDom = function(event) {
-      var entry, feed, innerText, jli, _i, _len, _ref, _results;
+      var entry, feed, feedBlock, feedEntry, feedList, innerText, _i, _len, _ref;
       feed = event.currentTarget.feed;
+      feedList = "";
       _ref = feed.entries;
-      _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         entry = _ref[_i];
-        jli = $('<li class="h-entry hentry" itemscope itemtype="http://schema.org/BlogPosting">');
-        innerText = "<a class='p-name entry-title u-url url' href=\"" + entry.link + "\" target=\"_blank\" itemprop='url'>        <span itemprop='headline'>" + entry.title + "</span></a><br />";
+        feedEntry = '<li class="h-entry hentry" itemscope itemtype="http://schema.org/BlogPosting">';
+        innerText = " <a class='p-name entry-title u-url url' href='" + entry.link + "' target='_blank' itemprop='url'>                      <span itemprop='headline'>" + entry.title + "</span>                    </a>                    <br /> ";
         if (this.config.show_entry_summary) {
           innerText += "<p class='p-summary summary' itemprop='description'>" + entry.contentSnippet + "</p>";
         }
         if (this.config.showAuthor) {
           innerText += "<p class='p-author author' itemprop='author'>Posted By: " + entry.author + "</p>";
         }
-        jli.append(innerText);
-        _results.push(this.list.append(jli));
+        feedEntry += "" + innerText + "</li>";
+        feedList += feedEntry;
       }
-      return _results;
+      feedBlock = " <div id='blog-feed' class='blog-feed feed-section' style='display: none;'>                    <ul class='h-feed feed'>" + feedList + "</ul>                  </div>";
+      return $('.social-feed').append(feedBlock);
     };
 
     return BlogInterface;
