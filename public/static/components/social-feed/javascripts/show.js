@@ -36,10 +36,7 @@
 
   BlogFetcher = (function() {
     function BlogFetcher(url) {
-      var spot;
       this.url = url;
-      spot = "how the fuck did we get here?";
-      debugger;
     }
 
     BlogFetcher.prototype.fetch = function() {
