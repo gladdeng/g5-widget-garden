@@ -133,7 +133,19 @@ class tweetBuilder
 
       composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url))
 
-    $('#twitter-feed .tweet-list').append(composedTweets)
+    twitterTab = '<a class="feed-switch active" id="feed-switch-twitter" href="#twitter-feed" title="Show Tweets">Show Twitter Feed</a>'
+    $('.feed-switcher').append(twitterTab)
+
+    twitterBlock = "<div id='twitter-feed' class='twitter-feed feed-section'>
+                      <ul class='tweet-list'>
+                        #{composedTweets.join('')}
+                      </ul>
+                      <a class='btn' href='http://www.twitter.com/#{feedVars.twitter_username}' href='#' target='_blank'>Read All</a>
+                    </div>"
+
+    $('.social-feed').append(twitterBlock)
+
+
 
   tweetTemplate = (avatar, userName, userUrl, text, url) ->
     " <li>
