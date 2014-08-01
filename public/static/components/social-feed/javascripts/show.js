@@ -4,12 +4,12 @@
   $(function() {
     var blogConfig, feedVars;
     feedVars = JSON.parse($('#social-feed-config').html());
+    if (feedVars.twitter_username.length > 1) {
+      new tweetInitializer(feedVars);
+    }
     if (feedVars.feed_url.length > 10) {
       blogConfig = new window.BlogConfig(feedVars);
       new window.BlogInterface($("#blog-feed .feed"), blogConfig);
-    }
-    if (feedVars.twitter_username.length > 1) {
-      new tweetInitializer(feedVars);
     }
     if (feedVars.feed_url !== '' && feedVars.twitter_username !== '') {
       $('#blog-feed').hide();

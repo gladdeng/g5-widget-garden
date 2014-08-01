@@ -11,16 +11,16 @@ $ ->
   # Get social feed config options
   feedVars = JSON.parse($('#social-feed-config').html())
 
+  # Twitter feed setup
+  if feedVars.twitter_username.length > 1
+    new tweetInitializer(feedVars)
+
   # Blog feed setup
   # 10 chars is probably a safe bare minimum for a valid blog feed
   if feedVars.feed_url.length > 10
     blogConfig = new window.BlogConfig(feedVars)
     new window.BlogInterface($("#blog-feed .feed"), blogConfig)
   
-  # Twitter feed setup
-  if feedVars.twitter_username.length > 1
-    new tweetInitializer(feedVars)
-
   # Facebook Setup
 
   # Google+ Setup
