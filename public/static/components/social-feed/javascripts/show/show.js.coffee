@@ -4,7 +4,7 @@ $ ->
   # * Refactor so an arbitrary number and combo of feeds can be used
   # * Move check on feed_url into utilities
   # * Move the check on twitter_username into utilities
-  # *
+  # * add display:none logic that's smart about the first and subsequent tabs
   # *
   # *
 
@@ -76,9 +76,11 @@ class window.BlogInterface
         innerText += "<p class='p-author author' itemprop='author'>Posted By: #{entry.author}</p>"
 
       feedEntry += "#{innerText}</li>"
-      feedList += feedEntry
+      feedList  += feedEntry
 
-
+    feedTab = '<a class="feed-switch" id="feed-switch-blog" href="#blog-feed" title="Show Blog Feed">Show Blog Feed</a>'
+    $('.feed-switcher').append(feedTab)
+     
     feedBlock = " <div id='blog-feed' class='blog-feed feed-section' style='display: none;'>
                     <ul class='h-feed feed'>#{feedList}</ul>
                   </div>"

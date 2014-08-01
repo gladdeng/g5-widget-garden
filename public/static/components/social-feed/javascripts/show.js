@@ -69,7 +69,7 @@
     }
 
     BlogInterface.prototype.updateDom = function(event) {
-      var entry, feed, feedBlock, feedEntry, feedList, innerText, _i, _len, _ref;
+      var entry, feed, feedBlock, feedEntry, feedList, feedTab, innerText, _i, _len, _ref;
       feed = event.currentTarget.feed;
       feedList = "";
       _ref = feed.entries;
@@ -86,6 +86,8 @@
         feedEntry += "" + innerText + "</li>";
         feedList += feedEntry;
       }
+      feedTab = '<a class="feed-switch" id="feed-switch-blog" href="#blog-feed" title="Show Blog Feed">Show Blog Feed</a>';
+      $('.feed-switcher').append(feedTab);
       feedBlock = " <div id='blog-feed' class='blog-feed feed-section' style='display: none;'>                    <ul class='h-feed feed'>" + feedList + "</ul>                  </div>";
       return $('.social-feed').append(feedBlock);
     };
