@@ -5,7 +5,7 @@ $ ->
   # * Move check on feed_url into utilities
   # * Move the check on twitter_username into utilities
   # * add display:none logic that's smart about the first and subsequent tabs
-  # *
+  # * 
   # *
 
   # Get social feed config options
@@ -22,20 +22,11 @@ $ ->
     new window.BlogInterface($("#blog-feed .feed"), blogConfig)
   
   # Facebook Setup
+  # https://www.facebook.com/feeds/page.php?id=255110695512&format=json
+  facebookFeed = new facebookInitializer(feedVars.facebook_page_id)
 
   # Google+ Setup
 
-  # Set up tabs
-  if feedVars.feed_url != '' && feedVars.twitter_username != ''
-    $('#blog-feed').hide()
-
-    $('.social-feed').on 'click', '.feed-switch', (e) ->
-      $('.social-feed .feed-switch').removeClass('active')
-      $(this).addClass('active')
-      feed = $(this).attr('href')
-      $('#blog-feed, #twitter-feed').hide()
-      $(feed).show()
-      return false
 
 # BLOG FEED UTILITIES
 # *******************
@@ -86,6 +77,7 @@ class window.BlogInterface
                   </div>"
 
     $('.social-feed').append(feedBlock)
+    new tabListener('#feed-switch-blog', '#blog-feed')
 
 
 #TWITTER UTILITIES
@@ -101,7 +93,6 @@ class tweetInitializer
       avatar = $(".avatar:lt(1) img", data.results[0])
 
       new tweetBuilder(data, tweets, avatar)
-
 
 class tweetBuilder
   constructor: (feedVars, tweets, avatar) ->
@@ -133,10 +124,10 @@ class tweetBuilder
 
       composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url))
 
-    twitterTab = '<a class="feed-switch active" id="feed-switch-twitter" href="#twitter-feed" title="Show Tweets">Show Twitter Feed</a>'
+    twitterTab = '<a class="feed-switch" id="feed-switch-twitter" href="#twitter-feed" title="Show Tweets">Show Twitter Feed</a>'
     $('.feed-switcher').append(twitterTab)
 
-    twitterBlock = "<div id='twitter-feed' class='twitter-feed feed-section'>
+    twitterBlock = "<div id='twitter-feed' class='twitter-feed feed-section' style='display:none;'>
                       <ul class='tweet-list'>
                         #{composedTweets.join('')}
                       </ul>
@@ -144,8 +135,7 @@ class tweetBuilder
                     </div>"
 
     $('.social-feed').append(twitterBlock)
-
-
+    new tabListener('#feed-switch-twitter', '#twitter-feed')
 
   tweetTemplate = (avatar, userName, userUrl, text, url) ->
     " <li>
@@ -157,6 +147,43 @@ class tweetBuilder
 # FACEBOOK UTILITIES
 # *******************
 
+class facebookInitializer
+  constructor: (page_id) ->
+    return getpage page_id
+    
+  getpage = (page_id) ->
+    $.ajax
+      url: "https://www.facebook.com/feeds/page.php?id=#{page_id}&format=json"
+      dataType: 'json'
+      success: (data) =>
+        facebookFeed = data.responseData.feed
 
 # GOOGLE+ UTILITIES
 # *******************
+
+
+# GENERAL UTILITIES
+# *******************
+
+class tabListener
+  constructor: (tab, block) ->
+    $('.social-feed').on 'click', tab, (e) ->
+      $('.social-feed .feed-switch').removeClass('active')
+      $(this).addClass('active')
+
+      $('.feed-section').css('display', 'none')
+
+      $(block).css('display', 'block')
+      # feed = $(this).attr('href')
+      # $('#blog-feed, #twitter-feed').hide()
+      # $(feed).show()
+      return false
+
+    if $('.feed-switcher a').length == 1
+      $(tab).addClass('active')
+      $(block).css('display', 'block')
+
+
+
+
+

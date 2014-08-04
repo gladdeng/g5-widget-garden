@@ -1,8 +1,8 @@
 (function() {
-  var BlogFetcher, tweetBuilder, tweetInitializer;
+  var BlogFetcher, facebookInitializer, tabListener, tweetBuilder, tweetInitializer;
 
   $(function() {
-    var blogConfig, feedVars;
+    var blogConfig, facebookFeed, feedVars;
     feedVars = JSON.parse($('#social-feed-config').html());
     if (feedVars.twitter_username.length > 1) {
       new tweetInitializer(feedVars);
@@ -11,18 +11,7 @@
       blogConfig = new window.BlogConfig(feedVars);
       new window.BlogInterface($("#blog-feed .feed"), blogConfig);
     }
-    if (feedVars.feed_url !== '' && feedVars.twitter_username !== '') {
-      $('#blog-feed').hide();
-      return $('.social-feed').on('click', '.feed-switch', function(e) {
-        var feed;
-        $('.social-feed .feed-switch').removeClass('active');
-        $(this).addClass('active');
-        feed = $(this).attr('href');
-        $('#blog-feed, #twitter-feed').hide();
-        $(feed).show();
-        return false;
-      });
-    }
+    return facebookFeed = new facebookInitializer(feedVars.facebook_page_id);
   });
 
   window.BlogConfig = (function() {
@@ -89,7 +78,8 @@
       feedTab = '<a class="feed-switch" id="feed-switch-blog" href="#blog-feed" title="Show Blog Feed">Show Blog Feed</a>';
       $('.feed-switcher').append(feedTab);
       feedBlock = " <div id='blog-feed' class='blog-feed feed-section' style='display: none;'>                    <ul class='h-feed feed'>" + feedList + "</ul>                  </div>";
-      return $('.social-feed').append(feedBlock);
+      $('.social-feed').append(feedBlock);
+      return new tabListener('#feed-switch-blog', '#blog-feed');
     };
 
     return BlogInterface;
@@ -144,10 +134,11 @@
         });
         return composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url));
       });
-      twitterTab = '<a class="feed-switch active" id="feed-switch-twitter" href="#twitter-feed" title="Show Tweets">Show Twitter Feed</a>';
+      twitterTab = '<a class="feed-switch" id="feed-switch-twitter" href="#twitter-feed" title="Show Tweets">Show Twitter Feed</a>';
       $('.feed-switcher').append(twitterTab);
-      twitterBlock = "<div id='twitter-feed' class='twitter-feed feed-section'>                      <ul class='tweet-list'>                        " + (composedTweets.join('')) + "                      </ul>                      <a class='btn' href='http://www.twitter.com/" + feedVars.twitter_username + "' href='#' target='_blank'>Read All</a>                    </div>";
+      twitterBlock = "<div id='twitter-feed' class='twitter-feed feed-section' style='display:none;'>                      <ul class='tweet-list'>                        " + (composedTweets.join('')) + "                      </ul>                      <a class='btn' href='http://www.twitter.com/" + feedVars.twitter_username + "' href='#' target='_blank'>Read All</a>                    </div>";
       $('.social-feed').append(twitterBlock);
+      new tabListener('#feed-switch-twitter', '#twitter-feed');
     }
 
     tweetTemplate = function(avatar, userName, userUrl, text, url) {
@@ -155,6 +146,48 @@
     };
 
     return tweetBuilder;
+
+  })();
+
+  facebookInitializer = (function() {
+    var getpage;
+
+    function facebookInitializer(page_id) {
+      return getpage(page_id);
+    }
+
+    getpage = function(page_id) {
+      var _this = this;
+      return $.ajax({
+        url: "https://www.facebook.com/feeds/page.php?id=" + page_id + "&format=json",
+        dataType: 'json',
+        success: function(data) {
+          var facebookFeed;
+          return facebookFeed = data.responseData.feed;
+        }
+      });
+    };
+
+    return facebookInitializer;
+
+  })();
+
+  tabListener = (function() {
+    function tabListener(tab, block) {
+      $('.social-feed').on('click', tab, function(e) {
+        $('.social-feed .feed-switch').removeClass('active');
+        $(this).addClass('active');
+        $('.feed-section').css('display', 'none');
+        $(block).css('display', 'block');
+        return false;
+      });
+      if ($('.feed-switcher a').length === 1) {
+        $(tab).addClass('active');
+        $(block).css('display', 'block');
+      }
+    }
+
+    return tabListener;
 
   })();
 
