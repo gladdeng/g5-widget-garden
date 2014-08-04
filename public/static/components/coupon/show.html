@@ -22,8 +22,8 @@
 
     <div class="coupon-actions">
       <button id="coupon-print" class="coupon-print btn">Print</button>
-      <button id="show-coupon-form" class="coupon-email btn">Send Me the Coupon</button>
-      <button id="show-location-info" class="coupon-map btn">Map &amp; Directions</button>
+      <button id="show-coupon-form" class="send-coupon btn">Send Coupon</button>
+      <button id="show-location-info" class="show-coupon-map btn">Map &amp; Directions</button>
     </div> <!-- end .coupon-actions -->
 
   </div> <!-- end .coupon-info -->
@@ -40,6 +40,12 @@
   </div>
 
   <div id="location-info" class="coupon-drawer">
+    <div class="coupon-map">
+      <div id="map-canvas">
+        <img src="http://maps.googleapis.com/maps/api/staticmap?markers={{ widget.location_street_address.best_value | HtmlEncode}},{{ widget.location_city.best_value | HtmlEncode}},{{ widget.location_state.best_value | HtmlEncode}},{{ widget.location_postal_code.best_value | HtmlEncode}}&zoom=15&size=400x400&scale=2&sensor=false" />
+      </div>
+    </div> <!-- end .coupon-map -->
+
     <div class="coupon-address">
       <p class="p-name"><strong>{{ widget.location_name.best_value }}</strong></p>
       <p class="p-adr h-adr">
@@ -54,12 +60,6 @@
         {{ widget.location_directions.best_value }}
       </div>
     {% endif %}
-
-    <div class="coupon-map">
-      <div id="map-canvas">
-        <img src="http://maps.googleapis.com/maps/api/staticmap?markers={{ widget.location_street_address.best_value | HtmlEncode}},{{ widget.location_city.best_value | HtmlEncode}},{{ widget.location_state.best_value | HtmlEncode}},{{ widget.location_postal_code.best_value | HtmlEncode}}&zoom=15&size=400x400&scale=2&sensor=false" />
-      </div>
-    </div> <!-- end .coupon-map -->
 
   </div> <!-- end .coupon-drawer -->
 </div>

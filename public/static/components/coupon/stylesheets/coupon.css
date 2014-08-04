@@ -1,3 +1,47 @@
 .coupon {
   text-align: center;
 }
+.coupon:before, .coupon:after {
+  content: " ";
+  display: table;
+}
+.coupon:after {
+  clear: both;
+}
+.coupon h2 {
+  margin-bottom: 2em;
+  padding-bottom: .5em;
+}
+.coupon .coupon-logo {
+  display: block;
+  margin: 1em auto 2em;
+}
+.coupon .p-name {
+}
+.coupon .p-street-address,
+.coupon .p-tel {
+  display: block;
+}
+.coupon .btn {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+}
+.coupon .coupon-print {
+  margin-bottom: 1%;
+  width: 100%;
+}
+.coupon .send-coupon,
+.coupon .show-coupon-map {
+  width: 49.5%;
+}
+.coupon .send-coupon {
+  margin-right: 1%;
+}
+
+@media (min-width: 768px) and (max-width: 980px) {
+}
+
+@media (min-width: 1200px) {
+}
