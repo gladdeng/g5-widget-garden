@@ -1,5 +1,5 @@
 (function() {
-  var BlogFetcher, facebookInitializer, tabListener, tweetBuilder, tweetInitializer;
+  var BlogFetcher, facebookFeedBuilder, facebookInitializer, tabListener, tweetBuilder, tweetInitializer;
 
   $(function() {
     var blogConfig, facebookFeed, feedVars;
@@ -11,7 +11,7 @@
       blogConfig = new window.BlogConfig(feedVars);
       new window.BlogInterface($("#blog-feed .feed"), blogConfig);
     }
-    return facebookFeed = new facebookInitializer(feedVars.facebook_page_id);
+    return facebookFeed = new facebookInitializer(feedVars);
   });
 
   window.BlogConfig = (function() {
@@ -152,23 +152,52 @@
   facebookInitializer = (function() {
     var getpage;
 
-    function facebookInitializer(page_id) {
-      return getpage(page_id);
+    function facebookInitializer(feedVars) {
+      return getpage(feedVars);
     }
 
-    getpage = function(page_id) {
+    getpage = function(feedVars) {
       var _this = this;
       return $.ajax({
-        url: "https://www.facebook.com/feeds/page.php?id=" + page_id + "&format=json",
+        url: "http://localhost:4000/facebook_feed/" + feedVars.facebook_page_id,
         dataType: 'json',
         success: function(data) {
-          var facebookFeed;
-          return facebookFeed = data.responseData.feed;
+          return new facebookFeedBuilder(feedVars, data);
         }
       });
     };
 
     return facebookInitializer;
+
+  })();
+
+  facebookFeedBuilder = (function() {
+    var postTemplate;
+
+    function facebookFeedBuilder(feedVars, dataFeed) {
+      var facebookBlock, facebookFeedList, facebookTab, index, post, _i, _len, _ref;
+      facebookTab = '<a class="feed-switch" id="feed-switch-facebook" href="#facebook-feed" title="Show Facebook Feed">Show Facebook Feed</a>';
+      $('.feed-switcher').append(facebookTab);
+      facebookFeedList = [];
+      _ref = dataFeed.data;
+      for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
+        post = _ref[index];
+        debugger;
+        if ((index + 1) > feedVars.facebook_post_limit) {
+          break;
+        }
+        facebookFeedList.push(postTemplate(post.created_time, post.message));
+      }
+      facebookBlock = "<div id='facebook-feed' class='facebook-feed feed-section' style='display:none;'>                      <ul class='tweet-list'>                        " + (facebookFeedList.join('')) + "                      </ul>                    </div>";
+      $('.social-feed').append(facebookBlock);
+      new tabListener('#feed-switch-facebook', '#facebook-feed');
+    }
+
+    postTemplate = function(created_time, message) {
+      return " <li>        " + created_time + "<br/>" + message + "      </li>";
+    };
+
+    return facebookFeedBuilder;
 
   })();
 

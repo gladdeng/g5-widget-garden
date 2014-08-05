@@ -23,7 +23,7 @@ $ ->
   
   # Facebook Setup
   # https://www.facebook.com/feeds/page.php?id=255110695512&format=json
-  facebookFeed = new facebookInitializer(feedVars.facebook_page_id)
+  facebookFeed = new facebookInitializer(feedVars)
 
   # Google+ Setup
 
@@ -148,15 +148,42 @@ class tweetBuilder
 # *******************
 
 class facebookInitializer
-  constructor: (page_id) ->
-    return getpage page_id
+  constructor: (feedVars) ->
+    return getpage feedVars
     
-  getpage = (page_id) ->
+  getpage = (feedVars) ->
     $.ajax
-      url: "https://www.facebook.com/feeds/page.php?id=#{page_id}&format=json"
+      url: "http://localhost:4000/facebook_feed/#{feedVars.facebook_page_id}"
       dataType: 'json'
       success: (data) =>
-        facebookFeed = data.responseData.feed
+        new facebookFeedBuilder(feedVars, data);
+
+class facebookFeedBuilder
+  constructor: (feedVars, dataFeed) ->
+    facebookTab = '<a class="feed-switch" id="feed-switch-facebook" href="#facebook-feed" title="Show Facebook Feed">Show Facebook Feed</a>'
+    $('.feed-switcher').append(facebookTab)
+
+    facebookFeedList = []
+
+    for post, index in dataFeed.data
+      break if (index + 1) > feedVars.facebook_post_limit
+      facebookFeedList.push(postTemplate(post.created_time, post.message))
+
+    facebookBlock = "<div id='facebook-feed' class='facebook-feed feed-section' style='display:none;'>
+                      <ul class='tweet-list'>
+                        #{facebookFeedList.join('')}
+                      </ul>
+                    </div>"
+
+    $('.social-feed').append(facebookBlock)
+
+    new tabListener('#feed-switch-facebook', '#facebook-feed')
+
+
+  postTemplate = (created_time, message) ->
+    " <li>
+        #{created_time}<br/>#{message}
+      </li>"
 
 # GOOGLE+ UTILITIES
 # *******************
@@ -184,6 +211,6 @@ class tabListener
       $(block).css('display', 'block')
 
 
-
+    
 
 
