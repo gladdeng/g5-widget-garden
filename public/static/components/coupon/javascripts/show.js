@@ -18,7 +18,7 @@
       h = coupon.outerHeight(true);
       content = coupon.wrap('<div class="coupon-wrapper"></div').parent().html();
       printCoupon(content, w, h);
-      return coupon.unwrap;
+      return coupon.unwrap();
     });
   });
 
@@ -35,7 +35,7 @@
     title = 'Print Coupon';
     options = 'toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=yes, copyhistory=no, ' + 'height=' + h + ', width=' + w + ', left=' + newLeft + ', top=' + newTop;
     myWindow = window.open('', title, options);
-    myWindow.document.write('<html><head><title>Print Coupon</title>' + stylesheets + content + '</body></html>');
+    myWindow.document.write('<html><head><title>Print Coupon</title>' + stylesheets + '</head><body style="border: none">' + content + '</body></html>');
     myWindow.document.close();
     myWindow.focus();
     return setTimeout((function() {

@@ -21,7 +21,7 @@ $ ->
     content = coupon.wrap('<div class="coupon-wrapper"></div').parent().html()
 
     printCoupon(content, w, h)
-    coupon.unwrap
+    coupon.unwrap()
 
 
 printCoupon = (content, w, h) ->
@@ -52,6 +52,7 @@ printCoupon = (content, w, h) ->
   myWindow = window.open '', title, options
   myWindow.document.write '<html><head><title>Print Coupon</title>' +
                           stylesheets +
+                          '</head><body style="border: none">' +
                           content +
                           '</body></html>'
 
@@ -63,5 +64,3 @@ printCoupon = (content, w, h) ->
     myWindow.print()
     myWindow.close()
   ), 500
-
-
