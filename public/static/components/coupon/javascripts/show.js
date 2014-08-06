@@ -27,7 +27,12 @@
     baseStylesheet = $('link[href*=stylesheets_]').attr('href');
     appStylesheet = $('link[href*=high-rise]').attr('href');
     couponStylesheet = $('link[href*=coupon]').attr('href');
-    stylesheets = '<link rel="stylesheet" href="' + baseStylesheet + '" />' + '<link rel="stylesheet" href="' + appStylesheet + '" />' + '<link rel="stylesheet" href="' + couponStylesheet + '" />';
+    if (window.location.href.indexOf("herokuapp") > -1) {
+      stylesheets = '<link rel="stylesheet" href="' + baseStylesheet + '" />' + '<link rel="stylesheet" href="' + appStylesheet + '" />' + '<link rel="stylesheet" href="' + couponStylesheet + '" />';
+    } else {
+      appStylesheet = $('head link[href*=application]').attr('href');
+      stylesheets = '<link rel="stylesheet" href="' + appStylesheet + '" />';
+    }
     windowLeft = (window.screenLeft ? window.screenLeft : window.screenX);
     windowTop = (window.screenTop ? window.screenTop : window.screenY);
     newLeft = windowLeft + (window.innerWidth / 2) - (w / 2);

@@ -30,13 +30,18 @@ printCoupon = (content, w, h) ->
   appStylesheet = $('link[href*=high-rise]').attr 'href'
   couponStylesheet = $('link[href*=coupon]').attr 'href'
 
-  stylesheets = '<link rel="stylesheet" href="' + baseStylesheet + '" />' +
-                '<link rel="stylesheet" href="' + appStylesheet + '" />' +
-                '<link rel="stylesheet" href="' + couponStylesheet + '" />'
-
   # Get Application.css url
-  # appStylesheet = $('head link[href*=application]').attr 'href'
-  # stylesheets = '<link rel="stylesheet" href="' + appStylesheet + '" />'
+  if window.location.href.indexOf("herokuapp") > -1
+    stylesheets = '<link rel="stylesheet" href="' + baseStylesheet + '" />' +
+                  '<link rel="stylesheet" href="' + appStylesheet + '" />' +
+                  '<link rel="stylesheet" href="' + couponStylesheet + '" />'
+  else
+    appStylesheet = $('head link[href*=application]').attr 'href'
+    stylesheets = '<link rel="stylesheet" href="' + appStylesheet + '" />'
+
+
+
+
 
   # Get coordinates for centering print window
   windowLeft = (if window.screenLeft then window.screenLeft else window.screenX)
