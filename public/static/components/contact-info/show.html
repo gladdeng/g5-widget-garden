@@ -1,7 +1,7 @@
 <div class="contact-info h-card vcard widget" itemscope itemtype="http://schema.org/LocalBusiness">
   <script class="config" type="application/json">
     {
-      "clientUrn": "{{ widget.client_urn.best_value }}",
+      "cpnsUrl": "{{ widget.secure_cpns_url }}",
       "locationUrn": "{{ widget.location_urn.best_value }}"
     }
   </script>
@@ -49,15 +49,9 @@
     {% endif %}
   </p>
 
-  {% if widget.location_fax.best_value != "" %}
-  <p class="p-tel tel fax" itemprop="telephone">
-    {{ widget.location_fax.best_value }}
-  </p>
-  {% endif %}
-
   {% if widget.location_email.best_value != "" %}
   <p class="u-email email" itemprop="email">
-    <a href="mailto:{{ widget.location_email.best_value | url_encode}}">Email Us</a>
+    <a href="{{ widget.location_email.best_value | url_encode}}">Email Us</a>
   </p>
   {% endif %}
 
