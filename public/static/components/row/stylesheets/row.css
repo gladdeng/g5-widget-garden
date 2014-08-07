@@ -17,7 +17,7 @@
 .row-uneven-thirds-1 .col,
 .row-uneven-thirds-2 .col,
 .row-thirds .col,
-.row-fourths .col {
+.row-quarters .col {
   float: left;
 }
 
