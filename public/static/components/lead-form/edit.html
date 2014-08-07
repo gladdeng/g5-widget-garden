@@ -1,0 +1,61 @@
+<form action="{{ widget.form_action.best_value | url_encode }}" class="h-entry">
+  <div class="form-field">
+    {{ widget.location_urn.id_hidden_field }}
+    <label for="{{ widget.location_urn.value_field_id }}" >
+      Location URN
+    </label>
+    <input type="text"
+      id="{{ widget.location_urn.value_field_id }}"
+      name="{{ widget.location_urn.value_field_name }}"
+      value="{{ widget.location_urn.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.success_redirect_url.value_field_id }}" >
+      Form Type
+    </label>
+    {{ widget.form_type.id_hidden_field }}
+    <select id="{{ widget.form_type.value_field_id }}"
+      name="{{ widget.form_type.value_field_name }}">
+
+      <option value="apply" {% if widget.form_type.best_value == "apply" %}selected{% endif %}>
+        Apply
+      </option>
+
+      <option value="contact" {% if widget.form_type.best_value == "contact" %}selected{% endif %}>
+        Contact
+      </option>
+
+      <option value="maintenance" {% if widget.form_type.best_value == "maintenance" %}selected{% endif %}>
+        Maintenance
+      </option>
+
+      <option value="request" {% if widget.form_type.best_value == "request" %}selected{% endif %}>
+        Request
+      </option>
+
+      <option value="suggestion" {% if widget.form_type.best_value == "suggestion" %}selected{% endif %}>
+        Suggestion
+      </option>
+
+      <option value="tour" {% if widget.form_type.best_value == "tour" %}selected{% endif %}>
+        Tour
+      </option>
+    </select>
+  </div>
+
+  <div class="form-field">
+    <label for="{{ widget.success_redirect_url.value_field_id }}" >
+      Successful Submission Redirect URL
+    </label>
+    {{ widget.success_redirect_url.id_hidden_field }}
+    <input type="url"
+      id="{{ widget.success_redirect_url.value_field_id }}"
+      name="{{ widget.success_redirect_url.value_field_name }}"
+      value="{{ widget.success_redirect_url.best_value | url_encode }}"
+    />
+  </div>
+
+  <input type="submit" value="Save" class="btn" />
+</form>
