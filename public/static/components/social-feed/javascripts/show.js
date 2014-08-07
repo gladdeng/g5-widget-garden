@@ -1,8 +1,8 @@
 (function() {
-  var BlogFetcher, facebookFeedBuilder, facebookInitializer, tabListener, tweetBuilder, tweetInitializer;
+  var BlogFetcher, facebookFeedBuilder, facebookInitializer, googlePlusFeedBuilder, googlePlusInitializer, tabListener, tweetBuilder, tweetInitializer;
 
   $(function() {
-    var blogConfig, facebookFeed, feedVars;
+    var blogConfig, facebookFeed, feedVars, googlePlusFeed;
     feedVars = JSON.parse($('#social-feed-config').html());
     if (feedVars.twitter_username.length > 1) {
       new tweetInitializer(feedVars);
@@ -11,7 +11,8 @@
       blogConfig = new window.BlogConfig(feedVars);
       new window.BlogInterface($("#blog-feed .feed"), blogConfig);
     }
-    return facebookFeed = new facebookInitializer(feedVars);
+    facebookFeed = new facebookInitializer(feedVars);
+    return googlePlusFeed = new googlePlusInitializer(feedVars);
   });
 
   window.BlogConfig = (function() {
@@ -75,7 +76,7 @@
         feedEntry += "" + innerText + "</li>";
         feedList += feedEntry;
       }
-      feedTab = " <a class='feed-switch' id='feed-switch-blog' href='#blog-feed' title='Show Blog Feed'>                  <svg version='1.1' id='Layer_2' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 200 200' enable-background='new 0 0 200 200' xml:space='preserve'>                  <path stroke-width='40' d='M0,22'/>                  <path stroke-width='40' d='M111,196.48C111,136.52,61.354,88,0,88'/>                  <path stroke-width='40' d='M181,196.48'/>                  <circle cx='27.5' cy='169.5' r='24.5'/>                  <path stroke-width='40' d='M181,196.48C181,100.039,100.045,22,0,22'/></svg>                </a>";
+      feedTab = " <a class='feed-switch' id='feed-switch-blog' href='#blog-feed' title='Show Blog Feed'>                  <svg version='1.1' id='Layer_2' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 200 200' enable-background='new 0 0 200 200' xml:space='preserve'>                    <path stroke-width='40' d='M0,22'/>                    <path stroke-width='40' d='M111,196.48C111,136.52,61.354,88,0,88'/>                    <path stroke-width='40' d='M181,196.48'/>                    <circle cx='27.5' cy='169.5' r='24.5'/>                    <path stroke-width='40' d='M181,196.48C181,100.039,100.045,22,0,22'/>                  </svg>                </a>";
       $('.feed-switcher').append(feedTab);
       feedBlock = " <div id='blog-feed' class='blog-feed feed-section' style='display: none;'>                    <ul class='h-feed feed'>" + feedList + "</ul>                  </div>";
       $('.social-feed').append(feedBlock);
@@ -197,6 +198,56 @@
     };
 
     return facebookFeedBuilder;
+
+  })();
+
+  googlePlusInitializer = (function() {
+    var getpage;
+
+    function googlePlusInitializer(feedVars) {
+      return getpage(feedVars);
+    }
+
+    getpage = function(feedVars) {
+      var _this = this;
+      return $.ajax({
+        url: "http://localhost:4000/google_plus_feed/110501429269329139515",
+        dataType: 'json',
+        success: function(data) {
+          return new googlePlusFeedBuilder(feedVars, data);
+        }
+      });
+    };
+
+    return googlePlusInitializer;
+
+  })();
+
+  googlePlusFeedBuilder = (function() {
+    var postTemplate;
+
+    function googlePlusFeedBuilder(feedVars, dataFeed) {
+      var googleBlock, googleFeedList, googleTab, index, post, _i, _len;
+      googleTab = " <a class='feed-switch' id='feed-switch-google' href='#google-feed' title='Show Google Feed'>                      <svg enable-background='new 0 0 512 512' height='40' style='max-width:100%; max-height:100%;' version='1.1' viewBox='0 0 512 512' width='40' x='0px' xmlns='http://www.w3.org/2000/svg' y='0px'><path alt='google' class='social-feed-icon google-social-feed-icon' d='M462,141.347h-54.621v54.622h-27.311v-54.622h-54.622v-27.311h54.622V59.416h27.311v54.621H462V141.347z M307.583,367.26  c0,40.943-37.384,90.787-131.434,90.787C107.365,458.047,50,428.379,50,378.478c0-38.514,24.383-88.511,138.323-88.511 c-16.922-13.792-21.075-33.077-10.733-53.959c-66.714,0-100.879-39.222-100.879-89.023c0-48.731,36.242-93.032,110.15-93.032 c18.66,0,118.398,0,118.398,0l-26.457,27.77h-31.079c21.925,12.562,33.586,38.433,33.586,66.949 c0,26.175-14.413,47.375-34.983,63.279c-36.503,28.222-27.158,43.98,11.087,71.872C295.121,312.074,307.583,333.882,307.583,367.26 z M233.738,150.453c-5.506-41.905-32.806-76.284-64.704-77.243c-31.909-0.949-53.309,31.119-47.798,73.035 c5.509,41.905,35.834,71.178,67.749,72.139C220.882,219.333,239.242,192.363,233.738,150.453z M266.631,371.463 c0-34.466-31.441-67.317-84.192-67.317c-47.542-0.523-87.832,30.042-87.832,65.471c0,36.154,34.335,66.25,81.879,66.25 C237.267,435.866,266.631,407.617,266.631,371.463z'></path></svg>                    </a>";
+      $('.feed-switcher').append(googleTab);
+      googleFeedList = [];
+      for (index = _i = 0, _len = dataFeed.length; _i < _len; index = ++_i) {
+        post = dataFeed[index];
+        if ((index + 1) > feedVars.facebook_post_limit) {
+          break;
+        }
+        googleFeedList.push(postTemplate(post.attributes));
+      }
+      googleBlock = "<div id='google-feed' class='google-feed feed-section' style='display:none;'>                      <ul class='google-list'>                        " + (googleFeedList.join('')) + "                      </ul>                    </div>";
+      $('.social-feed').append(googleBlock);
+      new tabListener('#feed-switch-google', '#google-feed');
+    }
+
+    postTemplate = function(post) {
+      return " <li>        <div class='google-name'>" + post.actor.displayName + " said:</div>        <div class='google-post'>" + post.object.content + "</div>      </li>";
+    };
+
+    return googlePlusFeedBuilder;
 
   })();
 
