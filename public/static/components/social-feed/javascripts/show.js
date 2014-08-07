@@ -182,19 +182,18 @@
       _ref = dataFeed.data;
       for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
         post = _ref[index];
-        debugger;
         if ((index + 1) > feedVars.facebook_post_limit) {
           break;
         }
-        facebookFeedList.push(postTemplate(post.created_time, post.message));
+        facebookFeedList.push(postTemplate(post));
       }
       facebookBlock = "<div id='facebook-feed' class='facebook-feed feed-section' style='display:none;'>                      <ul class='tweet-list'>                        " + (facebookFeedList.join('')) + "                      </ul>                    </div>";
       $('.social-feed').append(facebookBlock);
       new tabListener('#feed-switch-facebook', '#facebook-feed');
     }
 
-    postTemplate = function(created_time, message) {
-      return " <li>        " + created_time + "<br/>" + message + "      </li>";
+    postTemplate = function(post) {
+      return " <li>        <div class='facebook-name tweet-name'>" + post.from.name + " said:</div>        <div class='facebook-post'>" + post.message + "</div>      </li>";
     };
 
     return facebookFeedBuilder;

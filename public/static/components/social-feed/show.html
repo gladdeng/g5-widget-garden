@@ -7,8 +7,8 @@
       "feed_url": "{{ widget.blog_feed_url.best_value | url_encode }}",
       "show_entry_summary": {{ widget.blog_feed_display_summary.best_value }},
       "entries_to_show": {{ widget.blog_feed_number_to_display.best_value }},
-      "facebook_page_id": "255110695512",
-      "facebook_post_limit": 4
+      "facebook_page_id": {{ widget.facebook_page_id.best_value }},
+      "facebook_post_limit": {{ widget.facebook_post_count.best_value }}
     }
   </script>
 

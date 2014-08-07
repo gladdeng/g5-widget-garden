@@ -167,7 +167,7 @@ class facebookFeedBuilder
 
     for post, index in dataFeed.data
       break if (index + 1) > feedVars.facebook_post_limit
-      facebookFeedList.push(postTemplate(post.created_time, post.message))
+      facebookFeedList.push(postTemplate(post))
 
     facebookBlock = "<div id='facebook-feed' class='facebook-feed feed-section' style='display:none;'>
                       <ul class='tweet-list'>
@@ -180,9 +180,10 @@ class facebookFeedBuilder
     new tabListener('#feed-switch-facebook', '#facebook-feed')
 
 
-  postTemplate = (created_time, message) ->
+  postTemplate = (post) ->
     " <li>
-        #{created_time}<br/>#{message}
+        <div class='facebook-name tweet-name'>#{post.from.name} said:</div>
+        <div class='facebook-post'>#{post.message}</div>
       </li>"
 
 # GOOGLE+ UTILITIES
