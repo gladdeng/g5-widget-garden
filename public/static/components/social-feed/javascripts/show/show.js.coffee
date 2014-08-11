@@ -147,7 +147,7 @@ class tweetBuilder
   tweetTemplate = (avatar, userName, userUrl, text, url) ->
     " <li>
         <span class='tweet-avatar'><img src='#{avatar}'/></span>
-        <a href='#{url}' class='tweet-name' target='_blank'> #{userName} says:</a>
+        <a href='#{url}' class='tweet-name author-name' target='_blank'> #{userName} says:</a>
         <span class='tweet-text'> #{text}</span>
       </li>"
 
@@ -160,7 +160,7 @@ class facebookInitializer
     
   getpage = (feedVars) ->
     $.ajax
-      url: "http://localhost:4000/facebook_feed/#{feedVars.facebook_page_id}"
+      url: "http://g5-social-feed-trough.herokuapp.com/facebook_feed/#{feedVars.facebook_page_id}"
       dataType: 'json'
       success: (data) =>
         new facebookFeedBuilder(feedVars, data);
@@ -191,7 +191,7 @@ class facebookFeedBuilder
 
   postTemplate = (post) ->
     " <li>
-        <div class='facebook-name tweet-name'>#{post.from.name} said:</div>
+        <div class='facebook-name tweet-name author-name'><a href='http://facebook.com/#{post.from.id}' class='author-name' target='_blank'>#{post.from.name} said:</a></div>
         <div class='facebook-post'>#{post.message}</div>
       </li>"
 
@@ -204,7 +204,7 @@ class googlePlusInitializer
     
   getpage = (feedVars) ->
     $.ajax
-      url: "http://localhost:4000/google_plus_feed/110501429269329139515"
+      url: "http://g5-social-feed-trough.herokuapp.com/google_plus_feed/#{feedVars.google_plus_page_id}"
       dataType: 'json'
       success: (data) =>
         new googlePlusFeedBuilder(feedVars, data);
@@ -219,7 +219,7 @@ class googlePlusFeedBuilder
     googleFeedList = []
 
     for post, index in dataFeed
-      break if (index + 1) > feedVars.facebook_post_limit
+      break if (index + 1) > feedVars.google_plus_post_limit
       googleFeedList.push(postTemplate(post.attributes))
 
     googleBlock = "<div id='google-feed' class='google-feed feed-section' style='display:none;'>
@@ -234,7 +234,7 @@ class googlePlusFeedBuilder
 
   postTemplate = (post) ->
     " <li>
-        <div class='google-name'>#{post.actor.displayName} said:</div>
+        <div class='google-name author-name'><a href='#{post.actor.url}' class='author-name' target='_blank'>#{post.actor.displayName} said:</a></div>
         <div class='google-post'>#{post.object.content}</div>
       </li>"
 

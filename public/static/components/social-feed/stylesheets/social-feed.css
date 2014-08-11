@@ -70,3 +70,6 @@
   float: left;
   width: 88%;
 }
+.social-feed .author-name{
+  font-weight:bold;
+}

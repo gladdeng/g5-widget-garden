@@ -143,7 +143,7 @@
     }
 
     tweetTemplate = function(avatar, userName, userUrl, text, url) {
-      return " <li>        <span class='tweet-avatar'><img src='" + avatar + "'/></span>        <a href='" + url + "' class='tweet-name' target='_blank'> " + userName + " says:</a>        <span class='tweet-text'> " + text + "</span>      </li>";
+      return " <li>        <span class='tweet-avatar'><img src='" + avatar + "'/></span>        <a href='" + url + "' class='tweet-name author-name' target='_blank'> " + userName + " says:</a>        <span class='tweet-text'> " + text + "</span>      </li>";
     };
 
     return tweetBuilder;
@@ -160,7 +160,7 @@
     getpage = function(feedVars) {
       var _this = this;
       return $.ajax({
-        url: "http://localhost:4000/facebook_feed/" + feedVars.facebook_page_id,
+        url: "http://g5-social-feed-trough.herokuapp.com/facebook_feed/" + feedVars.facebook_page_id,
         dataType: 'json',
         success: function(data) {
           return new facebookFeedBuilder(feedVars, data);
@@ -194,7 +194,7 @@
     }
 
     postTemplate = function(post) {
-      return " <li>        <div class='facebook-name tweet-name'>" + post.from.name + " said:</div>        <div class='facebook-post'>" + post.message + "</div>      </li>";
+      return " <li>        <div class='facebook-name tweet-name author-name'><a href='http://facebook.com/" + post.from.id + "' class='author-name' target='_blank'>" + post.from.name + " said:</a></div>        <div class='facebook-post'>" + post.message + "</div>      </li>";
     };
 
     return facebookFeedBuilder;
@@ -211,7 +211,7 @@
     getpage = function(feedVars) {
       var _this = this;
       return $.ajax({
-        url: "http://localhost:4000/google_plus_feed/110501429269329139515",
+        url: "http://g5-social-feed-trough.herokuapp.com/google_plus_feed/" + feedVars.google_plus_page_id,
         dataType: 'json',
         success: function(data) {
           return new googlePlusFeedBuilder(feedVars, data);
@@ -233,7 +233,7 @@
       googleFeedList = [];
       for (index = _i = 0, _len = dataFeed.length; _i < _len; index = ++_i) {
         post = dataFeed[index];
-        if ((index + 1) > feedVars.facebook_post_limit) {
+        if ((index + 1) > feedVars.google_plus_post_limit) {
           break;
         }
         googleFeedList.push(postTemplate(post.attributes));
@@ -244,7 +244,7 @@
     }
 
     postTemplate = function(post) {
-      return " <li>        <div class='google-name'>" + post.actor.displayName + " said:</div>        <div class='google-post'>" + post.object.content + "</div>      </li>";
+      return " <li>        <div class='google-name author-name'><a href='" + post.actor.url + "' class='author-name' target='_blank'>" + post.actor.displayName + " said:</a></div>        <div class='google-post'>" + post.object.content + "</div>      </li>";
     };
 
     return googlePlusFeedBuilder;

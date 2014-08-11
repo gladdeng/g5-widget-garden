@@ -109,7 +109,7 @@
     <div class="form-field">
       {{ widget.facebook_page_id.id_hidden_field }}
       <label for="{{ widget.facebook_page_id.value_field_id }}" >
-        Twitter Username
+        Facebook Page ID
       </label>
       <input type="text"
         id="{{ widget.facebook_page_id.value_field_id }}"
@@ -123,13 +123,45 @@
     <div class="form-field">
       {{ widget.facebook_post_count.id_hidden_field }}
       <label for="{{ widget.facebook_post_count.value_field_id }}">
-        Number of Tweets to Show
+        Number of Posts to Show
       </label>
       <input type="number"
         min="1"
         id="{{ widget.facebook_post_count.value_field_id }}"
         name="{{ widget.facebook_post_count.value_field_name }}"
         value="{{ widget.facebook_post_count.best_value }}"
+      />
+    </div>
+
+  </fieldset>
+
+  <fieldset>
+    <legend>Google Plus Feed Setup</legend>
+
+    <div class="form-field">
+      {{ widget.google_plus_page_id.id_hidden_field }}
+      <label for="{{ widget.google_plus_page_id.value_field_id }}" >
+        Google Plus Page ID
+      </label>
+      <input type="text"
+        id="{{ widget.google_plus_page_id.value_field_id }}"
+        name="{{ widget.google_plus_page_id.value_field_name }}"
+        value="{{ widget.google_plus_page_id.best_value }}"
+      />
+    </div>
+
+    </div>
+
+    <div class="form-field">
+      {{ widget.google_plus_post_count.id_hidden_field }}
+      <label for="{{ widget.google_plus_post_count.value_field_id }}">
+        Number of posts to show
+      </label>
+      <input type="number"
+        min="1"
+        id="{{ widget.google_plus_post_count.value_field_id }}"
+        name="{{ widget.google_plus_post_count.value_field_name }}"
+        value="{{ widget.google_plus_post_count.best_value }}"
       />
     </div>
 
