@@ -93,15 +93,14 @@
 
   tweetInitializer = (function() {
     function tweetInitializer(feedVars) {
+      var _this = this;
       $.ajax({
-        url: "https://mobile.twitter.com/" + feedVars.twitter_username,
-        dataType: "html",
-        type: "GET"
-      }).done(function(data) {
-        var avatar, tweets;
-        tweets = $(".timeline .tweet:lt(" + feedVars.tweet_count + ")", data.results[0]).toArray();
-        avatar = $(".avatar:lt(1) img", data.results[0]);
-        return new tweetBuilder(data, tweets, avatar);
+        url: "http://g5-social-feed-trough.herokuapp.com/twitter_feed/" + feedVars.twitter_username,
+        dataType: "json",
+        type: "GET",
+        success: function(data) {
+          return new tweetBuilder(data, feedVars);
+        }
       });
     }
 
@@ -112,33 +111,16 @@
   tweetBuilder = (function() {
     var tweetTemplate;
 
-    function tweetBuilder(feedVars, tweets, avatar) {
-      var composedTweets, twitterBlock, twitterTab, twitterUrl;
-      twitterUrl = "http://www.twitter.com";
+    function tweetBuilder(data, feedVars) {
+      var composedTweets, index, tweet, twitterBlock, twitterTab, _i, _len;
       composedTweets = [];
-      tweets.forEach(function(tweet) {
-        var avatarUrl, replyHtml, timestamp, tweetHtml, url, user, userInfo, userName, userUrl;
-        timestamp = $(tweet).find(".timestamp");
-        user = timestamp.find("a").attr("href");
-        avatarUrl = $(avatar[0]).attr('src');
-        userName = $(tweet).find('.fullname').html();
-        userUrl = twitterUrl + '/' + feedVars.twitter_username;
-        url = twitterUrl + user;
-        tweetHtml = $(tweet).find(".tweet-text");
-        replyHtml = tweetHtml.find(".twitter-atreply");
-        if ($(tweet).has('.context').length > 0) {
-          userInfo = $(tweet).find('.tweet-header');
-          avatarUrl = userInfo.find(".avatar img").attr("src");
-          userName = userInfo.find(".fullname").html();
+      for (index = _i = 0, _len = data.length; _i < _len; index = ++_i) {
+        tweet = data[index];
+        if ((index + 1) > feedVars.tweet_count) {
+          break;
         }
-        if (feedVars.display_avatar === false) {
-          avatarUrl = 'https://widgets.g5dxm.com/social-feed/icon-speech.png';
-        }
-        replyHtml.each(function() {
-          return $(this).attr("href", twitterUrl + $(this).attr("href"));
-        });
-        return composedTweets.push(tweetTemplate(avatarUrl, userName, userUrl, tweetHtml.html(), url));
-      });
+        composedTweets.push(tweetTemplate(tweet));
+      }
       twitterTab = "<a class='feed-switch' id='feed-switch-twitter' href='#twitter-feed' title='Show Tweets'>                    <svg enable-background='new 0 0 512 512' height='40' style='max-width:100%; max-height:100%;' version='1.1' viewBox='0 0 512 512' width='40' x='0px' xmlns='http://www.w3.org/2000/svg' y='0px'><path alt='twitter' class='social-feed-icon twitter-social-feed-icon' d='M462,128.223c-15.158,6.724-31.449,11.269-48.547,13.31c17.449-10.461,30.854-27.025,37.164-46.764 c-16.333,9.687-34.422,16.721-53.676,20.511c-15.418-16.428-37.386-26.691-61.698-26.691c-54.56,0-94.668,50.916-82.337,103.787 c-70.25-3.524-132.534-37.177-174.223-88.314c-22.142,37.983-11.485,87.691,26.158,112.85c-13.854-0.438-26.891-4.241-38.285-10.574 c-0.917,39.162,27.146,75.781,67.795,83.949c-11.896,3.237-24.926,3.978-38.17,1.447c10.754,33.58,41.972,58.018,78.96,58.699 C139.604,378.282,94.846,390.721,50,385.436c37.406,23.982,81.837,37.977,129.571,37.977c156.932,0,245.595-132.551,240.251-251.435 C436.339,160.061,450.668,145.174,462,128.223z'></path></svg>                  </a>";
       $('.feed-switcher').append(twitterTab);
       twitterBlock = "<div id='twitter-feed' class='twitter-feed feed-section' style='display:none;'>                      <ul class='tweet-list'>                        " + (composedTweets.join('')) + "                      </ul>                      <a class='btn' href='http://www.twitter.com/" + feedVars.twitter_username + "' href='#' target='_blank'>Read All</a>                    </div>";
@@ -146,8 +128,8 @@
       new tabListener('#feed-switch-twitter', '#twitter-feed');
     }
 
-    tweetTemplate = function(avatar, userName, userUrl, text, url) {
-      return " <li>        <span class='tweet-avatar'><img src='" + avatar + "'/></span>        <a href='" + url + "' class='tweet-name author-name' target='_blank'> " + userName + " says:</a>        <span class='tweet-text'> " + text + "</span>      </li>";
+    tweetTemplate = function(tweet) {
+      return " <li>        <span class='tweet-avatar'><img src='" + tweet.user.profile_image_url + "'/></span>        <a href='https://twitter.com/" + tweet.user.screen_name + "' class='tweet-name author-name' target='_blank'> " + tweet.user.screen_name + " says:</a>        <span class='tweet-text'>" + tweet.text + "</span>      </li>";
     };
 
     return tweetBuilder;
