@@ -85,7 +85,7 @@ class window.BlogInterface
 class tweetInitializer
   constructor: (feedVars) ->
     $.ajax
-      url: "http://g5-social-feed-trough.herokuapp.com/twitter_feed/#{feedVars.twitter_username}"
+      url: "http://g5-social-feed-service.herokuapp.com/twitter-feed/#{feedVars.twitter_username}"
       dataType: "json"
       type: "GET"
       success: (data) =>
@@ -133,7 +133,7 @@ class facebookInitializer
     
   getpage = (feedVars) ->
     $.ajax
-      url: "http://g5-social-feed-trough.herokuapp.com/facebook_feed/#{feedVars.facebook_page_id}"
+      url: "http://g5-social-feed-service.herokuapp.com/facebook-feed/#{feedVars.facebook_page_id}"
       dataType: 'json'
       success: (data) =>
         new facebookFeedBuilder(feedVars, data);
@@ -177,7 +177,7 @@ class googlePlusInitializer
     
   getpage = (feedVars) ->
     $.ajax
-      url: "http://g5-social-feed-trough.herokuapp.com/google_plus_feed/#{feedVars.google_plus_page_id}"
+      url: "http://g5-social-feed-service.herokuapp.com/google-plus-feed/#{feedVars.google_plus_page_id}"
       dataType: 'json'
       success: (data) =>
         new googlePlusFeedBuilder(feedVars, data);
@@ -224,16 +224,8 @@ class tabListener
       $('.feed-section').css('display', 'none')
 
       $(block).css('display', 'block')
-      # feed = $(this).attr('href')
-      # $('#blog-feed, #twitter-feed').hide()
-      # $(feed).show()
       return false
 
     if $('.feed-switcher a').length == 1
       $(tab).addClass('active')
       $(block).css('display', 'block')
-
-
-    
-
-
