@@ -24,6 +24,18 @@
   </div>
 
   <div class="form-field">
+    {{ widget.button_color.id_hidden_field }}
+    <label for="{{ widget.button_color.value_field_id }}" >
+      Button Color
+    </label>
+    <input type="text"
+      id="{{ widget.button_color.value_field_id }}"
+      name="{{ widget.button_color.value_field_name }}"
+      value="{{ widget.button_color.best_value | url_encode }}"
+    />
+  </div>
+
+  <div class="form-field">
     {{ widget.button_description.id_hidden_field }}
     <label for="{{ widget.button_description.value_field_id }}" >
       Button Description
