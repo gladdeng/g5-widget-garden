@@ -58,12 +58,12 @@
 .social-feed p {
   margin: 0;
 }
-.social-feed .tweet-avatar {
+.social-feed .post-thumb {
   float: left;
   margin-right: 2%;
   width: 10%;
 }
-.social-feed .tweet-avatar img {
+.social-feed .post-thumb img {
   width: 100%;
 }
 .social-feed .tweet-text {

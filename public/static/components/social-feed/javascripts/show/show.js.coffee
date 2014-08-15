@@ -98,7 +98,7 @@ class tweetBuilder
     for tweet, index in data
       break if (index + 1) > feedVars.tweet_count
 
-      composedTweets.push(tweetTemplate(tweet))
+      composedTweets.push(tweetTemplate(tweet, feedVars))
 
     twitterTab = "<a class='feed-switch' id='feed-switch-twitter' href='#twitter-feed' title='Show Tweets'>
                     <svg enable-background='new 0 0 512 512' height='40' style='max-width:100%; max-height:100%;' version='1.1' viewBox='0 0 512 512' width='40' x='0px' xmlns='http://www.w3.org/2000/svg' y='0px'><path alt='twitter' class='social-feed-icon twitter-social-feed-icon' d='M462,128.223c-15.158,6.724-31.449,11.269-48.547,13.31c17.449-10.461,30.854-27.025,37.164-46.764 c-16.333,9.687-34.422,16.721-53.676,20.511c-15.418-16.428-37.386-26.691-61.698-26.691c-54.56,0-94.668,50.916-82.337,103.787 c-70.25-3.524-132.534-37.177-174.223-88.314c-22.142,37.983-11.485,87.691,26.158,112.85c-13.854-0.438-26.891-4.241-38.285-10.574 c-0.917,39.162,27.146,75.781,67.795,83.949c-11.896,3.237-24.926,3.978-38.17,1.447c10.754,33.58,41.972,58.018,78.96,58.699 C139.604,378.282,94.846,390.721,50,385.436c37.406,23.982,81.837,37.977,129.571,37.977c156.932,0,245.595-132.551,240.251-251.435 C436.339,160.061,450.668,145.174,462,128.223z'></path></svg>
@@ -117,10 +117,11 @@ class tweetBuilder
 
     new tabListener('#feed-switch-twitter', '#twitter-feed')
 
-  tweetTemplate = (tweet) ->
+  tweetTemplate = (tweet, feedVars) ->
+    avatar = if feedVars.display_avatar then "<span class='post-thumb'><img src='#{tweet.user.profile_image_url}'/></span>" else ""
     " <li>
-        <span class='tweet-avatar'><img src='#{tweet.user.profile_image_url}'/></span>
-        <a href='https://twitter.com/#{tweet.user.screen_name}' class='tweet-name author-name' target='_blank'> #{tweet.user.screen_name} says:</a>
+        #{avatar}
+        <div><a href='https://twitter.com/#{tweet.user.screen_name}' class='tweet-name author-name' target='_blank'> #{tweet.user.screen_name} says:</a></div>
         <span class='tweet-text'>#{tweet.text}</span>
       </li>"
 
@@ -149,7 +150,7 @@ class facebookFeedBuilder
 
     for post, index in dataFeed.data
       break if (index + 1) > feedVars.facebook_post_limit
-      facebookFeedList.push(postTemplate(post))
+      facebookFeedList.push(postTemplate(post, feedVars))
 
     facebookBlock = "<div id='facebook-feed' class='facebook-feed feed-section' style='display:none;'>
                       <ul class='tweet-list'>
@@ -162,8 +163,10 @@ class facebookFeedBuilder
     new tabListener('#feed-switch-facebook', '#facebook-feed')
 
 
-  postTemplate = (post) ->
+  postTemplate = (post, feedVars) ->
+    avatar = if feedVars.display_avatar and post.picture then "<span class='post-thumb'><img src='#{post.picture}'/></span>" else ""
     " <li>
+        #{avatar}
         <div class='facebook-name tweet-name author-name'><a href='http://facebook.com/#{post.from.id}' class='author-name' target='_blank'>#{post.from.name} said:</a></div>
         <div class='facebook-post'>#{post.message}</div>
       </li>"
@@ -193,7 +196,7 @@ class googlePlusFeedBuilder
 
     for post, index in dataFeed
       break if (index + 1) > feedVars.google_plus_post_limit
-      googleFeedList.push(postTemplate(post.attributes))
+      googleFeedList.push(postTemplate(post.attributes, feedVars))
 
     googleBlock = "<div id='google-feed' class='google-feed feed-section' style='display:none;'>
                       <ul class='google-list'>
@@ -205,8 +208,10 @@ class googlePlusFeedBuilder
 
     new tabListener('#feed-switch-google', '#google-feed')
 
-  postTemplate = (post) ->
+  postTemplate = (post, feedVars) ->
+    avatar = if feedVars.display_avatar then "<span class='post-thumb'><img src='#{post.actor.image.url}'/></span>" else ""
     " <li>
+        #{avatar}
         <div class='google-name author-name'><a href='#{post.actor.url}' class='author-name' target='_blank'>#{post.actor.displayName} said:</a></div>
         <div class='google-post'>#{post.object.content}</div>
       </li>"
