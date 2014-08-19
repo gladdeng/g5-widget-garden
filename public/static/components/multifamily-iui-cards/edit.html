@@ -36,6 +36,18 @@
     />
   </div>
   <div class="form-field">
+    {{ widget.max_unit_availability.id_hidden_field }}
+    <label for="{{ widget.max_unit_availability.value_field_id }}">
+      Max Unit Availability
+    </label>
+    <input type="text"
+      placeholder="6"
+      id="{{ widget.max_unit_availability.value_field_id }}"
+      name="{{ widget.max_unit_availability.value_field_name }}"
+      value="{{ widget.max_unit_availability.best_value }}"
+    />
+  </div>
+  <div class="form-field">
     {{ widget.primary_color.id_hidden_field }}
     <label for="{{ widget.primary_color.value_field_id }}">
       Primary Color
