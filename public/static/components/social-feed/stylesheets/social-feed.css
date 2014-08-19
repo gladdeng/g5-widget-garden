@@ -13,12 +13,13 @@
   border-bottom: 1px solid grey;
 }
 .social-feed .feed-switch {
-  text-indent: 100%;
   overflow: hidden;
   white-space: nowrap;
   display: block;
   width: 60px;
   height: 60px;
+  padding-top:8px;
+  text-align:center;
   float: left;
   background-position: center;
   background-repeat: no-repeat;
@@ -31,10 +32,19 @@
   bottom: -1px;
 }
 #feed-switch-twitter {
-  background-image: url(http://widgets.g5dxm.com/twitter-feed/twitter-icon.png);
+  /*background-image: url(http://widgets.g5dxm.com/twitter-feed/twitter-icon.png);*/
 }
 #feed-switch-blog {
-  background-image: url(http://widgets.g5dxm.com/blog-feed/rss-icon.png);
+  padding-top:12px;
+  /*background-image: url(http://widgets.g5dxm.com/blog-feed/rss-icon.png);*/
+}
+#feed-switch-blog path{
+  fill:none;
+  stroke:#000000;
+}
+#feed-switch-blog circle{
+  storke:none;
+  fill:#000000;
 }
 .social-feed .feed-section {
   padding: 15px;
@@ -48,15 +58,18 @@
 .social-feed p {
   margin: 0;
 }
-.social-feed .tweet-avatar {
+.social-feed .post-thumb {
   float: left;
   margin-right: 2%;
   width: 10%;
 }
-.social-feed .tweet-avatar img {
+.social-feed .post-thumb img {
   width: 100%;
 }
 .social-feed .tweet-text {
   float: left;
   width: 88%;
+}
+.social-feed .author-name{
+  font-weight:bold;
 }
