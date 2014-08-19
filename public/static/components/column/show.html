@@ -7,13 +7,16 @@
       <div class="row-2" id="drop-target-second-row"></div>
     {% endif %}
 
-    {% if widget.row_count.best_value == "three" or widget.row_count.best_value == "four" %}
+    {% if widget.row_count.best_value == "three" or widget.row_count.best_value == "four" or widget.row_count.best_value == "five" %}
       <div class="row-3" id="drop-target-third-row"></div>
     {% endif %}
 
-    {% if widget.row_count.best_value == "four" %}
+    {% if widget.row_count.best_value == "four" or widget.row_count.best_value == "five" %}
       <div class="row-4" id="drop-target-fourth-row"></div>
     {% endif %}
 
+    {% if widget.row_count.best_value == "five" %}
+      <div class="row-5" id="drop-target-fifth-row"></div>
+    {% endif %}
   </div>
 </div>
