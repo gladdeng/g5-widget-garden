@@ -3,23 +3,23 @@
   {% if widget.facebook_username.best_value != '' or widget.twitter_username.best_value != "" or widget.yelp_username.best_value != "" or widget.google_plus_id.best_value != "" %}
   <div class="social-links">
     {% if widget.facebook_username.best_value != ""  %}
-    <a href="http://facebook.com/{{ widget.facebook_username.best_value | url_encode }}" class="facebook" title="Facebook" rel="me">Facebook</a>
+    <a href="http://facebook.com/{{ widget.facebook_username.best_value | url_encode }}" class="facebook" title="Facebook" rel="me" target="_blank">Facebook</a>
     {% endif %}
 
     {% if widget.twitter_username.best_value != ""  %}
-      <a href="http://www.twitter.com/{{ widget.twitter_username.best_value | url_encode }}" class="twitter" title="Twitter" rel="me">Twitter</a>
+      <a href="http://www.twitter.com/{{ widget.twitter_username.best_value | url_encode }}" class="twitter" title="Twitter" rel="me" target="_blank">Twitter</a>
     {% endif %}
 
     {% if widget.yelp_username.best_value != ""  %}
-      <a href="http://www.yelp.com/biz/{{ widget.yelp_username.best_value | url_encode }}" class="yelp" title="Yelp" rel="me">Yelp</a>
+      <a href="http://www.yelp.com/biz/{{ widget.yelp_username.best_value | url_encode }}" class="yelp" title="Yelp" rel="me" target="_blank">Yelp</a>
     {% endif %}
 
     {% if widget.google_plus_id.best_value != ""  %}
-      <a href="https://plus.google.com/{{ widget.google_plus_id.best_value | url_encode }}" class="google-plus" title="Google Plus" rel="me">Google Plus</a>
+      <a href="https://plus.google.com/{{ widget.google_plus_id.best_value | url_encode }}" class="google-plus" title="Google Plus" rel="me" target="_blank">Google Plus</a>
     {% endif %}
 
     {% if widget.linkedin_username.best_value != ""  %}
-      <a href="http://www.linkedin.com/in/{{ widget.linkedin_username.best_value | url_encode }}" class="linked-in" title="LinkedIn" rel="me">LinkedIn</a>
+      <a href="http://www.linkedin.com/in/{{ widget.linkedin_username.best_value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
     {% endif %}
   </div>
   {% endif %}
