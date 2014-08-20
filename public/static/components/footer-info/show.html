@@ -17,6 +17,10 @@
     {% if widget.google_plus_id.best_value != ""  %}
       <a href="https://plus.google.com/{{ widget.google_plus_id.best_value | url_encode }}" class="google-plus" title="Google Plus" rel="me">Google Plus</a>
     {% endif %}
+
+    {% if widget.linkedin_username.best_value != ""  %}
+      <a href="http://www.linkedin.com/in/{{ widget.linkedin_username.best_value | url_encode }}" class="linked-in" title="LinkedIn" rel="me">LinkedIn</a>
+    {% endif %}
   </div>
   {% endif %}
 
