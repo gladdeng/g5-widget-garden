@@ -19,34 +19,36 @@
   {% endif %}
 
   <p class="h-adr p-adr adr" itemscope itemtype="http://schema.org/PostalAddress">
-    {% if widget.location_street_address.best_value != "" %}
-    <span class="p-street-address street-address" itemprop="streetAddress">
-      {{ widget.location_street_address.best_value}}
-    </span>
-    {% endif %}
+    <a href="http://maps.apple.com/?q={{widget.location_street_address.best_value | url_encode}},{{widget.location_city.best_value | url_encode}},{{widget.location_state.best_value | url_encode}}+{{widget.location_postal_code.best_value | url_encode}}">
+      {% if widget.location_street_address.best_value != "" %}
+      <span class="p-street-address street-address" itemprop="streetAddress">
+        {{ widget.location_street_address.best_value}}
+      </span>
+      {% endif %}
 
-    {% if widget.location_city.best_value != "" %}
-    <span class="p-locality locality" itemprop="addressLocality">
-      {{ widget.location_city.best_value }}</span>,
-    {% endif %}
+      {% if widget.location_city.best_value != "" %}
+      <span class="p-locality locality" itemprop="addressLocality">
+        {{ widget.location_city.best_value }}</span>,
+      {% endif %}
 
-    {% if widget.location_state.best_value != "" %}
-    <span class="p-region region" itemprop="addressRegion">
-      {{ widget.location_state.best_value }}
-    </span>
-    {% endif %}
+      {% if widget.location_state.best_value != "" %}
+      <span class="p-region region" itemprop="addressRegion">
+        {{ widget.location_state.best_value }}
+      </span>
+      {% endif %}
 
-    {% if widget.location_postal_code.best_value != "" %}
-    <span class="p-postal-code postal-code" itemprop="postalCode">
-      {{ widget.location_postal_code.best_value }}
-    </span>
-    {% endif %}
+      {% if widget.location_postal_code.best_value != "" %}
+      <span class="p-postal-code postal-code" itemprop="postalCode">
+        {{ widget.location_postal_code.best_value }}
+      </span>
+      {% endif %}
 
-    {% if widget.location_country.best_value != "" %}
-    <span class="p-country-name country-name" itemprop="addressCountry">
-      {{ widget.location_country.best_value }}
-    </span>
-    {% endif %}
+      {% if widget.location_country.best_value != "" %}
+      <span class="p-country-name country-name" itemprop="addressCountry">
+        {{ widget.location_country.best_value }}
+      </span>
+      {% endif %}
+    </a>
   </p>
 
   {% if widget.location_email.best_value != "" %}
