@@ -1,43 +1,47 @@
 <div class="social-links widget">
 
   {% if widget.facebook_username.best_value != ""  %}
-    <a href="http://facebook.com/{{ widget.facebook_username.best_value | url_encode }}" class="facebook" title="Facebook" rel="me">Facebook</a>
+    <a href="http://facebook.com/{{ widget.facebook_username.best_value | url_encode }}" class="facebook" title="Facebook" rel="me" target="_blank">Facebook</a>
   {% endif %}
 
   {% if widget.twitter_username.best_value != ""  %}
-    <a href="http://www.twitter.com/{{ widget.twitter_username.best_value | url_encode }}" class="twitter" title="Twitter" rel="me">Twitter</a>
+    <a href="http://www.twitter.com/{{ widget.twitter_username.best_value | url_encode }}" class="twitter" title="Twitter" rel="me" target="_blank">Twitter</a>
   {% endif %}
 
   {% if widget.yelp_username.best_value != ""  %}
-    <a href="http://www.yelp.com/biz/{{ widget.yelp_username.best_value | url_encode }}" class="yelp" title="Yelp" rel="me">Yelp</a>
+    <a href="http://www.yelp.com/biz/{{ widget.yelp_username.best_value | url_encode }}" class="yelp" title="Yelp" rel="me" target="_blank">Yelp</a>
   {% endif %}
 
   {% if widget.google_plus_id.best_value != ""  %}
-      <a href="https://plus.google.com/{{ widget.google_plus_id.best_value | url_encode }}" class="google-plus" title="Google Plus" rel="me">Google Plus</a>
+      <a href="https://plus.google.com/{{ widget.google_plus_id.best_value | url_encode }}" class="google-plus" title="Google Plus" rel="me" target="_blank">Google Plus</a>
     {% endif %}
 
   {% if widget.foursquare_username.best_value != "" %}
-    <a href="http://foursquare.com/{{ widget.foursquare_username.best_value | url_encode }}" class="foursquare" title="Foursquare" rel="me">Foursquare</a>
+    <a href="http://foursquare.com/{{ widget.foursquare_username.best_value | url_encode }}" class="foursquare" title="Foursquare" rel="me" target="_blank">Foursquare</a>
   {% endif %}
 
   {% if widget.pinterest_username.best_value != ""  %}
-    <a href="http://www.pinterest.com/{{ widget.pinterest_username.best_value | url_encode }}" class="pinterest" title="Pinterest" rel="me">Pinterest</a>
+    <a href="http://www.pinterest.com/{{ widget.pinterest_username.best_value | url_encode }}" class="pinterest" title="Pinterest" rel="me" target="_blank">Pinterest</a>
   {% endif %}
 
   {% if widget.tumblr_username.best_value != ""  %}
-    <a href="http://{{ widget.tumblr_username.best_value | url_encode }}.tumblr.com/" class="tumblr" title="Tumblr" rel="me">Tumblr</a>
+    <a href="http://{{ widget.tumblr_username.best_value | url_encode }}.tumblr.com/" class="tumblr" title="Tumblr" rel="me" target="_blank">Tumblr</a>
   {% endif %}
 
   {% if widget.instagram_username.best_value != ""  %}
-    <a href="http://www.instagram.com/{{ widget.instagram_username.best_value | url_encode }}" class="instagram" title="Instagram" rel="me">Instagram</a>
+    <a href="http://www.instagram.com/{{ widget.instagram_username.best_value | url_encode }}" class="instagram" title="Instagram" rel="me" target="_blank">Instagram</a>
   {% endif %}
 
   {% if widget.vimeo_username.best_value != ""  %}
-    <a href="http://www.vimeo.com/{{ widget.vimeo_username.best_value | url_encode }}" class="vimeo" title="Vimeo" rel="me">Vimeo</a>
+    <a href="http://www.vimeo.com/{{ widget.vimeo_username.best_value | url_encode }}" class="vimeo" title="Vimeo" rel="me" target="_blank">Vimeo</a>
   {% endif %}
 
   {% if widget.youtube_username.best_value != ""  %}
-    <a href="http://www.youtube.com/{{ widget.youtube_username.best_value | url_encode }}" class="youtube" title="YouTube" rel="me">YouTube</a>
+    <a href="http://www.youtube.com/{{ widget.youtube_username.best_value | url_encode }}" class="youtube" title="YouTube" rel="me" target="_blank">YouTube</a>
+  {% endif %}
+
+  {% if widget.linkedin_username.best_value != ""  %}
+    <a href="http://www.linkedin.com/in/{{ widget.linkedin_username.best_value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
   {% endif %}
 
 </div>

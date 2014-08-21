@@ -12,6 +12,18 @@
   </div>
 
   <div class="form-field">
+    {{ widget.coupon_description.id_hidden_field }}
+    <label for="{{ widget.coupon_description.value_field_id }}" >
+      Coupon Description
+    </label>
+    <input type="text"
+      id="{{ widget.coupon_description.value_field_id }}"
+      name="{{ widget.coupon_description.value_field_name }}"
+      value="{{ widget.coupon_description.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
     {{ widget.coupon_number.id_hidden_field }}
     <label for="{{ widget.coupon_number.value_field_id }}" >
       Coupon Number
@@ -24,26 +36,26 @@
   </div>
 
   <div class="form-field">
+    {{ widget.coupon_barcode_url.id_hidden_field }}
+    <label for="{{ widget.coupon_barcode_url.value_field_id }}" >
+      Barcode URL
+    </label>
+    <input type="url"
+      id="{{ widget.coupon_barcode_url.value_field_id }}"
+      name="{{ widget.coupon_barcode_url.value_field_name }}"
+      value="{{ widget.coupon_barcode_url.best_value | url_encode }}"
+    />
+  </div>
+
+  <div class="form-field">
     {{ widget.coupon_email_url.id_hidden_field }}
     <label for="{{ widget.coupon_email_url.value_field_id }}" >
-      Email Submission URL
+      Email / Text Submission URL
     </label>
     <input type="url"
       id="{{ widget.coupon_email_url.value_field_id }}"
       name="{{ widget.coupon_email_url.value_field_name }}"
       value="{{ widget.coupon_email_url.best_value | url_encode }}"
-    />
-  </div>
-
-  <div class="form-field">
-    {{ widget.coupon_text_url.id_hidden_field }}
-    <label for="{{ widget.coupon_text_url.value_field_id }}" >
-      Text Submission URL
-    </label>
-    <input type="url"
-      id="{{ widget.coupon_text_url.value_field_id }}"
-      name="{{ widget.coupon_text_url.value_field_name }}"
-      value="{{ widget.coupon_text_url.best_value | url_encode }}"
     />
   </div>
 
@@ -169,6 +181,19 @@
       name="{{ widget.location_postal_code.value_field_name }}"
       value="{{ widget.location_postal_code.best_value }}"
     />
+  </div>
+
+  <div class="form-field">
+    {{ widget.location_directions.id_hidden_field }}
+    <label for="{{ widget.location_directions.value_field_id }}" >
+      Directions to Location
+    </label>
+    <textarea
+      id="ckeditor"
+      name="{{ widget.location_directions.value_field_name }}"
+     >
+      {{ widget.location_directions.best_value }}
+    </textarea>
   </div>
 
   <input type="submit" value="Save" class="btn" />

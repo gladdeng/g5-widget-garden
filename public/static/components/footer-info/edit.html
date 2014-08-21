@@ -111,6 +111,18 @@
   </div>
 
   <div class="form-field">
+    <label for="{{ widget.linkedin_username.value_field_id }}" >
+      LinkedIn Username
+    </label>
+    {{ widget.linkedin_username.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.linkedin_username.value_field_id }}"
+      name="{{ widget.linkedin_username.value_field_name }}"
+      value="{{ widget.linkedin_username.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
     {{ widget.client_name.id_hidden_field }}
     <label for="{{ widget.client_name.value_field_id }}" >
       Client Name
