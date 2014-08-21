@@ -8,6 +8,7 @@ module G5ComponentGarden
       # used in production for http conditional get caching
       # every deploy creates this directory
       # so the mtime is updated after a deploy
+      FileUtils.touch(COMPONENT_PATH) if Rails.env.development?
       File.new(COMPONENT_PATH).mtime.utc
     end
 
