@@ -22,6 +22,7 @@ group :development, :test do
   gem "codeclimate-test-reporter", require: false
   gem "foreman"
   gem "pry"
+  gem "highline"
 end
 
 group :production do
