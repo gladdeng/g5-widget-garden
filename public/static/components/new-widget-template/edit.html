@@ -1,0 +1,35 @@
+<form>
+  <fieldset>
+  
+    <!-- YOU CAN RUN `rake dev:option_markup` TO HELP YOU BUILD THE MARKUP FOR THE ENTRIES BELOW -->
+
+    <div class="form-field">
+      {{ widget.first_value.id_hidden_field }}
+      <label for="{{ widget.first_value.value_field_id }}" >
+        first value
+      </label>
+      <input type="text"
+        placeholder="I am The Walrus"
+        id="{{ widget.first_value.value_field_id }}"
+        name="{{ widget.first_value.value_field_name }}"
+        value="{{ widget.first_value.best_value }}"
+      />
+    </div>
+         
+    <div class="form-field">
+      {{ widget.second_value.id_hidden_field }}
+      <label for="{{ widget.second_value.value_field_id }}" >
+        second value
+      </label>
+      <input type="text"
+        placeholder="Zircon encrusted tweezers"
+        id="{{ widget.second_value.value_field_id }}"
+        name="{{ widget.second_value.value_field_name }}"
+        value="{{ widget.second_value.best_value }}"
+      />
+    </div>
+
+  </fieldset>
+  <input type="submit" value="Save" class="btn" />
+</form>
+
