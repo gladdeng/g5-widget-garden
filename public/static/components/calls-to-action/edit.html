@@ -1,0 +1,60 @@
+<form>
+  <fieldset>
+  
+    <div class="form-field">
+      {{ widget.cta_text_1.id_hidden_field }}
+      <label for="{{ widget.cta_text_1.value_field_id }}" >
+        cta text 1
+      </label>
+      <input type="text"
+        placeholder=""
+        id="{{ widget.cta_text_1.value_field_id }}"
+        name="{{ widget.cta_text_1.value_field_name }}"
+        value="{{ widget.cta_text_1.best_value }}"
+      />
+    </div>
+         
+    <div class="form-field">
+      {{ widget.cta_link_1.id_hidden_field }}
+      <label for="{{ widget.cta_link_1.value_field_id }}" >
+        cta link 1
+      </label>
+      <input type="text"
+        placeholder=""
+        id="{{ widget.cta_link_1.value_field_id }}"
+        name="{{ widget.cta_link_1.value_field_name }}"
+        value="{{ widget.cta_link_1.best_value | url_encode }}"
+      />
+    </div>
+
+
+    <div class="form-field">
+      {{ widget.cta_text_2.id_hidden_field }}
+      <label for="{{ widget.cta_text_2.value_field_id }}" >
+        cta text 2
+      </label>
+      <input type="text"
+        placeholder=""
+        id="{{ widget.cta_text_2.value_field_id }}"
+        name="{{ widget.cta_text_2.value_field_name }}"
+        value="{{ widget.cta_text_2.best_value }}"
+      />
+    </div>
+         
+    <div class="form-field">
+      {{ widget.cta_link_2.id_hidden_field }}
+      <label for="{{ widget.cta_link_2.value_field_id }}" >
+        cta link 2
+      </label>
+      <input type="text"
+        placeholder=""
+        id="{{ widget.cta_link_2.value_field_id }}"
+        name="{{ widget.cta_link_2.value_field_name }}"
+        value="{{ widget.cta_link_2.best_value | url_encode }}"
+      />
+    </div>
+    
+  </fieldset>
+  <input type="submit" value="Save" class="btn" />
+</form>
+
