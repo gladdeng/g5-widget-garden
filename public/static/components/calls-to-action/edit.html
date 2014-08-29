@@ -53,8 +53,65 @@
         value="{{ widget.cta_link_2.best_value | url_encode }}"
       />
     </div>
-    
   </fieldset>
+
+
+
+
+
+  <fieldset>
+    <legend>Choose which links you would like to display</legend>
+    <div>
+      {{ widget.navigation.id_hidden_field }}
+      <ul>
+        {% for web_page in widget.navigation.best_value %}
+          <li class="field check-field">
+            <input type="hidden"
+              id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display_false"
+              name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
+              value="false"
+            />
+            <input type="checkbox"
+              id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display"
+              name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
+              value="true"
+              {% if web_page[1].display != "false" %}
+              checked="checked"
+              {% endif %}
+            />
+            <label for="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display">
+              {{ web_page[1].name }}
+            </label>
+          </li>
+          {% for web_page in web_page[1].child_templates %}
+            <li class="field check-field">
+              - 
+              <input type="hidden"
+                id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display_false"
+                name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
+                value="false"
+              />
+              <input type="checkbox"
+                id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display"
+                name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
+                value="true"
+                {% if web_page[1].display != "false" %}
+                checked="checked"
+                {% endif %}
+              />
+              <label for="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display">
+                {{ web_page[1].name }}
+              </label>
+            </li>
+
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+  </fieldset>
+
+
+
   <input type="submit" value="Save" class="btn" />
 </form>
 
