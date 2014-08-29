@@ -59,13 +59,11 @@
 
 
 
-  <fieldset>
-    <legend>Choose which links you would like to display</legend>
-    <div>
-      {{ widget.navigation.id_hidden_field }}
-      <ul>
+  
+      
+      <select>
         {% for web_page in widget.navigation.best_value %}
-          <li class="field check-field">
+         <!--  <li class="field check-field">
             <input type="hidden"
               id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display_false"
               name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
@@ -81,8 +79,14 @@
             />
             <label for="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display">
               {{ web_page[1].name }}
-            </label>
-          </li>
+            </label> -->
+
+
+
+            <option value="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</option>
+
+            
+          <!-- </li>
           {% for web_page in web_page[1].child_templates %}
             <li class="field check-field">
               - 
@@ -104,11 +108,10 @@
               </label>
             </li>
 
-          {% endfor %}
+          {% endfor %} -->
         {% endfor %}
-      </ul>
-    </div>
-  </fieldset>
+      </select>
+  
 
 
 
