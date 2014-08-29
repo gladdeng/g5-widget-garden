@@ -17,14 +17,13 @@
     <div class="form-field">
       {{ widget.cta_link_1.id_hidden_field }}
       <label for="{{ widget.cta_link_1.value_field_id }}" >
-        cta link 1
+        link 1
       </label>
-      <input type="text"
-        placeholder=""
-        id="{{ widget.cta_link_1.value_field_id }}"
-        name="{{ widget.cta_link_1.value_field_name }}"
-        value="{{ widget.cta_link_1.best_value | url_encode }}"
-      />
+      <select id="{{ widget.cta_link_1.value_field_id }}" name="{{ widget.cta_link_1.value_field_name }}">
+        {% for web_page in widget.navigation.best_value %}
+          <option value="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</option>
+        {% endfor %}
+      </select>
     </div>
 
 
@@ -44,76 +43,16 @@
     <div class="form-field">
       {{ widget.cta_link_2.id_hidden_field }}
       <label for="{{ widget.cta_link_2.value_field_id }}" >
-        cta link 2
+        link 2
       </label>
-      <input type="text"
-        placeholder=""
-        id="{{ widget.cta_link_2.value_field_id }}"
-        name="{{ widget.cta_link_2.value_field_name }}"
-        value="{{ widget.cta_link_2.best_value | url_encode }}"
-      />
-    </div>
-  </fieldset>
-
-
-
-
-
-  
-      
-      <select>
+      <select id="{{ widget.cta_link_2.value_field_id }}" name="{{ widget.cta_link_2.value_field_name }}">
         {% for web_page in widget.navigation.best_value %}
-         <!--  <li class="field check-field">
-            <input type="hidden"
-              id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display_false"
-              name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
-              value="false"
-            />
-            <input type="checkbox"
-              id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display"
-              name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
-              value="true"
-              {% if web_page[1].display != "false" %}
-              checked="checked"
-              {% endif %}
-            />
-            <label for="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display">
-              {{ web_page[1].name }}
-            </label> -->
-
-
-
-            <option value="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</option>
-
-            
-          <!-- </li>
-          {% for web_page in web_page[1].child_templates %}
-            <li class="field check-field">
-              - 
-              <input type="hidden"
-                id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display_false"
-                name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
-                value="false"
-              />
-              <input type="checkbox"
-                id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display"
-                name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
-                value="true"
-                {% if web_page[1].display != "false" %}
-                checked="checked"
-                {% endif %}
-              />
-              <label for="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display">
-                {{ web_page[1].name }}
-              </label>
-            </li>
-
-          {% endfor %} -->
+          <option value="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</option>
         {% endfor %}
       </select>
-  
-
-
+    </div>
+    
+  </fieldset>
 
   <input type="submit" value="Save" class="btn" />
 </form>
