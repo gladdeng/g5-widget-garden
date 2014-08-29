@@ -1,23 +1,27 @@
-<!-- THIS CAN HELP YOU PASS YOUR OPTIONS TO YOUR JAVASCRIPT -->
-
-<script id="ctas-config" type="application/json">
-  {
-    "firstValue": "{{ widget.cta_text_1.best_value }}",
-    "secondValue": "{{ widget.cta_text_2.best_value }}"
-  }
-</script>
-
-
 <nav class="action-calls custom-action-calls widget">
   <ul>
+    {% if widget.cta_text_1.best_value != blank %}
+      <li>
+        <a href="{{ widget.cta_link_1.best_value }}">{{ widget.cta_text_1.best_value }}</a>
+      </li>
+    {% endif %}
 
-    <li>
-      <a href="{{ widget.cta_link_1.best_value }}">{{ widget.cta_text_1.best_value }}</a>
-    </li>
+    {% if widget.cta_text_2.best_value != blank %}
+      <li>
+        <a href="{{ widget.cta_link_2.best_value }}">{{ widget.cta_text_2.best_value }}</a>
+      </li>
+    {% endif %}
 
-    <li>
-      <a href="{{ widget.cta_link_2.best_value }}">{{ widget.cta_text_2.best_value }}</a>
-    </li>
+    {% if widget.cta_text_3.best_value != blank %}
+      <li>
+        <a href="{{ widget.cta_link_3.best_value }}">{{ widget.cta_text_3.best_value }}</a>
+      </li>
+    {% endif %}
 
+    {% if widget.cta_text_4.best_value != blank %}
+      <li>
+        <a href="{{ widget.cta_link_4.best_value }}">{{ widget.cta_text_4.best_value }}</a>
+      </li>
+    {% endif %}
   </ul>
 </nav>

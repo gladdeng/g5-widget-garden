@@ -1,13 +1,10 @@
 <form>
   <fieldset>
-  
+    <legend>CTA 1</legend>
     <div class="form-field">
       {{ widget.cta_text_1.id_hidden_field }}
-      <label for="{{ widget.cta_text_1.value_field_id }}" >
-        cta text 1
-      </label>
       <input type="text"
-        placeholder=""
+        placeholder="Text for CTA 1"
         id="{{ widget.cta_text_1.value_field_id }}"
         name="{{ widget.cta_text_1.value_field_name }}"
         value="{{ widget.cta_text_1.best_value }}"
@@ -16,24 +13,23 @@
          
     <div class="form-field">
       {{ widget.cta_link_1.id_hidden_field }}
-      <label for="{{ widget.cta_link_1.value_field_id }}" >
-        link 1
-      </label>
       <select id="{{ widget.cta_link_1.value_field_id }}" name="{{ widget.cta_link_1.value_field_name }}">
         {% for web_page in widget.navigation.best_value %}
-          <option value="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</option>
+          <option value="{{ web_page[1].url | url_encode }}"
+            {% if widget.cta_link_1.best_value == web_page[1].url %}
+              selected
+            {% endif %} >{{ web_page[1].name }}</option>
         {% endfor %}
       </select>
     </div>
+  </fieldset>
 
-
+  <fieldset>
+    <legend>CTA 2</legend>
     <div class="form-field">
       {{ widget.cta_text_2.id_hidden_field }}
-      <label for="{{ widget.cta_text_2.value_field_id }}" >
-        cta text 2
-      </label>
       <input type="text"
-        placeholder=""
+        placeholder="Text for CTA 2"
         id="{{ widget.cta_text_2.value_field_id }}"
         name="{{ widget.cta_text_2.value_field_name }}"
         value="{{ widget.cta_text_2.best_value }}"
@@ -42,16 +38,65 @@
          
     <div class="form-field">
       {{ widget.cta_link_2.id_hidden_field }}
-      <label for="{{ widget.cta_link_2.value_field_id }}" >
-        link 2
-      </label>
       <select id="{{ widget.cta_link_2.value_field_id }}" name="{{ widget.cta_link_2.value_field_name }}">
         {% for web_page in widget.navigation.best_value %}
-          <option value="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</option>
+          <option value="{{ web_page[1].url | url_encode }}"
+            {% if widget.cta_link_2.best_value == web_page[1].url %}
+              selected
+            {% endif %} >{{ web_page[1].name }}</option>
         {% endfor %}
       </select>
     </div>
-    
+  </fieldset>
+
+  <fieldset>
+    <legend>CTA 3</legend>
+    <div class="form-field">
+      {{ widget.cta_text_3.id_hidden_field }}
+      <input type="text"
+        placeholder="Text for CTA 3"
+        id="{{ widget.cta_text_3.value_field_id }}"
+        name="{{ widget.cta_text_3.value_field_name }}"
+        value="{{ widget.cta_text_3.best_value }}"
+      />
+    </div>
+         
+    <div class="form-field">
+      {{ widget.cta_link_3.id_hidden_field }}
+      <select id="{{ widget.cta_link_3.value_field_id }}" name="{{ widget.cta_link_3.value_field_name }}">
+        {% for web_page in widget.navigation.best_value %}
+          <option value="{{ web_page[1].url | url_encode }}"
+            {% if widget.cta_link_3.best_value == web_page[1].url %}
+              selected
+            {% endif %} >{{ web_page[1].name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>CTA 4</legend>
+    <div class="form-field">
+      {{ widget.cta_text_4.id_hidden_field }}
+      <input type="text"
+        placeholder="Text for CTA 4"
+        id="{{ widget.cta_text_4.value_field_id }}"
+        name="{{ widget.cta_text_4.value_field_name }}"
+        value="{{ widget.cta_text_4.best_value }}"
+      />
+    </div>
+         
+    <div class="form-field">
+      {{ widget.cta_link_4.id_hidden_field }}
+      <select id="{{ widget.cta_link_4.value_field_id }}" name="{{ widget.cta_link_4.value_field_name }}">
+        {% for web_page in widget.navigation.best_value %}
+          <option value="{{ web_page[1].url | url_encode }}"
+            {% if widget.cta_link_4.best_value == web_page[1].url %}
+              selected
+            {% endif %} >{{ web_page[1].name }}</option>
+        {% endfor %}
+      </select>
+    </div>
   </fieldset>
 
   <input type="submit" value="Save" class="btn" />
