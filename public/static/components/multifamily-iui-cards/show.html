@@ -12,6 +12,19 @@
     window.EmberENV = window.MultiFamilyIuiCardsENV.EmberENV;
   </script>
 
+  <script type="text/javascript">
+    // IE9 fix
+    if(!window.console) {
+        var console = {
+            log : function(){},
+            warn : function(){},
+            error : function(){},
+            time : function(){},
+            timeEnd : function(){}
+        }
+    }
+  </script>
+
   <style>
     /* Primary color customizations */
     #iui-cards-wrapper .iui-cards-unit-categories .category-card-title,
