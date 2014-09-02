@@ -56,9 +56,3 @@
 .row-quarters .col {
   width: 25%;
 }
-
-@media screen and (max-width: 56.8125em) {
-  .row [class*=col] {
-    width: 100%;
-  }
-}
