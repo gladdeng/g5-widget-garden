@@ -159,6 +159,26 @@
   </div>
 
   <div class="form-field check-field">
+    {{ widget.display_dxm.id_hidden_field }}
+    <input type="hidden"
+      id="{{ widget.display_dxm.value_field_id }}_false"
+      name="{{ widget.display_dxm.value_field_name }}"
+      value="false"
+    />
+    <input type="checkbox"
+      id="{{ widget.display_dxm.value_field_id }}"
+      name="{{ widget.display_dxm.value_field_name }}"
+      value="true"
+      {% if widget.display_dxm.best_value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
+    <label for="{{ widget.display_dxm.value_field_id }}" >
+      Display DXM Logo
+    </label>
+  </div>
+
+  <div class="form-field check-field">
     {{ widget.display_copyright.id_hidden_field }}
     <input type="hidden"
       id="{{ widget.display_copyright.value_field_id }}_false"
