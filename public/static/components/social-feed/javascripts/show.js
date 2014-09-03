@@ -204,7 +204,9 @@
         url: "http://g5-social-feed-service.herokuapp.com/google-plus-feed/" + feedVars.google_plus_page_id,
         dataType: 'json',
         success: function(data) {
-          return new googlePlusFeedBuilder(feedVars, data);
+          if (data.length > 0) {
+            return new googlePlusFeedBuilder(feedVars, data);
+          }
         }
       });
     };

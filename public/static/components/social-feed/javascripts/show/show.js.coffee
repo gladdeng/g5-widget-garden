@@ -183,7 +183,7 @@ class googlePlusInitializer
       url: "http://g5-social-feed-service.herokuapp.com/google-plus-feed/#{feedVars.google_plus_page_id}"
       dataType: 'json'
       success: (data) =>
-        new googlePlusFeedBuilder(feedVars, data);
+        new googlePlusFeedBuilder(feedVars, data) if data.length > 0
 
 class googlePlusFeedBuilder
   constructor: (feedVars, dataFeed) ->
