@@ -65,54 +65,14 @@
   </div>
 
   <div class="form-field">
-    <label for="{{ widget.form_uid.value_field_id }}" >
-      Form UID
+    <label for="{{ widget.success_redirect_url.value_field_id }}" >
+      Successful Submission Redirect URL
     </label>
-    {{ widget.form_uid.id_hidden_field }}
-    <input type="text"
-      id="{{ widget.form_uid.value_field_id }}"
-      class="p-name"
-      name="{{ widget.form_uid.value_field_name }}"
-      value="{{ widget.form_uid.best_value }}"
-      placeholder="http://CMS-DOMAIN/LOCATION-SLUG/forms/FORM-SLUG"
-    />
-  </div>
-
-  <div class="form-field">
-    <label for="{{ widget.form_title.value_field_id }}" >
-      Form Title
-    </label>
-    {{ widget.form_title.id_hidden_field }}
-    <input type="text"
-      id="{{ widget.form_title.value_field_id }}"
-      class="p-name"
-      name="{{ widget.form_title.value_field_name }}"
-      value="{{ widget.form_title.best_value }}"
-    />
-  </div>
-
-  <div class="form-field">
-    <label for="{{ widget.form_note.value_field_id }}" >
-      Form Note
-    </label>
-    {{ widget.form_note.id_hidden_field }}
-    <textarea
-      id="{{ widget.form_note.value_field_id }}"
-      class="p-summary"
-      name="{{ widget.form_note.value_field_name }}"
-    >{{ widget.form_note.best_value }}</textarea>
-  </div>
-
-  <div class="form-field">
-    <label for="{{ widget.form_syndication_url.value_field_id }}" >
-      3rd Party Syndication URL
-    </label>
-    {{ widget.form_syndication_url.id_hidden_field }}
+    {{ widget.success_redirect_url.id_hidden_field }}
     <input type="url"
-      id="{{ widget.form_syndication_url.value_field_id }}"
-      class="u-syndication"
-      name="{{ widget.form_syndication_url.value_field_name }}"
-      value="{{ widget.form_syndication_url.best_value | url_encode }}"
+      id="{{ widget.success_redirect_url.value_field_id }}"
+      name="{{ widget.success_redirect_url.value_field_name }}"
+      value="{{ widget.success_redirect_url.best_value | url_encode }}"
     />
   </div>
 
