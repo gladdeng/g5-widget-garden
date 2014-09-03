@@ -1,0 +1,27 @@
+<nav class="action-calls custom-action-calls widget">
+  <ul>
+    {% if widget.cta_text_1.best_value != blank %}
+      <li>
+        <a href="{{ widget.cta_link_1.best_value }}">{{ widget.cta_text_1.best_value }}</a>
+      </li>
+    {% endif %}
+
+    {% if widget.cta_text_2.best_value != blank %}
+      <li>
+        <a href="{{ widget.cta_link_2.best_value }}">{{ widget.cta_text_2.best_value }}</a>
+      </li>
+    {% endif %}
+
+    {% if widget.cta_text_3.best_value != blank %}
+      <li>
+        <a href="{{ widget.cta_link_3.best_value }}">{{ widget.cta_text_3.best_value }}</a>
+      </li>
+    {% endif %}
+
+    {% if widget.cta_text_4.best_value != blank %}
+      <li>
+        <a href="{{ widget.cta_link_4.best_value }}">{{ widget.cta_text_4.best_value }}</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
