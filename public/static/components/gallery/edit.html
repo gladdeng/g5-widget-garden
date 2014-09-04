@@ -80,6 +80,27 @@
     </label>
   </div>
 
+  <div class="form-field check-field">
+    {{ widget.gallery_carousel.id_hidden_field }}
+    <input type="hidden"
+      id="{{ widget.gallery_carousel.value_field_id }}_false"
+      name="{{ widget.gallery_carousel.value_field_name }}"
+      value="no"
+    />
+    <input type="checkbox"
+      class="display-navigation"
+      id="{{ widget.gallery_carousel.value_field_id }}"
+      name="{{ widget.gallery_carousel.value_field_name }}"
+      value="yes"
+      {% if widget.gallery_carousel.best_value == "yes" %}
+      checked="checked"
+      {% endif %}
+    />
+    <label for="{{ widget.gallery_carousel.value_field_id }}" >
+      Carousel
+    </label>
+  </div>
+
   <p class="note">To remove photos, simply delete the URL and Caption</p>
 
   <div class="photo-fields">
