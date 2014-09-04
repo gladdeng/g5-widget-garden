@@ -1,8 +1,11 @@
 (function() {
   $(function() {
-    var initializeContactInfoSheet, phoneOptions, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
-    phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
-    new phoneNumber(phoneOptions);
+    var initializeContactInfoSheet, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
+    $('.contact-info-sheet').load(function() {
+      var phoneOptions;
+      phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
+      return new phoneNumber(phoneOptions);
+    });
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");
       widget.find(".info-sheet-email").hide();
@@ -91,17 +94,19 @@
       $(".contact-info-sheet").on("click", ".info-sheet-page-up");
       return $(".contact-info-sheet").on("click", ".info-sheet-page-down");
     };
-    if (Modernizr.mq("(min-width: 39.0626em)")) {
-      initializeContactInfoSheet();
-    } else {
-      setupMobileContactInfoSheet();
-    }
-    return $(window).smartresize(function() {
+    return $(Modernizr).load(function() {
       if (Modernizr.mq("(min-width: 39.0626em)")) {
-        return initializeContactInfoSheet();
+        initializeContactInfoSheet();
       } else {
-        return stopContactInfoSheet();
+        setupMobileContactInfoSheet();
       }
+      return $(window).smartresize(function() {
+        if (Modernizr.mq("(min-width: 39.0626em)")) {
+          return initializeContactInfoSheet();
+        } else {
+          return stopContactInfoSheet();
+        }
+      });
     });
   });
 

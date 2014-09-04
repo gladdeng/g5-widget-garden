@@ -8,8 +8,11 @@
 
   $(function() {
     var clientUrn;
-    clientUrn = JSON.parse($('.g5-enhanced-form .config:first').html());
-    canonicalUrl();
+    $('.g5-enhanced-form').load(function() {
+      clientUrn = JSON.parse($('.g5-enhanced-form .config:first').html());
+      canonicalUrl();
+    });
+    
   });
 
 }).call(this);
