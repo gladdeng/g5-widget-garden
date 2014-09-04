@@ -89,7 +89,7 @@ class tweetInitializer
       dataType: "json"
       type: "GET"
       success: (data) =>
-        new tweetBuilder(data, feedVars)
+        new tweetBuilder(data, feedVars) if data.length > 0
 
 class tweetBuilder
   constructor: (data, feedVars) ->
@@ -137,7 +137,7 @@ class facebookInitializer
       url: "http://g5-social-feed-service.herokuapp.com/facebook-feed/#{feedVars.facebook_page_id}"
       dataType: 'json'
       success: (data) =>
-        new facebookFeedBuilder(feedVars, data);
+        new facebookFeedBuilder(feedVars, data) if data.hasOwnProperty('data') && data.data.length > 0
 
 class facebookFeedBuilder
   constructor: (feedVars, dataFeed) ->
@@ -183,7 +183,7 @@ class googlePlusInitializer
       url: "http://g5-social-feed-service.herokuapp.com/google-plus-feed/#{feedVars.google_plus_page_id}"
       dataType: 'json'
       success: (data) =>
-        new googlePlusFeedBuilder(feedVars, data);
+        new googlePlusFeedBuilder(feedVars, data) if data.length > 0
 
 class googlePlusFeedBuilder
   constructor: (feedVars, dataFeed) ->
