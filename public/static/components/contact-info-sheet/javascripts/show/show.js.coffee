@@ -1,7 +1,7 @@
 $ ->
-
-  phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html())
-  new phoneNumber(phoneOptions)
+  $('.contact-info-sheet').load ->
+    phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html())
+    new phoneNumber(phoneOptions)
 
 
   showPhone = (widget) ->
@@ -90,14 +90,15 @@ $ ->
     $(".contact-info-sheet").on "click", ".info-sheet-page-up"
     $(".contact-info-sheet").on "click", ".info-sheet-page-down"
 
-  if Modernizr.mq("(min-width: 39.0626em)")
-    initializeContactInfoSheet()
-
-  else
-    setupMobileContactInfoSheet()
-
-  $(window).smartresize ->
+  $(Modernizr).load -> 
     if Modernizr.mq("(min-width: 39.0626em)")
       initializeContactInfoSheet()
+
     else
-      stopContactInfoSheet()
+      setupMobileContactInfoSheet()
+
+    $(window).smartresize ->
+      if Modernizr.mq("(min-width: 39.0626em)")
+        initializeContactInfoSheet()
+      else
+        stopContactInfoSheet()
