@@ -28,13 +28,19 @@ getLargestImage = ->
   gallery.slides.addClass 'loading'
   gallery.images.css 'max-height', 'none'
   imageHeight = 0
+  imageWidth = 0
+  size = []
   gallery.images.each ->
     curHeight = null
     curHeight = $(this).height()
-    imageHeight = curHeight  if curHeight > imageHeight
+    if curHeight > imageHeight
+      imageHeight = curHeight
+      imageWidth = $(this).width()
 
   gallery.slides.removeClass 'loading'
-  imageHeight
+  size['height'] = imageHeight
+  size['width'] = imageWidth
+  size
 
 # Sets max height of images so they all fit in the window
 setImageHeight = (imageHeight) ->
@@ -57,7 +63,10 @@ setMiniNavHeight = (imageHeight) ->
   $('.flex-direction-nav a').height(imageHeight)
 
 setupFlexslider = (galleryOptions) ->
-  imageHeight = getLargestImage()
+  size = getLargestImage()
+  imageHeight = size['height']
+  imageWidth = size['width']
+
   initializeFlexSlider(galleryOptions)
 
   if galleryOptions['mini_gallery'] is 'yes'
@@ -66,11 +75,15 @@ setupFlexslider = (galleryOptions) ->
     setImageHeight imageHeight
 
 resetFlexslider = ->
-  imageHeight = getLargestImage()
+  size = getLargestImage()
+  imageHeight = size['height']
+
   setImageHeight imageHeight
 
 resetMiniFlexslider = ->
-  imageHeight = getLargestImage()
+  size = getLargestImage()
+  imageHeight = size['height']
+
   setMiniNavHeight imageHeight
 
 

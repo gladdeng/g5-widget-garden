@@ -26,20 +26,25 @@
   };
 
   getLargestImage = function() {
-    var imageHeight;
+    var imageHeight, imageWidth, size;
     gallery.slides.addClass('loading');
     gallery.images.css('max-height', 'none');
     imageHeight = 0;
+    imageWidth = 0;
+    size = [];
     gallery.images.each(function() {
       var curHeight;
       curHeight = null;
       curHeight = $(this).height();
       if (curHeight > imageHeight) {
-        return imageHeight = curHeight;
+        imageHeight = curHeight;
+        return imageWidth = $(this).width();
       }
     });
     gallery.slides.removeClass('loading');
-    return imageHeight;
+    size['height'] = imageHeight;
+    size['width'] = imageWidth;
+    return size;
   };
 
   setImageHeight = function(imageHeight) {
@@ -64,8 +69,10 @@
   };
 
   setupFlexslider = function(galleryOptions) {
-    var imageHeight;
-    imageHeight = getLargestImage();
+    var imageHeight, imageWidth, size;
+    size = getLargestImage();
+    imageHeight = size['height'];
+    imageWidth = size['width'];
     initializeFlexSlider(galleryOptions);
     if (galleryOptions['mini_gallery'] === 'yes') {
       return setMiniNavHeight(imageHeight);
@@ -75,14 +82,16 @@
   };
 
   resetFlexslider = function() {
-    var imageHeight;
-    imageHeight = getLargestImage();
+    var imageHeight, size;
+    size = getLargestImage();
+    imageHeight = size['height'];
     return setImageHeight(imageHeight);
   };
 
   resetMiniFlexslider = function() {
-    var imageHeight;
-    imageHeight = getLargestImage();
+    var imageHeight, size;
+    size = getLargestImage();
+    imageHeight = size['height'];
     return setMiniNavHeight(imageHeight);
   };
 
