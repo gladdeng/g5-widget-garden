@@ -1,5 +1,5 @@
 (function() {
-  var gallery, getTallestImage, initializeFlexSlider, resetFlexslider, resetMiniFlexslider, setImageHeight, setMiniNavHeight, setupFlexslider;
+  var gallery, getLargestImage, initializeFlexSlider, resetFlexslider, resetMiniFlexslider, setImageHeight, setMiniNavHeight, setupFlexslider;
 
   gallery = {
     flexContainer: $('.flexslider'),
@@ -25,33 +25,33 @@
     }
   };
 
-  getTallestImage = function() {
-    var tallestImage;
+  getLargestImage = function() {
+    var imageHeight;
     gallery.slides.addClass('loading');
     gallery.images.css('max-height', 'none');
-    tallestImage = 0;
+    imageHeight = 0;
     gallery.images.each(function() {
       var curHeight;
       curHeight = null;
       curHeight = $(this).height();
-      if (curHeight > tallestImage) {
-        return tallestImage = curHeight;
+      if (curHeight > imageHeight) {
+        return imageHeight = curHeight;
       }
     });
     gallery.slides.removeClass('loading');
-    return tallestImage;
+    return imageHeight;
   };
 
-  setImageHeight = function(tallestImage) {
+  setImageHeight = function(imageHeight) {
     var fixedHeight, navHeight, padding, windowHeight;
     windowHeight = $(window).height();
     navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight(true);
     fixedHeight = null;
     padding = 10;
-    if (windowHeight <= tallestImage + navHeight) {
+    if (windowHeight <= imageHeight + navHeight) {
       fixedHeight = windowHeight - navHeight - padding;
     } else {
-      fixedHeight = tallestImage - padding;
+      fixedHeight = imageHeight - padding;
     }
     gallery.images.css('max-height', fixedHeight);
     gallery.slides.css('height', fixedHeight);
@@ -59,31 +59,31 @@
     return gallery.flexContainer.css('margin-bottom', navHeight);
   };
 
-  setMiniNavHeight = function(tallestImage) {
-    return $('.flex-direction-nav a').height(tallestImage);
+  setMiniNavHeight = function(imageHeight) {
+    return $('.flex-direction-nav a').height(imageHeight);
   };
 
   setupFlexslider = function(galleryOptions) {
-    var tallestImage;
-    tallestImage = getTallestImage();
+    var imageHeight;
+    imageHeight = getLargestImage();
     initializeFlexSlider(galleryOptions);
     if (galleryOptions['mini_gallery'] === 'yes') {
-      return setMiniNavHeight(tallestImage);
+      return setMiniNavHeight(imageHeight);
     } else {
-      return setImageHeight(tallestImage);
+      return setImageHeight(imageHeight);
     }
   };
 
   resetFlexslider = function() {
-    var tallestImage;
-    tallestImage = getTallestImage();
-    return setImageHeight(tallestImage);
+    var imageHeight;
+    imageHeight = getLargestImage();
+    return setImageHeight(imageHeight);
   };
 
   resetMiniFlexslider = function() {
-    var tallestImage;
-    tallestImage = getTallestImage();
-    return setMiniNavHeight(tallestImage);
+    var imageHeight;
+    imageHeight = getLargestImage();
+    return setMiniNavHeight(imageHeight);
   };
 
   $(function() {

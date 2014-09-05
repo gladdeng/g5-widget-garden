@@ -24,54 +24,54 @@ initializeFlexSlider = (galleryOptions) ->
     gallery.flexContainer.css 'margin-bottom', -navHeight
 
 # Gets the height of the tallest image
-getTallestImage = ->
+getLargestImage = ->
   gallery.slides.addClass 'loading'
   gallery.images.css 'max-height', 'none'
-  tallestImage = 0
+  imageHeight = 0
   gallery.images.each ->
     curHeight = null
     curHeight = $(this).height()
-    tallestImage = curHeight  if curHeight > tallestImage
+    imageHeight = curHeight  if curHeight > imageHeight
 
   gallery.slides.removeClass 'loading'
-  tallestImage
+  imageHeight
 
 # Sets max height of images so they all fit in the window
-setImageHeight = (tallestImage) ->
+setImageHeight = (imageHeight) ->
   windowHeight = $(window).height()
   navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight(true)
   fixedHeight = null
   padding = 10
 
-  if windowHeight <= tallestImage + navHeight
+  if windowHeight <= imageHeight + navHeight
     fixedHeight = windowHeight - navHeight - padding
   else
-    fixedHeight = tallestImage - padding
+    fixedHeight = imageHeight - padding
 
   gallery.images.css 'max-height', fixedHeight
   gallery.slides.css 'height', fixedHeight
   gallery.flexContainer.find('.flex-control-nav').css 'bottom', -navHeight
   gallery.flexContainer.css 'margin-bottom', navHeight
 
-setMiniNavHeight = (tallestImage) ->
-  $('.flex-direction-nav a').height(tallestImage)
+setMiniNavHeight = (imageHeight) ->
+  $('.flex-direction-nav a').height(imageHeight)
 
 setupFlexslider = (galleryOptions) ->
-  tallestImage = getTallestImage()
+  imageHeight = getLargestImage()
   initializeFlexSlider(galleryOptions)
 
   if galleryOptions['mini_gallery'] is 'yes'
-    setMiniNavHeight tallestImage
+    setMiniNavHeight imageHeight
   else
-    setImageHeight tallestImage
+    setImageHeight imageHeight
 
 resetFlexslider = ->
-  tallestImage = getTallestImage()
-  setImageHeight tallestImage
+  imageHeight = getLargestImage()
+  setImageHeight imageHeight
 
 resetMiniFlexslider = ->
-  tallestImage = getTallestImage()
-  setMiniNavHeight tallestImage
+  imageHeight = getLargestImage()
+  setMiniNavHeight imageHeight
 
 
 $ ->
