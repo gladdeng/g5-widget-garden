@@ -6,15 +6,23 @@ gallery =
   images: $('.slides img')
 
 # Creates the slideshow
-initializeFlexSlider = (galleryOptions) ->
+initializeFlexSlider = (galleryOptions, imageWidth) ->
   showThumbs = (if galleryOptions['show_thumbnails'] is "yes" then "thumbnails" else true)
 
-  gallery.flexContainer.flexslider
-    animation: galleryOptions['animation']
-    useCSS: true
-    touch: true
-    directionNav: true
-    controlNav: showThumbs
+  if (galleryOptions['carousel'] is 'yes')
+    $('.gallery-carousel').flexslider
+      animation: 'slide'
+      animationLoop: false
+      itemWidth: imageWidth
+      itemMargin: 15
+
+  else
+    $('.gallery-slideshow').flexslider
+      animation: galleryOptions['animation']
+      useCSS: true
+      touch: true
+      directionNav: true
+      controlNav: showThumbs
 
 
   if galleryOptions['mini_gallery'] is 'no'
@@ -67,7 +75,7 @@ setupFlexslider = (galleryOptions) ->
   imageHeight = size['height']
   imageWidth = size['width']
 
-  initializeFlexSlider(galleryOptions)
+  initializeFlexSlider(galleryOptions, imageWidth)
 
   if galleryOptions['mini_gallery'] is 'yes'
     setMiniNavHeight imageHeight

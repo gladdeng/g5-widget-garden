@@ -8,16 +8,25 @@
     images: $('.slides img')
   };
 
-  initializeFlexSlider = function(galleryOptions) {
+  initializeFlexSlider = function(galleryOptions, imageWidth) {
     var navHeight, showThumbs;
     showThumbs = (galleryOptions['show_thumbnails'] === "yes" ? "thumbnails" : true);
-    gallery.flexContainer.flexslider({
-      animation: galleryOptions['animation'],
-      useCSS: true,
-      touch: true,
-      directionNav: true,
-      controlNav: showThumbs
-    });
+    if (galleryOptions['carousel'] === 'yes') {
+      $('.gallery-carousel').flexslider({
+        animation: 'slide',
+        animationLoop: false,
+        itemWidth: imageWidth,
+        itemMargin: 15
+      });
+    } else {
+      $('.gallery-slideshow').flexslider({
+        animation: galleryOptions['animation'],
+        useCSS: true,
+        touch: true,
+        directionNav: true,
+        controlNav: showThumbs
+      });
+    }
     if (galleryOptions['mini_gallery'] === 'no') {
       navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight(true);
       gallery.flexContainer.find('.flex-control-nav').css('bottom', -navHeight);
@@ -73,7 +82,7 @@
     size = getLargestImage();
     imageHeight = size['height'];
     imageWidth = size['width'];
-    initializeFlexSlider(galleryOptions);
+    initializeFlexSlider(galleryOptions, imageWidth);
     if (galleryOptions['mini_gallery'] === 'yes') {
       return setMiniNavHeight(imageHeight);
     } else {
