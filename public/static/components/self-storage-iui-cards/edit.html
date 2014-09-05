@@ -83,5 +83,17 @@
       value="{{ widget.text_color.best_value }}"
     />
   </div>
+  <div class="form-field">
+    {{ widget.toggle_color.id_hidden_field }}
+    <label for="{{ widget.toggle_color.value_field_id }}">
+      Arrow Toggle Color
+    </label>
+    <input type="text"
+      placeholder=""
+      id="{{ widget.toggle_color.value_field_id }}"
+      name="{{ widget.toggle_color.value_field_name }}"
+      value="{{ widget.toggle_color.best_value }}"
+    />
+  </div>
   <input type="submit" value="Save" class="btn" />
 </form>
