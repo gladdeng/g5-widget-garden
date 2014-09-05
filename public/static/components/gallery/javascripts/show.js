@@ -20,7 +20,7 @@
       });
     } else {
       $('.gallery-slideshow').flexslider({
-        animation: galleryOptions['animation'],
+        animation: 'fade',
         useCSS: true,
         touch: true,
         directionNav: true,
