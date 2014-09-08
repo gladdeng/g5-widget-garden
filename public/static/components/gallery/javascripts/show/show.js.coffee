@@ -46,7 +46,7 @@ setImageHeight = (tallestImage) ->
   if windowHeight <= tallestImage + navHeight
     fixedHeight = windowHeight - navHeight - padding
 
-    if fixedHeight > 320
+    if fixedHeight < 320
       fixedHeight = tallestImage - padding
   else
     fixedHeight = tallestImage - padding
