@@ -1,7 +1,7 @@
 (function() {
   $(function() {
     var initializeContactInfoSheet, phoneOptions, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
-    phoneOptions = JSON.parse($('.contact-info-sheet-config').html());
+    phoneOptions = JSON.parse($('.contact-info-sheet-config:first').html());
     new phoneNumber(phoneOptions);
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");

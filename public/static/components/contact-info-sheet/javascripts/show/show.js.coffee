@@ -1,6 +1,6 @@
 $ ->
 
-  phoneOptions = JSON.parse($('.contact-info-sheet-config').html())
+  phoneOptions = JSON.parse($('.contact-info-sheet-config:first').html())
   new phoneNumber(phoneOptions)
 
   showPhone = (widget) ->
