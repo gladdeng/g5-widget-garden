@@ -149,6 +149,9 @@ class facebookFeedBuilder
     facebookFeedList = []
 
     for post, index in dataFeed.data
+      if typeof post.message == 'undefined'
+        feedVars.facebook_post_limit += 1
+        continue
       break if (index + 1) > feedVars.facebook_post_limit
       facebookFeedList.push(postTemplate(post, feedVars))
 
