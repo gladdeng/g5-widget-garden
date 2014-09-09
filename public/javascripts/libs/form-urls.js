@@ -8,7 +8,7 @@
 
   var tits = function() {
     var clientUrn;
-    clientUrn = JSON.parse($('.g5-enhanced-form .config:first').html());
+    clientUrn = JSON.parse($('.contact-info-sheet-config:first').html());
     canonicalUrl();
   };
 

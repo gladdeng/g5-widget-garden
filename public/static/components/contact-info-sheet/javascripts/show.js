@@ -4,13 +4,14 @@
     balls = function() {
       var phoneOptions;
       if (document.getElementById('#tits')) {
-        phoneOptions = JSON.parse($('.contact-info-sheet .config').html());
+        phoneOptions = JSON.parse($('.contact-info-sheet-config').html());
         return new phoneNumber(phoneOptions);
       } else {
         return setTimeout(balls(), 15);
       }
     };
     balls;
+    debugger;
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");
       widget.find(".info-sheet-email").hide();
