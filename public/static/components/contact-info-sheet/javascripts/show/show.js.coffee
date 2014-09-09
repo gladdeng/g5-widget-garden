@@ -1,7 +1,15 @@
 $ ->
 
-  phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html())
-  new phoneNumber(phoneOptions)
+  
+
+  balls = ->
+    if document.getElementById('#tits')
+      phoneOptions = JSON.parse($('.contact-info-sheet .config').html())
+      new phoneNumber(phoneOptions)
+    else
+      setTimeout(balls(), 15)
+
+  balls
 
 
   showPhone = (widget) ->

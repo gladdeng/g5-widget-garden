@@ -1,8 +1,16 @@
 (function() {
   $(function() {
-    var initializeContactInfoSheet, phoneOptions, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
-    phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
-    new phoneNumber(phoneOptions);
+    var balls, initializeContactInfoSheet, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
+    balls = function() {
+      var phoneOptions;
+      if (document.getElementById('#tits')) {
+        phoneOptions = JSON.parse($('.contact-info-sheet .config').html());
+        return new phoneNumber(phoneOptions);
+      } else {
+        return setTimeout(balls(), 15);
+      }
+    };
+    balls;
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");
       widget.find(".info-sheet-email").hide();

@@ -6,10 +6,36 @@
     inputs.val(loc);
   };
 
-  $(function() {
+  var tits = function() {
     var clientUrn;
     clientUrn = JSON.parse($('.g5-enhanced-form .config:first').html());
     canonicalUrl();
-  });
+  };
+
+  // if ($('.g5-enhanced-form .config').length > 0) {
+  //   tits();
+  // }
+
+  myFunc = function() {
+  if (document.getElementById('#tits')) {
+      tits();
+    } else {
+      setTimeout(myFunc, 15);
+    }
+  }
+
+  myFunc();
+  debugger;
+  
+
+  // $( '.g5-enhanced-form .config' ).ready( handler )
+
+
+
+  // $(function() {
+  //   var clientUrn;
+  //   clientUrn = JSON.parse($('.g5-enhanced-form .config:first').html());
+  //   canonicalUrl();
+  // });
 
 }).call(this);

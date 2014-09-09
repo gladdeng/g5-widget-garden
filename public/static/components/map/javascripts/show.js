@@ -2,7 +2,7 @@
   var setMap;
 
   window.getMapCoords = function() {
-    return $.getJSON("//maps.googleapis.com/maps/api/geocode/json", {
+    return $.getJSON("https://maps.googleapis.com/maps/api/geocode/json", {
       address: widgetMapConfig.address,
       sensor: "false"
     }).done(function(data) {
