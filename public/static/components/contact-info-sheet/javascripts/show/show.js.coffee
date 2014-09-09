@@ -1,16 +1,7 @@
 $ ->
 
-  
-
-  balls = ->
-    if document.getElementById('#tits')
-      phoneOptions = JSON.parse($('.contact-info-sheet-config').html())
-      new phoneNumber(phoneOptions)
-    else
-      setTimeout(balls(), 15)
-
-  balls
-  debugger
+  phoneOptions = JSON.parse($('.contact-info-sheet-config').html())
+  new phoneNumber(phoneOptions)
 
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"
