@@ -105,4 +105,16 @@
     });
   });
 
+  (function() {
+    var canonicalUrl, clientUrn;
+    canonicalUrl = function() {
+      var inputs, loc;
+      inputs = $('input.u-canonical');
+      loc = $(location).attr('href');
+      return inputs.val(loc);
+    };
+    clientUrn = JSON.parse($('.contact-info-sheet-config:first').html());
+    return canonicalUrl();
+  });
+
 }).call(this);

@@ -100,3 +100,14 @@ $ ->
       initializeContactInfoSheet()
     else
       stopContactInfoSheet()
+
+# This function is a modified version of javascripts/libs/form-urls.js
+-> 
+  canonicalUrl = ->
+    inputs = $('input.u-canonical')
+    loc = $(location).attr('href')
+    inputs.val(loc)
+  
+  clientUrn = JSON.parse($('.contact-info-sheet-config:first').html())
+  canonicalUrl()
+

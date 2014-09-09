@@ -7,7 +7,7 @@
   };
 
   var clientUrn;
-  clientUrn = JSON.parse($('.contact-info-sheet-config:first').html());
+  clientUrn = JSON.parse($('.g5-enhanced-form .config:first').html());
   canonicalUrl();
   
 }).call(this);
