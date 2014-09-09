@@ -175,6 +175,10 @@
       _ref = dataFeed.data;
       for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
         post = _ref[index];
+        if (typeof post.message === 'undefined') {
+          feedVars.facebook_post_limit += 1;
+          continue;
+        }
         if ((index + 1) > feedVars.facebook_post_limit) {
           break;
         }
