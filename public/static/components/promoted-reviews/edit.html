@@ -1,0 +1,79 @@
+<form>
+  <fieldset>
+
+    <div class="form-field">
+      {{ widget.branded_name.id_hidden_field }}
+      <label for="{{ widget.branded_name.value_field_id }}" >
+        branded_name
+      </label>
+      <input type="text"
+        placeholder=""
+        id="{{ widget.branded_name.value_field_id }}"
+        name="{{ widget.branded_name.value_field_name }}"
+        value="{{ widget.branded_name.best_value | url_encode }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.review_api_url.id_hidden_field }}
+      <label for="{{ widget.review_api_url.value_field_id }}" >
+        review_api_url
+      </label>
+      <input type="text"
+        placeholder=""
+        id="{{ widget.review_api_url.value_field_id }}"
+        name="{{ widget.review_api_url.value_field_name }}"
+        value="{{ widget.review_api_url.best_value | url_encode }}"
+      />
+    </div>
+         
+    <div class="form-field">
+      {{ widget.review_page_url.id_hidden_field }}
+      <label for="{{ widget.review_page_url.value_field_id }}" >
+        review_page_url
+      </label>
+      <input type="text"
+        placeholder=""
+        id="{{ widget.review_page_url.value_field_id }}"
+        name="{{ widget.review_page_url.value_field_name }}"
+        value="{{ widget.review_page_url.best_value | url_encode }}"
+      />
+    </div>
+         
+    <div class="form-field">
+      {{ widget.insert_review_schema.id_hidden_field }}
+      <label for="{{ widget.insert_review_schema.value_field_id }}" >
+        insert_review_schema
+      </label>
+      <input type="text"
+        placeholder=".contact-info"
+        id="{{ widget.insert_review_schema.value_field_id }}"
+        name="{{ widget.insert_review_schema.value_field_name }}"
+        value="{{ widget.insert_review_schema.best_value | url_encode }}"
+      />
+    </div>
+         
+    <div class="form-field field check-field">
+      {{ widget.full_review_content.id_hidden_field }}
+      <label for="{{ widget.full_review_content.value_field_id }}" >
+        full_review_content
+      </label>
+      <input type="hidden"
+        id="{{ widget.full_review_content.value_field_id }}_false"
+        name="{{ widget.full_review_content.value_field_name }}"
+        value=""
+      />
+      <input type="checkbox"
+        id="{{ widget.full_review_content.value_field_id }}"
+        name="{{ widget.full_review_content.value_field_name }}"
+        value="true"
+        {% if widget.full_review_content.best_value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
+    </div>
+
+  </fieldset>
+  <input type="submit" value="Save" class="btn" />
+</form>
+
