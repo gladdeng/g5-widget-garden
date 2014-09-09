@@ -12,6 +12,18 @@
   </div>
 
   <div class="form-field">
+    {{ widget.form_note.id_hidden_field }}
+    <label for="{{ widget.form_note.value_field_id }}" >
+      Form Note
+    </label>
+    <input type="text"
+      id="{{ widget.form_note.value_field_id }}"
+      name="{{ widget.form_note.value_field_name }}"
+      value="{{ widget.form_note.best_value }}"
+    />
+  </div>
+
+  <div class="form-field">
     <label for="{{ widget.success_redirect_url.value_field_id }}" >
       Form Type
     </label>
