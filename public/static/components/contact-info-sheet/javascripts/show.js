@@ -1,7 +1,7 @@
 (function() {
   $(function() {
     var initializeContactInfoSheet, phoneOptions, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
-    phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
+    phoneOptions = JSON.parse($('.contact-info-sheet-config:first').html());
     new phoneNumber(phoneOptions);
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");
@@ -103,6 +103,18 @@
         return stopContactInfoSheet();
       }
     });
+  });
+
+  (function() {
+    var canonicalUrl, clientUrn;
+    canonicalUrl = function() {
+      var inputs, loc;
+      inputs = $('input.u-canonical');
+      loc = $(location).attr('href');
+      return inputs.val(loc);
+    };
+    clientUrn = JSON.parse($('.contact-info-sheet-config:first').html());
+    return canonicalUrl();
   });
 
 }).call(this);
