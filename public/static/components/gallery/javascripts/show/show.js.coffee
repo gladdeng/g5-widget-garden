@@ -6,15 +6,23 @@ gallery =
   images: $('.slides img')
 
 # Creates the slideshow
-initializeFlexSlider = (galleryOptions) ->
+initializeFlexSlider = (galleryOptions, imageWidth) ->
   showThumbs = (if galleryOptions['show_thumbnails'] is "yes" then "thumbnails" else true)
 
-  gallery.flexContainer.flexslider
-    animation: galleryOptions['animation']
-    useCSS: true
-    touch: true
-    directionNav: true
-    controlNav: showThumbs
+  if (galleryOptions['carousel'] is 'yes')
+    $('.gallery-carousel').flexslider
+      animation: 'slide'
+      animationLoop: false
+      itemWidth: imageWidth
+      itemMargin: 15
+
+  else
+    $('.gallery-slideshow').flexslider
+      animation: 'fade'
+      useCSS: true
+      touch: true
+      directionNav: true
+      controlNav: showThumbs
 
 
   if galleryOptions['mini_gallery'] is 'no'
@@ -24,57 +32,70 @@ initializeFlexSlider = (galleryOptions) ->
     gallery.flexContainer.css 'margin-bottom', -navHeight
 
 # Gets the height of the tallest image
-getTallestImage = ->
+getLargestImage = ->
   gallery.slides.addClass 'loading'
   gallery.images.css 'max-height', 'none'
-  tallestImage = 0
+  imageHeight = 0
+  imageWidth = 0
+  size = []
   gallery.images.each ->
     curHeight = null
     curHeight = $(this).height()
-    tallestImage = curHeight  if curHeight > tallestImage
+    if curHeight > imageHeight
+      imageHeight = curHeight
+      imageWidth = $(this).width()
 
   gallery.slides.removeClass 'loading'
-  tallestImage
+  size['height'] = imageHeight
+  size['width'] = imageWidth
+  size
 
 # Sets max height of images so they all fit in the window
-setImageHeight = (tallestImage) ->
+setImageHeight = (imageHeight) ->
   windowHeight = $(window).height()
   navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight(true)
   fixedHeight = null
   padding = 10
 
-  if windowHeight <= tallestImage + navHeight
+  if windowHeight <= imageHeight + navHeight
     fixedHeight = windowHeight - navHeight - padding
 
     if fixedHeight < 320
       fixedHeight = tallestImage - padding
   else
-    fixedHeight = tallestImage - padding
+    fixedHeight = imageHeight - padding
 
   gallery.images.css 'max-height', fixedHeight
   gallery.slides.css 'height', fixedHeight
   gallery.flexContainer.find('.flex-control-nav').css 'bottom', -navHeight
   gallery.flexContainer.css 'margin-bottom', navHeight
 
-setMiniNavHeight = (tallestImage) ->
-  $('.flex-direction-nav a').height(tallestImage)
+setMiniNavHeight = (imageHeight) ->
+  $('.flex-direction-nav a').height(imageHeight)
 
 setupFlexslider = (galleryOptions) ->
-  tallestImage = getTallestImage()
-  initializeFlexSlider(galleryOptions)
+  size = getLargestImage()
+  imageHeight = size['height']
+  imageWidth = size['width']
+
+  initializeFlexSlider(galleryOptions, imageWidth)
 
   if galleryOptions['mini_gallery'] is 'yes'
-    setMiniNavHeight tallestImage
+    setMiniNavHeight imageHeight
   else
-    setImageHeight tallestImage
+    setImageHeight imageHeight
 
 resetFlexslider = ->
-  tallestImage = getTallestImage()
-  setImageHeight tallestImage
+  size = getLargestImage()
+  imageHeight = size['height']
+
+  setImageHeight imageHeight
 
 resetMiniFlexslider = ->
-  tallestImage = getTallestImage()
-  setMiniNavHeight tallestImage
+  size = getLargestImage()
+  imageHeight = size['height']
+
+  setMiniNavHeight imageHeight
 
 
 $ ->

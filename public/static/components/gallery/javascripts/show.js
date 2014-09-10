@@ -1,5 +1,5 @@
 (function() {
-  var gallery, getTallestImage, initializeFlexSlider, resetFlexslider, resetMiniFlexslider, setImageHeight, setMiniNavHeight, setupFlexslider;
+  var gallery, getLargestImage, initializeFlexSlider, resetFlexslider, resetMiniFlexslider, setImageHeight, setMiniNavHeight, setupFlexslider;
 
   gallery = {
     flexContainer: $('.flexslider'),
@@ -8,16 +8,25 @@
     images: $('.slides img')
   };
 
-  initializeFlexSlider = function(galleryOptions) {
+  initializeFlexSlider = function(galleryOptions, imageWidth) {
     var navHeight, showThumbs;
     showThumbs = (galleryOptions['show_thumbnails'] === "yes" ? "thumbnails" : true);
-    gallery.flexContainer.flexslider({
-      animation: galleryOptions['animation'],
-      useCSS: true,
-      touch: true,
-      directionNav: true,
-      controlNav: showThumbs
-    });
+    if (galleryOptions['carousel'] === 'yes') {
+      $('.gallery-carousel').flexslider({
+        animation: 'slide',
+        animationLoop: false,
+        itemWidth: imageWidth,
+        itemMargin: 15
+      });
+    } else {
+      $('.gallery-slideshow').flexslider({
+        animation: 'fade',
+        useCSS: true,
+        touch: true,
+        directionNav: true,
+        controlNav: showThumbs
+      });
+    }
     if (galleryOptions['mini_gallery'] === 'no') {
       navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight(true);
       gallery.flexContainer.find('.flex-control-nav').css('bottom', -navHeight);
@@ -25,36 +34,41 @@
     }
   };
 
-  getTallestImage = function() {
-    var tallestImage;
+  getLargestImage = function() {
+    var imageHeight, imageWidth, size;
     gallery.slides.addClass('loading');
     gallery.images.css('max-height', 'none');
-    tallestImage = 0;
+    imageHeight = 0;
+    imageWidth = 0;
+    size = [];
     gallery.images.each(function() {
       var curHeight;
       curHeight = null;
       curHeight = $(this).height();
-      if (curHeight > tallestImage) {
-        return tallestImage = curHeight;
+      if (curHeight > imageHeight) {
+        imageHeight = curHeight;
+        return imageWidth = $(this).width();
       }
     });
     gallery.slides.removeClass('loading');
-    return tallestImage;
+    size['height'] = imageHeight;
+    size['width'] = imageWidth;
+    return size;
   };
 
-  setImageHeight = function(tallestImage) {
+  setImageHeight = function(imageHeight) {
     var fixedHeight, navHeight, padding, windowHeight;
     windowHeight = $(window).height();
     navHeight = gallery.flexContainer.find('.flex-control-nav').outerHeight(true);
     fixedHeight = null;
     padding = 10;
-    if (windowHeight <= tallestImage + navHeight) {
+    if (windowHeight <= imageHeight + navHeight) {
       fixedHeight = windowHeight - navHeight - padding;
       if (fixedHeight < 320) {
         fixedHeight = tallestImage - padding;
       }
     } else {
-      fixedHeight = tallestImage - padding;
+      fixedHeight = imageHeight - padding;
     }
     gallery.images.css('max-height', fixedHeight);
     gallery.slides.css('height', fixedHeight);
@@ -62,31 +76,35 @@
     return gallery.flexContainer.css('margin-bottom', navHeight);
   };
 
-  setMiniNavHeight = function(tallestImage) {
-    return $('.flex-direction-nav a').height(tallestImage);
+  setMiniNavHeight = function(imageHeight) {
+    return $('.flex-direction-nav a').height(imageHeight);
   };
 
   setupFlexslider = function(galleryOptions) {
-    var tallestImage;
-    tallestImage = getTallestImage();
-    initializeFlexSlider(galleryOptions);
+    var imageHeight, imageWidth, size;
+    size = getLargestImage();
+    imageHeight = size['height'];
+    imageWidth = size['width'];
+    initializeFlexSlider(galleryOptions, imageWidth);
     if (galleryOptions['mini_gallery'] === 'yes') {
-      return setMiniNavHeight(tallestImage);
+      return setMiniNavHeight(imageHeight);
     } else {
-      return setImageHeight(tallestImage);
+      return setImageHeight(imageHeight);
     }
   };
 
   resetFlexslider = function() {
-    var tallestImage;
-    tallestImage = getTallestImage();
-    return setImageHeight(tallestImage);
+    var imageHeight, size;
+    size = getLargestImage();
+    imageHeight = size['height'];
+    return setImageHeight(imageHeight);
   };
 
   resetMiniFlexslider = function() {
-    var tallestImage;
-    tallestImage = getTallestImage();
-    return setMiniNavHeight(tallestImage);
+    var imageHeight, size;
+    size = getLargestImage();
+    imageHeight = size['height'];
+    return setMiniNavHeight(imageHeight);
   };
 
   $(function() {
