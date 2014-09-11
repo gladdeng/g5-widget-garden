@@ -14,6 +14,7 @@
     <div class="form-field">
       {{ widget.cta_link_1.id_hidden_field }}
       <select id="{{ widget.cta_link_1.value_field_id }}" name="{{ widget.cta_link_1.value_field_name }}">
+      <option>Select Page</option>
         {% for web_page in widget.navigation.best_value %}
           <option value="{{ web_page[1].url | url_encode }}"
             {% if widget.cta_link_1.best_value == web_page[1].url %}
@@ -39,6 +40,7 @@
     <div class="form-field">
       {{ widget.cta_link_2.id_hidden_field }}
       <select id="{{ widget.cta_link_2.value_field_id }}" name="{{ widget.cta_link_2.value_field_name }}">
+        <option>Select Page</option>
         {% for web_page in widget.navigation.best_value %}
           <option value="{{ web_page[1].url | url_encode }}"
             {% if widget.cta_link_2.best_value == web_page[1].url %}
@@ -64,6 +66,7 @@
     <div class="form-field">
       {{ widget.cta_link_3.id_hidden_field }}
       <select id="{{ widget.cta_link_3.value_field_id }}" name="{{ widget.cta_link_3.value_field_name }}">
+        <option>Select Page</option>
         {% for web_page in widget.navigation.best_value %}
           <option value="{{ web_page[1].url | url_encode }}"
             {% if widget.cta_link_3.best_value == web_page[1].url %}
@@ -89,6 +92,7 @@
     <div class="form-field">
       {{ widget.cta_link_4.id_hidden_field }}
       <select id="{{ widget.cta_link_4.value_field_id }}" name="{{ widget.cta_link_4.value_field_name }}">
+        <option>Select Page</option>
         {% for web_page in widget.navigation.best_value %}
           <option value="{{ web_page[1].url | url_encode }}"
             {% if widget.cta_link_4.best_value == web_page[1].url %}
