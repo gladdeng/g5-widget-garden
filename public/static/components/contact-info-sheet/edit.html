@@ -50,21 +50,6 @@
   </div>
 
   <div class="form-field">
-    <label for="{{ widget.cls_url.value_field_id }}" >
-      Client Leads Service URL
-    </label>
-    {{ widget.cls_url.id_hidden_field }}
-    <input type="url"
-      id="{{ widget.cls_url.value_field_id }}"
-      class="u-syndication"
-      name="{{ widget.cls_url.value_field_name }}"
-      value="{{ widget.cls_url.best_value | url_encode }}"
-      pattern="^https:\/\/.+"
-      title="The URL must be HTTPS"
-    />
-  </div>
-
-  <div class="form-field">
     <label for="{{ widget.success_redirect_url.value_field_id }}" >
       Successful Submission Redirect URL
     </label>
