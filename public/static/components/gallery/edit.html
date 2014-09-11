@@ -12,33 +12,6 @@
   </div>
 
   <div class="form-field check-field">
-    <fieldset>
-      <legend>Transition</legend>
-      {{ widget.gallery_transition.id_hidden_field }}
-      <input type="radio"
-        id="{{ widget.gallery_transition.value_field_id }}_fade"
-        name="{{ widget.gallery_transition.value_field_name }}"
-        value="fade"
-        checked="checked"
-      />
-      <label for="{{ widget.gallery_transition.value_field_id }}_fade" >
-        Fade
-      </label>
-      <input type="radio"
-        id="{{ widget.gallery_transition.value_field_id }}_slide"
-        name="{{ widget.gallery_transition.value_field_name }}"
-        value="slide"
-        {% if widget.gallery_transition.best_value == "slide" %}
-        checked="checked"
-        {% endif %}
-      />
-      <label for="{{ widget.gallery_transition.value_field_id }}_slide" >
-        Slide
-      </label>
-    </fieldset>
-  </div>
-
-  <div class="form-field check-field">
     {{ widget.gallery_thumbnails.id_hidden_field }}
     <input type="hidden"
       id="{{ widget.gallery_thumbnails.value_field_id }}_false"
@@ -77,6 +50,27 @@
     />
     <label for="{{ widget.gallery_mini.value_field_id }}" >
       Mini Gallery
+    </label>
+  </div>
+
+  <div class="form-field check-field">
+    {{ widget.gallery_carousel.id_hidden_field }}
+    <input type="hidden"
+      id="{{ widget.gallery_carousel.value_field_id }}_false"
+      name="{{ widget.gallery_carousel.value_field_name }}"
+      value="no"
+    />
+    <input type="checkbox"
+      class="display-navigation"
+      id="{{ widget.gallery_carousel.value_field_id }}"
+      name="{{ widget.gallery_carousel.value_field_name }}"
+      value="yes"
+      {% if widget.gallery_carousel.best_value == "yes" %}
+      checked="checked"
+      {% endif %}
+    />
+    <label for="{{ widget.gallery_carousel.value_field_id }}" >
+      Carousel
     </label>
   </div>
 

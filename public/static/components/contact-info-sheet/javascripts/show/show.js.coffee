@@ -3,7 +3,6 @@ $ ->
   phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html())
   new phoneNumber(phoneOptions)
 
-
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"
     widget.find(".info-sheet-email").hide()
@@ -98,6 +97,8 @@ $ ->
 
   $(window).smartresize ->
     if Modernizr.mq("(min-width: 39.0626em)")
+      # ie will double initialize and fire the click events, to prevent that I am stopping them before re-starting them to be sure.
+      stopContactInfoSheet()
       initializeContactInfoSheet()
     else
       stopContactInfoSheet()

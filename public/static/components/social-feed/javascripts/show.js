@@ -99,7 +99,9 @@
         dataType: "json",
         type: "GET",
         success: function(data) {
-          return new tweetBuilder(data, feedVars);
+          if (data.length > 0) {
+            return new tweetBuilder(data, feedVars);
+          }
         }
       });
     }
@@ -151,7 +153,9 @@
         url: "http://g5-social-feed-service.herokuapp.com/facebook-feed/" + feedVars.facebook_page_id,
         dataType: 'json',
         success: function(data) {
-          return new facebookFeedBuilder(feedVars, data);
+          if (data.hasOwnProperty('data') && data.data.length > 0) {
+            return new facebookFeedBuilder(feedVars, data);
+          }
         }
       });
     };
@@ -171,6 +175,10 @@
       _ref = dataFeed.data;
       for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
         post = _ref[index];
+        if (typeof post.message === 'undefined') {
+          feedVars.facebook_post_limit += 1;
+          continue;
+        }
         if ((index + 1) > feedVars.facebook_post_limit) {
           break;
         }
@@ -204,7 +212,9 @@
         url: "http://g5-social-feed-service.herokuapp.com/google-plus-feed/" + feedVars.google_plus_page_id,
         dataType: 'json',
         success: function(data) {
-          return new googlePlusFeedBuilder(feedVars, data);
+          if (data.length > 0) {
+            return new googlePlusFeedBuilder(feedVars, data);
+          }
         }
       });
     };

@@ -1,4 +1,3 @@
-require 'highline/import'
 require "active_support/all"
 
 namespace :dev do 

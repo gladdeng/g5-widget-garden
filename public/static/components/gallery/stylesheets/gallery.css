@@ -158,3 +158,6 @@ CUSTOM STYLES
   top: 0;
   margin: 0;
 }
+.gallery-carousel .slides li {
+  margin-right: 15px;
+}
