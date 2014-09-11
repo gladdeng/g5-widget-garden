@@ -1,6 +1,6 @@
 $ ->
 
-  phoneOptions = JSON.parse($('.contact-info-sheet-config:first').html())
+  phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html())
   new phoneNumber(phoneOptions)
 
   showPhone = (widget) ->
@@ -97,17 +97,8 @@ $ ->
 
   $(window).smartresize ->
     if Modernizr.mq("(min-width: 39.0626em)")
+      # ie will double initialize and fire the click events, to prevent that I am stopping them before re-starting them to be sure.
+      stopContactInfoSheet()
       initializeContactInfoSheet()
     else
       stopContactInfoSheet()
-
-# This function is a modified version of javascripts/libs/form-urls.js
--> 
-  canonicalUrl = ->
-    inputs = $('input.u-canonical')
-    loc = $(location).attr('href')
-    inputs.val(loc)
-  
-  clientUrn = JSON.parse($('.contact-info-sheet-config:first').html())
-  canonicalUrl()
-
