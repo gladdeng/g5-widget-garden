@@ -47,7 +47,8 @@ getLargestImage = (gallery) ->
   size
 
 # Sets max height of images so they all fit in the window
-setImageHeight = (imageHeight, gallery) ->
+setImageHeight = (imageHeight, gallery, carousel) ->
+  galleryType = (if type is "yes" then "carousel" else "slideshow")
   windowHeight = $(window).height()
   navHeight = gallery.find('.flex-control-nav').outerHeight true
   fixedHeight = null
@@ -61,8 +62,13 @@ setImageHeight = (imageHeight, gallery) ->
   else
     fixedHeight = imageHeight - padding
 
-  gallery.find('.slides img').css 'max-height', fixedHeight
-  gallery.find('.slides li').css 'height', fixedHeight
+  if galleryType == 'carousel'
+    gallery.find('.slides img').css 'max-height', imageHeight
+    gallery.find('.slides li').css 'height', imageHeight
+  else
+    gallery.find('.slides img').css 'max-height', fixedHeight
+    gallery.find('.slides li').css 'height', fixedHeight
+
   gallery.find('.flex-control-nav').css 'bottom', -navHeight
   gallery.find('.flexslider').css 'margin-bottom', navHeight
 
@@ -79,7 +85,7 @@ setupFlexslider = (galleryOptions, gallery) ->
   if galleryOptions['mini_gallery'] is 'yes'
     setMiniNavHeight imageHeight, gallery
   else
-    setImageHeight imageHeight, gallery
+    setImageHeight imageHeight, gallery, galleryOptions['carousel']
 
 resetFlexslider = (gallery) ->
   size = getLargestImage(gallery)

@@ -51,8 +51,9 @@
     return size;
   };
 
-  setImageHeight = function(imageHeight, gallery) {
-    var fixedHeight, navHeight, padding, windowHeight;
+  setImageHeight = function(imageHeight, gallery, carousel) {
+    var fixedHeight, galleryType, navHeight, padding, windowHeight;
+    galleryType = (type === "yes" ? "carousel" : "slideshow");
     windowHeight = $(window).height();
     navHeight = gallery.find('.flex-control-nav').outerHeight(true);
     fixedHeight = null;
@@ -65,8 +66,13 @@
     } else {
       fixedHeight = imageHeight - padding;
     }
-    gallery.find('.slides img').css('max-height', fixedHeight);
-    gallery.find('.slides li').css('height', fixedHeight);
+    if (galleryType === 'carousel') {
+      gallery.find('.slides img').css('max-height', imageHeight);
+      gallery.find('.slides li').css('height', imageHeight);
+    } else {
+      gallery.find('.slides img').css('max-height', fixedHeight);
+      gallery.find('.slides li').css('height', fixedHeight);
+    }
     gallery.find('.flex-control-nav').css('bottom', -navHeight);
     return gallery.find('.flexslider').css('margin-bottom', navHeight);
   };
@@ -84,7 +90,7 @@
     if (galleryOptions['mini_gallery'] === 'yes') {
       return setMiniNavHeight(imageHeight, gallery);
     } else {
-      return setImageHeight(imageHeight, gallery);
+      return setImageHeight(imageHeight, gallery, galleryOptions['carousel']);
     }
   };
 
