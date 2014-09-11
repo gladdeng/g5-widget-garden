@@ -99,6 +99,7 @@
     }
     return $(window).smartresize(function() {
       if (Modernizr.mq("(min-width: 39.0626em)")) {
+        stopContactInfoSheet();
         return initializeContactInfoSheet();
       } else {
         return stopContactInfoSheet();

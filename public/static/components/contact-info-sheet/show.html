@@ -25,13 +25,13 @@
             {% if widget.success_redirect_url.best_value != '' %}
               "successRedirectUrl": "{{ widget.success_redirect_url.best_value}}",
             {% endif %}
-            "formUrl": "{{ widget.secure_cls_url }}api/v1/locations/{{ widget.location_urn.best_value }}/html_forms/contact"
+            "formUrl": "{{ widget.cls_url }}api/v1/locations/{{ widget.location_urn.best_value }}/html_forms/contact"
           }
         </script>
 
-        <noscript>
-          You have either disabled Javascript or are using an older, unsupported browser. Please <a href="{{ widget.secure_cls_url }}api/v1/locations/{{ widget.location_urn.best_value }}/html_forms/{{ widget.form_type.best_value }}.html">visit this link</a> to contact us.
-        </noscript>
+        <p>
+          You are using an older, unsupported browser. Please <a href="{{ widget.secure_cls_url }}api/v1/locations/{{ widget.location_urn.best_value }}/html_forms/contact.html" target="_blank">visit this link</a> to contact us.
+        </p>
       </div> <!-- end form -->
     </div> <!-- end .info-sheet-email -->
   </div> <!-- end .info-sheet-content -->
