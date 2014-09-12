@@ -93,13 +93,13 @@
       $(".contact-info-sheet").off("click", ".info-sheet-page-up");
       return $(".contact-info-sheet").off("click", ".info-sheet-page-down");
     };
-    if (Modernizr.mq("(min-width: 39.0626em)")) {
+    if (Modernizr.mq("(min-width: 641px)")) {
       initializeContactInfoSheet();
     } else {
       setupMobileContactInfoSheet();
     }
     return $(window).smartresize(function() {
-      if (Modernizr.mq("(min-width: 39.0626em)")) {
+      if (Modernizr.mq("(min-width: 641px)")) {
         if ($('.contact-info-sheet').first().hasClass('mobile')) {
           $('.contact-info-sheet').first().removeClass('mobile');
           return initializeContactInfoSheet();
