@@ -1,6 +1,4 @@
-$ ->
-  
-  $('.contact-info-sheet').hide() if typeof noStickyNavForIE9 != 'undefined'
+setUpContactInfoSheet = ->
 
   phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html())
   new phoneNumber(phoneOptions)
@@ -104,3 +102,9 @@ $ ->
       initializeContactInfoSheet()
     else
       stopContactInfoSheet()
+
+$ ->
+  if typeof noStickyNavForIE9 != 'undefined'
+    $('.contact-info-sheet').remove() 
+  else
+    setUpContactInfoSheet()

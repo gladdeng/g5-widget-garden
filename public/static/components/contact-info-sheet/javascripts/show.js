@@ -1,9 +1,8 @@
 (function() {
-  $(function() {
+  var setUpContactInfoSheet;
+
+  setUpContactInfoSheet = function() {
     var initializeContactInfoSheet, phoneOptions, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
-    if (typeof noStickyNavForIE9 !== 'undefined') {
-      $('.contact-info-sheet').hide();
-    }
     phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
     new phoneNumber(phoneOptions);
     showPhone = function(widget) {
@@ -107,6 +106,14 @@
         return stopContactInfoSheet();
       }
     });
+  };
+
+  $(function() {
+    if (typeof noStickyNavForIE9 !== 'undefined') {
+      return $('.contact-info-sheet').remove();
+    } else {
+      return setUpContactInfoSheet();
+    }
   });
 
 }).call(this);
