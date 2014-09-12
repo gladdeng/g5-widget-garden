@@ -53,7 +53,7 @@
 
   setImageHeight = function(imageHeight, gallery, carousel) {
     var fixedHeight, galleryType, navHeight, padding, windowHeight;
-    galleryType = (type === "yes" ? "carousel" : "slideshow");
+    galleryType = (carousel === "yes" ? "carousel" : "slideshow");
     windowHeight = $(window).height();
     navHeight = gallery.find('.flex-control-nav').outerHeight(true);
     fixedHeight = null;

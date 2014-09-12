@@ -48,7 +48,7 @@ getLargestImage = (gallery) ->
 
 # Sets max height of images so they all fit in the window
 setImageHeight = (imageHeight, gallery, carousel) ->
-  galleryType = (if type is "yes" then "carousel" else "slideshow")
+  galleryType = (if carousel is "yes" then "carousel" else "slideshow")
   windowHeight = $(window).height()
   navHeight = gallery.find('.flex-control-nav').outerHeight true
   fixedHeight = null
