@@ -112,6 +112,7 @@
     if (typeof noStickyNavForIE9 !== 'undefined') {
       return $('.contact-info-sheet').remove();
     } else {
+      $('.contact-info-sheet').removeClass('hidden');
       return setUpContactInfoSheet();
     }
   });

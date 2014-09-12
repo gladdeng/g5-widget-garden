@@ -107,4 +107,5 @@ $ ->
   if typeof noStickyNavForIE9 != 'undefined'
     $('.contact-info-sheet').remove() 
   else
+    $('.contact-info-sheet').removeClass('hidden') 
     setUpContactInfoSheet()
