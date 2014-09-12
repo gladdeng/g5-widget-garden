@@ -1,22 +1,23 @@
-<div class="contact-info-sheet widget">
+<!--[if IE 9]><script type="text/javascript">var noStickyNavForIE9 = true;</script><![endif]-->
+<div class="contact-info-sheet widget hidden">
 
   <script class="config" type="application/json">
     {
-      "clientUrn": "{{ widget.client_urn.best_value }}",
+      "cpnsUrl": "{{ widget.secure_cpns_url }}",
       "locationUrn": "{{ widget.location_urn.best_value }}"
     }
   </script>
 
   <div class="info-sheet-nav">
     <!-- use phone service for this number -->
-    <a class="info-sheet-phone-btn info-sheet-toggle" href="tel://{{ widget.phone_number.best_value }}">{{ widget.phone_number.best_value }}</a>
+    <a class="number info-sheet-phone-btn info-sheet-toggle" href="tel://{{ widget.phone_number.best_value }}"><span class="p-tel">{{ widget.phone_number.best_value }}</span></a>
     <a class="info-sheet-email-btn info-sheet-toggle" href="{{ widget.contact_url.best_value | url_encode }}">Email</a>
     <div class="info-sheet-page-up info-sheet-pagination">UP</div>
     <div class="info-sheet-page-down info-sheet-pagination">DOWN</div>
   </div> <!-- end .info-sheet-nav -->
 
   <div class="info-sheet-content">
-    <div class="info-sheet-phone">{{ widget.phone_number.best_value }}</div> <!-- end .info-sheet-phone -->
+    <div class="info-sheet-phone p-tel">{{ widget.phone_number.best_value }}</div> <!-- end .info-sheet-phone -->
     <div class="info-sheet-email">
 
       <div class="g5-enhanced-form">
