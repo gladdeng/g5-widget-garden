@@ -36,6 +36,42 @@
     />
   </div>
   <div class="form-field">
+    {{ widget.unit_size_help_url.id_hidden_field }}
+    <label for="{{ widget.unit_size_help_url.value_field_id }}">
+      Unit Size Help URL
+    </label>
+    <input type="text"
+      placeholder="http://www.mydomain.com/unit_size_help.html"
+      id="{{ widget.unit_size_help_url.value_field_id }}"
+      name="{{ widget.unit_size_help_url.value_field_name }}"
+      value="{{ widget.unit_size_help_url.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.unit_size_help_label.id_hidden_field }}
+    <label for="{{ widget.unit_size_help_label.value_field_id }}">
+      Unit Size Help Label
+    </label>
+    <input type="text"
+      placeholder=""
+      id="{{ widget.unit_size_help_label.value_field_id }}"
+      name="{{ widget.unit_size_help_label.value_field_name }}"
+      value="{{ widget.unit_size_help_label.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.nearby_locations_button_label.id_hidden_field }}
+    <label for="{{ widget.nearby_locations_button_label.value_field_id }}">
+     Nearby Locations Button Label
+    </label>
+    <input type="text"
+      placeholder=""
+      id="{{ widget.nearby_locations_button_label.value_field_id }}"
+      name="{{ widget.nearby_locations_button_label.value_field_name }}"
+      value="{{ widget.nearby_locations_button_label.best_value }}"
+    />
+  </div>
+  <div class="form-field">
     {{ widget.primary_color.id_hidden_field }}
     <label for="{{ widget.primary_color.value_field_id }}">
       Primary Color
