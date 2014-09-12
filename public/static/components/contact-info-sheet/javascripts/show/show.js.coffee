@@ -89,7 +89,7 @@ setUpContactInfoSheet = ->
     $(".contact-info-sheet").off "click", ".info-sheet-page-up"
     $(".contact-info-sheet").off "click", ".info-sheet-page-down"
 
-  if Modernizr.mq("(min-width: 39.0626em)")
+  if Modernizr.mq("(min-width: 641px)")
     initializeContactInfoSheet()
 
   else
@@ -97,7 +97,7 @@ setUpContactInfoSheet = ->
 
   $(window).smartresize ->
 
-    if Modernizr.mq("(min-width: 39.0626em)")
+    if Modernizr.mq("(min-width: 641px)")
 
       # If switching from mobile view to larger view, initialize widget
       if ($('.contact-info-sheet').first().hasClass('mobile'))
