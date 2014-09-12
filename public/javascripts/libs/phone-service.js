@@ -28,7 +28,8 @@ var phoneNumber = (function() {
       }
       if (phone != '' || phone.length > 0) {
         formattedPhone = phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
-        return $(".phone .number").attr("href", "tel://" + phone).find(".p-tel").html(formattedPhone);
+        $(".number").attr("href", "tel://" + phone);
+        $(".p-tel").html(formattedPhone)
       }
     });
   };
