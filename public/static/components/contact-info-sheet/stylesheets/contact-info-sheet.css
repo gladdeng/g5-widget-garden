@@ -13,7 +13,7 @@
   .contact-info-sheet .info-sheet-content {
     min-height: 75px;
     padding: 1em 30px; }
-  @media screen and (max-width: 624px) {
+  @media screen and (max-width: 640px) {
     .contact-info-sheet {
       background: #404040;
       bottom: 0;
@@ -47,7 +47,7 @@
     .contact-info-sheet .info-sheet-pagination {
       display: none; }
   }
-  @media screen and (min-width: 625px) {
+  @media screen and (min-width: 641px) {
     .contact-info-sheet {
       -webkit-transition: left 0.3s ease-in-out;
       -moz-transition: left 0.3s ease-in-out;
