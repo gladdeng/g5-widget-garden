@@ -32,7 +32,7 @@
     };
     setupMobileContactInfoSheet = function() {
       var widget, widgetHeight;
-      widget = $(".contact-info-sheet").first();
+      widget = $(".contact-info-sheet").first().addClass('mobile');
       widgetHeight = widget.outerHeight();
       return $("body").css("padding-bottom", widgetHeight);
     };
@@ -90,8 +90,8 @@
     stopContactInfoSheet = function() {
       setupMobileContactInfoSheet();
       $(".contact-info-sheet").off("click", ".info-sheet-toggle").removeClass("opened showing-email showing=phone").removeAttr("style");
-      $(".contact-info-sheet").on("click", ".info-sheet-page-up");
-      return $(".contact-info-sheet").on("click", ".info-sheet-page-down");
+      $(".contact-info-sheet").off("click", ".info-sheet-page-up");
+      return $(".contact-info-sheet").off("click", ".info-sheet-page-down");
     };
     if (Modernizr.mq("(min-width: 39.0626em)")) {
       initializeContactInfoSheet();
@@ -100,8 +100,12 @@
     }
     return $(window).smartresize(function() {
       if (Modernizr.mq("(min-width: 39.0626em)")) {
-        stopContactInfoSheet();
-        return initializeContactInfoSheet();
+        if ($('.contact-info-sheet').first().hasClass('mobile')) {
+          $('.contact-info-sheet').first().removeClass('mobile');
+          return initializeContactInfoSheet();
+        } else {
+          return setupContactInfoSheet();
+        }
       } else {
         return stopContactInfoSheet();
       }
