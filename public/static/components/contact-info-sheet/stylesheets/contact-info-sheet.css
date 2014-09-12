@@ -1,3 +1,5 @@
+.contact-info-sheet.hidden {
+  display:none;}
 .contact-info-sheet {
   background: white;
   position: fixed;
@@ -11,7 +13,7 @@
   .contact-info-sheet .info-sheet-content {
     min-height: 75px;
     padding: 1em 30px; }
-  @media screen and (max-width: 39em) {
+  @media screen and (max-width: 624px) {
     .contact-info-sheet {
       background: #404040;
       bottom: 0;
@@ -39,11 +41,13 @@
         background-position: 10px 10px; }
       .contact-info-sheet .info-sheet-email-btn {
         background-position: 10px -135px; }
-      .contact-info-sheet .info-sheet-pagination {
-        display: none; }
       .contact-info-sheet .info-sheet-content {
         display: none !important; } }
-  @media screen and (min-width: 39.0625em) {
+  @media screen and (max-width: 1169px) {
+    .contact-info-sheet .info-sheet-pagination {
+      display: none; }
+  }
+  @media screen and (min-width: 625px) {
     .contact-info-sheet {
       -webkit-transition: left 0.3s ease-in-out;
       -moz-transition: left 0.3s ease-in-out;
