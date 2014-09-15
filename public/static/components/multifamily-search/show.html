@@ -64,14 +64,19 @@
       clientId: '{{ widget.core_client_id.best_value }}',
       serviceHost: "{{ widget.core_service_url.best_value | url_encode }}"
   };
-  window.MultiFamilySearchENV = {
-    "environment":"production",
-    "baseURL": "/",
-    "EmberENV":{
-      "PAGINATION":{
-        "PER_PAGE":"{{ widget.per_page.best_value }}"},
-      "FEATURES":{}
-    }
-  };
+   window.MultiFamilySearchENV = {"baseURL": "/",
+                                     "EmberENV":{
+                                        "PAGINATION":{"PER_PAGE":"{{ widget.per_page.best_value }}"},
+                                        "THRESHOLD": {
+                                          "AVAILABLE": "{{ widget.available_threshold.best_value }}",
+                                          "CTA_AVAILABLE_TEXT": "{{ widget.cta_available_text_threshold.best_value }}",
+                                          "CTA_LIMITED_TEXT": "{{ widget.cta_limited_text_threshold.best_value }}"
+                                        }, 
+                                        "CTAS":{
+                                          "CTA_AVAILABLE_TEXT": "{{ widget.cta_available_text.best_value }}",
+                                          "CTA_LIMITED_TEXT": "{{ widget.cta_limited_text.best_value }}",
+                                          "CTA_LOW_TEXT": "{{ widget.cta_low_text.best_value }}"
+                                        },
+                                        "FEATURES":{}}};
   window.EmberENV = window.MultiFamilySearchENV.EmberENV;
 </script>

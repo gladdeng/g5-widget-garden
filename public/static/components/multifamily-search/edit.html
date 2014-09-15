@@ -36,6 +36,78 @@
     />
   </div>
   <div class="form-field">
+    {{ widget.available_threshold.id_hidden_field }}
+    <label for="{{ widget.available_threshold.value_field_id }}" >
+      Available Threshold
+    </label>
+    <input type="text"
+      placeholder="1"
+      id="{{ widget.available_threshold.value_field_id }}"
+      name="{{ widget.available_threshold.value_field_name }}"
+      value="{{ widget.available_threshold.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.cta_available_text_threshold.id_hidden_field }}
+    <label for="{{ widget.cta_available_text_threshold.value_field_id }}" >
+      Cta Available Text Threshold
+    </label>
+    <input type="text"
+      placeholder="5"
+      id="{{ widget.cta_available_text_threshold.value_field_id }}"
+      name="{{ widget.cta_available_text_threshold.value_field_name }}"
+      value="{{ widget.cta_available_text_threshold.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.cta_limited_text_threshold.id_hidden_field }}
+    <label for="{{ widget.cta_limited_text_threshold.value_field_id }}" >
+      Cta Limited Text Threshold
+    </label>
+    <input type="text"
+      placeholder="2"
+      id="{{ widget.cta_limited_text_threshold.value_field_id }}"
+      name="{{ widget.cta_limited_text_threshold.value_field_name }}"
+      value="{{ widget.cta_limited_text_threshold.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.cta_available_text.id_hidden_field }}
+    <label for="{{ widget.cta_available_text.value_field_id }}" >
+      Cta Available Text
+    </label>
+    <input type="text"
+      placeholder="Available | View Units"
+      id="{{ widget.cta_available_text.value_field_id }}"
+      name="{{ widget.cta_available_text.value_field_name }}"
+      value="{{ widget.cta_available_text.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.cta_limited_text.id_hidden_field }}
+    <label for="{{ widget.cta_limited_text.value_field_id }}" >
+      Cta Limited Text
+    </label>
+    <input type="text"
+      placeholder="Limited Availability | Visit Site"
+      id="{{ widget.cta_limited_text.value_field_id }}"
+      name="{{ widget.cta_limited_text.value_field_name }}"
+      value="{{ widget.cta_limited_text.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.cta_low_text.id_hidden_field }}
+    <label for="{{ widget.cta_low_text.value_field_id }}" >
+      Cta Low Text
+    </label>
+    <input type="text"
+      placeholder="Low Availability | Visit Site"
+      id="{{ widget.cta_low_text.value_field_id }}"
+      name="{{ widget.cta_low_text.value_field_name }}"
+      value="{{ widget.cta_low_text.best_value }}"
+    />
+  </div>
+  <div class="form-field">
     {{ widget.text_color.id_hidden_field }}
     <label for="{{ widget.text_color.value_field_id }}">
       Text Color
