@@ -1,33 +1,18 @@
 <div class="home-multifamily-iui widget">
   <base href="/" />
-  <script>
-    var G5 = {
-        coreStoreId: '{{ widget.core_store_id.best_value }}',
-        leadFormUrl: '{{ widget.lead_form_url.best_value | url_encode }}',
-        floorplansServiceHost: "{{ widget.floorplans_service_host.best_value | url_encode }}",
-        maxUnitAvailability: {{ widget.max_unit_availability.best_value }}
-    };
-  </script>
 
-    <div class="iui-steps">
-      <span>1</span>
-      <span>2</span>
-      <span>3</span>
-      <span>4</span>
-    </div>
+  <!-- This needs to be hooked up to the edit form -->
+  <script id="home-multifamily-iui-config" type="application/json">
+    {
+      "core_store_id": "7337",
+      "floorplan_page_url": "/apartments/nv/sparks/floor-plans"
+    }
+  </script>
 
     <p class="iui-title">Select Size</p>
 
     <div class="iui-container">
-
-      <!-- Only show buttons of floorplans that exist, regardless of availability -->
-      <div class="iui-size"><a class="btn" href="">Studio</a></div>
-      <div class="iui-size"><a class="btn" href="">1 Bedroom</a></div>
-      <div class="iui-size"><a class="btn" href="">2 Bedroom</a></div>
-      <div class="iui-size"><a class="btn" href="">3 Bedroom</a></div>
-
-      <!-- Always show this button -->
-      <div class="iui-size iui-view-all"><a class="btn" href="">View All</a></div>
+      Loading Floorplan Options
     </div>
 
   </div>
