@@ -1,0 +1,13 @@
+<div class="home-multifamily-iui widget">
+  <base href="/" />
+  <script>
+    var G5 = {
+        coreStoreId: '{{ widget.core_store_id.best_value }}',
+        leadFormUrl: '{{ widget.lead_form_url.best_value | url_encode }}',
+        floorplansServiceHost: "{{ widget.floorplans_service_host.best_value | url_encode }}",
+        maxUnitAvailability: {{ widget.max_unit_availability.best_value }}
+    };
+  </script>
+
+  <div id="iui-container"></div>
+</div>

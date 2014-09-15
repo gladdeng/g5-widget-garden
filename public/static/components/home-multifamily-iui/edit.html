@@ -1,0 +1,52 @@
+<form>
+  <div class="form-field">
+    {{ widget.lead_form_url.id_hidden_field }}
+    <label for="{{ widget.lead_form_url.value_field_id }}">
+      Lead Form URL
+    </label>
+    <input type="text"
+      placeholder="http://path.to.my.leads.service"
+      id="{{ widget.lead_form_url.value_field_id }}"
+      name="{{ widget.lead_form_url.value_field_name }}"
+      value="{{ widget.lead_form_url.best_value | url_encode }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.core_store_id.id_hidden_field }}
+    <label for="{{ widget.core_store_id.value_field_id }}">
+      Core Store ID
+    </label>
+    <input type="text"
+      placeholder="1234"
+      id="{{ widget.core_store_id.value_field_id }}"
+      name="{{ widget.core_store_id.value_field_name }}"
+      value="{{ widget.core_store_id.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.floorplans_service_host.id_hidden_field }}
+    <label for="{{ widget.floorplans_service_host.value_field_id }}">
+      Floorplans Service Host
+    </label>
+    <input type="text"
+      placeholder="http://www.mydomain.com"
+      id="{{ widget.floorplans_service_host.value_field_id }}"
+      name="{{ widget.floorplans_service_host.value_field_name }}"
+      value="{{ widget.floorplans_service_host.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.max_unit_availability.id_hidden_field }}
+    <label for="{{ widget.max_unit_availability.value_field_id }}">
+      Max Unit Availability
+    </label>
+    <input type="text"
+      placeholder="6"
+      id="{{ widget.max_unit_availability.value_field_id }}"
+      name="{{ widget.max_unit_availability.value_field_name }}"
+      value="{{ widget.max_unit_availability.best_value }}"
+    />
+  </div>
+
+  <input type="submit" value="Save" class="btn" />
+</form>
