@@ -1,7 +1,9 @@
 (function() {
-  $(function() {
+  var setUpContactInfoSheet;
+
+  setUpContactInfoSheet = function() {
     var initializeContactInfoSheet, phoneOptions, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
-    phoneOptions = JSON.parse($('.contact-info-sheet-config:first').html());
+    phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
     new phoneNumber(phoneOptions);
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");
@@ -30,7 +32,7 @@
     };
     setupMobileContactInfoSheet = function() {
       var widget, widgetHeight;
-      widget = $(".contact-info-sheet").first();
+      widget = $(".contact-info-sheet").first().addClass('mobile');
       widgetHeight = widget.outerHeight();
       return $("body").css("padding-bottom", widgetHeight);
     };
@@ -88,33 +90,35 @@
     stopContactInfoSheet = function() {
       setupMobileContactInfoSheet();
       $(".contact-info-sheet").off("click", ".info-sheet-toggle").removeClass("opened showing-email showing=phone").removeAttr("style");
-      $(".contact-info-sheet").on("click", ".info-sheet-page-up");
-      return $(".contact-info-sheet").on("click", ".info-sheet-page-down");
+      $(".contact-info-sheet").off("click", ".info-sheet-page-up");
+      return $(".contact-info-sheet").off("click", ".info-sheet-page-down");
     };
-    if (Modernizr.mq("(min-width: 39.0626em)")) {
+    if (Modernizr.mq("(min-width: 641px)")) {
       initializeContactInfoSheet();
     } else {
       setupMobileContactInfoSheet();
     }
     return $(window).smartresize(function() {
-      if (Modernizr.mq("(min-width: 39.0626em)")) {
-        return initializeContactInfoSheet();
+      if (Modernizr.mq("(min-width: 641px)")) {
+        if ($('.contact-info-sheet').first().hasClass('mobile')) {
+          $('.contact-info-sheet').first().removeClass('mobile');
+          return initializeContactInfoSheet();
+        } else {
+          return setupContactInfoSheet();
+        }
       } else {
         return stopContactInfoSheet();
       }
     });
-  });
+  };
 
-  (function() {
-    var canonicalUrl, clientUrn;
-    canonicalUrl = function() {
-      var inputs, loc;
-      inputs = $('input.u-canonical');
-      loc = $(location).attr('href');
-      return inputs.val(loc);
-    };
-    clientUrn = JSON.parse($('.contact-info-sheet-config:first').html());
-    return canonicalUrl();
+  $(function() {
+    if (typeof noStickyNavForIE9 !== 'undefined') {
+      return $('.contact-info-sheet').remove();
+    } else {
+      $('.contact-info-sheet').removeClass('hidden');
+      return setUpContactInfoSheet();
+    }
   });
 
 }).call(this);

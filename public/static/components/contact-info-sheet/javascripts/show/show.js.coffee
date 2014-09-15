@@ -1,6 +1,6 @@
-$ ->
+setUpContactInfoSheet = ->
 
-  phoneOptions = JSON.parse($('.contact-info-sheet-config:first').html())
+  phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html())
   new phoneNumber(phoneOptions)
 
   showPhone = (widget) ->
@@ -32,7 +32,7 @@ $ ->
 
 
   setupMobileContactInfoSheet = ->
-    widget = $(".contact-info-sheet").first()
+    widget = $(".contact-info-sheet").first().addClass('mobile')
     widgetHeight = widget.outerHeight()
     $("body").css "padding-bottom", widgetHeight
 
@@ -86,28 +86,34 @@ $ ->
   stopContactInfoSheet = ->
     setupMobileContactInfoSheet()
     $(".contact-info-sheet").off("click", ".info-sheet-toggle").removeClass("opened showing-email showing=phone").removeAttr "style"
-    $(".contact-info-sheet").on "click", ".info-sheet-page-up"
-    $(".contact-info-sheet").on "click", ".info-sheet-page-down"
+    $(".contact-info-sheet").off "click", ".info-sheet-page-up"
+    $(".contact-info-sheet").off "click", ".info-sheet-page-down"
 
-  if Modernizr.mq("(min-width: 39.0626em)")
+  if Modernizr.mq("(min-width: 641px)")
     initializeContactInfoSheet()
 
   else
     setupMobileContactInfoSheet()
 
   $(window).smartresize ->
-    if Modernizr.mq("(min-width: 39.0626em)")
-      initializeContactInfoSheet()
+
+    if Modernizr.mq("(min-width: 641px)")
+
+      # If switching from mobile view to larger view, initialize widget
+      if ($('.contact-info-sheet').first().hasClass('mobile'))
+        $('.contact-info-sheet').first().removeClass('mobile')
+        initializeContactInfoSheet()
+      else
+        # Otherwise just run setup to reposition / resize
+        setupContactInfoSheet()
+
     else
+      # If going from large to mobile size, turn off click handlers
       stopContactInfoSheet()
 
-# This function is a modified version of javascripts/libs/form-urls.js
--> 
-  canonicalUrl = ->
-    inputs = $('input.u-canonical')
-    loc = $(location).attr('href')
-    inputs.val(loc)
-  
-  clientUrn = JSON.parse($('.contact-info-sheet-config:first').html())
-  canonicalUrl()
-
+$ ->
+  if typeof noStickyNavForIE9 != 'undefined'
+    $('.contact-info-sheet').remove()
+  else
+    $('.contact-info-sheet').removeClass('hidden')
+    setUpContactInfoSheet()
