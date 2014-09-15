@@ -1,3 +1,3 @@
 $ ->
-  path = location.pathname
-  $('[role=banner] .navigation a[href="' + path + '"]').addClass('active')
+  path = location.pathname.match(/([^\/]*)\/*$/)[1]
+  $('[role=banner] .navigation a[href$="/' + path + '"]').addClass('active')

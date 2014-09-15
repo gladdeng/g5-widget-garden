@@ -1,3 +1,4 @@
+<div class="multifamily-iui-cards widget">
   <base href="/" />
   <script>
     var G5 = {
@@ -9,6 +10,8 @@
     };
     window.MultiFamilyIuiCardsENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"PER_PAGE":20},"APP":{}};
     window.EmberENV = window.MultiFamilyIuiCardsENV.EmberENV;
+    // IE9 fix
+    if(!window.console)var console={log:function(){},warn:function(){},error:function(){},time:function(){},timeEnd:function(){}};
   </script>
 
   <style>
@@ -51,10 +54,11 @@
     #iui-cards-wrapper .iui-cards-floorplan-details{
       background-image: linear-gradient(to right, transparent, transparent 299px, {{widget.accent_color_2.best_value}} 299px);
     }
-    
+
     /* Text Colors */
     #iui-cards-wrapper .floorplan-card{ color:{{widget.text_color_dark.best_value}}; }
     #iui-cards-wrapper .iui-cards-nav a.active span{ color:{{widget.nav_text_color.best_value}}; }
   </style>
 
   <div id="iui-container"></div>
+</div>

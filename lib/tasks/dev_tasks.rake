@@ -5,8 +5,8 @@ namespace :dev do
   desc "Builds widget configuration markup."
     task :option_markup => :environment do
       option_list = []
-      continue = "true"
-      while continue == "true"
+      @continue = :yes
+      while @continue == :yes
         config = {}
 
         name = ask("Configuration Name: ") { |q| q.default = "none" }
@@ -25,7 +25,14 @@ namespace :dev do
         config[:option] = @option
 
         option_list << config
-        continue = ask("Add another? ") { |q| q.default = "true" }
+
+        choose do |menu|
+          menu.prompt = "Add Another Option? "
+          menu.choices(:yes, :no) do |chosen|
+            @continue = chosen 
+          end
+        end
+                
       end
 
       edit_markup = option_list.inject("") do |html, config|
@@ -40,27 +47,22 @@ namespace :dev do
       puts edit_markup
       puts "=======Index Markup======="
       puts index_markup
-
    end
 
    def edit_markup(config)
      %Q(
-<form>
-  <div class="form-field">
-    {{ widget.#{config[:config_name]}.id_hidden_field }}
-    <label for="{{ widget.#{config[:config_name]}.value_field_id }}" >
-      #{config[:name]}
-    </label>
-    <input type="text"
-      placeholder="#{config[:default_value]}"
-      id="{{ widget.#{config[:config_name]}.value_field_id }}"
-      name="{{ widget.#{config[:config_name]}.value_field_name }}"
-      value="{{ widget.#{config[:config_name]}.best_value #{config[:option]}}}"
-    />
-  </div>
-
-  <input type="submit" value="Save" class="btn" />
-</form>
+<div class="form-field">
+  {{ widget.#{config[:config_name]}.id_hidden_field }}
+  <label for="{{ widget.#{config[:config_name]}.value_field_id }}" >
+    #{config[:name]}
+  </label>
+  <input type="text"
+    placeholder="#{config[:default_value]}"
+    id="{{ widget.#{config[:config_name]}.value_field_id }}"
+    name="{{ widget.#{config[:config_name]}.value_field_name }}"
+    value="{{ widget.#{config[:config_name]}.best_value #{config[:option]}}}"
+  />
+</div>
      )
    end
 
@@ -80,4 +82,3 @@ namespace :dev do
    end
 
 end
-
