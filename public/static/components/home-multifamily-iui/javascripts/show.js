@@ -6,7 +6,7 @@
       _this = this;
     configs = JSON.parse($('#home-multifamily-iui-config').html());
     return $.ajax({
-      url: "http://www.g5api.com/api/v0/multi_families?store_id=" + configs.core_store_id,
+      url: "" + configs.floorplans_service_host + "/api/v0/multi_families?store_id=" + configs.core_store_id,
       dataType: 'json',
       success: function(data) {
         var categories;

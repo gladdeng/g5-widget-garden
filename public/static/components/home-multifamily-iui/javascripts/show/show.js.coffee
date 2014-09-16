@@ -2,7 +2,7 @@ $ ->
   configs = JSON.parse($('#home-multifamily-iui-config').html())
 
   $.ajax
-    url: "http://www.g5api.com/api/v0/multi_families?store_id=#{configs.core_store_id}"
+    url: "#{configs.floorplans_service_host}/api/v0/multi_families?store_id=#{configs.core_store_id}"
     dataType: 'json'
     success: (data) =>
       categories = data.unit_categories
@@ -11,7 +11,6 @@ $ ->
 
 class iuiMarkupBuilder 
   constructor: (categories, configs) ->
-    # Might need to add a sort by beds if the API isn't doing that already
     categories.sort((a, b) -> return a.beds - b.beds)
     markupHash = []
 
