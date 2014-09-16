@@ -22,18 +22,21 @@
     var buttonTemplate;
 
     function iuiMarkupBuilder(categories, configs) {
-      var category, index, markupHash, _i, _len;
+      var allButton, category, index, markupHash, _i, _len;
       markupHash = [];
       for (index = _i = 0, _len = categories.length; _i < _len; index = ++_i) {
         category = categories[index];
         markupHash.push(buttonTemplate(category.beds, configs));
       }
-      markupHash.push("<div class='iui-size iui-view-all'><a class='btn' href=''>View All</a></div>");
+      allButton = " <div class='iui-size iui-view-all'>                    <a class='btn' href='" + configs.floorplan_page_url + "#/bedrooms/all/floorplans'>                      View All                    </a>                  </div>";
+      markupHash.push(allButton);
       $('.home-multifamily-iui .iui-container').html(markupHash.join(''));
     }
 
     buttonTemplate = function(beds, configs) {
-      return "<div class='iui-size'><a class='btn' href='" + configs.floorplan_page_url + "#/bedrooms/" + beds + "/floorplans'>" + beds + " Bedroom</a></div>";
+      var buttonText;
+      buttonText = beds > 0 ? "" + beds + " Bedroom" : "Studio";
+      return "<div class='iui-size'><a class='btn' href='" + configs.floorplan_page_url + "#/bedrooms/" + beds + "/floorplans'>" + buttonText + "</a></div>";
     };
 
     return iuiMarkupBuilder;

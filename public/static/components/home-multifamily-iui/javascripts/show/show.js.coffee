@@ -17,11 +17,16 @@ class iuiMarkupBuilder
     for category, index in categories
       markupHash.push(buttonTemplate(category.beds, configs))
 
-    markupHash.push("<div class='iui-size iui-view-all'><a class='btn' href=''>View All</a></div>")
+    allButton = " <div class='iui-size iui-view-all'>
+                    <a class='btn' href='#{configs.floorplan_page_url}#/bedrooms/all/floorplans'>
+                      View All
+                    </a>
+                  </div>"
+                  
+    markupHash.push(allButton)
 
     $('.home-multifamily-iui .iui-container').html(markupHash.join(''))
 
   buttonTemplate = (beds, configs) ->
-    # Still need some Bedrooms vs Studio logic in here
-
-    "<div class='iui-size'><a class='btn' href='#{configs.floorplan_page_url}#/bedrooms/#{beds}/floorplans'>#{beds} Bedroom</a></div>"
+    buttonText = if beds > 0 then "#{beds} Bedroom" else "Studio"
+    "<div class='iui-size'><a class='btn' href='#{configs.floorplan_page_url}#/bedrooms/#{beds}/floorplans'>#{buttonText}</a></div>"
