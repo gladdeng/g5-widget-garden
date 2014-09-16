@@ -23,12 +23,15 @@
 
     function iuiMarkupBuilder(categories, configs) {
       var allButton, category, index, markupHash, _i, _len;
+      categories.sort(function(a, b) {
+        return a.beds - b.beds;
+      });
       markupHash = [];
       for (index = _i = 0, _len = categories.length; _i < _len; index = ++_i) {
         category = categories[index];
         markupHash.push(buttonTemplate(category.beds, configs));
       }
-      allButton = " <div class='iui-size iui-view-all'>                    <a class='btn' href='" + configs.floorplan_page_url + "#/bedrooms/all/floorplans'>                      View All                    </a>                  </div>";
+      allButton = " <div class='iui-size iui-view-all'>                    <a class='btn' href='" + configs.floorplan_page_url + "#/bedrooms/all/floorplans'>                      View All                    </a>                  </div> ";
       markupHash.push(allButton);
       $('.home-multifamily-iui .iui-container').html(markupHash.join(''));
     }

@@ -12,6 +12,7 @@ $ ->
 class iuiMarkupBuilder 
   constructor: (categories, configs) ->
     # Might need to add a sort by beds if the API isn't doing that already
+    categories.sort((a, b) -> return a.beds - b.beds)
     markupHash = []
 
     for category, index in categories
@@ -21,8 +22,8 @@ class iuiMarkupBuilder
                     <a class='btn' href='#{configs.floorplan_page_url}#/bedrooms/all/floorplans'>
                       View All
                     </a>
-                  </div>"
-                  
+                  </div> "
+
     markupHash.push(allButton)
 
     $('.home-multifamily-iui .iui-container').html(markupHash.join(''))
