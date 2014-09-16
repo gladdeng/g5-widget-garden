@@ -31,7 +31,7 @@
         category = categories[index];
         markupHash.push(buttonTemplate(category.beds, configs));
       }
-      allButton = " <div class='iui-size iui-view-all'>                    <a class='btn' href='" + configs.floorplan_page_url + "#/bedrooms/all/floorplans'>                      View All                    </a>                  </div> ";
+      allButton = " <div class='iui-size iui-view-all'>                    <a class='btn' href='" + configs.floorplan_page_url + "/#/bedrooms/all/floorplans'>                      View All                    </a>                  </div> ";
       markupHash.push(allButton);
       $('.home-multifamily-iui .iui-container').html(markupHash.join(''));
     }

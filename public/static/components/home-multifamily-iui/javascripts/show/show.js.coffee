@@ -18,7 +18,7 @@ class iuiMarkupBuilder
       markupHash.push(buttonTemplate(category.beds, configs))
 
     allButton = " <div class='iui-size iui-view-all'>
-                    <a class='btn' href='#{configs.floorplan_page_url}#/bedrooms/all/floorplans'>
+                    <a class='btn' href='#{configs.floorplan_page_url}/#/bedrooms/all/floorplans'>
                       View All
                     </a>
                   </div> "
