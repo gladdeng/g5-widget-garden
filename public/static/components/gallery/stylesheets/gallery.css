@@ -161,3 +161,55 @@ CUSTOM STYLES
 .gallery-carousel .slides li {
   margin-right: 15px;
 }
+
+.mini-gallery {
+  *zoom: 1; }
+.mini-gallery:before {
+  content: " ";
+  display: table; }
+.mini-gallery:after {
+  clear: both; }
+
+.mini-gallery .flex-control-thumbs {
+  padding: 0 15px;
+  margin: 0 -5px;
+}
+.mini-gallery .flex-control-thumbs li {
+  padding: 5px;
+}
+.mini-gallery .flex-direction-nav .flex-prev {
+  left: 0;
+}
+
+.mini-gallery .flex-direction-nav .flex-next {
+  right: 0;
+}
+
+@media screen and (min-width: 910px) {
+  .mini-gallery .slides img {
+    width: 50%;
+    float: left;
+  }
+  .mini-gallery .flex-caption {
+    float: right;
+    width: 50%;
+  }
+  .mini-gallery .flex-control-thumbs {
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+  }
+}
+
+@media screen and (min-width: 1170) {
+  .mini-gallery .flex-control-thumbs li {
+    width: 20%;
+  }
+  .mini-gallery .flex-control-thumbs li:nth-child(4n+1) {
+    clear: none;
+  }
+}
+
+
