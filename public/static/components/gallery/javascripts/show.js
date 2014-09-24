@@ -66,10 +66,7 @@
     } else {
       fixedHeight = imageHeight - padding;
     }
-    if (galleryType === 'carousel') {
-      gallery.find('.slides img').css('max-height', imageHeight);
-      gallery.find('.slides li').css('height', imageHeight);
-    } else {
+    if (galleryType !== 'carousel') {
       gallery.find('.slides img').css('max-height', fixedHeight);
       gallery.find('.slides li').css('height', fixedHeight);
     }

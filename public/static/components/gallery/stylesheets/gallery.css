@@ -134,12 +134,15 @@ CUSTOM STYLES
 .flex-control-thumbs li:nth-child(4n+1) {
   clear: left
 }
-.csstransforms .full-gallery .slides img {
+.csstransforms .full-gallery.gallery-slideshow .slides img {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+.full-gallery-.gallery-carousel img {
+  width: 100%;
 }
 .full-gallery .flex-caption {
   background-color: #fff;
