@@ -141,7 +141,7 @@ CUSTOM STYLES
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.full-gallery-.gallery-carousel img {
+.full-gallery.gallery-carousel img {
   width: 100%;
 }
 .full-gallery .flex-caption {
