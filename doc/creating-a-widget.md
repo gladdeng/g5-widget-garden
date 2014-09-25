@@ -156,7 +156,7 @@ below.
   <input type="text"
     id="{{ widget.property_name.value_field_id }}"
     name="{{ widget.property_name.value_field_name }}"
-    value="{{ widget.property_name.best_value }}"
+    value="{{ widget.property_name.value }}"
   />
 </div>
 ```
@@ -172,9 +172,9 @@ below.
 <div class=":widget-name">
   <script class="config" type="application/json">
     {
-      "id": "{{ widget.property_name.best_value }}",
-      "name": {{ widget.property_name.best_value }},
-      "value": {{widget.property_name.best_value}}
+      "id": "{{ widget.property_name.value }}",
+      "name": {{ widget.property_name.value }},
+      "value": {{widget.property_name.value}}
     }
   </script>
 </div>
@@ -207,7 +207,7 @@ below.
   <input type="email"
     id="{{ widget.contact_info_email.value_field_id }}"
     name="{{ widget.contact_info_email.value_field_name }}"
-    value="{{ widget.contact_info_email.best_value }}"
+    value="{{ widget.contact_info_email.value }}"
   />
 </div>
 ```
@@ -253,7 +253,7 @@ below.
     id="{{ widget.checkbox_property.value_field_id }}"
     name="{{ widget.checkbox_property.value_field_name }}"
     value="true"
-    {% if widget.checkbox_property.best_value == "true" %}
+    {% if widget.checkbox_property.value == "true" %}
     checked="checked"
     {% endif %}
   />

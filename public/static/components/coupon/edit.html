@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.coupon_text.value_field_id }}"
       name="{{ widget.coupon_text.value_field_name }}"
-      value="{{ widget.coupon_text.best_value }}"
+      value="{{ widget.coupon_text.value }}"
     />
   </div>
 
@@ -19,7 +19,7 @@
     <input type="text"
       id="{{ widget.coupon_description.value_field_id }}"
       name="{{ widget.coupon_description.value_field_name }}"
-      value="{{ widget.coupon_description.best_value }}"
+      value="{{ widget.coupon_description.value }}"
     />
   </div>
 
@@ -31,7 +31,7 @@
     <input type="text"
       id="{{ widget.coupon_number.value_field_id }}"
       name="{{ widget.coupon_number.value_field_name }}"
-      value="{{ widget.coupon_number.best_value }}"
+      value="{{ widget.coupon_number.value }}"
     />
   </div>
 
@@ -43,7 +43,7 @@
     <input type="url"
       id="{{ widget.coupon_barcode_url.value_field_id }}"
       name="{{ widget.coupon_barcode_url.value_field_name }}"
-      value="{{ widget.coupon_barcode_url.best_value | url_encode }}"
+      value="{{ widget.coupon_barcode_url.value | url_encode }}"
     />
   </div>
 
@@ -55,7 +55,7 @@
     <input type="url"
       id="{{ widget.coupon_email_url.value_field_id }}"
       name="{{ widget.coupon_email_url.value_field_name }}"
-      value="{{ widget.coupon_email_url.best_value | url_encode }}"
+      value="{{ widget.coupon_email_url.value | url_encode }}"
     />
   </div>
 
@@ -67,7 +67,7 @@
     <input type="url"
       id="{{ widget.location_logo_url.value_field_id }}"
       name="{{ widget.location_logo_url.value_field_name }}"
-      value="{{ widget.location_logo_url.best_value | url_encode }}"
+      value="{{ widget.location_logo_url.value | url_encode }}"
     />
   </div>
 
@@ -79,7 +79,7 @@
     <input type="text"
       id="{{ widget.location_name.value_field_id }}"
       name="{{ widget.location_name.value_field_name }}"
-      value="{{ widget.location_name.best_value }}"
+      value="{{ widget.location_name.value }}"
     />
   </div>
 
@@ -91,7 +91,7 @@
     <input type="text"
       id="{{ widget.location_street_address.value_field_id }}"
       name="{{ widget.location_street_address.value_field_name }}"
-      value="{{ widget.location_street_address.best_value }}"
+      value="{{ widget.location_street_address.value }}"
     />
   </div>
 
@@ -103,7 +103,7 @@
     <input type="text"
       id="{{ widget.location_city.value_field_id }}"
       name="{{ widget.location_city.value_field_name }}"
-      value="{{ widget.location_city.best_value }}"
+      value="{{ widget.location_city.value }}"
     />
   </div>
 
@@ -117,57 +117,57 @@
       name="{{ widget.location_state.value_field_name }}"
     >
       <option value="">Choose a State</option>
-      <option {% if widget.location_state.best_value == "AL" %}selected {% endif %}value="AL">Alabama</option>
-      <option {% if widget.location_state.best_value == "AK" %}selected {% endif %}value="AK">Alaska</option>
-      <option {% if widget.location_state.best_value == "AZ" %}selected {% endif %}value="AZ">Arizona</option>
-      <option {% if widget.location_state.best_value == "AR" %}selected {% endif %}value="AR">Arkansas</option>
-      <option {% if widget.location_state.best_value == "CA" %}selected {% endif %}value="CA">California</option>
-      <option {% if widget.location_state.best_value == "CO" %}selected {% endif %}value="CO">Colorado</option>
-      <option {% if widget.location_state.best_value == "CT" %}selected {% endif %}value="CT">Connecticut</option>
-      <option {% if widget.location_state.best_value == "DE" %}selected {% endif %}value="DE">Delaware</option>
-      <option {% if widget.location_state.best_value == "DC" %}selected {% endif %}value="DC">District Of Columbia</option>
-      <option {% if widget.location_state.best_value == "FL" %}selected {% endif %}value="FL">Florida</option>
-      <option {% if widget.location_state.best_value == "GA" %}selected {% endif %}value="GA">Georgia</option>
-      <option {% if widget.location_state.best_value == "HI" %}selected {% endif %}value="HI">Hawaii</option>
-      <option {% if widget.location_state.best_value == "ID" %}selected {% endif %}value="ID">Idaho</option>
-      <option {% if widget.location_state.best_value == "IL" %}selected {% endif %}value="IL">Illinois</option>
-      <option {% if widget.location_state.best_value == "IN" %}selected {% endif %}value="IN">Indiana</option>
-      <option {% if widget.location_state.best_value == "IA" %}selected {% endif %}value="IA">Iowa</option>
-      <option {% if widget.location_state.best_value == "KS" %}selected {% endif %}value="KS">Kansas</option>
-      <option {% if widget.location_state.best_value == "KY" %}selected {% endif %}value="KY">Kentucky</option>
-      <option {% if widget.location_state.best_value == "LA" %}selected {% endif %}value="LA">Louisiana</option>
-      <option {% if widget.location_state.best_value == "ME" %}selected {% endif %}value="ME">Maine</option>
-      <option {% if widget.location_state.best_value == "MD" %}selected {% endif %}value="MD">Maryland</option>
-      <option {% if widget.location_state.best_value == "MA" %}selected {% endif %}value="MA">Massachusetts</option>
-      <option {% if widget.location_state.best_value == "MI" %}selected {% endif %}value="MI">Michigan</option>
-      <option {% if widget.location_state.best_value == "MN" %}selected {% endif %}value="MN">Minnesota</option>
-      <option {% if widget.location_state.best_value == "MS" %}selected {% endif %}value="MS">Mississippi</option>
-      <option {% if widget.location_state.best_value == "MO" %}selected {% endif %}value="MO">Missouri</option>
-      <option {% if widget.location_state.best_value == "MT" %}selected {% endif %}value="MT">Montana</option>
-      <option {% if widget.location_state.best_value == "NE" %}selected {% endif %}value="NE">Nebraska</option>
-      <option {% if widget.location_state.best_value == "NV" %}selected {% endif %}value="NV">Nevada</option>
-      <option {% if widget.location_state.best_value == "NH" %}selected {% endif %}value="NH">New Hampshire</option>
-      <option {% if widget.location_state.best_value == "NJ" %}selected {% endif %}value="NJ">New Jersey</option>
-      <option {% if widget.location_state.best_value == "NM" %}selected {% endif %}value="NM">New Mexico</option>
-      <option {% if widget.location_state.best_value == "NY" %}selected {% endif %}value="NY">New York</option>
-      <option {% if widget.location_state.best_value == "NC" %}selected {% endif %}value="NC">North Carolina</option>
-      <option {% if widget.location_state.best_value == "ND" %}selected {% endif %}value="ND">North Dakota</option>
-      <option {% if widget.location_state.best_value == "OH" %}selected {% endif %}value="OH">Ohio</option>
-      <option {% if widget.location_state.best_value == "OK" %}selected {% endif %}value="OK">Oklahoma</option>
-      <option {% if widget.location_state.best_value == "OR" %}selected {% endif %}value="OR">Oregon</option>
-      <option {% if widget.location_state.best_value == "PA" %}selected {% endif %}value="PA">Pennsylvania</option>
-      <option {% if widget.location_state.best_value == "RI" %}selected {% endif %}value="RI">Rhode Island</option>
-      <option {% if widget.location_state.best_value == "SC" %}selected {% endif %}value="SC">South Carolina</option>
-      <option {% if widget.location_state.best_value == "SD" %}selected {% endif %}value="SD">South Dakota</option>
-      <option {% if widget.location_state.best_value == "TN" %}selected {% endif %}value="TN">Tennessee</option>
-      <option {% if widget.location_state.best_value == "TX" %}selected {% endif %}value="TX">Texas</option>
-      <option {% if widget.location_state.best_value == "UT" %}selected {% endif %}value="UT">Utah</option>
-      <option {% if widget.location_state.best_value == "VT" %}selected {% endif %}value="VT">Vermont</option>
-      <option {% if widget.location_state.best_value == "VA" %}selected {% endif %}value="VA">Virginia</option>
-      <option {% if widget.location_state.best_value == "WA" %}selected {% endif %}value="WA">Washington</option>
-      <option {% if widget.location_state.best_value == "WV" %}selected {% endif %}value="WV">West Virginia</option>
-      <option {% if widget.location_state.best_value == "WI" %}selected {% endif %}value="WI">Wisconsin</option>
-      <option {% if widget.location_state.best_value == "WY" %}selected {% endif %}value="WY">Wyoming</option>
+      <option {% if widget.location_state.value == "AL" %}selected {% endif %}value="AL">Alabama</option>
+      <option {% if widget.location_state.value == "AK" %}selected {% endif %}value="AK">Alaska</option>
+      <option {% if widget.location_state.value == "AZ" %}selected {% endif %}value="AZ">Arizona</option>
+      <option {% if widget.location_state.value == "AR" %}selected {% endif %}value="AR">Arkansas</option>
+      <option {% if widget.location_state.value == "CA" %}selected {% endif %}value="CA">California</option>
+      <option {% if widget.location_state.value == "CO" %}selected {% endif %}value="CO">Colorado</option>
+      <option {% if widget.location_state.value == "CT" %}selected {% endif %}value="CT">Connecticut</option>
+      <option {% if widget.location_state.value == "DE" %}selected {% endif %}value="DE">Delaware</option>
+      <option {% if widget.location_state.value == "DC" %}selected {% endif %}value="DC">District Of Columbia</option>
+      <option {% if widget.location_state.value == "FL" %}selected {% endif %}value="FL">Florida</option>
+      <option {% if widget.location_state.value == "GA" %}selected {% endif %}value="GA">Georgia</option>
+      <option {% if widget.location_state.value == "HI" %}selected {% endif %}value="HI">Hawaii</option>
+      <option {% if widget.location_state.value == "ID" %}selected {% endif %}value="ID">Idaho</option>
+      <option {% if widget.location_state.value == "IL" %}selected {% endif %}value="IL">Illinois</option>
+      <option {% if widget.location_state.value == "IN" %}selected {% endif %}value="IN">Indiana</option>
+      <option {% if widget.location_state.value == "IA" %}selected {% endif %}value="IA">Iowa</option>
+      <option {% if widget.location_state.value == "KS" %}selected {% endif %}value="KS">Kansas</option>
+      <option {% if widget.location_state.value == "KY" %}selected {% endif %}value="KY">Kentucky</option>
+      <option {% if widget.location_state.value == "LA" %}selected {% endif %}value="LA">Louisiana</option>
+      <option {% if widget.location_state.value == "ME" %}selected {% endif %}value="ME">Maine</option>
+      <option {% if widget.location_state.value == "MD" %}selected {% endif %}value="MD">Maryland</option>
+      <option {% if widget.location_state.value == "MA" %}selected {% endif %}value="MA">Massachusetts</option>
+      <option {% if widget.location_state.value == "MI" %}selected {% endif %}value="MI">Michigan</option>
+      <option {% if widget.location_state.value == "MN" %}selected {% endif %}value="MN">Minnesota</option>
+      <option {% if widget.location_state.value == "MS" %}selected {% endif %}value="MS">Mississippi</option>
+      <option {% if widget.location_state.value == "MO" %}selected {% endif %}value="MO">Missouri</option>
+      <option {% if widget.location_state.value == "MT" %}selected {% endif %}value="MT">Montana</option>
+      <option {% if widget.location_state.value == "NE" %}selected {% endif %}value="NE">Nebraska</option>
+      <option {% if widget.location_state.value == "NV" %}selected {% endif %}value="NV">Nevada</option>
+      <option {% if widget.location_state.value == "NH" %}selected {% endif %}value="NH">New Hampshire</option>
+      <option {% if widget.location_state.value == "NJ" %}selected {% endif %}value="NJ">New Jersey</option>
+      <option {% if widget.location_state.value == "NM" %}selected {% endif %}value="NM">New Mexico</option>
+      <option {% if widget.location_state.value == "NY" %}selected {% endif %}value="NY">New York</option>
+      <option {% if widget.location_state.value == "NC" %}selected {% endif %}value="NC">North Carolina</option>
+      <option {% if widget.location_state.value == "ND" %}selected {% endif %}value="ND">North Dakota</option>
+      <option {% if widget.location_state.value == "OH" %}selected {% endif %}value="OH">Ohio</option>
+      <option {% if widget.location_state.value == "OK" %}selected {% endif %}value="OK">Oklahoma</option>
+      <option {% if widget.location_state.value == "OR" %}selected {% endif %}value="OR">Oregon</option>
+      <option {% if widget.location_state.value == "PA" %}selected {% endif %}value="PA">Pennsylvania</option>
+      <option {% if widget.location_state.value == "RI" %}selected {% endif %}value="RI">Rhode Island</option>
+      <option {% if widget.location_state.value == "SC" %}selected {% endif %}value="SC">South Carolina</option>
+      <option {% if widget.location_state.value == "SD" %}selected {% endif %}value="SD">South Dakota</option>
+      <option {% if widget.location_state.value == "TN" %}selected {% endif %}value="TN">Tennessee</option>
+      <option {% if widget.location_state.value == "TX" %}selected {% endif %}value="TX">Texas</option>
+      <option {% if widget.location_state.value == "UT" %}selected {% endif %}value="UT">Utah</option>
+      <option {% if widget.location_state.value == "VT" %}selected {% endif %}value="VT">Vermont</option>
+      <option {% if widget.location_state.value == "VA" %}selected {% endif %}value="VA">Virginia</option>
+      <option {% if widget.location_state.value == "WA" %}selected {% endif %}value="WA">Washington</option>
+      <option {% if widget.location_state.value == "WV" %}selected {% endif %}value="WV">West Virginia</option>
+      <option {% if widget.location_state.value == "WI" %}selected {% endif %}value="WI">Wisconsin</option>
+      <option {% if widget.location_state.value == "WY" %}selected {% endif %}value="WY">Wyoming</option>
     </select>
   </div>
 
@@ -179,7 +179,7 @@
     <input type="text"
       id="{{ widget.location_postal_code.value_field_id }}"
       name="{{ widget.location_postal_code.value_field_name }}"
-      value="{{ widget.location_postal_code.best_value }}"
+      value="{{ widget.location_postal_code.value }}"
     />
   </div>
 
@@ -192,7 +192,7 @@
       id="ckeditor"
       name="{{ widget.location_directions.value_field_name }}"
      >
-      {{ widget.location_directions.best_value }}
+      {{ widget.location_directions.value }}
     </textarea>
   </div>
 

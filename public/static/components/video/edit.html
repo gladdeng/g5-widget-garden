@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.video_title.value_field_id }}"
       name="{{ widget.video_title.value_field_name }}"
-      value="{{ widget.video_title.best_value }}"
+      value="{{ widget.video_title.value }}"
     />
   </div>
 
@@ -19,7 +19,7 @@
     <input type="url"
       id="{{ widget.video_url.value_field_id }}"
       name="{{ widget.video_url.value_field_name }}"
-      value="{{ widget.video_url.best_value | url_encode }}"
+      value="{{ widget.video_url.value | url_encode }}"
     />
   </div>
 
@@ -31,7 +31,7 @@
     <input type="text"
       id="{{ widget.video_type.value_field_id }}"
       name="{{ widget.video_type.value_field_name }}"
-      value="{{ widget.video_type.best_value }}"
+      value="{{ widget.video_type.value }}"
       placeholder="mp4/webm/ogg"
     />
   </div>
@@ -44,7 +44,7 @@
     <input type="text"
       id="{{ widget.video_width.value_field_id }}"
       name="{{ widget.video_width.value_field_name }}"
-      value="{{ widget.video_width.best_value }}"
+      value="{{ widget.video_width.value }}"
     />
   </div>
 
@@ -56,7 +56,7 @@
     <input type="text"
       id="{{ widget.video_height.value_field_id }}"
       name="{{ widget.video_height.value_field_name }}"
-      value="{{ widget.video_height.best_value }}"
+      value="{{ widget.video_height.value }}"
     />
   </div>
 

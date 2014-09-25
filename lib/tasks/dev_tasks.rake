@@ -59,7 +59,7 @@ namespace :dev do
     placeholder="#{config[:default_value]}"
     id="{{ widget.#{config[:config_name]}.value_field_id }}"
     name="{{ widget.#{config[:config_name]}.value_field_name }}"
-    value="{{ widget.#{config[:config_name]}.best_value #{config[:option]}}}"
+    value="{{ widget.#{config[:config_name]}.value #{config[:option]}}}"
   />
 </div>
      )

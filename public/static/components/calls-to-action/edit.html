@@ -7,16 +7,16 @@
         placeholder="Text for CTA 1"
         id="{{ widget.cta_text_1.value_field_id }}"
         name="{{ widget.cta_text_1.value_field_name }}"
-        value="{{ widget.cta_text_1.best_value }}"
+        value="{{ widget.cta_text_1.value }}"
       />
     </div>
          
     <div class="form-field">
       {{ widget.cta_link_1.id_hidden_field }}
       <select id="{{ widget.cta_link_1.value_field_id }}" name="{{ widget.cta_link_1.value_field_name }}">
-        {% for web_page in widget.navigation.best_value %}
+        {% for web_page in widget.navigation.value %}
           <option value="{{ web_page[1].url | url_encode }}"
-            {% if widget.cta_link_1.best_value == web_page[1].url %}
+            {% if widget.cta_link_1.value == web_page[1].url %}
               selected
             {% endif %} >{{ web_page[1].name }}</option>
         {% endfor %}
@@ -32,16 +32,16 @@
         placeholder="Text for CTA 2"
         id="{{ widget.cta_text_2.value_field_id }}"
         name="{{ widget.cta_text_2.value_field_name }}"
-        value="{{ widget.cta_text_2.best_value }}"
+        value="{{ widget.cta_text_2.value }}"
       />
     </div>
          
     <div class="form-field">
       {{ widget.cta_link_2.id_hidden_field }}
       <select id="{{ widget.cta_link_2.value_field_id }}" name="{{ widget.cta_link_2.value_field_name }}">
-        {% for web_page in widget.navigation.best_value %}
+        {% for web_page in widget.navigation.value %}
           <option value="{{ web_page[1].url | url_encode }}"
-            {% if widget.cta_link_2.best_value == web_page[1].url %}
+            {% if widget.cta_link_2.value == web_page[1].url %}
               selected
             {% endif %} >{{ web_page[1].name }}</option>
         {% endfor %}
@@ -57,16 +57,16 @@
         placeholder="Text for CTA 3"
         id="{{ widget.cta_text_3.value_field_id }}"
         name="{{ widget.cta_text_3.value_field_name }}"
-        value="{{ widget.cta_text_3.best_value }}"
+        value="{{ widget.cta_text_3.value }}"
       />
     </div>
          
     <div class="form-field">
       {{ widget.cta_link_3.id_hidden_field }}
       <select id="{{ widget.cta_link_3.value_field_id }}" name="{{ widget.cta_link_3.value_field_name }}">
-        {% for web_page in widget.navigation.best_value %}
+        {% for web_page in widget.navigation.value %}
           <option value="{{ web_page[1].url | url_encode }}"
-            {% if widget.cta_link_3.best_value == web_page[1].url %}
+            {% if widget.cta_link_3.value == web_page[1].url %}
               selected
             {% endif %} >{{ web_page[1].name }}</option>
         {% endfor %}
@@ -82,16 +82,16 @@
         placeholder="Text for CTA 4"
         id="{{ widget.cta_text_4.value_field_id }}"
         name="{{ widget.cta_text_4.value_field_name }}"
-        value="{{ widget.cta_text_4.best_value }}"
+        value="{{ widget.cta_text_4.value }}"
       />
     </div>
          
     <div class="form-field">
       {{ widget.cta_link_4.id_hidden_field }}
       <select id="{{ widget.cta_link_4.value_field_id }}" name="{{ widget.cta_link_4.value_field_name }}">
-        {% for web_page in widget.navigation.best_value %}
+        {% for web_page in widget.navigation.value %}
           <option value="{{ web_page[1].url | url_encode }}"
-            {% if widget.cta_link_4.best_value == web_page[1].url %}
+            {% if widget.cta_link_4.value == web_page[1].url %}
               selected
             {% endif %} >{{ web_page[1].name }}</option>
         {% endfor %}
