@@ -1,4 +1,15 @@
 # Creates the slideshow
+
+getGridSize = ->
+  windowWidth = window.innerWidth
+  if windowWidth < 641
+    1
+  else if windowWidth >= 641 and windowWidth < 910
+    2
+  else
+    3
+
+
 initializeFlexSlider = (galleryOptions, imageWidth, gallery) ->
   showThumbs = (if galleryOptions['show_thumbnails'] is "yes" then "thumbnails" else true)
 
@@ -8,6 +19,8 @@ initializeFlexSlider = (galleryOptions, imageWidth, gallery) ->
       animationLoop: false
       itemWidth: imageWidth
       itemMargin: 15
+      minItems: getGridSize()
+      maxItems: getGridSize()
 
   else
     gallery.find('.gallery-slideshow').flexslider
@@ -23,6 +36,7 @@ initializeFlexSlider = (galleryOptions, imageWidth, gallery) ->
     navHeight = gallery.find('.flex-control-nav').outerHeight(true)
     gallery.find('.flex-control-nav').css('bottom', -navHeight)
     gallery.find('.flexslider').css 'margin-bottom', -navHeight
+
 
 # Gets the height of the tallest image
 getLargestImage = (gallery) ->
@@ -46,6 +60,7 @@ getLargestImage = (gallery) ->
   size['width'] = imageWidth
   size
 
+
 # Sets max height of images so they all fit in the window
 setImageHeight = (imageHeight, gallery, carousel) ->
   galleryType = (if carousel is "yes" then "carousel" else "slideshow")
@@ -62,18 +77,17 @@ setImageHeight = (imageHeight, gallery, carousel) ->
   else
     fixedHeight = imageHeight - padding
 
-  if galleryType == 'carousel'
-    gallery.find('.slides img').css 'max-height', imageHeight
-    gallery.find('.slides li').css 'height', imageHeight
-  else
+  if galleryType != 'carousel'
     gallery.find('.slides img').css 'max-height', fixedHeight
     gallery.find('.slides li').css 'height', fixedHeight
 
   gallery.find('.flex-control-nav').css 'bottom', -navHeight
   gallery.find('.flexslider').css 'margin-bottom', navHeight
 
+
 setMiniNavHeight = (imageHeight, gallery) ->
   gallery.find('.flex-direction-nav a').height imageHeight
+
 
 setupFlexslider = (galleryOptions, gallery) ->
   size = getLargestImage(gallery)
@@ -87,11 +101,18 @@ setupFlexslider = (galleryOptions, gallery) ->
   else
     setImageHeight imageHeight, gallery, galleryOptions['carousel']
 
+
 resetFlexslider = (gallery) ->
   size = getLargestImage(gallery)
   imageHeight = size['height']
 
   setImageHeight imageHeight, gallery
+
+  if galleryOptions['carousel'] == 'yes'
+    gridSize = getGridSize()
+    flexslider.vars.minItems = gridSize
+    flexslider.vars.maxItems = gridSize
+
 
 resetMiniFlexslider = (gallery) ->
   size = getLargestImage(gallery)
