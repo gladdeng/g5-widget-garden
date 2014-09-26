@@ -1,19 +1,21 @@
 (function() {
-  var setMenuHeight;
+  var NAVIGATION;
 
-  setMenuHeight = function() {
-    return $("#drop-target-nav .navigation").css({
-      maxHeight: $(window).height() - $("header[role=banner] .collapsable-btn").outerHeight(true) + "px"
-    });
+  NAVIGATION = {
+    menu: $("#drop-target-nav .navigation"),
+    setMenuHeight: function() {
+      return this.menu.css({
+        maxHeight: $(window).height() - $("header[role=banner] .collapsable-btn").outerHeight(true) + "px"
+      });
+    },
+    path: location.pathname.match(/([^\/]*)\/*$/)[1]
   };
 
   $(function() {
-    var path;
-    path = location.pathname.match(/([^\/]*)\/*$/)[1];
-    $('[role=banner] .navigation a[href$="/' + path + '"]').addClass('active');
-    setMenuHeight();
+    NAVIGATION.menu.find("a[href$=\"/" + NAVIGATION.path + "\"]").addClass("active");
+    NAVIGATION.setMenuHeight();
     return $(window).smartresize(function() {
-      return setMenuHeight();
+      return NAVIGATION.setMenuHeight();
     });
   });
 

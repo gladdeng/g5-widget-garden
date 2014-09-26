@@ -4,13 +4,13 @@
   {% else %}
   <nav class="navigation widget">
   {% endif %}
-    <ul>
+    <ul class="top-navigation">
       {% for web_page in widget.navigation.best_value %}
         {% if web_page[1].display != "false" and web_page[1].child_template? == false %}
-        <li>
+        <li {% if web_page[1].child_templates != blank %}class="has-subnav"{% endif %}>
           <a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a>
           {% if web_page[1].child_templates != blank %}
-            <ul>
+            <ul class="sub-navigation">
               {% for child_page in web_page[1].child_templates %}
               <li><a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a></li>
               <li><a href="{{ child_page[1].url | url_encode }}">{{ child_page[1].name }}</a></li>
