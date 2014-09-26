@@ -1,3 +1,7 @@
+header[role=banner] .navigation {
+  overflow-y: auto;
+}
+
 .top-nav > li {
   position: relative;
 }
@@ -11,15 +15,16 @@
 }
 
 @media (max-width: 979px) {
-  header[role=banner] .navigation {
-    overflow-y: auto;
-  }
+
   .subnav {
     max-height: none;
   }
 }
 
 @media (min-width: 980px) {
+  header[role=banner] .navigation {
+    overflow-y: visible;
+  }
   .subnav {
     width: 200px;
     position: absolute;
