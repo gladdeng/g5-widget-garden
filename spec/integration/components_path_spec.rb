@@ -69,4 +69,17 @@ describe "components_path" do
       expect(all(".h-g5-component .u-g5-lib-javascript").length).not_to eq(0)
     end
   end
+
+  describe "g5 internal widgets" do
+    let(:g5_internal_widget_types) { ["Analytics", "Meta", "Meta Description", "Typekit"] }
+    let(:g5_internal_widgets) do
+      all(".h-g5-component .p-widget-type", text: "G5 Internal").map do |widget|
+        widget.first(:xpath,".//..").first("h2").text
+      end
+    end
+
+    it "has the appropriate widgets" do
+      expect(g5_internal_widgets).to eq g5_internal_widget_types
+    end
+  end
 end
