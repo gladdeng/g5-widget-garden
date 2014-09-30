@@ -16,7 +16,7 @@ initializeFlexSlider = (galleryOptions, gallery) ->
   if (galleryOptions['carousel'] is 'yes')
     gallery.find('.gallery-carousel').flexslider
       animation: 'slide'
-      animationLoop: false
+      animationLoop: true
       itemWidth: 350
       itemMargin: 15
       minItems: getGridSize()
