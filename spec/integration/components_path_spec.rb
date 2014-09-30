@@ -79,7 +79,7 @@ describe "components_path" do
     end
 
     it "has the appropriate widgets" do
-      expect(g5_internal_widgets).to eq g5_internal_widget_types
+      expect(g5_internal_widgets).to match_array g5_internal_widget_types
     end
   end
 end
