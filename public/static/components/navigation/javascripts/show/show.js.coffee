@@ -8,8 +8,18 @@ NAVIGATION =
 
   setupSubNav: ->
     $('.has-subnav > a').on 'click', (e) ->
-      $(this).next().toggleClass 'show-subnav'
+      $this = $(this)
+      open = $this.next().hasClass 'show-subnav'
+
+      NAVIGATION.menu.find('.subnav').removeClass 'show-subnav'
+
+      if !open
+        $this.next().addClass 'show-subnav'
+
       return false
+
+  closeSubNav: ->
+    @menu.find('.show-subnav').removeClass 'show-subnav'
 
 $ ->
 
@@ -18,6 +28,9 @@ $ ->
 
   if $('.has-subnav').length > 0
     NAVIGATION.setupSubNav()
+
+    $('body').on 'click', (e) ->
+      NAVIGATION.closeSubNav()
 
   $(window).smartresize ->
     NAVIGATION.setMenuHeight()
