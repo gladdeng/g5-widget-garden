@@ -11,12 +11,9 @@
     path: location.pathname.match(/([^\/]*)\/*$/)[1],
     setupSubNav: function() {
       return $('.has-subnav > a').on('click', function(e) {
-        var $this, open;
-        $this = $(this);
-        open = $this.next().hasClass('show-subnav');
         NAVIGATION.menu.find('.subnav').removeClass('show-subnav');
-        if (!open) {
-          $this.next().addClass('show-subnav');
+        if (!$this.next().hasClass('show-subnav')) {
+          $(this).next().addClass('show-subnav');
         }
         return false;
       });
