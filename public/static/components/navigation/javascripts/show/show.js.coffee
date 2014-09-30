@@ -8,10 +8,9 @@ NAVIGATION =
 
   setupSubNav: ->
     $('.has-subnav > a').on 'click', (e) ->
-      NAVIGATION.menu.find('.subnav').removeClass 'show-subnav'
 
-      if !$this.next().hasClass 'show-subnav'
-        $(this).next().addClass 'show-subnav'
+      NAVIGATION.menu.find('.subnav').not($(this).next()).removeClass 'show-subnav'
+      $(this).next().toggleClass 'show-subnav'
 
       return false
 
