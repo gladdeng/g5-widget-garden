@@ -74,7 +74,7 @@ describe "components_path" do
     let(:g5_internal_widget_types) { ["Analytics", "Meta", "Meta Description", "Typekit"] }
     let(:g5_internal_widgets) do
       all(".h-g5-component .p-widget-type", text: "G5 Internal").map do |widget|
-        widget.first(:xpath,".//..").first("h2").text
+        widget.find(:xpath, "..").first(".p-name").text
       end
     end
 
