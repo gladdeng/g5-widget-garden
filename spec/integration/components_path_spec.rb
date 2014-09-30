@@ -71,7 +71,6 @@ describe "components_path" do
   end
 
   describe "g5 internal widgets" do
-    let(:g5_internal_widget_types) { ["Analytics", "Meta", "Meta Description", "Typekit"] }
     let(:g5_internal_widgets) do
       all(".h-g5-component .p-widget-type", text: "G5 Internal").map do |widget|
         widget.find(:xpath, "..").first(".p-name").text
@@ -79,7 +78,7 @@ describe "components_path" do
     end
 
     it "has the appropriate widgets" do
-      expect(g5_internal_widgets).to match_array g5_internal_widget_types
+      expect(g5_internal_widgets).to match_array G5_INTERNAL_WIDGETS
     end
   end
 end
