@@ -13,14 +13,14 @@
     }
   };
 
-  initializeFlexSlider = function(galleryOptions, imageWidth, gallery) {
+  initializeFlexSlider = function(galleryOptions, gallery) {
     var navHeight, showThumbs;
     showThumbs = (galleryOptions['show_thumbnails'] === "yes" ? "thumbnails" : true);
     if (galleryOptions['carousel'] === 'yes') {
       gallery.find('.gallery-carousel').flexslider({
         animation: 'slide',
-        animationLoop: false,
-        itemWidth: imageWidth,
+        animationLoop: true,
+        itemWidth: 350,
         itemMargin: 15,
         minItems: getGridSize(),
         maxItems: getGridSize()
@@ -93,11 +93,10 @@
   };
 
   setupFlexslider = function(galleryOptions, gallery) {
-    var imageHeight, imageWidth, size;
+    var imageHeight, size;
     size = getLargestImage(gallery);
     imageHeight = size['height'];
-    imageWidth = size['width'];
-    initializeFlexSlider(galleryOptions, imageWidth, gallery);
+    initializeFlexSlider(galleryOptions, gallery);
     if (galleryOptions['mini_gallery'] === 'yes') {
       return setMiniNavHeight(imageHeight, gallery);
     } else {
