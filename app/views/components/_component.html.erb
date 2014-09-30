@@ -5,6 +5,9 @@
                                    html: {class: "u-url u-uid", rel: "bookmark"},
                                    body: component.name}) %>
     </h2>
+
+    <p class="p-widget-type"><%= component.try(:widget_type) %></p>
+
     <p class="p-summary"><%= component.summary %>
       <% if component.respond_to?(:g5_targets) %>
         <h3>Targets</h3>
