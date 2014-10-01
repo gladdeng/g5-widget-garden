@@ -104,7 +104,7 @@
     }
   };
 
-  resetFlexslider = function(gallery) {
+  resetFlexslider = function(galleryOptions, gallery) {
     var gridSize, imageHeight, size;
     size = getLargestImage(gallery);
     imageHeight = size['height'];
@@ -137,7 +137,7 @@
         });
       } else {
         return $(window).smartresize(function() {
-          return resetFlexslider(gallery);
+          return resetFlexslider(galleryOptions, gallery);
         });
       }
     });

@@ -101,7 +101,7 @@ setupFlexslider = (galleryOptions, gallery) ->
     setImageHeight imageHeight, gallery, galleryOptions['carousel']
 
 
-resetFlexslider = (gallery) ->
+resetFlexslider = (galleryOptions, gallery) ->
   size = getLargestImage(gallery)
   imageHeight = size['height']
 
@@ -136,4 +136,4 @@ $ ->
         resetMiniFlexslider gallery
     else
       $(window).smartresize ->
-        resetFlexslider gallery
+        resetFlexslider galleryOptions, gallery
