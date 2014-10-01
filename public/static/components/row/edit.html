@@ -116,6 +116,7 @@
       <select  id="{{ widget.column_one_widget_name.value_field_id }}"
         name="{{ widget.column_one_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.row_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.column_one_widget_name.value %}
@@ -150,6 +151,7 @@
       <select id="{{ widget.column_two_widget_name.value_field_id }}"
         name="{{ widget.column_two_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.row_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.column_two_widget_name.value %}
@@ -184,6 +186,7 @@
       <select id="{{ widget.column_three_widget_name.value_field_id }}"
         name="{{ widget.column_three_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.row_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.column_three_widget_name.value %}
@@ -218,6 +221,7 @@
       <select id="{{ widget.column_four_widget_name.value_field_id }}"
         name="{{ widget.column_four_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.row_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.column_four_widget_name.value %}
