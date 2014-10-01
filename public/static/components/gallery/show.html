@@ -16,7 +16,7 @@
     <div class = "flexslider {% if widget.gallery_carousel.best_value == 'yes'%}gallery-carousel{% else %}gallery-slideshow{% endif %} {% if widget.gallery_mini.best_value == 'yes' %}mini-gallery{% else %}full-gallery{% endif %}">
       <ul class="slides">
         {% if widget.gallery_photo1_url.best_value != "" %}
-        <li data-thumb="{{ widget.gallery_photo1_url.best_value | url_encode}}"><img src="{{ widget.gallery_photo1_url.best_value | url_encode}}" alt="{{ widget.gallery_photo1_alt_tag.best_value }}" />{% if widget.gallery_photo1_caption.best_value != '' %}<p class="flex-caption">{{ widget.gallery_photo1_caption.best_value }}</p>{% endif %}</li>
+        <li data-thumb="{% if widget.gallery_photo1_thumb_url.best_value != '' %}{{ widget.gallery_photo1_thumb_url.best_value | url_encode}}{% else %}{{ widget.gallery_photo1_url.best_value | url_encode}}{% endif %}"><img src="{{ widget.gallery_photo1_url.best_value | url_encode}}" alt="{{ widget.gallery_photo1_alt_tag.best_value }}" />{% if widget.gallery_photo1_title.best_value != '' %}<p class="flex-title">{{ widget.gallery_photo1_title.best_value }}</p>{% endif %}{% if widget.gallery_photo1_caption.best_value != '' %}<p class="flex-caption">{{ widget.gallery_photo1_caption.best_value }}</p>{% endif %}</li>
         {% endif %}
 
         {% if widget.gallery_photo2_url.best_value != "" %}
