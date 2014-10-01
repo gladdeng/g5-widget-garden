@@ -116,7 +116,7 @@ CUSTOM STYLES
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.flex-caption {
+.flex-title .flex-caption {
   text-align: center;
 }
 .flex-control-nav {
@@ -144,7 +144,7 @@ CUSTOM STYLES
 .full-gallery.gallery-carousel img {
   width: 100%;
 }
-.full-gallery .flex-caption {
+.full-gallery .flex-title .flex-caption {
   background-color: #fff;
   background-color: rgba(255, 255, 255, .8);
   position: absolute;
@@ -193,7 +193,7 @@ CUSTOM STYLES
     width: 50%;
     float: left;
   }
-  .mini-gallery .flex-caption {
+  .mini-gallery .flex-title .flex-caption {
     float: right;
     width: 50%;
   }
