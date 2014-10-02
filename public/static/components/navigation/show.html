@@ -12,8 +12,10 @@
           {% if web_page[1].child_templates != blank %}
             <ul class="subnav">
               {% for child_page in web_page[1].child_templates %}
-              <li><a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a></li>
-              <li><a href="{{ child_page[1].url | url_encode }}">{{ child_page[1].name }}</a></li>
+                {% if forloop.first %}
+                  <li><a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a></li>
+                {% endif %}
+                <li><a href="{{ child_page[1].url | url_encode }}">{{ child_page[1].name }}</a></li>
               {% endfor %}
             </ul>
           {% endif %}

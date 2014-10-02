@@ -10,14 +10,14 @@ getGridSize = ->
     3
 
 
-initializeFlexSlider = (galleryOptions, imageWidth, gallery) ->
+initializeFlexSlider = (galleryOptions, gallery) ->
   showThumbs = (if galleryOptions['show_thumbnails'] is "yes" then "thumbnails" else true)
 
   if (galleryOptions['carousel'] is 'yes')
     gallery.find('.gallery-carousel').flexslider
       animation: 'slide'
-      animationLoop: false
-      itemWidth: imageWidth
+      animationLoop: true
+      itemWidth: 350
       itemMargin: 15
       minItems: getGridSize()
       maxItems: getGridSize()
@@ -92,9 +92,8 @@ setMiniNavHeight = (imageHeight, gallery) ->
 setupFlexslider = (galleryOptions, gallery) ->
   size = getLargestImage(gallery)
   imageHeight = size['height']
-  imageWidth = size['width']
 
-  initializeFlexSlider(galleryOptions, imageWidth, gallery)
+  initializeFlexSlider(galleryOptions, gallery)
 
   if galleryOptions['mini_gallery'] is 'yes'
     setMiniNavHeight imageHeight, gallery
@@ -102,7 +101,7 @@ setupFlexslider = (galleryOptions, gallery) ->
     setImageHeight imageHeight, gallery, galleryOptions['carousel']
 
 
-resetFlexslider = (gallery) ->
+resetFlexslider = (galleryOptions, gallery) ->
   size = getLargestImage(gallery)
   imageHeight = size['height']
 
@@ -137,4 +136,4 @@ $ ->
         resetMiniFlexslider gallery
     else
       $(window).smartresize ->
-        resetFlexslider gallery
+        resetFlexslider galleryOptions, gallery

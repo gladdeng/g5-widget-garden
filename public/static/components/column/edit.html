@@ -12,24 +12,28 @@
         class="select-row-count"
         name="{{ widget.row_count.value_field_name }}">
 
-        <option value="one" {% if widget.row_count.value =="one" %}selected{% endif %}>
+        <option value="one" {% if widget.row_count.best_value =="one" %}selected{% endif %}>
         1
         </option>
 
-        <option value="two" {% if widget.row_count.value == "two" %}selected{% endif %}>
+        <option value="two" {% if widget.row_count.best_value == "two" %}selected{% endif %}>
         2
         </option>
 
-        <option value="three" {% if widget.row_count.value == "three" %}selected{% endif %}>
+        <option value="three" {% if widget.row_count.best_value == "three" %}selected{% endif %}>
         3
         </option>
 
-        <option value="four" {% if widget.row_count.value == "four" %}selected{% endif %}>
+        <option value="four" {% if widget.row_count.best_value == "four" %}selected{% endif %}>
         4
         </option>
 
-        <option value="five" {% if widget.row_count.value == "five" %}selected{% endif %}>
+        <option value="five" {% if widget.row_count.best_value == "five" %}selected{% endif %}>
         5
+        </option>
+
+        <option value="six" {% if widget.row_count.best_value == "six" %}selected{% endif %}>
+        6
         </option>
       </select>
     </div>
@@ -37,7 +41,7 @@
     <p class="alert alert-info">Please save in order to configure changed widgets</p>
 
     <!-- Select Row One Widget -->
-    <div class="form-field row-widgets one two three four five">
+    <div class="form-field row-widgets one two three four five six">
       {{ widget.row_one_widget_name.id_hidden_field }}
 
       <label for="{{ widget.row_one_widget_name.value_field_id }}"
@@ -57,7 +61,8 @@
       <select id="{{ widget.row_one_widget_name.value_field_id }}"
         name="{{ widget.row_one_widget_name.value_field_name }}">
 
-        {% for garden_widget in widget.column_widget_garden_widgets.value %}
+        <option value="">
+        {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.row_one_widget_name.value %}
         selected
@@ -71,7 +76,7 @@
     </div>
 
     <!-- Select Row Two Widget -->
-    <div class="form-field row-widgets two three four five">
+    <div class="form-field row-widgets two three four five six">
       {{ widget.row_two_widget_name.id_hidden_field }}
 
       <label for="{{ widget.row_two_widget_name.value_field_id }}"
@@ -91,7 +96,8 @@
       <select id="{{ widget.row_two_widget_name.value_field_id }}"
         name="{{ widget.row_two_widget_name.value_field_name }}">
 
-        {% for garden_widget in widget.column_widget_garden_widgets.value %}
+        <option value="">
+        {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.row_two_widget_name.value %}
         selected
@@ -105,7 +111,7 @@
     </div>
 
     <!-- Select Row Three Widget -->
-    <div class="form-field row-widgets three four five">
+    <div class="form-field row-widgets three four five six">
       {{ widget.row_three_widget_name.id_hidden_field }}
 
       <label for="{{ widget.row_three_widget_name.value_field_id }}"
@@ -125,7 +131,8 @@
       <select id="{{ widget.row_three_widget_name.value_field_id }}"
         name="{{ widget.row_three_widget_name.value_field_name }}">
 
-        {% for garden_widget in widget.column_widget_garden_widgets.value %}
+        <option value="">
+        {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.row_three_widget_name.value %}
         selected
@@ -139,7 +146,7 @@
     </div>
 
     <!-- Select Row Four Widget -->
-    <div class="form-field row-widgets four five">
+    <div class="form-field row-widgets four five six">
       {{ widget.row_four_widget_name.id_hidden_field }}
 
       <label for="{{ widget.row_four_widget_name.value_field_id }}"
@@ -159,7 +166,8 @@
       <select id="{{ widget.row_four_widget_name.value_field_id }}"
         name="{{ widget.row_four_widget_name.value_field_name }}">
 
-        {% for garden_widget in widget.column_widget_garden_widgets.value %}
+        <option value="">
+        {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.row_four_widget_name.value %}
         selected
@@ -173,7 +181,7 @@
     </div>
 
     <!-- Select Row Five Widget -->
-    <div class="form-field row-widgets five">
+    <div class="form-field row-widgets five six">
       {{ widget.row_five_widget_name.id_hidden_field }}
 
       <label for="{{ widget.row_five_widget_name.value_field_id }}"
@@ -193,9 +201,45 @@
       <select id="{{ widget.row_five_widget_name.value_field_id }}"
         name="{{ widget.row_five_widget_name.value_field_name }}">
 
-        {% for garden_widget in widget.column_widget_garden_widgets.value %}
+        <option value="">
+        {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.row_five_widget_name.value %}
+        selected
+        {% endif %}
+        >
+        {{ garden_widget }}
+        </option>
+        {% endfor %}
+
+      </select>
+    </div>
+
+    <!-- Select Row Six Widget -->
+    <div class="form-field row-widgets six">
+      {{ widget.row_six_widget_name.id_hidden_field }}
+
+      <label for="{{ widget.row_six_widget_name.value_field_id }}"
+        class="inline">
+        Row Six Widget
+      </label>
+
+      {% if widget.row_six_widget_id.value %}
+      <a id="edit-{{ widget.row_six_widget_name.value_field_id }}"
+        data-widget-id="{{ widget.row_six_widget_id.value }}"
+        class="edit-widget"
+        href="#">
+        <small>(Edit)</small>
+      </a>
+      {% endif %}
+
+      <select id="{{ widget.row_six_widget_name.value_field_id }}"
+        name="{{ widget.row_six_widget_name.value_field_name }}">
+
+        <option value="">
+        {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
+        <option value="{{ garden_widget }}"
+        {% if garden_widget == widget.row_six_widget_name.value %}
         selected
         {% endif %}
         >

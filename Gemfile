@@ -11,6 +11,7 @@ gem "microformats2", "~> 2.0.0"
 gem "sass-rails", "~> 4.0.0"
 gem "coffee-rails", "~> 4.0.0"
 gem "uglifier", ">= 1.0.3"
+gem "highline"
 
 group :development, :test do
   gem "dotenv-rails", "~> 0.9.0"
@@ -22,7 +23,6 @@ group :development, :test do
   gem "codeclimate-test-reporter", require: false
   gem "foreman"
   gem "pry"
-  gem "highline"
 end
 
 group :production do
