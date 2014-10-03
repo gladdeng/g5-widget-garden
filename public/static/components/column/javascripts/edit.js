@@ -27,9 +27,11 @@
   });
 
   EditWidgetModal = (function() {
-    function EditWidgetModal(widgetId, columnWidgetId) {
+    function EditWidgetModal(widgetId, widgetName, columnWidgetId) {
       this.widgetId = widgetId;
+      this.widgetName = widgetName;
       this.columnWidgetId = columnWidgetId;
+      $('#modal').data("component").set("selectedWidgetName", this.widgetName);
     }
 
     EditWidgetModal.prototype.getEditForm = function() {
@@ -109,10 +111,11 @@
   })();
 
   $(".edit-widget").on('click', function() {
-    var columnWidgetId, editWidgetModal, widgetId;
+    var columnWidgetId, editWidgetModal, widgetId, widgetName;
     widgetId = $(this).data("widget-id");
+    widgetName = $(this).data("widget-name");
     columnWidgetId = $(".column-edit").data("column-id");
-    editWidgetModal = new EditWidgetModal(widgetId, columnWidgetId);
+    editWidgetModal = new EditWidgetModal(widgetId, widgetName, columnWidgetId);
     return editWidgetModal.getEditForm();
   });
 

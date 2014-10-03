@@ -18,7 +18,8 @@ chooseWidget.on 'change', ->
   $(this).parent().find("a").hide()
 
 class EditWidgetModal
-  constructor: (@widgetId, @columnWidgetId) ->
+  constructor: (@widgetId, @widgetName, @columnWidgetId) ->
+    $('#modal').data("component").set("selectedWidgetName", @widgetName)
 
   getEditForm: ->
     callback = (response) => @openModal response
@@ -77,8 +78,9 @@ class EditWidgetModal
 
 $(".edit-widget").on 'click', ->
   widgetId = $(this).data("widget-id")
+  widgetName = $(this).data("widget-name")
   columnWidgetId = $(".column-edit").data("column-id")
-  editWidgetModal = new EditWidgetModal(widgetId, columnWidgetId)
+  editWidgetModal = new EditWidgetModal(widgetId, widgetName, columnWidgetId)
   editWidgetModal.getEditForm()
 
 $(".go-back").on 'click', ->
