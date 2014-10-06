@@ -1,5 +1,5 @@
 (function() {
-  var corpSearchMarkupBuilder, optionsBuilder;
+  var citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, searchSubmittal;
 
   $(function() {
     var miniSearchConfigs,
@@ -9,22 +9,41 @@
       url: "" + miniSearchConfigs.serviceURL + "/api/v0/client_locations?client_id=" + miniSearchConfigs.clientID,
       dataType: 'json',
       success: function(data) {
-        return new corpSearchMarkupBuilder(data, miniSearchConfigs);
+        new corpSearchMarkupBuilder(data, miniSearchConfigs);
+        return $('.mf-search-go-button').on('click', function() {
+          return new searchSubmittal(data, miniSearchConfigs);
+        });
       }
     });
   });
 
   corpSearchMarkupBuilder = (function() {
     function corpSearchMarkupBuilder(data, configs) {
-      var stateSelect;
+      var citySelect, stateSelect;
       stateSelect = $('.multifamily-mini-search select.mf-search-states');
+      citySelect = $('.multifamily-mini-search select.mf-search-cities');
       new optionsBuilder(data.states, stateSelect);
       stateSelect.change(function() {
-        return alert("POW!");
+        return new citySelectUpdater(data, stateSelect, citySelect);
       });
     }
 
     return corpSearchMarkupBuilder;
+
+  })();
+
+  citySelectUpdater = (function() {
+    function citySelectUpdater(data, stateSelect, citySelect) {
+      var relevantCities, selectedState;
+      citySelect.html("<option value=''>City</option>");
+      selectedState = stateSelect.val();
+      relevantCities = data.cities.filter(function(city) {
+        return city.state_id === parseInt(selectedState, 10);
+      });
+      new optionsBuilder(relevantCities, citySelect);
+    }
+
+    return citySelectUpdater;
 
   })();
 
@@ -34,12 +53,32 @@
       markupHash = [];
       for (index = _i = 0, _len = options.length; _i < _len; index = ++_i) {
         option = options[index];
-        markupHash.push("<option value='" + option.name + "'>" + option.name + "</option>");
+        markupHash.push("<option value='" + option.id + "'>" + option.name + "</option>");
       }
       element.append(markupHash.join(''));
     }
 
     return optionsBuilder;
+
+  })();
+
+  searchSubmittal = (function() {
+    function searchSubmittal(data, miniSearchConfigs) {
+      var cityObject, cityParam, selectedCity, selectedState, stateObject, stateParam;
+      selectedState = $('.multifamily-mini-search select.mf-search-states').val();
+      selectedCity = $('.multifamily-mini-search select.mf-search-cities').val();
+      stateObject = data.states.filter(function(state) {
+        return state.id === parseInt(selectedState, 10);
+      });
+      stateParam = typeof stateObject[0] !== "undefined" ? stateObject[0].name : "null";
+      cityObject = data.cities.filter(function(city) {
+        return city.id === parseInt(selectedCity, 10);
+      });
+      cityParam = typeof cityObject[0] !== "undefined" ? cityObject[0].name : "null";
+      alert("?city=" + cityParam + "&neighborhood=null&page=1&state=" + stateParam);
+    }
+
+    return searchSubmittal;
 
   })();
 
