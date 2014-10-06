@@ -11,24 +11,6 @@
  */
 (function() {
   var regionClickEvent
-
-  var stateMapping = {
-    "AL": "alabama", "AK": "alaska", "AS": "american-samoa", "AZ": "arizona",
-    "AR": "arkansas", "CA": "california", "CO": "colorado", "CT": "connecticut",
-    "DE": "delaware", "DC": "district-of-columbia", "FL": "florida", "GA": "georgia",
-    "GU": "guam", "HI": "hawaii", "ID": "idaho", "IL": "illinois", "IN": "indiana",
-    "IA": "iowa", "KS": "kansas", "KY": "kentucky", "LA": "louisiana", "ME": "maine",
-    "MH": "marshall Islands", "MD": "maryland", "MA": "massachusetts", "MI": "michigan",
-    "MN": "minnesota", "MS": "mississippi", "MO": "missouri", "MT": "montana",
-    "NE": "nebraska", "NV": "nevada", "NH": "new-hampshire", "NJ": "new-jersey",
-    "NM": "new-mexico", "NY": "new-york", "NC": "north-carolina", "ND": "north-dakota",
-    "OH": "ohio", "OK": "oklahoma", "OR": "oregon", "PW": "palau", "PA": "pennsylvania",
-    "PR": "puerto-rico", "RI": "rhode-island", "SC": "south-carolina",
-    "SD": "south-dakota", "TN": "tennessee", "TX": "texas", "UT": "utah",
-    "VT": "vermont", "VI": "virgin Islands", "VA": "virginia", "WA": "washington",
-    "WV": "west-virginia", "WI": "wisconsin", "WY": "wyoming"
-  };
-
   var apiParams = {
     colors: 1,
     values: 1,
@@ -71,9 +53,7 @@
       selectedRegions: null,
       multiSelectRegion: false,
       onRegionClick: function(element, code, region) {
-        if (options.selectedRegions.indexOf(code.toUpperCase()) > -1) {
-          window.location.href = "/" + stateMapping[code.toUpperCase()];
-        }
+        window.location.href = "/" + code.toLowerCase();
       }
     }, map = this.data('mapObject');
 

@@ -107,6 +107,7 @@
       {% if widget.column_one_widget_name.value %}
       <a id="edit-{{ widget.column_one_widget_name.value_field_id }}"
         data-widget-id="{{ widget.column_one_widget_id.value }}"
+        data-widget-name="{{widget.column_one_widget_name.value}}"
         class="edit-widget"
         href="#">
         <small>(Edit)</small>
@@ -116,6 +117,7 @@
       <select  id="{{ widget.column_one_widget_name.value_field_id }}"
         name="{{ widget.column_one_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.row_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.column_one_widget_name.value %}
@@ -141,6 +143,7 @@
       {% if widget.column_two_widget_name.value %}
       <a id="edit-{{ widget.column_two_widget_name.value_field_id }}"
         data-widget-id="{{ widget.column_two_widget_id.value }}"
+        data-widget-name="{{widget.column_two_widget_name.value}}"
         class="edit-widget"
         href="#">
         <small>(Edit)</small>
@@ -150,6 +153,7 @@
       <select id="{{ widget.column_two_widget_name.value_field_id }}"
         name="{{ widget.column_two_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.row_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.column_two_widget_name.value %}
@@ -175,6 +179,7 @@
       {% if widget.column_three_widget_id.value %}
       <a id="edit-{{ widget.column_three_widget_name.value_field_id }}"
         data-widget-id="{{ widget.column_three_widget_id.value }}"
+        data-widget-name="{{widget.column_three_widget_name.value}}"
         class="edit-widget"
         href="#">
         <small>(Edit)</small>
@@ -184,6 +189,7 @@
       <select id="{{ widget.column_three_widget_name.value_field_id }}"
         name="{{ widget.column_three_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.row_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.column_three_widget_name.value %}
@@ -209,6 +215,7 @@
       {% if widget.column_four_widget_id.value %}
       <a id="edit-{{ widget.column_four_widget_name.value_field_id }}"
         data-widget-id="{{ widget.column_four_widget_id.value }}"
+        data-widget-name="{{widget.column_four_widget_name.value}}"
         class="edit-widget"
         href="#">
         <small>(Edit)</small>
@@ -218,6 +225,7 @@
       <select id="{{ widget.column_four_widget_name.value_field_id }}"
         name="{{ widget.column_four_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.row_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.column_four_widget_name.value %}

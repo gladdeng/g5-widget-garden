@@ -52,6 +52,7 @@
       {% if widget.row_one_widget_name.value %}
       <a id="edit-{{ widget.row_one_widget_name.value_field_id }}"
         data-widget-id="{{ widget.row_one_widget_id.value }}"
+        data-widget-name="{{ widget.row_one_widget_name.value }}"
         class="edit-widget"
         href="#">
         <small>(Edit)</small>
@@ -61,6 +62,7 @@
       <select id="{{ widget.row_one_widget_name.value_field_id }}"
         name="{{ widget.row_one_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.row_one_widget_name.value %}
@@ -86,6 +88,7 @@
       {% if widget.row_two_widget_name.value %}
       <a id="edit-{{ widget.row_two_widget_name.value_field_id }}"
         data-widget-id="{{ widget.row_two_widget_id.value }}"
+        data-widget-name="{{ widget.row_two_widget_name.value }}"
         class="edit-widget"
         href="#">
         <small>(Edit)</small>
@@ -95,6 +98,7 @@
       <select id="{{ widget.row_two_widget_name.value_field_id }}"
         name="{{ widget.row_two_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.row_two_widget_name.value %}
@@ -120,6 +124,7 @@
       {% if widget.row_three_widget_id.value %}
       <a id="edit-{{ widget.row_three_widget_name.value_field_id }}"
         data-widget-id="{{ widget.row_three_widget_id.value }}"
+        data-widget-name="{{ widget.row_three_widget_name.value }}"
         class="edit-widget"
         href="#">
         <small>(Edit)</small>
@@ -129,6 +134,7 @@
       <select id="{{ widget.row_three_widget_name.value_field_id }}"
         name="{{ widget.row_three_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.row_three_widget_name.value %}
@@ -154,6 +160,7 @@
       {% if widget.row_four_widget_id.value %}
       <a id="edit-{{ widget.row_four_widget_name.value_field_id }}"
         data-widget-id="{{ widget.row_four_widget_id.value }}"
+        data-widget-name="{{ widget.row_four_widget_name.value }}"
         class="edit-widget"
         href="#">
         <small>(Edit)</small>
@@ -163,6 +170,7 @@
       <select id="{{ widget.row_four_widget_name.value_field_id }}"
         name="{{ widget.row_four_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.row_four_widget_name.value %}
@@ -188,6 +196,7 @@
       {% if widget.row_five_widget_id.value %}
       <a id="edit-{{ widget.row_five_widget_name.value_field_id }}"
         data-widget-id="{{ widget.row_five_widget_id.value }}"
+        data-widget-name="{{ widget.row_five_widget_name.value }}"
         class="edit-widget"
         href="#">
         <small>(Edit)</small>
@@ -197,6 +206,7 @@
       <select id="{{ widget.row_five_widget_name.value_field_id }}"
         name="{{ widget.row_five_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.row_five_widget_name.value %}
@@ -222,6 +232,7 @@
       {% if widget.row_six_widget_id.value %}
       <a id="edit-{{ widget.row_six_widget_name.value_field_id }}"
         data-widget-id="{{ widget.row_six_widget_id.value }}"
+        data-widget-name="{{ widget.row_six_widget_name.value }}"
         class="edit-widget"
         href="#">
         <small>(Edit)</small>
@@ -231,6 +242,7 @@
       <select id="{{ widget.row_six_widget_name.value_field_id }}"
         name="{{ widget.row_six_widget_name.value_field_name }}">
 
+        <option value="">
         {% for garden_widget in widget.column_widget_garden_widgets.best_value %}
         <option value="{{ garden_widget }}"
         {% if garden_widget == widget.row_six_widget_name.value %}
