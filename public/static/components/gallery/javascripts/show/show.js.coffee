@@ -119,8 +119,7 @@ resetMiniFlexslider = (gallery) ->
 
   setMiniNavHeight imageHeight, gallery
 
-
-$ ->
+$(window).load ->
   galleries = $('.gallery')
 
   galleries.each ->
