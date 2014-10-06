@@ -1,0 +1,26 @@
+<!-- THIS CAN HELP YOU PASS YOUR OPTIONS TO YOUR JAVASCRIPT -->
+
+<script id="mf-mini-search-config" type="application/json">
+  {
+    "clientID": "{{ widget.core_client_id.best_value }}",
+    "serviceURL": "{{ widget.core_service_url.best_value }}",
+    "corpSearchPage": "{{ widget.corp_search_page.best_value }}"
+  }
+</script>
+
+
+<h2>Client ID = {{ widget.core_client_id.best_value }}</h2>
+
+<h2>Service URL = {{ widget.core_service_url.best_value }}</h2>
+
+<h2>Corp Search Page = {{ widget.corp_search_page.best_value }}</h2>
+
+<div class="multifamily-mini-search">
+  (.Y.)
+  <select class="mf-search-states">
+    <option value="">State</option>
+  </select>
+  <select class="mf-search-cities">
+    <option value="">City</option>
+  </select>
+</div>
