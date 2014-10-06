@@ -64,7 +64,7 @@
 
   searchSubmittal = (function() {
     function searchSubmittal(data, miniSearchConfigs) {
-      var cityObject, cityParam, selectedCity, selectedState, stateObject, stateParam;
+      var cityObject, cityParam, queryString, selectedCity, selectedState, stateObject, stateParam;
       selectedState = $('.multifamily-mini-search select.mf-search-states').val();
       selectedCity = $('.multifamily-mini-search select.mf-search-cities').val();
       stateObject = data.states.filter(function(state) {
@@ -75,7 +75,8 @@
         return city.id === parseInt(selectedCity, 10);
       });
       cityParam = typeof cityObject[0] !== "undefined" ? cityObject[0].name : "null";
-      alert("?city=" + cityParam + "&neighborhood=null&page=1&state=" + stateParam);
+      queryString = "?city=" + cityParam + "&neighborhood=null&page=1&state=" + stateParam;
+      window.location = "//" + window.location.host + miniSearchConfigs.corpSearchPage + queryString;
     }
 
     return searchSubmittal;

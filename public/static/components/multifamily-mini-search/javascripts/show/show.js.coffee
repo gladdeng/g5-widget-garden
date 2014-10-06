@@ -49,4 +49,4 @@ class searchSubmittal
 
     queryString = "?city=#{cityParam}&neighborhood=null&page=1&state=#{stateParam}"
 
-  
+    window.location = "//#{window.location.host}#{miniSearchConfigs.corpSearchPage}#{queryString}"
