@@ -40,8 +40,6 @@
       />
     </div>
 
-    <!-- START COPY/PASTE-O-RAMA -->
-
     <div class="form-field">
       {{ widget.text_color.id_hidden_field }}
       <label for="{{ widget.text_color.value_field_id }}">
@@ -54,6 +52,7 @@
         value="{{ widget.text_color.best_value }}"
       />
     </div>
+
     <div class="form-field">
       {{ widget.search_button_color.id_hidden_field }}
       <label for="{{ widget.search_button_color.value_field_id }}">
@@ -66,32 +65,7 @@
         value="{{ widget.search_button_color.best_value }}"
       />
     </div>
-    <div class="form-field">
-      {{ widget.card_background_color.id_hidden_field }}
-      <label for="{{ widget.card_background_color.value_field_id }}">
-        Card Background Color
-      </label>
-      <input type="text"
-        placeholder=""
-        id="{{ widget.card_background_color.value_field_id }}"
-        name="{{ widget.card_background_color.value_field_name }}"
-        value="{{ widget.card_background_color.best_value }}"
-      />
-    </div>
-    
-    <div class="form-field">
-      {{ widget.cta_color.id_hidden_field }}
-      <label for="{{ widget.cta_color.value_field_id }}">
-        Cta Color
-      </label>
-      <input type="text"
-        placeholder=""
-        id="{{ widget.cta_color.value_field_id }}"
-        name="{{ widget.cta_color.value_field_name }}"
-        value="{{ widget.cta_color.best_value }}"
-      />
-    </div>
-    
+
     <div class="form-field">
       {{ widget.search_background.id_hidden_field }}
       <label for="{{ widget.search_background.value_field_id }}">
@@ -105,10 +79,6 @@
       />
     </div>
 
-
-    <!-- END COPY/PASTE-O-RAMA -->
-
-  
   </fieldset>
   <input type="submit" value="Save" class="btn" />
 </form>
