@@ -1,4 +1,4 @@
-<form action="{{ widget.form_action.best_value | url_encode }}" class="h-entry">
+<form action="{{ widget.form_action.value | url_encode }}" class="h-entry">
 
   <div class="form-field">
     {{ widget.client_urn.id_hidden_field }}
@@ -8,7 +8,7 @@
     <input type="text"
       id="{{ widget.client_urn.value_field_id }}"
       name="{{ widget.client_urn.value_field_name }}"
-      value="{{ widget.client_urn.best_value }}"
+      value="{{ widget.client_urn.value }}"
     />
   </div>
 
@@ -20,7 +20,7 @@
     <input type="text"
       id="{{ widget.location_urn.value_field_id }}"
       name="{{ widget.location_urn.value_field_name }}"
-      value="{{ widget.location_urn.best_value }}"
+      value="{{ widget.location_urn.value }}"
     />
   </div>
 
@@ -32,7 +32,7 @@
     <input type="tel"
       id="{{ widget.phone_number.value_field_id }}"
       name="{{ widget.phone_number.value_field_name }}"
-      value="{{ widget.phone_number.best_value }}"
+      value="{{ widget.phone_number.value }}"
     />
   </div>
 
@@ -44,7 +44,7 @@
     <input type="url"
       id="{{ widget.contact_url.value_field_id }}"
       name="{{ widget.contact_url.value_field_name }}"
-      value="{{ widget.contact_url.best_value | url_encode }}"
+      value="{{ widget.contact_url.value | url_encode }}"
     />
   </div>
 
@@ -56,7 +56,7 @@
     <input type="url"
       id="{{ widget.success_redirect_url.value_field_id }}"
       name="{{ widget.success_redirect_url.value_field_name }}"
-      value="{{ widget.success_redirect_url.best_value | url_encode }}"
+      value="{{ widget.success_redirect_url.value | url_encode }}"
     />
   </div>
 

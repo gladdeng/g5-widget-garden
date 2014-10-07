@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.location_street_address.value_field_id }}"
       name="{{ widget.location_street_address.value_field_name }}"
-      value="{{ widget.location_street_address.best_value }}"
+      value="{{ widget.location_street_address.value }}"
     />
   </div>
   
@@ -19,7 +19,7 @@
     <input type="text"
       id="{{ widget.location_city.value_field_id }}"
       name="{{ widget.location_city.value_field_name }}"
-      value="{{ widget.location_city.best_value }}"
+      value="{{ widget.location_city.value }}"
     />
   </div>
   
@@ -31,7 +31,7 @@
     <input type="text"
       id="{{ widget.location_state.value_field_id }}"
       name="{{ widget.location_state.value_field_name }}"
-      value="{{ widget.location_state.best_value }}"
+      value="{{ widget.location_state.value }}"
     />
   </div>
   
@@ -43,7 +43,7 @@
     <input type="text"
       id="{{ widget.location_postal_code.value_field_id }}"
       name="{{ widget.location_postal_code.value_field_name }}"
-      value="{{ widget.location_postal_code.best_value }}"
+      value="{{ widget.location_postal_code.value }}"
     />
   </div>
 
@@ -64,7 +64,7 @@
         id="{{ widget.map_type.value_field_id }}_satellite"
         name="{{ widget.map_type.value_field_name }}"
         value="SATELLITE"
-        {% if widget.map_type.best_value == "SATELLITE" %}
+        {% if widget.map_type.value == "SATELLITE" %}
         checked="checked"
         {% endif %}
       />
@@ -85,7 +85,7 @@
       id="{{ widget.map_allow_pan_zoom.value_field_id }}"
       name="{{ widget.map_allow_pan_zoom.value_field_name }}"
       value="true"
-      {% if widget.map_allow_pan_zoom.best_value == "true" %}
+      {% if widget.map_allow_pan_zoom.value == "true" %}
       checked="checked"
       {% endif %}
     />

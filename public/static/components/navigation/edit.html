@@ -11,7 +11,7 @@
       id="{{ widget.display_navigation.value_field_id }}"
       name="{{ widget.display_navigation.value_field_name }}"
       value="true"
-      {% if widget.display_navigation.best_value == "true" %}
+      {% if widget.display_navigation.value == "true" %}
       checked="checked"
       {% endif %}
     />
@@ -31,7 +31,7 @@
       id="{{ widget.display_as_calls_to_action.value_field_id }}"
       name="{{ widget.display_as_calls_to_action.value_field_name }}"
       value="true"
-      {% if widget.display_as_calls_to_action.best_value == "true" %}
+      {% if widget.display_as_calls_to_action.value == "true" %}
       checked="checked"
       {% endif %}
     />
@@ -46,7 +46,7 @@
     <div>
       {{ widget.navigation.id_hidden_field }}
       <ul>
-        {% for web_page in widget.navigation.best_value %}
+        {% for web_page in widget.navigation.value %}
           <li class="field check-field">
             <input type="hidden"
               id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display_false"

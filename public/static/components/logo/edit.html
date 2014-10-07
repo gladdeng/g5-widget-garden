@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.business_name.value_field_id }}"
       name="{{ widget.business_name.value_field_name }}"
-      value="{{ widget.business_name.best_value | url_encode }}"
+      value="{{ widget.business_name.value | url_encode }}"
     />
   </div>
 
@@ -22,7 +22,7 @@
       id="{{ widget.display_logo.value_field_id }}"
       name="{{ widget.display_logo.value_field_name }}"
       value="true"
-      {% if widget.display_logo.best_value == "true" %}
+      {% if widget.display_logo.value == "true" %}
       checked="checked"
       {% endif %}
     />
@@ -39,7 +39,7 @@
     <input type="text"
       id="{{ widget.logo_url.value_field_id }}"
       name="{{ widget.logo_url.value_field_name }}"
-      value="{{ widget.logo_url.best_value | url_encode }}"
+      value="{{ widget.logo_url.value | url_encode }}"
     />
   </div>
   <input type="submit" value="Save" class="btn" />

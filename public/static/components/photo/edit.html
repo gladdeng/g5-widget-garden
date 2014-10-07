@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.photo_source_url.value_field_id }}"
       name="{{ widget.photo_source_url.value_field_name }}"
-      value="{{ widget.photo_source_url.best_value | url_encode }}"
+      value="{{ widget.photo_source_url.value | url_encode }}"
     />
   </div>
 
@@ -19,7 +19,7 @@
     <input type="text"
       id="{{ widget.photo_link_url.value_field_id }}"
       name="{{ widget.photo_link_url.value_field_name }}"
-      value="{{ widget.photo_link_url.best_value | url_encode }}"
+      value="{{ widget.photo_link_url.value | url_encode }}"
     />
   </div>
 
@@ -31,7 +31,7 @@
     <input type="text"
       id="{{ widget.photo_alt_tag.value_field_id }}"
       name="{{ widget.photo_alt_tag.value_field_name }}"
-      value="{{ widget.photo_alt_tag.best_value }}"
+      value="{{ widget.photo_alt_tag.value }}"
       required
     />
   </div>
@@ -44,7 +44,7 @@
     <input type="text"
       id="{{ widget.photo_caption.value_field_id }}"
       name="{{ widget.photo_caption.value_field_name }}"
-      value="{{ widget.photo_caption.best_value }}"
+      value="{{ widget.photo_caption.value }}"
     />
   </div>
 
@@ -65,7 +65,7 @@
         id="{{ widget.photo_alignment.value_field_id }}_right"
         name="{{ widget.photo_alignment.value_field_name }}"
         value="photo-right"
-        {% if widget.photo_alignment.best_value == "photo-right" %}
+        {% if widget.photo_alignment.value == "photo-right" %}
         checked="checked"
         {% endif %}
       />
@@ -76,7 +76,7 @@
         id="{{ widget.photo_alignment.value_field_id }}_block"
         name="{{ widget.photo_alignment.value_field_name }}"
         value="photo-block"
-        {% if widget.photo_alignment.best_value == "photo-block" %}
+        {% if widget.photo_alignment.value == "photo-block" %}
         checked="checked"
         {% endif %}
       />

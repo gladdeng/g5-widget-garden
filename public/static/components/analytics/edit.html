@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.tracking_code.value_field_id }}"
       name="{{ widget.tracking_code.value_field_name }}"
-      value="{{ widget.tracking_code.best_value }}"
+      value="{{ widget.tracking_code.value }}"
       placeholder="UA-XXXXXXXX"
       required
     />
@@ -21,7 +21,7 @@
     <input type="text"
       id="{{ widget.domain_name.value_field_id }}"
       name="{{ widget.domain_name.value_field_name }}"
-      value="{{ widget.domain_name.best_value | url_encode }}"
+      value="{{ widget.domain_name.value | url_encode }}"
       placeholder="example.com"
       required
     />

@@ -4,34 +4,34 @@
   <script class="config" type="application/json">
     {
       "cpnsUrl": "{{ widget.secure_cpns_url }}",
-      "locationUrn": "{{ widget.location_urn.best_value }}"
+      "locationUrn": "{{ widget.location_urn.value }}"
     }
   </script>
 
   <div class="info-sheet-nav">
     <!-- use phone service for this number -->
-    <a class="number info-sheet-phone-btn info-sheet-toggle" href="tel://{{ widget.phone_number.best_value }}"><span class="p-tel">{{ widget.phone_number.best_value }}</span></a>
-    <a class="info-sheet-email-btn info-sheet-toggle" href="{{ widget.contact_url.best_value | url_encode }}">Email</a>
+    <a class="number info-sheet-phone-btn info-sheet-toggle" href="tel://{{ widget.phone_number.value }}"><span class="p-tel">{{ widget.phone_number.value }}</span></a>
+    <a class="info-sheet-email-btn info-sheet-toggle" href="{{ widget.contact_url.value | url_encode }}">Email</a>
     <div class="info-sheet-page-up info-sheet-pagination">UP</div>
     <div class="info-sheet-page-down info-sheet-pagination">DOWN</div>
   </div> <!-- end .info-sheet-nav -->
 
   <div class="info-sheet-content">
-    <div class="info-sheet-phone p-tel">{{ widget.phone_number.best_value }}</div> <!-- end .info-sheet-phone -->
+    <div class="info-sheet-phone p-tel">{{ widget.phone_number.value }}</div> <!-- end .info-sheet-phone -->
     <div class="info-sheet-email">
 
       <div class="g5-enhanced-form">
         <script class="config" type="application/json">
           {
-            {% if widget.success_redirect_url.best_value != '' %}
-              "successRedirectUrl": "{{ widget.success_redirect_url.best_value}}",
+            {% if widget.success_redirect_url.value != '' %}
+              "successRedirectUrl": "{{ widget.success_redirect_url.value}}",
             {% endif %}
-            "formUrl": "{{ widget.cls_url }}api/v1/locations/{{ widget.location_urn.best_value }}/html_forms/contact"
+            "formUrl": "{{ widget.cls_url }}api/v1/locations/{{ widget.location_urn.value }}/html_forms/contact"
           }
         </script>
 
         <p>
-          You are using an older, unsupported browser. Please <a href="{{ widget.secure_cls_url }}api/v1/locations/{{ widget.location_urn.best_value }}/html_forms/contact.html" target="_blank">visit this link</a> to contact us.
+          You are using an older, unsupported browser. Please <a href="{{ widget.secure_cls_url }}api/v1/locations/{{ widget.location_urn.value }}/html_forms/contact.html" target="_blank">visit this link</a> to contact us.
         </p>
       </div> <!-- end form -->
     </div> <!-- end .info-sheet-email -->

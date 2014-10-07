@@ -1,9 +1,9 @@
 <div class="column">
-  <div class="column-content column-{{ widget.row_count.best_value }}">
+  <div class="column-content column-{{ widget.row_count.value }}">
 
     <div class="row-1" id="drop-target-first-row"></div>
 
-    {% if widget.row_count.best_value != "one" %}
+    {% if widget.row_count.value != "one" %}
       <div class="row-2" id="drop-target-second-row"></div>
     {% endif %}
 

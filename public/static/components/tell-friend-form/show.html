@@ -2,21 +2,21 @@
 
   <script class="config" type="application/json">
     {
-      "clientUrn": "{{ widget.client_urn.best_value }}"
+      "clientUrn": "{{ widget.client_urn.value }}"
     }
   </script>
 
-  {% if widget.form_title.best_value != "" %}
-    <h2 class="form-heading">{{ widget.form_title.best_value}}</h2>
+  {% if widget.form_title.value != "" %}
+    <h2 class="form-heading">{{ widget.form_title.value}}</h2>
   {% endif %}
 
-  <form id="form-template" class="form h-entry" action="{{ widget.cls_url.best_value | url_encode }}html_forms" method="POST">
-    {% if widget.form_note.best_value != "" %}
-      <p class="form-note">{{ widget.form_note.best_value }}</p>
+  <form id="form-template" class="form h-entry" action="{{ widget.cls_url.value | url_encode }}html_forms" method="POST">
+    {% if widget.form_note.value != "" %}
+      <p class="form-note">{{ widget.form_note.value }}</p>
     {% endif %}
 
-    <input type="hidden" class="u-uid" name="u-uid" value="{{ widget.form_uid.best_value | url_encode }}" />
-    <input type="hidden" class="u-syndication" name="u-syndication" value="{{ widget.form_syndication_url.best_value | url_encode }}" />
+    <input type="hidden" class="u-uid" name="u-uid" value="{{ widget.form_uid.value | url_encode }}" />
+    <input type="hidden" class="u-syndication" name="u-syndication" value="{{ widget.form_syndication_url.value | url_encode }}" />
 
     <div class="h-card">
       <div class="form-field">

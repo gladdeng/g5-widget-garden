@@ -8,7 +8,7 @@
       placeholder="http://path.to.my.leads.service"
       id="{{ widget.lead_form_url.value_field_id }}"
       name="{{ widget.lead_form_url.value_field_name }}"
-      value="{{ widget.lead_form_url.best_value | url_encode }}"
+      value="{{ widget.lead_form_url.value | url_encode }}"
     />
   </div>
   <div class="form-field">
@@ -20,7 +20,7 @@
       placeholder="1234"
       id="{{ widget.core_store_id.value_field_id }}"
       name="{{ widget.core_store_id.value_field_name }}"
-      value="{{ widget.core_store_id.best_value }}"
+      value="{{ widget.core_store_id.value }}"
     />
   </div>
   <div class="form-field">
@@ -32,7 +32,7 @@
       placeholder="http://www.mydomain.com"
       id="{{ widget.floorplans_service_host.value_field_id }}"
       name="{{ widget.floorplans_service_host.value_field_name }}"
-      value="{{ widget.floorplans_service_host.best_value }}"
+      value="{{ widget.floorplans_service_host.value }}"
     />
   </div>
   <div class="form-field">
@@ -44,7 +44,7 @@
       placeholder="6"
       id="{{ widget.max_unit_availability.value_field_id }}"
       name="{{ widget.max_unit_availability.value_field_name }}"
-      value="{{ widget.max_unit_availability.best_value }}"
+      value="{{ widget.max_unit_availability.value }}"
     />
   </div>
   <div class="form-field">
@@ -56,7 +56,7 @@
       placeholder="#252b32"
       id="{{ widget.primary_color.value_field_id }}"
       name="{{ widget.primary_color.value_field_name }}"
-      value="{{ widget.primary_color.best_value }}"
+      value="{{ widget.primary_color.value }}"
     />
   </div>
   <div class="form-field">
@@ -68,7 +68,7 @@
       placeholder="#005892"
       id="{{ widget.secondary_color.value_field_id }}"
       name="{{ widget.secondary_color.value_field_name }}"
-      value="{{ widget.secondary_color.best_value }}"
+      value="{{ widget.secondary_color.value }}"
     />
   </div>
   <div class="form-field">
@@ -80,7 +80,7 @@
       placeholder="#fe7b6f"
       id="{{ widget.accent_color_1.value_field_id }}"
       name="{{ widget.accent_color_1.value_field_name }}"
-      value="{{ widget.accent_color_1.best_value }}"
+      value="{{ widget.accent_color_1.value }}"
     />
   </div>
   <div class="form-field">
@@ -92,7 +92,7 @@
       placeholder="#526173"
       id="{{ widget.accent_color_2.value_field_id }}"
       name="{{ widget.accent_color_2.value_field_name }}"
-      value="{{ widget.accent_color_2.best_value }}"
+      value="{{ widget.accent_color_2.value }}"
     />
   </div>
   <div class="form-field">
@@ -104,7 +104,7 @@
       placeholder="#000000"
       id="{{ widget.text_color_dark.value_field_id }}"
       name="{{ widget.text_color_dark.value_field_name }}"
-      value="{{ widget.text_color_dark.best_value }}"
+      value="{{ widget.text_color_dark.value }}"
     />
   </div>
   <div class="form-field">
@@ -116,7 +116,7 @@
       placeholder="#000000"
       id="{{ widget.nav_text_color.value_field_id }}"
       name="{{ widget.nav_text_color.value_field_name }}"
-      value="{{ widget.nav_text_color.best_value }}"
+      value="{{ widget.nav_text_color.value }}"
     />
   </div>
   <input type="submit" value="Save" class="btn" />

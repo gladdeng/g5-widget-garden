@@ -1,11 +1,11 @@
-{% if widget.display_navigation.best_value == "true" %}
-  {% if widget.display_as_calls_to_action.best_value == "true" %}
+{% if widget.display_navigation.value == "true" %}
+  {% if widget.display_as_calls_to_action.value == "true" %}
   <nav class="action-calls widget">
   {% else %}
   <nav class="navigation widget">
   {% endif %}
     <ul class="top-nav">
-      {% for web_page in widget.navigation.best_value %}
+      {% for web_page in widget.navigation.value %}
         {% if web_page[1].display != "false" and web_page[1].child_template? == false %}
         <li {% if web_page[1].child_templates != blank %}class="has-subnav"{% endif %}>
           <a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a>
