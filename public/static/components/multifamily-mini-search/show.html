@@ -1,20 +1,20 @@
 <script id="mf-mini-search-config" type="application/json">
   {
-    "clientID": "{{ widget.core_client_id.best_value }}",
-    "serviceURL": "{{ widget.core_service_url.best_value }}",
-    "corpSearchPage": "{{ widget.corp_search_page.best_value }}"
+    "clientID": "{{ widget.core_client_id.value }}",
+    "serviceURL": "{{ widget.core_service_url.value }}",
+    "corpSearchPage": "{{ widget.corp_search_page.value }}"
   }
 </script>
 
 <style>
-  {% if widget.text_color.best_value != '' %}
-  #corpSearchWrapper {color:{{widget.text_color.best_value}}}
+  {% if widget.text_color.value != '' %}
+  #corpSearchWrapper {color:{{widget.text_color.value}}}
   {% endif %}
-  {% if widget.search_button_color.best_value != '' %}
-  #corpSearchWrapper .search-form .search-button{background:{{widget.search_button_color.best_value}}}
+  {% if widget.search_button_color.value != '' %}
+  #corpSearchWrapper .search-form .search-button{background:{{widget.search_button_color.value}}}
   {% endif %}  
-  {% if widget.search_background.best_value != '' %}
-  #corpSearchWrapper .search-form{background:{{widget.search_background.best_value}}}
+  {% if widget.search_background.value != '' %}
+  #corpSearchWrapper .search-form{background:{{widget.search_background.value}}}
   {% endif %}
 </style>
 
