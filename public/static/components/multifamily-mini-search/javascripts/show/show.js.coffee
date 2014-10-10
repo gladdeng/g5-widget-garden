@@ -42,11 +42,11 @@ class searchSubmittal
     selectedCity = $('.multifamily-mini-search select.mf-search-cities').val()
 
     stateObject = data.states.filter((state) -> state.id == parseInt(selectedState,10))
-    stateParam = if typeof(stateObject[0]) != "undefined" then stateObject[0].name else "null"
+    stateParam = if typeof(stateObject[0]) != "undefined" then "&state=#{stateObject[0].name}" else ""
 
     cityObject = data.cities.filter((city) -> city.id == parseInt(selectedCity,10))
-    cityParam = if typeof(cityObject[0]) != "undefined" then cityObject[0].name else "null"
+    cityParam = if typeof(cityObject[0]) != "undefined" then "&city=#{cityObject[0].name}" else ""
 
-    queryString = "?city=#{cityParam}&neighborhood=null&page=1&state=#{stateParam}"
+    queryString = "?page=1#{stateParam}#{cityParam}"
 
     window.location = "//#{window.location.host}#{miniSearchConfigs.corpSearchPage}#{queryString}"

@@ -70,12 +70,12 @@
       stateObject = data.states.filter(function(state) {
         return state.id === parseInt(selectedState, 10);
       });
-      stateParam = typeof stateObject[0] !== "undefined" ? stateObject[0].name : "null";
+      stateParam = typeof stateObject[0] !== "undefined" ? "&state=" + stateObject[0].name : "";
       cityObject = data.cities.filter(function(city) {
         return city.id === parseInt(selectedCity, 10);
       });
-      cityParam = typeof cityObject[0] !== "undefined" ? cityObject[0].name : "null";
-      queryString = "?city=" + cityParam + "&neighborhood=null&page=1&state=" + stateParam;
+      cityParam = typeof cityObject[0] !== "undefined" ? "&city=" + cityObject[0].name : "";
+      queryString = "?page=1" + stateParam + cityParam;
       window.location = "//" + window.location.host + miniSearchConfigs.corpSearchPage + queryString;
     }
 
