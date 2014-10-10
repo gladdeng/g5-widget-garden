@@ -7,8 +7,6 @@
   };
 
   $(function() {
-    var clientUrn;
-    clientUrn = JSON.parse($('.g5-enhanced-form .config:first').html());
     canonicalUrl();
   });
 
