@@ -15,8 +15,7 @@ header[role=banner] .navigation {
 }
 
 @media (max-width: 979px) {
-
-  .subnav {
+  .show-subnav {
     max-height: none;
   }
 }
