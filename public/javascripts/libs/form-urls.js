@@ -7,6 +7,11 @@
   };
 
   $(function() {
+    var clientUrn;
+    var config = $('.g5-enhanced-form .config:first')
+    if (config.length > 0) {
+      clientUrn = JSON.parse(config.html());
+    }
     canonicalUrl();
   });
 
