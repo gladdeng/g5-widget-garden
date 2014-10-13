@@ -9,6 +9,16 @@ $ ->
       new corpSearchMarkupBuilder(data, miniSearchConfigs) 
       $('.mf-search-go-button').on('click', -> new searchSubmittal(data, miniSearchConfigs))
 
+  
+
+  radioButtons = "<input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>
+                  <label for='default-search'>#{miniSearchConfigs.defaultSearchOption}</label>
+                  <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>
+                  <label for='alternate-search'>#{miniSearchConfigs.alternateSearchOption}</label>"
+
+  $(radioButtons).insertAfter($('.multifamily-mini-search h2'))
+
+
 class corpSearchMarkupBuilder
   constructor: (data, configs) ->
     stateSelect = $('.multifamily-mini-search select.mf-search-states')
@@ -48,5 +58,8 @@ class searchSubmittal
     cityParam = if typeof(cityObject[0]) != "undefined" then "&city=#{cityObject[0].name}" else ""
 
     queryString = "?page=1#{stateParam}#{cityParam}"
-
-    window.location = "//#{window.location.host}#{miniSearchConfigs.corpSearchPage}#{queryString}"
+  
+    if $('input[name=corp-search-type]:checked').val() == 'alternate-search'
+      window.location = miniSearchConfigs.externalSearchURL
+    else
+      window.location = "//#{window.location.host}#{miniSearchConfigs.corpSearchPage}#{queryString}"
