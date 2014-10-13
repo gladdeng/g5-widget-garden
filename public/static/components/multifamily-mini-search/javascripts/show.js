@@ -23,7 +23,7 @@
       var altSearchVals, radioButtons;
       altSearchVals = [configs.defaultSearchOption, configs.alternateSearchOption, configs.externalSearchURL];
       if (altSearchVals.indexOf('') === -1) {
-        radioButtons = "<input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>                      <label for='default-search'>" + configs.defaultSearchOption + "</label>                      <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>                      <label for='alternate-search'>" + configs.alternateSearchOption + "</label>";
+        radioButtons = "<div class='search-type-radio-buttons'>                        <input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>                        <label for='default-search'>" + configs.defaultSearchOption + "</label>                        <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>                        <label for='alternate-search'>" + configs.alternateSearchOption + "</label>                      </div>";
         $(radioButtons).insertAfter($('.multifamily-mini-search h2'));
       }
     }
