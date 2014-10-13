@@ -9,15 +9,22 @@ $ ->
       new corpSearchMarkupBuilder(data, miniSearchConfigs) 
       $('.mf-search-go-button').on('click', -> new searchSubmittal(data, miniSearchConfigs))
 
-  
+  new radioButtonBuilder(miniSearchConfigs)
 
-  radioButtons = "<input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>
-                  <label for='default-search'>#{miniSearchConfigs.defaultSearchOption}</label>
-                  <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>
-                  <label for='alternate-search'>#{miniSearchConfigs.alternateSearchOption}</label>"
 
-  $(radioButtons).insertAfter($('.multifamily-mini-search h2'))
+class radioButtonBuilder
+  constructor: (configs) ->
+    altSearchVals = [ configs.defaultSearchOption,
+                      configs.alternateSearchOption,
+                      configs.externalSearchURL ]
 
+    if altSearchVals.indexOf('') == -1
+      radioButtons = "<input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>
+                      <label for='default-search'>#{configs.defaultSearchOption}</label>
+                      <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>
+                      <label for='alternate-search'>#{configs.alternateSearchOption}</label>"
+
+      $(radioButtons).insertAfter($('.multifamily-mini-search h2'))
 
 class corpSearchMarkupBuilder
   constructor: (data, configs) ->

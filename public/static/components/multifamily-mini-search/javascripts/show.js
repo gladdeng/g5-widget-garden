@@ -1,8 +1,8 @@
 (function() {
-  var citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, searchSubmittal;
+  var citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, radioButtonBuilder, searchSubmittal;
 
   $(function() {
-    var miniSearchConfigs, radioButtons,
+    var miniSearchConfigs,
       _this = this;
     miniSearchConfigs = JSON.parse($('#mf-mini-search-config').html());
     $.ajax({
@@ -15,9 +15,22 @@
         });
       }
     });
-    radioButtons = "<input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>                  <label for='default-search'>" + miniSearchConfigs.defaultSearchOption + "</label>                  <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>                  <label for='alternate-search'>" + miniSearchConfigs.alternateSearchOption + "</label>";
-    return $(radioButtons).insertAfter($('.multifamily-mini-search h2'));
+    return new radioButtonBuilder(miniSearchConfigs);
   });
+
+  radioButtonBuilder = (function() {
+    function radioButtonBuilder(configs) {
+      var altSearchVals, radioButtons;
+      altSearchVals = [configs.defaultSearchOption, configs.alternateSearchOption, configs.externalSearchURL];
+      if (altSearchVals.indexOf('') === -1) {
+        radioButtons = "<input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>                      <label for='default-search'>" + configs.defaultSearchOption + "</label>                      <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>                      <label for='alternate-search'>" + configs.alternateSearchOption + "</label>";
+        $(radioButtons).insertAfter($('.multifamily-mini-search h2'));
+      }
+    }
+
+    return radioButtonBuilder;
+
+  })();
 
   corpSearchMarkupBuilder = (function() {
     function corpSearchMarkupBuilder(data, configs) {
