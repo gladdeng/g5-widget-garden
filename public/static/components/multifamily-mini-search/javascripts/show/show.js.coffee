@@ -67,8 +67,9 @@ class searchSubmittal
     cityParam = if typeof(cityObject[0]) != "undefined" then "&city=#{cityObject[0].name}" else ""
 
     queryString = "?page=1#{stateParam}#{cityParam}"
-  
-    if $('input[name=corp-search-type]:checked').val() == 'alternate-search'
+    
+    radioButtons = $('input[name=corp-search-type]:checked')
+    if radioButtons.length > 0 && radioButtons.val() == 'alternate-search'
       newWindow = window.open(miniSearchConfigs.externalSearchURL, '_blank');
       newWindow.focus();
     else

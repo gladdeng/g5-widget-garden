@@ -79,7 +79,7 @@
 
   searchSubmittal = (function() {
     function searchSubmittal(data, miniSearchConfigs) {
-      var cityObject, cityParam, newWindow, queryString, selectedCity, selectedState, stateObject, stateParam;
+      var cityObject, cityParam, newWindow, queryString, radioButtons, selectedCity, selectedState, stateObject, stateParam;
       selectedState = $('.multifamily-mini-search select.mf-search-states').val();
       selectedCity = $('.multifamily-mini-search select.mf-search-cities').val();
       stateObject = data.states.filter(function(state) {
@@ -91,7 +91,8 @@
       });
       cityParam = typeof cityObject[0] !== "undefined" ? "&city=" + cityObject[0].name : "";
       queryString = "?page=1" + stateParam + cityParam;
-      if ($('input[name=corp-search-type]:checked').val() === 'alternate-search') {
+      radioButtons = $('input[name=corp-search-type]:checked');
+      if (radioButtons.length > 0 && radioButtons.val() === 'alternate-search') {
         newWindow = window.open(miniSearchConfigs.externalSearchURL, '_blank');
         newWindow.focus();
       } else {
