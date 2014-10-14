@@ -3,8 +3,8 @@
   <script class="config" type="application/json">
     {
       "show_thumbnails": "{{ widget.gallery_thumbnails.value }}",
-      "mini_gallery": "{{ widget.gallery_mini.value}}",
-      "carousel": "{{ widget.gallery_carousel.value }}"
+      "mini_gallery": "yes",
+      "carousel": "yes"
     }
   </script>
 
@@ -13,7 +13,7 @@
   {% endif %}
 
   <div class="flexslider-container">
-    <div class = "flexslider {% if widget.gallery_carousel.value == 'yes'%}gallery-carousel{% else %}gallery-slideshow{% endif %} {% if widget.gallery_mini.value == 'yes' %}mini-gallery{% else %}full-gallery{% endif %}">
+    <div class = "flexslider gallery-carousel full-gallery">
       <ul class="slides">
         {% if widget.gallery_photo1_url.value != "" %}
           <li data-thumb="{{ widget.gallery_photo1_url.value | url_encode}}">
