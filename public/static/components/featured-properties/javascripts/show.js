@@ -1,5 +1,5 @@
 (function() {
-  var getGridSize, getLargestImage, initializeFlexSlider, resetFlexslider, resetMiniFlexslider, setImageHeight, setMiniNavHeight, setupFlexslider;
+  var buildSlides, getGridSize, getLargestImage, initializeFlexSlider, resetFlexslider, resetMiniFlexslider, setImageHeight, setMiniNavHeight, setupFlexslider;
 
   getGridSize = function() {
     var windowWidth;
@@ -123,20 +123,30 @@
     return setMiniNavHeight(imageHeight, gallery);
   };
 
+  buildSlides = function(gallery, photos) {
+    var createSlide, photo, slides, stage, _i, _len;
+    stage = gallery.find("ul.slides");
+    slides = "";
+    createSlide = function(photo) {
+      return slides += " <li data-thumb='" + photo.url + "'>                  <a href='" + photo.link + "'>                    <img src='" + photo.url + "' alt='" + photo.alt_tag + "' />                    <p class='flex-caption'>" + photo.caption + "</p>                  </a>                </li> ";
+    };
+    for (_i = 0, _len = photos.length; _i < _len; _i++) {
+      photo = photos[_i];
+      if (photo.url !== '') {
+        createSlide(photo);
+      }
+    }
+    return stage.append(slides);
+  };
+
   $(function() {
     var galleries;
     galleries = $('.featured-properties');
     return galleries.each(function() {
-      var gallery, galleryOptions, index, photo, slideMarkup, stage, _ref;
+      var gallery, galleryOptions;
       gallery = $(this);
       galleryOptions = JSON.parse(gallery.find('.config:first').html());
-      _ref = galleryOptions.photos;
-      for (index in _ref) {
-        photo = _ref[index];
-        stage = gallery.find("ul.slides");
-        slideMarkup = " <li data-thumb='" + photo.url + "'>                        <a href='" + photo.link + "'>                          <img src='" + photo.url + "' alt='" + photo.alt_tag + "' />                          <p class='flex-caption'>" + photo.caption + "</p>                        </a>                      </li> ";
-        stage.append(slideMarkup);
-      }
+      buildSlides(gallery, galleryOptions.photos);
       setupFlexslider(galleryOptions, gallery);
       if (galleryOptions['mini_gallery'] === 'yes') {
         return $(window).smartresize(function() {

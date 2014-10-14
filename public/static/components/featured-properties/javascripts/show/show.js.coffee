@@ -119,6 +119,21 @@ resetMiniFlexslider = (gallery) ->
 
   setMiniNavHeight imageHeight, gallery
 
+buildSlides = (gallery, photos) ->
+  stage = gallery.find("ul.slides")
+  slides = ""
+
+  createSlide = (photo) ->
+    slides += " <li data-thumb='#{photo.url}'>
+                  <a href='#{photo.link}'>
+                    <img src='#{photo.url}' alt='#{photo.alt_tag}' />
+                    <p class='flex-caption'>#{photo.caption}</p>
+                  </a>
+                </li> "
+
+  createSlide photo for photo in photos when photo.url isnt ''
+    
+  stage.append(slides)
 
 $ ->
   galleries = $('.featured-properties')
@@ -129,19 +144,13 @@ $ ->
 
     galleryOptions = JSON.parse(gallery.find('.config:first').html())
 
+    buildSlides(gallery, galleryOptions.photos)
+
     # This is where we need to loop through each gallery object
     # and spray the markup into the DOM
     # debugger
     # *********************************************************
-    for index, photo of galleryOptions.photos
-      stage = gallery.find("ul.slides")
-      slideMarkup = " <li data-thumb='#{photo.url}'>
-                        <a href='#{photo.link}'>
-                          <img src='#{photo.url}' alt='#{photo.alt_tag}' />
-                          <p class='flex-caption'>#{photo.caption}</p>
-                        </a>
-                      </li> "
-      stage.append(slideMarkup)
+    
     # *********************************************************
     # *********************************************************
 
