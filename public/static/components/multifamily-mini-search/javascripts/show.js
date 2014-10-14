@@ -1,11 +1,11 @@
 (function() {
-  var citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, searchSubmittal;
+  var citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, radioButtonBuilder, searchSubmittal;
 
   $(function() {
     var miniSearchConfigs,
       _this = this;
     miniSearchConfigs = JSON.parse($('#mf-mini-search-config').html());
-    return $.ajax({
+    $.ajax({
       url: "" + miniSearchConfigs.serviceURL + "/api/v0/client_locations?client_id=" + miniSearchConfigs.clientID,
       dataType: 'json',
       success: function(data) {
@@ -15,7 +15,22 @@
         });
       }
     });
+    return new radioButtonBuilder(miniSearchConfigs);
   });
+
+  radioButtonBuilder = (function() {
+    function radioButtonBuilder(configs) {
+      var altSearchVals, radioButtons;
+      altSearchVals = [configs.defaultSearchOption, configs.alternateSearchOption, configs.externalSearchURL];
+      if (altSearchVals.indexOf('') === -1) {
+        radioButtons = "<div class='search-type-radio-buttons'>                        <input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>                        <label for='default-search'>" + configs.defaultSearchOption + "</label>                        <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>                        <label for='alternate-search'>" + configs.alternateSearchOption + "</label>                      </div>";
+        $(radioButtons).insertAfter($('.multifamily-mini-search h2'));
+      }
+    }
+
+    return radioButtonBuilder;
+
+  })();
 
   corpSearchMarkupBuilder = (function() {
     function corpSearchMarkupBuilder(data, configs) {
@@ -64,7 +79,7 @@
 
   searchSubmittal = (function() {
     function searchSubmittal(data, miniSearchConfigs) {
-      var cityObject, cityParam, queryString, selectedCity, selectedState, stateObject, stateParam;
+      var cityObject, cityParam, newWindow, queryString, radioButtons, selectedCity, selectedState, stateObject, stateParam;
       selectedState = $('.multifamily-mini-search select.mf-search-states').val();
       selectedCity = $('.multifamily-mini-search select.mf-search-cities').val();
       stateObject = data.states.filter(function(state) {
@@ -76,7 +91,13 @@
       });
       cityParam = typeof cityObject[0] !== "undefined" ? "&city=" + cityObject[0].name : "";
       queryString = "?page=1" + stateParam + cityParam;
-      window.location = "//" + window.location.host + miniSearchConfigs.corpSearchPage + queryString;
+      radioButtons = $('input[name=corp-search-type]:checked');
+      if (radioButtons.length > 0 && radioButtons.val() === 'alternate-search') {
+        newWindow = window.open(miniSearchConfigs.externalSearchURL, '_blank');
+        newWindow.focus();
+      } else {
+        window.location = "//" + window.location.host + miniSearchConfigs.corpSearchPage + queryString;
+      }
     }
 
     return searchSubmittal;

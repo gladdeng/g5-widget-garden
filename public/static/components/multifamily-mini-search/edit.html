@@ -41,6 +41,58 @@
     </div>
 
     <div class="form-field">
+      {{ widget.heading_text.id_hidden_field }}
+      <label for="{{ widget.heading_text.value_field_id }}">
+        Heading Text
+      </label>
+      <input type="text"
+        placeholder="h2 Text"
+        id="{{ widget.heading_text.value_field_id }}"
+        name="{{ widget.heading_text.value_field_name }}"
+        value="{{ widget.heading_text.value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.external_search_url.id_hidden_field }}
+      <label for="{{ widget.external_search_url.value_field_id }}">
+        External Search Url
+      </label>
+      <input type="text"
+        placeholder="http://www.some-external-url.com"
+        id="{{ widget.external_search_url.value_field_id }}"
+        name="{{ widget.external_search_url.value_field_name }}"
+        value="{{ widget.external_search_url.value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.default_search_option.id_hidden_field }}
+      <label for="{{ widget.default_search_option.value_field_id }}">
+        Default Search Option
+      </label>
+      <input type="text"
+        placeholder="Apartments, perhaps"
+        id="{{ widget.default_search_option.value_field_id }}"
+        name="{{ widget.default_search_option.value_field_name }}"
+        value="{{ widget.default_search_option.value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.alternate_search_option.id_hidden_field }}
+      <label for="{{ widget.alternate_search_option.value_field_id }}">
+        Alternate Search Option
+      </label>
+      <input type="text"
+        placeholder="Commercial, perhaps"
+        id="{{ widget.alternate_search_option.value_field_id }}"
+        name="{{ widget.alternate_search_option.value_field_name }}"
+        value="{{ widget.alternate_search_option.value }}"
+      />
+    </div>
+
+    <div class="form-field">
       {{ widget.text_color.id_hidden_field }}
       <label for="{{ widget.text_color.value_field_id }}">
         Text Color

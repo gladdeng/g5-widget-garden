@@ -2,7 +2,10 @@
   {
     "clientID": "{{ widget.core_client_id.value }}",
     "serviceURL": "{{ widget.core_service_url.value }}",
-    "corpSearchPage": "{{ widget.corp_search_page.value }}"
+    "corpSearchPage": "{{ widget.corp_search_page.value }}",
+    "externalSearchURL": "{{ widget.external_search_url.value }}",
+    "defaultSearchOption": "{{ widget.default_search_option.value }}",
+    "alternateSearchOption": "{{ widget.alternate_search_option.value }}"
   }
 </script>
 
@@ -25,7 +28,7 @@
         <div class="search-form-center">
           <div class="search-form-inner">
             <div class="multifamily-mini-search">
-              <h2>Find an Apartment</h2>
+              <h2>{{ widget.heading_text.value }}</h2>
               <span class="state">
                 <select class="mf-search-states">
                   <option value="">State</option>
