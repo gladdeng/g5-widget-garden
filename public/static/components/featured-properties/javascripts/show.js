@@ -124,7 +124,19 @@
   };
 
   createSlide = function(photo) {
-    return " <li data-thumb='" + photo.url + "'>      <a href='" + photo.link + "'>        <img src='" + photo.url + "' alt='" + photo.alt_tag + "' />        <p class='flex-caption'>" + photo.caption + "</p>      </a>    </li> ";
+    var markup;
+    markup = "<li data-thumb='" + photo.url + "'>";
+    if (photo.link !== "") {
+      markup += "<a href='" + photo.link + "'>";
+    }
+    markup += "<img src='" + photo.url + "' alt='" + photo.alt_tag + "' />";
+    if (photo.caption !== "") {
+      markup += "<p class='flex-caption'>" + photo.caption + "</p>";
+    }
+    if (photo.link !== "") {
+      markup += "</a>";
+    }
+    return markup += "</li> ";
   };
 
   buildSlidesMarkup = function(gallery, photos) {

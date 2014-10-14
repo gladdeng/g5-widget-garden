@@ -120,12 +120,12 @@ resetMiniFlexslider = (gallery) ->
   setMiniNavHeight imageHeight, gallery
 
 createSlide = (photo) ->
-  " <li data-thumb='#{photo.url}'>
-      <a href='#{photo.link}'>
-        <img src='#{photo.url}' alt='#{photo.alt_tag}' />
-        <p class='flex-caption'>#{photo.caption}</p>
-      </a>
-    </li> "
+  markup  = "<li data-thumb='#{photo.url}'>"
+  markup +=   "<a href='#{photo.link}'>" if photo.link != ""
+  markup +=     "<img src='#{photo.url}' alt='#{photo.alt_tag}' />"
+  markup +=     "<p class='flex-caption'>#{photo.caption}</p>" if photo.caption != ""
+  markup +=   "</a>" if photo.link != ""
+  markup += "</li> "
 
 buildSlidesMarkup = (gallery, photos) ->
   stage = gallery.find("ul.slides")
