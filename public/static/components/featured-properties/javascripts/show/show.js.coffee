@@ -121,13 +121,29 @@ resetMiniFlexslider = (gallery) ->
 
 
 $ ->
-  galleries = $('.gallery')
+  galleries = $('.featured-properties')
 
   galleries.each ->
 
     gallery = $(this)
 
     galleryOptions = JSON.parse(gallery.find('.config:first').html())
+
+    # This is where we need to loop through each gallery object
+    # and spray the markup into the DOM
+    # debugger
+    # *********************************************************
+    for index, photo of galleryOptions.photos
+      stage = gallery.find("ul.slides")
+      slideMarkup = " <li data-thumb='#{photo.url}'>
+                        <a href='#{photo.link}'>
+                          <img src='#{photo.url}' alt='#{photo.alt_tag}' />
+                          <p class='flex-caption'>#{photo.caption}</p>
+                        </a>
+                      </li> "
+      stage.append(slideMarkup)
+    # *********************************************************
+    # *********************************************************
 
     setupFlexslider galleryOptions, gallery
 
