@@ -95,7 +95,7 @@
     function tweetInitializer(feedVars) {
       var _this = this;
       $.ajax({
-        url: "http://g5-social-feed-service.herokuapp.com/twitter-feed/" + feedVars.twitter_username,
+        url: "https://g5-social-feed-service.herokuapp.com/twitter-feed/" + feedVars.twitter_username,
         dataType: "json",
         type: "GET",
         success: function(data) {
@@ -150,7 +150,7 @@
     getpage = function(feedVars) {
       var _this = this;
       return $.ajax({
-        url: "http://g5-social-feed-service.herokuapp.com/facebook-feed/" + feedVars.facebook_page_id,
+        url: "https://g5-social-feed-service.herokuapp.com/facebook-feed/" + feedVars.facebook_page_id,
         dataType: 'json',
         success: function(data) {
           if (data.hasOwnProperty('data') && data.data.length > 0) {
@@ -209,7 +209,7 @@
     getpage = function(feedVars) {
       var _this = this;
       return $.ajax({
-        url: "http://g5-social-feed-service.herokuapp.com/google-plus-feed/" + feedVars.google_plus_page_id,
+        url: "https://g5-social-feed-service.herokuapp.com/google-plus-feed/" + feedVars.google_plus_page_id,
         dataType: 'json',
         success: function(data) {
           if (data.length > 0) {
