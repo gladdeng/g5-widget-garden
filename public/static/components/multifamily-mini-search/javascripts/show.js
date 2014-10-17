@@ -1,5 +1,5 @@
 (function() {
-  var citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, radioButtonBuilder, searchSubmittal;
+  var citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, radioButtonBuilder, radioButtonListener, searchSubmittal;
 
   $(function() {
     var miniSearchConfigs,
@@ -25,10 +25,27 @@
       if (altSearchVals.indexOf('') === -1) {
         radioButtons = "<div class='search-type-radio-buttons'>                        <input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>                        <label for='default-search'>" + configs.defaultSearchOption + "</label>                        <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>                        <label for='alternate-search'>" + configs.alternateSearchOption + "</label>                      </div>";
         $(radioButtons).insertAfter($('.multifamily-mini-search h2'));
+        new radioButtonListener(configs);
       }
     }
 
     return radioButtonBuilder;
+
+  })();
+
+  radioButtonListener = (function() {
+    function radioButtonListener(configs) {
+      this.configs = configs;
+      if (configs.alternateSearchButtonText !== "") {
+        this.setupListener();
+      }
+    }
+
+    radioButtonListener.prototype.setupListener = function() {
+      return alert(this.configs.alternateSearchButtonText);
+    };
+
+    return radioButtonListener;
 
   })();
 

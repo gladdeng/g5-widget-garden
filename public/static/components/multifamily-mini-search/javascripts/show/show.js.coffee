@@ -27,6 +27,14 @@ class radioButtonBuilder
                       </div>"
 
       $(radioButtons).insertAfter($('.multifamily-mini-search h2'))
+      new radioButtonListener(configs)
+
+class radioButtonListener
+  constructor: (@configs) ->
+    @setupListener() if configs.alternateSearchButtonText != ""
+
+  setupListener: ->
+    alert @configs.alternateSearchButtonText
 
 class corpSearchMarkupBuilder
   constructor: (data, configs) ->
