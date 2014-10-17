@@ -18,8 +18,8 @@
       <a href="https://plus.google.com/{{ widget.google_plus_id.value | url_encode }}" class="google-plus" title="Google Plus" rel="me" target="_blank">Google Plus</a>
     {% endif %}
 
-    {% if widget.linkedin_username.value != ""  %}
-      <a href="http://www.linkedin.com/in/{{ widget.linkedin_username.value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
+    {% if widget.linkedin_url.value != ""  %}
+      <a href="{{widget.linkedin_url.value}}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
     {% endif %}
   </div>
   {% endif %}
