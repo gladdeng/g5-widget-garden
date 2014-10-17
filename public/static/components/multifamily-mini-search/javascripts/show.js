@@ -34,15 +34,35 @@
   })();
 
   radioButtonListener = (function() {
+    var changeButtonText;
+
     function radioButtonListener(configs) {
-      this.configs = configs;
       if (configs.alternateSearchButtonText !== "") {
-        this.setupListener();
+        this.setupListener(configs);
       }
     }
 
-    radioButtonListener.prototype.setupListener = function() {
-      return alert(this.configs.alternateSearchButtonText);
+    radioButtonListener.prototype.setupListener = function(configs) {
+      var buttons;
+      buttons = $(".search-type-radio-buttons input[type='radio']");
+      return buttons.change(function() {
+        return changeButtonText(configs);
+      });
+    };
+
+    changeButtonText = function(configs) {
+      var buttonValue, newButtonText;
+      buttonValue = $(".search-type-radio-buttons input[type='radio']:checked").val();
+      newButtonText = (function() {
+        switch (false) {
+          case buttonValue !== 'default-search':
+            return 'Search';
+          case buttonValue !== 'alternate-search':
+            return configs.alternateSearchButtonText;
+        }
+      })();
+      $(".multifamily-mini-search button").html(newButtonText);
+      return $(".multifamily-mini-search span.city, .multifamily-mini-search span.state").toggle("fast");
     };
 
     return radioButtonListener;
