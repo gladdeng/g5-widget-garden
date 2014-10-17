@@ -41,7 +41,12 @@
   {% endif %}
 
   {% if widget.linkedin_username.value != ""  %}
-    <a href="http://www.linkedin.com/in/{{ widget.linkedin_username.value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
+    {% if widget.linkedin_account_type.value == "INDIVIDUAL"  %}
+      <a href="http://www.linkedin.com/in/{{ widget.linkedin_username.value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
+    {% else %}
+      <a href="http://www.linkedin.com/company/{{ widget.linkedin_username.value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
+    {% endif %}
   {% endif %}
 
 </div>
+

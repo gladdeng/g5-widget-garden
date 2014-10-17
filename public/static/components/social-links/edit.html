@@ -130,6 +130,30 @@
       value="{{ widget.linkedin_username.value }}"
     />
   </div>
+  <div class="field check-field">
+    <label>LinkedIn Account Type</label>
+    {{widget.linkedin_account_type.id_hidden_field}}
+    <label for="{{ widget.linkedin_account_type.value_field_id }}_individual" >
+      Individual
+    </label>
+    <input type="radio"
+      id="{{ widget.linkedin_account_type.value_field_id }}_individual"
+      name="{{ widget.linkedin_account_type.value_field_name }}"
+      value="INDIVIDUAL"
+      checked="checked"
+    />
+    <label for="{{ widget.linkedin_account_type.value_field_id }}_company" >
+      Company
+    </label>
+    <input type="radio"
+      id="{{ widget.linkedin_account_type.value_field_id }}_company"
+      name="{{ widget.linkedin_account_type.value_field_name }}"
+      value="COMPANY"
+      {% if widget.linkedin_account_type.value == "COMPANY" %}
+      checked="checked"
+      {% endif %}
+    />
+  </div>
 
   <input type="submit" value="Save" class="btn" />
 </form>
