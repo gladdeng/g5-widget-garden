@@ -1,5 +1,5 @@
 (function() {
-  var citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, radioButtonBuilder, searchSubmittal;
+  var citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, radioButtonBuilder, radioButtonListener, searchSubmittal;
 
   $(function() {
     var miniSearchConfigs,
@@ -25,10 +25,47 @@
       if (altSearchVals.indexOf('') === -1) {
         radioButtons = "<div class='search-type-radio-buttons'>                        <input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>                        <label for='default-search'>" + configs.defaultSearchOption + "</label>                        <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>                        <label for='alternate-search'>" + configs.alternateSearchOption + "</label>                      </div>";
         $(radioButtons).insertAfter($('.multifamily-mini-search h2'));
+        new radioButtonListener(configs);
       }
     }
 
     return radioButtonBuilder;
+
+  })();
+
+  radioButtonListener = (function() {
+    var changeButtonText;
+
+    function radioButtonListener(configs) {
+      if (configs.alternateSearchButtonText !== "") {
+        this.setupListener(configs);
+      }
+    }
+
+    radioButtonListener.prototype.setupListener = function(configs) {
+      var buttons;
+      buttons = $(".search-type-radio-buttons input[type='radio']");
+      return buttons.change(function() {
+        return changeButtonText(configs);
+      });
+    };
+
+    changeButtonText = function(configs) {
+      var buttonValue, newButtonText;
+      buttonValue = $(".search-type-radio-buttons input[type='radio']:checked").val();
+      newButtonText = (function() {
+        switch (false) {
+          case buttonValue !== 'default-search':
+            return 'Search';
+          case buttonValue !== 'alternate-search':
+            return configs.alternateSearchButtonText;
+        }
+      })();
+      $(".multifamily-mini-search button").html(newButtonText);
+      return $(".multifamily-mini-search span.city, .multifamily-mini-search span.state").toggle("fast");
+    };
+
+    return radioButtonListener;
 
   })();
 
