@@ -27,6 +27,24 @@ class radioButtonBuilder
                       </div>"
 
       $(radioButtons).insertAfter($('.multifamily-mini-search h2'))
+      new radioButtonListener(configs)
+
+class radioButtonListener
+  constructor: (configs) ->
+    @setupListener(configs) if configs.alternateSearchButtonText != ""
+
+  setupListener: (configs) ->
+    buttons = $(".search-type-radio-buttons input[type='radio']")
+    buttons.change( -> changeButtonText(configs) )
+
+  changeButtonText = (configs) ->
+    buttonValue = $(".search-type-radio-buttons input[type='radio']:checked").val()
+    newButtonText = switch
+      when buttonValue == 'default-search' then 'Search'
+      when buttonValue == 'alternate-search' then configs.alternateSearchButtonText
+
+    $(".multifamily-mini-search button").html(newButtonText)
+    $(".multifamily-mini-search span.city, .multifamily-mini-search span.state").toggle("fast")
 
 class corpSearchMarkupBuilder
   constructor: (data, configs) ->

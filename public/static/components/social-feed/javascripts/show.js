@@ -36,7 +36,7 @@
     BlogFetcher.prototype.fetch = function() {
       var _this = this;
       return $.ajax({
-        url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent(this.url),
+        url: '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent(this.url),
         dataType: 'json',
         success: function(data) {
           _this.feed = data.responseData.feed;
@@ -95,7 +95,7 @@
     function tweetInitializer(feedVars) {
       var _this = this;
       $.ajax({
-        url: "http://g5-social-feed-service.herokuapp.com/twitter-feed/" + feedVars.twitter_username,
+        url: "//g5-social-feed-service.herokuapp.com/twitter-feed/" + feedVars.twitter_username,
         dataType: "json",
         type: "GET",
         success: function(data) {
@@ -150,7 +150,7 @@
     getpage = function(feedVars) {
       var _this = this;
       return $.ajax({
-        url: "http://g5-social-feed-service.herokuapp.com/facebook-feed/" + feedVars.facebook_page_id,
+        url: "//g5-social-feed-service.herokuapp.com/facebook-feed/" + feedVars.facebook_page_id,
         dataType: 'json',
         success: function(data) {
           if (data.hasOwnProperty('data') && data.data.length > 0) {
@@ -209,7 +209,7 @@
     getpage = function(feedVars) {
       var _this = this;
       return $.ajax({
-        url: "http://g5-social-feed-service.herokuapp.com/google-plus-feed/" + feedVars.google_plus_page_id,
+        url: "//g5-social-feed-service.herokuapp.com/google-plus-feed/" + feedVars.google_plus_page_id,
         dataType: 'json',
         success: function(data) {
           if (data.length > 0) {

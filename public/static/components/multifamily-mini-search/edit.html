@@ -93,6 +93,19 @@
     </div>
 
     <div class="form-field">
+      {{ widget.alternate_search_button_text.id_hidden_field }}
+      <label for="{{ widget.alternate_search_button_text.value_field_id }}">
+        Alternate Search Button Text
+      </label>
+      <input type="text"
+        placeholder=""
+        id="{{ widget.alternate_search_button_text.value_field_id }}"
+        name="{{ widget.alternate_search_button_text.value_field_name }}"
+        value="{{ widget.alternate_search_button_text.value }}"
+      />
+    </div>
+
+    <div class="form-field">
       {{ widget.text_color.id_hidden_field }}
       <label for="{{ widget.text_color.value_field_id }}">
         Text Color
