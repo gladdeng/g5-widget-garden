@@ -1,6 +1,6 @@
 <div class="footer-info widget">
 
-  {% if widget.facebook_username.value != '' or widget.twitter_username.value != "" or widget.yelp_username.value != "" or widget.google_plus_id.value != "" %}
+  {% if widget.facebook_username.value != '' or widget.twitter_username.value != "" or widget.yelp_username.value != "" or widget.google_plus_id.value != "" or widget.linkedin_username.value != "" %}
   <div class="social-links">
     {% if widget.facebook_username.value != ""  %}
     <a href="http://facebook.com/{{ widget.facebook_username.value | url_encode }}" class="facebook" title="Facebook" rel="me" target="_blank">Facebook</a>
@@ -19,7 +19,11 @@
     {% endif %}
 
     {% if widget.linkedin_username.value != ""  %}
-      <a href="http://www.linkedin.com/in/{{ widget.linkedin_username.value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
+      {% if widget.linkedin_account_type.value == "INDIVIDUAL"  %}
+        <a href="http://www.linkedin.com/in/{{ widget.linkedin_username.value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
+      {% else %}
+        <a href="http://www.linkedin.com/company/{{ widget.linkedin_username.value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
+      {% endif %}
     {% endif %}
   </div>
   {% endif %}
