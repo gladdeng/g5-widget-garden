@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    return alert("Vegan, Straightedge, Idiot");
+    return $(".fluid-video").fitVids();
   });
 
 }).call(this);

@@ -1,2 +1,2 @@
 $ -> 
-  alert "Vegan, Straightedge, Idiot"
+  $(".fluid-video").fitVids()
