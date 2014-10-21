@@ -23,19 +23,6 @@
     />
   </div>
 
-  <!-- <div class="form-field">
-    {{ widget.source.id_hidden_field }}
-    <label for="{{ widget.source.value_field_id }}" >
-      Source
-    </label>
-    <input type="text"
-      id="{{ widget.source.value_field_id }}"
-      name="{{ widget.source.value_field_name }}"
-      value="{{ widget.source.value | url_encode }}"
-    />
-  </div> -->
-
-
   <div class="form-field">
     {{ widget.source.id_hidden_field }}
     <select id="{{ widget.source.value_field_id }}" name="{{ widget.source.value_field_name }}">
@@ -51,9 +38,5 @@
       
     </select>
   </div>
-
-
-
-
   <input type="submit" value="Save" class="btn" />
 </form>
