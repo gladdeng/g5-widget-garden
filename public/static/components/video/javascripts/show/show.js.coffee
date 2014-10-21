@@ -1,0 +1,2 @@
+$ -> 
+  alert "Vegan, Straightedge, Idiot"
