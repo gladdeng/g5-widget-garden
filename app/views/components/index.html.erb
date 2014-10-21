@@ -1,3 +1,11 @@
+<%= content_tag(:div, :id => 'toc') do %>
+  <ul>
+  <% @components.each do |component| %>
+    <li><a href='<%= "\##{component.try(:widget_id)}".html_safe %>'><%= component.try(:name) %></a></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <% @components.each do |component| %>
   <%= render partial: "component", locals: { component: component } %>
 <% end %>
