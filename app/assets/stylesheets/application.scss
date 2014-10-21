@@ -37,7 +37,7 @@ dl dd dl dd dl dd dl dt {
 
 #toc {
   position: fixed;
-  top: 10px;
+  top: 2%;
   right: 20px;
   max-width: 200px;
   max-height: 96%;
@@ -61,6 +61,7 @@ dl dd dl dd dl dd dl dt {
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   font-size: 0.8em;
+  box-sizing: border-box;
   ul {
     list-style: none;
     margin: 0;
@@ -76,9 +77,9 @@ dl dd dl dd dl dd dl dt {
 }
 
 .well {
-  margin-right: 200px;
+  margin-right: 190px;
 }
 
 .navbar {
-  margin-right: 200px;
+  margin-right: 190px;
 }
