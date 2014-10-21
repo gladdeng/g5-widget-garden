@@ -1,9 +1,8 @@
-{% if widget.video_id.value != "" %}
-  {% if widget.video_title.value != "" %}
-    <h2>{{ widget.video_title.value }}</h2>
-  {% endif %}
-
-  <div class="fluid-video">
+<div class="video fluid-video widget h-media">
+  {% if widget.video_id.value != "" %}
+    {% if widget.video_title.value != "" %}
+      <h2>{{ widget.video_title.value }}</h2>
+    {% endif %}
     <iframe src="{{ widget.source.value }}{{ widget.video_id.value }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-  </div>
-{% endif %}
+  {% endif %}
+</div>
