@@ -200,7 +200,6 @@ class googlePlusFeedBuilder
 
     for post, index in dataFeed
       break if (index + 1) > @postLimit
-
       googleFeedList.push(@postTemplate(post.attributes, feedVars))
 
     googleBlock = "<div id='google-feed' class='google-feed feed-section' style='display:none;'>
