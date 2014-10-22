@@ -8,4 +8,4 @@ $ ->
       .fadeIn(1000)
       .end()
       .appendTo '.gallery-basic'
-    ), 3000
+    ), 7000
