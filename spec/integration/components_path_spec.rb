@@ -26,6 +26,12 @@ describe "components_path" do
       end
     end
 
+    it "has a widget_id" do
+      all(".h-g5-component").each do |widget|
+        expect(widget.find(".p-widget-id")).to be_present
+      end
+    end
+
     it "has a summary" do
       all(".h-g5-component").each do |widget|
         expect(widget.find(".p-summary")).to be_present
