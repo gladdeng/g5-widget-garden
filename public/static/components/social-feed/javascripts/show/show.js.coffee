@@ -224,6 +224,7 @@ class googlePlusFeedBuilder
         <div class='google-post'>#{post.object.content}</div>
       </li>"
 
+
 # GENERAL UTILITIES
 # *******************
 
