@@ -6,8 +6,8 @@
                                    html: {class: "u-url u-uid", rel: "bookmark"},
                                    body: component.name}) %>
     </h2>
-    <h3 class="p-id">
-      Widget ID: <%= component.try(:widget_id) %>
+    <h3>
+      Widget ID: <span class="p-widget-id"><%= component.try(:widget_id) %></span>
     </h3>
 
     <p class="p-widget-type"><%= component.try(:widget_type) %></p>
