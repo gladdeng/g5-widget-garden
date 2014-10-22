@@ -7,7 +7,7 @@
     <input type="text"
       id="{{ widget.gallery_title.value_field_id }}"
       name="{{ widget.gallery_title.value_field_name }}"
-      value="{{ widget.gallery_title.best_value }}"
+      value="{{ widget.gallery_title.value }}"
     />
   </div>
 
@@ -23,7 +23,7 @@
       id="{{ widget.gallery_thumbnails.value_field_id }}"
       name="{{ widget.gallery_thumbnails.value_field_name }}"
       value="yes"
-      {% if widget.gallery_thumbnails.best_value == "yes" %}
+      {% if widget.gallery_thumbnails.value == "yes" %}
       checked="checked"
       {% endif %}
     />
@@ -44,7 +44,7 @@
       id="{{ widget.gallery_mini.value_field_id }}"
       name="{{ widget.gallery_mini.value_field_name }}"
       value="yes"
-      {% if widget.gallery_mini.best_value == "yes" %}
+      {% if widget.gallery_mini.value == "yes" %}
       checked="checked"
       {% endif %}
     />
@@ -65,7 +65,7 @@
       id="{{ widget.gallery_carousel.value_field_id }}"
       name="{{ widget.gallery_carousel.value_field_name }}"
       value="yes"
-      {% if widget.gallery_carousel.best_value == "yes" %}
+      {% if widget.gallery_carousel.value == "yes" %}
       checked="checked"
       {% endif %}
     />
@@ -87,7 +87,7 @@
         <input type="url"
           id="{{ widget.gallery_photo1_url.value_field_id }}"
           name="{{ widget.gallery_photo1_url.value_field_name }}"
-          value="{{ widget.gallery_photo1_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo1_url.value | url_encode }}"
         />
       </div>
 
@@ -111,7 +111,7 @@
         <input type="text"
           id="{{ widget.gallery_photo1_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo1_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo1_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo1_alt_tag.value }}"
         />
       </div>
 
@@ -135,7 +135,7 @@
         <textarea
           id="{{ widget.gallery_photo1_caption.value_field_id }}"
           name="{{ widget.gallery_photo1_caption.value_field_name }}"
-        >{{ widget.gallery_photo1_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo1_caption.value }}</textarea>
       </div>
     </div>
 
@@ -148,7 +148,7 @@
         <input type="url"
           id="{{ widget.gallery_photo2_url.value_field_id }}"
           name="{{ widget.gallery_photo2_url.value_field_name }}"
-          value="{{ widget.gallery_photo2_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo2_url.value | url_encode }}"
         />
       </div>
 
@@ -172,7 +172,7 @@
         <input type="text"
           id="{{ widget.gallery_photo2_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo2_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo2_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo2_alt_tag.value }}"
         />
       </div>
 
@@ -196,7 +196,7 @@
         <textarea
           id="{{ widget.gallery_photo2_caption.value_field_id }}"
           name="{{ widget.gallery_photo2_caption.value_field_name }}"
-        >{{ widget.gallery_photo2_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo2_caption.value }}</textarea>
       </div>
     </div>
 
@@ -209,7 +209,7 @@
         <input type="url"
           id="{{ widget.gallery_photo3_url.value_field_id }}"
           name="{{ widget.gallery_photo3_url.value_field_name }}"
-          value="{{ widget.gallery_photo3_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo3_url.value | url_encode }}"
         />
       </div>
 
@@ -233,7 +233,7 @@
         <input type="text"
           id="{{ widget.gallery_photo3_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo3_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo3_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo3_alt_tag.value }}"
         />
       </div>
 
@@ -257,7 +257,7 @@
         <textarea
           id="{{ widget.gallery_photo3_caption.value_field_id }}"
           name="{{ widget.gallery_photo3_caption.value_field_name }}"
-        >{{ widget.gallery_photo3_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo3_caption.value }}</textarea>
       </div>
     </div>
 
@@ -270,7 +270,7 @@
         <input type="url"
           id="{{ widget.gallery_photo4_url.value_field_id }}"
           name="{{ widget.gallery_photo4_url.value_field_name }}"
-          value="{{ widget.gallery_photo4_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo4_url.value | url_encode }}"
         />
       </div>
 
@@ -294,7 +294,7 @@
         <input type="text"
           id="{{ widget.gallery_photo4_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo4_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo4_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo4_alt_tag.value }}"
         />
       </div>
 
@@ -318,7 +318,7 @@
         <textarea
           id="{{ widget.gallery_photo4_caption.value_field_id }}"
           name="{{ widget.gallery_photo4_caption.value_field_name }}"
-        >{{ widget.gallery_photo4_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo4_caption.value }}</textarea>
       </div>
     </div>
 
@@ -331,7 +331,7 @@
         <input type="url"
           id="{{ widget.gallery_photo5_url.value_field_id }}"
           name="{{ widget.gallery_photo5_url.value_field_name }}"
-          value="{{ widget.gallery_photo5_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo5_url.value | url_encode }}"
         />
       </div>
 
@@ -355,7 +355,7 @@
         <input type="text"
           id="{{ widget.gallery_photo5_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo5_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo5_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo5_alt_tag.value }}"
         />
       </div>
 
@@ -379,7 +379,7 @@
         <textarea
           id="{{ widget.gallery_photo5_caption.value_field_id }}"
           name="{{ widget.gallery_photo5_caption.value_field_name }}"
-        >{{ widget.gallery_photo5_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo5_caption.value }}</textarea>
       </div>
     </div>
 
@@ -392,7 +392,7 @@
         <input type="url"
           id="{{ widget.gallery_photo6_url.value_field_id }}"
           name="{{ widget.gallery_photo6_url.value_field_name }}"
-          value="{{ widget.gallery_photo6_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo6_url.value | url_encode }}"
         />
       </div>
 
@@ -416,7 +416,7 @@
         <input type="text"
           id="{{ widget.gallery_photo6_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo6_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo6_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo6_alt_tag.value }}"
         />
       </div>
 
@@ -440,7 +440,7 @@
         <textarea
           id="{{ widget.gallery_photo6_caption.value_field_id }}"
           name="{{ widget.gallery_photo6_caption.value_field_name }}"
-        >{{ widget.gallery_photo6_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo6_caption.value }}</textarea>
       </div>
     </div>
 
@@ -453,7 +453,7 @@
         <input type="url"
           id="{{ widget.gallery_photo7_url.value_field_id }}"
           name="{{ widget.gallery_photo7_url.value_field_name }}"
-          value="{{ widget.gallery_photo7_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo7_url.value | url_encode }}"
         />
       </div>
 
@@ -477,7 +477,7 @@
         <input type="text"
           id="{{ widget.gallery_photo7_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo7_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo7_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo7_alt_tag.value }}"
         />
       </div>
 
@@ -501,7 +501,7 @@
         <textarea
           id="{{ widget.gallery_photo7_caption.value_field_id }}"
           name="{{ widget.gallery_photo7_caption.value_field_name }}"
-        >{{ widget.gallery_photo7_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo7_caption.value }}</textarea>
       </div>
     </div>
 
@@ -514,7 +514,7 @@
         <input type="url"
           id="{{ widget.gallery_photo8_url.value_field_id }}"
           name="{{ widget.gallery_photo8_url.value_field_name }}"
-          value="{{ widget.gallery_photo8_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo8_url.value | url_encode }}"
         />
       </div>
 
@@ -538,7 +538,7 @@
         <input type="text"
           id="{{ widget.gallery_photo8_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo8_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo8_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo8_alt_tag.value }}"
         />
       </div>
 
@@ -562,7 +562,7 @@
         <textarea
           id="{{ widget.gallery_photo8_caption.value_field_id }}"
           name="{{ widget.gallery_photo8_caption.value_field_name }}"
-        >{{ widget.gallery_photo8_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo8_caption.value }}</textarea>
       </div>
     </div>
 
@@ -575,7 +575,7 @@
         <input type="url"
           id="{{ widget.gallery_photo9_url.value_field_id }}"
           name="{{ widget.gallery_photo9_url.value_field_name }}"
-          value="{{ widget.gallery_photo9_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo9_url.value | url_encode }}"
         />
       </div>
 
@@ -599,7 +599,7 @@
         <input type="text"
           id="{{ widget.gallery_photo9_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo9_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo9_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo9_alt_tag.value }}"
         />
       </div>
 
@@ -623,7 +623,7 @@
         <textarea
           id="{{ widget.gallery_photo9_caption.value_field_id }}"
           name="{{ widget.gallery_photo9_caption.value_field_name }}"
-        >{{ widget.gallery_photo9_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo9_caption.value }}</textarea>
       </div>
     </div>
 
@@ -636,7 +636,7 @@
         <input type="url"
           id="{{ widget.gallery_photo10_url.value_field_id }}"
           name="{{ widget.gallery_photo10_url.value_field_name }}"
-          value="{{ widget.gallery_photo10_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo10_url.value | url_encode }}"
         />
       </div>
 
@@ -660,7 +660,7 @@
         <input type="text"
           id="{{ widget.gallery_photo10_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo10_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo10_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo10_alt_tag.value }}"
         />
       </div>
 
@@ -684,7 +684,7 @@
         <textarea
           id="{{ widget.gallery_photo10_caption.value_field_id }}"
           name="{{ widget.gallery_photo10_caption.value_field_name }}"
-        >{{ widget.gallery_photo10_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo10_caption.value }}</textarea>
       </div>
     </div>
 
@@ -697,7 +697,7 @@
         <input type="url"
           id="{{ widget.gallery_photo11_url.value_field_id }}"
           name="{{ widget.gallery_photo11_url.value_field_name }}"
-          value="{{ widget.gallery_photo11_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo11_url.value | url_encode }}"
         />
       </div>
 
@@ -721,7 +721,7 @@
         <input type="text"
           id="{{ widget.gallery_photo11_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo11_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo11_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo11_alt_tag.value }}"
         />
       </div>
 
@@ -745,7 +745,7 @@
         <textarea
           id="{{ widget.gallery_photo11_caption.value_field_id }}"
           name="{{ widget.gallery_photo11_caption.value_field_name }}"
-        >{{ widget.gallery_photo11_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo11_caption.value }}</textarea>
       </div>
     </div>
 
@@ -758,7 +758,7 @@
         <input type="url"
           id="{{ widget.gallery_photo12_url.value_field_id }}"
           name="{{ widget.gallery_photo12_url.value_field_name }}"
-          value="{{ widget.gallery_photo12_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo12_url.value | url_encode }}"
         />
       </div>
 
@@ -782,7 +782,7 @@
         <input type="text"
           id="{{ widget.gallery_photo12_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo12_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo12_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo12_alt_tag.value }}"
         />
       </div>
 
@@ -806,7 +806,7 @@
         <textarea
           id="{{ widget.gallery_photo12_caption.value_field_id }}"
           name="{{ widget.gallery_photo12_caption.value_field_name }}"
-        >{{ widget.gallery_photo12_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo12_caption.value }}</textarea>
       </div>
     </div>
 
@@ -819,7 +819,7 @@
         <input type="url"
           id="{{ widget.gallery_photo13_url.value_field_id }}"
           name="{{ widget.gallery_photo13_url.value_field_name }}"
-          value="{{ widget.gallery_photo13_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo13_url.value | url_encode }}"
         />
       </div>
 
@@ -843,7 +843,7 @@
         <input type="text"
           id="{{ widget.gallery_photo13_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo13_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo13_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo13_alt_tag.value }}"
         />
       </div>
 
@@ -867,7 +867,7 @@
         <textarea
           id="{{ widget.gallery_photo13_caption.value_field_id }}"
           name="{{ widget.gallery_photo13_caption.value_field_name }}"
-        >{{ widget.gallery_photo13_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo13_caption.value }}</textarea>
       </div>
     </div>
 
@@ -880,7 +880,7 @@
         <input type="url"
           id="{{ widget.gallery_photo14_url.value_field_id }}"
           name="{{ widget.gallery_photo14_url.value_field_name }}"
-          value="{{ widget.gallery_photo14_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo14_url.value | url_encode }}"
         />
       </div>
 
@@ -904,7 +904,7 @@
         <input type="text"
           id="{{ widget.gallery_photo14_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo14_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo14_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo14_alt_tag.value }}"
         />
       </div>
 
@@ -928,7 +928,7 @@
         <textarea
           id="{{ widget.gallery_photo14_caption.value_field_id }}"
           name="{{ widget.gallery_photo14_caption.value_field_name }}"
-        >{{ widget.gallery_photo14_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo14_caption.value }}</textarea>
       </div>
     </div>
 
@@ -941,7 +941,7 @@
         <input type="url"
           id="{{ widget.gallery_photo15_url.value_field_id }}"
           name="{{ widget.gallery_photo15_url.value_field_name }}"
-          value="{{ widget.gallery_photo15_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo15_url.value | url_encode }}"
         />
       </div>
 
@@ -965,7 +965,7 @@
         <input type="text"
           id="{{ widget.gallery_photo15_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo15_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo15_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo15_alt_tag.value }}"
         />
       </div>
 
@@ -989,7 +989,7 @@
         <textarea
           id="{{ widget.gallery_photo15_caption.value_field_id }}"
           name="{{ widget.gallery_photo15_caption.value_field_name }}"
-        >{{ widget.gallery_photo15_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo15_caption.value }}</textarea>
       </div>
     </div>
 
@@ -1002,7 +1002,7 @@
         <input type="url"
           id="{{ widget.gallery_photo16_url.value_field_id }}"
           name="{{ widget.gallery_photo16_url.value_field_name }}"
-          value="{{ widget.gallery_photo16_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo16_url.value | url_encode }}"
         />
       </div>
 
@@ -1026,7 +1026,7 @@
         <input type="text"
           id="{{ widget.gallery_photo16_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo16_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo16_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo16_alt_tag.value }}"
         />
       </div>
 
@@ -1050,7 +1050,7 @@
         <textarea
           id="{{ widget.gallery_photo16_caption.value_field_id }}"
           name="{{ widget.gallery_photo16_caption.value_field_name }}"
-        >{{ widget.gallery_photo16_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo16_caption.value }}</textarea>
       </div>
     </div>
 
@@ -1063,7 +1063,7 @@
         <input type="url"
           id="{{ widget.gallery_photo17_url.value_field_id }}"
           name="{{ widget.gallery_photo17_url.value_field_name }}"
-          value="{{ widget.gallery_photo17_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo17_url.value | url_encode }}"
         />
       </div>
 
@@ -1087,7 +1087,7 @@
         <input type="text"
           id="{{ widget.gallery_photo17_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo17_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo17_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo17_alt_tag.value }}"
         />
       </div>
 
@@ -1111,7 +1111,7 @@
         <textarea
           id="{{ widget.gallery_photo17_caption.value_field_id }}"
           name="{{ widget.gallery_photo17_caption.value_field_name }}"
-        >{{ widget.gallery_photo17_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo17_caption.value }}</textarea>
       </div>
     </div>
 
@@ -1124,7 +1124,7 @@
         <input type="url"
           id="{{ widget.gallery_photo18_url.value_field_id }}"
           name="{{ widget.gallery_photo18_url.value_field_name }}"
-          value="{{ widget.gallery_photo18_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo18_url.value | url_encode }}"
         />
       </div>
 
@@ -1148,7 +1148,7 @@
         <input type="text"
           id="{{ widget.gallery_photo18_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo18_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo18_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo18_alt_tag.value }}"
         />
       </div>
 
@@ -1172,7 +1172,7 @@
         <textarea
           id="{{ widget.gallery_photo18_caption.value_field_id }}"
           name="{{ widget.gallery_photo18_caption.value_field_name }}"
-        >{{ widget.gallery_photo18_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo18_caption.value }}</textarea>
       </div>
     </div>
 
@@ -1185,7 +1185,7 @@
         <input type="url"
           id="{{ widget.gallery_photo19_url.value_field_id }}"
           name="{{ widget.gallery_photo19_url.value_field_name }}"
-          value="{{ widget.gallery_photo19_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo19_url.value | url_encode }}"
         />
       </div>
 
@@ -1209,7 +1209,7 @@
         <input type="text"
           id="{{ widget.gallery_photo19_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo19_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo19_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo19_alt_tag.value }}"
         />
       </div>
 
@@ -1233,7 +1233,7 @@
         <textarea
           id="{{ widget.gallery_photo19_caption.value_field_id }}"
           name="{{ widget.gallery_photo19_caption.value_field_name }}"
-        >{{ widget.gallery_photo19_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo19_caption.value }}</textarea>
       </div>
     </div>
 
@@ -1246,7 +1246,7 @@
         <input type="url"
           id="{{ widget.gallery_photo20_url.value_field_id }}"
           name="{{ widget.gallery_photo20_url.value_field_name }}"
-          value="{{ widget.gallery_photo20_url.best_value | url_encode }}"
+          value="{{ widget.gallery_photo20_url.value | url_encode }}"
         />
       </div>
 
@@ -1270,7 +1270,7 @@
         <input type="text"
           id="{{ widget.gallery_photo20_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo20_alt_tag.value_field_name }}"
-          value="{{ widget.gallery_photo20_alt_tag.best_value }}"
+          value="{{ widget.gallery_photo20_alt_tag.value }}"
         />
       </div>
 
@@ -1294,7 +1294,7 @@
         <textarea
           id="{{ widget.gallery_photo20_caption.value_field_id }}"
           name="{{ widget.gallery_photo20_caption.value_field_name }}"
-        >{{ widget.gallery_photo20_caption.best_value }}</textarea>
+        >{{ widget.gallery_photo20_caption.value }}</textarea>
       </div>
     </div>
   </div>

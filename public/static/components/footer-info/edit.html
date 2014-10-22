@@ -8,7 +8,7 @@
     <input type="text"
       id="{{ widget.location_name.value_field_id }}"
       name="{{ widget.location_name.value_field_name }}"
-      value="{{ widget.location_name.best_value }}"
+      value="{{ widget.location_name.value }}"
     />
   </div>
 
@@ -20,7 +20,7 @@
     <input type="text"
       id="{{ widget.custom_link_1_text.value_field_id }}"
       name="{{ widget.custom_link_1_text.value_field_name }}"
-      value="{{ widget.custom_link_1_text.best_value }}"
+      value="{{ widget.custom_link_1_text.value }}"
       placeholder="e.g. Privacy Policy"
     />
   </div>
@@ -33,7 +33,7 @@
     <input type="url"
       id="{{ widget.custom_link_1_url.value_field_id }}"
       name="{{ widget.custom_link_1_url.value_field_name }}"
-      value="{{ widget.custom_link_1_url.best_value | url_encode }}"
+      value="{{ widget.custom_link_1_url.value | url_encode }}"
     />
   </div>
 
@@ -45,7 +45,7 @@
     <input type="text"
       id="{{ widget.custom_link_2_text.value_field_id }}"
       name="{{ widget.custom_link_2_text.value_field_name }}"
-      value="{{ widget.custom_link_2_text.best_value }}"
+      value="{{ widget.custom_link_2_text.value }}"
       placeholder="e.g. Terms and Conditions"
     />
   </div>
@@ -58,7 +58,7 @@
     <input type="url"
       id="{{ widget.custom_link_2_url.value_field_id }}"
       name="{{ widget.custom_link_2_url.value_field_name }}"
-      value="{{ widget.custom_link_2_url.best_value | url_encode }}"
+      value="{{ widget.custom_link_2_url.value | url_encode }}"
     />
   </div>
 
@@ -70,7 +70,7 @@
     <input type="text"
       id="{{ widget.twitter_username.value_field_id }}"
       name="{{ widget.twitter_username.value_field_name }}"
-      value="{{ widget.twitter_username.best_value }}"
+      value="{{ widget.twitter_username.value }}"
     />
   </div>
 
@@ -82,7 +82,7 @@
     <input type="text"
       id="{{ widget.facebook_username.value_field_id }}"
       name="{{ widget.facebook_username.value_field_name }}"
-      value="{{ widget.facebook_username.best_value }}"
+      value="{{ widget.facebook_username.value }}"
     />
   </div>
 
@@ -94,7 +94,7 @@
     <input type="text"
       id="{{ widget.yelp_username.value_field_id }}"
       name="{{ widget.yelp_username.value_field_name }}"
-      value="{{ widget.yelp_username.best_value }}"
+      value="{{ widget.yelp_username.value }}"
     />
   </div>
 
@@ -106,7 +106,7 @@
     <input type="text"
       id="{{ widget.google_plus_id.value_field_id }}"
       name="{{ widget.google_plus_id.value_field_name }}"
-      value="{{ widget.google_plus_id.best_value }}"
+      value="{{ widget.google_plus_id.value }}"
     />
   </div>
 
@@ -118,7 +118,32 @@
     <input type="text"
       id="{{ widget.linkedin_username.value_field_id }}"
       name="{{ widget.linkedin_username.value_field_name }}"
-      value="{{ widget.linkedin_username.best_value }}"
+      value="{{ widget.linkedin_username.value }}"
+    />
+  </div>
+
+  <div class="field check-field">
+    <label>LinkedIn Account Type</label>
+    {{widget.linkedin_account_type.id_hidden_field}}
+    <label for="{{ widget.linkedin_account_type.value_field_id }}_individual" >
+      Individual
+    </label>
+    <input type="radio"
+      id="{{ widget.linkedin_account_type.value_field_id }}_individual"
+      name="{{ widget.linkedin_account_type.value_field_name }}"
+      value="INDIVIDUAL"
+      checked="checked"
+    />
+    <label for="{{ widget.linkedin_account_type.value_field_id }}_company" >
+      Company
+    </label>
+    <input type="radio"
+      id="{{ widget.linkedin_account_type.value_field_id }}_company"
+      name="{{ widget.linkedin_account_type.value_field_name }}"
+      value="COMPANY"
+      {% if widget.linkedin_account_type.value == "COMPANY" %}
+      checked="checked"
+      {% endif %}
     />
   </div>
 
@@ -130,7 +155,7 @@
     <input type="text"
       id="{{ widget.client_name.value_field_id }}"
       name="{{ widget.client_name.value_field_name }}"
-      value="{{ widget.client_name.best_value }}"
+      value="{{ widget.client_name.value }}"
     />
   </div>
 
@@ -142,7 +167,7 @@
     <input type="url"
       id="{{ widget.corporate_url.value_field_id }}"
       name="{{ widget.corporate_url.value_field_name }}"
-      value="{{ widget.corporate_url.best_value | url_encode }}"
+      value="{{ widget.corporate_url.value | url_encode }}"
     />
   </div>
 
@@ -154,7 +179,7 @@
     <input type="url"
       id="{{ widget.corporate_logo_url.value_field_id }}"
       name="{{ widget.corporate_logo_url.value_field_name }}"
-      value="{{ widget.corporate_logo_url.best_value | url_encode }}"
+      value="{{ widget.corporate_logo_url.value | url_encode }}"
     />
   </div>
 
@@ -169,7 +194,7 @@
       id="{{ widget.display_dxm.value_field_id }}"
       name="{{ widget.display_dxm.value_field_name }}"
       value="true"
-      {% if widget.display_dxm.best_value == "true" %}
+      {% if widget.display_dxm.value == "true" %}
       checked="checked"
       {% endif %}
     />
@@ -189,7 +214,7 @@
       id="{{ widget.display_copyright.value_field_id }}"
       name="{{ widget.display_copyright.value_field_name }}"
       value="true"
-      {% if widget.display_copyright.best_value == "true" %}
+      {% if widget.display_copyright.value == "true" %}
       checked="checked"
       {% endif %}
     />
@@ -209,7 +234,7 @@
       id="{{ widget.display_housing_icon.value_field_id }}"
       name="{{ widget.display_housing_icon.value_field_name }}"
       value="true"
-      {% if widget.display_housing_icon.best_value == "true" %}
+      {% if widget.display_housing_icon.value == "true" %}
       checked="checked"
       {% endif %}
     />
@@ -229,7 +254,7 @@
       id="{{ widget.display_handicap_icon.value_field_id }}"
       name="{{ widget.display_handicap_icon.value_field_name }}"
       value="true"
-      {% if widget.display_handicap_icon.best_value == "true" %}
+      {% if widget.display_handicap_icon.value == "true" %}
       checked="checked"
       {% endif %}
     />

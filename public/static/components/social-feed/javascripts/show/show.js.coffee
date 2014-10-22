@@ -31,7 +31,7 @@ class BlogFetcher
     
   fetch: ->
     $.ajax
-      url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent(@url)
+      url: '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent(@url)
       dataType: 'json'
       success: (data) =>
         @feed = data.responseData.feed
@@ -85,7 +85,7 @@ class window.BlogInterface
 class tweetInitializer
   constructor: (feedVars) ->
     $.ajax
-      url: "http://g5-social-feed-service.herokuapp.com/twitter-feed/#{feedVars.twitter_username}"
+      url: "//g5-social-feed-service.herokuapp.com/twitter-feed/#{feedVars.twitter_username}"
       dataType: "json"
       type: "GET"
       success: (data) =>
@@ -134,7 +134,7 @@ class facebookInitializer
     
   getpage = (feedVars) ->
     $.ajax
-      url: "http://g5-social-feed-service.herokuapp.com/facebook-feed/#{feedVars.facebook_page_id}"
+      url: "//g5-social-feed-service.herokuapp.com/facebook-feed/#{feedVars.facebook_page_id}"
       dataType: 'json'
       success: (data) =>
         new facebookFeedBuilder(feedVars, data) if data.hasOwnProperty('data') && data.data.length > 0
@@ -183,7 +183,7 @@ class googlePlusInitializer
     
   getpage = (feedVars) ->
     $.ajax
-      url: "http://g5-social-feed-service.herokuapp.com/google-plus-feed/#{feedVars.google_plus_page_id}"
+      url: "//g5-social-feed-service.herokuapp.com/google-plus-feed/#{feedVars.google_plus_page_id}"
       dataType: 'json'
       success: (data) =>
         new googlePlusFeedBuilder(feedVars, data) if data.length > 0
@@ -195,11 +195,12 @@ class googlePlusFeedBuilder
                   </a>"
     $('.feed-switcher').append(googleTab)
 
+    @postLimit = feedVars.google_plus_post_limit
     googleFeedList = []
 
     for post, index in dataFeed
-      break if (index + 1) > feedVars.google_plus_post_limit
-      googleFeedList.push(postTemplate(post.attributes, feedVars))
+      break if (index + 1) > @postLimit
+      googleFeedList.push(@postTemplate(post.attributes, feedVars))
 
     googleBlock = "<div id='google-feed' class='google-feed feed-section' style='display:none;'>
                       <ul class='google-list'>
@@ -211,7 +212,11 @@ class googlePlusFeedBuilder
 
     new tabListener('#feed-switch-google', '#google-feed')
 
-  postTemplate = (post, feedVars) ->
+  postTemplate: (post, feedVars) ->
+    if typeof post.object.content == 'undefined' || post.object.content == ''
+      @postLimit += 1
+      return ""
+
     avatar = if feedVars.display_avatar then "<span class='post-thumb'><img src='#{post.actor.image.url}'/></span>" else ""
     " <li>
         #{avatar}

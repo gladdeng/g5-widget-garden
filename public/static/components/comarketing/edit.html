@@ -10,7 +10,7 @@
       id="{{ widget.display_navigation.value_field_id }}"
       name="{{ widget.display_navigation.value_field_name }}"
       value="true"
-      {% if widget.display_navigation.best_value == "true" %}
+      {% if widget.display_navigation.value == "true" %}
       checked="checked"
       {% endif %}
     />
@@ -28,7 +28,7 @@
       id="ckeditor"
       name="{{ widget.text.value_field_name }}"
      >
-      {{ widget.text.best_value }}
+      {{ widget.text.value }}
     </textarea>
   </div>
 
@@ -39,7 +39,7 @@
         id="{{ widget.included_locations.value_field_id }}{{ location.id}}"
         name="{{ widget.included_locations.value_field_name }}[]"
         value="{{ location.id }}"
-        {% assign locations_array = widget.included_locations.best_value %}
+        {% assign locations_array = widget.included_locations.value %}
         {% if locations_array contains location.id %}
          checked
         {% endif %}

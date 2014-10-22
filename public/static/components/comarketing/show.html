@@ -1,7 +1,7 @@
 <div class="comarketing widget">
-  {{ widget.text.best_value }}
+  {{ widget.text.value }}
 
-  {% for location_id in widget.included_locations.best_value %}
+  {% for location_id in widget.included_locations.value %}
     {% for location in widget.client_locations %}
       {% if location_id == location.id %}
       <h3><a href="{{location.website.heroku_url}}">{{ location.name }}</a></h3>
@@ -49,7 +49,7 @@
   <div class="canvas"></div>
 </div>
 
-{% if widget.display_navigation.best_value == "false" %}
+{% if widget.display_navigation.value == "false" %}
 <script type="text/javascript">
   document.getElementsByTagName('body')[0].className+=' hide-navigation'
 </script>

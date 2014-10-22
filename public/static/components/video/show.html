@@ -1,18 +1,18 @@
 <div class="video widget h-media" itemscope itemtype="http://schema.org/VideoObject">
 
-  {% if widget.video_title.best_value != "" %}
-    <p class="p-name" itemprop="name">{{ widget.video_title.best_value }}</p>
+  {% if widget.video_title.value != "" %}
+    <p class="p-name" itemprop="name">{{ widget.video_title.value }}</p>
   {% endif %}
 
   <video
-    {% if widget.video_width.best_value != "" %}width="{{ widget.video_width.best_value }}"{% endif %}
-    {% if widget.video_height.best_value != "" %}height="{{ widget.video_height.best_value }}"{% endif %}
+    {% if widget.video_width.value != "" %}width="{{ widget.video_width.value }}"{% endif %}
+    {% if widget.video_height.value != "" %}height="{{ widget.video_height.value }}"{% endif %}
     controls
     class="e-player"
     itemprop="video">
 
-    <source src="{{ widget.video_url.best_value | url_encode }}" type="video/{{ widget.video_type.best_value }}"/>
-    Video tag not supported. Download the video <a href="{{ widget.video_url.best_value | url_encode }}">here</a>
+    <source src="{{ widget.video_url.value | url_encode }}" type="video/{{ widget.video_type.value }}"/>
+    Video tag not supported. Download the video <a href="{{ widget.video_url.value | url_encode }}">here</a>
   </video>
 
 </div>
