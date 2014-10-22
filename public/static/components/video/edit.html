@@ -28,11 +28,11 @@
     <select id="{{ widget.source.value_field_id }}" name="{{ widget.source.value_field_name }}">
 
         <option value="//www.youtube.com/embed/"
-          {% if {{ widget.source.value | url_encode }} == "//www.youtube.com/embed/" %}
+          {% if widget.source.value == "//www.youtube.com/embed/" %}
             selected
           {% endif %} >YouTube</option>
         <option value="//player.vimeo.com/video/"
-          {% if {{ widget.source.value | url_encode }} == "//player.vimeo.com/video/" %}
+          {% if widget.source.value == "//player.vimeo.com/video/" %}
             selected
           {% endif %} >Vimeo</option>
       
