@@ -224,27 +224,30 @@
   })();
 
   googlePlusFeedBuilder = (function() {
-    var postTemplate;
-
     function googlePlusFeedBuilder(feedVars, dataFeed) {
       var googleBlock, googleFeedList, googleTab, index, post, _i, _len;
       googleTab = " <a class='feed-switch' id='feed-switch-google' href='#google-feed' title='Show Google Feed'>                    <svg enable-background='new 0 0 512 512' height='40' style='max-width:100%; max-height:100%;' version='1.1' viewBox='0 0 512 512' width='40' x='0px' xmlns='http://www.w3.org/2000/svg' y='0px'><path alt='google' class='social-feed-icon google-social-feed-icon' d='M462,141.347h-54.621v54.622h-27.311v-54.622h-54.622v-27.311h54.622V59.416h27.311v54.621H462V141.347z M307.583,367.26  c0,40.943-37.384,90.787-131.434,90.787C107.365,458.047,50,428.379,50,378.478c0-38.514,24.383-88.511,138.323-88.511 c-16.922-13.792-21.075-33.077-10.733-53.959c-66.714,0-100.879-39.222-100.879-89.023c0-48.731,36.242-93.032,110.15-93.032 c18.66,0,118.398,0,118.398,0l-26.457,27.77h-31.079c21.925,12.562,33.586,38.433,33.586,66.949 c0,26.175-14.413,47.375-34.983,63.279c-36.503,28.222-27.158,43.98,11.087,71.872C295.121,312.074,307.583,333.882,307.583,367.26 z M233.738,150.453c-5.506-41.905-32.806-76.284-64.704-77.243c-31.909-0.949-53.309,31.119-47.798,73.035 c5.509,41.905,35.834,71.178,67.749,72.139C220.882,219.333,239.242,192.363,233.738,150.453z M266.631,371.463 c0-34.466-31.441-67.317-84.192-67.317c-47.542-0.523-87.832,30.042-87.832,65.471c0,36.154,34.335,66.25,81.879,66.25 C237.267,435.866,266.631,407.617,266.631,371.463z'></path></svg>                  </a>";
       $('.feed-switcher').append(googleTab);
+      this.postLimit = feedVars.google_plus_post_limit;
       googleFeedList = [];
       for (index = _i = 0, _len = dataFeed.length; _i < _len; index = ++_i) {
         post = dataFeed[index];
-        if ((index + 1) > feedVars.google_plus_post_limit) {
+        if ((index + 1) > this.postLimit) {
           break;
         }
-        googleFeedList.push(postTemplate(post.attributes, feedVars));
+        googleFeedList.push(this.postTemplate(post.attributes, feedVars));
       }
       googleBlock = "<div id='google-feed' class='google-feed feed-section' style='display:none;'>                      <ul class='google-list'>                        " + (googleFeedList.join('')) + "                      </ul>                    </div>";
       $('.social-feed').append(googleBlock);
       new tabListener('#feed-switch-google', '#google-feed');
     }
 
-    postTemplate = function(post, feedVars) {
+    googlePlusFeedBuilder.prototype.postTemplate = function(post, feedVars) {
       var avatar;
+      if (typeof post.object.content === 'undefined' || post.object.content === '') {
+        this.postLimit += 1;
+        return "";
+      }
       avatar = feedVars.display_avatar ? "<span class='post-thumb'><img src='" + post.actor.image.url + "'/></span>" : "";
       return " <li>        " + avatar + "        <div class='google-name author-name'><a href='" + post.actor.url + "' class='author-name' target='_blank'>" + post.actor.displayName + " said:</a></div>        <div class='google-post'>" + post.object.content + "</div>      </li>";
     };
