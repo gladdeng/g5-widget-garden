@@ -16,11 +16,11 @@
         }
       }
 
-      var corpSearchPage = "{{ widget.corporate_map.best_value.corp_search_page }}".trim().length > 0
-      var coreClientId = !isNaN({{ widget.corporate_map.best_value.core_client_id }})
+      var corpSearchPage = "{{ widget.corp_search_page.value }}".trim().length > 0
+      var coreClientId = !isNaN({{ widget.core_client_id.value }})
 
       if(coreClientId && corpSearchPage) {
-        $.get( "//www.g5api.com/api/v0/client_locations?client_id={{ widget.corporate_map.best_value.core_client_id }}", function( data ) {
+        $.get( "//www.g5api.com/api/v0/client_locations?client_id={{ widget.core_client_id.value }}", function( data ) {
             corpMapConfig["selectedRegions"] = data.states.map(function(item){return item.name})
             hash = {};
             data.states.forEach(function(item){ 
@@ -28,7 +28,7 @@
             });
             corpMapConfig["locationCounts"] = hash
             corpMapConfig["onRegionClick"] = function(element, code, region) {
-              window.location.href = "/{{ widget.corporate_map.best_value.corp_search_page }}" + "?state=" + code.toUpperCase();
+              window.location.href = "/{{ widget.corp_search_page.value }}" + "?state=" + code.toUpperCase();
             }
             $('.corporate-map').vectorMap(corpMapConfig);
         });
