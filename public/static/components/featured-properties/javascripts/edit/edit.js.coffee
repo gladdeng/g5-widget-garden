@@ -6,13 +6,17 @@ class inputFields
 
 $ -> 
   galleryOptions = JSON.parse($('.featured-properties-config').html())
-  markup = ""
 
-  for photo, index in galleryOptions.photos
-    photoMarkup = new inputFields photo
-    markup += photoMarkup.markup()
+  $('.photo-fields .form-field').hide()
 
-  $('.photo-fields').append(markup)
+  $('.data-summary .hide-inputs, .data-summary .show-inputs, .data-summary img').click( ->
+    $(this).parent().siblings().slideToggle()
+    $(this).parent().find('.show-inputs, .hide-inputs').slideToggle()
+  )
+
+
+
+  
 
  
 

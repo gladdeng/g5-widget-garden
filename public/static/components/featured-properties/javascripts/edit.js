@@ -15,16 +15,13 @@
   })();
 
   $(function() {
-    var galleryOptions, index, markup, photo, photoMarkup, _i, _len, _ref;
+    var galleryOptions;
     galleryOptions = JSON.parse($('.featured-properties-config').html());
-    markup = "";
-    _ref = galleryOptions.photos;
-    for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
-      photo = _ref[index];
-      photoMarkup = new inputFields(photo);
-      markup += photoMarkup.markup();
-    }
-    return $('.photo-fields').append(markup);
+    $('.photo-fields .form-field').hide();
+    return $('.data-summary .hide-inputs, .data-summary .show-inputs, .data-summary img').click(function() {
+      $(this).parent().siblings().slideToggle();
+      return $(this).parent().find('.show-inputs, .hide-inputs').slideToggle();
+    });
   });
 
 }).call(this);
