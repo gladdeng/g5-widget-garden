@@ -55,6 +55,10 @@ describe "components_path" do
         expect(widget.all(".e-g5-property-group.h-g5-property-group")).to be_present
       end
     end
+
+    it "has all widget_id are unique" do
+      expect(all(".p-widget-id").map(&:text).uniq.length).to eq(all(".h-g5-component").length)
+    end
   end
 
   describe "some widgets" do
