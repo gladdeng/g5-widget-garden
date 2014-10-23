@@ -32,7 +32,6 @@
       id="{{ widget.photo_alt_tag.value_field_id }}"
       name="{{ widget.photo_alt_tag.value_field_name }}"
       value="{{ widget.photo_alt_tag.value }}"
-      required
     />
   </div>
 
@@ -84,6 +83,18 @@
         Block
       </label>
     </fieldset>
+  </div>
+
+  <div class="form-field">
+    {{ widget.photo_class.id_hidden_field }}
+    <label for="{{ widget.photo_class.value_field_id }}" >
+      Photo Class
+    </label>
+    <input type="text"
+      id="{{ widget.photo_class.value_field_id }}"
+      name="{{ widget.photo_class.value_field_name }}"
+      value="{{ widget.photo_class.value }}"
+    />
   </div>
 
   <input type="submit" value="Save" class="btn" />
