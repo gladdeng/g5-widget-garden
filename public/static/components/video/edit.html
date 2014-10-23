@@ -12,53 +12,31 @@
   </div>
 
   <div class="form-field">
-    {{ widget.video_url.id_hidden_field }}
-    <label for="{{ widget.video_url.value_field_id }}" >
-      URL
+    {{ widget.video_id.id_hidden_field }}
+    <label for="{{ widget.video_id.value_field_id }}" >
+      Video ID
     </label>
-    <input type="url"
-      id="{{ widget.video_url.value_field_id }}"
-      name="{{ widget.video_url.value_field_name }}"
-      value="{{ widget.video_url.value | url_encode }}"
+    <input type="text"
+      id="{{ widget.video_id.value_field_id }}"
+      name="{{ widget.video_id.value_field_name }}"
+      value="{{ widget.video_id.value }}"
     />
   </div>
 
   <div class="form-field">
-    {{ widget.video_type.id_hidden_field }}
-    <label for="{{ widget.video_type.value_field_id }}" >
-      Type
-    </label>
-    <input type="text"
-      id="{{ widget.video_type.value_field_id }}"
-      name="{{ widget.video_type.value_field_name }}"
-      value="{{ widget.video_type.value }}"
-      placeholder="mp4/webm/ogg"
-    />
-  </div>
+    {{ widget.source.id_hidden_field }}
+    <select id="{{ widget.source.value_field_id }}" name="{{ widget.source.value_field_name }}">
 
-  <div class="form-field">
-    {{ widget.video_width.id_hidden_field }}
-    <label for="{{ widget.video_width.value_field_id }}" >
-      Width
-    </label>
-    <input type="text"
-      id="{{ widget.video_width.value_field_id }}"
-      name="{{ widget.video_width.value_field_name }}"
-      value="{{ widget.video_width.value }}"
-    />
+        <option value="//www.youtube.com/embed/"
+          {% if widget.source.value == "//www.youtube.com/embed/" %}
+            selected
+          {% endif %} >YouTube</option>
+        <option value="//player.vimeo.com/video/"
+          {% if widget.source.value == "//player.vimeo.com/video/" %}
+            selected
+          {% endif %} >Vimeo</option>
+      
+    </select>
   </div>
-
-  <div class="form-field">
-    {{ widget.video_height.id_hidden_field }}
-    <label for="{{ widget.video_height.value_field_id }}" >
-      Height
-    </label>
-    <input type="text"
-      id="{{ widget.video_height.value_field_id }}"
-      name="{{ widget.video_height.value_field_name }}"
-      value="{{ widget.video_height.value }}"
-    />
-  </div>
-
   <input type="submit" value="Save" class="btn" />
 </form>

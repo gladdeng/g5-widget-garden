@@ -1,18 +1,8 @@
-<div class="video widget h-media" itemscope itemtype="http://schema.org/VideoObject">
-
-  {% if widget.video_title.value != "" %}
-    <p class="p-name" itemprop="name">{{ widget.video_title.value }}</p>
+<div class="video fluid-video widget h-media">
+  {% if widget.video_id.value != "" %}
+    {% if widget.video_title.value != "" %}
+      <h2>{{ widget.video_title.value }}</h2>
+    {% endif %}
+    <iframe src="{{ widget.source.value }}{{ widget.video_id.value }}?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
   {% endif %}
-
-  <video
-    {% if widget.video_width.value != "" %}width="{{ widget.video_width.value }}"{% endif %}
-    {% if widget.video_height.value != "" %}height="{{ widget.video_height.value }}"{% endif %}
-    controls
-    class="e-player"
-    itemprop="video">
-
-    <source src="{{ widget.video_url.value | url_encode }}" type="video/{{ widget.video_type.value }}"/>
-    Video tag not supported. Download the video <a href="{{ widget.video_url.value | url_encode }}">here</a>
-  </video>
-
 </div>
