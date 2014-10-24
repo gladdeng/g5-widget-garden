@@ -123,7 +123,7 @@
     return setMiniNavHeight(imageHeight, gallery);
   };
 
-  $(function() {
+  $(window).load(function() {
     var galleries;
     galleries = $('.gallery');
     return galleries.each(function() {
