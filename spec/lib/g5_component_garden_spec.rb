@@ -44,16 +44,6 @@ describe G5ComponentGarden do
       end
     end
 
-    describe "#widget_id" do
-      it "is a Text Property" do
-        component.widget_id.should be_an_instance_of Microformats2::Property::Text
-      end
-
-      it "contains the name" do
-        component.widget_id.to_s.should == "1"
-      end
-    end
-
     describe "#photo" do
       it "is a Url Property" do
         component.photo.should be_an_instance_of Microformats2::Property::Url

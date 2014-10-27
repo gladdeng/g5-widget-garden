@@ -1,14 +1,10 @@
 <article class="h-g5-component well">
-  <a name="<%= component.try(:widget_id) %>"></a>
   <header>
     <h2 class="p-name">
       <%= component.resource_link({url: component_url(component.g5_uid),
                                    html: {class: "u-url u-uid", rel: "bookmark"},
                                    body: component.name}) %>
     </h2>
-    <h3>
-      Widget ID: <span class="p-widget-id"><%= component.try(:widget_id) %></span>
-    </h3>
 
     <p class="p-widget-type"><%= component.try(:widget_type) %></p>
 
