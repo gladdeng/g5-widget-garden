@@ -18,10 +18,13 @@ getStoreCoords = ->
     address: directionsConfig.address
     sensor: "false"
   ).done (data) ->
-    window.lat = data.results[0].geometry.location.lat
-    window.lng = data.results[0].geometry.location.lng
-    window.storeCoords = new google.maps.LatLng(window.lat, window.lng)
-    setupMap()
+    if data.results.length
+      window.lat = data.results[0].geometry.location.lat
+      window.lng = data.results[0].geometry.location.lng
+      window.storeCoords = new google.maps.LatLng(window.lat, window.lng)
+      setupMap()
+    else
+      showErrorMessage "The Store address for this Directions Widget is not set up correctly"
 
 getClientCoords = ->
   watchID = undefined
@@ -35,7 +38,14 @@ successCallback = (position) ->
   populateStartAddress coords
 
 errorCallback = (error) ->
+  showErrorMessage "Phyical location for the starting address not found"
   console.log "error detecting physical location"
+
+showErrorMessage = (message) ->
+  $(".directions-error").html(message).addClass('show') if message.length
+
+hideErrorMessage = ->
+  $(".directions-error").removeClass 'show'
 
 populateStartAddress = (latLng) ->
   address = undefined
@@ -49,6 +59,7 @@ populateStartAddress = (latLng) ->
         calcRoute();
 
 window.calcRoute = ->
+  hideErrorMessage
   directionsService = new google.maps.DirectionsService()
   start = document.getElementById("start").value
   end = window.storeCoords

@@ -1,5 +1,5 @@
 (function() {
-  var errorCallback, getClientCoords, getStoreCoords, populateStartAddress, setupMap, storeCoords, successCallback;
+  var errorCallback, getClientCoords, getStoreCoords, hideErrorMessage, populateStartAddress, setupMap, showErrorMessage, storeCoords, successCallback;
 
   window.getDirectionsCoords = function() {
     getStoreCoords();
@@ -24,10 +24,14 @@
       address: directionsConfig.address,
       sensor: "false"
     }).done(function(data) {
-      window.lat = data.results[0].geometry.location.lat;
-      window.lng = data.results[0].geometry.location.lng;
-      window.storeCoords = new google.maps.LatLng(window.lat, window.lng);
-      return setupMap();
+      if (data.results.length) {
+        window.lat = data.results[0].geometry.location.lat;
+        window.lng = data.results[0].geometry.location.lng;
+        window.storeCoords = new google.maps.LatLng(window.lat, window.lng);
+        return setupMap();
+      } else {
+        return showErrorMessage("The Store address for this Directions Widget is not set up correctly");
+      }
     });
   };
 
@@ -48,7 +52,18 @@
   };
 
   errorCallback = function(error) {
+    showErrorMessage("Phyical location for the starting address not found");
     return console.log("error detecting physical location");
+  };
+
+  showErrorMessage = function(message) {
+    if (message.length) {
+      return $(".directions-error").html(message).addClass('show');
+    }
+  };
+
+  hideErrorMessage = function() {
+    return $(".directions-error").removeClass('show');
   };
 
   populateStartAddress = function(latLng) {
@@ -67,6 +82,7 @@
   };
 
   window.calcRoute = function() {
+    hideErrorMessage;
     var directionsService, end, request, start;
     directionsService = new google.maps.DirectionsService();
     start = document.getElementById("start").value;

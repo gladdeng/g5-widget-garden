@@ -1,3 +1,24 @@
+.directions .clearfix:before, .directions .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.directions .clearfix:after {
+  clear: both;
+}
+
+.directions .directions-error {
+  display: none;
+  background:#FBE3E4;
+  color:#8a1f11;
+  border:1px solid #ff0000;
+  padding: .5em;
+}
+
+.directions .directions-error.show {
+  display: block;
+}
+
 .directions .canvas {
   width:100%;
   height:500px;
