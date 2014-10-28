@@ -1,7 +1,7 @@
-{% if widget.display_navigation.value == "true" %}
+{% if widget.display_corporate_navigation.value == "true" %}
   <nav class="corporate-navigation widget">
     <ul class="top-nav">
-      {% for web_page in widget.corporate-navigation.value %}
+      {% for web_page in widget.corporate_navigation %}
         {% if web_page[1].display != "false" and web_page[1].child_template? == false %}
         <li {% if web_page[1].child_templates != blank %}class="has-subnav"{% endif %}>
           <a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a>
@@ -49,4 +49,3 @@
     </ul>
   </nav>
 {% endif %}
-
