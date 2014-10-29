@@ -17,10 +17,16 @@ NAVIGATION =
   closeSubNav: ->
     @menu.find('.show-subnav').removeClass 'show-subnav'
 
+  trackNavEvents: (navItem) ->
+    try ga('send','event', 'Nav', 'Clicked', navItem.text()) catch err then
+
 $ ->
 
   NAVIGATION.menu.find("a[href$=\"/" + NAVIGATION.path + "\"]").addClass "active"
   NAVIGATION.setMenuHeight()
+
+  $('ul.top-nav').find('a').on "click", ->
+    NAVIGATION.trackNavEvents $(this)
 
   if $('.has-subnav').length > 0
     NAVIGATION.setupSubNav()
