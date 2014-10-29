@@ -93,6 +93,7 @@
 
         {% if widget.gallery_photo20_url.value != "" %}
         <li data-thumb="{% if widget.gallery_photo20_thumb_url.value != '' %}{{ widget.gallery_photo20_thumb_url.value | url_encode}}{% else %}{{ widget.gallery_photo20_url.value | url_encode}}{% endif %}"><img src="{{ widget.gallery_photo20_url.value | url_encode}}" alt="{{ widget.gallery_photo20_alt_tag.value }}" />{% if widget.gallery_photo20_title.value != '' %}<p class="flex-title">{{ widget.gallery_photo20_title.value }}</p>{% endif %}{% if widget.gallery_photo20_caption.value != '' %}<p class="flex-caption">{{ widget.gallery_photo20_caption.value }}</p>{% endif %}</li>
+        {% endif %}
       </ul>
     </div>
   </div>

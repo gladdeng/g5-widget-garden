@@ -26,6 +26,12 @@ describe "components_path" do
       end
     end
 
+    it "has a widget_id" do
+      all(".h-g5-component").each do |widget|
+        expect(widget.find(".p-widget-id")).to be_present
+      end
+    end
+
     it "has a summary" do
       all(".h-g5-component").each do |widget|
         expect(widget.find(".p-summary")).to be_present
@@ -48,6 +54,10 @@ describe "components_path" do
       all(".h-g5-component").each do |widget|
         expect(widget.all(".e-g5-property-group.h-g5-property-group")).to be_present
       end
+    end
+
+    it "has all widget_id are unique" do
+      expect(all(".p-widget-id").map(&:text).uniq.length).to eq(all(".h-g5-component").length)
     end
   end
 
