@@ -195,11 +195,12 @@ class googlePlusFeedBuilder
                   </a>"
     $('.feed-switcher').append(googleTab)
 
+    @postLimit = feedVars.google_plus_post_limit
     googleFeedList = []
 
     for post, index in dataFeed
-      break if (index + 1) > feedVars.google_plus_post_limit
-      googleFeedList.push(postTemplate(post.attributes, feedVars))
+      break if (index + 1) > @postLimit
+      googleFeedList.push(@postTemplate(post.attributes, feedVars))
 
     googleBlock = "<div id='google-feed' class='google-feed feed-section' style='display:none;'>
                       <ul class='google-list'>
@@ -211,7 +212,11 @@ class googlePlusFeedBuilder
 
     new tabListener('#feed-switch-google', '#google-feed')
 
-  postTemplate = (post, feedVars) ->
+  postTemplate: (post, feedVars) ->
+    if typeof post.object.content == 'undefined' || post.object.content == ''
+      @postLimit += 1
+      return ""
+
     avatar = if feedVars.display_avatar then "<span class='post-thumb'><img src='#{post.actor.image.url}'/></span>" else ""
     " <li>
         #{avatar}

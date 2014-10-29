@@ -74,7 +74,7 @@
     </label>
   </div>
 
-  <p class="note">To remove photos, simply delete the URL and Caption</p>
+  <p class="note">To remove photos, simply delete the URLs, Title and Caption</p>
 
   <div class="photo-fields">
 
@@ -92,6 +92,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo1_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo1_thumb_url.value_field_id }}" >
+          Photo 1 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo1_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo1_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo1_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo1_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo1_alt_tag.value_field_id }}" >
           Photo 1 Alt Tag
@@ -100,6 +112,18 @@
           id="{{ widget.gallery_photo1_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo1_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo1_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo1_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo1_title.value_field_id }}" >
+          Photo 1 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo1_title.value_field_id }}"
+          name="{{ widget.gallery_photo1_title.value_field_name }}"
+          value="{{ widget.gallery_photo1_title.best_value }}"
         />
       </div>
 
@@ -129,6 +153,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo2_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo2_thumb_url.value_field_id }}" >
+          Photo 2 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo2_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo2_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo2_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo2_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo2_alt_tag.value_field_id }}" >
           Photo 2 Alt Tag
@@ -137,6 +173,18 @@
           id="{{ widget.gallery_photo2_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo2_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo2_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo2_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo2_title.value_field_id }}" >
+          Photo 2 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo2_title.value_field_id }}"
+          name="{{ widget.gallery_photo2_title.value_field_name }}"
+          value="{{ widget.gallery_photo2_title.best_value }}"
         />
       </div>
 
@@ -166,6 +214,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo3_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo3_thumb_url.value_field_id }}" >
+          Photo 3 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo3_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo3_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo3_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo3_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo3_alt_tag.value_field_id }}" >
           Photo 3 Alt Tag
@@ -174,6 +234,18 @@
           id="{{ widget.gallery_photo3_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo3_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo3_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo3_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo3_title.value_field_id }}" >
+          Photo 3 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo3_title.value_field_id }}"
+          name="{{ widget.gallery_photo3_title.value_field_name }}"
+          value="{{ widget.gallery_photo3_title.best_value }}"
         />
       </div>
 
@@ -203,6 +275,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo4_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo4_thumb_url.value_field_id }}" >
+          Photo 4 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo4_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo4_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo4_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo4_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo4_alt_tag.value_field_id }}" >
           Photo 4 Alt Tag
@@ -211,6 +295,18 @@
           id="{{ widget.gallery_photo4_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo4_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo4_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo4_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo4_title.value_field_id }}" >
+          Photo 4 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo4_title.value_field_id }}"
+          name="{{ widget.gallery_photo4_title.value_field_name }}"
+          value="{{ widget.gallery_photo4_title.best_value }}"
         />
       </div>
 
@@ -240,6 +336,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo5_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo5_thumb_url.value_field_id }}" >
+          Photo 5 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo5_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo5_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo5_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo5_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo5_alt_tag.value_field_id }}" >
           Photo 5 Alt Tag
@@ -248,6 +356,18 @@
           id="{{ widget.gallery_photo5_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo5_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo5_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo5_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo5_title.value_field_id }}" >
+          Photo 5 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo5_title.value_field_id }}"
+          name="{{ widget.gallery_photo5_title.value_field_name }}"
+          value="{{ widget.gallery_photo5_title.best_value }}"
         />
       </div>
 
@@ -277,6 +397,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo6_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo6_thumb_url.value_field_id }}" >
+          Photo 6 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo6_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo6_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo6_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo6_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo6_alt_tag.value_field_id }}" >
           Photo 6 Alt Tag
@@ -285,6 +417,18 @@
           id="{{ widget.gallery_photo6_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo6_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo6_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo6_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo6_title.value_field_id }}" >
+          Photo 6 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo6_title.value_field_id }}"
+          name="{{ widget.gallery_photo6_title.value_field_name }}"
+          value="{{ widget.gallery_photo6_title.best_value }}"
         />
       </div>
 
@@ -314,6 +458,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo7_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo7_thumb_url.value_field_id }}" >
+          Photo 7 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo7_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo7_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo7_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo7_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo7_alt_tag.value_field_id }}" >
           Photo 7 Alt Tag
@@ -322,6 +478,18 @@
           id="{{ widget.gallery_photo7_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo7_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo7_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo7_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo7_title.value_field_id }}" >
+          Photo 7 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo7_title.value_field_id }}"
+          name="{{ widget.gallery_photo7_title.value_field_name }}"
+          value="{{ widget.gallery_photo7_title.best_value }}"
         />
       </div>
 
@@ -351,6 +519,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo8_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo8_thumb_url.value_field_id }}" >
+          Photo 8 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo8_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo8_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo8_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo8_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo8_alt_tag.value_field_id }}" >
           Photo 8 Alt Tag
@@ -359,6 +539,18 @@
           id="{{ widget.gallery_photo8_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo8_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo8_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo8_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo8_title.value_field_id }}" >
+          Photo 8 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo8_title.value_field_id }}"
+          name="{{ widget.gallery_photo8_title.value_field_name }}"
+          value="{{ widget.gallery_photo8_title.best_value }}"
         />
       </div>
 
@@ -388,6 +580,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo9_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo9_thumb_url.value_field_id }}" >
+          Photo 9 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo9_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo9_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo9_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo9_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo9_alt_tag.value_field_id }}" >
           Photo 9 Alt Tag
@@ -396,6 +600,18 @@
           id="{{ widget.gallery_photo9_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo9_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo9_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo9_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo9_title.value_field_id }}" >
+          Photo 9 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo9_title.value_field_id }}"
+          name="{{ widget.gallery_photo9_title.value_field_name }}"
+          value="{{ widget.gallery_photo9_title.best_value }}"
         />
       </div>
 
@@ -425,6 +641,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo10_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo10_thumb_url.value_field_id }}" >
+          Photo 10 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo10_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo10_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo10_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo10_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo10_alt_tag.value_field_id }}" >
           Photo 10 Alt Tag
@@ -433,6 +661,18 @@
           id="{{ widget.gallery_photo10_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo10_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo10_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo10_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo10_title.value_field_id }}" >
+          Photo 10 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo10_title.value_field_id }}"
+          name="{{ widget.gallery_photo10_title.value_field_name }}"
+          value="{{ widget.gallery_photo10_title.best_value }}"
         />
       </div>
 
@@ -462,6 +702,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo11_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo11_thumb_url.value_field_id }}" >
+          Photo 11 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo11_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo11_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo11_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo11_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo11_alt_tag.value_field_id }}" >
           Photo 11 Alt Tag
@@ -470,6 +722,18 @@
           id="{{ widget.gallery_photo11_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo11_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo11_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo11_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo11_title.value_field_id }}" >
+          Photo 11 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo11_title.value_field_id }}"
+          name="{{ widget.gallery_photo11_title.value_field_name }}"
+          value="{{ widget.gallery_photo11_title.best_value }}"
         />
       </div>
 
@@ -499,6 +763,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo12_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo12_thumb_url.value_field_id }}" >
+          Photo 12 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo12_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo12_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo12_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo12_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo12_alt_tag.value_field_id }}" >
           Photo 12 Alt Tag
@@ -507,6 +783,18 @@
           id="{{ widget.gallery_photo12_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo12_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo12_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo12_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo12_title.value_field_id }}" >
+          Photo 12 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo12_title.value_field_id }}"
+          name="{{ widget.gallery_photo12_title.value_field_name }}"
+          value="{{ widget.gallery_photo12_title.best_value }}"
         />
       </div>
 
@@ -536,6 +824,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo13_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo13_thumb_url.value_field_id }}" >
+          Photo 13 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo13_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo13_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo13_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo13_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo13_alt_tag.value_field_id }}" >
           Photo 13 Alt Tag
@@ -544,6 +844,18 @@
           id="{{ widget.gallery_photo13_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo13_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo13_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo13_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo13_title.value_field_id }}" >
+          Photo 13 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo13_title.value_field_id }}"
+          name="{{ widget.gallery_photo13_title.value_field_name }}"
+          value="{{ widget.gallery_photo13_title.best_value }}"
         />
       </div>
 
@@ -573,6 +885,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo14_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo14_thumb_url.value_field_id }}" >
+          Photo 14 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo14_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo14_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo14_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo14_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo14_alt_tag.value_field_id }}" >
           Photo 14 Alt Tag
@@ -581,6 +905,18 @@
           id="{{ widget.gallery_photo14_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo14_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo14_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo14_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo14_title.value_field_id }}" >
+          Photo 14 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo14_title.value_field_id }}"
+          name="{{ widget.gallery_photo14_title.value_field_name }}"
+          value="{{ widget.gallery_photo14_title.best_value }}"
         />
       </div>
 
@@ -610,6 +946,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo15_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo15_thumb_url.value_field_id }}" >
+          Photo 15 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo15_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo15_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo15_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo15_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo15_alt_tag.value_field_id }}" >
           Photo 15 Alt Tag
@@ -618,6 +966,18 @@
           id="{{ widget.gallery_photo15_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo15_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo15_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo15_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo15_title.value_field_id }}" >
+          Photo 15 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo15_title.value_field_id }}"
+          name="{{ widget.gallery_photo15_title.value_field_name }}"
+          value="{{ widget.gallery_photo15_title.best_value }}"
         />
       </div>
 
@@ -647,6 +1007,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo16_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo16_thumb_url.value_field_id }}" >
+          Photo 16 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo16_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo16_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo16_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo16_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo16_alt_tag.value_field_id }}" >
           Photo 16 Alt Tag
@@ -655,6 +1027,18 @@
           id="{{ widget.gallery_photo16_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo16_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo16_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo16_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo16_title.value_field_id }}" >
+          Photo 16 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo16_title.value_field_id }}"
+          name="{{ widget.gallery_photo16_title.value_field_name }}"
+          value="{{ widget.gallery_photo16_title.best_value }}"
         />
       </div>
 
@@ -684,6 +1068,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo17_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo17_thumb_url.value_field_id }}" >
+          Photo 17 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo17_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo17_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo17_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo17_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo17_alt_tag.value_field_id }}" >
           Photo 17 Alt Tag
@@ -692,6 +1088,18 @@
           id="{{ widget.gallery_photo17_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo17_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo17_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo17_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo17_title.value_field_id }}" >
+          Photo 17 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo17_title.value_field_id }}"
+          name="{{ widget.gallery_photo17_title.value_field_name }}"
+          value="{{ widget.gallery_photo17_title.best_value }}"
         />
       </div>
 
@@ -721,6 +1129,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo18_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo18_thumb_url.value_field_id }}" >
+          Photo 18 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo18_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo18_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo18_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo18_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo18_alt_tag.value_field_id }}" >
           Photo 18 Alt Tag
@@ -729,6 +1149,18 @@
           id="{{ widget.gallery_photo18_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo18_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo18_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo18_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo18_title.value_field_id }}" >
+          Photo 18 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo18_title.value_field_id }}"
+          name="{{ widget.gallery_photo18_title.value_field_name }}"
+          value="{{ widget.gallery_photo18_title.best_value }}"
         />
       </div>
 
@@ -758,6 +1190,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo19_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo19_thumb_url.value_field_id }}" >
+          Photo 19 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo19_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo19_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo19_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo19_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo19_alt_tag.value_field_id }}" >
           Photo 19 Alt Tag
@@ -766,6 +1210,18 @@
           id="{{ widget.gallery_photo19_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo19_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo19_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo19_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo19_title.value_field_id }}" >
+          Photo 19 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo19_title.value_field_id }}"
+          name="{{ widget.gallery_photo19_title.value_field_name }}"
+          value="{{ widget.gallery_photo19_title.best_value }}"
         />
       </div>
 
@@ -795,6 +1251,18 @@
       </div>
 
       <div class="form-field">
+        {{ widget.gallery_photo20_thumb_url.id_hidden_field }}
+        <label for="{{ widget.gallery_photo20_thumb_url.value_field_id }}" >
+          Photo 20 Thumbnail URL
+        </label>
+        <input type="url"
+          id="{{ widget.gallery_photo20_thumb_url.value_field_id }}"
+          name="{{ widget.gallery_photo20_thumb_url.value_field_name }}"
+          value="{{ widget.gallery_photo20_thumb_url.best_value | url_encode }}"
+        />
+      </div>
+
+      <div class="form-field">
         {{ widget.gallery_photo20_alt_tag.id_hidden_field }}
         <label for="{{ widget.gallery_photo20_alt_tag.value_field_id }}" >
           Photo 20 Alt Tag
@@ -803,6 +1271,18 @@
           id="{{ widget.gallery_photo20_alt_tag.value_field_id }}"
           name="{{ widget.gallery_photo20_alt_tag.value_field_name }}"
           value="{{ widget.gallery_photo20_alt_tag.value }}"
+        />
+      </div>
+
+      <div class="form-field">
+        {{ widget.gallery_photo20_title.id_hidden_field }}
+        <label for="{{ widget.gallery_photo20_title.value_field_id }}" >
+          Photo 20 Title
+        </label>
+        <input type="text"
+          id="{{ widget.gallery_photo20_title.value_field_id }}"
+          name="{{ widget.gallery_photo20_title.value_field_name }}"
+          value="{{ widget.gallery_photo20_title.best_value }}"
         />
       </div>
 
