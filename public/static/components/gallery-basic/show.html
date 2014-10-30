@@ -1,10 +1,8 @@
 <div class="gallery-basic widget">
 
-  {% if widget.gallery_photo1_url.value != '' %}
-  <figure>
+  <figure class="active">
     <img src="{{widget.gallery_photo1_url.value | url_encode}}" alt="{{widget.gallery_photo1_alt.value}}" />
   </figure>
-  {% endif %}
 
   {% if widget.gallery_photo2_url.value != '' %}
   <figure>

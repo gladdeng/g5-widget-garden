@@ -1,8 +1,14 @@
 (function() {
   $(function() {
-    $('.gallery-basic figure').hide().first().show();
     return setInterval((function() {
-      return $('.gallery-basic figure:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('.gallery-basic');
+      var $active, $next;
+      $active = $(".gallery-basic .active");
+      $next = ($active.next().length > 0 ? $active.next() : $(".gallery-basic figure:first"));
+      $next.css("z-index", 2);
+      return $active.fadeOut(1500, function() {
+        $active.css("z-index", 1).show().removeClass("active");
+        return $next.css("z-index", 3).addClass("active");
+      });
     }), 7000);
   });
 
