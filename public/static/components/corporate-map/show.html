@@ -28,7 +28,7 @@
             });
             corpMapConfig["locationCounts"] = hash
             corpMapConfig["onRegionClick"] = function(element, code, region) {
-              window.location.href = "/{{ widget.corp_search_page.value }}" + "?state=" + code.toUpperCase();
+              window.location.href = "/{{ widget.corp_search_page.value }}" + "/#/stores?state=" + code.toUpperCase();
             }
             $('.corporate-map').vectorMap(corpMapConfig);
         });
