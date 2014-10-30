@@ -14,22 +14,24 @@
         "onRegionClick": function(element, code, region) {
           window.location.href = "/" + code.toLowerCase();
         }
-      }
+      };
 
-      var corpSearchPage = "{{ widget.corp_search_page.value }}".trim().length > 0
-      var coreClientId = !isNaN({{ widget.core_client_id.value }})
+      var corpSearchPage = "{{ widget.corp_search_page.value }}".trim().length > 0;
+      var coreClientId = !isNaN({{ widget.core_client_id.value }});
 
       if(coreClientId && corpSearchPage) {
         $.get( "//www.g5api.com/api/v0/client_locations?client_id={{ widget.core_client_id.value }}", function( data ) {
-            corpMapConfig["selectedRegions"] = data.states.map(function(item){return item.name})
-            hash = {};
-            data.states.forEach(function(item){ 
-              hash[item.name] = item.location_count
+            corpMapConfig.selectedRegions = data.states.map(function(item){
+              return item.name;
             });
-            corpMapConfig["locationCounts"] = hash
-            corpMapConfig["onRegionClick"] = function(element, code, region) {
+            var hash = {};
+            data.states.forEach(function(item){ 
+              hash[item.name] = item.location_count;
+            });
+            corpMapConfig.locationCounts = hash;
+            corpMapConfig.onRegionClick = function(element, code, region) {
               window.location.href = "/{{ widget.corp_search_page.value }}" + "/#/stores?state=" + code.toUpperCase();
-            }
+            };
             $('.corporate-map').vectorMap(corpMapConfig);
         });
       } else {
