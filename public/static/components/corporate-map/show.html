@@ -37,7 +37,7 @@
           var coreClientId = !isNaN(corpMapSettings.coreClientId);
 
           if(coreClientId && corpSearchPage) {
-            var apiUrl = "http://www.g5api.com/api/v0/client_locations?client_id=" + corpMapSettings.coreClientId;
+            var apiUrl = "//www.g5api.com/api/v0/client_locations?client_id=" + corpMapSettings.coreClientId;
               $.ajax({
                 url: apiUrl,
                 dataType: 'json',
