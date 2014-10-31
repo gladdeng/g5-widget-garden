@@ -193,7 +193,8 @@ CUSTOM STYLES
     width: 50%;
     float: left;
   }
-  .mini-gallery .flex-title .flex-caption {
+  .mini-gallery .flex-title,
+  .mini-gallery .flex-caption {
     float: right;
     width: 50%;
   }
