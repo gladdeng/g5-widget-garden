@@ -21,7 +21,10 @@
             "selectedRegions": corpMapSettings.selectedRegions,
             "locationCounts": corpMapSettings.locationCounts,
             "onRegionClick": function(element, code, region) {
-              window.location.href = "/" + code.toLowerCase();
+              var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
+              if (match) {
+                window.location.href = "/" + code.toLowerCase();
+              }              
             }
           };
 
@@ -45,7 +48,10 @@
                   });
                   corpMapConfig.locationCounts = hash;
                   corpMapConfig.onRegionClick = function(element, code, region) {
-                    window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
+                    var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
+                    if (match) {
+                      window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
+                    };
                   };
                   $('.corporate-map').vectorMap(corpMapConfig);
                 },
