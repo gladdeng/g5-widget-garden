@@ -7,6 +7,11 @@
   </figure>
 
   {% if widget.gallery_photo2_url.value != '' %}
+  <!--
+    Set image url in the data-src attribute.
+    Set source to 1x1 transparent gif in base64 string.
+    This prevents a server request until the js loads the image.
+  -->
   <figure class="lazy-load">
     <img
       data-src="{{widget.gallery_photo2_url.value | url_encode}}" alt="{{widget.gallery_photo2_alt.value}}"
