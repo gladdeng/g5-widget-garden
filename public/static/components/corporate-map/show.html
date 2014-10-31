@@ -21,6 +21,7 @@
             "selectedRegions": corpMapSettings.selectedRegions,
             "locationCounts": corpMapSettings.locationCounts,
             "onRegionClick": function(element, code, region) {
+              $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
               var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
               if (match) {
                 window.location.href = "/" + code.toLowerCase();
@@ -48,6 +49,7 @@
                   });
                   corpMapConfig.locationCounts = hash;
                   corpMapConfig.onRegionClick = function(element, code, region) {
+                    $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
                     var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
                     if (match) {
                       window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
