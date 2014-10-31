@@ -25,6 +25,10 @@
             }
           };
 
+          if (("ontouchstart" in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)) {
+            corpMapConfig.showTooltip = false;
+          };
+
           var corpSearchPage = corpMapSettings.corpSearchPage.trim().length > 0;
           var coreClientId = !isNaN(corpMapSettings.coreClientId);
 
