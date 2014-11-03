@@ -1,15 +1,18 @@
 $ ->
   zipSearchConfigs = new ZipSearchConfigs
-  new searchButtonListener(zipSearchConfigs)
+  new SearchButtonListener(zipSearchConfigs)
+  new ZipSearchAjaxRequest(zipSearchConfigs)
 
-  if zipSearchConfigs.searchURL()
-    $.ajax
-      url: zipSearchConfigs.searchURL()
-      dataType: 'json'
-      success: (data) =>
-        new searchResultsList(zipSearchConfigs, data)
+class ZipSearchAjaxRequest
+  constructor: (zipSearchConfigs) ->
+    if zipSearchConfigs.searchURL()
+      $.ajax
+        url: zipSearchConfigs.searchURL()
+        dataType: 'json'
+        success: (data) =>
+          new SearchResultsList(zipSearchConfigs, data)
   
-class searchResultsList
+class SearchResultsList
   constructor: (@zipSearchConfigs, @data) ->
     @populateResults()
 
@@ -62,10 +65,12 @@ class ZipSearchConfigs
       search.toUpperCase()
     else
       ""
-class searchButtonListener
+
+class SearchButtonListener
   constructor: (@zipSearchConfigs) ->
     # set up the listener for the search button
     # account for mini and full versions
+    alert "POW!"
 
 
 

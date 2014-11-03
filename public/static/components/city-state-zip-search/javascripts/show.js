@@ -1,29 +1,39 @@
 (function() {
-  var ZipSearchConfigs, searchResultsList;
+  var SearchButtonListener, SearchResultsList, ZipSearchAjaxRequest, ZipSearchConfigs;
 
   $(function() {
-    var zipSearchConfigs,
-      _this = this;
+    var zipSearchConfigs;
     zipSearchConfigs = new ZipSearchConfigs;
-    if (zipSearchConfigs.searchURL()) {
-      return $.ajax({
-        url: zipSearchConfigs.searchURL(),
-        dataType: 'json',
-        success: function(data) {
-          return new searchResultsList(zipSearchConfigs, data);
-        }
-      });
-    }
+    new SearchButtonListener(zipSearchConfigs);
+    return new ZipSearchAjaxRequest(zipSearchConfigs);
   });
 
-  searchResultsList = (function() {
-    function searchResultsList(zipSearchConfigs, data) {
+  ZipSearchAjaxRequest = (function() {
+    function ZipSearchAjaxRequest(zipSearchConfigs) {
+      var _this = this;
+      if (zipSearchConfigs.searchURL()) {
+        $.ajax({
+          url: zipSearchConfigs.searchURL(),
+          dataType: 'json',
+          success: function(data) {
+            return new SearchResultsList(zipSearchConfigs, data);
+          }
+        });
+      }
+    }
+
+    return ZipSearchAjaxRequest;
+
+  })();
+
+  SearchResultsList = (function() {
+    function SearchResultsList(zipSearchConfigs, data) {
       this.zipSearchConfigs = zipSearchConfigs;
       this.data = data;
       this.populateResults();
     }
 
-    searchResultsList.prototype.populateResults = function() {
+    SearchResultsList.prototype.populateResults = function() {
       var index, location, markupHash, _i, _len, _ref;
       markupHash = [];
       if (this.data.success) {
@@ -41,7 +51,7 @@
       return $('.city-state-zip-search').append(markupHash.join(''));
     };
 
-    return searchResultsList;
+    return SearchResultsList;
 
   })();
 
@@ -85,6 +95,16 @@
     };
 
     return ZipSearchConfigs;
+
+  })();
+
+  SearchButtonListener = (function() {
+    function SearchButtonListener(zipSearchConfigs) {
+      this.zipSearchConfigs = zipSearchConfigs;
+      alert("POW!");
+    }
+
+    return SearchButtonListener;
 
   })();
 
