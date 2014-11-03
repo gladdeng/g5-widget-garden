@@ -3,7 +3,7 @@
     "clientURN": "{{ widget.client_urn.value }}",
     "searchResultsPage": "{{ widget.search_results_page.value }}",
     "serviceURL": "{{ widget.service_url.value }}",
-    "searcyhRadius": "{{ widget.search_radius.value }}"
+    "searchRadius": "{{ widget.search_radius.value }}"
   }
 </script>
 
@@ -12,6 +12,13 @@
   <p>"clientURN": "{{ widget.client_urn.value }}"</p>
   <p>"searchResultsPage": "{{ widget.search_results_page.value }}",</p>
   <p>"serviceURL": "{{ widget.service_url.value }}",</p>
-  <p>"searcyhRadius": "{{ widget.search_radius.value }}",</p>
+  <p>"searchRadius": "{{ widget.search_radius.value }}",</p>
+
+  <form class="zip-search-form">
+    <input type="text" name="search">
+    <button class="zip-search-button search">Search</button>
+  </form>
+
+  <div class="search-results"></div>
   
 </div>
