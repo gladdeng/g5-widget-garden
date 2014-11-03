@@ -98,20 +98,37 @@
 
   SearchButtonListener = (function() {
     function SearchButtonListener(zipSearchConfigs) {
-      var _this = this;
+      var searchButton,
+        _this = this;
+      searchButton = $('.city-state-zip-search .zip-search-button');
       if (zipSearchConfigs.configs.searchResultsPage === "") {
-        $('.city-state-zip-search .zip-search-button').click(function(event) {
+        searchButton.click(function(event) {
           event.preventDefault();
-          return _this.reloadResults(zipSearchConfigs);
+          return _this.renderResultsInline(zipSearchConfigs);
         });
       } else {
-        alert("gigity!");
+        searchButton.click(function(event) {
+          event.preventDefault();
+          return _this.bumpToSearchPage(zipSearchConfigs);
+        });
       }
     }
 
-    SearchButtonListener.prototype.reloadResults = function(zipSearchConfigs) {
-      zipSearchConfigs.search = $('.zip-search-form input[name=search]').val();
+    SearchButtonListener.prototype.userInput = function() {
+      return $('.zip-search-form input[name=search]').val();
+    };
+
+    SearchButtonListener.prototype.renderResultsInline = function(zipSearchConfigs) {
+      zipSearchConfigs.search = this.userInput;
       return new ZipSearchAjaxRequest(zipSearchConfigs);
+    };
+
+    SearchButtonListener.prototype.bumpToSearchPage = function(zipSearchConfigs) {
+      var radius, searchURL;
+      radius = zipSearchConfigs.getParameter("radius");
+      searchURL = zipSearchConfigs.configs.searchResultsPage;
+      searchURL += "?search=" + (this.userInput());
+      return window.location = searchURL;
     };
 
     return SearchButtonListener;

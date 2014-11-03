@@ -66,19 +66,31 @@ class ZipSearchConfigs
 
 class SearchButtonListener
   constructor: (zipSearchConfigs) ->
-    
+    searchButton = $('.city-state-zip-search .zip-search-button')
+
     if zipSearchConfigs.configs.searchResultsPage == ""
       # No searchResultsPage means we stay here on submit
-      $('.city-state-zip-search .zip-search-button').click( (event) =>
+      searchButton.click( (event) =>
         event.preventDefault() 
-        @reloadResults(zipSearchConfigs) )
+        @renderResultsInline(zipSearchConfigs) )
     else
-      alert "gigity!"
-      
+      # If searchResultsPage is populated, submit to that page
+      searchButton.click( (event) =>
+        event.preventDefault() 
+        @bumpToSearchPage(zipSearchConfigs) )
 
-  reloadResults: (zipSearchConfigs) ->
-    zipSearchConfigs.search = $('.zip-search-form input[name=search]').val()
+  userInput: () ->
+    $('.zip-search-form input[name=search]').val()
+      
+  renderResultsInline: (zipSearchConfigs) ->
+    zipSearchConfigs.search = @userInput
     new ZipSearchAjaxRequest(zipSearchConfigs)
+
+  bumpToSearchPage: (zipSearchConfigs) ->
+    radius = zipSearchConfigs.getParameter("radius")
+    searchURL = zipSearchConfigs.configs.searchResultsPage
+    searchURL += "?search=#{@userInput()}"
+    window.location = searchURL
     
     
 
