@@ -39,6 +39,7 @@ class ZipSearchConfigs
   constructor: () ->
     @configs = JSON.parse($('#zip-search-config').html())
     @search = @getParameter('search')
+    @serviceURL = if @configs.serviceURL == "" then "//g5-hub.herokuapp.com" else @configs.serviceURL
 
   getParameter: (name) ->
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")
@@ -52,7 +53,7 @@ class ZipSearchConfigs
     if @search == ""
       searchURL = null
     else
-      searchURL = "#{@configs.serviceURL}/clients/#{@configs.clientURN}/location_search.json?"
+      searchURL = "#{@serviceURL}/clients/#{@configs.clientURN}/location_search.json?"
       searchURL += "search=#{@search}"
       searchURL += "&radius=#{radius}" if radius != ""
     
@@ -83,7 +84,7 @@ class SearchButtonListener
     $('.zip-search-form input[name=search]').val()
       
   renderResultsInline: (zipSearchConfigs) ->
-    zipSearchConfigs.search = @userInput
+    zipSearchConfigs.search = @userInput()
     new ZipSearchAjaxRequest(zipSearchConfigs)
 
   bumpToSearchPage: (zipSearchConfigs) ->

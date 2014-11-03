@@ -59,6 +59,7 @@
     function ZipSearchConfigs() {
       this.configs = JSON.parse($('#zip-search-config').html());
       this.search = this.getParameter('search');
+      this.serviceURL = this.configs.serviceURL === "" ? "//g5-hub.herokuapp.com" : this.configs.serviceURL;
     }
 
     ZipSearchConfigs.prototype.getParameter = function(name) {
@@ -75,7 +76,7 @@
       if (this.search === "") {
         searchURL = null;
       } else {
-        searchURL = "" + this.configs.serviceURL + "/clients/" + this.configs.clientURN + "/location_search.json?";
+        searchURL = "" + this.serviceURL + "/clients/" + this.configs.clientURN + "/location_search.json?";
         searchURL += "search=" + this.search;
         if (radius !== "") {
           searchURL += "&radius=" + radius;
@@ -119,7 +120,7 @@
     };
 
     SearchButtonListener.prototype.renderResultsInline = function(zipSearchConfigs) {
-      zipSearchConfigs.search = this.userInput;
+      zipSearchConfigs.search = this.userInput();
       return new ZipSearchAjaxRequest(zipSearchConfigs);
     };
 

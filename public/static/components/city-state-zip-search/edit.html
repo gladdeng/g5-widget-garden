@@ -17,10 +17,10 @@
     <div class="form-field">
       {{ widget.search_results_page.id_hidden_field }}
       <label for="{{ widget.search_results_page.value_field_id }}">
-        Search Results Page
+        Search Results Page Path
       </label>
       <input type="text"
-        placeholder="/relative/path/to/search_page"
+        placeholder="Results render inline if blank"
         id="{{ widget.search_results_page.value_field_id }}"
         name="{{ widget.search_results_page.value_field_name }}"
         value="{{ widget.search_results_page.value }}"
@@ -33,7 +33,7 @@
         Search Service Domain
       </label>
       <input type="text"
-        placeholder="https://g5-hub.herokuapp.com"
+        placeholder="Defaults to //g5-hub.herokuapp.com if blank"
         id="{{ widget.service_url.value_field_id }}"
         name="{{ widget.service_url.value_field_name }}"
         value="{{ widget.service_url.value }}"
