@@ -48,7 +48,7 @@
         markupHash.push(" <p>" + location.name + "</p>                        <p>" + location.street_address_1 + "</p>                        <p>" + location.city + "</p>                        <p>" + location.state + "</p>                        <p>" + location.domain + "</p> ");
         markupHash.push("</div>");
       }
-      return $('.city-state-zip-search').append(markupHash.join(''));
+      return $('.city-state-zip-search .search-results').html(markupHash.join(''));
     };
 
     return SearchResultsList;
@@ -58,6 +58,7 @@
   ZipSearchConfigs = (function() {
     function ZipSearchConfigs() {
       this.configs = JSON.parse($('#zip-search-config').html());
+      this.search = this.getParameter('search');
     }
 
     ZipSearchConfigs.prototype.getParameter = function(name) {
@@ -69,14 +70,13 @@
     };
 
     ZipSearchConfigs.prototype.searchURL = function() {
-      var radius, search, searchURL;
-      search = this.getParameter("search");
+      var radius, searchURL;
       radius = this.getParameter("radius");
-      if (search === "") {
+      if (this.search === "") {
         searchURL = null;
       } else {
         searchURL = "" + this.configs.serviceURL + "/clients/" + this.configs.clientURN + "/location_search.json?";
-        searchURL += "search=" + search;
+        searchURL += "search=" + this.search;
         if (radius !== "") {
           searchURL += "&radius=" + radius;
         }
@@ -85,10 +85,8 @@
     };
 
     ZipSearchConfigs.prototype.searchArea = function() {
-      var search;
-      search = this.getParameter('search');
-      if (search) {
-        return search.toUpperCase();
+      if (this.search) {
+        return this.search.toUpperCase();
       } else {
         return "";
       }
@@ -100,9 +98,21 @@
 
   SearchButtonListener = (function() {
     function SearchButtonListener(zipSearchConfigs) {
-      this.zipSearchConfigs = zipSearchConfigs;
-      alert("POW!");
+      var _this = this;
+      if (zipSearchConfigs.configs.searchResultsPage === "") {
+        $('.city-state-zip-search .zip-search-button').click(function(event) {
+          event.preventDefault();
+          return _this.reloadResults(zipSearchConfigs);
+        });
+      } else {
+        alert("gigity!");
+      }
     }
+
+    SearchButtonListener.prototype.reloadResults = function(zipSearchConfigs) {
+      zipSearchConfigs.search = $('.zip-search-form input[name=search]').val();
+      return new ZipSearchAjaxRequest(zipSearchConfigs);
+    };
 
     return SearchButtonListener;
 

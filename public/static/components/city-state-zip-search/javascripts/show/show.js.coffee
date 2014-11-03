@@ -33,11 +33,12 @@ class SearchResultsList
                         <p>#{location.domain}</p> ")
       markupHash.push("</div>")
 
-    $('.city-state-zip-search').append(markupHash.join(''))
+    $('.city-state-zip-search .search-results').html(markupHash.join(''))
 
 class ZipSearchConfigs
   constructor: () ->
     @configs = JSON.parse($('#zip-search-config').html())
+    @search = @getParameter('search')
 
   getParameter: (name) ->
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")
@@ -46,31 +47,40 @@ class ZipSearchConfigs
     value = if results == null then "" else decodeURIComponent(results[1].replace(/\+/g, " "))
 
   searchURL: () ->
-    search = @getParameter("search")
     radius = @getParameter("radius")
 
-    if search == ""
+    if @search == ""
       searchURL = null
     else
       searchURL = "#{@configs.serviceURL}/clients/#{@configs.clientURN}/location_search.json?"
-      searchURL += "search=#{search}"
+      searchURL += "search=#{@search}"
       searchURL += "&radius=#{radius}" if radius != ""
     
     searchURL
 
   searchArea: () ->
-    search = @getParameter('search')
-
-    if search
-      search.toUpperCase()
+    if @search
+      @search.toUpperCase()
     else
       ""
 
 class SearchButtonListener
-  constructor: (@zipSearchConfigs) ->
-    # set up the listener for the search button
-    # account for mini and full versions
-    alert "POW!"
+  constructor: (zipSearchConfigs) ->
+    
+    if zipSearchConfigs.configs.searchResultsPage == ""
+      # No searchResultsPage means we stay here on submit
+      $('.city-state-zip-search .zip-search-button').click( (event) =>
+        event.preventDefault() 
+        @reloadResults(zipSearchConfigs) )
+    else
+      alert "gigity!"
+      
+
+  reloadResults: (zipSearchConfigs) ->
+    zipSearchConfigs.search = $('.zip-search-form input[name=search]').val()
+    new ZipSearchAjaxRequest(zipSearchConfigs)
+    
+    
 
 
 
