@@ -1,7 +1,11 @@
 $ ->
+  # Grab settings from index.html
   zipSearchConfigs = new ZipSearchConfigs
+  # Set up listener for Search Button
   new SearchButtonListener(zipSearchConfigs)
+  # Get search results from g5-hub
   new ZipSearchAjaxRequest(zipSearchConfigs)
+  
 
 class ZipSearchAjaxRequest
   constructor: (zipSearchConfigs) ->
@@ -92,13 +96,3 @@ class SearchButtonListener
     searchURL = zipSearchConfigs.configs.searchResultsPage
     searchURL += "?search=#{@userInput()}"
     window.location = searchURL
-    
-    
-
-
-
-  
-
-
-
-
