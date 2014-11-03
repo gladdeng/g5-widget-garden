@@ -1,0 +1,58 @@
+<form>
+  <fieldset>
+
+    <div class="form-field">
+      {{ widget.client_urn.id_hidden_field }}
+      <label for="{{ widget.client_urn.value_field_id }}">
+        Client URN
+      </label>
+      <input type="text"
+        placeholder="g5-sh-4neb3ck3r-isatool"
+        id="{{ widget.client_urn.value_field_id }}"
+        name="{{ widget.client_urn.value_field_name }}"
+        value="{{ widget.client_urn.value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.search_results_page.id_hidden_field }}
+      <label for="{{ widget.search_results_page.value_field_id }}">
+        Search Results Page
+      </label>
+      <input type="text"
+        placeholder="/relative/path/to/search_page"
+        id="{{ widget.search_results_page.value_field_id }}"
+        name="{{ widget.search_results_page.value_field_name }}"
+        value="{{ widget.search_results_page.value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.service_url.id_hidden_field }}
+      <label for="{{ widget.service_url.value_field_id }}">
+        Search Service Domain
+      </label>
+      <input type="text"
+        placeholder="https://g5-hub.herokuapp.com"
+        id="{{ widget.service_url.value_field_id }}"
+        name="{{ widget.service_url.value_field_name }}"
+        value="{{ widget.service_url.value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.search_radius.id_hidden_field }}
+      <label for="{{ widget.search_radius.value_field_id }}">
+        Search Radius
+      </label>
+      <input type="text"
+        placeholder="Defaults to 20 if blank"
+        id="{{ widget.search_radius.value_field_id }}"
+        name="{{ widget.search_radius.value_field_name }}"
+        value="{{ widget.search_radius.value }}"
+      />
+    </div>
+
+  </fieldset>
+  <input type="submit" value="Save" class="btn" />
+</form>
