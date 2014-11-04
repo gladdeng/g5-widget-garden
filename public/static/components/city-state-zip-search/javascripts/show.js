@@ -35,6 +35,8 @@
       $('.city-state-zip-search').append("<div class='zip-search-map' id='map-canvas'></div>");
       this.mapCanvas = $('.zip-search-map')[0];
       this.bounds = new google.maps.LatLngBounds();
+      this.markers = [];
+      this.infowindows = [];
       mapOptions = {};
       this.map = new google.maps.Map(this.mapCanvas, mapOptions);
       this.setMarkers(this.data.locations);
@@ -42,7 +44,12 @@
     }
 
     SearchResultsMap.prototype.setMarkers = function(locations) {
-      var coordinates, index, infoWindowContent, infowindow, lat, location, long, marker, _i, _len, _results;
+      var coordinates, index, infowindow, infowindows, lat, location, long, marker, markers, openInfoWindow, _i, _len, _results;
+      markers = [];
+      infowindows = [];
+      openInfoWindow = function(index) {
+        return infowindows[index].open(this.map, markers[index]);
+      };
       _results = [];
       for (index = _i = 0, _len = locations.length; _i < _len; index = ++_i) {
         location = locations[index];
@@ -52,15 +59,16 @@
         marker = new google.maps.Marker({
           position: coordinates,
           map: this.map,
-          title: 'Hello World!'
+          index: index
         });
+        markers.push(marker);
         this.bounds.extend(marker.position);
-        infoWindowContent = this.infoWindowContent(location);
         infowindow = new google.maps.InfoWindow({
-          content: infoWindowContent
+          content: this.infoWindowContent(location)
         });
-        _results.push(google.maps.event.addListener(marker, 'click', function() {
-          return infowindow.open(this.map, marker);
+        infowindows.push(infowindow);
+        _results.push(google.maps.event.addListener(markers[index], 'click', function() {
+          return infowindows[this.index].open(this.map, markers[this.index]);
         }));
       }
       return _results;

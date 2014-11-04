@@ -47,3 +47,7 @@
   width:100%;
 }
 
+/* UnHack max width so controls work on google maps */
+.city-state-zip-search .zip-search-map img {
+  max-width: none;
+}

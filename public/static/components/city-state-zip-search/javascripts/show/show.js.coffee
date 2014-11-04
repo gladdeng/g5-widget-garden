@@ -23,6 +23,8 @@ class SearchResultsMap
     $('.city-state-zip-search').append("<div class='zip-search-map' id='map-canvas'></div>")
     @mapCanvas = $('.zip-search-map')[0]
     @bounds = new google.maps.LatLngBounds()
+    @markers = []
+    @infowindows = []
 
     mapOptions = {}
 
@@ -34,24 +36,31 @@ class SearchResultsMap
 
 
   setMarkers: (locations) ->
+    markers=[]
+    infowindows=[]
+
+    openInfoWindow = (index) ->
+      infowindows[index].open(@map, markers[index])
+
     for location, index in locations
       lat = location.latitude
       long = location.longitude
 
+      # Markers
       coordinates = new google.maps.LatLng(lat,long)
       marker = new google.maps.Marker({
         position: coordinates
         map: @map
-        title: 'Hello World!'
+        index: index
       })
-
+      markers.push(marker)
       @bounds.extend(marker.position)
 
-      infoWindowContent = @infoWindowContent(location)
-
-      infowindow = new google.maps.InfoWindow({ content: infoWindowContent })
-      google.maps.event.addListener(marker, 'click', () ->
-        infowindow.open(@map,marker);
+      # Info Windows
+      infowindow = new google.maps.InfoWindow({ content: @infoWindowContent(location) })
+      infowindows.push(infowindow)
+      google.maps.event.addListener(markers[index],'click', ->
+        infowindows[this.index].open(@map, markers[this.index])
       )
 
   infoWindowContent: (location) ->
@@ -62,8 +71,6 @@ class SearchResultsMap
       <p>#{location.city}, #{location.state} #{location.postal_code}</p>
       <p>#{location.phone_number}</p> "
 
-
-  
 class SearchResultsList
   constructor: (@zipSearchConfigs, @data) ->
     @populateResults()
