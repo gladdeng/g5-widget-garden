@@ -29,20 +29,46 @@
 
   SearchResultsMap = (function() {
     function SearchResultsMap(zipSearchConfigs, data) {
-      var map, mapOptions, marker, myLatlng;
-      $('.city-state-zip-search').append("<div id='map-canvas'></div>");
-      myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
-      mapOptions = {
-        zoom: 4,
-        center: myLatlng
-      };
-      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-      marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title: 'Hello World!'
-      });
+      var mapOptions;
+      this.zipSearchConfigs = zipSearchConfigs;
+      this.data = data;
+      $('.city-state-zip-search').append("<div class='zip-search-map' id='map-canvas'></div>");
+      this.mapCanvas = $('.zip-search-map')[0];
+      this.bounds = new google.maps.LatLngBounds();
+      mapOptions = {};
+      this.map = new google.maps.Map(this.mapCanvas, mapOptions);
+      this.setMarkers(this.data.locations);
+      this.map.fitBounds(this.bounds);
     }
+
+    SearchResultsMap.prototype.setMarkers = function(locations) {
+      var coordinates, index, infoWindowContent, infowindow, lat, location, long, marker, _i, _len, _results;
+      _results = [];
+      for (index = _i = 0, _len = locations.length; _i < _len; index = ++_i) {
+        location = locations[index];
+        lat = location.latitude;
+        long = location.longitude;
+        coordinates = new google.maps.LatLng(lat, long);
+        marker = new google.maps.Marker({
+          position: coordinates,
+          map: this.map,
+          title: 'Hello World!'
+        });
+        this.bounds.extend(marker.position);
+        infoWindowContent = this.infoWindowContent(location);
+        infowindow = new google.maps.InfoWindow({
+          content: infoWindowContent
+        });
+        _results.push(google.maps.event.addListener(marker, 'click', function() {
+          return infowindow.open(this.map, marker);
+        }));
+      }
+      return _results;
+    };
+
+    SearchResultsMap.prototype.infoWindowContent = function(location) {
+      return " <a href='" + location.domain + "'>        <h2>" + location.name + "</h2>      </a>      <p>" + location.street_address_1 + "</p>      <p>" + location.city + ", " + location.state + " " + location.postal_code + "</p>      <p>" + location.phone_number + "</p> ";
+    };
 
     return SearchResultsMap;
 

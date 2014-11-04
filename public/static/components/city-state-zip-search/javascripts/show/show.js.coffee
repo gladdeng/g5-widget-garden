@@ -18,23 +18,50 @@ class ZipSearchAjaxRequest
           new SearchResultsMap(zipSearchConfigs, data)
 
 class SearchResultsMap
-  constructor: (zipSearchConfigs, data) ->
+  constructor: (@zipSearchConfigs, @data) ->
 
-    $('.city-state-zip-search').append("<div id='map-canvas'></div>")
-    
-    myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-    mapOptions = {
-      zoom: 4
-      center: myLatlng
-    }
+    $('.city-state-zip-search').append("<div class='zip-search-map' id='map-canvas'></div>")
+    @mapCanvas = $('.zip-search-map')[0]
+    @bounds = new google.maps.LatLngBounds()
 
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions)
+    mapOptions = {}
 
-    marker = new google.maps.Marker({
-      position: myLatlng
-      map: map
-      title: 'Hello World!'
-    })
+    @map = new google.maps.Map(@mapCanvas, mapOptions)
+
+    @setMarkers(@data.locations)
+
+    @map.fitBounds(@bounds)
+
+
+  setMarkers: (locations) ->
+    for location, index in locations
+      lat = location.latitude
+      long = location.longitude
+
+      coordinates = new google.maps.LatLng(lat,long)
+      marker = new google.maps.Marker({
+        position: coordinates
+        map: @map
+        title: 'Hello World!'
+      })
+
+      @bounds.extend(marker.position)
+
+      infoWindowContent = @infoWindowContent(location)
+
+      infowindow = new google.maps.InfoWindow({ content: infoWindowContent })
+      google.maps.event.addListener(marker, 'click', () ->
+        infowindow.open(@map,marker);
+      )
+
+  infoWindowContent: (location) ->
+    " <a href='#{location.domain}'>
+        <h2>#{location.name}</h2>
+      </a>
+      <p>#{location.street_address_1}</p>
+      <p>#{location.city}, #{location.state} #{location.postal_code}</p>
+      <p>#{location.phone_number}</p> "
+
 
   
 class SearchResultsList

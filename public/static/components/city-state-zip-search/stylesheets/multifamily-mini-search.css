@@ -42,8 +42,8 @@
   box-shadow:1px 1px 2px 1px #ccc;
 }
 
-#map-canvas{
+.city-state-zip-search .zip-search-map{
   height:400px;
-  width:400px;
+  width:100%;
 }
 
