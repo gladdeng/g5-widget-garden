@@ -1,1 +1,44 @@
-div.city-state-zip-search p {color:green; font-weight:bold;}
+.city-state-zip-search {
+  width:100%;
+  position:relative;
+}
+
+.city-state-zip-search .zip-search-top{
+  width:100%;
+  position:relative;
+  text-align:center;
+}
+
+.city-state-zip-search .zip-search-button,
+.city-state-zip-search .zip-search-input{
+  display:inline-block;
+  margin:5px;
+}
+
+.city-state-zip-search input,
+.city-state-zip-search button{
+  display:inline-block;
+  padding:5px;
+  margin:0;
+  border:1px solid #888;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.city-state-zip-search button{
+  border:none;
+  padding:5px 10px;
+}
+
+.city-state-zip-search .search-results{
+  text-align: center;
+}
+
+.city-state-zip-search .location-card{
+  display:inline-block;
+  padding:10px;
+  margin:10px;
+  box-shadow:1px 1px 2px 1px #ccc;
+}
+

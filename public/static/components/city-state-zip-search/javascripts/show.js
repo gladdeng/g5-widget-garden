@@ -1,5 +1,5 @@
 (function() {
-  var SearchButtonListener, SearchResultsList, ZipSearchAjaxRequest, ZipSearchConfigs;
+  var SearchButtonListener, SearchResultsList, SearchResultsMap, ZipSearchAjaxRequest, ZipSearchConfigs;
 
   $(function() {
     var zipSearchConfigs;
@@ -16,13 +16,23 @@
           url: zipSearchConfigs.searchURL(),
           dataType: 'json',
           success: function(data) {
-            return new SearchResultsList(zipSearchConfigs, data);
+            new SearchResultsList(zipSearchConfigs, data);
+            return new SearchResultsMap(zipSearchConfigs, data);
           }
         });
       }
     }
 
     return ZipSearchAjaxRequest;
+
+  })();
+
+  SearchResultsMap = (function() {
+    function SearchResultsMap(zipSearchConfigs, data) {
+      alert("Pow!");
+    }
+
+    return SearchResultsMap;
 
   })();
 
@@ -44,8 +54,8 @@
       _ref = this.data.locations;
       for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
         location = _ref[index];
-        markupHash.push("<div>");
-        markupHash.push(" <p>" + location.name + "</p>                        <p>" + location.street_address_1 + "</p>                        <p>" + location.city + "</p>                        <p>" + location.state + "</p>                        <p>" + location.domain + "</p> ");
+        markupHash.push("<div class='location-card'>");
+        markupHash.push("<a href='" + location.domain + "'><p>" + location.name + "</p></a>                         <p>" + location.street_address_1 + "</p>                         <p>" + location.city + ", " + location.state + " " + location.postal_code + "</p>                         <p>" + location.phone_number + "</p>                         <p>" + location.domain + "</p> ");
         markupHash.push("</div>");
       }
       return $('.city-state-zip-search .search-results').html(markupHash.join(''));
@@ -125,10 +135,11 @@
     };
 
     SearchButtonListener.prototype.bumpToSearchPage = function(zipSearchConfigs) {
-      var radius, searchURL;
+      var radius, search, searchURL;
       radius = zipSearchConfigs.getParameter("radius");
+      search = this.userInput() === "" ? "blank" : this.userInput();
       searchURL = zipSearchConfigs.configs.searchResultsPage;
-      searchURL += "?search=" + (this.userInput());
+      searchURL += "?search=" + search;
       return window.location = searchURL;
     };
 

@@ -5,7 +5,7 @@ $ ->
   new SearchButtonListener(zipSearchConfigs)
   # Get search results from g5-hub
   new ZipSearchAjaxRequest(zipSearchConfigs)
-  
+
 
 class ZipSearchAjaxRequest
   constructor: (zipSearchConfigs) ->
@@ -15,6 +15,12 @@ class ZipSearchAjaxRequest
         dataType: 'json'
         success: (data) =>
           new SearchResultsList(zipSearchConfigs, data)
+          new SearchResultsMap(zipSearchConfigs, data)
+
+class SearchResultsMap
+  constructor: (zipSearchConfigs, data) ->
+    alert "Pow!"
+
   
 class SearchResultsList
   constructor: (@zipSearchConfigs, @data) ->
@@ -29,12 +35,12 @@ class SearchResultsList
       markupHash.push("<p>Sorry, we don't have any locations in that area. Please try a different search, or see our full list of locations below:</p>")
 
     for location, index in @data.locations
-      markupHash.push("<div>")
-      markupHash.push(" <p>#{location.name}</p>
-                        <p>#{location.street_address_1}</p>
-                        <p>#{location.city}</p>
-                        <p>#{location.state}</p>
-                        <p>#{location.domain}</p> ")
+      markupHash.push("<div class='location-card'>")
+      markupHash.push(  "<a href='#{location.domain}'><p>#{location.name}</p></a>
+                         <p>#{location.street_address_1}</p>
+                         <p>#{location.city}, #{location.state} #{location.postal_code}</p>
+                         <p>#{location.phone_number}</p>
+                         <p>#{location.domain}</p> ")
       markupHash.push("</div>")
 
     $('.city-state-zip-search .search-results').html(markupHash.join(''))
@@ -93,6 +99,7 @@ class SearchButtonListener
 
   bumpToSearchPage: (zipSearchConfigs) ->
     radius = zipSearchConfigs.getParameter("radius")
+    search = if @userInput() == "" then "blank" else @userInput()
     searchURL = zipSearchConfigs.configs.searchResultsPage
-    searchURL += "?search=#{@userInput()}"
+    searchURL += "?search=#{search}"
     window.location = searchURL
