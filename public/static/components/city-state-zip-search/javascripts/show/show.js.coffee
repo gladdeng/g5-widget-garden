@@ -34,7 +34,6 @@ class SearchResultsMap
 
     @map.fitBounds(@bounds)
 
-
   setMarkers: (locations) ->
     markers=[]
     infowindows=[]
@@ -67,9 +66,11 @@ class SearchResultsMap
     " <a href='#{location.domain}'>
         <h2>#{location.name}</h2>
       </a>
-      <p>#{location.street_address_1}</p>
-      <p>#{location.city}, #{location.state} #{location.postal_code}</p>
-      <p>#{location.phone_number}</p> "
+      <p>
+        #{location.street_address_1}<br />
+        #{location.city}, #{location.state} #{location.postal_code}<br />
+        #{location.phone_number}
+      </p> "
 
 class SearchResultsList
   constructor: (@zipSearchConfigs, @data) ->
