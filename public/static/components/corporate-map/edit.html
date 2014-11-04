@@ -1,1 +1,29 @@
-<!-- Nothing to edit -->
+<form>
+    <div class="form-field">
+      {{ widget.core_client_id.id_hidden_field }}
+      <label for="{{ widget.core_client_id.value_field_id }}" >
+        Core Client Id (to use core data)
+      </label>
+      <input type="text"
+        placeholder=""
+        id="{{ widget.core_client_id.value_field_id }}"
+        name="{{ widget.core_client_id.value_field_name }}"
+        value="{{ widget.core_client_id.value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.corp_search_page.id_hidden_field }}
+      <label for="{{ widget.corp_search_page.value_field_id }}" >
+        Corp Search Page
+      </label>
+      <input type="text"
+        placeholder="apartment-search/"
+        id="{{ widget.corp_search_page.value_field_id }}"
+        name="{{ widget.corp_search_page.value_field_name }}"
+        value="{{ widget.corp_search_page.value }}"
+      />
+    </div>
+
+  <input type="submit" value="Save" class="btn" />
+</form>
