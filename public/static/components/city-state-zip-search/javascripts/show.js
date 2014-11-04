@@ -29,7 +29,19 @@
 
   SearchResultsMap = (function() {
     function SearchResultsMap(zipSearchConfigs, data) {
-      alert("Pow!");
+      var map, mapOptions, marker, myLatlng;
+      $('.city-state-zip-search').append("<div id='map-canvas'></div>");
+      myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+      mapOptions = {
+        zoom: 4,
+        center: myLatlng
+      };
+      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Hello World!'
+      });
     }
 
     return SearchResultsMap;
