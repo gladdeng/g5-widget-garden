@@ -7,9 +7,6 @@ header[role=banner] .navigation {
 }
 
 .subnav {
-  -webkit-transition: max-height 0.3s ease;
-  -moz-transition: max-height 0.3s ease;
-  transition: max-height 0.3s ease;
   max-height: 0;
   overflow: hidden;
 }
