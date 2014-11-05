@@ -101,7 +101,7 @@
       for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
         location = _ref[index];
         markupHash.push("<div class='location-card'>");
-        markupHash.push("<a href='" + location.domain + "'><p>" + location.name + "</p></a>                         <p>" + location.street_address_1 + "</p>                         <p>" + location.city + ", " + location.state + " " + location.postal_code + "</p>                         <p>" + location.phone_number + "</p>                         <p>" + location.domain + "</p> ");
+        markupHash.push("<img src='" + location.thumbnail + "' />                         <a href='" + location.domain + "'><p>" + location.name + "</p></a>                         <p>" + location.street_address_1 + "</p>                         <p>" + location.city + ", " + location.state + " " + location.postal_code + "</p>                         <p>" + location.phone_number + "</p>                         <p>" + location.domain + "</p> ");
         markupHash.push("</div>");
       }
       return $('.city-state-zip-search .search-results').html(markupHash.join(''));

@@ -86,7 +86,8 @@ class SearchResultsList
 
     for location, index in @data.locations
       markupHash.push("<div class='location-card'>")
-      markupHash.push(  "<a href='#{location.domain}'><p>#{location.name}</p></a>
+      markupHash.push(  "<img src='#{location.thumbnail}' />
+                         <a href='#{location.domain}'><p>#{location.name}</p></a>
                          <p>#{location.street_address_1}</p>
                          <p>#{location.city}, #{location.state} #{location.postal_code}</p>
                          <p>#{location.phone_number}</p>
