@@ -1,22 +1,38 @@
 (function() {
-  var errorCallback, getClientCoords, getStoreCoords, hideErrorMessage, populateStartAddress, setupMap, showErrorMessage, storeCoords, successCallback;
+  var errorCallback, getClientCoords, getStoreCoords, hideErrorMessage, invalidStoreAddressError, populateStartAddress, setupMap, showErrorMessage, storeCoords, successCallback;
 
   window.getDirectionsCoords = function() {
     getStoreCoords();
     return getClientCoords();
   };
 
+  window.resizeDirectionsInput = function() {
+    var startInput, startSubmit, startWrapper;
+    startInput = $('.directions #start');
+    startWrapper = startInput.parent('.text');
+    startSubmit = startWrapper.find('input[type=submit]');
+    return startInput.css({
+      width: startWrapper.width() - startSubmit.outerWidth(true) - 10
+    });
+  };
+
   setupMap = function() {
-    var map, mapOptions;
+    var map, mapMarkerOptions, mapOptions, marker;
     window.directionsDisplay = new google.maps.DirectionsRenderer();
     mapOptions = {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      center: storeCoords
+      center: window.storeCoords
     };
     map = new google.maps.Map($(".directions .canvas")[0], mapOptions);
     window.directionsDisplay.setMap(map);
-    return window.directionsDisplay.setPanel($(".directions .panel")[0]);
+    window.directionsDisplay.setPanel($(".directions .panel")[0]);
+    mapMarkerOptions = {
+      position: window.storeCoords,
+      map: map,
+      title: directionsConfig.address
+    };
+    return marker = new google.maps.Marker(mapMarkerOptions);
   };
 
   getStoreCoords = function() {
@@ -30,7 +46,7 @@
         window.storeCoords = new google.maps.LatLng(window.lat, window.lng);
         return setupMap();
       } else {
-        return showErrorMessage("The Store address for this Directions Widget is not set up correctly");
+        return invalidStoreAddressError();
       }
     });
   };
@@ -82,8 +98,11 @@
   };
 
   window.calcRoute = function() {
-    hideErrorMessage;
     var directionsService, end, request, start;
+    if (!window.storeCoords) {
+      return invalidStoreAddressError();
+    }
+    hideErrorMessage;
     directionsService = new google.maps.DirectionsService();
     start = document.getElementById("start").value;
     end = window.storeCoords;
@@ -99,6 +118,13 @@
     });
   };
 
+  invalidStoreAddressError = function() {
+    showErrorMessage("The Store address for this Directions Widget is not set up correctly");
+    $('.directions input[type=submit]').addClass('disabled').prop('disabled', true);
+    $('.directions .canvas').hide();
+    return $('.directions .panel').hide();
+  };
+
   storeCoords = void 0;
 
   $(function() {
@@ -106,6 +132,14 @@
     return $('.directions input[type="submit"]').on('click', function() {
       return calcRoute();
     });
+  });
+
+  $(window).on('load', function() {
+    return resizeDirectionsInput();
+  });
+
+  $(window).on('resize', function() {
+    return resizeDirectionsInput();
   });
 
 }).call(this);
