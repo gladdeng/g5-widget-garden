@@ -46,7 +46,7 @@
         </li>
         {% endif %}
       {% endfor %}
-      {% if widget.display_as_calls_to_action.value != "true" %}
+      {% if widget.display_as_calls_to_action.value != "true" and widget.display_corporate_navigation.value == "true" %}
         <li class="corporate-home">
           <a href="/">Corporate Home</a>
         </li>
