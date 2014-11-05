@@ -1,5 +1,9 @@
 {% if widget.display_corporate_navigation.value == "true" %}
+  {% if widget.display_navigation.value == "true" %}
+  <nav class="corporate-navigation widget show-desktop">
+  {% else %}
   <nav class="corporate-navigation widget">
+  {% endif %}
     <ul class="top-nav">
       {% for web_page in widget.corporate_navigation %}
         {% if web_page[1].display != "false" and web_page[1].child_template? == false %}

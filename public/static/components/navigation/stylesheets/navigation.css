@@ -12,7 +12,7 @@ header[role=banner] .navigation {
 }
 
 @media (max-width: 979px) {
-  .corporate-navigation {
+  .corporate-navigation.show-desktop {
     display: none;
   }
   .show-subnav {
