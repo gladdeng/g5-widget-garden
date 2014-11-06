@@ -72,7 +72,8 @@ populateStartAddress = (latLng) ->
 
 window.calcRoute = ->
   return invalidStoreAddressError() unless window.storeCoords
-  hideErrorMessage
+  hideErrorMessage()
+  $('.directions input[type="submit"]').addClass('disabled').addClass('searching').prop('disabled',true)
   directionsService = new google.maps.DirectionsService()
   start = document.getElementById("start").value
   end = window.storeCoords
@@ -82,7 +83,11 @@ window.calcRoute = ->
     travelMode: google.maps.TravelMode.DRIVING
 
   directionsService.route request, (result, status) ->
-    window.directionsDisplay.setDirections result  if status is google.maps.DirectionsStatus.OK
+    if status is google.maps.DirectionsStatus.OK
+      window.directionsDisplay.setDirections result
+    else
+      showErrorMessage "No directions found. Try a different address."
+    $('.directions input[type="submit"]').removeClass('disabled').addClass('searching').prop('disabled',false)
 
 invalidStoreAddressError = ->
   showErrorMessage "The Store address for this Directions Widget is not set up correctly"

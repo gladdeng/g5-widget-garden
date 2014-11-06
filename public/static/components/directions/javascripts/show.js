@@ -102,7 +102,8 @@
     if (!window.storeCoords) {
       return invalidStoreAddressError();
     }
-    hideErrorMessage;
+    hideErrorMessage();
+    $('.directions input[type="submit"]').addClass('disabled').addClass('searching').prop('disabled', true);
     directionsService = new google.maps.DirectionsService();
     start = document.getElementById("start").value;
     end = window.storeCoords;
@@ -113,8 +114,11 @@
     };
     return directionsService.route(request, function(result, status) {
       if (status === google.maps.DirectionsStatus.OK) {
-        return window.directionsDisplay.setDirections(result);
+        window.directionsDisplay.setDirections(result);
+      } else {
+        showErrorMessage("No directions found. Try a different address.");
       }
+      return $('.directions input[type="submit"]').removeClass('disabled').addClass('searching').prop('disabled', false);
     });
   };
 

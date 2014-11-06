@@ -1,6 +1,7 @@
 .directions {
   width: 100%;
   padding: 0 .5em;
+  margin: .5em 0;
 }
 
 .directions .clearfix:before, .directions .clearfix:after, .directions.clearfix:before, .directions.clearfix:after {
