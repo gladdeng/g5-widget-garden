@@ -4,17 +4,21 @@
 }
 
 
-/* SEARCH FORM WRAPPER */
+/* SEARCH FORM */
 /*************************************/
-.city-state-zip-search .zip-search-top{
-  width:40%;
+.zip-search-top{
+  width:43%;
   float:right;
   position:relative;
   text-align:center;
+  background:blue;
+  margin-bottom:10px;
 }
 
-.city-state-zip-search .zip-search-button,
-.city-state-zip-search .zip-search-input{
+.zip-search-top div{color:#fff;}
+
+.zip-search-button,
+.zip-search-input{
   display:inline-block;
   margin:5px;
 }
@@ -37,25 +41,30 @@
 
 /* SEARCH RESULTS */
 /*************************************/
-.city-state-zip-search .search-results{
+.zip-search-results{
   width:55%;
   float:left;
 }
 
-.city-state-zip-search .location-card{
+.zip-search-location{
   padding:10px;
   margin:10px;
   box-shadow:1px 1px 2px 1px #ccc;
 }
 
-.location-address { padding-left:25%; }
+.zip-search-location .location-address { padding-left:25%; }
 
-.city-state-zip-search .location-card img{
+.zip-search-location img{
   float:left;
   width:20%;
 }
 
-.location-link{ 
+.zip-search-location span{ display:block; }
+
+.zip-search-location .branded-name,
+.zip-search-location .phone{ font-weight:bold; }
+
+.zip-search-location-link{ 
   display:block;
   background:blue;
   color:#fff;
@@ -67,13 +76,13 @@
 
 /* GOOGLE MAP */
 /*************************************/
-.city-state-zip-search .zip-search-map{
+.zip-search-map{
   height:400px;
   width:43%;
   float:right;
 }
 
 /* UnHack max width so controls work on google maps */
-.city-state-zip-search .zip-search-map img {
+.zip-search-map img {
   max-width: none;
 }

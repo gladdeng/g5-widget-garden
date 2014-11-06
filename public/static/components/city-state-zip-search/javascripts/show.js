@@ -100,11 +100,11 @@
       _ref = this.data.locations;
       for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
         location = _ref[index];
-        markupHash.push("<div class='location-card'>");
-        markupHash.push("<img src='" + location.thumbnail + "' />                        <div class='location-address'>                          <a href='" + location.domain + "'>" + location.name + "</a><br />                          " + location.street_address_1 + "<br />                          " + location.city + ", " + location.state + " " + location.postal_code + "<br />                          " + location.phone_number + "<br />                        </div>                        <a class='location-link' href='" + location.domain + "'>Visit Location</a> ");
+        markupHash.push("<div class='zip-search-location'>");
+        markupHash.push("<img src='" + location.thumbnail + "' />                        <div class='location-address'>                          <a href='" + location.domain + "'><span class='branded-name'>" + location.name + "<span></a>                          <span class='street'>" + location.street_address_1 + "</span>                          <span class='city'>" + location.city + ", " + location.state + " " + location.postal_code + "</span>                          <span class='phone'>" + location.phone_number + "</span>                        </div>                        <a class='zip-search-location-link' href='" + location.domain + "'>Visit Location</a> ");
         markupHash.push("</div>");
       }
-      return $('.city-state-zip-search .search-results').html(markupHash.join(''));
+      return $('.city-state-zip-search .zip-search-results').html(markupHash.join(''));
     };
 
     return SearchResultsList;

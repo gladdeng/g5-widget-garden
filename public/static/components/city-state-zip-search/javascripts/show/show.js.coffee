@@ -85,18 +85,18 @@ class SearchResultsList
       markupHash.push("<p>Sorry, we don't have any locations in that area. Please try a different search, or see our full list of locations below:</p>")
 
     for location, index in @data.locations
-      markupHash.push("<div class='location-card'>")
+      markupHash.push("<div class='zip-search-location'>")
       markupHash.push( "<img src='#{location.thumbnail}' />
                         <div class='location-address'>
-                          <a href='#{location.domain}'>#{location.name}</a><br />
-                          #{location.street_address_1}<br />
-                          #{location.city}, #{location.state} #{location.postal_code}<br />
-                          #{location.phone_number}<br />
+                          <a href='#{location.domain}'><span class='branded-name'>#{location.name}<span></a>
+                          <span class='street'>#{location.street_address_1}</span>
+                          <span class='city'>#{location.city}, #{location.state} #{location.postal_code}</span>
+                          <span class='phone'>#{location.phone_number}</span>
                         </div>
-                        <a class='location-link' href='#{location.domain}'>Visit Location</a> ")
+                        <a class='zip-search-location-link' href='#{location.domain}'>Visit Location</a> ")
       markupHash.push("</div>")
 
-    $('.city-state-zip-search .search-results').html(markupHash.join(''))
+    $('.city-state-zip-search .zip-search-results').html(markupHash.join(''))
 
 class ZipSearchConfigs
   constructor: () ->
