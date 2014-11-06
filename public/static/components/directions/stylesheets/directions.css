@@ -1,5 +1,6 @@
 .directions {
   width: 100%;
+  padding: 0 .5em;
 }
 
 .directions .clearfix:before, .directions .clearfix:after, .directions.clearfix:before, .directions.clearfix:after {
@@ -46,7 +47,8 @@
 
 .directions .panel {
   margin-top: 1em;
-  background-color: rbga(255,255,255,0.85);
+  background-color: rgba(255,255,255,0.85);
+  padding: 0 .5em;
 }
 
 .adp-marker {
@@ -94,6 +96,7 @@
     float: left;
   }
   .directions .panel {
+    margin-top: 0;
     width: 47.5%;
     float:left;
   }
