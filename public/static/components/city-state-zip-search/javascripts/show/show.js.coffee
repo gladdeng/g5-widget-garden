@@ -86,12 +86,14 @@ class SearchResultsList
 
     for location, index in @data.locations
       markupHash.push("<div class='location-card'>")
-      markupHash.push(  "<img src='#{location.thumbnail}' />
-                         <a href='#{location.domain}'><p>#{location.name}</p></a>
-                         <p>#{location.street_address_1}</p>
-                         <p>#{location.city}, #{location.state} #{location.postal_code}</p>
-                         <p>#{location.phone_number}</p>
-                         <p>#{location.domain}</p> ")
+      markupHash.push( "<img src='#{location.thumbnail}' />
+                        <div class='location-address'>
+                          <a href='#{location.domain}'>#{location.name}</a><br />
+                          #{location.street_address_1}<br />
+                          #{location.city}, #{location.state} #{location.postal_code}<br />
+                          #{location.phone_number}<br />
+                        </div>
+                        <a class='location-link' href='#{location.domain}'>Visit Location</a> ")
       markupHash.push("</div>")
 
     $('.city-state-zip-search .search-results').html(markupHash.join(''))

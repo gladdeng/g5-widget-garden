@@ -3,8 +3,12 @@
   position:relative;
 }
 
+
+/* SEARCH FORM WRAPPER */
+/*************************************/
 .city-state-zip-search .zip-search-top{
-  width:100%;
+  width:40%;
+  float:right;
   position:relative;
   text-align:center;
 }
@@ -31,20 +35,42 @@
   padding:5px 10px;
 }
 
+/* SEARCH RESULTS */
+/*************************************/
 .city-state-zip-search .search-results{
-  text-align: center;
+  width:55%;
+  float:left;
 }
 
 .city-state-zip-search .location-card{
-  display:inline-block;
   padding:10px;
   margin:10px;
   box-shadow:1px 1px 2px 1px #ccc;
 }
 
+.location-address { padding-left:25%; }
+
+.city-state-zip-search .location-card img{
+  float:left;
+  width:20%;
+}
+
+.location-link{ 
+  display:block;
+  background:blue;
+  color:#fff;
+  padding:5px;
+  text-align:center;
+  margin-top: 10px;
+}
+
+
+/* GOOGLE MAP */
+/*************************************/
 .city-state-zip-search .zip-search-map{
   height:400px;
-  width:100%;
+  width:43%;
+  float:right;
 }
 
 /* UnHack max width so controls work on google maps */
