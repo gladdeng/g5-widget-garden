@@ -65,6 +65,7 @@
   padding: .3em .3em;
   min-height: 18px;
   margin: 0 0 .5em 0;
+  min-width: 50%;
 }
 
 .directions .text input[type=submit] {
@@ -78,30 +79,14 @@
   opacity: 0.7;
 }
 
-@media (min-width: 480px){
-  .directions #start {
-    min-width: 50%;
-  }
-}
 
-@media (min-width: 677px){
-  .directions #start {
-    min-width: 60%;
-  }
+.directions.wide .canvas {
+  width: 50%;
+  margin-right: 2.5%;
+  float: left;
 }
-
-@media (min-width: 980px) {
-  .directions .canvas {
-    width: 50%;
-    margin-right: 2.5%;
-    float: left;
-  }
-  .directions .panel {
-    margin-top: 0;
-    width: 47.5%;
-    float:left;
-  }
-  .directions #start {
-    min-width: 70%;
-  }
+.directions.wide .panel {
+  margin-top: 0;
+  width: 47.5%;
+  float:left;
 }

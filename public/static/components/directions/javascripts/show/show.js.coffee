@@ -1,9 +1,14 @@
+directionsWideWidth = 960
+
 window.getDirectionsCoords = ->
   getStoreCoords()
   getClientCoords()
 
-window.resizeDirectionsInput = ->
-  startInput = $('.directions #start')
+window.resizeDirectionsWidget = ->
+  dirWidget = $('.directions');
+  if dirWidget.parents('div').width() >= directionsWideWidth then dirWidget.addClass('wide') else dirWidget.removeClass('wide')
+
+  startInput = dirWidget.find('#start')
   startWrapper = startInput.parent('.text')
   startSubmit = startWrapper.find('input[type=submit]')
   startInput.css({width: startWrapper.width() - startSubmit.outerWidth(true) - 10})
@@ -73,7 +78,7 @@ populateStartAddress = (latLng) ->
 window.calcRoute = ->
   return invalidStoreAddressError() unless window.storeCoords
   hideErrorMessage()
-  $('.directions input[type="submit"]').addClass('disabled').addClass('searching').prop('disabled',true)
+  $('.directions input[type="submit"]').addClass('disabled').prop('disabled',true)
   directionsService = new google.maps.DirectionsService()
   start = document.getElementById("start").value
   end = window.storeCoords
@@ -87,7 +92,7 @@ window.calcRoute = ->
       window.directionsDisplay.setDirections result
     else
       showErrorMessage "No directions found. Try a different address."
-    $('.directions input[type="submit"]').removeClass('disabled').addClass('searching').prop('disabled',false)
+    $('.directions input[type="submit"]').removeClass('disabled').prop('disabled',false)
 
 invalidStoreAddressError = ->
   showErrorMessage "The Store address for this Directions Widget is not set up correctly"
@@ -98,12 +103,10 @@ invalidStoreAddressError = ->
 storeCoords = undefined
 
 $ ->
+  resizeDirectionsWidget()
   window.directionsConfig = JSON.parse($('.directions .config:first').html());
   $('.directions input[type="submit"]').on 'click', ->
     calcRoute()
 
-$(window).on 'load', ->
-  resizeDirectionsInput()
-
 $(window).on 'resize', ->
-  resizeDirectionsInput()
+  resizeDirectionsWidget()

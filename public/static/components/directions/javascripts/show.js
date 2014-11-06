@@ -1,14 +1,22 @@
 (function() {
-  var errorCallback, getClientCoords, getStoreCoords, hideErrorMessage, invalidStoreAddressError, populateStartAddress, setupMap, showErrorMessage, storeCoords, successCallback;
+  var directionsWideWidth, errorCallback, getClientCoords, getStoreCoords, hideErrorMessage, invalidStoreAddressError, populateStartAddress, setupMap, showErrorMessage, storeCoords, successCallback;
+
+  directionsWideWidth = 960;
 
   window.getDirectionsCoords = function() {
     getStoreCoords();
     return getClientCoords();
   };
 
-  window.resizeDirectionsInput = function() {
-    var startInput, startSubmit, startWrapper;
-    startInput = $('.directions #start');
+  window.resizeDirectionsWidget = function() {
+    var dirWidget, startInput, startSubmit, startWrapper;
+    dirWidget = $('.directions');
+    if (dirWidget.parents('div').width() >= directionsWideWidth) {
+      dirWidget.addClass('wide');
+    } else {
+      dirWidget.removeClass('wide');
+    }
+    startInput = dirWidget.find('#start');
     startWrapper = startInput.parent('.text');
     startSubmit = startWrapper.find('input[type=submit]');
     return startInput.css({
@@ -103,7 +111,7 @@
       return invalidStoreAddressError();
     }
     hideErrorMessage();
-    $('.directions input[type="submit"]').addClass('disabled').addClass('searching').prop('disabled', true);
+    $('.directions input[type="submit"]').addClass('disabled').prop('disabled', true);
     directionsService = new google.maps.DirectionsService();
     start = document.getElementById("start").value;
     end = window.storeCoords;
@@ -118,7 +126,7 @@
       } else {
         showErrorMessage("No directions found. Try a different address.");
       }
-      return $('.directions input[type="submit"]').removeClass('disabled').addClass('searching').prop('disabled', false);
+      return $('.directions input[type="submit"]').removeClass('disabled').prop('disabled', false);
     });
   };
 
@@ -132,18 +140,15 @@
   storeCoords = void 0;
 
   $(function() {
+    resizeDirectionsWidget();
     window.directionsConfig = JSON.parse($('.directions .config:first').html());
     return $('.directions input[type="submit"]').on('click', function() {
       return calcRoute();
     });
   });
 
-  $(window).on('load', function() {
-    return resizeDirectionsInput();
-  });
-
   $(window).on('resize', function() {
-    return resizeDirectionsInput();
+    return resizeDirectionsWidget();
   });
 
 }).call(this);
