@@ -91,13 +91,16 @@
     }
 
     SearchResultsList.prototype.populateResults = function() {
-      var index, location, markupHash, _i, _len, _ref;
+      var index, location, markupHash, summaryMessage, _i, _len, _ref;
       markupHash = [];
-      if (this.data.success) {
-        markupHash.push("<p class='zip-search-summary'>We have " + this.data.locations.length + " locations near " + (this.zipSearchConfigs.searchArea()) + ":</p>");
+      if (this.zipSearchConfigs.search === "all") {
+        summaryMessage = "Please see our full list of locations below:";
+      } else if (this.data.success) {
+        summaryMessage = "We have " + this.data.locations.length + " locations near " + (this.zipSearchConfigs.searchArea()) + ":";
       } else {
-        markupHash.push("<p class='zip-search-summary'>Sorry, we don't have any locations in that area. Please try a different search, or see our full list of locations below:</p>");
+        summaryMessage = "Sorry, we don't have any locations in that area. Please try a different search, or see our full list of locations below:";
       }
+      markupHash.push("<p class='zip-search-summary'>" + summaryMessage + "</p>");
       _ref = this.data.locations;
       for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
         location = _ref[index];
@@ -208,7 +211,7 @@
       var _this = this;
       return $('.view-all-link').click(function(event) {
         event.preventDefault();
-        zipSearchConfigs.search = "none";
+        zipSearchConfigs.search = "all";
         return new ZipSearchAjaxRequest(zipSearchConfigs);
       });
     };

@@ -80,10 +80,14 @@ class SearchResultsList
   populateResults: () ->
     markupHash = []
 
-    if @data.success
-      markupHash.push("<p class='zip-search-summary'>We have #{@data.locations.length} locations near #{ @zipSearchConfigs.searchArea() }:</p>")
+    if @zipSearchConfigs.search == "all"
+      summaryMessage =  "Please see our full list of locations below:"
+    else if @data.success
+      summaryMessage = "We have #{@data.locations.length} locations near #{ @zipSearchConfigs.searchArea() }:"
     else
-      markupHash.push("<p class='zip-search-summary'>Sorry, we don't have any locations in that area. Please try a different search, or see our full list of locations below:</p>")
+      summaryMessage = "Sorry, we don't have any locations in that area. Please try a different search, or see our full list of locations below:"
+
+    markupHash.push("<p class='zip-search-summary'>#{summaryMessage}</p>")
 
     for location, index in @data.locations
       markupHash.push("<div class='zip-search-location'>")
