@@ -175,7 +175,3 @@ class ViewAllLink
       event.preventDefault() 
       zipSearchConfigs.search = "all"
       new ZipSearchAjaxRequest(zipSearchConfigs) )
-
-
-    
-

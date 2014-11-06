@@ -53,6 +53,45 @@
       />
     </div>
 
+    <div class="form-field">
+      {{ widget.primary_color.id_hidden_field }}
+      <label for="{{ widget.primary_color.value_field_id }}">
+        Primary Color
+      </label>
+      <input type="text"
+        placeholder="Form Background"
+        id="{{ widget.primary_color.value_field_id }}"
+        name="{{ widget.primary_color.value_field_name }}"
+        value="{{ widget.primary_color.value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.secondary_color.id_hidden_field }}
+      <label for="{{ widget.secondary_color.value_field_id }}">
+        Secondary Color
+      </label>
+      <input type="text"
+        placeholder="Results background and button text color"
+        id="{{ widget.secondary_color.value_field_id }}"
+        name="{{ widget.secondary_color.value_field_name }}"
+        value="{{ widget.secondary_color.value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.accent_color.id_hidden_field }}
+      <label for="{{ widget.accent_color.value_field_id }}">
+        Accent Color
+      </label>
+      <input type="text"
+        placeholder="Go button color"
+        id="{{ widget.accent_color.value_field_id }}"
+        name="{{ widget.accent_color.value_field_name }}"
+        value="{{ widget.accent_color.value }}"
+      />
+    </div>
+
   </fieldset>
   <input type="submit" value="Save" class="btn" />
 </form>

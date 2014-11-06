@@ -10,13 +10,13 @@
   width:43%;
   float:right;
   position:relative;
-  background:blue;
+  background:#1772a2;
   padding:10px 10px 15px 10px;
   margin-bottom:10px;
 }
 
 .zip-search-heading{
-  color:#fff;
+  color:#f3f3f3;
   font-size:22px;
   padding:0 0 10px 0;
 
@@ -47,10 +47,11 @@
 }
 
 .city-state-zip-search button{
-  color:#ffffff;
+  color:#f3f3f3;
   border:none;
   padding:5px 10px;
 }
+
 
 /* SEARCH RESULTS */
 /*************************************/
@@ -63,6 +64,7 @@
   padding:10px;
   margin:10px;
   box-shadow:1px 1px 2px 1px #ccc;
+  background:#f3f3f3;
 }
 
 .zip-search-location .location-address { padding-left:25%; }
@@ -81,8 +83,8 @@
 .zip-search-location-link,
 .view-all-link{ 
   display:block;
-  background:blue;
-  color:#fff;
+  background:#1772a2;
+  color:#f3f3f3;
   padding:5px;
   text-align:center;
   margin-top: 10px;
@@ -90,7 +92,6 @@
 }
 
 .view-all-link{ margin:30px 20px; font-size:22px; }
-
 
 
 /* GOOGLE MAP */
