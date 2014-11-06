@@ -1,5 +1,5 @@
 (function() {
-  var SearchButtonListener, SearchResultsList, SearchResultsMap, ZipSearchAjaxRequest, ZipSearchConfigs;
+  var SearchButtonListener, SearchResultsList, SearchResultsMap, ViewAllLink, ZipSearchAjaxRequest, ZipSearchConfigs;
 
   $(function() {
     var zipSearchConfigs;
@@ -17,7 +17,8 @@
           dataType: 'json',
           success: function(data) {
             new SearchResultsList(zipSearchConfigs, data);
-            return new SearchResultsMap(zipSearchConfigs, data);
+            new SearchResultsMap(zipSearchConfigs, data);
+            return new ViewAllLink(zipSearchConfigs, data);
           }
         });
       }
@@ -93,9 +94,9 @@
       var index, location, markupHash, _i, _len, _ref;
       markupHash = [];
       if (this.data.success) {
-        markupHash.push("<p>We have " + this.data.locations.length + " locations near " + (this.zipSearchConfigs.searchArea()) + ":</p>");
+        markupHash.push("<p class='zip-search-summary'>We have " + this.data.locations.length + " locations near " + (this.zipSearchConfigs.searchArea()) + ":</p>");
       } else {
-        markupHash.push("<p>Sorry, we don't have any locations in that area. Please try a different search, or see our full list of locations below:</p>");
+        markupHash.push("<p class='zip-search-summary'>Sorry, we don't have any locations in that area. Please try a different search, or see our full list of locations below:</p>");
       }
       _ref = this.data.locations;
       for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
@@ -190,6 +191,29 @@
     };
 
     return SearchButtonListener;
+
+  })();
+
+  ViewAllLink = (function() {
+    function ViewAllLink(zipSearchConfigs, data) {
+      var linkMarkup;
+      if (data.success) {
+        linkMarkup = "<a href='#' class='view-all-link'>View All Locations</a>";
+        $('.zip-search-results').append(linkMarkup);
+        this.createButtonListener(zipSearchConfigs);
+      }
+    }
+
+    ViewAllLink.prototype.createButtonListener = function(zipSearchConfigs) {
+      var _this = this;
+      return $('.view-all-link').click(function(event) {
+        event.preventDefault();
+        zipSearchConfigs.search = "none";
+        return new ZipSearchAjaxRequest(zipSearchConfigs);
+      });
+    };
+
+    return ViewAllLink;
 
   })();
 

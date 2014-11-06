@@ -16,6 +16,7 @@ class ZipSearchAjaxRequest
         success: (data) =>
           new SearchResultsList(zipSearchConfigs, data)
           new SearchResultsMap(zipSearchConfigs, data)
+          new ViewAllLink(zipSearchConfigs, data)
 
 class SearchResultsMap
   constructor: (@zipSearchConfigs, @data) ->
@@ -80,9 +81,9 @@ class SearchResultsList
     markupHash = []
 
     if @data.success
-      markupHash.push("<p>We have #{@data.locations.length} locations near #{ @zipSearchConfigs.searchArea() }:</p>")
+      markupHash.push("<p class='zip-search-summary'>We have #{@data.locations.length} locations near #{ @zipSearchConfigs.searchArea() }:</p>")
     else
-      markupHash.push("<p>Sorry, we don't have any locations in that area. Please try a different search, or see our full list of locations below:</p>")
+      markupHash.push("<p class='zip-search-summary'>Sorry, we don't have any locations in that area. Please try a different search, or see our full list of locations below:</p>")
 
     for location, index in @data.locations
       markupHash.push("<div class='zip-search-location'>")
@@ -156,3 +157,21 @@ class SearchButtonListener
     searchURL = zipSearchConfigs.configs.searchResultsPage
     searchURL += "?search=#{search}"
     window.location = searchURL
+
+class ViewAllLink
+  constructor: (zipSearchConfigs, data) ->
+    if data.success
+      linkMarkup = "<a href='#' class='view-all-link'>View All Locations</a>"
+      $('.zip-search-results').append(linkMarkup)
+
+      @createButtonListener(zipSearchConfigs)
+
+  createButtonListener: (zipSearchConfigs) ->
+    $('.view-all-link').click( (event) =>
+      event.preventDefault() 
+      zipSearchConfigs.search = "all"
+      new ZipSearchAjaxRequest(zipSearchConfigs) )
+
+
+    
+
