@@ -5,6 +5,8 @@ $ ->
   new SearchButtonListener(zipSearchConfigs)
   # Get search results from g5-hub
   new ZipSearchAjaxRequest(zipSearchConfigs)
+  # Classes for different container widths
+  new PseudoMediaQuery()
 
 
 class ZipSearchAjaxRequest
@@ -175,3 +177,27 @@ class ViewAllLink
       event.preventDefault() 
       zipSearchConfigs.search = "all"
       new ZipSearchAjaxRequest(zipSearchConfigs) )
+
+class PseudoMediaQuery
+  constructor: () ->
+    width = @getWidth()
+    @setClass(width)
+
+    $( window ).resize () =>
+      width = @getWidth()
+      @setClass(width)
+
+  setClass: (width) ->
+    widget = $('.city-state-zip-search')
+
+    if width > 750 
+      widget.removeClass("narrow")
+      widget.addClass("wide")
+    else
+      widget.removeClass("wide")
+      widget.addClass("narrow")
+
+  getWidth: () ->
+    $('.city-state-zip-search').width()
+
+

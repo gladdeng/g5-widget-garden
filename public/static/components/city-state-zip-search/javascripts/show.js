@@ -1,11 +1,12 @@
 (function() {
-  var SearchButtonListener, SearchResultsList, SearchResultsMap, ViewAllLink, ZipSearchAjaxRequest, ZipSearchConfigs;
+  var PseudoMediaQuery, SearchButtonListener, SearchResultsList, SearchResultsMap, ViewAllLink, ZipSearchAjaxRequest, ZipSearchConfigs;
 
   $(function() {
     var zipSearchConfigs;
     zipSearchConfigs = new ZipSearchConfigs;
     new SearchButtonListener(zipSearchConfigs);
-    return new ZipSearchAjaxRequest(zipSearchConfigs);
+    new ZipSearchAjaxRequest(zipSearchConfigs);
+    return new PseudoMediaQuery();
   });
 
   ZipSearchAjaxRequest = (function() {
@@ -217,6 +218,38 @@
     };
 
     return ViewAllLink;
+
+  })();
+
+  PseudoMediaQuery = (function() {
+    function PseudoMediaQuery() {
+      var width,
+        _this = this;
+      width = this.getWidth();
+      this.setClass(width);
+      $(window).resize(function() {
+        width = _this.getWidth();
+        return _this.setClass(width);
+      });
+    }
+
+    PseudoMediaQuery.prototype.setClass = function(width) {
+      var widget;
+      widget = $('.city-state-zip-search');
+      if (width > 750) {
+        widget.removeClass("narrow");
+        return widget.addClass("wide");
+      } else {
+        widget.removeClass("wide");
+        return widget.addClass("narrow");
+      }
+    };
+
+    PseudoMediaQuery.prototype.getWidth = function() {
+      return $('.city-state-zip-search').width();
+    };
+
+    return PseudoMediaQuery;
 
   })();
 
