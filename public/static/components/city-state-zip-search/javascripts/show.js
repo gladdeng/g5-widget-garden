@@ -3,10 +3,10 @@
 
   $(function() {
     var zipSearchConfigs;
+    new PseudoMediaQuery();
     zipSearchConfigs = new ZipSearchConfigs;
     new SearchButtonListener(zipSearchConfigs);
-    new ZipSearchAjaxRequest(zipSearchConfigs);
-    return new PseudoMediaQuery();
+    return new ZipSearchAjaxRequest(zipSearchConfigs);
   });
 
   ZipSearchAjaxRequest = (function() {

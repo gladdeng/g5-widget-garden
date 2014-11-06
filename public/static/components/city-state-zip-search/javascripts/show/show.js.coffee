@@ -1,14 +1,13 @@
 $ ->
+  # Classes for different container widths
+  new PseudoMediaQuery()
   # Grab settings from index.html
   zipSearchConfigs = new ZipSearchConfigs
   # Set up listener for Search Button
   new SearchButtonListener(zipSearchConfigs)
   # Get search results from g5-hub
   new ZipSearchAjaxRequest(zipSearchConfigs)
-  # Classes for different container widths
-  new PseudoMediaQuery()
-
-
+  
 class ZipSearchAjaxRequest
   constructor: (zipSearchConfigs) ->
     if zipSearchConfigs.searchURL()

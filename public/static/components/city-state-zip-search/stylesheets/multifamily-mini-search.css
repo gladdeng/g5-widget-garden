@@ -7,15 +7,12 @@
 /* SEARCH FORM */
 /*************************************/
 .zip-search-top{
-  width:43%;
   float:right;
   position:relative;
   background:#1772a2;
   padding:10px 10px 15px 10px;
   margin-bottom:10px;
 }
-
-.narrow .zip-search-top{ width:100%; }
 
 .zip-search-heading{
   color:#f3f3f3;
@@ -57,12 +54,7 @@
 
 /* SEARCH RESULTS */
 /*************************************/
-.zip-search-results{
-  width:55%;
-  float:left;
-}
-
-.narrow .zip-search-results{ width:100%; }
+.zip-search-results{ float:left; }
 
 .zip-search-location{
   padding:10px;
@@ -102,13 +94,22 @@
 /*************************************/
 .zip-search-map{
   height:400px;
-  width:43%;
   float:right;
 }
-
-.narrow .zip-search-map{ width:100%; }
 
 /* UnHack max width so controls work on google maps */
 .zip-search-map img {
   max-width: none;
 }
+
+
+/* PSEUDO MEDIA QUERIES */
+/*************************************/
+/*.narrow */.zip-search-top{ width:100%; }
+.wide .zip-search-top{ width:43%; }
+
+/*.narrow */.zip-search-results{ width:100%; }
+.wide .zip-search-results{ width:55%; }
+
+/*.narrow */.zip-search-map{ width:100%; }
+.wide .zip-search-map{ width:43%; }
