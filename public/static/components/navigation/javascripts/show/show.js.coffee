@@ -1,5 +1,3 @@
-(->
-  NAVIGATION = undefined
   NAVIGATION =
     corporateMenu: $("#drop-target-nav .corporate-navigation")
     locationMenu: $("#drop-target-nav .navigation")
@@ -60,4 +58,3 @@
     return
 
   return
-).call this
