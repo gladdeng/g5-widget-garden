@@ -1,32 +1,63 @@
-NAVIGATION =
-  menu: $("#drop-target-nav .navigation")
+(->
+  NAVIGATION = undefined
+  NAVIGATION =
+    corporateMenu: $("#drop-target-nav .corporate-navigation")
+    locationMenu: $("#drop-target-nav .navigation")
+    path: location.pathname.match(/([^\/]*)\/*$/)[1]
+    setActiveMenu: (menu) ->
+      menu.find("a[href$=\"/" + @path + "\"]").addClass "active"
+      return
 
-  setMenuHeight: ->
-    @menu.css maxHeight: $(window).height() - $("header[role=banner] .collapsable-btn").outerHeight(true) + "px"
+    setMenuHeight: (menu) ->
+      menu.css maxHeight: $(window).height() - $("header[role=banner] .collapsable-btn").outerHeight(true) + "px"
+      return
 
-  path: location.pathname.match(/([^\/]*)\/*$/)[1]
+    setupMenu: (menu) ->
+      @setActiveMenu menu
+      @setMenuHeight menu
+      @setupSubNav menu  if menu.find(".has-subnav").length > 0
+      return
 
-  setupSubNav: ->
-    $('.has-subnav > a').on 'click', (e) ->
+    setupSubNav: (menu) ->
+      menu.find(".has-subnav > a").on "click", (e) ->
+        e.preventDefault()
+        e.stopPropagation()
+        NAVIGATION.closeSubNav NAVIGATION.corporateMenu.find(".subnav").not($(this).next())
+        NAVIGATION.closeSubNav NAVIGATION.locationMenu.find(".subnav").not($(this).next())
+        NAVIGATION.toggleSubNav $(this).next()
+        return
 
-      NAVIGATION.menu.find('.subnav').not($(this).next()).removeClass 'show-subnav'
-      $(this).next().toggleClass 'show-subnav'
+      return
 
-      return false
+    closeSubNav: (subnav) ->
+      subnav.removeClass "show-subnav"
+      subnav.parent().removeClass "subnav-open"
+      return
 
-  closeSubNav: ->
-    @menu.find('.show-subnav').removeClass 'show-subnav'
+    toggleSubNav: (subnav) ->
+      subnav.toggleClass "show-subnav"
+      subnav.parent().toggleClass "subnav-open"
+      return
 
-$ ->
+    resetSubNav: ->
+      NAVIGATION.closeSubNav @corporateMenu.find(".subnav")
+      NAVIGATION.closeSubNav @locationMenu.find(".subnav")
+      return
 
-  NAVIGATION.menu.find("a[href$=\"/" + NAVIGATION.path + "\"]").addClass "active"
-  NAVIGATION.setMenuHeight()
+  $ ->
+    NAVIGATION.setupMenu NAVIGATION.corporateMenu  if NAVIGATION.corporateMenu.length > 0
+    NAVIGATION.setupMenu NAVIGATION.locationMenu  if NAVIGATION.locationMenu.length > 0
+    if $(".has-subnav").length > 0
+      $("body").on "click", (e) ->
+        NAVIGATION.resetSubNav()
+        return
 
-  if $('.has-subnav').length > 0
-    NAVIGATION.setupSubNav()
+    $(window).smartresize ->
+      NAVIGATION.setMenuHeight NAVIGATION.corporateMenu  if NAVIGATION.corporateMenu.length > 0
+      NAVIGATION.setMenuHeight NAVIGATION.locationMenu  if NAVIGATION.locationMenu.length > 0
+      return
 
-    $('body').on 'click', (e) ->
-      NAVIGATION.closeSubNav()
+    return
 
-  $(window).smartresize ->
-    NAVIGATION.setMenuHeight()
+  return
+).call this
