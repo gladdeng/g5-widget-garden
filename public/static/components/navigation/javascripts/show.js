@@ -18,12 +18,23 @@
     },
     closeSubNav: function() {
       return this.menu.find('.show-subnav').removeClass('show-subnav');
+    },
+    trackNavEvents: function(navItem) {
+      var err;
+      try {
+        return ga('send', 'event', 'Nav', 'Clicked', navItem.text());
+      } catch (_error) {
+        err = _error;
+      }
     }
   };
 
   $(function() {
     NAVIGATION.menu.find("a[href$=\"/" + NAVIGATION.path + "\"]").addClass("active");
     NAVIGATION.setMenuHeight();
+    $('ul.top-nav').find('a').on("click", function() {
+      return NAVIGATION.trackNavEvents($(this));
+    });
     if ($('.has-subnav').length > 0) {
       NAVIGATION.setupSubNav();
       $('body').on('click', function(e) {
