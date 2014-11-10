@@ -11,7 +11,7 @@ window.resizeDirectionsWidget = ->
   startInput = dirWidget.find('#start')
   startWrapper = startInput.parent('.text')
   startSubmit = startWrapper.find('input[type=submit]')
-  startInput.css({width: startWrapper.width() - startSubmit.outerWidth(true) - 10})
+  startInput.css({width: startWrapper.width() - startSubmit.outerWidth(true) - 15})
 
 setupMap = ->
   window.directionsDisplay = new google.maps.DirectionsRenderer()
@@ -108,5 +108,5 @@ $ ->
   $('.directions input[type="submit"]').on 'click', ->
     calcRoute()
 
-$(window).on 'resize', ->
+$(window).on 'resize orientationchange', ->
   resizeDirectionsWidget()

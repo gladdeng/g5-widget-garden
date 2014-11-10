@@ -20,7 +20,7 @@
     startWrapper = startInput.parent('.text');
     startSubmit = startWrapper.find('input[type=submit]');
     return startInput.css({
-      width: startWrapper.width() - startSubmit.outerWidth(true) - 10
+      width: startWrapper.width() - startSubmit.outerWidth(true) - 15
     });
   };
 
@@ -147,7 +147,7 @@
     });
   });
 
-  $(window).on('resize', function() {
+  $(window).on('resize orientationchange', function() {
     return resizeDirectionsWidget();
   });
 
