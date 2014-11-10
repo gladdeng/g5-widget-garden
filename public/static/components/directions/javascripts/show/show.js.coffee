@@ -8,7 +8,7 @@ window.getDirectionsCoords = ->
 window.resizeDirectionsWidget = ->
   dirWidget = $('.directions');
   if dirWidget.parents('div').width() >= directionsWideWidth then dirWidget.addClass('wide') else dirWidget.removeClass('wide')
-  if dirWidget.parents('div').width() < directionsSmallWidth then dirWidget.addClass('small') else dirWidth.removeClass('small')
+  if dirWidget.parents('div').width() < directionsSmallWidth then dirWidget.addClass('small') else dirWidget.removeClass('small')
 
   startInput = dirWidget.find('#start')
   startWrapper = startInput.parent('.text')

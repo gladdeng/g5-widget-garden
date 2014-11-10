@@ -21,7 +21,7 @@
     if (dirWidget.parents('div').width() < directionsSmallWidth) {
       dirWidget.addClass('small');
     } else {
-      dirWidth.removeClass('small');
+      dirWidget.removeClass('small');
     }
     startInput = dirWidget.find('#start');
     startWrapper = startInput.parent('.text');
