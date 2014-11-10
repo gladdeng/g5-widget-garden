@@ -21,7 +21,8 @@ header[role=banner] .navigation {
 }
 
 @media (min-width: 980px) {
-  header[role=banner] .corporate-navigation, .navigation {
+  header[role=banner] .corporate-navigation,
+  header[role=banner] .navigation {
     overflow-y: visible;
   }
   .subnav {
