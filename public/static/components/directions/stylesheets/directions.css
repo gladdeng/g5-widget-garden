@@ -79,6 +79,8 @@
   opacity: 0.7;
 }
 
+.directions .canvas img { max-width: none; }
+
 .directions.small .text input[type=submit] {
   padding: .4em .4em;
 }
