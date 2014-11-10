@@ -26,9 +26,9 @@
 }
 
 .directions .canvas {
-  width:100%;
+  width:86%;
   height:500px;
-  margin-bottom: 1em;
+  margin: 0 auto 1em auto;
   background-color: rgb(229, 227, 223);
 }
 
