@@ -1,7 +1,9 @@
 (function() {
-  var directionsWideWidth, errorCallback, getClientCoords, getStoreCoords, hideErrorMessage, invalidStoreAddressError, populateStartAddress, setupMap, showErrorMessage, storeCoords, successCallback;
+  var directionsSmallWidth, directionsWideWidth, errorCallback, getClientCoords, getStoreCoords, hideErrorMessage, invalidStoreAddressError, populateStartAddress, setupMap, showErrorMessage, storeCoords, successCallback;
 
   directionsWideWidth = 960;
+
+  directionsSmallWidth = 480;
 
   window.getDirectionsCoords = function() {
     getStoreCoords();
@@ -15,6 +17,11 @@
       dirWidget.addClass('wide');
     } else {
       dirWidget.removeClass('wide');
+    }
+    if (dirWidget.parents('div').width() < directionsSmallWidth) {
+      dirWidget.addClass('small');
+    } else {
+      dirWidth.removeClass('small');
     }
     startInput = dirWidget.find('#start');
     startWrapper = startInput.parent('.text');
