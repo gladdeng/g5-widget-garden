@@ -119,7 +119,6 @@ class SearchResultsList
 
       if phoneElement.length && location.default_number != ""
         phoneElement.html(location.default_number)
-        $(".phone[value='#{location.urn}']")
   
 
 class ZipSearchConfigs

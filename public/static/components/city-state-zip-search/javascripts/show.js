@@ -116,7 +116,7 @@
     SearchResultsList.prototype.getPhoneNumbers = function() {
       var ajaxURL,
         _this = this;
-      ajaxURL = "//g5-cpns-1slhp2tc-compass-rock.herokuapp.com/locations.json";
+      ajaxURL = "" + this.zipSearchConfigs.configs.phoneServiceURL + "/locations.json";
       return $.ajax({
         url: ajaxURL,
         dataType: 'json',
@@ -133,8 +133,7 @@
         location = data[index];
         phoneElement = $(".phone[value='" + location.urn + "'");
         if (phoneElement.length && location.default_number !== "") {
-          phoneElement.html(location.default_number);
-          _results.push($(".phone[value='" + location.urn + "']"));
+          _results.push(phoneElement.html(location.default_number));
         } else {
           _results.push(void 0);
         }
