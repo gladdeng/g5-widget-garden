@@ -70,8 +70,7 @@ class SearchResultsMap
       </a>
       <p>
         #{location.street_address_1}<br />
-        #{location.city}, #{location.state} #{location.postal_code}<br />
-        PHONE NUMBER
+        #{location.city}, #{location.state} #{location.postal_code}
       </p> "
 
 class SearchResultsList

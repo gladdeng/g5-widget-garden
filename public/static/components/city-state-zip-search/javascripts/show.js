@@ -77,7 +77,7 @@
     };
 
     SearchResultsMap.prototype.infoWindowContent = function(location) {
-      return " <a href='" + location.domain + "'>        <h2>" + location.name + "</h2>      </a>      <p>        " + location.street_address_1 + "<br />        " + location.city + ", " + location.state + " " + location.postal_code + "<br />        PHONE NUMBER      </p> ";
+      return " <a href='" + location.domain + "'>        <h2>" + location.name + "</h2>      </a>      <p>        " + location.street_address_1 + "<br />        " + location.city + ", " + location.state + " " + location.postal_code + "      </p> ";
     };
 
     return SearchResultsMap;
