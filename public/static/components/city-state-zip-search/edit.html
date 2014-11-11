@@ -41,6 +41,19 @@
     </div>
 
     <div class="form-field">
+      {{ widget.phone_service_url.id_hidden_field }}
+      <label for="{{ widget.phone_service_url.value_field_id }}">
+        Phone Service Domain
+      </label>
+      <input type="text"
+        placeholder="Populate to display call tracking numbers"
+        id="{{ widget.phone_service_url.value_field_id }}"
+        name="{{ widget.phone_service_url.value_field_name }}"
+        value="{{ widget.phone_service_url.value }}"
+      />
+    </div>
+
+    <div class="form-field">
       {{ widget.search_radius.id_hidden_field }}
       <label for="{{ widget.search_radius.value_field_id }}">
         Search Radius

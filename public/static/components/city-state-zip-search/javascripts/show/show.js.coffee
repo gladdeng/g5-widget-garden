@@ -71,12 +71,13 @@ class SearchResultsMap
       <p>
         #{location.street_address_1}<br />
         #{location.city}, #{location.state} #{location.postal_code}<br />
-        #{location.phone_number}
+        PHONE NUMBER
       </p> "
 
 class SearchResultsList
   constructor: (@zipSearchConfigs, @data) ->
     @populateResults()
+    @getPhoneNumbers()
 
   populateResults: () ->
     markupHash = []
@@ -97,12 +98,29 @@ class SearchResultsList
                           <a href='#{location.domain}'><span class='branded-name'>#{location.name}<span></a>
                           <span class='street'>#{location.street_address_1}</span>
                           <span class='city'>#{location.city}, #{location.state} #{location.postal_code}</span>
-                          <span class='phone'>#{location.phone_number}</span>
+                          <span class='phone' value='#{location.urn}'></span>
                         </div>
                         <a class='zip-search-location-link' href='#{location.domain}'>Visit Location</a> ")
       markupHash.push("</div>")
 
     $('.city-state-zip-search .zip-search-results').html(markupHash.join(''))
+
+  getPhoneNumbers: () ->
+    ajaxURL = "#{@zipSearchConfigs.configs.phoneServiceURL}/locations.json"
+    $.ajax
+      url: ajaxURL
+      dataType: 'json'
+      success: (data) =>
+        @populatePhoneNumbers(data)
+
+  populatePhoneNumbers: (data) ->
+    for location, index in data
+      phoneElement = $(".phone[value='#{location.urn}'")
+
+      if phoneElement.length && location.default_number != ""
+        phoneElement.html(location.default_number)
+        $(".phone[value='#{location.urn}']")
+  
 
 class ZipSearchConfigs
   constructor: () ->

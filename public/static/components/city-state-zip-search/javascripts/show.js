@@ -77,7 +77,7 @@
     };
 
     SearchResultsMap.prototype.infoWindowContent = function(location) {
-      return " <a href='" + location.domain + "'>        <h2>" + location.name + "</h2>      </a>      <p>        " + location.street_address_1 + "<br />        " + location.city + ", " + location.state + " " + location.postal_code + "<br />        " + location.phone_number + "      </p> ";
+      return " <a href='" + location.domain + "'>        <h2>" + location.name + "</h2>      </a>      <p>        " + location.street_address_1 + "<br />        " + location.city + ", " + location.state + " " + location.postal_code + "<br />        PHONE NUMBER      </p> ";
     };
 
     return SearchResultsMap;
@@ -89,6 +89,7 @@
       this.zipSearchConfigs = zipSearchConfigs;
       this.data = data;
       this.populateResults();
+      this.getPhoneNumbers();
     }
 
     SearchResultsList.prototype.populateResults = function() {
@@ -106,10 +107,39 @@
       for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
         location = _ref[index];
         markupHash.push("<div class='zip-search-location'>");
-        markupHash.push("<img src='" + location.thumbnail + "' />                        <div class='location-address'>                          <a href='" + location.domain + "'><span class='branded-name'>" + location.name + "<span></a>                          <span class='street'>" + location.street_address_1 + "</span>                          <span class='city'>" + location.city + ", " + location.state + " " + location.postal_code + "</span>                          <span class='phone'>" + location.phone_number + "</span>                        </div>                        <a class='zip-search-location-link' href='" + location.domain + "'>Visit Location</a> ");
+        markupHash.push("<img src='" + location.thumbnail + "' />                        <div class='location-address'>                          <a href='" + location.domain + "'><span class='branded-name'>" + location.name + "<span></a>                          <span class='street'>" + location.street_address_1 + "</span>                          <span class='city'>" + location.city + ", " + location.state + " " + location.postal_code + "</span>                          <span class='phone' value='" + location.urn + "'></span>                        </div>                        <a class='zip-search-location-link' href='" + location.domain + "'>Visit Location</a> ");
         markupHash.push("</div>");
       }
       return $('.city-state-zip-search .zip-search-results').html(markupHash.join(''));
+    };
+
+    SearchResultsList.prototype.getPhoneNumbers = function() {
+      var ajaxURL,
+        _this = this;
+      ajaxURL = "//g5-cpns-1slhp2tc-compass-rock.herokuapp.com/locations.json";
+      return $.ajax({
+        url: ajaxURL,
+        dataType: 'json',
+        success: function(data) {
+          return _this.populatePhoneNumbers(data);
+        }
+      });
+    };
+
+    SearchResultsList.prototype.populatePhoneNumbers = function(data) {
+      var index, location, phoneElement, _i, _len, _results;
+      _results = [];
+      for (index = _i = 0, _len = data.length; _i < _len; index = ++_i) {
+        location = data[index];
+        phoneElement = $(".phone[value='" + location.urn + "'");
+        if (phoneElement.length && location.default_number !== "") {
+          phoneElement.html(location.default_number);
+          _results.push($(".phone[value='" + location.urn + "']"));
+        } else {
+          _results.push(void 0);
+        }
+      }
+      return _results;
     };
 
     return SearchResultsList;
