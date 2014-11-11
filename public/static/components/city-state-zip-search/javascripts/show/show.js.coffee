@@ -114,7 +114,7 @@ class SearchResultsList
 
   populatePhoneNumbers: (data) ->
     for location, index in data
-      phoneElement = $(".phone[value='#{location.urn}'")
+      phoneElement = $(".phone[value='#{location.urn}']")
 
       if phoneElement.length && location.default_number != ""
         phoneElement.html(location.default_number)

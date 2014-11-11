@@ -131,7 +131,7 @@
       _results = [];
       for (index = _i = 0, _len = data.length; _i < _len; index = ++_i) {
         location = data[index];
-        phoneElement = $(".phone[value='" + location.urn + "'");
+        phoneElement = $(".phone[value='" + location.urn + "']");
         if (phoneElement.length && location.default_number !== "") {
           _results.push(phoneElement.html(location.default_number));
         } else {
