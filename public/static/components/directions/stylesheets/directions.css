@@ -19,6 +19,7 @@
   color:#8a1f11;
   border:1px solid #ff0000;
   padding: .5em;
+  position: relative;
 }
 
 .directions .directions-error.show {
@@ -42,6 +43,13 @@
   display:inline;
 }
 
+.directions .text {
+  float: left;
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
 .directions .text label {
   display: block;
 }
@@ -56,32 +64,27 @@
   margin: 5px;
 }
 
-.directions .text {
-  float: left;
-  width: 100%;
-}
-
-.directions #start {
+.directions .directions-start {
   padding: .3em .3em;
   min-height: 18px;
   margin: 0 0 .5em 0;
   min-width: 50%;
 }
 
-.directions .text input[type=submit] {
+.directions .text .directions-submit, .directions .text input[type=submit] {
   margin-left: 5px;
   float:right;
   padding: .4em 2em;
 }
 
-.directions .text input[type=submit].disabled, .directions .text input[type=submit].disabled:hover {
+.directions .text .directions-submit.disabled, .directions .text .directions-submit.disabled:hover {
   cursor: default;
   opacity: 0.7;
 }
 
 .directions .canvas img { max-width: none; }
 
-.directions.small .text input[type=submit] {
+.directions.small .text .directions-submit, .directions.small .text input[type=submit] {
   padding: .4em .4em;
 }
 
