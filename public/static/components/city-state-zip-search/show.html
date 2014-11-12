@@ -9,28 +9,42 @@
 </script>
 
 <style>
-  {% if widget.primary_color.value != blank %}
-    .city-state-zip-search .zip-search-top,
-    .city-state-zip-search .zip-search-location-link,
-    .city-state-zip-search .view-all-link{ background-color:{{ widget.primary_color.value }}; }
+  {% if widget.form_background_color.value != blank %}
+    .city-state-zip-search .zip-search-top{ background-color:{{ widget.form_background_color.value }}; }
   {% endif %}
 
-  {% if widget.secondary_color.value != blank %}
-    .city-state-zip-search .zip-search-button{ background:{{ widget.secondary_color.value }}; }
+  {% if widget.form_text_color.value != blank %}
+    .city-state-zip-search .zip-search-heading{ color:{{ widget.form_text_color.value }};}
   {% endif %}
 
-  {% if widget.accent_color.value != blank %}
-    .city-state-zip-search .zip-search-heading,
-    .city-state-zip-search .zip-search-button button,
+  {% if widget.form_button_color.value != blank %}
+    .city-state-zip-search .zip-search-button { background: {{ widget.form_button_color.value }}; }
+  {% endif %}
+
+  {% if widget.result_background_color.value != blank %}
+    .city-state-zip-search .zip-search-location { background:{{ widget.result_background_color.value }}; }
+  {% endif %}
+
+  {% if widget.result_text_color.value != blank %}
+    .zip-search-location span{ color:{{ widget.result_text_color.value }}; }
+  {% endif %}
+
+  {% if widget.result_button_color.value != blank %}
+    .city-state-zip-search .zip-search-location span.branded-name{ color:{{ widget.result_button_color.value }}; }
     .city-state-zip-search .zip-search-location-link,
-    .city-state-zip-search .view-all-link{ color:{{ widget.accent_color.value }}; }
-    .city-state-zip-search .zip-search-location{background:{{ widget.accent_color.value }};}
+    .city-state-zip-search .view-all-link { background-color:{{ widget.result_button_color.value }}; }
   {% endif %}
 </style>
 
 <div id="city-state-zip-search" class="city-state-zip-search widget">
   <div class="zip-search-top">
-    <div class="zip-search-heading">Find A Location</div>
+    <div class="zip-search-heading">
+      {% if widget.form_text.value == blank %}
+        Find A Location
+      {% else %}
+        {{ widget.form_text.value }}
+      {% endif %}
+    </div>
     <form class="zip-search-form">
       <span class="zip-search-input">
         <input type="text" name="search" placeholder="City, ST or Zip">
