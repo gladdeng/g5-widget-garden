@@ -97,6 +97,8 @@
   float:right;
 }
 
+div.location-search-info-window{ color: #000; }
+
 /* UnHack max width so controls work on google maps */
 .zip-search-map img {
   max-width: none;
