@@ -3,8 +3,8 @@
 
   $(function() {
     var zipSearchConfigs;
-    new PseudoMediaQuery();
     zipSearchConfigs = new ZipSearchConfigs;
+    new PseudoMediaQuery(zipSearchConfigs);
     new SearchButtonListener(zipSearchConfigs);
     return new ZipSearchAjaxRequest(zipSearchConfigs);
   });
@@ -251,9 +251,10 @@
   })();
 
   PseudoMediaQuery = (function() {
-    function PseudoMediaQuery() {
+    function PseudoMediaQuery(zipSearchConfigs) {
       var width,
         _this = this;
+      this.zipSearchConfigs = zipSearchConfigs;
       width = this.getWidth();
       this.setClass(width);
       $(window).resize(function() {

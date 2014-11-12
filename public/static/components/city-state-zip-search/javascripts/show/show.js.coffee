@@ -1,8 +1,8 @@
 $ ->
-  # Classes for different container widths
-  new PseudoMediaQuery()
   # Grab settings from index.html
   zipSearchConfigs = new ZipSearchConfigs
+  # Classes for different container widths
+  new PseudoMediaQuery(zipSearchConfigs)
   # Set up listener for Search Button
   new SearchButtonListener(zipSearchConfigs)
   # Get search results from g5-hub
@@ -196,14 +196,14 @@ class ViewAllLink
       new ZipSearchAjaxRequest(zipSearchConfigs) )
 
 class PseudoMediaQuery
-  constructor: () ->
+  constructor: (@zipSearchConfigs) ->
     width = @getWidth()
     @setClass(width)
 
     $( window ).resize () =>
       width = @getWidth()
       @setClass(width)
-
+      
   setClass: (width) ->
     widget = $('.city-state-zip-search')
 

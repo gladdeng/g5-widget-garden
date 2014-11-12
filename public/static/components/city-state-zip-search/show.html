@@ -36,7 +36,7 @@
   {% endif %}
 </style>
 
-<div id="city-state-zip-search" class="city-state-zip-search widget">
+<div id="city-state-zip-search" class="city-state-zip-search widget {% if widget.search_results_page.value != blank %} mini-version{% endif %}">
   <div class="zip-search-top">
     <div class="zip-search-heading">
       {% if widget.form_text.value == blank %}
