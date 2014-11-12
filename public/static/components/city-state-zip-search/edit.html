@@ -1,6 +1,6 @@
 <form>
   <fieldset>
-
+    <legend>Backend Setup</legend>
     <div class="form-field">
       {{ widget.client_urn.id_hidden_field }}
       <label for="{{ widget.client_urn.value_field_id }}">
@@ -65,46 +65,105 @@
         value="{{ widget.search_radius.value }}"
       />
     </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Form Text and Colors</legend>
 
     <div class="form-field">
-      {{ widget.primary_color.id_hidden_field }}
-      <label for="{{ widget.primary_color.value_field_id }}">
-        Primary Color
+      {{ widget.form_background_color.id_hidden_field }}
+      <label for="{{ widget.form_background_color.value_field_id }}">
+        Form Background Color
       </label>
       <input type="text"
         placeholder="Form Background"
-        id="{{ widget.primary_color.value_field_id }}"
-        name="{{ widget.primary_color.value_field_name }}"
-        value="{{ widget.primary_color.value }}"
+        id="{{ widget.form_background_color.value_field_id }}"
+        name="{{ widget.form_background_color.value_field_name }}"
+        value="{{ widget.form_background_color.value }}"
       />
     </div>
 
     <div class="form-field">
-      {{ widget.secondary_color.id_hidden_field }}
-      <label for="{{ widget.secondary_color.value_field_id }}">
-        Secondary Color
+      {{ widget.form_text_color.id_hidden_field }}
+      <label for="{{ widget.form_text_color.value_field_id }}">
+        Form Text Color
       </label>
       <input type="text"
-        placeholder="Results background and button text color"
-        id="{{ widget.secondary_color.value_field_id }}"
-        name="{{ widget.secondary_color.value_field_name }}"
-        value="{{ widget.secondary_color.value }}"
+        placeholder="Defaults to #ffffff"
+        id="{{ widget.form_text_color.value_field_id }}"
+        name="{{ widget.form_text_color.value_field_name }}"
+        value="{{ widget.form_text_color.value }}"
       />
     </div>
 
     <div class="form-field">
-      {{ widget.accent_color.id_hidden_field }}
-      <label for="{{ widget.accent_color.value_field_id }}">
-        Accent Color
+      {{ widget.form_button_color.id_hidden_field }}
+      <label for="{{ widget.form_button_color.value_field_id }}">
+        Form Button Color
       </label>
       <input type="text"
-        placeholder="Go button color"
-        id="{{ widget.accent_color.value_field_id }}"
-        name="{{ widget.accent_color.value_field_name }}"
-        value="{{ widget.accent_color.value }}"
+        placeholder="Defaults to #000000"
+        id="{{ widget.form_button_color.value_field_id }}"
+        name="{{ widget.form_button_color.value_field_name }}"
+        value="{{ widget.form_button_color.value }}"
       />
     </div>
 
+    <div class="form-field">
+      {{ widget.form_text.id_hidden_field }}
+      <label for="{{ widget.form_text.value_field_id }}">
+        Form Text
+      </label>
+      <input type="text"
+        placeholder="Defaults to: Find a Location"
+        id="{{ widget.form_text.value_field_id }}"
+        name="{{ widget.form_text.value_field_name }}"
+        value="{{ widget.form_text.value }}"
+      />
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Result List Colors</legend>
+
+    <div class="form-field">
+      {{ widget.result_background_color.id_hidden_field }}
+      <label for="{{ widget.result_background_color.value_field_id }}">
+        Results Background Color
+      </label>
+      <input type="text"
+        placeholder="Defaults to #ffffff"
+        id="{{ widget.result_background_color.value_field_id }}"
+        name="{{ widget.result_background_color.value_field_name }}"
+        value="{{ widget.result_background_color.value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.result_text_color.id_hidden_field }}
+      <label for="{{ widget.result_text_color.value_field_id }}">
+        Results Text Color
+      </label>
+      <input type="text"
+        placeholder="Controls address and phone number"
+        id="{{ widget.result_text_color.value_field_id }}"
+        name="{{ widget.result_text_color.value_field_name }}"
+        value="{{ widget.result_text_color.value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.result_button_color.id_hidden_field }}
+      <label for="{{ widget.result_button_color.value_field_id }}">
+        Result Button Color
+      </label>
+      <input type="text"
+        placeholder="Also controls color of branded name"
+        id="{{ widget.result_button_color.value_field_id }}"
+        name="{{ widget.result_button_color.value_field_name }}"
+        value="{{ widget.result_button_color.value }}"
+      />
+    </div>
   </fieldset>
   <input type="submit" value="Save" class="btn" />
 </form>
