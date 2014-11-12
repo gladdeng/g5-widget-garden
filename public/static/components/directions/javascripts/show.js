@@ -198,7 +198,9 @@
   G5DirectionsWidget = null;
 
   $(document).ready(function() {
-    return window.G5DirectionsWidget = new directionsWidget(JSON.parse($('.directions .config:first').html()));
+    if (directionsConfig) {
+      return window.G5DirectionsWidget = new directionsWidget(directionsConfig);
+    }
   });
 
 }).call(this);

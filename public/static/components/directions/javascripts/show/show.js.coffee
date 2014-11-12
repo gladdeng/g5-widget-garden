@@ -131,4 +131,4 @@ class directionsWidget
 G5DirectionsWidget = null
 
 $(document).ready ->
-  window.G5DirectionsWidget = new directionsWidget(JSON.parse($('.directions .config:first').html()))
+  window.G5DirectionsWidget = new directionsWidget(directionsConfig) if directionsConfig
