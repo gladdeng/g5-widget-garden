@@ -11,7 +11,7 @@
     ga('send', 'pageview');
 </script>
 {% endif %}
-{% if widget.go_squared_code.value != "" or widget.go_squared_client_code.value != ""%}
+{% if widget.go_squared_code.value and widget.go_squared_code.value != "" %}
 <script>
   !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
           arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
