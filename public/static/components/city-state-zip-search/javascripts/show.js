@@ -206,7 +206,13 @@
     }
 
     SearchButtonListener.prototype.userInput = function() {
-      return $('.zip-search-form input[name=search]').val();
+      var search;
+      search = $('.zip-search-form input[name=search]').val();
+      if (search === "") {
+        return "blank";
+      } else {
+        return search;
+      }
     };
 
     SearchButtonListener.prototype.renderResultsInline = function(zipSearchConfigs) {

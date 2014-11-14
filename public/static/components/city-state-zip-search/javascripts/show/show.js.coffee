@@ -168,7 +168,11 @@ class SearchButtonListener
         @bumpToSearchPage(zipSearchConfigs) )
 
   userInput: () ->
-    $('.zip-search-form input[name=search]').val()
+    search = $('.zip-search-form input[name=search]').val()
+    if search == ""
+      "blank"
+    else
+      search
       
   renderResultsInline: (zipSearchConfigs) ->
     zipSearchConfigs.search = @userInput()
