@@ -79,9 +79,8 @@
       gallery.find('.slides img').css('max-height', fixedHeight);
       gallery.find('.slides li').css('height', fixedHeight);
     }
-    return setTimeout((function() {
-      return setImageHeight(imageHeight, gallery, galleryOptions["carousel"]);
-    }), 500);
+    gallery.find('.flex-control-nav').css('bottom', -navHeight);
+    return gallery.find('.flexslider').css('margin-bottom', navHeight);
   };
 
   setMiniNavHeight = function(imageHeight, gallery) {
@@ -96,7 +95,9 @@
     if (galleryOptions['mini_gallery'] === 'yes') {
       return setMiniNavHeight(imageHeight, gallery);
     } else {
-      return setImageHeight(imageHeight, gallery, galleryOptions['carousel']);
+      return setTimeout((function() {
+        return setImageHeight(imageHeight, gallery, galleryOptions["carousel"]);
+      }), 500);
     }
   };
 

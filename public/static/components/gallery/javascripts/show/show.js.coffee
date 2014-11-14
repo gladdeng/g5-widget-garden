@@ -75,9 +75,8 @@ setImageHeight = (imageHeight, gallery, carousel) ->
     gallery.find('.slides li').css 'height', fixedHeight
 
 
-  setTimeout (->
-    setImageHeight imageHeight, gallery, galleryOptions["carousel"]
-  ), 500
+  gallery.find('.flex-control-nav').css 'bottom', -navHeight
+  gallery.find('.flexslider').css 'margin-bottom', navHeight
 
 
 setMiniNavHeight = (imageHeight, gallery) ->
@@ -93,7 +92,9 @@ setupFlexslider = (galleryOptions, gallery) ->
   if galleryOptions['mini_gallery'] is 'yes'
     setMiniNavHeight imageHeight, gallery
   else
-    setImageHeight imageHeight, gallery, galleryOptions['carousel']
+    setTimeout (->
+      setImageHeight imageHeight, gallery, galleryOptions["carousel"]
+    ), 500
 
 
 resetFlexslider = (galleryOptions, gallery) ->
