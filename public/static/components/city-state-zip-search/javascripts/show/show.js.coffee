@@ -55,6 +55,7 @@ class SearchResultsMap
       })
       markers.push(marker)
       @bounds.extend(marker.position)
+      @map.setZoom(10) if @map.getZoom() > 10
 
       # Info Windows
       infowindow = new google.maps.InfoWindow({ content: @infoWindowContent(location) })
