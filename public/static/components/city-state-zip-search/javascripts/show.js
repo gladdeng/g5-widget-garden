@@ -46,8 +46,8 @@
       this.setMarkers(this.data.locations);
       this.map.fitBounds(this.bounds);
       google.maps.event.addListener(this.map, 'zoom_changed', function() {
-        if (_this.map.getZoom() > 15) {
-          return _this.map.setZoom(15);
+        if (_this.map.getZoom() > 17) {
+          return _this.map.setZoom(17);
         }
       });
     }

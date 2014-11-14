@@ -38,7 +38,7 @@ class SearchResultsMap
     @map.fitBounds(@bounds)
 
     google.maps.event.addListener(@map, 'zoom_changed', =>
-      @map.setZoom(15) if @map.getZoom() > 15
+      @map.setZoom(17) if @map.getZoom() > 17
     )
 
 
