@@ -31,13 +31,6 @@ initializeFlexSlider = (galleryOptions, gallery) ->
       controlNav: showThumbs
 
 
-  if galleryOptions['mini_gallery'] is 'no'
-    # Set placement of gallery nav based on its height
-    navHeight = gallery.find('.flex-control-nav').outerHeight(true)
-    gallery.find('.flex-control-nav').css('bottom', -navHeight)
-    gallery.find('.flexslider').css 'margin-bottom', -navHeight
-
-
 # Gets the height of the tallest image
 getLargestImage = (gallery) ->
   slides = gallery.find('.slides li')
@@ -81,8 +74,10 @@ setImageHeight = (imageHeight, gallery, carousel) ->
     gallery.find('.slides img').css 'max-height', fixedHeight
     gallery.find('.slides li').css 'height', fixedHeight
 
-  gallery.find('.flex-control-nav').css 'bottom', -navHeight
-  gallery.find('.flexslider').css 'margin-bottom', navHeight
+
+  setTimeout (->
+    setImageHeight imageHeight, gallery, galleryOptions["carousel"]
+  ), 500
 
 
 setMiniNavHeight = (imageHeight, gallery) ->
