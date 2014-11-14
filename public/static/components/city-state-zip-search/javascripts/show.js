@@ -31,7 +31,8 @@
 
   SearchResultsMap = (function() {
     function SearchResultsMap(zipSearchConfigs, data) {
-      var mapOptions;
+      var mapOptions,
+        _this = this;
       this.zipSearchConfigs = zipSearchConfigs;
       this.data = data;
       $('.city-state-zip-search').append("<div class='zip-search-map' id='map-canvas'></div>");
@@ -44,6 +45,11 @@
       this.map = new google.maps.Map(this.mapCanvas, mapOptions);
       this.setMarkers(this.data.locations);
       this.map.fitBounds(this.bounds);
+      google.maps.event.addListener(this.map, 'zoom_changed', function() {
+        if (_this.map.getZoom() > 15) {
+          return _this.map.setZoom(15);
+        }
+      });
     }
 
     SearchResultsMap.prototype.setMarkers = function(locations) {

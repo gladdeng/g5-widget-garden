@@ -37,6 +37,10 @@ class SearchResultsMap
 
     @map.fitBounds(@bounds)
 
+    google.maps.event.addListener(@map, 'zoom_changed', =>
+      @map.setZoom(15) if @map.getZoom() > 15
+    )
+
 
   setMarkers: (locations) ->
     markers=[]
@@ -55,7 +59,6 @@ class SearchResultsMap
       })
       markers.push(marker)
       @bounds.extend(marker.position)
-      @map.setZoom(10) if @map.getZoom() > 10
 
       # Info Windows
       infowindow = new google.maps.InfoWindow({ content: @infoWindowContent(location) })
