@@ -39,6 +39,7 @@
       this.bounds = new google.maps.LatLngBounds();
       this.markers = [];
       this.infowindows = [];
+      this.currentInfoWindow = null;
       mapOptions = {};
       this.map = new google.maps.Map(this.mapCanvas, mapOptions);
       this.setMarkers(this.data.locations);
@@ -46,12 +47,9 @@
     }
 
     SearchResultsMap.prototype.setMarkers = function(locations) {
-      var coordinates, index, infowindow, infowindows, lat, location, long, marker, markers, openInfoWindow, _i, _len, _results;
+      var coordinates, index, infowindow, infowindows, lat, location, long, marker, markers, that, _i, _len, _results;
       markers = [];
       infowindows = [];
-      openInfoWindow = function(index) {
-        return infowindows[index].open(this.map, markers[index]);
-      };
       _results = [];
       for (index = _i = 0, _len = locations.length; _i < _len; index = ++_i) {
         location = locations[index];
@@ -69,7 +67,12 @@
           content: this.infoWindowContent(location)
         });
         infowindows.push(infowindow);
+        that = this;
         _results.push(google.maps.event.addListener(markers[index], 'click', function() {
+          if (that.currentInfoWindow != null) {
+            that.currentInfoWindow.close();
+          }
+          that.currentInfoWindow = infowindows[this.index];
           return infowindows[this.index].open(this.map, markers[this.index]);
         }));
       }

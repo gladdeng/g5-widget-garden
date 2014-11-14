@@ -27,7 +27,8 @@ class SearchResultsMap
     @bounds = new google.maps.LatLngBounds()
     @markers = []
     @infowindows = []
-
+    @currentInfoWindow = null
+    
     mapOptions = {}
 
     @map = new google.maps.Map(@mapCanvas, mapOptions)
@@ -36,12 +37,10 @@ class SearchResultsMap
 
     @map.fitBounds(@bounds)
 
+
   setMarkers: (locations) ->
     markers=[]
     infowindows=[]
-
-    openInfoWindow = (index) ->
-      infowindows[index].open(@map, markers[index])
 
     for location, index in locations
       lat = location.latitude
@@ -60,7 +59,12 @@ class SearchResultsMap
       # Info Windows
       infowindow = new google.maps.InfoWindow({ content: @infoWindowContent(location) })
       infowindows.push(infowindow)
+
+      # Event listener needs access to both versions of this
+      that = this
       google.maps.event.addListener(markers[index],'click', ->
+        that.currentInfoWindow.close() if that.currentInfoWindow?
+        that.currentInfoWindow = infowindows[this.index]
         infowindows[this.index].open(@map, markers[this.index])
       )
 
