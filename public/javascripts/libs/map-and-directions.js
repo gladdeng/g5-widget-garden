@@ -28,8 +28,8 @@ function initialize() {
   if ($(".map").length) {
     window.getMapCoords();
   }
-  if ($(".directions").length) {
-    window.getDirectionsCoords();
+  if ($(".directions").length && window.G5DirectionsWidget) {
+    window.G5DirectionsWidget.getDirectionsCoords();
   }
   if ($(".comarketing").length) {
     window.getComarketingCoords();
