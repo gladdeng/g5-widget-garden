@@ -7,7 +7,7 @@
           "selectedRegions": {{ widget.corporate_map.best_value.populated_states }},
           "locationCounts": {{ widget.corporate_map.best_value.state_location_counts }},
           "corpSearchPage": "{{ widget.corp_search_page.value }}",
-          "coreClientId": {{ widget.core_client_id.value }}
+          "coreClientId": {{ widget.core_client_id.value || 0 }}
         }
 
         var corpMapConfig = {
