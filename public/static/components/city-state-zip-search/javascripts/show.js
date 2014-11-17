@@ -35,7 +35,9 @@
         _this = this;
       this.zipSearchConfigs = zipSearchConfigs;
       this.data = data;
-      $('.city-state-zip-search').append("<div class='zip-search-map' id='map-canvas'></div>");
+      if (!$('#map-canvas').length) {
+        $('.city-state-zip-search').append("<div class='zip-search-map' id='map-canvas'></div>");
+      }
       this.mapCanvas = $('.zip-search-map')[0];
       this.bounds = new google.maps.LatLngBounds();
       this.markers = [];

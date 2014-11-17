@@ -21,8 +21,9 @@ class ZipSearchAjaxRequest
 
 class SearchResultsMap
   constructor: (@zipSearchConfigs, @data) ->
+    unless $('#map-canvas').length
+      $('.city-state-zip-search').append("<div class='zip-search-map' id='map-canvas'></div>")
 
-    $('.city-state-zip-search').append("<div class='zip-search-map' id='map-canvas'></div>")
     @mapCanvas = $('.zip-search-map')[0]
     @bounds = new google.maps.LatLngBounds()
     @markers = []
@@ -40,7 +41,6 @@ class SearchResultsMap
     google.maps.event.addListener(@map, 'zoom_changed', =>
       @map.setZoom(17) if @map.getZoom() > 17
     )
-
 
   setMarkers: (locations) ->
     markers=[]
