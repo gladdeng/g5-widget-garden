@@ -502,7 +502,9 @@
     if (params.selectedRegions) {
       if (params.selectedRegions instanceof Array) {
         for(var k in params.selectedRegions) {
-          this.select(params.selectedRegions[k].toLowerCase());
+          if (this.params.selectedRegions.hasOwnProperty(k)){
+            this.select(params.selectedRegions[k].toLowerCase());
+          }
         }
       } else {
         this.select(params.selectedRegions.toLowerCase());
