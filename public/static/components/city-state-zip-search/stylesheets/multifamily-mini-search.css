@@ -122,4 +122,4 @@ div.location-search-info-window{ color: #000; }
 .wide .zip-search-results{ width:55%; }
 
 /*.narrow */.zip-search-map{ width:86%; float:none; margin:0 auto; }
-.wide .zip-search-map{ width:43%; }
+.wide .zip-search-map{ width:43%; margin: 0; float:right; }
