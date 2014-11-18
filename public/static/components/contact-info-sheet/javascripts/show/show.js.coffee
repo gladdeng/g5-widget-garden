@@ -117,3 +117,11 @@ $ ->
   else
     $('.contact-info-sheet').removeClass('hidden')
     setUpContactInfoSheet()
+
+$(document).idle({
+  onIdle: ->
+    $(".contact-info-sheet").fadeOut(420)
+  onActive: ->
+    $(".contact-info-sheet").fadeIn(420) unless noStickyNavForIE9?
+  idle: 4000
+})

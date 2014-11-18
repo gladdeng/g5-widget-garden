@@ -121,4 +121,16 @@
     }
   });
 
+  $(document).idle({
+    onIdle: function() {
+      return $(".contact-info-sheet").fadeOut(420);
+    },
+    onActive: function() {
+      if (typeof noStickyNavForIE9 === "undefined" || noStickyNavForIE9 === null) {
+        return $(".contact-info-sheet").fadeIn(420);
+      }
+    },
+    idle: 4000
+  });
+
 }).call(this);
