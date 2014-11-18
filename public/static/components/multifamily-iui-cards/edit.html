@@ -48,6 +48,18 @@
     />
   </div>
   <div class="form-field">
+    {{ widget.lease_terms.id_hidden_field }}
+    <label for="{{ widget.max_unit_availability.value_field_id }}">
+      Enable Lease Terms? enter <span style="text-transform: lowercase;">"true"</span>
+    </label>
+    <input type="text"
+      placeholder="false"
+      id="{{ widget.lease_terms.value_field_id }}"
+      name="{{ widget.lease_terms.value_field_name }}"
+      value="{{ widget.lease_terms.value }}"
+    />
+  </div>
+  <div class="form-field">
     {{ widget.primary_color.id_hidden_field }}
     <label for="{{ widget.primary_color.value_field_id }}">
       Primary Color
