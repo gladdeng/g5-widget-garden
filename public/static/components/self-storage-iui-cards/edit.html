@@ -1,17 +1,5 @@
 <form>
   <div class="form-field">
-    {{ widget.lead_form_url.id_hidden_field }}
-    <label for="{{ widget.lead_form_url.value_field_id }}">
-      Lead Form URL
-    </label>
-    <input type="text"
-      placeholder="http://path.to.my.leads.service"
-      id="{{ widget.lead_form_url.value_field_id }}"
-      name="{{ widget.lead_form_url.value_field_name }}"
-      value="{{ widget.lead_form_url.best_value | url_encode }}"
-    />
-  </div>
-  <div class="form-field">
     {{ widget.core_store_id.id_hidden_field }}
     <label for="{{ widget.core_store_id.value_field_id }}">
       Core Store ID
