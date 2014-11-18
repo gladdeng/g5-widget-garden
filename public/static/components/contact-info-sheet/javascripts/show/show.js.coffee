@@ -3,6 +3,18 @@ setUpContactInfoSheet = ->
   phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html())
   new phoneNumber(phoneOptions)
 
+  setFadeDelay = (seconds) ->
+    delay = if seconds == "" then 4 else parseInt(seconds)
+    $(document).idle({
+      onIdle: ->
+        $(".contact-info-sheet").fadeOut(420)
+      onActive: ->
+        $(".contact-info-sheet").fadeIn(420) unless noStickyNavForIE9?
+      idle: delay * 1000
+    })
+
+  setFadeDelay(phoneOptions.fadeDelay)
+
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"
     widget.find(".info-sheet-email").hide()
@@ -117,11 +129,3 @@ $ ->
   else
     $('.contact-info-sheet').removeClass('hidden')
     setUpContactInfoSheet()
-
-$(document).idle({
-  onIdle: ->
-    $(".contact-info-sheet").fadeOut(420)
-  onActive: ->
-    $(".contact-info-sheet").fadeIn(420) unless noStickyNavForIE9?
-  idle: 4000
-})

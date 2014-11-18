@@ -2,9 +2,25 @@
   var setUpContactInfoSheet;
 
   setUpContactInfoSheet = function() {
-    var initializeContactInfoSheet, phoneOptions, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
+    var initializeContactInfoSheet, phoneOptions, setFadeDelay, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
     phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
     new phoneNumber(phoneOptions);
+    setFadeDelay = function(seconds) {
+      var delay;
+      delay = seconds === "" ? 4 : parseInt(seconds);
+      return $(document).idle({
+        onIdle: function() {
+          return $(".contact-info-sheet").fadeOut(420);
+        },
+        onActive: function() {
+          if (typeof noStickyNavForIE9 === "undefined" || noStickyNavForIE9 === null) {
+            return $(".contact-info-sheet").fadeIn(420);
+          }
+        },
+        idle: delay * 1000
+      });
+    };
+    setFadeDelay(phoneOptions.fadeDelay);
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");
       widget.find(".info-sheet-email").hide();
@@ -119,18 +135,6 @@
       $('.contact-info-sheet').removeClass('hidden');
       return setUpContactInfoSheet();
     }
-  });
-
-  $(document).idle({
-    onIdle: function() {
-      return $(".contact-info-sheet").fadeOut(420);
-    },
-    onActive: function() {
-      if (typeof noStickyNavForIE9 === "undefined" || noStickyNavForIE9 === null) {
-        return $(".contact-info-sheet").fadeIn(420);
-      }
-    },
-    idle: 4000
   });
 
 }).call(this);
