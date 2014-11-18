@@ -1,15 +1,40 @@
 <div class="multifamily-iui-cards widget">
-  <base href="/" /><!--[if IE]></base><![endif]-->
   <script>
+    var EmberAppConfig = {  
+      "modulePrefix":"self-storage-iui-cards",
+      "environment":"production",
+      "baseURL":"/",
+      "locationType":"auto",
+      "EmberENV":{
+        "FEATURES":{},
+        "PER_PAGE":20
+      },
+      "APP":{
+        "rootElement":"#iui-container",
+        "serviceHost":"{{ widget.service_host.best_value | url_encode }}",
+        "storeId":"{{ widget.core_store_id.best_value }}",
+        "nearbyLocationsButtonLabel":"{{ widget.nearby_locations_button_label.best_value }}",
+        "unitSizeHelpUrl": "{{ widget.unit_size_help_url.best_value | url_encode }}",
+        "unitSizeHelpLabel":"{{ widget.unit_size_help_label.best_value }}"
+      },
+      "exportApplicationGlobal":false
+    }
+
     var G5 = {
         iuiContainer: 'iui-container',
         coreStoreId: '{{ widget.core_store_id.value }}',
         leadFormUrl: '{{ widget.lead_form_url.value | url_encode }}',
         floorplansServiceHost: "{{ widget.floorplans_service_host.value | url_encode }}",
-        maxUnitAvailability: {{ widget.max_unit_availability.value }}
+        maxUnitAvailability: {{ widget.max_unit_availability.value }},
+        enableLeaseTerms: "{{ widget.lease_terms.value }}"
     };
-    window.MultiFamilyIuiCardsENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"PER_PAGE":20},"APP":{}};
-    window.EmberENV = window.MultiFamilyIuiCardsENV.EmberENV;
+
+    var mfMetaConfig = document.createElement('meta');
+        mfMetaConfig.id="ember-meta";
+        mfMetaConfig.name = "multi-family-iui-cards/config/environment";
+        mfMetaConfig.content = JSON.stringify(EmberAppConfig);
+    document.getElementsByTagName('head')[0].appendChild(mfMetaConfig);
+
     // IE9 fix
     if(!window.console)var console={log:function(){},warn:function(){},error:function(){},time:function(){},timeEnd:function(){}};
   </script>
