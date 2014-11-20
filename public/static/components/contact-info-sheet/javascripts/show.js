@@ -10,7 +10,9 @@
       delay = seconds === "" ? 4 : parseInt(seconds);
       return $(document).idle({
         onIdle: function() {
-          return $(".contact-info-sheet").fadeOut(420);
+          if (!$(".contact-info-sheet.opened").length) {
+            return $(".contact-info-sheet").fadeOut(420);
+          }
         },
         onActive: function() {
           if (typeof noStickyNavForIE9 === "undefined" || noStickyNavForIE9 === null) {

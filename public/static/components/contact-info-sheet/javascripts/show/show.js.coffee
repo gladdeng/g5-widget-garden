@@ -7,13 +7,15 @@ setUpContactInfoSheet = ->
     delay = if seconds == "" then 4 else parseInt(seconds)
     $(document).idle({
       onIdle: ->
-        $(".contact-info-sheet").fadeOut(420)
+        $(".contact-info-sheet").fadeOut(420) unless $(".contact-info-sheet.opened").length
       onActive: ->
         $(".contact-info-sheet").fadeIn(420) unless noStickyNavForIE9?
       idle: delay * 1000
     })
 
-  setFadeDelay(phoneOptions.fadeDelay)
+  #setFadeDelay(phoneOptions.fadeDelay)
+  setFadeDelay(phoneOptions.fadeDelay) 
+
 
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"
