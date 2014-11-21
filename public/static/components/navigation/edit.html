@@ -61,6 +61,18 @@
     </label>
   </div>
 
+  <div class="form-field">
+    {{ widget.custom_class.id_hidden_field }}
+    <label for="{{ widget.custom_class.value_field_id }}">
+      Custom CSS Classes
+    </label>
+    <input type="text"
+      placeholder=""
+      id="{{ widget.custom_class.value_field_id }}"
+      name="{{ widget.custom_class.value_field_name }}"
+      value="{{ widget.custom_class.value }}"
+    />
+  </div>
 
   <fieldset>
     <legend>Choose which links you would like to display</legend>

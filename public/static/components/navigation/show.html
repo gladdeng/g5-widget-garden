@@ -1,8 +1,8 @@
 {% if widget.display_corporate_navigation.value == "true" %}
   {% if widget.display_navigation.value == "true" %}
-  <nav class="corporate-navigation widget show-desktop">
+  <nav class="corporate-navigation widget show-desktop {{ widget.custom_class.value }}">
   {% else %}
-  <nav class="corporate-navigation widget">
+  <nav class="corporate-navigation widget {{ widget.custom_class.value }}">
   {% endif %}
     <ul class="top-nav">
       {% for web_page in widget.corporate_navigation %}
@@ -28,9 +28,9 @@
 
 {% if widget.display_navigation.value == "true" %}
   {% if widget.display_as_calls_to_action.value == "true" %}
-  <nav class="action-calls widget">
+  <nav class="action-calls widget {{ widget.custom_class.value }}">
   {% else %}
-  <nav class="navigation widget">
+  <nav class="navigation widget {{ widget.custom_class.value }}">
   {% endif %}
     <ul class="top-nav">
       {% for web_page in widget.navigation.value %}
