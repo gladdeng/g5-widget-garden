@@ -34,13 +34,14 @@ class SearchResultsMap
 
     @map = new google.maps.Map(@mapCanvas, mapOptions)
 
+    google.maps.event.addListener(@map, 'zoom_changed', =>
+      @map.setZoom(17) if @map.getZoom() > 17
+    )
+
     @setMarkers(@data.locations)
 
     @map.fitBounds(@bounds)
 
-    google.maps.event.addListener(@map, 'zoom_changed', =>
-      @map.setZoom(17) if @map.getZoom() > 17
-    )
 
   setMarkers: (locations) ->
     markers=[]
