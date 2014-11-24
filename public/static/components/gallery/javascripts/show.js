@@ -14,10 +14,10 @@
   };
 
   initializeFlexSlider = function(galleryOptions, gallery) {
-    var navHeight, showThumbs;
+    var showThumbs;
     showThumbs = (galleryOptions['show_thumbnails'] === "yes" ? "thumbnails" : true);
     if (galleryOptions['carousel'] === 'yes') {
-      gallery.find('.gallery-carousel').flexslider({
+      return gallery.find('.gallery-carousel').flexslider({
         animation: 'slide',
         animationLoop: true,
         itemWidth: 350,
@@ -26,18 +26,13 @@
         maxItems: getGridSize()
       });
     } else {
-      gallery.find('.gallery-slideshow').flexslider({
+      return gallery.find('.gallery-slideshow').flexslider({
         animation: 'fade',
         useCSS: true,
         touch: true,
         directionNav: true,
         controlNav: showThumbs
       });
-    }
-    if (galleryOptions['mini_gallery'] === 'no') {
-      navHeight = gallery.find('.flex-control-nav').outerHeight(true);
-      gallery.find('.flex-control-nav').css('bottom', -navHeight);
-      return gallery.find('.flexslider').css('margin-bottom', -navHeight);
     }
   };
 
@@ -100,7 +95,9 @@
     if (galleryOptions['mini_gallery'] === 'yes') {
       return setMiniNavHeight(imageHeight, gallery);
     } else {
-      return setImageHeight(imageHeight, gallery, galleryOptions['carousel']);
+      return setTimeout((function() {
+        return setImageHeight(imageHeight, gallery, galleryOptions["carousel"]);
+      }), 500);
     }
   };
 
