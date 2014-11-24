@@ -35,7 +35,6 @@ class ReviewFeedSource
         @storeFeed()
         $(this).trigger("feedReady")
       error: (xhr, status, error) =>
-        alert("Review API URL not configured") if !@url
 
   feedFromStorage: ->
     try

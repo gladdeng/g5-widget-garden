@@ -44,11 +44,7 @@
           _this.storeFeed();
           return $(_this).trigger("feedReady");
         },
-        error: function(xhr, status, error) {
-          if (!_this.url) {
-            return alert("Review API URL not configured");
-          }
-        }
+        error: function(xhr, status, error) {}
       });
     };
 
