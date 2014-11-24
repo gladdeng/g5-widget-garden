@@ -4,7 +4,7 @@
     <div class="form-field">
       {{ widget.branded_name.id_hidden_field }}
       <label for="{{ widget.branded_name.value_field_id }}" >
-        branded_name
+        Location Branded Name
       </label>
       <input type="text"
         placeholder="Optional"
@@ -17,7 +17,7 @@
     <div class="form-field">
       {{ widget.review_api_url.id_hidden_field }}
       <label for="{{ widget.review_api_url.value_field_id }}" >
-        review_api_url
+        Promoted Reviews API URL
       </label>
       <input type="text"
         placeholder="https://reputation.g5search.com/api/promoted_reviews/stores/XXXX.json"
@@ -30,7 +30,7 @@
     <div class="form-field">
       {{ widget.review_page_url.id_hidden_field }}
       <label for="{{ widget.review_page_url.value_field_id }}" >
-        review_page_url
+        Path to Full Text Reviews
       </label>
       <input type="text"
         placeholder="/relative/path/to/review-page"
@@ -43,7 +43,7 @@
     <div class="form-field">
       {{ widget.insert_review_schema.id_hidden_field }}
       <label for="{{ widget.insert_review_schema.value_field_id }}" >
-        insert_review_schema
+        Element Selector For Summary
       </label>
       <input type="text"
         placeholder="Defaults to .contact-info if blank"
@@ -56,7 +56,7 @@
     <div class="form-field field check-field">
       {{ widget.full_review_content.id_hidden_field }}
       <label for="{{ widget.full_review_content.value_field_id }}" >
-        full_review_content
+        Display Full Review Text
       </label>
       <input type="hidden"
         id="{{ widget.full_review_content.value_field_id }}_false"
