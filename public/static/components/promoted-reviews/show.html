@@ -1,11 +1,27 @@
-<script id="promoted-reviews-config" type="application/json">
-  {
-    "branded_name": "{{ widget.branded_name.best_value }}",
-    "review_api_url": "{{ widget.review_api_url.best_value }}",
-    "review_page_url": "{{ widget.review_page_url.best_value }}",
-    "insert_review_schema": "{{ widget.insert_review_schema.best_value }}",
-    "full_review_content": "{{ widget.full_review_content.best_value }}"
-  }
-</script>
+{% if widget.full_review_content.value == "true" %}
 
-<div id="promoted-reviews"></div>
+  <script class="promoted-reviews-config full-review-config" type="application/json">
+    {
+      "branded_name": "{{ widget.branded_name.value }}",
+      "review_api_url": "{{ widget.review_api_url.value }}",
+      "review_page_url": "{{ widget.review_page_url.value }}",
+      "insert_review_schema": "{{ widget.insert_review_schema.value }}",
+      "full_review_content": "{{ widget.full_review_content.value }}"
+    }
+  </script>
+
+  <div id="promoted-reviews"></div>
+
+{% else %}
+
+  <script class="promoted-reviews-config hcard-review-config" type="application/json">
+    {
+      "branded_name": "{{ widget.branded_name.value }}",
+      "review_api_url": "{{ widget.review_api_url.value }}",
+      "review_page_url": "{{ widget.review_page_url.value }}",
+      "insert_review_schema": "{{ widget.insert_review_schema.value }}",
+      "full_review_content": "{{ widget.full_review_content.value }}"
+    }
+  </script>
+
+{% endif %}
