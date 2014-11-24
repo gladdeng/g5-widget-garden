@@ -2,18 +2,18 @@
   var BusinessSchemaUpdater, ReviewFeedSource, ReviewTemplater;
 
   $(function() {
-    var config, feedSource,
+    var config, feedSource, targetElement,
       _this = this;
     config = JSON.parse($('#promoted-reviews-config').html());
     feedSource = new ReviewFeedSource(config.review_api_url);
-    if (config.insert_review_schema) {
-      $(feedSource).bind("feedReady", function(event) {
-        return new BusinessSchemaUpdater(config.insert_review_schema, config.review_page_url).update(feedSource.feed);
-      });
-    }
     if (config.full_review_content) {
       $(feedSource).bind("feedReady", function(event) {
         return new ReviewTemplater(config.branded_name).update(feedSource.feed);
+      });
+    } else {
+      targetElement = config.insert_review_schema === "" ? ".contact-info" : config.insert_review_schema;
+      $(feedSource).bind("feedReady", function(event) {
+        return new BusinessSchemaUpdater(targetElement, config.review_page_url).update(feedSource.feed);
       });
     }
     return feedSource.getFeed();

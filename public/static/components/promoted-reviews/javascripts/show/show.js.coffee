@@ -2,13 +2,13 @@ $ ->
   config = JSON.parse($('#promoted-reviews-config').html())
   feedSource = new ReviewFeedSource(config.review_api_url)
 
-  if config.insert_review_schema
-    $(feedSource).bind("feedReady", (event) =>
-      new BusinessSchemaUpdater(config.insert_review_schema, config.review_page_url).update(feedSource.feed))
-
   if config.full_review_content
     $(feedSource).bind("feedReady", (event) =>
       new ReviewTemplater(config.branded_name).update(feedSource.feed))
+  else 
+    targetElement = if config.insert_review_schema == "" then ".contact-info" else config.insert_review_schema
+    $(feedSource).bind("feedReady", (event) =>
+      new BusinessSchemaUpdater(targetElement, config.review_page_url).update(feedSource.feed))
   
   feedSource.getFeed()
 
