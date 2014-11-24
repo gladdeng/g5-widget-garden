@@ -34,7 +34,6 @@
 
     ReviewFeedSource.prototype.fetch = function() {
       var _this = this;
-      alert("Hitting the deervices");
       return $.ajax({
         url: this.url,
         dataType: 'json',
