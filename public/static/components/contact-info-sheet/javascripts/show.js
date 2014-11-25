@@ -27,7 +27,8 @@
       widget.removeClass("opened showing-email");
       widget.find(".info-sheet-email").hide();
       widget.find(".info-sheet-phone").show();
-      return widget.addClass("opened showing-phone");
+      widget.addClass("opened showing-phone");
+      return widget.find(".info-sheet-nav").addClass("help");
     };
     showEmail = function(widget) {
       widget.removeClass("opened showing-phone");
@@ -106,18 +107,22 @@
       }
     };
     stopContactInfoSheet = function() {
+      var widget, widgetHeight;
       setupMobileContactInfoSheet();
       $(".contact-info-sheet").off("click", ".info-sheet-toggle").removeClass("opened showing-email showing=phone").removeAttr("style");
       $(".contact-info-sheet").off("click", ".info-sheet-page-up");
-      return $(".contact-info-sheet").off("click", ".info-sheet-page-down");
+      $(".contact-info-sheet").off("click", ".info-sheet-page-down");
+      widget = $(".contact-info-sheet").first().addClass('mobile');
+      widgetHeight = widget.outerHeight();
+      return $("body").css("padding-bottom", widgetHeight);
     };
-    if (Modernizr.mq("(min-width: 641px)")) {
+    if (Modernizr.mq("(min-width: 668px)")) {
       initializeContactInfoSheet();
     } else {
       setupMobileContactInfoSheet();
     }
     return $(window).smartresize(function() {
-      if (Modernizr.mq("(min-width: 641px)")) {
+      if (Modernizr.mq("(min-width: 668px)")) {
         if ($('.contact-info-sheet').first().hasClass('mobile')) {
           $('.contact-info-sheet').first().removeClass('mobile');
           return initializeContactInfoSheet();

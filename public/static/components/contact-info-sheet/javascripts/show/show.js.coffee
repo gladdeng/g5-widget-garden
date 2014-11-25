@@ -13,15 +13,14 @@ setUpContactInfoSheet = ->
       idle: delay * 1000
     })
 
-  #setFadeDelay(phoneOptions.fadeDelay)
   setFadeDelay(phoneOptions.fadeDelay) 
-
 
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"
     widget.find(".info-sheet-email").hide()
     widget.find(".info-sheet-phone").show()
     widget.addClass "opened showing-phone"
+    widget.find(".info-sheet-nav").addClass("help")
 
 
   showEmail = (widget) ->
@@ -102,8 +101,11 @@ setUpContactInfoSheet = ->
     $(".contact-info-sheet").off("click", ".info-sheet-toggle").removeClass("opened showing-email showing=phone").removeAttr "style"
     $(".contact-info-sheet").off "click", ".info-sheet-page-up"
     $(".contact-info-sheet").off "click", ".info-sheet-page-down"
+    widget = $(".contact-info-sheet").first().addClass('mobile')
+    widgetHeight = widget.outerHeight()
+    $("body").css "padding-bottom", widgetHeight
 
-  if Modernizr.mq("(min-width: 641px)")
+  if Modernizr.mq("(min-width: 668px)")
     initializeContactInfoSheet()
 
   else
@@ -111,7 +113,7 @@ setUpContactInfoSheet = ->
 
   $(window).smartresize ->
 
-    if Modernizr.mq("(min-width: 641px)")
+    if Modernizr.mq("(min-width: 668px)")
 
       # If switching from mobile view to larger view, initialize widget
       if ($('.contact-info-sheet').first().hasClass('mobile'))
@@ -120,10 +122,10 @@ setUpContactInfoSheet = ->
       else
         # Otherwise just run setup to reposition / resize
         setupContactInfoSheet()
-
     else
       # If going from large to mobile size, turn off click handlers
       stopContactInfoSheet()
+
 
 $ ->
   if typeof noStickyNavForIE9 != 'undefined'
