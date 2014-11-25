@@ -20,9 +20,16 @@ div.rating span.gold-stars {
   left:0;
 }
 
-div.review {
-  margin-bottom: 18px;
+.promoted-reviews .review{
+  padding:20px 3%;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
 }
+
+.promoted-reviews .review:first-of-type{ border-top:none; }
+
+.promoted-reviews .location-name{ font-weight:bold; }
+
+.promoted-reviews .rating{ margin-top:5px; }
 
 div.review .review-body {
   margin-bottom:7px;

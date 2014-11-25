@@ -77,7 +77,7 @@ class ReviewTemplater
     """
     <div itemscope itemtype="http://schema.org/Review" itemprop="review" class="review">
       <div itemprop="reviewBody" class="review-body">#{review.excerpt}</div>
-      <div itemprop="itemreviewed">#{@branded_name}</div>
+      <div itemprop="itemreviewed" class="location-name">#{@branded_name}</div>
       <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="author">
         Written by: <span itemprop="name">#{review.author}</span> 
         <span class="#{@classifyReputationSiteName(review.reputation_site_name)} via">
