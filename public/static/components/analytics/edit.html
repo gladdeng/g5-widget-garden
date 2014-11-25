@@ -14,20 +14,6 @@
     </div>
 
     <div class="form-field">
-        {{ widget.domain_name.id_hidden_field }}
-        <label for="{{ widget.domain_name.value_field_id }}">
-            Domain Name
-        </label>
-        <input type="text"
-               id="{{ widget.domain_name.value_field_id }}"
-               name="{{ widget.domain_name.value_field_name }}"
-               value="{{ widget.domain_name.value | url_encode }}"
-               placeholder="example.com"
-               required
-                />
-    </div>
-
-    <div class="form-field">
         {{ widget.go_squared_client_code.id_hidden_field }}
         <label for="{{ widget.go_squared_code.value_field_id }}">
             Go Squared Client Code

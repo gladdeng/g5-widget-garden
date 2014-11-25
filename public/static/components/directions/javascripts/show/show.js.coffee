@@ -1,68 +1,134 @@
-window.getDirectionsCoords = ->
-  getStoreCoords()
-  getClientCoords()
+class directionsWidget
+  config: null
+  wideWidth: 960
+  smallWidth: 480
+  storeCoords: null
+  lat: null
+  lng: null
+  directionsDisplay: null
 
-setupMap = ->
-  window.directionsDisplay = new google.maps.DirectionsRenderer()
-  mapOptions =
-    zoom: 15
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-    center: storeCoords
+  widget: null
+  input: null
+  wrapper: null
+  submit: null
+  canvas: null
+  panel: null
+  error: null
 
-  map = new google.maps.Map($(".directions .canvas")[0], mapOptions)
-  window.directionsDisplay.setMap map
-  window.directionsDisplay.setPanel $(".directions .panel")[0]
+  constructor: (options) ->
+    @config = options
+    @widget = $('.directions')
+    @input = @widget.find('.directions-start')
+    @wrapper = @input.parent('.text')
+    @submit = @wrapper.find('.directions-submit')
+    @canvas = @widget.find('.canvas')
+    @panel = @widget.find('.panel')
+    @error = @widget.find('.directions-error')
+    @resize()
+    @submit.on 'click', =>
+      @calcRoute()
+    $(window).on 'resize orientationchange', =>
+      @resize()
 
-getStoreCoords = ->
-  $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-    address: directionsConfig.address
-    sensor: "false"
-  ).done (data) ->
-    window.lat = data.results[0].geometry.location.lat
-    window.lng = data.results[0].geometry.location.lng
-    window.storeCoords = new google.maps.LatLng(window.lat, window.lng)
-    setupMap()
+  getDirectionsCoords: ->
+    @getStoreCoords()
+    @getClientCoords()
 
-getClientCoords = ->
-  watchID = undefined
-  nav = window.navigator
-  if nav?
-    geoloc = nav.geolocation
-    watchID = geoloc.getCurrentPosition(successCallback, errorCallback)
+  resize: ->
+    if @widget.parents('div').width() >= @wideWidth then @widget.addClass('wide') else @widget.removeClass('wide')
+    if @widget.parents('div').width() < @smallWidth then @widget.addClass('small') else @widget.removeClass('small')
+    @input.css({width: @wrapper.width() - @submit.outerWidth(true) - 15})
 
-successCallback = (position) ->
-  coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
-  populateStartAddress coords
+  setupMap: ->
+    @directionsDisplay = new google.maps.DirectionsRenderer()
+    mapOptions =
+      zoom: 15
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+      center: @storeCoords
 
-errorCallback = (error) ->
-  console.log "error detecting physical location"
+    map = new google.maps.Map(@canvas[0], mapOptions)
+    @directionsDisplay.setMap map
+    @directionsDisplay.setPanel @panel[0]
 
-populateStartAddress = (latLng) ->
-  address = undefined
-  geocoder = new google.maps.Geocoder()
-  geocoder.geocode
-    latLng: latLng,
-    (results, status) ->
-      if status is google.maps.GeocoderStatus.OK
-        address = results[0].formatted_address
-        $("#start").attr "value", address
-        calcRoute();
+    mapMarkerOptions =
+      position: @storeCoords
+      map: map
+      title: @config.address
+    marker = new google.maps.Marker(mapMarkerOptions)
 
-window.calcRoute = ->
-  directionsService = new google.maps.DirectionsService()
-  start = document.getElementById("start").value
-  end = window.storeCoords
-  request =
-    origin: start
-    destination: end
-    travelMode: google.maps.TravelMode.DRIVING
+  getStoreCoords: ->
+    $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+      address: @config.address
+      sensor: "false"
+    ).done (data) =>
+      if data.results.length
+        @lat = data.results[0].geometry.location.lat
+        @lng = data.results[0].geometry.location.lng
+        @storeCoords = new google.maps.LatLng(this.lat, this.lng)
+        @setupMap()
+      else
+        @invalidStoreAddressError()
 
-  directionsService.route request, (result, status) ->
-    window.directionsDisplay.setDirections result  if status is google.maps.DirectionsStatus.OK
+  getClientCoords: ->
+    watchID = undefined
+    nav = window.navigator
+    if nav?
+      geoloc = nav.geolocation
+      watchID = geoloc.getCurrentPosition \
+        ((position) => @successCallback(position)), \
+        ((error) => @errorCallback(error))
 
-storeCoords = undefined
+  successCallback: (position) ->
+    coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+    @populateStartAddress coords
 
-$ ->
-  window.directionsConfig = JSON.parse($('.directions .config:first').html());
-  $('.directions input[type="submit"]').on 'click', ->
-    calcRoute()
+  errorCallback: (error) ->
+    @showErrorMessage "Phyical location for the starting address not found"
+    console.log "error detecting physical location"
+
+  showErrorMessage: (message) ->
+    @error.html(message).addClass('show') if message.length
+
+  hideErrorMessage: ->
+    @error.removeClass 'show'
+
+  populateStartAddress: (latLng) ->
+    address = undefined
+    geocoder = new google.maps.Geocoder()
+    geocoder.geocode
+      latLng: latLng,
+      (results, status) =>
+        if status is google.maps.GeocoderStatus.OK
+          address = results[0].formatted_address
+          @input.attr "value", address
+          @calcRoute();
+
+  calcRoute: ->
+    return @invalidStoreAddressError() unless @storeCoords
+    @hideErrorMessage()
+    @submit.addClass('disabled').prop('disabled',true)
+    directionsService = new google.maps.DirectionsService()
+    start = @input.val()
+    end = @storeCoords
+    request =
+      origin: start
+      destination: end
+      travelMode: google.maps.TravelMode.DRIVING
+
+    directionsService.route request, (result, status) =>
+      if status is google.maps.DirectionsStatus.OK
+        @directionsDisplay.setDirections result
+      else
+        @showErrorMessage "No directions found. Try a different address."
+      @submit.removeClass('disabled').prop('disabled',false)
+
+  invalidStoreAddressError: ->
+    @showErrorMessage "The Store address for this Directions Widget is not set up correctly"
+    @submit.addClass('disabled').prop('disabled',true)
+    @canvas.hide()
+    @panel.hide()
+
+G5DirectionsWidget = null
+
+$(document).ready ->
+  window.G5DirectionsWidget = new directionsWidget(directionsConfig) if directionsConfig

@@ -7,20 +7,21 @@ header[role=banner] .navigation {
 }
 
 .subnav {
-  -webkit-transition: max-height 0.3s ease;
-  -moz-transition: max-height 0.3s ease;
-  transition: max-height 0.3s ease;
   max-height: 0;
   overflow: hidden;
 }
 
 @media (max-width: 979px) {
+  .corporate-navigation.show-desktop {
+    display: none;
+  }
   .show-subnav {
     max-height: none;
   }
 }
 
 @media (min-width: 980px) {
+  header[role=banner] .corporate-navigation,
   header[role=banner] .navigation {
     overflow-y: visible;
   }
@@ -33,5 +34,8 @@ header[role=banner] .navigation {
   }
   .show-subnav {
     max-height: 1000px;
+  }
+  .corporate-home {
+    display: none;
   }
 }
