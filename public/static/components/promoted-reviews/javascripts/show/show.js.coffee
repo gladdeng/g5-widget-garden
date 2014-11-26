@@ -57,12 +57,14 @@ class BusinessSchemaUpdater
 
   schemaTemplate: (location) ->
     """
-    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating">
-      <span itemprop="ratingValue" class="average-rating">#{location.average_rating} stars</span>
+    <div class="ratings-summary-outer">
+    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating ratings-summary">
+      <span itemprop="ratingValue" class="average-rating"></span>
       <a href="#{@review_page_url}" class="total-reviews">
         <span itemprop="reviewCount">(#{location.review_count} reviews)</span>
       </a>
       <span class="gold-stars" style="width:#{Math.round(location.average_rating * 16)}px;"></span>
+    </div>
     </div>
     """
 

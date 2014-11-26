@@ -79,3 +79,7 @@ div.review .author .seniorAdvisor {
   width:128px;
   height:20px;
 }
+
+.ratings-summary-outer{ padding:5px 0; }
+.ratings-summary{ display:inline-block; width: 80px; }
+.ratings-summary .total-reviews span{ white-space:nowrap; }
