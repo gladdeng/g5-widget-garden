@@ -79,7 +79,7 @@
     };
 
     BusinessSchemaUpdater.prototype.schemaTemplate = function(location) {
-      return "<div class=\"ratings-summary-outer\">\n<div itemprop=\"aggregateRating\" itemscope itemtype=\"http://schema.org/AggregateRating\" class=\"rating ratings-summary\">\n  <span itemprop=\"ratingValue\" class=\"average-rating\"></span>\n  <a href=\"" + this.review_page_url + "\" class=\"total-reviews\">\n    <span itemprop=\"reviewCount\">(" + location.review_count + " reviews)</span>\n  </a>\n  <span class=\"gold-stars\" style=\"width:" + (Math.round(location.average_rating * 16)) + "px;\"></span>\n</div>\n</div>";
+      return "<div class=\"ratings-summary-outer\">\n  <div itemprop=\"aggregateRating\" itemscope itemtype=\"http://schema.org/AggregateRating\" class=\"rating ratings-summary\">\n    <span itemprop=\"ratingValue\" class=\"average-rating\"></span>\n    <a href=\"" + this.review_page_url + "\" class=\"total-reviews\">\n      <span itemprop=\"reviewCount\">(" + location.review_count + " reviews)</span>\n    </a>\n    <span class=\"gold-stars\" style=\"width:" + (Math.round(location.average_rating * 16)) + "px;\"></span>\n  </div>\n</div>";
     };
 
     return BusinessSchemaUpdater;
