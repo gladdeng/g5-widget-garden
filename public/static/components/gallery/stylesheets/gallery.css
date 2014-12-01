@@ -116,6 +116,11 @@ CUSTOM STYLES
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+.flexslider-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .flex-title .flex-caption {
   text-align: center;
 }
