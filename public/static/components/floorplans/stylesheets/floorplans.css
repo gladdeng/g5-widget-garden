@@ -215,7 +215,7 @@ li.floorplan:nth-child(even) {
   width: 200px;
 }
 #loading-floorplans .loader {
-  background: url(http://widgets.g5dxm.com/shared/loader.gif) center no-repeat;
+  background: url(https://widgets.g5dxm.com/shared/loader.gif) center no-repeat;
   height: 32px;
   margin: 0 auto 1em;
   width: 32px;
