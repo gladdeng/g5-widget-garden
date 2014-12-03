@@ -1,0 +1,16 @@
+<form>
+    <div class="form-field">
+        {{ widget.favicon.id_hidden_field }}
+        <label for="{{ widget.favicon.value_field_id }}">
+            Favicon
+        </label>
+        <input type="text"
+               id="{{ widget.favicon.value_field_id }}"
+               name="{{ widget.favicon.value_field_name }}"
+               value="{{ widget.favicon.value }}"
+               placeholder="http://favicon_url/icon.ico"
+               required
+                />
+    </div>
+    <input type="submit" value="Save"/>
+</form>
