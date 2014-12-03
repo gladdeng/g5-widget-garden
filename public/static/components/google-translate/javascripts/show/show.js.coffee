@@ -1,5 +1,7 @@
-googleTranslateElementInit = () ->
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'cs,de,en,es,fr,hr,hy,id,it,iw,ja,ko,lt,pl,ru,tl,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element')
+googleTranslateElementInit = (languages) ->
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: languages, layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element')
 
 $ ->
-  googleTranslateElementInit()
+  configs = JSON.parse($('#google-translate-config').html())
+  languages = configs.languages
+  googleTranslateElementInit(languages)
