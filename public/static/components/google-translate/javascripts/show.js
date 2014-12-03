@@ -1,17 +1,20 @@
 (function() {
   var googleTranslateElementInit;
 
-  googleTranslateElementInit = function() {
+  googleTranslateElementInit = function(languages) {
     return new google.translate.TranslateElement({
       pageLanguage: 'en',
-      includedLanguages: 'cs,de,en,es,fr,hr,hy,id,it,iw,ja,ko,lt,pl,ru,tl,zh-CN',
+      includedLanguages: languages,
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false
     }, 'google_translate_element');
   };
 
   $(function() {
-    return googleTranslateElementInit();
+    var configs, languages;
+    configs = JSON.parse($('#google-translate-config').html());
+    languages = configs.languages;
+    return googleTranslateElementInit(languages);
   });
 
 }).call(this);
