@@ -11,7 +11,7 @@ setUpContactInfoSheet = ->
       onActive: ->
         $(".contact-info-sheet").fadeIn(420) unless noStickyNavForIE9?
       idle: delay * 1000
-      events: 'mousemove keypress mousedonw scroll'
+      events: 'mousemove keypress mousedonw scroll orientationchange'
     })
 
   setFadeDelay(phoneOptions.fadeDelay) 
