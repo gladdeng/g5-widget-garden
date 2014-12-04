@@ -32,11 +32,11 @@
   bottom: -1px;
 }
 #feed-switch-twitter {
-  /*background-image: url(http://widgets.g5dxm.com/twitter-feed/twitter-icon.png);*/
+  /*background-image: url(https://widgets.g5dxm.com/twitter-feed/twitter-icon.png);*/
 }
 #feed-switch-blog {
   padding-top:12px;
-  /*background-image: url(http://widgets.g5dxm.com/blog-feed/rss-icon.png);*/
+  /*background-image: url(https://widgets.g5dxm.com/blog-feed/rss-icon.png);*/
 }
 #feed-switch-blog path{
   fill:none;
