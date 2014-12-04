@@ -43,7 +43,7 @@
   margin-right: -4px;
   width: 50%;
 }
-.home-multifamily-iui:nth-child(3):last-child,
-.home-multifamily-iui:nth-child(5) {
+.home-multifamily-iui .iui-size:nth-child(3):last-child,
+.home-multifamily-iui .iui-size:nth-child(5) {
   width: 100%;
 }
