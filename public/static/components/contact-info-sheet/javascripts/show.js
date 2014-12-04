@@ -20,7 +20,7 @@
           }
         },
         idle: delay * 1000,
-        events: 'mousemove keypress mousedonw scroll'
+        events: 'mousemove keypress mousedonw scroll orientationchange'
       });
     };
     setFadeDelay(phoneOptions.fadeDelay);
