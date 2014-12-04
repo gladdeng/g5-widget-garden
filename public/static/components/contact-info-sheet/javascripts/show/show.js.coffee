@@ -11,6 +11,7 @@ setUpContactInfoSheet = ->
       onActive: ->
         $(".contact-info-sheet").fadeIn(420) unless noStickyNavForIE9?
       idle: delay * 1000
+      events: 'mousemove keypress mousedonw scroll'
     })
 
   setFadeDelay(phoneOptions.fadeDelay) 
@@ -20,8 +21,6 @@ setUpContactInfoSheet = ->
     widget.find(".info-sheet-email").hide()
     widget.find(".info-sheet-phone").show()
     widget.addClass "opened showing-phone"
-    widget.find(".info-sheet-nav").addClass("help")
-
 
   showEmail = (widget) ->
     widget.removeClass "opened showing-phone"

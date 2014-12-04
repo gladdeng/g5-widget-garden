@@ -19,7 +19,8 @@
             return $(".contact-info-sheet").fadeIn(420);
           }
         },
-        idle: delay * 1000
+        idle: delay * 1000,
+        events: 'mousemove keypress mousedonw scroll'
       });
     };
     setFadeDelay(phoneOptions.fadeDelay);
@@ -27,8 +28,7 @@
       widget.removeClass("opened showing-email");
       widget.find(".info-sheet-email").hide();
       widget.find(".info-sheet-phone").show();
-      widget.addClass("opened showing-phone");
-      return widget.find(".info-sheet-nav").addClass("help");
+      return widget.addClass("opened showing-phone");
     };
     showEmail = function(widget) {
       widget.removeClass("opened showing-phone");
