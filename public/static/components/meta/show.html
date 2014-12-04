@@ -8,3 +8,6 @@
 {% if widget.optimizely_id.value and widget.optimizely_id.value != "" %}
     <script type="text/javascript" src="//cdn.optimizely.com/js/{{ widget.optimizely_id.value }}.js"></script>
 {% endif %}
+{% if widget.favicon.best_value != "" %}
+    <link rel="shortcut icon" href="{{ widget.favicon.best_value }}" />
+{% endif %}
