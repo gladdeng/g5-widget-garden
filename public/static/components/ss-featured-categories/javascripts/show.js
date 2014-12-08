@@ -31,7 +31,7 @@
     };
 
     LinkMaker.prototype.buttonTemplate = function(category) {
-      return "<div>      <p>" + category.name + "</p>      <p>" + category.from_price + "</p>      <p>" + category.has_specials + "</p>    </div>";
+      return "<div>\n  <p>" + category.name + "</p>\n  <p>" + category.from_price + "</p>\n  <p>" + category.has_specials + "</p>\n</div>";
     };
 
     return LinkMaker;
