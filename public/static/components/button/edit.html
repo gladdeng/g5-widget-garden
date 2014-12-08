@@ -76,7 +76,7 @@
         id="{{ widget.button_layout.value_field_id }}_grid"
         name="{{ widget.button_layout.value_field_name }}"
         value="grid"
-        {% if widget.button_layout.best_value == "grid" %}
+        {% if widget.button_layout.value == "grid" %}
         checked="checked"
         {% endif %}
       />
@@ -87,7 +87,9 @@
         id="{{ widget.button_layout.value_field_id }}_inline"
         name="{{ widget.button_layout.value_field_name }}"
         value="inline"
+        {% if widget.button_layout.value == "inline" %}
         checked="checked"
+        {% endif %}
       />
       <label for="{{ widget.button_layout.value_field_id }}_inline" >
         Inline
