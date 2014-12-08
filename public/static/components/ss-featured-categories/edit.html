@@ -1,0 +1,20 @@
+<form>
+  <fieldset>
+    
+    <div class="form-field">
+      {{ widget.configuration.id_hidden_field }}
+      <label for="{{ widget.configuration.value_field_id }}">
+        Configuration
+      </label>
+      <input type="text"
+        placeholder="some_config_value"
+        id="{{ widget.configuration.value_field_id }}"
+        name="{{ widget.configuration.value_field_name }}"
+        value="{{ widget.configuration.best_value }}"
+      />
+    </div>
+    
+  </fieldset>
+
+  <input type="submit" value="Save" class="btn" />
+</form>
