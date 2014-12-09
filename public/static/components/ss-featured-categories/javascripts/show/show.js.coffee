@@ -1,23 +1,34 @@
-$ ->
-
-  ssFeaturedUnitCat = JSON.parse($('#ss-featured-categories-config').html())
+$ -> 
+  configs = JSON.parse($('#ss-featured-unit-categories-config').html())
 
   $.ajax
-    url: "#{ssFeaturedUnitCat.configuration}"
+    #url: "#{configs.unit_service_host}"  #for local testing
+    url: "#{configs.unit_service_host}/api/v0/storage?store_id=#{configs.ss_core_store_id}"
     dataType: 'json'
     success: (data) =>
-      new LinkMaker(data).update()
+      categories = data.storage_categories
+      if typeof(categories) != "undefined" && categories.length > 0
+        new ssUnitMarkupBuilder(categories, configs) 
 
-class LinkMaker
-  constructor: (@data) ->
+class ssUnitMarkupBuilder 
+  constructor: (categories, configs) ->
+    categories.sort((a, b) -> return a.name - b.name)
+    markupHash = []
 
-  update: () ->
-    for category in @data.storage_categories
-      $('.ss-featured-categories').append(@buttonTemplate(category)) 
+    for category, index in categories
+      markupHash.push(buttonTemplate(category.name, configs))
 
-  buttonTemplate: (category) ->
-    """<div>
-      <p>#{category.name}</p>
-      <p>#{category.from_price}</p>
-      <p>#{category.has_specials}</p>
-    </div>"""
+    allButton = " <div class='iui-size iui-view-all'>
+                    <a class='btn' href='#{configs.unit_page_url}/#/category/all/units'>
+                      View All
+                    </a>
+                  </div> "
+
+    markupHash.push(allButton)
+
+    $('.ss-featured-unit-categories .iui-container').html(markupHash.join(''))
+
+  buttonTemplate = (name, configs) ->
+    buttonText = if name > 0 then "#{name} Bedroom" else "Studio"
+
+    "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url}/#/category/#{name}/units'>#{name}</a></div>"

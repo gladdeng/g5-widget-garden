@@ -1,16 +1,41 @@
 <form>
   <fieldset>
-    
     <div class="form-field">
-      {{ widget.configuration.id_hidden_field }}
-      <label for="{{ widget.configuration.value_field_id }}">
-        Configuration
+      {{ widget.ss_core_store_id.id_hidden_field }}
+      <label for="{{ widget.ss_core_store_id.value_field_id }}">
+        Core Store ID
       </label>
       <input type="text"
-        placeholder="some_config_value"
-        id="{{ widget.configuration.value_field_id }}"
-        name="{{ widget.configuration.value_field_name }}"
-        value="{{ widget.configuration.best_value }}"
+        placeholder="some_great_page"
+        id="{{ widget.ss_core_store_id.value_field_id }}"
+        name="{{ widget.ss_core_store_id.value_field_name }}"
+        value="{{ widget.ss_core_store_id.best_value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.unit_page_url.id_hidden_field }}
+      <label for="{{ widget.unit_page_url.value_field_id }}">
+        Unit Page URL
+      </label>
+      <input type="text"
+        placeholder="some_great_page"
+        id="{{ widget.unit_page_url.value_field_id }}"
+        name="{{ widget.unit_page_url.value_field_name }}"
+        value="{{ widget.unit_page_url.best_value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.unit_service_host.id_hidden_field }}
+      <label for="{{ widget.unit_service_host.value_field_id }}">
+        Units Service Host - Api
+      </label>
+      <input type="text"
+        placeholder="h4 Header Text"
+        id="{{ widget.unit_service_host.value_field_id }}"
+        name="{{ widget.unit_service_host.value_field_name }}"
+        value="{{ widget.unit_service_host.best_value }}"
       />
     </div>
     

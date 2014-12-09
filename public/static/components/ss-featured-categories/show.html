@@ -1,6 +1,24 @@
-<script id="ss-featured-categories-config" type="application/json">
-  { "configuration": "{{ widget.configuration.best_value }}",
-    "resultsPagePath": "{{ widget.results_page_path.best_value }}" }
-</script>
+<div class="ss-featured-unit-categories widget">
 
-<div class="ss-featured-categories widget"></div>
+<script id="ss-featured-unit-categories-config" type="application/json">
+  {
+    "ss_core_store_id": "{{ widget.ss_core_store_id.value }}",
+    "unit_page_url": "{{ widget.unit_page_url.value }}",
+    "unit_service_host": "{{ widget.unit_service_host.value }}"
+  }
+</script>
+  
+<p class="iui-title">Select a Size</p>
+
+  <div class="iui-steps">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+  </div>
+
+  <div class="iui-container">
+    <p>Loading Unit Options</p>
+  </div>
+</div>
+
