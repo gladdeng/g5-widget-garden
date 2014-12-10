@@ -60,5 +60,17 @@
     />
   </div>
 
+  <div class="form-field">
+    <label for="{{ widget.fade_delay.value_field_id }}" >
+      Fade Delay in Seconds
+    </label>
+    {{ widget.fade_delay.id_hidden_field }}
+    <input type="number"
+      id="{{ widget.fade_delay.value_field_id }}"
+      name="{{ widget.fade_delay.value_field_name }}"
+      value="{{ widget.fade_delay.value }}"
+    />
+  </div>
+
   <input type="submit" value="Save" class="btn" />
 </form>

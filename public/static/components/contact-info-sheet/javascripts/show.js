@@ -2,9 +2,28 @@
   var setUpContactInfoSheet;
 
   setUpContactInfoSheet = function() {
-    var initializeContactInfoSheet, phoneOptions, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
+    var initializeContactInfoSheet, phoneOptions, setFadeDelay, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
     phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
     new phoneNumber(phoneOptions);
+    setFadeDelay = function(seconds) {
+      var delay;
+      delay = seconds === "" ? 4 : parseInt(seconds);
+      return $(document).idle({
+        onIdle: function() {
+          if (!$(".contact-info-sheet.opened").length) {
+            return $(".contact-info-sheet").fadeOut(420);
+          }
+        },
+        onActive: function() {
+          if (typeof noStickyNavForIE9 === "undefined" || noStickyNavForIE9 === null) {
+            return $(".contact-info-sheet").fadeIn(420);
+          }
+        },
+        idle: delay * 1000,
+        events: 'mousemove keypress mousedown scroll'
+      });
+    };
+    setFadeDelay(phoneOptions.fadeDelay);
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");
       widget.find(".info-sheet-email").hide();
@@ -88,18 +107,22 @@
       }
     };
     stopContactInfoSheet = function() {
+      var widget, widgetHeight;
       setupMobileContactInfoSheet();
       $(".contact-info-sheet").off("click", ".info-sheet-toggle").removeClass("opened showing-email showing=phone").removeAttr("style");
       $(".contact-info-sheet").off("click", ".info-sheet-page-up");
-      return $(".contact-info-sheet").off("click", ".info-sheet-page-down");
+      $(".contact-info-sheet").off("click", ".info-sheet-page-down");
+      widget = $(".contact-info-sheet").first().addClass('mobile');
+      widgetHeight = widget.outerHeight();
+      return $("body").css("padding-bottom", widgetHeight);
     };
-    if (Modernizr.mq("(min-width: 641px)")) {
+    if (Modernizr.mq("(min-width: 668px)")) {
       initializeContactInfoSheet();
     } else {
       setupMobileContactInfoSheet();
     }
     return $(window).smartresize(function() {
-      if (Modernizr.mq("(min-width: 641px)")) {
+      if (Modernizr.mq("(min-width: 668px)")) {
         if ($('.contact-info-sheet').first().hasClass('mobile')) {
           $('.contact-info-sheet').first().removeClass('mobile');
           return initializeContactInfoSheet();
