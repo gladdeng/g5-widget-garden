@@ -74,7 +74,13 @@
           })
 
         } else if (coreClientId && corpSearchPage && corpMapSettings.stateDataToggle ) {
+          var corpConfig = jQuery.extend(true, {}, corpMapConfig); // set this before coreApiCall() 
+          var locationConfig;
 
+          coreApiCall(function(){
+            locationConfig = corpMapConfig;
+            $('#corporate-map').vectorMap(locationConfig);
+          });
 
         } else {
           $('#corporate-map').vectorMap(corpMapConfig);
@@ -82,5 +88,7 @@
       };
   </script>
 
+
   <div id="corporate-map"></div>
 </div>
+
