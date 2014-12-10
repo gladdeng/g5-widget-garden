@@ -17,6 +17,10 @@
   box-sizing: border-box;
   text-align: center;
 }
+.button-inline {
+  float: left;
+  margin-right: 15px;
+}
 @media (min-width: 500px) {
   .button-grid {
     float: left;
