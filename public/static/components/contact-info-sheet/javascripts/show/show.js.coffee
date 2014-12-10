@@ -3,12 +3,24 @@ setUpContactInfoSheet = ->
   phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html())
   new phoneNumber(phoneOptions)
 
+  setFadeDelay = (seconds) ->
+    delay = if seconds == "" then 4 else parseInt(seconds)
+    $(document).idle({
+      onIdle: ->
+        $(".contact-info-sheet").fadeOut(420) unless $(".contact-info-sheet.opened").length
+      onActive: ->
+        $(".contact-info-sheet").fadeIn(420) unless noStickyNavForIE9?
+      idle: delay * 1000
+      events: 'mousemove keypress mousedown scroll'
+    })
+
+  setFadeDelay(phoneOptions.fadeDelay) 
+
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"
     widget.find(".info-sheet-email").hide()
     widget.find(".info-sheet-phone").show()
     widget.addClass "opened showing-phone"
-
 
   showEmail = (widget) ->
     widget.removeClass "opened showing-phone"
@@ -88,8 +100,11 @@ setUpContactInfoSheet = ->
     $(".contact-info-sheet").off("click", ".info-sheet-toggle").removeClass("opened showing-email showing=phone").removeAttr "style"
     $(".contact-info-sheet").off "click", ".info-sheet-page-up"
     $(".contact-info-sheet").off "click", ".info-sheet-page-down"
+    widget = $(".contact-info-sheet").first().addClass('mobile')
+    widgetHeight = widget.outerHeight()
+    $("body").css "padding-bottom", widgetHeight
 
-  if Modernizr.mq("(min-width: 641px)")
+  if Modernizr.mq("(min-width: 668px)")
     initializeContactInfoSheet()
 
   else
@@ -97,7 +112,7 @@ setUpContactInfoSheet = ->
 
   $(window).smartresize ->
 
-    if Modernizr.mq("(min-width: 641px)")
+    if Modernizr.mq("(min-width: 668px)")
 
       # If switching from mobile view to larger view, initialize widget
       if ($('.contact-info-sheet').first().hasClass('mobile'))
@@ -106,10 +121,10 @@ setUpContactInfoSheet = ->
       else
         # Otherwise just run setup to reposition / resize
         setupContactInfoSheet()
-
     else
       # If going from large to mobile size, turn off click handlers
       stopContactInfoSheet()
+
 
 $ ->
   if typeof noStickyNavForIE9 != 'undefined'

@@ -30,7 +30,7 @@
       Custom Link 1 URL
     </label>
     {{ widget.custom_link_1_url.id_hidden_field }}
-    <input type="url"
+    <input type="text"
       id="{{ widget.custom_link_1_url.value_field_id }}"
       name="{{ widget.custom_link_1_url.value_field_name }}"
       value="{{ widget.custom_link_1_url.value | url_encode }}"
@@ -55,7 +55,7 @@
       Custom Link 2 URL
     </label>
     {{ widget.custom_link_2_url.id_hidden_field }}
-    <input type="url"
+    <input type="text"
       id="{{ widget.custom_link_2_url.value_field_id }}"
       name="{{ widget.custom_link_2_url.value_field_name }}"
       value="{{ widget.custom_link_2_url.value | url_encode }}"
@@ -164,7 +164,7 @@
       Corporate Site URL
     </label>
     {{ widget.corporate_url.id_hidden_field }}
-    <input type="url"
+    <input type="text"
       id="{{ widget.corporate_url.value_field_id }}"
       name="{{ widget.corporate_url.value_field_name }}"
       value="{{ widget.corporate_url.value | url_encode }}"
