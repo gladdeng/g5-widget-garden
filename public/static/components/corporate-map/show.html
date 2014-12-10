@@ -7,8 +7,10 @@
           "selectedRegions": {{ widget.corporate_map.best_value.populated_states }},
           "locationCounts": {{ widget.corporate_map.best_value.state_location_counts }},
           "corpSearchPage": "{{ widget.corp_search_page.value }}",
-          "coreClientId": NaN
+          "coreClientId": NaN,
+          "stateDataToggle": true 
         }
+
         {% unless widget.core_client_id.value == blank %}
           corpMapSettings.coreClientId = {{ widget.core_client_id.value }};
         {% endunless %}
@@ -70,6 +72,10 @@
           coreApiCall(function(){
             $('#corporate-map').vectorMap(corpMapConfig)
           })
+
+        } else if (coreClientId && corpSearchPage && corpMapSettings.stateDataToggle ) {
+
+
         } else {
           $('#corporate-map').vectorMap(corpMapConfig);
         }
