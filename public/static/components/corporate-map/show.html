@@ -37,34 +37,41 @@
 
         var corpSearchPage = corpMapSettings.corpSearchPage.trim().length > 0;
         var coreClientId = !isNaN(corpMapSettings.coreClientId);
-
-        if(coreClientId && corpSearchPage) {
+        var coreApiCall = function(init){
           var apiUrl = "//www.g5api.com/api/v0/client_locations?client_id=" + corpMapSettings.coreClientId;
-            $.ajax({
-              url: apiUrl,
-              dataType: 'json',
-              success: function( data ) {
-                corpMapConfig.selectedRegions = data.states.map(function(item){return item.name;});
-                var hash = {};
-                data.states.forEach(function(item){ 
-                  hash[item.name] = item.location_count;
-                });
-                corpMapConfig.locationCounts = hash;
-                corpMapConfig.onRegionClick = function(element, code, region) {
-                  $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
-                  var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
-                  if (match) {
-                    window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
-                  };
+          $.ajax({
+            url: apiUrl,
+            dataType: 'json',
+            success: function( data ) {
+              corpMapConfig.selectedRegions = data.states.map(function(item){return item.name;});
+              var hash = {};
+              data.states.forEach(function(item){ 
+                hash[item.name] = item.location_count;
+              });
+              corpMapConfig.locationCounts = hash;
+              corpMapConfig.onRegionClick = function(element, code, region) {
+                $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
+                var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
+                if (match) {
+                  window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
                 };
-                $('.corporate-map').vectorMap(corpMapConfig);
-              },
-              error: function (a,b,c){
-                console.log(JSON.stringify(a) + b + c)
+              };
+              if (init){
+                init()
               }
-            });
+            },
+            error: function (a,b,c){
+              console.log(JSON.stringify(a) + b + c)
+            }
+          });
+        };
+
+        if(coreClientId && corpSearchPage && !corpMapSettings.stateDataToggle) {
+          coreApiCall(function(){
+            $('#corporate-map').vectorMap(corpMapConfig)
+          })
         } else {
-          $('.corporate-map').vectorMap(corpMapConfig);
+          $('#corporate-map').vectorMap(corpMapConfig);
         }
       };
   </script>
