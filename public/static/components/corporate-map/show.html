@@ -82,13 +82,31 @@
             $('#corporate-map').vectorMap(locationConfig);
           });
 
+          $('.corporate-map .map-tabs .corporate').on('click', function(e){
+            $('#corporate-map').replaceWith("<div id='corporate-map'></div>");
+            $('#corporate-map').vectorMap(corpConfig);
+            e.preventDefault();
+          });
+
+          $('.corporate-map .map-tabs .locations').on('click', function(e){
+            $('#corporate-map').replaceWith("<div id='corporate-map'></div>");
+            $('#corporate-map').vectorMap(locationConfig);
+            e.preventDefault();
+          });
+
+          
+
         } else {
           $('#corporate-map').vectorMap(corpMapConfig);
         }
       };
   </script>
 
-
+  <!-- wrap in conditional -->
+  <div class="map-tabs">
+    <a href="#" class="locations">locations</a>
+    <a href="#" class="corporate">corporate</a>
+  </div>
   <div id="corporate-map"></div>
 </div>
 
