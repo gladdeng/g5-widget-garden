@@ -2,8 +2,8 @@ $ ->
   configs = JSON.parse($('#ss-featured-unit-categories-config').html())
 
   $.ajax
-    #url: "#{configs.unit_service_host}"  #for local testing
-    url: "#{configs.unit_service_host}/api/v0/storage?store_id=#{configs.ss_core_store_id}"
+    url: "#{configs.unit_service_host}"  #for local testing
+    #url: "#{configs.unit_service_host}/api/v0/storage?store_id=#{configs.ss_core_store_id}"
     dataType: 'json'
     success: (data) =>
       categories = data.storage_categories
@@ -29,6 +29,7 @@ class ssUnitMarkupBuilder
     $('.ss-featured-unit-categories .iui-container').html(markupHash.join(''))
 
   buttonTemplate = (name, configs) ->
-    buttonText = if name > 0 then "#{name} Bedroom" else "Studio"
+    #buttonText = if name > 0 then "#{name} Bedroom" else "Studio"
+    #buttonText = name.split(" ").join("")
 
     "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url}/#/category/#{name}/units'>#{name}</a></div>"

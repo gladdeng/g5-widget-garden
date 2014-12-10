@@ -6,7 +6,7 @@
       _this = this;
     configs = JSON.parse($('#ss-featured-unit-categories-config').html());
     return $.ajax({
-      url: "" + configs.unit_service_host + "/api/v0/storage?store_id=" + configs.ss_core_store_id,
+      url: "" + configs.unit_service_host,
       dataType: 'json',
       success: function(data) {
         var categories;
@@ -38,8 +38,8 @@
 
     buttonTemplate = function(name, configs) {
       var buttonText;
-      buttonText = name > 0 ? "" + name + " Bedroom" : "Studio";
-      return "<div class='iui-size'><a class='btn' href='" + configs.unit_page_url + "/#/category/" + name + "/units'>" + name + "</a></div>";
+      buttonText = name.split(" ").join("");
+      return "<div class='iui-size'><a class='btn' href='" + configs.unit_page_url + "/#/category/" + name + "/units'>" + buttonText + "</a></div>";
     };
 
     return ssUnitMarkupBuilder;
