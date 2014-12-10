@@ -9,9 +9,9 @@
           "corpSearchPage": "{{ widget.corp_search_page.value }}",
           "coreClientId": NaN
         }
-        {% if widget.core_client_id.value.length %}
+        {% unless widget.core_client_id.value == blank %}
           corpMapSettings.coreClientId = {{ widget.core_client_id.value }};
-        {% endif %}
+        {% endunless %}
 
         var corpMapConfig = {
           "map": "usa_en",
