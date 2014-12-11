@@ -60,7 +60,7 @@
   cursor:pointer;
 }
 
-.corporate-map {
+#corporate-map, .corporate-map {
   width:100%;
   min-height:400px;
 }
