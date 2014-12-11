@@ -96,10 +96,12 @@
       };
   </script>
 
-  <!-- wrap in conditional -->
-  <div class="map-tabs">
-    <a href="#" data-map-config="corpMapConfig" class="locations">locations</a>
-    <a href="#" data-map-config="corpConfigClone" class="corporate">corporate</a>
-  </div>
+  {% assign state_toggles = widget.state_data_toggle.value | downcase %}
+  {% if state_toggles == "true" %}
+    <div class="map-tabs">
+      <a href="#" data-map-config="corpMapConfig" class="locations">locations</a>
+      <a href="#" data-map-config="corpConfigClone" class="corporate">corporate</a>
+    </div>
+  {% endif %}
   <div id="corporate-map"></div>
 </div>
