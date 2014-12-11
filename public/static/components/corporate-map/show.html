@@ -47,50 +47,39 @@
 
         var corpSearchPage = corpMapSettings.corpSearchPage.trim().length > 0;
         var coreClientId = !isNaN(corpMapSettings.coreClientId);
-        var coreApiCall = function(config, updateConfig){
+        var coreApiCall = function(config, init){
           var apiUrl = "//www.g5api.com/api/v0/client_locations?client_id=" + corpMapSettings.coreClientId;
-          $.ajax({url: apiUrl, dataType: 'json', success: function(data){formatData(data, updateConfig)}});
+          $.ajax({url: apiUrl, dataType: 'json', success: function(data){formatData(data, init)}});
         };
 
-        var formatData = function(data, updateConfig){
+        var formatData = function(data, init){
           var hash = {};
           data.states.forEach(function(item){ 
             hash[item.name] = item.location_count;
           });
-          
-          if (updateConfig){
-            updateConfig(data, hash)
+          corpMapConfig.selectedRegions = data.states.map(function(item){return item.name;});
+          corpMapConfig.locationCounts = hash;
+          corpMapConfig.onRegionClick = function(element, code, region) {
+            $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
+            var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
+            if (match) {
+              window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
+            };
+          };
+
+          if (init){
+            init()
           }
         };
 
         if(coreClientId && corpSearchPage && !corpMapSettings.stateDataToggle) {
-          coreApiCall(corpMapConfig, function(data, hash){
-            corpMapConfig.selectedRegions = data.states.map(function(item){return item.name;});
-            corpMapConfig.locationCounts = hash;
-            corpMapConfig.onRegionClick = function(element, code, region) {
-              $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
-              var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
-              if (match) {
-                window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
-              };
-            };
-
+          coreApiCall(corpMapConfig, function(){
             $('#corporate-map').vectorMap(corpMapConfig);
           });
 
         } else if (coreClientId && corpSearchPage && corpMapSettings.stateDataToggle ) {
 
-          coreApiCall(corpMapConfig, function(data, hash){
-            corpMapConfig.selectedRegions = data.states.map(function(item){return item.name;});
-            corpMapConfig.locationCounts = hash;
-            corpMapConfig.onRegionClick = function(element, code, region) {
-              $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
-              var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
-              if (match) {
-                window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
-              };
-            };
-
+          coreApiCall(corpMapConfig, function(){
             $('#corporate-map').vectorMap(corpMapConfig);
           });
 
