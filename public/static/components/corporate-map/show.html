@@ -32,6 +32,14 @@
             }
           }
         };
+        var corpConfigClone = jQuery.extend(true, {}, corpMapConfig);
+        corpConfigClone.onRegionClick = function(element, code, region) {
+          $(this).find('.selected').css('fill', corpConfigClone.selectedColor);
+          var match = $.inArray(code.toUpperCase(), corpConfigClone.selectedRegions) > -1;
+          if (match) {
+            window.location.href = "/" + code.toLowerCase();
+          }
+        }
 
         if (("ontouchstart" in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)) {
           corpMapConfig.showTooltip = false;
@@ -39,58 +47,62 @@
 
         var corpSearchPage = corpMapSettings.corpSearchPage.trim().length > 0;
         var coreClientId = !isNaN(corpMapSettings.coreClientId);
-        var coreApiCall = function(init){
+        var coreApiCall = function(config, updateConfig){
           var apiUrl = "//www.g5api.com/api/v0/client_locations?client_id=" + corpMapSettings.coreClientId;
-          $.ajax({
-            url: apiUrl,
-            dataType: 'json',
-            success: function( data ) {
-              corpMapConfig.selectedRegions = data.states.map(function(item){return item.name;});
-              var hash = {};
-              data.states.forEach(function(item){ 
-                hash[item.name] = item.location_count;
-              });
-              corpMapConfig.locationCounts = hash;
-              corpMapConfig.onRegionClick = function(element, code, region) {
-                $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
-                var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
-                if (match) {
-                  window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
-                };
-              };
-              if (init){
-                init()
-              }
-            },
-            error: function (a,b,c){
-              console.log(JSON.stringify(a) + b + c)
-            }
+          $.ajax({url: apiUrl, dataType: 'json', success: function(data){formatData(data, updateConfig)}});
+        };
+
+        var formatData = function(data, updateConfig){
+          var hash = {};
+          data.states.forEach(function(item){ 
+            hash[item.name] = item.location_count;
           });
+          
+          if (updateConfig){
+            updateConfig(data, hash)
+          }
         };
 
         if(coreClientId && corpSearchPage && !corpMapSettings.stateDataToggle) {
-          coreApiCall(function(){
-            $('#corporate-map').vectorMap(corpMapConfig)
-          })
+          coreApiCall(corpMapConfig, function(data, hash){
+            corpMapConfig.selectedRegions = data.states.map(function(item){return item.name;});
+            corpMapConfig.locationCounts = hash;
+            corpMapConfig.onRegionClick = function(element, code, region) {
+              $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
+              var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
+              if (match) {
+                window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
+              };
+            };
+
+            $('#corporate-map').vectorMap(corpMapConfig);
+          });
 
         } else if (coreClientId && corpSearchPage && corpMapSettings.stateDataToggle ) {
-          var corpConfig = jQuery.extend(true, {}, corpMapConfig); // set this before coreApiCall() 
-          var locationConfig;
 
-          coreApiCall(function(){
-            locationConfig = corpMapConfig;
-            $('#corporate-map').vectorMap(locationConfig);
+          coreApiCall(corpMapConfig, function(data, hash){
+            corpMapConfig.selectedRegions = data.states.map(function(item){return item.name;});
+            corpMapConfig.locationCounts = hash;
+            corpMapConfig.onRegionClick = function(element, code, region) {
+              $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
+              var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
+              if (match) {
+                window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
+              };
+            };
+
+            $('#corporate-map').vectorMap(corpMapConfig);
           });
 
           $('.corporate-map .map-tabs .corporate').on('click', function(e){
             $('#corporate-map').replaceWith("<div id='corporate-map'></div>");
-            $('#corporate-map').vectorMap(corpConfig);
+            $('#corporate-map').vectorMap(corpConfigClone);
             e.preventDefault();
           });
 
           $('.corporate-map .map-tabs .locations').on('click', function(e){
             $('#corporate-map').replaceWith("<div id='corporate-map'></div>");
-            $('#corporate-map').vectorMap(locationConfig);
+            $('#corporate-map').vectorMap(corpMapConfig);
             e.preventDefault();
           });
 
@@ -109,4 +121,3 @@
   </div>
   <div id="corporate-map"></div>
 </div>
-
