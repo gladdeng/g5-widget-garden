@@ -8,7 +8,7 @@
           "locationCounts": {{ widget.corporate_map.best_value.state_location_counts }},
           "corpSearchPage": "{{ widget.corp_search_page.value }}",
           "coreClientId": NaN,
-          "stateDataToggle": true 
+          "stateDataToggle": ("{{ widget.state_data_toggle.value }}".toLowerCase() === "true") ? true : false
         }
 
         {% unless widget.core_client_id.value == blank %}
@@ -32,6 +32,7 @@
             }
           }
         };
+
         var corpConfigClone = jQuery.extend(true, {}, corpMapConfig);
         corpConfigClone.onRegionClick = function(element, code, region) {
           $(this).find('.selected').css('fill', corpConfigClone.selectedColor);
@@ -77,7 +78,7 @@
             $('#corporate-map').vectorMap(corpMapConfig);
           });
 
-        } else if (coreClientId && corpSearchPage && corpMapSettings.stateDataToggle ) {
+        } else if (coreClientId && corpSearchPage && corpMapSettings.stateDataToggle) {
 
           coreApiCall(function(){
             $('#corporate-map').vectorMap(corpMapConfig);
