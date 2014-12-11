@@ -37,9 +37,7 @@
     }
 
     buttonTemplate = function(name, configs) {
-      var buttonText;
-      buttonText = name.split(" ").join("");
-      return "<div class='iui-size'><a class='btn' href='" + configs.unit_page_url + "/#/category/" + name + "/units'>" + buttonText + "</a></div>";
+      return "<div class='iui-size'><a class='btn' href='" + configs.unit_page_url + "/#/category/" + name + "/units'>" + name + "</a></div>";
     };
 
     return ssUnitMarkupBuilder;
