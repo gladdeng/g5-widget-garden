@@ -47,7 +47,7 @@
 
         var corpSearchPage = corpMapSettings.corpSearchPage.trim().length > 0;
         var coreClientId = !isNaN(corpMapSettings.coreClientId);
-        var coreApiCall = function(config, init){
+        var coreApiCall = function(init){
           var apiUrl = "//www.g5api.com/api/v0/client_locations?client_id=" + corpMapSettings.coreClientId;
           $.ajax({url: apiUrl, dataType: 'json', success: function(data){formatData(data, init)}});
         };
@@ -68,18 +68,18 @@
           };
 
           if (init){
-            init()
+            init();
           }
         };
 
         if(coreClientId && corpSearchPage && !corpMapSettings.stateDataToggle) {
-          coreApiCall(corpMapConfig, function(){
+          coreApiCall(function(){
             $('#corporate-map').vectorMap(corpMapConfig);
           });
 
         } else if (coreClientId && corpSearchPage && corpMapSettings.stateDataToggle ) {
 
-          coreApiCall(corpMapConfig, function(){
+          coreApiCall(function(){
             $('#corporate-map').vectorMap(corpMapConfig);
           });
 
