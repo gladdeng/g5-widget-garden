@@ -94,19 +94,11 @@
             $('#corporate-map').vectorMap(corpMapConfig);
           });
 
-          $('.corporate-map .map-tabs .corporate').on('click', function(e){
+          $('.corporate-map .map-tabs a').on('click', function(e){
             $('#corporate-map').replaceWith("<div id='corporate-map'></div>");
-            $('#corporate-map').vectorMap(corpConfigClone);
+            $('#corporate-map').vectorMap(eval($(this).data('map-config')));
             e.preventDefault();
           });
-
-          $('.corporate-map .map-tabs .locations').on('click', function(e){
-            $('#corporate-map').replaceWith("<div id='corporate-map'></div>");
-            $('#corporate-map').vectorMap(corpMapConfig);
-            e.preventDefault();
-          });
-
-          
 
         } else {
           $('#corporate-map').vectorMap(corpMapConfig);
@@ -116,8 +108,8 @@
 
   <!-- wrap in conditional -->
   <div class="map-tabs">
-    <a href="#" class="locations">locations</a>
-    <a href="#" class="corporate">corporate</a>
+    <a href="#" data-map-config="corpMapConfig" class="locations">locations</a>
+    <a href="#" data-map-config="corpConfigClone" class="corporate">corporate</a>
   </div>
   <div id="corporate-map"></div>
 </div>
