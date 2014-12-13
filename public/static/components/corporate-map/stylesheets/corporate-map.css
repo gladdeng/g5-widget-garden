@@ -64,3 +64,34 @@
   width:100%;
   min-height:400px;
 }
+
+.map-tabs{
+  margin: 0 auto;
+  font-size: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width:202px;
+  background-color: #fff;
+  opacity:0.9;
+  position: absolute;
+  top: 10px;
+  left: 44%;
+  z-index: 100;
+}
+
+.map-tabs .locations, .map-tabs .corporate{
+  color: #666;
+  display: inline-block;
+  width: 100px;
+  font-size: 12px;
+  text-align:center;
+  outline: none;
+}
+
+.map-tabs .locations{
+  border-right: 1px solid #ccc;
+}
+
+.map-tabs .locations.active, .map-tabs .corporate.active {
+  background-color: #eee;
+}

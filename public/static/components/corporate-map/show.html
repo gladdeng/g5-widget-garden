@@ -84,8 +84,11 @@
             $('#corporate-map').vectorMap(corpMapConfig);
           });
 
+          $('.corporate-map .map-tabs a.locations').addClass("active");
           $('.corporate-map .map-tabs a').on('click', function(e){
             $('#corporate-map').replaceWith("<div id='corporate-map'></div>");
+            $('.corporate-map .map-tabs a').removeClass("active");
+            $(this).addClass('active');
             $('#corporate-map').vectorMap(eval($(this).data('map-config')));
             e.preventDefault();
           });
@@ -99,8 +102,8 @@
   {% assign state_toggles = widget.state_data_toggle.value | downcase %}
   {% if state_toggles == "true" %}
     <div class="map-tabs">
-      <a href="#" data-map-config="corpMapConfig" class="locations">locations</a>
-      <a href="#" data-map-config="corpConfigClone" class="corporate">corporate</a>
+      <a href="#" data-map-config="corpMapConfig" class="locations">Muliti-Family</a>
+      <a href="#" data-map-config="corpConfigClone" class="corporate">Corporate</a>
     </div>
   {% endif %}
   <div id="corporate-map"></div>
