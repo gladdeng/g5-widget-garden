@@ -9,24 +9,33 @@ $ ->
       new corpSearchMarkupBuilder(data, miniSearchConfigs) 
       $('.mf-search-go-button').on('click', -> new searchSubmittal(data, miniSearchConfigs))
 
-  new radioButtonBuilder(miniSearchConfigs)
+  altSearchVals = [ miniSearchConfigs.defaultSearchOption,
+                    miniSearchConfigs.alternateSearchOption,
+                    miniSearchConfigs.externalSearchURL ]
+
+  if altSearchVals.indexOf('') == -1
+    new radioButtonBuilder(miniSearchConfigs)
+    $.ajax
+      url: "#{miniSearchConfigs.serviceURL}/api/v0/client_locations?client_id=1681"
+      dataType: 'json'
+      success: (altData) =>
+        altStateSelect = $('.multifamily-mini-search select.mf-search-states.alternate-select')
+        altCitySelect  = $('.multifamily-mini-search select.mf-search-cities.alternate-select')
+        new optionsBuilder(altData.states, altStateSelect)
+        altStateSelect.change -> new citySelectUpdater(altData, altStateSelect, altCitySelect)
+
 
 class radioButtonBuilder
   constructor: (configs) ->
-    altSearchVals = [ configs.defaultSearchOption,
-                      configs.alternateSearchOption,
-                      configs.externalSearchURL ]
+    radioButtons = "<div class='search-type-radio-buttons'>
+                      <input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>
+                      <label for='default-search'>#{configs.defaultSearchOption}</label>
+                      <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>
+                      <label for='alternate-search'>#{configs.alternateSearchOption}</label>
+                    </div>"
 
-    if altSearchVals.indexOf('') == -1
-      radioButtons = "<div class='search-type-radio-buttons'>
-                        <input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>
-                        <label for='default-search'>#{configs.defaultSearchOption}</label>
-                        <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>
-                        <label for='alternate-search'>#{configs.alternateSearchOption}</label>
-                      </div>"
-
-      $(radioButtons).insertAfter($('.multifamily-mini-search h2'))
-      new radioButtonListener(configs)
+    $(radioButtons).insertAfter($('.multifamily-mini-search h2'))
+    new radioButtonListener(configs)
 
 class radioButtonListener
   constructor: (configs) ->
@@ -57,8 +66,8 @@ class radioButtonListener
 
 class corpSearchMarkupBuilder
   constructor: (data, configs) ->
-    stateSelect = $('.multifamily-mini-search select.mf-search-states')
-    citySelect = $('.multifamily-mini-search select.mf-search-cities')
+    stateSelect = $('.multifamily-mini-search select.mf-search-states.default-select')
+    citySelect = $('.multifamily-mini-search select.mf-search-cities.default-select')
     new optionsBuilder(data.states, stateSelect)
 
     stateSelect.change -> new citySelectUpdater(data, stateSelect, citySelect)

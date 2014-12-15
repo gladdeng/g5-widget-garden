@@ -2,7 +2,7 @@
   var citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, radioButtonBuilder, radioButtonListener, searchSubmittal;
 
   $(function() {
-    var miniSearchConfigs,
+    var altSearchVals, miniSearchConfigs,
       _this = this;
     miniSearchConfigs = JSON.parse($('#mf-mini-search-config').html());
     $.ajax({
@@ -15,18 +15,31 @@
         });
       }
     });
-    return new radioButtonBuilder(miniSearchConfigs);
+    altSearchVals = [miniSearchConfigs.defaultSearchOption, miniSearchConfigs.alternateSearchOption, miniSearchConfigs.externalSearchURL];
+    if (altSearchVals.indexOf('') === -1) {
+      new radioButtonBuilder(miniSearchConfigs);
+      return $.ajax({
+        url: "" + miniSearchConfigs.serviceURL + "/api/v0/client_locations?client_id=1681",
+        dataType: 'json',
+        success: function(altData) {
+          var altCitySelect, altStateSelect;
+          altStateSelect = $('.multifamily-mini-search select.mf-search-states.alternate-select');
+          altCitySelect = $('.multifamily-mini-search select.mf-search-cities.alternate-select');
+          new optionsBuilder(altData.states, altStateSelect);
+          return altStateSelect.change(function() {
+            return new citySelectUpdater(altData, altStateSelect, altCitySelect);
+          });
+        }
+      });
+    }
   });
 
   radioButtonBuilder = (function() {
     function radioButtonBuilder(configs) {
-      var altSearchVals, radioButtons;
-      altSearchVals = [configs.defaultSearchOption, configs.alternateSearchOption, configs.externalSearchURL];
-      if (altSearchVals.indexOf('') === -1) {
-        radioButtons = "<div class='search-type-radio-buttons'>                        <input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>                        <label for='default-search'>" + configs.defaultSearchOption + "</label>                        <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>                        <label for='alternate-search'>" + configs.alternateSearchOption + "</label>                      </div>";
-        $(radioButtons).insertAfter($('.multifamily-mini-search h2'));
-        new radioButtonListener(configs);
-      }
+      var radioButtons;
+      radioButtons = "<div class='search-type-radio-buttons'>                      <input type='radio' name='corp-search-type' id='default-search' value='default-search' checked>                      <label for='default-search'>" + configs.defaultSearchOption + "</label>                      <input type='radio' name='corp-search-type' id='alternate-search' value='alternate-search'>                      <label for='alternate-search'>" + configs.alternateSearchOption + "</label>                    </div>";
+      $(radioButtons).insertAfter($('.multifamily-mini-search h2'));
+      new radioButtonListener(configs);
     }
 
     return radioButtonBuilder;
@@ -72,8 +85,8 @@
   corpSearchMarkupBuilder = (function() {
     function corpSearchMarkupBuilder(data, configs) {
       var citySelect, stateSelect;
-      stateSelect = $('.multifamily-mini-search select.mf-search-states');
-      citySelect = $('.multifamily-mini-search select.mf-search-cities');
+      stateSelect = $('.multifamily-mini-search select.mf-search-states.default-select');
+      citySelect = $('.multifamily-mini-search select.mf-search-cities.default-select');
       new optionsBuilder(data.states, stateSelect);
       stateSelect.change(function() {
         return new citySelectUpdater(data, stateSelect, citySelect);
