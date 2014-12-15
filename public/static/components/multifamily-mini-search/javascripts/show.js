@@ -53,16 +53,16 @@
     changeButtonText = function(configs) {
       var buttonValue, newButtonText;
       buttonValue = $(".search-type-radio-buttons input[type='radio']:checked").val();
-      newButtonText = (function() {
-        switch (false) {
-          case buttonValue !== 'default-search':
-            return 'Search';
-          case buttonValue !== 'alternate-search':
-            return configs.alternateSearchButtonText;
-        }
-      })();
-      $(".multifamily-mini-search button").html(newButtonText);
-      return $(".multifamily-mini-search span.city, .multifamily-mini-search span.state").toggle("fast");
+      if (buttonValue === 'default-search') {
+        newButtonText = 'Search';
+        $(".alternate-select").hide();
+        $(".default-select").show();
+      } else if (buttonValue === 'alternate-search') {
+        newButtonText = configs.alternateSearchButtonText;
+        $(".default-select").hide();
+        $(".alternate-select").show();
+      }
+      return $(".multifamily-mini-search button").html(newButtonText);
     };
 
     return radioButtonListener;
@@ -116,7 +116,7 @@
 
   searchSubmittal = (function() {
     function searchSubmittal(data, miniSearchConfigs) {
-      var cityObject, cityParam, newWindow, queryString, radioButtons, selectedCity, selectedState, stateObject, stateParam;
+      var cityObject, cityParam, newWindow, queryString, radioButtons, resultsPageUrl, selectedCity, selectedState, stateObject, stateParam;
       selectedState = $('.multifamily-mini-search select.mf-search-states').val();
       selectedCity = $('.multifamily-mini-search select.mf-search-cities').val();
       stateObject = data.states.filter(function(state) {
@@ -130,7 +130,8 @@
       queryString = "?page=1" + stateParam + cityParam;
       radioButtons = $('input[name=corp-search-type]:checked');
       if (radioButtons.length > 0 && radioButtons.val() === 'alternate-search') {
-        newWindow = window.open(miniSearchConfigs.externalSearchURL, '_blank');
+        resultsPageUrl = "" + miniSearchConfigs.externalSearchURL + queryString;
+        newWindow = window.open(resultsPageUrl, '_blank');
         newWindow.focus();
       } else {
         window.location = "//" + window.location.host + miniSearchConfigs.corpSearchPage + queryString;

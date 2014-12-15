@@ -11,7 +11,6 @@ $ ->
 
   new radioButtonBuilder(miniSearchConfigs)
 
-
 class radioButtonBuilder
   constructor: (configs) ->
     altSearchVals = [ configs.defaultSearchOption,
@@ -39,12 +38,22 @@ class radioButtonListener
 
   changeButtonText = (configs) ->
     buttonValue = $(".search-type-radio-buttons input[type='radio']:checked").val()
-    newButtonText = switch
-      when buttonValue == 'default-search' then 'Search'
-      when buttonValue == 'alternate-search' then configs.alternateSearchButtonText
+
+    if buttonValue == 'default-search'
+      newButtonText = 'Search'
+      $(".alternate-select").hide()
+      $(".default-select").show()
+    else if buttonValue == 'alternate-search'
+      newButtonText = configs.alternateSearchButtonText
+      $(".default-select").hide()
+      $(".alternate-select").show()
+    
 
     $(".multifamily-mini-search button").html(newButtonText)
-    $(".multifamily-mini-search span.city, .multifamily-mini-search span.state").toggle("fast")
+  
+    # Next we need to recreate the state/city options everytime the radio button is checked
+
+# Define city/state selects and set up listener for when state changes
 
 class corpSearchMarkupBuilder
   constructor: (data, configs) ->
@@ -53,6 +62,8 @@ class corpSearchMarkupBuilder
     new optionsBuilder(data.states, stateSelect)
 
     stateSelect.change -> new citySelectUpdater(data, stateSelect, citySelect)
+
+# Listening for a state change to repopulate the city dropdown
     
 class citySelectUpdater 
   constructor: (data, stateSelect, citySelect) ->
@@ -64,6 +75,8 @@ class citySelectUpdater
     relevantCities = data.cities.filter((city) -> city.state_id == parseInt(selectedState,10))
     # update the select options 
     new optionsBuilder(relevantCities, citySelect)
+
+# Pass a select element and a list of options to fill it in with 
 
 class optionsBuilder
   constructor: (options, element) ->
@@ -88,7 +101,8 @@ class searchSubmittal
     
     radioButtons = $('input[name=corp-search-type]:checked')
     if radioButtons.length > 0 && radioButtons.val() == 'alternate-search'
-      newWindow = window.open(miniSearchConfigs.externalSearchURL, '_blank');
+      resultsPageUrl = "#{miniSearchConfigs.externalSearchURL}#{queryString}"
+      newWindow = window.open(resultsPageUrl, '_blank');
       newWindow.focus();
     else
       window.location = "//#{window.location.host}#{miniSearchConfigs.corpSearchPage}#{queryString}"
