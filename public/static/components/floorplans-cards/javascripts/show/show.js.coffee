@@ -17,8 +17,8 @@ class populateUnitData
                         <div class='unit-details'>
                           <div class='unit-beds'>#{bedroomMarkup floorplan["beds"]}</div>
                           <div class='unit-baths'><span>#{floorplan["baths"]}</span> Bathroom</div>
-                          <div class='unit-size'>#{floorplan["size"]} Sq. Ft.</div>
-                          <div class='unit-rate'>From <span>$#{floorplan["price"]}</span></div>
+                          #{sizeMarkup floorplan["size"]}
+                          #{priceMarkup floorplan["price"]}
                         </div>
                         <a href='#{floorplan["price_url"]}' class='unit-cta-button'>#{floorplanConfig["ctaText"]}</a>
                       </div>"
@@ -49,6 +49,18 @@ class populateUnitData
                     <circle fill='#{color}' cx='20.578' cy='12.316' r='1.416'/>
                     <circle fill='#{color}' cx='23.409' cy='15.147' r='1.416'/>
                   </svg>"
+
+  sizeMarkup = (size) ->
+    if size == null
+      ""
+    else
+      "<div class='unit-size'>#{size} Sq. Ft.</div>"
+
+  priceMarkup = (price) ->
+    if price == null
+      ""
+    else
+      "<div class='unit-rate'>From <span>$#{price}</span></div>" 
 
 class customizeUnitGrid
   constructor: (colorConfigurations) ->
