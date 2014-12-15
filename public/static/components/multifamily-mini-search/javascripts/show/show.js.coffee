@@ -97,8 +97,12 @@ class optionsBuilder
 
 class searchSubmittal
   constructor: (data, miniSearchConfigs) ->
-    selectedState = $('.multifamily-mini-search select.mf-search-states').val()
-    selectedCity = $('.multifamily-mini-search select.mf-search-cities').val()
+    if radioButtons.length > 0 && radioButtons.val() == 'alternate-search'
+      selectedState = $('.multifamily-mini-search select.mf-search-states.alternate-select').val()
+      selectedCity = $('.multifamily-mini-search select.mf-search-cities.alternate-select').val()
+    else
+      selectedState = $('.multifamily-mini-search select.mf-search-states.default-select').val()
+      selectedCity = $('.multifamily-mini-search select.mf-search-cities.default-select').val()
 
     stateObject = data.states.filter((state) -> state.id == parseInt(selectedState,10))
     stateParam = if typeof(stateObject[0]) != "undefined" then "&state=#{stateObject[0].name}" else ""
