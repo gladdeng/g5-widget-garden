@@ -59,12 +59,7 @@ class radioButtonListener
       $(".alternate-select, .alternate-submit-button").show()
     
 
-    # $(".multifamily-mini-search button").html(newButtonText)
-  
-    # Next we need to recreate the state/city options everytime the radio button is checked
-
 # Define city/state selects and set up listener for when state changes
-
 class corpSearchMarkupBuilder
   constructor: (data, configs) ->
     stateSelect = $('.multifamily-mini-search select.mf-search-states.default-select')
@@ -74,7 +69,6 @@ class corpSearchMarkupBuilder
     stateSelect.change -> new citySelectUpdater(data, stateSelect, citySelect)
 
 # Listening for a state change to repopulate the city dropdown
-    
 class citySelectUpdater 
   constructor: (data, stateSelect, citySelect) ->
     # reset the values in the city select
@@ -87,7 +81,6 @@ class citySelectUpdater
     new optionsBuilder(relevantCities, citySelect)
 
 # Pass a select element and a list of options to fill it in with 
-
 class optionsBuilder
   constructor: (options, element) ->
     markupHash = []
