@@ -1,0 +1,28 @@
+<form>
+  <div class="form-field">
+    {{ widget.walkscore_client.id_hidden_field }}
+    <label for="{{ widget.walkscore_client.value_field_id }}" >
+      Client URN
+    </label>
+    <input type="text"
+      id="{{ widget.walkscore_client.value_field_id }}"
+      name="{{ widget.walkscore_client.value_field_name }}"
+      value="{{ widget.walkscore_client.value }}"
+      required
+    />
+  </div>
+
+  <div class="form-field">
+    {{ widget.walkscore_location.id_hidden_field }}
+    <label for="{{ widget.walkscore_location.value_field_id }}" >
+      Location URN
+    </label>
+    <input type="text"
+      id="{{ widget.walkscore_location.value_field_id }}"
+      name="{{ widget.walkscore_location.value_field_name }}"
+      value="{{ widget.walkscore_location.value }}"
+    />
+  </div>
+
+  <input type="submit" value="Save" />
+</form>
