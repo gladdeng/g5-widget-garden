@@ -92,6 +92,6 @@
   border-right: 1px solid #ccc;
 }
 
-.map-tabs .locations.active, .map-tabs .corporate.active {
+.map-tabs .locations.active, .map-tabs .commercial.active {
   background-color: #eee;
 }
