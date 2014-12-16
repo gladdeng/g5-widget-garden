@@ -7,7 +7,7 @@ $ ->
     dataType: 'json'
     success: (data) =>
       new corpSearchMarkupBuilder(data, miniSearchConfigs) 
-      $('.mf-search-go-button').on('click', -> new searchSubmittal(data, miniSearchConfigs))
+      $('.mf-search-go-button.default-submit-button').on('click', -> new searchSubmittal(data, miniSearchConfigs))
 
   altSearchVals = [ miniSearchConfigs.defaultSearchOption,
                     miniSearchConfigs.alternateSearchOption,
@@ -23,6 +23,7 @@ $ ->
         altCitySelect  = $('.multifamily-mini-search select.mf-search-cities.alternate-select')
         new optionsBuilder(altData.states, altStateSelect)
         altStateSelect.change -> new citySelectUpdater(altData, altStateSelect, altCitySelect)
+        $('.mf-search-go-button.alternate-submit-button').on('click', -> new AlternateSearchSubmittal(altData, miniSearchConfigs))
 
 
 class radioButtonBuilder
@@ -50,15 +51,15 @@ class radioButtonListener
 
     if buttonValue == 'default-search'
       newButtonText = 'Search'
-      $(".alternate-select").hide()
-      $(".default-select").show()
+      $(".alternate-select, .alternate-submit-button").hide()
+      $(".default-select, .default-submit-button").show()
     else if buttonValue == 'alternate-search'
       newButtonText = configs.alternateSearchButtonText
-      $(".default-select").hide()
-      $(".alternate-select").show()
+      $(".default-select, .default-submit-button").hide()
+      $(".alternate-select, .alternate-submit-button").show()
     
 
-    $(".multifamily-mini-search button").html(newButtonText)
+    # $(".multifamily-mini-search button").html(newButtonText)
   
     # Next we need to recreate the state/city options everytime the radio button is checked
 
@@ -97,12 +98,8 @@ class optionsBuilder
 
 class searchSubmittal
   constructor: (data, miniSearchConfigs) ->
-    if radioButtons.length > 0 && radioButtons.val() == 'alternate-search'
-      selectedState = $('.multifamily-mini-search select.mf-search-states.alternate-select').val()
-      selectedCity = $('.multifamily-mini-search select.mf-search-cities.alternate-select').val()
-    else
-      selectedState = $('.multifamily-mini-search select.mf-search-states.default-select').val()
-      selectedCity = $('.multifamily-mini-search select.mf-search-cities.default-select').val()
+    selectedState = $('.multifamily-mini-search select.mf-search-states.default-select').val()
+    selectedCity = $('.multifamily-mini-search select.mf-search-cities.default-select').val()
 
     stateObject = data.states.filter((state) -> state.id == parseInt(selectedState,10))
     stateParam = if typeof(stateObject[0]) != "undefined" then "&state=#{stateObject[0].name}" else ""
@@ -112,10 +109,22 @@ class searchSubmittal
 
     queryString = "?page=1#{stateParam}#{cityParam}"
     
-    radioButtons = $('input[name=corp-search-type]:checked')
-    if radioButtons.length > 0 && radioButtons.val() == 'alternate-search'
-      resultsPageUrl = "#{miniSearchConfigs.externalSearchURL}#{queryString}"
-      newWindow = window.open(resultsPageUrl, '_blank');
-      newWindow.focus();
-    else
-      window.location = "//#{window.location.host}#{miniSearchConfigs.corpSearchPage}#{queryString}"
+    window.location = "//#{window.location.host}#{miniSearchConfigs.corpSearchPage}#{queryString}"
+
+class AlternateSearchSubmittal
+  constructor: (data, miniSearchConfigs) ->
+    selectedState = $('.multifamily-mini-search select.mf-search-states.alternate-select').val()
+    selectedCity = $('.multifamily-mini-search select.mf-search-cities.alternate-select').val()
+
+    stateObject = data.states.filter((state) -> state.id == parseInt(selectedState,10))
+    stateParam = if typeof(stateObject[0]) != "undefined" then "&state=#{stateObject[0].name}" else ""
+
+    cityObject = data.cities.filter((city) -> city.id == parseInt(selectedCity,10))
+    cityParam = if typeof(cityObject[0]) != "undefined" then "&city=#{cityObject[0].name}" else ""
+
+    queryString = "?page=1#{stateParam}#{cityParam}"
+    
+    resultsPageUrl = "#{miniSearchConfigs.externalSearchURL}#{queryString}"
+    newWindow = window.open(resultsPageUrl, '_blank');
+    newWindow.focus();
+    

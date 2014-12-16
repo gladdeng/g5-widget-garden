@@ -1,5 +1,5 @@
 (function() {
-  var citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, radioButtonBuilder, radioButtonListener, searchSubmittal;
+  var AlternateSearchSubmittal, citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, radioButtonBuilder, radioButtonListener, searchSubmittal;
 
   $(function() {
     var altSearchVals, miniSearchConfigs,
@@ -10,7 +10,7 @@
       dataType: 'json',
       success: function(data) {
         new corpSearchMarkupBuilder(data, miniSearchConfigs);
-        return $('.mf-search-go-button').on('click', function() {
+        return $('.mf-search-go-button.default-submit-button').on('click', function() {
           return new searchSubmittal(data, miniSearchConfigs);
         });
       }
@@ -26,8 +26,11 @@
           altStateSelect = $('.multifamily-mini-search select.mf-search-states.alternate-select');
           altCitySelect = $('.multifamily-mini-search select.mf-search-cities.alternate-select');
           new optionsBuilder(altData.states, altStateSelect);
-          return altStateSelect.change(function() {
+          altStateSelect.change(function() {
             return new citySelectUpdater(altData, altStateSelect, altCitySelect);
+          });
+          return $('.mf-search-go-button.alternate-submit-button').on('click', function() {
+            return new AlternateSearchSubmittal(altData, miniSearchConfigs);
           });
         }
       });
@@ -68,14 +71,13 @@
       buttonValue = $(".search-type-radio-buttons input[type='radio']:checked").val();
       if (buttonValue === 'default-search') {
         newButtonText = 'Search';
-        $(".alternate-select").hide();
-        $(".default-select").show();
+        $(".alternate-select, .alternate-submit-button").hide();
+        return $(".default-select, .default-submit-button").show();
       } else if (buttonValue === 'alternate-search') {
         newButtonText = configs.alternateSearchButtonText;
-        $(".default-select").hide();
-        $(".alternate-select").show();
+        $(".default-select, .default-submit-button").hide();
+        return $(".alternate-select, .alternate-submit-button").show();
       }
-      return $(".multifamily-mini-search button").html(newButtonText);
     };
 
     return radioButtonListener;
@@ -129,9 +131,9 @@
 
   searchSubmittal = (function() {
     function searchSubmittal(data, miniSearchConfigs) {
-      var cityObject, cityParam, newWindow, queryString, radioButtons, resultsPageUrl, selectedCity, selectedState, stateObject, stateParam;
-      selectedState = $('.multifamily-mini-search select.mf-search-states').val();
-      selectedCity = $('.multifamily-mini-search select.mf-search-cities').val();
+      var cityObject, cityParam, queryString, selectedCity, selectedState, stateObject, stateParam;
+      selectedState = $('.multifamily-mini-search select.mf-search-states.default-select').val();
+      selectedCity = $('.multifamily-mini-search select.mf-search-cities.default-select').val();
       stateObject = data.states.filter(function(state) {
         return state.id === parseInt(selectedState, 10);
       });
@@ -141,17 +143,33 @@
       });
       cityParam = typeof cityObject[0] !== "undefined" ? "&city=" + cityObject[0].name : "";
       queryString = "?page=1" + stateParam + cityParam;
-      radioButtons = $('input[name=corp-search-type]:checked');
-      if (radioButtons.length > 0 && radioButtons.val() === 'alternate-search') {
-        resultsPageUrl = "" + miniSearchConfigs.externalSearchURL + queryString;
-        newWindow = window.open(resultsPageUrl, '_blank');
-        newWindow.focus();
-      } else {
-        window.location = "//" + window.location.host + miniSearchConfigs.corpSearchPage + queryString;
-      }
+      window.location = "//" + window.location.host + miniSearchConfigs.corpSearchPage + queryString;
     }
 
     return searchSubmittal;
+
+  })();
+
+  AlternateSearchSubmittal = (function() {
+    function AlternateSearchSubmittal(data, miniSearchConfigs) {
+      var cityObject, cityParam, newWindow, queryString, resultsPageUrl, selectedCity, selectedState, stateObject, stateParam;
+      selectedState = $('.multifamily-mini-search select.mf-search-states.alternate-select').val();
+      selectedCity = $('.multifamily-mini-search select.mf-search-cities.alternate-select').val();
+      stateObject = data.states.filter(function(state) {
+        return state.id === parseInt(selectedState, 10);
+      });
+      stateParam = typeof stateObject[0] !== "undefined" ? "&state=" + stateObject[0].name : "";
+      cityObject = data.cities.filter(function(city) {
+        return city.id === parseInt(selectedCity, 10);
+      });
+      cityParam = typeof cityObject[0] !== "undefined" ? "&city=" + cityObject[0].name : "";
+      queryString = "?page=1" + stateParam + cityParam;
+      resultsPageUrl = "" + miniSearchConfigs.externalSearchURL + queryString;
+      newWindow = window.open(resultsPageUrl, '_blank');
+      newWindow.focus();
+    }
+
+    return AlternateSearchSubmittal;
 
   })();
 

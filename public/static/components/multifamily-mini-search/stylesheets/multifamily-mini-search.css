@@ -103,7 +103,8 @@ border-radius: 0;
 font-weight: 200
 }
 
-.corpSearchWrapper .search-form select.alternate-select{ display:none; }
+.corpSearchWrapper .search-form select.alternate-select,
+.corpSearchWrapper .search-form button.alternate-submit-button{ display:none; }
 
 .corpSearchWrapper .search-form label {
 width: auto
