@@ -69,10 +69,10 @@
     <div class="form-field">
       {{ widget.external_search_url.id_hidden_field }}
       <label for="{{ widget.external_search_url.value_field_id }}">
-        Alternate Search Url
+        Alternate Search Page Path
       </label>
       <input type="text"
-        placeholder="//www.some-external-url.com"
+        placeholder="/relative/path/to/alternate_search_page"
         id="{{ widget.external_search_url.value_field_id }}"
         name="{{ widget.external_search_url.value_field_name }}"
         value="{{ widget.external_search_url.value }}"
