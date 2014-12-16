@@ -17,7 +17,7 @@ $ ->
   if altSearchVals.indexOf('') == -1
     new radioButtonBuilder(miniSearchConfigs)
     $.ajax
-      url: "#{miniSearchConfigs.serviceURL}/api/v0/client_locations?client_id=1681"
+      url: "#{miniSearchConfigs.serviceURL}/api/v0/client_locations?client_id=#{miniSearchConfigs.alternateCoreClientID}"
       dataType: 'json'
       success: (altData) =>
         altStateSelect = $('.multifamily-mini-search select.mf-search-states.alternate-select')

@@ -15,11 +15,11 @@
         });
       }
     });
-    altSearchVals = [miniSearchConfigs.defaultSearchOption, miniSearchConfigs.alternateSearchOption, miniSearchConfigs.externalSearchURL];
+    altSearchVals = [miniSearchConfigs.defaultSearchOption, miniSearchConfigs.alternateSearchOption, miniSearchConfigs.externalSearchURL, miniSearchConfigs.alternateCoreClientID];
     if (altSearchVals.indexOf('') === -1) {
       new radioButtonBuilder(miniSearchConfigs);
       return $.ajax({
-        url: "" + miniSearchConfigs.serviceURL + "/api/v0/client_locations?client_id=1681",
+        url: "" + miniSearchConfigs.serviceURL + "/api/v0/client_locations?client_id=" + miniSearchConfigs.alternateCoreClientID,
         dataType: 'json',
         success: function(altData) {
           var altCitySelect, altStateSelect;
