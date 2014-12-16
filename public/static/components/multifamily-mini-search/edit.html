@@ -54,9 +54,22 @@
     </div>
 
     <div class="form-field">
+      {{ widget.alternate_core_client_id.id_hidden_field }}
+      <label for="{{ widget.alternate_core_client_id.value_field_id }}">
+        Alternate Core Client ID
+      </label>
+      <input type="text"
+        placeholder="1234"
+        id="{{ widget.alternate_core_client_id.value_field_id }}"
+        name="{{ widget.alternate_core_client_id.value_field_name }}"
+        value="{{ widget.alternate_core_client_id.value }}"
+      />
+    </div>
+
+    <div class="form-field">
       {{ widget.external_search_url.id_hidden_field }}
       <label for="{{ widget.external_search_url.value_field_id }}">
-        External Search Url
+        Alternate Search Url
       </label>
       <input type="text"
         placeholder="//www.some-external-url.com"

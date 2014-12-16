@@ -11,7 +11,8 @@ $ ->
 
   altSearchVals = [ miniSearchConfigs.defaultSearchOption,
                     miniSearchConfigs.alternateSearchOption,
-                    miniSearchConfigs.externalSearchURL ]
+                    miniSearchConfigs.externalSearchURL,
+                    miniSearchConfigs.alternateCoreClientID ]
 
   if altSearchVals.indexOf('') == -1
     new radioButtonBuilder(miniSearchConfigs)
