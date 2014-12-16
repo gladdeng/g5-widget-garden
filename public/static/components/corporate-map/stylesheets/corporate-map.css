@@ -73,10 +73,10 @@
   width:202px;
   background-color: #fff;
   opacity:0.9;
-  position: absolute;
-  top: 10px;
-  left: 44%;
-  z-index: 100;
+  z-index: 250;
+  margin-bottom: -20px;
+  margin-top: 20px;
+  position:relative; 
 }
 
 .map-tabs .locations, .map-tabs .corporate{
