@@ -117,8 +117,10 @@ class AlternateSearchSubmittal
     cityParam = if typeof(cityObject[0]) != "undefined" then "&city=#{cityObject[0].name}" else ""
 
     queryString = "?page=1#{stateParam}#{cityParam}"
-    
-    resultsPageUrl = "#{miniSearchConfigs.externalSearchURL}#{queryString}"
-    newWindow = window.open(resultsPageUrl, '_blank');
-    newWindow.focus();
+
+    window.location = "//#{window.location.host}#{miniSearchConfigs.externalSearchURL}#{queryString}"
+
+    # resultsPageUrl = "#{miniSearchConfigs.externalSearchURL}#{queryString}"
+    # newWindow = window.open(resultsPageUrl, '_blank');
+    # newWindow.focus();
     

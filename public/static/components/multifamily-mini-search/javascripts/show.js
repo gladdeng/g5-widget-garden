@@ -152,7 +152,7 @@
 
   AlternateSearchSubmittal = (function() {
     function AlternateSearchSubmittal(data, miniSearchConfigs) {
-      var cityObject, cityParam, newWindow, queryString, resultsPageUrl, selectedCity, selectedState, stateObject, stateParam;
+      var cityObject, cityParam, queryString, selectedCity, selectedState, stateObject, stateParam;
       selectedState = $('.multifamily-mini-search select.mf-search-states.alternate-select').val();
       selectedCity = $('.multifamily-mini-search select.mf-search-cities.alternate-select').val();
       stateObject = data.states.filter(function(state) {
@@ -164,9 +164,7 @@
       });
       cityParam = typeof cityObject[0] !== "undefined" ? "&city=" + cityObject[0].name : "";
       queryString = "?page=1" + stateParam + cityParam;
-      resultsPageUrl = "" + miniSearchConfigs.externalSearchURL + queryString;
-      newWindow = window.open(resultsPageUrl, '_blank');
-      newWindow.focus();
+      window.location = "//" + window.location.host + miniSearchConfigs.externalSearchURL + queryString;
     }
 
     return AlternateSearchSubmittal;
