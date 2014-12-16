@@ -79,7 +79,7 @@
   position:relative; 
 }
 
-.map-tabs .locations, .map-tabs .corporate{
+.map-tabs .locations, .map-tabs .commercial{
   color: #666;
   display: inline-block;
   width: 100px;
