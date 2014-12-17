@@ -54,6 +54,18 @@
       <option value="tour" {% if widget.form_type.value == "tour" %}selected{% endif %}>
         Tour
       </option>
+
+      <option value="inquiry" {% if widget.form_type.value == "inquiry" %}selected{% endif %}>
+        Inquiry
+      </option>
+
+      <option value="reservation" {% if widget.form_type.value == "reservation" %}selected{% endif %}>
+        Reservation
+      </option>
+
+      <option value="reservation_with_fee" {% if widget.form_type.value == "reservation_with_fee" %}selected{% endif %}>
+        Reservation with Fee
+      </option>
     </select>
   </div>
 
