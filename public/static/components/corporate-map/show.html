@@ -44,6 +44,7 @@
 
         if (("ontouchstart" in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)) {
           corpMapConfig.showTooltip = false;
+          corpConfigClone.showTooltip = false;
         };
 
         var corpSearchPage = corpMapSettings.corpSearchPage.trim().length > 0;
