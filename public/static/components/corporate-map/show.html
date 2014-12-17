@@ -7,11 +7,13 @@
           "selectedRegions": {{ widget.corporate_map.best_value.populated_states }},
           "locationCounts": {{ widget.corporate_map.best_value.state_location_counts }},
           "corpSearchPage": "{{ widget.corp_search_page.value }}",
-          "coreClientId": NaN
+          "coreClientId": NaN,
+          "stateDataToggle": ("{{ widget.state_data_toggle.value }}".toLowerCase() === "true") ? true : false
         }
-        {% if widget.core_client_id.value.length %}
+
+        {% unless widget.core_client_id.value == blank %}
           corpMapSettings.coreClientId = {{ widget.core_client_id.value }};
-        {% endif %}
+        {% endunless %}
 
         var corpMapConfig = {
           "map": "usa_en",
@@ -31,43 +33,79 @@
           }
         };
 
+        var corpConfigClone = jQuery.extend(true, {}, corpMapConfig);
+        corpConfigClone.onRegionClick = function(element, code, region) {
+          $(this).find('.selected').css('fill', corpConfigClone.selectedColor);
+          var match = $.inArray(code.toUpperCase(), corpConfigClone.selectedRegions) > -1;
+          if (match) {
+            window.location.href = "/" + code.toLowerCase();
+          }
+        }
+
         if (("ontouchstart" in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)) {
           corpMapConfig.showTooltip = false;
+          corpConfigClone.showTooltip = false;
         };
 
         var corpSearchPage = corpMapSettings.corpSearchPage.trim().length > 0;
         var coreClientId = !isNaN(corpMapSettings.coreClientId);
-
-        if(coreClientId && corpSearchPage) {
+        var coreApiCall = function(init){
           var apiUrl = "//www.g5api.com/api/v0/client_locations?client_id=" + corpMapSettings.coreClientId;
-            $.ajax({
-              url: apiUrl,
-              dataType: 'json',
-              success: function( data ) {
-                corpMapConfig.selectedRegions = data.states.map(function(item){return item.name;});
-                var hash = {};
-                data.states.forEach(function(item){ 
-                  hash[item.name] = item.location_count;
-                });
-                corpMapConfig.locationCounts = hash;
-                corpMapConfig.onRegionClick = function(element, code, region) {
-                  $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
-                  var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
-                  if (match) {
-                    window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
-                  };
-                };
-                $('.corporate-map').vectorMap(corpMapConfig);
-              },
-              error: function (a,b,c){
-                console.log(JSON.stringify(a) + b + c)
-              }
-            });
+          $.ajax({url: apiUrl, dataType: 'json', success: function(data){formatData(data, init)}});
+        };
+
+        var formatData = function(data, init){
+          var hash = {};
+          data.states.forEach(function(item){ 
+            hash[item.name] = item.location_count;
+          });
+          corpMapConfig.selectedRegions = data.states.map(function(item){return item.name;});
+          corpMapConfig.locationCounts = hash;
+          corpMapConfig.onRegionClick = function(element, code, region) {
+            $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
+            var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
+            if (match) {
+              window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
+            };
+          };
+
+          if (init){
+            init();
+          }
+        };
+
+        if(coreClientId && corpSearchPage && !corpMapSettings.stateDataToggle) {
+          coreApiCall(function(){
+            $('#corporate-map').vectorMap(corpMapConfig);
+          });
+
+        } else if (coreClientId && corpSearchPage && corpMapSettings.stateDataToggle) {
+
+          coreApiCall(function(){
+            $('#corporate-map').vectorMap(corpMapConfig);
+          });
+
+          $('.corporate-map .map-tabs a.locations').addClass("active");
+          $('.corporate-map .map-tabs a').on('click', function(e){
+            $('#corporate-map').replaceWith("<div id='corporate-map'></div>");
+            $('.corporate-map .map-tabs a').removeClass("active");
+            $(this).addClass('active');
+            $('#corporate-map').vectorMap(eval($(this).data('map-config')));
+            e.preventDefault();
+          });
+
         } else {
-          $('.corporate-map').vectorMap(corpMapConfig);
+          $('#corporate-map').vectorMap(corpMapConfig);
         }
       };
   </script>
 
+  {% assign state_toggles = widget.state_data_toggle.value | downcase %}
+  {% if state_toggles == "true" %}
+    <div class="map-tabs">
+      <a href="#" data-map-config="corpMapConfig" class="locations">Muliti-Family</a>
+      <a href="#" data-map-config="corpConfigClone" class="commercial">Commercial</a>
+    </div>
+  {% endif %}
   <div id="corporate-map"></div>
 </div>

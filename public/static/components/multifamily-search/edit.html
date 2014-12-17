@@ -72,6 +72,18 @@
     />
   </div>
   <div class="form-field">
+    {{ widget.heading_text.id_hidden_field }}
+    <label for="{{ widget.heading_text.value_field_id }}" >
+      Heading Text
+    </label>
+    <input type="text"
+      placeholder="Find an Apartment"
+      id="{{ widget.heading_text.value_field_id }}"
+      name="{{ widget.heading_text.value_field_name }}"
+      value="{{ widget.heading_text.best_value }}"
+    />
+  </div>
+  <div class="form-field">
     {{ widget.cta_available_text.id_hidden_field }}
     <label for="{{ widget.cta_available_text.value_field_id }}" >
       Cta Available Text
