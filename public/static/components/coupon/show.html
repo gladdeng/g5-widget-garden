@@ -2,21 +2,21 @@
 
   <div class="coupon-info">
 
-    {% if widget.location_logo_url != '' %}
+    {% if widget.location_logo_url != blank %}
       <img src="{{widget.location_logo_url.value | url_encode}}" alt="{{widget.location_name.value}}" class="coupon-logo" />
     {% endif %}
 
     <h2 class="coupon-offer">{{ widget.coupon_text.value }}</h2>
 
-    {% if widget.coupon_description != '' %}
+    {% if widget.coupon_description != blank %}
       <p clas="coupon-description">{{ widget.coupon_description.value}}</p>
     {% endif %}
 
-    {% if widget.coupon_barcode_url != '' %}
+    {% if widget.coupon_barcode_url != blank %}
       <img src="{{widget.coupon_barcode_url.value | url_encode}}" alt="{{widget.coupon_number.value}}" />
     {% endif %}
 
-    {% if widget.coupon_number != '' %}
+    {% if widget.coupon_number != blank %}
       <p class="coupon-code"><strong>Offer #: {{ widget.coupon_number.value }}</strong></p>
     {% endif %}
 
@@ -55,7 +55,7 @@
       </p>
     </div> <!-- end .coupon-address -->
 
-    {% if widget.location_directions.value != '' %}
+    {% if widget.location_directions.value != blank %}
       <div class="coupon-directions">
         {{ widget.location_directions.value }}
       </div>

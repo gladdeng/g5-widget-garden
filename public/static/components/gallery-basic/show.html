@@ -6,7 +6,7 @@
       alt="{{widget.gallery_photo1_alt.value}}" />
   </figure>
 
-  {% if widget.gallery_photo2_url.value != '' %}
+  {% if widget.gallery_photo2_url.value != blank %}
   <figure>
     <img
       src="{{widget.gallery_photo2_url.value | url_encode}}" alt="{{widget.gallery_photo2_alt.value}}"
@@ -14,7 +14,7 @@
   </figure>
   {% endif %}
 
-  {% if widget.gallery_photo3_url.value != '' %}
+  {% if widget.gallery_photo3_url.value != blank %}
   <!--
     Set image url in the data-src attribute.
     Set source to 1x1 transparent gif in base64 string.
@@ -28,7 +28,7 @@
   </figure>
   {% endif %}
 
-  {% if widget.gallery_photo4_url.value != '' %}
+  {% if widget.gallery_photo4_url.value != blank %}
   <figure class="lazy-load">
     <img
       data-src="{{widget.gallery_photo4_url.value | url_encode}}"
@@ -37,7 +37,7 @@
   </figure>
   {% endif %}
 
-  {% if widget.gallery_photo5_url.value != '' %}
+  {% if widget.gallery_photo5_url.value != blank %}
   <figure class="lazy-load">
     <img
       data-src="{{widget.gallery_photo5_url.value | url_encode}}"
@@ -46,7 +46,7 @@
   </figure>
   {% endif %}
 
-  {% if widget.gallery_photo6_url.value != '' %}
+  {% if widget.gallery_photo6_url.value != blank %}
   <figure class="lazy-load">
     <img
       data-src="{{widget.gallery_photo6_url.value | url_encode}}"
@@ -55,7 +55,7 @@
   </figure>
   {% endif %}
 
-  {% if widget.gallery_photo7_url.value != '' %}
+  {% if widget.gallery_photo7_url.value != blank %}
   <figure class="lazy-load">
     <img
       data-src="{{widget.gallery_photo7_url.value | url_encode}}"
@@ -64,7 +64,7 @@
   </figure>
   {% endif %}
 
-  {% if widget.gallery_photo8_url.value != '' %}
+  {% if widget.gallery_photo8_url.value != blank %}
   <figure class="lazy-load">
     <img
       data-src="{{widget.gallery_photo8_url.value | url_encode}}"
@@ -73,7 +73,7 @@
   </figure>
   {% endif %}
 
-  {% if widget.gallery_photo9_url.value != '' %}
+  {% if widget.gallery_photo9_url.value != blank %}
   <figure class="lazy-load">
     <img
       data-src="{{widget.gallery_photo9_url.value | url_encode}}"
@@ -82,7 +82,7 @@
   </figure>
   {% endif %}
 
-  {% if widget.gallery_photo10_url.value != '' %}
+  {% if widget.gallery_photo10_url.value != blank %}
   <figure class="lazy-load">
     <img
       data-src="{{widget.gallery_photo10_url.value | url_encode}}"
