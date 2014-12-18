@@ -49,11 +49,16 @@
   </div>
   <div class="form-field check-field">
     {{ widget.lease_terms.id_hidden_field }}
+    <input type="hidden"
+      id="{{ widget.lease_terms.value_field_id }}_false"
+      name="{{ widget.lease_terms.value_field_name }}"
+      value="no"
+    />
     <input type="checkbox"
       id="{{ widget.lease_terms.value_field_id }}"
       name="{{ widget.lease_terms.value_field_name }}"
       value="true"
-      {% if widget.gallery_mini.value == "true" %}
+      {% if widget.lease_terms.value == "true" %}
       checked="checked"
       {% endif %}
     />
