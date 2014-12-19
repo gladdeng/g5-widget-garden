@@ -1,0 +1,61 @@
+<form>
+  <fieldset>
+    
+    <div class="form-field">
+      {{ widget.news_service_domain.id_hidden_field }}
+      <label for="{{ widget.news_service_domain.value_field_id }}">
+        Languages
+      </label>
+      <input type="text"
+        placeholder="gigity"
+        id="{{ widget.news_service_domain.value_field_id }}"
+        name="{{ widget.news_service_domain.value_field_name }}"
+        value="{{ widget.news_service_domain.value }}"
+      />
+    </div>
+    
+    <div class="form-field">
+      {{ widget.location_urn.id_hidden_field }}
+      <label for="{{ widget.location_urn.value_field_id }}">
+        Languages
+      </label>
+      <input type="text"
+        placeholder="gigity"
+        id="{{ widget.location_urn.value_field_id }}"
+        name="{{ widget.location_urn.value_field_name }}"
+        value="{{ widget.location_urn.best_value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.number_of_posts.id_hidden_field }}
+      <label for="{{ widget.number_of_posts.value_field_id }}">
+        Languages
+      </label>
+      <input type="text"
+        placeholder="gigity"
+        id="{{ widget.number_of_posts.value_field_id }}"
+        name="{{ widget.number_of_posts.value_field_name }}"
+        value="{{ widget.number_of_posts.best_value }}"
+      />
+    </div>
+
+    <!-- 
+    <div class="form-field">
+      {{ widget.XXXXXX.id_hidden_field }}
+      <label for="{{ widget.XXXXXX.value_field_id }}">
+        Languages
+      </label>
+      <input type="text"
+        placeholder="gigity"
+        id="{{ widget.XXXXXX.value_field_id }}"
+        name="{{ widget.XXXXXX.value_field_name }}"
+        value="{{ widget.XXXXXX.best_value }}"
+      />
+    </div>
+    -->
+    
+  </fieldset>
+
+  <input type="submit" value="Save" class="btn" />
+</form>
