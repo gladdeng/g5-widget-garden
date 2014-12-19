@@ -1,9 +1,9 @@
 $ -> 
-  configs = JSON.parse($('#ss-featured-unit-categories-config').html())
-
+  configs = ssFeaturedUnitCategories
+  #configs = JSON.parse($('#ss-featured-unit-categories-config').html())
   $.ajax
-    url: "#{configs.unit_service_host}"  #for local testing
-    #url: "#{configs.unit_service_host}/api/v0/storage?store_id=#{configs.ss_core_store_id}"
+    #url: "#{configs.unit_service_host}"  #for local testing
+    url: "#{configs.unit_service_host}/api/v1/storage_facilities/#{configs.location_urn}/storage_categories"
     dataType: 'json'
     success: (data) =>
       categories = data.storage_categories

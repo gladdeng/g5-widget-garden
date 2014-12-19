@@ -1,15 +1,28 @@
 <form>
   <fieldset>
     <div class="form-field">
-      {{ widget.ss_core_store_id.id_hidden_field }}
-      <label for="{{ widget.ss_core_store_id.value_field_id }}">
-        Core Store ID
+      {{ widget.unit_service_host.id_hidden_field }}
+      <label for="{{ widget.unit_service_host.value_field_id }}">
+        Units Service Host - Api
+      </label>
+      <input type="text"
+        placeholder="//www.g5api.com"
+        id="{{ widget.unit_service_host.value_field_id }}"
+        name="{{ widget.unit_service_host.value_field_name }}"
+        value="{{ widget.unit_service_host.best_value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.location_urn.id_hidden_field }}
+      <label for="{{ widget.location_urn.value_field_id }}">
+        Location URN
       </label>
       <input type="text"
         placeholder="1234"
-        id="{{ widget.ss_core_store_id.value_field_id }}"
-        name="{{ widget.ss_core_store_id.value_field_name }}"
-        value="{{ widget.ss_core_store_id.best_value }}"
+        id="{{ widget.location_urn.value_field_id }}"
+        name="{{ widget.location_urn.value_field_name }}"
+        value="{{ widget.location_urn.best_value }}"
       />
     </div>
 
@@ -26,18 +39,7 @@
       />
     </div>
 
-    <div class="form-field">
-      {{ widget.unit_service_host.id_hidden_field }}
-      <label for="{{ widget.unit_service_host.value_field_id }}">
-        Units Service Host - Api
-      </label>
-      <input type="text"
-        placeholder="//www.g5api.com"
-        id="{{ widget.unit_service_host.value_field_id }}"
-        name="{{ widget.unit_service_host.value_field_name }}"
-        value="{{ widget.unit_service_host.best_value }}"
-      />
-    </div>
+
     
   </fieldset>
 

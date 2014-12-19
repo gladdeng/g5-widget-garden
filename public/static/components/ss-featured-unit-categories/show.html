@@ -1,10 +1,10 @@
 <div class="ss-featured-unit-categories widget">
 
-<script id="ss-featured-unit-categories-config" type="application/json">
-  {
-    "ss_core_store_id": "{{ widget.ss_core_store_id.value }}",
-    "unit_page_url": "{{ widget.unit_page_url.value }}",
-    "unit_service_host": "{{ widget.unit_service_host.value }}"
+<script id="ss-featured-unit-categories-config" type="application/javascript">
+  var ssFeaturedUnitCategories = {
+    "unit_service_host": "{{ widget.unit_service_host.value }}",
+    "location_urn": "{{ widget.location_urn.value }}",
+    "unit_page_url": "{{ widget.unit_page_url.value }}"
   }
 </script>
   
@@ -21,4 +21,3 @@
     <p>Loading Unit Options</p>
   </div>
 </div>
-

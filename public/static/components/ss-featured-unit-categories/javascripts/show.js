@@ -4,9 +4,9 @@
   $(function() {
     var configs,
       _this = this;
-    configs = JSON.parse($('#ss-featured-unit-categories-config').html());
+    configs = ssFeaturedUnitCategories;
     return $.ajax({
-      url: "" + configs.unit_service_host,
+      url: "" + configs.unit_service_host + "/api/v1/storage_facilities/" + configs.location_urn + "/storage_categories",
       dataType: 'json',
       success: function(data) {
         var categories;
