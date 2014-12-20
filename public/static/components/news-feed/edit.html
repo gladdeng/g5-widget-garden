@@ -4,7 +4,7 @@
     <div class="form-field">
       {{ widget.news_service_domain.id_hidden_field }}
       <label for="{{ widget.news_service_domain.value_field_id }}">
-        Languages
+        News Service Domain
       </label>
       <input type="text"
         placeholder="gigity"
@@ -17,7 +17,7 @@
     <div class="form-field">
       {{ widget.location_urn.id_hidden_field }}
       <label for="{{ widget.location_urn.value_field_id }}">
-        Languages
+        Location URN
       </label>
       <input type="text"
         placeholder="gigity"
@@ -30,13 +30,26 @@
     <div class="form-field">
       {{ widget.number_of_posts.id_hidden_field }}
       <label for="{{ widget.number_of_posts.value_field_id }}">
-        Languages
+        Number of Posts
       </label>
       <input type="text"
         placeholder="gigity"
         id="{{ widget.number_of_posts.value_field_id }}"
         name="{{ widget.number_of_posts.value_field_name }}"
         value="{{ widget.number_of_posts.best_value }}"
+      />
+    </div>
+
+    <div class="form-field">
+      {{ widget.heading_text.id_hidden_field }}
+      <label for="{{ widget.heading_text.value_field_id }}">
+        Heading Text
+      </label>
+      <input type="text"
+        placeholder="gigity"
+        id="{{ widget.heading_text.value_field_id }}"
+        name="{{ widget.heading_text.value_field_name }}"
+        value="{{ widget.heading_text.value }}"
       />
     </div>
 
@@ -54,7 +67,7 @@
       />
     </div>
     -->
-    
+
   </fieldset>
 
   <input type="submit" value="Save" class="btn" />

@@ -1,10 +1,11 @@
 <script id="news-feed-config" type="application/json">
   { "newsServiceDomain": "{{ widget.news_service_domain.value }}",
     "locationURN":       "{{ widget.location_urn.best_value }}",
-    "numberOfPosts":     "{{ widget.number_of_posts.value }}"
+    "numberOfPosts":     "{{ widget.number_of_posts.value }}",
+    "headingText":       "{{ widget.heading_text.value }}"
   }
 </script>
 
-<h1>{{ widget.news_service_domain.value }}</h1>
-<h2>{{ widget.location_urn.best_value }}</h2>
-<h3>{{ widget.number_of_posts.value }}</h3>
+<div class="news-feed-widget widget" id="news-feed-widget">
+  <h2>{{ widget.heading_text.value }}</h2>
+</div>
