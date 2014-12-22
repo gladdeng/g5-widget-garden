@@ -10,6 +10,21 @@
   max-width:300px;
 }
 
+.news-feed-post .post-toggle{
+  display:block;
+  font-weight: bold;
+}
+
+.news-feed-post img{ margin-bottom:0.5em; }
+
+.news-feed-post .post-date{
+  padding-right:0.5em;
+}
+
+.news-feed-post .post-author{
+  padding-left:0.5em;
+}
+
 .news-feed-widget .post-body{
   display:none;
 }
@@ -22,9 +37,13 @@
   display:none;
 }
 
-.post-expand{ display:block; }
+.post-description{ padding: 1em 0 0.5em 0; }
 
-.post-collapse{ display:none; }
+.post-body{ padding:1em 0; }
+
+.news-feed-post .post-expand{ display:block; }
+
+.news-feed-post .post-collapse{ display:none; }
 
 .active-post .post-expand{ display:none; }
 

@@ -28,9 +28,34 @@
       _ref = this.feed;
       for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
         post = _ref[index];
-        markup.push("<div class='news-feed-post'>                      <a class='post-toggle' href='#'>                        <img src='" + post.image + "' />                        <div class='post-title'>" + post.title + "</div>                      </a>                      <div class='post-date'>" + post.date + "</div>                      <div class='post-author'>" + post.author + "</div>                      <div class='post-description'>" + post.description + "</div>                      <div class='post-body'>" + post.text + "</div>                      <a class='post-toggle post-expand' href='#'>Read More</a>                      <a class='post-toggle post-collapse' href='#'>Less</a>                    </div>");
+        markup.push("<div class='news-feed-post'>                      " + (this.toggleMarkup(post)) + "                      " + (this.detailsMarkup(post)) + "                      <div class='post-body'>" + post.text + "</div>                      <a class='post-toggle post-expand' href='#'>Read More</a>                      <a class='post-toggle post-collapse' href='#'>Hide This</a>                    </div>");
       }
       return $('.news-feed-widget').append(markup.join(''));
+    };
+
+    NewsFeedBuilder.prototype.toggleMarkup = function(post) {
+      var toggle;
+      toggle = "<a class='post-toggle' href='#'>";
+      if (post.image !== "") {
+        toggle += "  <img src='" + post.image + "' />";
+      }
+      if (post.title !== "") {
+        toggle += "  <h3 class='post-title'>" + post.title + "</h3>";
+      }
+      return toggle += "</a>";
+    };
+
+    NewsFeedBuilder.prototype.detailsMarkup = function(post) {
+      var details;
+      if (post.title !== "") {
+        details = "<span class='post-date'>" + post.pretty_date + "</span>";
+      }
+      if (post.author !== "") {
+        details += "<span>|</span><span class='post-author'>by " + post.author + "</span>";
+      }
+      if (post.description !== "") {
+        return details += "<div class='post-description'>" + post.description + "</div>";
+      }
     };
 
     return NewsFeedBuilder;
