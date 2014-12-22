@@ -1,6 +1,5 @@
 $ ->
   # Get walkscore config options
-  #walkFeedVars = JSON.parse($("#walkscore-config").html())
   walkFeedVars = walkFeedVarsConfig   
   # Walkscore Setup
   if walkFeedVars.walkscore_client.length > 1
