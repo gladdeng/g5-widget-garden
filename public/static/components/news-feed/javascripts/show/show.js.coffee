@@ -17,10 +17,10 @@ class NewsFeedBuilder
       markup.push( "<div class='news-feed-post'>
                       <div class='post-summary'>
                         <img src='#{post.image}' />
-                        <div>#{post.title}</div>
-                        <div>#{post.date}</div>
-                        <div>#{post.author}</div>
-                        <div>#{post.description}</div>
+                        <div class='post-title'>#{post.title}</div>
+                        <div class='post-date'>#{post.date}</div>
+                        <div class='post-author'>#{post.author}</div>
+                        <div class='post-description'>#{post.description}</div>
                       </div>
                       <div class='post-body'>#{post.text}</div>
                     </div>" )
