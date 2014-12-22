@@ -1,5 +1,5 @@
 (function() {
-  var NewsFeedBuilder;
+  var NewsFeedBuilder, ToggleListener;
 
   $(function() {
     var configs,
@@ -9,7 +9,8 @@
       url: "" + configs.newsServiceDomain + "/locations/" + configs.locationURN + "/news_feed.json",
       dataType: 'json',
       success: function(data) {
-        return new NewsFeedBuilder(configs, data);
+        new NewsFeedBuilder(configs, data);
+        return new ToggleListener(configs);
       }
     });
   });
@@ -27,12 +28,29 @@
       _ref = this.feed;
       for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
         post = _ref[index];
-        markup.push("<div class='news-feed-post'>                      <div class='post-summary'>                        <img src='" + post.image + "' />                        <div class='post-title'>" + post.title + "</div>                        <div class='post-date'>" + post.date + "</div>                        <div class='post-author'>" + post.author + "</div>                        <div class='post-description'>" + post.description + "</div>                      </div>                      <div class='post-body'>" + post.text + "</div>                    </div>");
+        markup.push("<div class='news-feed-post'>                      <a class='post-toggle' href='#'>                        <img src='" + post.image + "' />                        <div class='post-title'>" + post.title + "</div>                      </a>                      <div class='post-date'>" + post.date + "</div>                      <div class='post-author'>" + post.author + "</div>                      <div class='post-description'>" + post.description + "</div>                      <div class='post-body'>" + post.text + "</div>                      <a class='post-toggle post-expand' href='#'>Read More</a>                      <a class='post-toggle post-collapse' href='#'>Less</a>                    </div>");
       }
       return $('.news-feed-widget').append(markup.join(''));
     };
 
     return NewsFeedBuilder;
+
+  })();
+
+  ToggleListener = (function() {
+    function ToggleListener(configs) {
+      this.configs = configs;
+      this.basicListener();
+    }
+
+    ToggleListener.prototype.basicListener = function() {
+      return $('.post-toggle').click(function() {
+        $(this).parent().toggleClass("active-post");
+        return false;
+      });
+    };
+
+    return ToggleListener;
 
   })();
 

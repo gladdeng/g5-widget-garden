@@ -3,7 +3,7 @@
 .news-feed-post{
   padding:10px 0;
   margin:10px 0;
-  background:#eee;
+  border-bottom:1px solid #000;
 }
 
 .news-feed-post img{
@@ -13,3 +13,19 @@
 .news-feed-widget .post-body{
   display:none;
 }
+
+.news-feed-widget .active-post .post-body{
+  display:block;
+}
+
+.active-post .post-description{
+  display:none;
+}
+
+.post-expand{ display:block; }
+
+.post-collapse{ display:none; }
+
+.active-post .post-expand{ display:none; }
+
+.active-post .post-collapse{ display:block; }
