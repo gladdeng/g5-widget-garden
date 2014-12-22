@@ -1,7 +1,7 @@
 $ ->
   # Get walkscore config options
-  walkFeedVars = JSON.parse($("#walkscore-config").html())
-
+  #walkFeedVars = JSON.parse($("#walkscore-config").html())
+  walkFeedVars = walkFeedVarsConfig   
   # Walkscore Setup
   if walkFeedVars.walkscore_client.length > 1
     walkscoreFeed = new walkscoreInitializer(walkFeedVars)
@@ -14,15 +14,10 @@ class walkscoreInitializer
     
   getpage = (walkFeedVars) ->
     $.ajax
-      #url: "//g5-social-feed-service.herokuapp.com/walkscore-feed/#{walkFeedVars.walkscore_client}/#{walkFeedVars.walkscore_location}"
-      url: "http://localhost:3008/walkscore-feed/#{walkFeedVars.walkscore_client}/#{walkFeedVars.walkscore_location}sdfds"
+      url: "//g5-social-feed-service.herokuapp.com/walkscore-feed/#{walkFeedVars.walkscore_client}/#{walkFeedVars.walkscore_location}"
       dataType: 'json'
       success: (data) =>
-        debugger
-        #console.log(JSON.stringify(data))
-        #walkscoreBadgeBuilder(walkFeedVars, data) if data.length > 0
-        walkscoreBadgeBuilder(data)
-
+        walkscoreBadgeBuilder(data) if data != null
 
   walkscoreBadgeBuilder = (dataFeed) ->
     if dataFeed != []
