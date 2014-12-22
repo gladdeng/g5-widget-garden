@@ -48,16 +48,3 @@ class ToggleListener
     $('.post-toggle').click ->
       $(this).parent().toggleClass("active-post")
       false
-
-
-
-      
-
-
-  
-
-
-        
-
-    
-
