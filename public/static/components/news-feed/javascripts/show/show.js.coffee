@@ -12,16 +12,17 @@ class NewsFeedBuilder
 
   populateFeed: () ->
     markup = []
-    markup.push("<h2>Fuckin-A</h2>")
 
     for post, index in @feed
       markup.push( "<div class='news-feed-post'>
-                      <img src='#{post.image}' />
-                      <div>#{post.title}</div>
-                      <div>#{post.author}</div>
-                      <div>#{post.date}</div>
-                      <div>#{post.description}</div>
-                      <div>#{post.text}</div>
+                      <div class='post-summary'>
+                        <img src='#{post.image}' />
+                        <div>#{post.title}</div>
+                        <div>#{post.date}</div>
+                        <div>#{post.author}</div>
+                        <div>#{post.description}</div>
+                      </div>
+                      <div class='post-body'>#{post.text}</div>
                     </div>" )
       
     $('.news-feed-widget').append(markup.join(''))

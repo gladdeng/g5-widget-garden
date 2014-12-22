@@ -1,3 +1,15 @@
-#google_translate_element{
-  position:relative;
+.news-feed-widget{}
+
+.news-feed-post{
+  padding:10px 0;
+  margin:10px 0;
+  background:#eee;
+}
+
+.news-feed-post img{
+  max-width:300px;
+}
+
+.news-feed-widget .post-body{
+  display:none;
 }
