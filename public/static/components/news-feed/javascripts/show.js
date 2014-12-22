@@ -23,11 +23,15 @@
     }
 
     NewsFeedBuilder.prototype.populateFeed = function() {
-      var index, markup, post, _i, _len, _ref;
+      var index, markup, post, postCount, websitePosts, _i, _len;
+      postCount = parseInt(this.configs.numberOfPosts);
+      if (isNaN(postCount)) {
+        postCount = 5;
+      }
+      websitePosts = this.feed.slice(0, postCount);
       markup = [];
-      _ref = this.feed;
-      for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
-        post = _ref[index];
+      for (index = _i = 0, _len = websitePosts.length; _i < _len; index = ++_i) {
+        post = websitePosts[index];
         markup.push("<div class='news-feed-post'>                      " + (this.toggleMarkup(post)) + "                      " + (this.detailsMarkup(post)) + "                      <div class='post-body'>" + post.text + "</div>                      <a class='post-toggle post-expand' href='#'>Read More</a>                      <a class='post-toggle post-collapse' href='#'>Hide This</a>                    </div>");
       }
       return $('.news-feed-widget').append(markup.join(''));

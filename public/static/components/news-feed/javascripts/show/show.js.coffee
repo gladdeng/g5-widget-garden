@@ -12,9 +12,13 @@ class NewsFeedBuilder
     @populateFeed()
 
   populateFeed: () ->
+    postCount = parseInt(@configs.numberOfPosts)
+    postCount = 5 if isNaN(postCount)
+
+    websitePosts = @feed[0...postCount]
     markup = []
 
-    for post, index in @feed
+    for post, index in websitePosts
       markup.push( "<div class='news-feed-post'>
                       #{@toggleMarkup(post)}
                       #{@detailsMarkup(post)}
