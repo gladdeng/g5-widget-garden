@@ -8,12 +8,18 @@
           "locationCounts": {{ widget.corporate_map.best_value.state_location_counts }},
           "corpSearchPage": "{{ widget.corp_search_page.value }}",
           "coreClientId": NaN,
+          "coreClientIdAlt": NaN,
           "stateDataToggle": ("{{ widget.state_data_toggle.value }}".toLowerCase() === "true") ? true : false
         }
 
         {% unless widget.core_client_id.value == blank %}
           corpMapSettings.coreClientId = {{ widget.core_client_id.value }};
         {% endunless %}
+        
+        {% unless widget.core_client_id_alt.value == blank %}
+          corpMapSettings.coreClientIdAlt = {{ widget.core_client_id_alt.value }};
+        {% endunless %}
+
 
         var corpMapConfig = {
           "map": "usa_en",
@@ -49,21 +55,22 @@
 
         var corpSearchPage = corpMapSettings.corpSearchPage.trim().length > 0;
         var coreClientId = !isNaN(corpMapSettings.coreClientId);
-        var coreApiCall = function(init){
-          var apiUrl = "//www.g5api.com/api/v0/client_locations?client_id=" + corpMapSettings.coreClientId;
-          $.ajax({url: apiUrl, dataType: 'json', success: function(data){formatData(data, init)}});
+        var coreClientIdAlt = !isNaN(corpMapSettings.coreClientIdAlt);
+        var coreApiCall = function(storeId, mapSetting, init){
+          var apiUrl = "//www.g5api.com/api/v0/client_locations?client_id=" + storeId;
+          $.ajax({url: apiUrl, dataType: 'json', success: function(data){formatData(data, mapSetting, init)}});
         };
 
-        var formatData = function(data, init){
+        var formatData = function(data, mapSetting, init){
           var hash = {};
           data.states.forEach(function(item){ 
             hash[item.name] = item.location_count;
           });
-          corpMapConfig.selectedRegions = data.states.map(function(item){return item.name;});
-          corpMapConfig.locationCounts = hash;
-          corpMapConfig.onRegionClick = function(element, code, region) {
+          mapSetting.selectedRegions = data.states.map(function(item){return item.name;});
+          mapSetting.locationCounts = hash;
+          mapSetting.onRegionClick = function(element, code, region) {
             $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
-            var match = $.inArray(code.toUpperCase(), corpMapConfig.selectedRegions) > -1;
+            var match = $.inArray(code.toUpperCase(), mapSetting.selectedRegions) > -1;
             if (match) {
               window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
             };
@@ -75,15 +82,21 @@
         };
 
         if(coreClientId && corpSearchPage && !corpMapSettings.stateDataToggle) {
-          coreApiCall(function(){
+          coreApiCall(corpMapSettings.coreClientId, corpMapConfig, function(){
             $('#corporate-map').vectorMap(corpMapConfig);
           });
 
         } else if (coreClientId && corpSearchPage && corpMapSettings.stateDataToggle) {
 
-          coreApiCall(function(){
+          coreApiCall(corpMapSettings.coreClientId, corpMapConfig, function(){
             $('#corporate-map').vectorMap(corpMapConfig);
           });
+          
+          if (coreClientIdAlt) {
+            coreApiCall(corpMapSettings.coreClientIdAlt, corpConfigClone, function(){
+              return
+            });
+          }
 
           $('.corporate-map .map-tabs a.locations').addClass("active");
           $('.corporate-map .map-tabs a').on('click', function(e){
@@ -93,7 +106,7 @@
             $('#corporate-map').vectorMap(eval($(this).data('map-config')));
             e.preventDefault();
           });
-
+        
         } else {
           $('#corporate-map').vectorMap(corpMapConfig);
         }
@@ -103,7 +116,7 @@
   {% assign state_toggles = widget.state_data_toggle.value | downcase %}
   {% if state_toggles == "true" %}
     <div class="map-tabs">
-      <a href="#" data-map-config="corpMapConfig" class="locations">Muliti-Family</a>
+      <a href="#" data-map-config="corpMapConfig" class="locations">Multi-Family</a>
       <a href="#" data-map-config="corpConfigClone" class="commercial">Commercial</a>
     </div>
   {% endif %}
