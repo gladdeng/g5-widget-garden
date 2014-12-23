@@ -9,7 +9,7 @@
       <img class="u-photo" src="{{ widget.photo2_url.value | url_encode }}" alt="{{ widget.photo2_alt.value }}" itemprop="image" />
     </figure>
 
-    {% if widget.photo3_url.value != "" %}
+    {% if widget.photo3_url.value != blank %}
     <figure class="h-media" itemscope itemtype="http://schema.org/Photograph">
       <img class="u-photo" src="{{ widget.photo3_url.value | url_encode }}" alt="{{ widget.photo3_alt.value }}" itemprop="image" />
     </figure>

@@ -36,6 +36,7 @@ module G5ComponentGarden
       # assign uid as slug from directory name for now
       uid = directory.split("/").last
       component.add_property("u-g5-uid", uid)
+      component.add_property("p-modified", File.new(directory).mtime.utc)
 
       thumbnail_path = "#{relative_directory}/images/thumbnail.png"
       component.add_property("u-photo", thumbnail_path)

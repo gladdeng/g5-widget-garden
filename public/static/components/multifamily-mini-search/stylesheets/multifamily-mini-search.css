@@ -102,6 +102,10 @@ border-radius: 0;
 -moz-appearance: none;
 font-weight: 200
 }
+
+.corpSearchWrapper .search-form select.alternate-select,
+.corpSearchWrapper .search-form button.alternate-submit-button{ display:none; }
+
 .corpSearchWrapper .search-form label {
 width: auto
 }
@@ -460,3 +464,5 @@ right: -5px
 width: 100%;
 height: 100px
 }
+
+

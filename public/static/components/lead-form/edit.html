@@ -54,6 +54,18 @@
       <option value="tour" {% if widget.form_type.value == "tour" %}selected{% endif %}>
         Tour
       </option>
+
+      <option value="lead_inquiry" {% if widget.form_type.value == "inquiry" %}selected{% endif %}>
+        YVSL Inquiry
+      </option>
+
+      <option value="lead_tour_request" {% if widget.form_type.value == "tour_request" %}selected{% endif %}>
+        YVSL Tour Request
+      </option>
+
+      <option value="lead_contact_us" {% if widget.form_type.value == "contact_us" %}selected{% endif %}>
+        YVSL Contact Us
+      </option>
     </select>
   </div>
 
