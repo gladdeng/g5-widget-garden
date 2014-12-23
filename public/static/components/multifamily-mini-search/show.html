@@ -6,7 +6,8 @@
     "externalSearchURL": "{{ widget.external_search_url.value }}",
     "defaultSearchOption": "{{ widget.default_search_option.value }}",
     "alternateSearchOption": "{{ widget.alternate_search_option.value }}",
-    "alternateSearchButtonText": "{{ widget.alternate_search_button_text.value }}"
+    "alternateSearchButtonText": "{{ widget.alternate_search_button_text.value }}",
+    "alternateCoreClientID": "{{ widget.alternate_core_client_id.value }}"
   }
 </script>
 
@@ -31,17 +32,24 @@
             <div class="multifamily-mini-search">
               <h2>{{ widget.heading_text.value }}</h2>
               <span class="state">
-                <select class="mf-search-states">
+                <select class="mf-search-states default-select">
+                  <option value="">State</option>
+                </select>
+                <select class="mf-search-states alternate-select">
                   <option value="">State</option>
                 </select>
               </span>
               <span class="city">
-                <select class="mf-search-cities">
+                <select class="mf-search-cities default-select">
+                  <option value="">City</option>
+                </select>
+                <select class="mf-search-cities alternate-select">
                   <option value="">City</option>
                 </select>
               </span>
               <span class="search-button">
-                <button class="mf-search-go-button search">Search</button>
+                <button class="mf-search-go-button search default-submit-button">Search</button>
+                <button class="mf-search-go-button search alternate-submit-button">{{ widget.alternate_search_button_text.value }}</button>
               </span>
             </div>
           </div>
