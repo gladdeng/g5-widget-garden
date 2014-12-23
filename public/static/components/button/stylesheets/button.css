@@ -27,7 +27,8 @@
     padding: 0 1em;
     width: 50%;
   }
-  .button-grid:nth-of-type(2n+1) {
+  section > .button-grid:nth-of-type(2n+1),
+  .row [class*=row]:nth-of-type(2n+1) .button-grid {
     clear: left;
   }
 }
