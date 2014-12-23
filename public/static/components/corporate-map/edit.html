@@ -53,5 +53,18 @@
              />
   </div>
 
+  <div class="form-field">
+    {{ widget.corp_search_page_alt.id_hidden_field }}
+    <label for="{{ widget.corp_search_page_alt.value_field_id }}" >
+      Corp Search Page (Commercial)
+    </label>
+      <input type="text"
+             placeholder="apartment-search/"
+             id="{{ widget.corp_search_page_alt.value_field_id }}"
+             name="{{ widget.corp_search_page_alt.value_field_name }}"
+             value="{{ widget.corp_search_page_alt.value }}"
+             />
+  </div>
+
   <input type="submit" value="Save" class="btn" />
 </form>
