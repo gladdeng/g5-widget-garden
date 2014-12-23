@@ -7,6 +7,7 @@
           "selectedRegions": {{ widget.corporate_map.best_value.populated_states }},
           "locationCounts": {{ widget.corporate_map.best_value.state_location_counts }},
           "corpSearchPage": "{{ widget.corp_search_page.value }}",
+          "corpSearchPageAlt": "{{ widget.corp_search_page_alt.value }}",
           "coreClientId": NaN,
           "coreClientIdAlt": NaN,
           "stateDataToggle": ("{{ widget.state_data_toggle.value }}".toLowerCase() === "true") ? true : false
@@ -56,12 +57,12 @@
         var corpSearchPage = corpMapSettings.corpSearchPage.trim().length > 0;
         var coreClientId = !isNaN(corpMapSettings.coreClientId);
         var coreClientIdAlt = !isNaN(corpMapSettings.coreClientIdAlt);
-        var coreApiCall = function(storeId, mapSetting, init){
+        var coreApiCall = function(storeId, mapSetting, urlPath, init){
           var apiUrl = "//www.g5api.com/api/v0/client_locations?client_id=" + storeId;
-          $.ajax({url: apiUrl, dataType: 'json', success: function(data){formatData(data, mapSetting, init)}});
+          $.ajax({url: apiUrl, dataType: 'json', success: function(data){formatData(data, mapSetting, urlPath, init)}});
         };
 
-        var formatData = function(data, mapSetting, init){
+        var formatData = function(data, mapSetting, urlPath, init){
           var hash = {};
           data.states.forEach(function(item){ 
             hash[item.name] = item.location_count;
@@ -72,7 +73,7 @@
             $(this).find('.selected').css('fill', corpMapSettings.selectedColor);
             var match = $.inArray(code.toUpperCase(), mapSetting.selectedRegions) > -1;
             if (match) {
-              window.location.href = "/" + corpMapSettings.corpSearchPage + "?state=" + code.toUpperCase();
+              window.location.href = "/" + urlPath + "?state=" + code.toUpperCase();
             };
           };
 
@@ -83,16 +84,16 @@
 
         if(coreClientId && corpSearchPage) {
           if (!corpMapSettings.stateDataToggle) {
-            coreApiCall(corpMapSettings.coreClientId, corpMapConfig, function(){
+            coreApiCall(corpMapSettings.coreClientId, corpMapConfig, corpMapSettings.corpSearchPage, function(){
               $('#corporate-map').vectorMap(corpMapConfig);
             });
           } else {
-            coreApiCall(corpMapSettings.coreClientId, corpMapConfig, function(){
+            coreApiCall(corpMapSettings.coreClientId, corpMapConfig, corpMapSettings.corpSearchPage, function(){
               $('#corporate-map').vectorMap(corpMapConfig);
             });
 
-            if (coreClientIdAlt) {
-              coreApiCall(corpMapSettings.coreClientIdAlt, corpConfigClone, function(){
+            if (coreClientIdAlt && corpMapSettings.corpSearchPageAlt != "") {
+              coreApiCall(corpMapSettings.coreClientIdAlt, corpConfigClone, corpMapSettings.corpSearchPageAlt, function(){
                 return
               });
             }
