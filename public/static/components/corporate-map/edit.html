@@ -25,17 +25,19 @@
              />
   </div>
 
-  <div class="form-field">
+  <div class="form-field check-field">
     {{ widget.state_data_toggle.id_hidden_field }}
+    <input type="checkbox"
+      id="{{ widget.state_data_toggle.value_field_id }}"
+      name="{{ widget.state_data_toggle.value_field_name }}"
+      value="true"
+      {% if widget.state_data_toggle.value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
     <label for="{{ widget.state_data_toggle.value_field_id }}" >
-      Toggle State Data (core/orion)
+      Duel Maps?  
     </label>
-      <input type="text"
-             placeholder="false"
-             id="{{ widget.state_data_toggle.value_field_id }}"
-             name="{{ widget.state_data_toggle.value_field_name }}"
-             value="{{ widget.state_data_toggle.value }}"
-             />
   </div>
 
   <div class="form-field">
