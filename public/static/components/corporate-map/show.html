@@ -81,32 +81,30 @@
           }
         };
 
-        if(coreClientId && corpSearchPage && !corpMapSettings.stateDataToggle) {
-          coreApiCall(corpMapSettings.coreClientId, corpMapConfig, function(){
-            $('#corporate-map').vectorMap(corpMapConfig);
-          });
+        if(coreClientId && corpSearchPage) {
+          if (!corpMapSettings.stateDataToggle) {
+            coreApiCall(corpMapSettings.coreClientId, corpMapConfig, function(){
+              $('#corporate-map').vectorMap(corpMapConfig);
+            });
+          } else {
+            coreApiCall(corpMapSettings.coreClientId, corpMapConfig, function(){
+              $('#corporate-map').vectorMap(corpMapConfig);
+            });
 
-        } else if (coreClientId && corpSearchPage && corpMapSettings.stateDataToggle) {
-
-          coreApiCall(corpMapSettings.coreClientId, corpMapConfig, function(){
-            $('#corporate-map').vectorMap(corpMapConfig);
-          });
-          
-          if (coreClientIdAlt) {
-            coreApiCall(corpMapSettings.coreClientIdAlt, corpConfigClone, function(){
-              return
+            if (coreClientIdAlt) {
+              coreApiCall(corpMapSettings.coreClientIdAlt, corpConfigClone, function(){
+                return
+              });
+            }
+            $('.corporate-map .map-tabs a.locations').addClass("active");
+            $('.corporate-map .map-tabs a').on('click', function(e){
+              $('#corporate-map').replaceWith("<div id='corporate-map'></div>");
+              $('.corporate-map .map-tabs a').removeClass("active");
+              $(this).addClass('active');
+              $('#corporate-map').vectorMap(eval($(this).data('map-config')));
+              e.preventDefault();
             });
           }
-
-          $('.corporate-map .map-tabs a.locations').addClass("active");
-          $('.corporate-map .map-tabs a').on('click', function(e){
-            $('#corporate-map').replaceWith("<div id='corporate-map'></div>");
-            $('.corporate-map .map-tabs a').removeClass("active");
-            $(this).addClass('active');
-            $('#corporate-map').vectorMap(eval($(this).data('map-config')));
-            e.preventDefault();
-          });
-        
         } else {
           $('#corporate-map').vectorMap(corpMapConfig);
         }
