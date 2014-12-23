@@ -38,5 +38,18 @@
              />
   </div>
 
+  <div class="form-field">
+    {{ widget.core_client_id_alt.id_hidden_field }}
+    <label for="{{ widget.core_client_id_alt.value_field_id }}" >
+      Core Client Id 2 (to use core data)
+    </label>
+      <input type="text"
+             placeholder=""
+             id="{{ widget.core_client_id_alt.value_field_id }}"
+             name="{{ widget.core_client_id_alt.value_field_name }}"
+             value="{{ widget.core_client_id_alt.value }}"
+             />
+  </div>
+
   <input type="submit" value="Save" class="btn" />
 </form>
