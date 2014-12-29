@@ -1431,6 +1431,10 @@
 "mode": 16877, 
 "mtime": 1416936348
 }, 
+"git-hooks/post-merge": {
+"mode": 33188, 
+"mtime": 1419894895
+}, 
 "public/javascripts/libs/jquery.idle.min.js": {
 "mode": 33188, 
 "mtime": 1419363207
@@ -1589,7 +1593,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1419894667
+"mtime": 1419894977
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
