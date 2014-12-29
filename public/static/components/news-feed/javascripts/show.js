@@ -1,18 +1,17 @@
 (function() {
-  var NewsFeedBuilder, ToggleListener;
+  var NewsFeedBuilder, NewsFeedSource, ToggleListener;
 
   $(function() {
-    var configs,
+    var configs, feedSource, feedURL,
       _this = this;
     configs = JSON.parse($('#news-feed-config').html());
-    return $.ajax({
-      url: "" + configs.newsServiceDomain + "/locations/" + configs.locationURN + "/news_feed.json",
-      dataType: 'json',
-      success: function(data) {
-        new NewsFeedBuilder(configs, data);
-        return new ToggleListener(configs);
-      }
+    feedURL = "" + configs.newsServiceDomain + "/locations/" + configs.locationURN + "/news_feed.json";
+    feedSource = new NewsFeedSource(feedURL);
+    $(feedSource).bind("feedReady", function(event) {
+      new NewsFeedBuilder(configs, feedSource.feed);
+      return new ToggleListener(configs);
     });
+    return feedSource.getFeed();
   });
 
   NewsFeedBuilder = (function() {
@@ -80,6 +79,53 @@
     };
 
     return ToggleListener;
+
+  })();
+
+  NewsFeedSource = (function() {
+    function NewsFeedSource(url) {
+      this.url = url;
+    }
+
+    NewsFeedSource.prototype.getFeed = function() {
+      if (this.feedFromStorage()) {
+        return $(this).trigger("feedReady");
+      } else {
+        return this.fetch();
+      }
+    };
+
+    NewsFeedSource.prototype.fetch = function() {
+      var _this = this;
+      return $.ajax({
+        url: this.url,
+        dataType: 'json',
+        success: function(data, status, xhr) {
+          _this.feed = data;
+          _this.storeFeed();
+          return $(_this).trigger("feedReady");
+        },
+        error: function(xhr, status, error) {}
+      });
+    };
+
+    NewsFeedSource.prototype.feedFromStorage = function() {
+      try {
+        return this.feed = JSON.parse(sessionStorage.getItem(this.url));
+      } catch (_error) {
+        return null;
+      }
+    };
+
+    NewsFeedSource.prototype.storeFeed = function() {
+      try {
+        return sessionStorage.setItem(this.url, JSON.stringify(this.feed));
+      } catch (_error) {
+        return null;
+      }
+    };
+
+    return NewsFeedSource;
 
   })();
 

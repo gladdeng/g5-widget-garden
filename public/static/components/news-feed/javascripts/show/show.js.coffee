@@ -1,11 +1,20 @@
 $ ->
   configs = JSON.parse($('#news-feed-config').html())
-  $.ajax
-    url: "#{configs.newsServiceDomain}/locations/#{configs.locationURN}/news_feed.json"
-    dataType: 'json'
-    success: (data) =>
-      new NewsFeedBuilder(configs, data)
-      new ToggleListener(configs)
+
+  feedURL = "#{configs.newsServiceDomain}/locations/#{configs.locationURN}/news_feed.json"
+  feedSource = new NewsFeedSource(feedURL)
+  $(feedSource).bind("feedReady", (event) =>
+    new NewsFeedBuilder(configs, feedSource.feed)
+    new ToggleListener(configs))
+
+  feedSource.getFeed()
+
+  # $.ajax
+  #   url: "#{configs.newsServiceDomain}/locations/#{configs.locationURN}/news_feed.json"
+  #   dataType: 'json'
+  #   success: (data) =>
+  #     new NewsFeedBuilder(configs, data)
+  #     new ToggleListener(configs)
 
 class NewsFeedBuilder
   constructor: (@configs, @feed) ->
@@ -48,3 +57,34 @@ class ToggleListener
     $('.post-toggle').click ->
       $(this).parent().toggleClass("active-post")
       false
+
+class NewsFeedSource
+  constructor: (@url) ->
+    
+  getFeed: ->
+    if @feedFromStorage()
+      $(this).trigger("feedReady")
+    else
+      @fetch()
+
+  fetch: ->
+    $.ajax
+      url: @url
+      dataType: 'json'
+      success: (data, status, xhr) =>
+        @feed = data
+        @storeFeed()
+        $(this).trigger("feedReady")
+      error: (xhr, status, error) =>
+
+  feedFromStorage: ->
+    try
+      @feed = JSON.parse(sessionStorage.getItem(@url))
+    catch
+      null
+
+  storeFeed: ->
+    try
+      sessionStorage.setItem(@url, JSON.stringify(@feed))
+    catch
+      null
