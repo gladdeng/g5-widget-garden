@@ -9,13 +9,6 @@ $ ->
 
   feedSource.getFeed()
 
-  # $.ajax
-  #   url: "#{configs.newsServiceDomain}/locations/#{configs.locationURN}/news_feed.json"
-  #   dataType: 'json'
-  #   success: (data) =>
-  #     new NewsFeedBuilder(configs, data)
-  #     new ToggleListener(configs)
-
 class NewsFeedBuilder
   constructor: (@configs, @feed) ->
     @populateFeed()
