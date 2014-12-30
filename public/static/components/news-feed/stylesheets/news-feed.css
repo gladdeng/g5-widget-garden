@@ -6,6 +6,10 @@
   border-bottom:1px solid #000;
 }
 
+.news-feed-post.active-post img{
+  max-width:100%;
+}
+
 .news-feed-post img{
   max-width:300px;
 }
