@@ -1,3 +1,8 @@
+
+# Start Here: Get widget configs, build
+# initial view, and set up click listener
+# ******************************************
+
 $ ->
   configs = JSON.parse($('#news-feed-config').html())
 
@@ -12,6 +17,9 @@ $ ->
       toggleListener.basicListener())
 
   feedSource.getFeed()
+
+# Build out markup for initial list of posts
+# ******************************************
 
 class NewsFeedBuilder
   constructor: (@configs, @feed) ->
@@ -45,6 +53,9 @@ class NewsFeedBuilder
     details  = "<span class='post-date'>#{post.pretty_date}</span>" unless post.title == ""
     details += "<span>|</span><span class='post-author'>by #{post.author}</span>" unless post.author == ""
     details += "<div class='post-description'>#{post.description}</div>" unless post.description == ""
+
+# Build markup for selected item
+# ******************************************
 
 class SingleArticleView
   constructor: (@postIndex, @configs, @feed) ->
@@ -82,6 +93,8 @@ class SingleArticleView
       "<a href='#' data-post-index='#{@postIndex - 1}' class='post-toggle previous-post'>Previous</a> <span class='nav-divider'>|</span> "
     else
       ""
+# Choose type of listener based on UI type
+# ******************************************
     
 class ToggleListener
   constructor: (@configs, @feed) ->
@@ -115,6 +128,9 @@ class ToggleListener
     $('html, body').animate({
       scrollTop: $("#news-feed-top").offset().top
     }, 420)
+
+# Get news feed from service or session storage
+# ******************************************
 
 class NewsFeedSource
   constructor: (@url) ->
