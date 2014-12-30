@@ -15,6 +15,7 @@
   font-weight: bold;
 }
 
+.news-feed-single-post img,
 .news-feed-post img{ margin-bottom:0.5em; }
 
 .news-feed single-post .post-date,
