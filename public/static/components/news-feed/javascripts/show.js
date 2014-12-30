@@ -72,7 +72,6 @@
       this.postIndex = postIndex;
       this.configs = configs;
       this.feed = feed;
-      this.clearAllPosts();
       this.buildSelectedPost();
     }
 
@@ -86,7 +85,8 @@
       postMarkup = "<div class='news-feed-single-post'>                    <img src='" + post.image + "' />                    <h3 class='post-title'>" + post.title + "</h3>                    <span class='post-date'>" + post.pretty_date + "</span>                    <span>|</span><span class='post-author'>by " + post.author + "</span>                    <div class='post-body'>" + post.text + "</div>                    <div>                      <a href='#' data-post-index='" + (this.postIndex - 1) + "' class='post-toggle previous-post'><span>Previous</span></a>                      <a href='#' class='all-posts'><span>All News</span></a>                      <a href='#' data-post-index='" + (this.postIndex + 1) + "' class='post-toggle next-post'><span>Next</span></a>                    </div>                  </div>";
       $('.news-feed-widget').append(postMarkup);
       toggleListener = new ToggleListener(this.configs, this.feed);
-      return toggleListener.fullViewListener();
+      toggleListener.fullViewListener();
+      return toggleListener.listViewListener();
     };
 
     return SingleArticleView;
@@ -112,9 +112,27 @@
       return $('.post-toggle').click(function() {
         var postIndex;
         postIndex = $(this).data("post-index");
+        that.clearAllPosts();
         new SingleArticleView(postIndex, that.configs, that.feed);
         return false;
       });
+    };
+
+    ToggleListener.prototype.listViewListener = function() {
+      var that;
+      that = this;
+      return $('.all-posts').click(function() {
+        var toggleListener;
+        that.clearAllPosts();
+        new NewsFeedBuilder(that.configs, that.feed);
+        toggleListener = new ToggleListener(that.configs, that.feed);
+        toggleListener.fullViewListener();
+        return false;
+      });
+    };
+
+    ToggleListener.prototype.clearAllPosts = function() {
+      return $(".news-feed-single-post, .news-feed-post").remove();
     };
 
     return ToggleListener;

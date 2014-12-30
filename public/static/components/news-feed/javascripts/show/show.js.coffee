@@ -6,6 +6,7 @@ $ ->
   $(feedSource).bind("feedReady", (event) =>
     new NewsFeedBuilder(configs, feedSource.feed)
     toggleListener = new ToggleListener(configs, feedSource.feed)
+    # ADD LOGIC HERE TO DETERMINE LISTENER TYPE
     toggleListener.fullViewListener())
     
   feedSource.getFeed()
@@ -45,7 +46,7 @@ class NewsFeedBuilder
 
 class SingleArticleView
   constructor: (@postIndex, @configs, @feed) ->
-    @clearAllPosts()
+    # @clearAllPosts()
     @buildSelectedPost()
 
   clearAllPosts: () ->
@@ -70,11 +71,10 @@ class SingleArticleView
 
     toggleListener = new ToggleListener(@configs, @feed)
     toggleListener.fullViewListener()
+    toggleListener.listViewListener()
     
 class ToggleListener
   constructor: (@configs, @feed) ->
-    # @basicListener()
-    # @fullViewListener()
 
   basicListener: () ->
     $('.post-toggle').click ->
@@ -85,8 +85,21 @@ class ToggleListener
     that = this
     $('.post-toggle').click ->
       postIndex = $(this).data("post-index")
+      that.clearAllPosts()
       new SingleArticleView(postIndex, that.configs, that.feed)
       false
+
+  listViewListener: () ->
+    that = this
+    $('.all-posts').click ->
+      that.clearAllPosts()
+      new NewsFeedBuilder(that.configs, that.feed)
+      toggleListener = new ToggleListener(that.configs, that.feed)
+      toggleListener.fullViewListener()
+      false
+
+  clearAllPosts: () ->
+    $(".news-feed-single-post, .news-feed-post").remove()
 
 class NewsFeedSource
   constructor: (@url) ->
