@@ -2,6 +2,7 @@ require "microformats2"
 
 module G5ComponentGarden
   COMPONENT_PATH = "public/static/components/"
+  META = JSON.parse File.read('.gitmeta')
 
   class << self
     def last_modified
@@ -36,7 +37,7 @@ module G5ComponentGarden
       # assign uid as slug from directory name for now
       uid = directory.split("/").last
       component.add_property("u-g5-uid", uid)
-      component.add_property("p-modified", File.new(directory).mtime.utc)
+      component.add_property("p-modified", get_directory_timestamp(directory))
 
       thumbnail_path = "#{relative_directory}/images/thumbnail.png"
       component.add_property("u-photo", thumbnail_path)
@@ -102,6 +103,10 @@ module G5ComponentGarden
 
     def get_directory(directory)
       directory.split("/")[1..-1].join("/")
+    end
+
+    def get_directory_timestamp(directory)
+      Time.zone.at(META[directory]['mtime'])
     end
 
     def merge_edit_and_show_markup(directory)
