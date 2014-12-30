@@ -5,9 +5,9 @@ $ ->
   feedSource = new NewsFeedSource(feedURL)
   $(feedSource).bind("feedReady", (event) =>
     new NewsFeedBuilder(configs, feedSource.feed)
-    new ToggleListener(configs, feedSource.feed))
+    toggleListener = new ToggleListener(configs, feedSource.feed)
+    toggleListener.fullViewListener())
     
-
   feedSource.getFeed()
 
 class NewsFeedBuilder
@@ -49,28 +49,32 @@ class SingleArticleView
     @buildSelectedPost()
 
   clearAllPosts: () ->
-    $(".news-feed-post").remove()
+    $(".news-feed-single-post, .news-feed-post").remove()
 
   buildSelectedPost: () ->
     post = @feed[@postIndex]
-    
     postMarkup = "<div class='news-feed-single-post'>
                     <img src='#{post.image}' />
                     <h3 class='post-title'>#{post.title}</h3>
                     <span class='post-date'>#{post.pretty_date}</span>
                     <span>|</span><span class='post-author'>by #{post.author}</span>
                     <div class='post-body'>#{post.text}</div>
+                    <div>
+                      <a href='#' data-post-index='#{@postIndex - 1}' class='post-toggle previous-post'><span>Previous</span></a>
+                      <a href='#' class='all-posts'><span>All News</span></a>
+                      <a href='#' data-post-index='#{@postIndex + 1}' class='post-toggle next-post'><span>Next</span></a>
+                    </div>
                   </div>"
 
     $('.news-feed-widget').append(postMarkup)
+
+    toggleListener = new ToggleListener(@configs, @feed)
+    toggleListener.fullViewListener()
     
- 
-
-
 class ToggleListener
   constructor: (@configs, @feed) ->
     # @basicListener()
-    @fullViewListener()
+    # @fullViewListener()
 
   basicListener: () ->
     $('.post-toggle').click ->
