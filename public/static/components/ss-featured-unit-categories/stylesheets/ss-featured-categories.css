@@ -51,3 +51,7 @@
 .ss-featured-unit-categories .iui-size:nth-child(5) {
   width: 100%;
 }
+
+.ss-featured-unit-categories .iui-size > a{
+  display:block;
+}
