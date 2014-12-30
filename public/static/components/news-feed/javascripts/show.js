@@ -73,9 +73,13 @@
       this.buildSelectedPost();
     }
 
-    SingleArticleView.prototype.clearAllPosts = function() {};
+    SingleArticleView.prototype.clearAllPosts = function() {
+      return $(".news-feed-post").remove();
+    };
 
-    SingleArticleView.prototype.buildSelectedPost = function() {};
+    SingleArticleView.prototype.buildSelectedPost = function() {
+      return $('.news-feed-widget').append("<h1>Gigity ---- " + this.postID + "</h1>");
+    };
 
     return SingleArticleView;
 

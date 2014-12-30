@@ -49,8 +49,11 @@ class SingleArticleView
     @buildSelectedPost()
 
   clearAllPosts: () ->
+    $(".news-feed-post").remove()
 
   buildSelectedPost: () ->
+    $('.news-feed-widget').append("<h1>Gigity ---- #{@postID}</h1>")
+ 
 
 
 class ToggleListener
