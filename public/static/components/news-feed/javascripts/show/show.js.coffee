@@ -46,11 +46,6 @@ class NewsFeedBuilder
 
 class SingleArticleView
   constructor: (@postIndex, @configs, @feed) ->
-    # @clearAllPosts()
-    @buildSelectedPost()
-
-  clearAllPosts: () ->
-    $(".news-feed-single-post, .news-feed-post").remove()
 
   buildSelectedPost: () ->
     post = @feed[@postIndex]
@@ -86,7 +81,8 @@ class ToggleListener
     $('.post-toggle').click ->
       postIndex = $(this).data("post-index")
       that.clearAllPosts()
-      new SingleArticleView(postIndex, that.configs, that.feed)
+      singleArticleView = new SingleArticleView(postIndex, that.configs, that.feed)
+      singleArticleView.buildSelectedPost()
       false
 
   listViewListener: () ->

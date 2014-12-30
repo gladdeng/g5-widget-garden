@@ -72,12 +72,7 @@
       this.postIndex = postIndex;
       this.configs = configs;
       this.feed = feed;
-      this.buildSelectedPost();
     }
-
-    SingleArticleView.prototype.clearAllPosts = function() {
-      return $(".news-feed-single-post, .news-feed-post").remove();
-    };
 
     SingleArticleView.prototype.buildSelectedPost = function() {
       var post, postMarkup, toggleListener;
@@ -110,10 +105,11 @@
       var that;
       that = this;
       return $('.post-toggle').click(function() {
-        var postIndex;
+        var postIndex, singleArticleView;
         postIndex = $(this).data("post-index");
         that.clearAllPosts();
-        new SingleArticleView(postIndex, that.configs, that.feed);
+        singleArticleView = new SingleArticleView(postIndex, that.configs, that.feed);
+        singleArticleView.buildSelectedPost();
         return false;
       });
     };
