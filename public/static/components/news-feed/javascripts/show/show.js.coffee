@@ -1,4 +1,3 @@
-
 # Start Here: Get widget configs, build
 # initial view, and set up click listener
 # ******************************************
