@@ -23,17 +23,17 @@ class NewsFeedBuilder
 
     for post, index in websitePosts
       markup.push( "<div class='news-feed-post'>
-                      #{@toggleMarkup(post)}
+                      #{@toggleMarkup(post, index)}
                       #{@detailsMarkup(post)}
                       <div class='post-body'>#{post.text}</div>
-                      <a class='post-toggle post-expand' href='#' data-post-id='#{post.id}'>Read More</a>
+                      <a class='post-toggle post-expand' href='#' data-post-index='#{index}'>Read More</a>
                       <a class='post-toggle post-collapse' href='#'>Hide This</a>
                     </div>" )
       
     $('.news-feed-widget').append(markup.join(''))
 
-  toggleMarkup: (post) ->
-    toggle  = "<a class='post-toggle' href='#' data-post-id='#{post.id}'>"
+  toggleMarkup: (post, index) ->
+    toggle  = "<a class='post-toggle' href='#' data-post-index='#{index}'>"
     toggle += "  <img src='#{post.image}' />" unless post.image == ""
     toggle += "  <h3 class='post-title'>#{post.title}</h3>" unless post.title == ""
     toggle += "</a>"
@@ -44,7 +44,7 @@ class NewsFeedBuilder
     details += "<div class='post-description'>#{post.description}</div>" unless post.description == ""
 
 class SingleArticleView
-  constructor: (@postID, @configs, @feed) ->
+  constructor: (@postIndex, @configs, @feed) ->
     @clearAllPosts()
     @buildSelectedPost()
 
@@ -52,9 +52,8 @@ class SingleArticleView
     $(".news-feed-post").remove()
 
   buildSelectedPost: () ->
-    post = @feed.filter (post) => post.id == @postID
-    post = post[0]
-
+    post = @feed[@postIndex]
+    
     postMarkup = "<div class='news-feed-single-post'>
                     <img src='#{post.image}' />
                     <h3 class='post-title'>#{post.title}</h3>
@@ -81,8 +80,8 @@ class ToggleListener
   fullViewListener: () ->
     that = this
     $('.post-toggle').click ->
-      postID = $(this).data("post-id")
-      new SingleArticleView(postID, that.configs, that.feed)
+      postIndex = $(this).data("post-index")
+      new SingleArticleView(postIndex, that.configs, that.feed)
       false
 
 class NewsFeedSource

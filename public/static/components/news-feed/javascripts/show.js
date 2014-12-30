@@ -31,14 +31,14 @@
       markup = [];
       for (index = _i = 0, _len = websitePosts.length; _i < _len; index = ++_i) {
         post = websitePosts[index];
-        markup.push("<div class='news-feed-post'>                      " + (this.toggleMarkup(post)) + "                      " + (this.detailsMarkup(post)) + "                      <div class='post-body'>" + post.text + "</div>                      <a class='post-toggle post-expand' href='#' data-post-id='" + post.id + "'>Read More</a>                      <a class='post-toggle post-collapse' href='#'>Hide This</a>                    </div>");
+        markup.push("<div class='news-feed-post'>                      " + (this.toggleMarkup(post, index)) + "                      " + (this.detailsMarkup(post)) + "                      <div class='post-body'>" + post.text + "</div>                      <a class='post-toggle post-expand' href='#' data-post-index='" + index + "'>Read More</a>                      <a class='post-toggle post-collapse' href='#'>Hide This</a>                    </div>");
       }
       return $('.news-feed-widget').append(markup.join(''));
     };
 
-    NewsFeedBuilder.prototype.toggleMarkup = function(post) {
+    NewsFeedBuilder.prototype.toggleMarkup = function(post, index) {
       var toggle;
-      toggle = "<a class='post-toggle' href='#' data-post-id='" + post.id + "'>";
+      toggle = "<a class='post-toggle' href='#' data-post-index='" + index + "'>";
       if (post.image !== "") {
         toggle += "  <img src='" + post.image + "' />";
       }
@@ -66,8 +66,8 @@
   })();
 
   SingleArticleView = (function() {
-    function SingleArticleView(postID, configs, feed) {
-      this.postID = postID;
+    function SingleArticleView(postIndex, configs, feed) {
+      this.postIndex = postIndex;
       this.configs = configs;
       this.feed = feed;
       this.clearAllPosts();
@@ -79,12 +79,8 @@
     };
 
     SingleArticleView.prototype.buildSelectedPost = function() {
-      var post, postMarkup,
-        _this = this;
-      post = this.feed.filter(function(post) {
-        return post.id === _this.postID;
-      });
-      post = post[0];
+      var post, postMarkup;
+      post = this.feed[this.postIndex];
       postMarkup = "<div class='news-feed-single-post'>                    <img src='" + post.image + "' />                    <h3 class='post-title'>" + post.title + "</h3>                    <span class='post-date'>" + post.pretty_date + "</span>                    <span>|</span><span class='post-author'>by " + post.author + "</span>                    <div class='post-body'>" + post.text + "</div>                  </div>";
       return $('.news-feed-widget').append(postMarkup);
     };
@@ -111,9 +107,9 @@
       var that;
       that = this;
       return $('.post-toggle').click(function() {
-        var postID;
-        postID = $(this).data("post-id");
-        new SingleArticleView(postID, that.configs, that.feed);
+        var postIndex;
+        postIndex = $(this).data("post-index");
+        new SingleArticleView(postIndex, that.configs, that.feed);
         return false;
       });
     };
