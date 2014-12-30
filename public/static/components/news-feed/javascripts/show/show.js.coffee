@@ -101,6 +101,10 @@ class ToggleListener
   clearAllPosts: () ->
     $(".news-feed-single-post, .news-feed-post").remove()
 
+    $('html, body').animate({
+      scrollTop: $("#news-feed-top").offset().top
+    }, 420)
+
 class NewsFeedSource
   constructor: (@url) ->
     

@@ -132,7 +132,10 @@
     };
 
     ToggleListener.prototype.clearAllPosts = function() {
-      return $(".news-feed-single-post, .news-feed-post").remove();
+      $(".news-feed-single-post, .news-feed-post").remove();
+      return $('html, body').animate({
+        scrollTop: $("#news-feed-top").offset().top
+      }, 420);
     };
 
     return ToggleListener;
