@@ -81,7 +81,7 @@
     SingleArticleView.prototype.buildSelectedPost = function() {
       var post, postMarkup, toggleListener;
       post = this.feed[this.postIndex];
-      postMarkup = "<div class='news-feed-single-post'>                    <!-- <p class='all-posts-top'><a href='#' class='all-posts'><span>Back to all news</span></a></p> -->                    <img src='" + post.image + "' />                    <h3 class='post-title'>" + post.title + "</h3>                    <span class='post-date'>" + post.pretty_date + "</span>                    <span>|</span><span class='post-author'>by " + post.author + "</span>                    <div class='post-body'>" + post.text + "</div>                    <div>                      " + (this.previousButton()) + "                      <a href='#' class='all-posts'><span>All News</span></a>                      " + (this.nextButton()) + "                    </div>                  </div>";
+      postMarkup = "<div class='news-feed-single-post'>                    <!-- <p class='all-posts-top'><a href='#' class='all-posts'><span>Back to all news</span></a></p> -->                    <img src='" + post.image + "' />                    <h3 class='post-title'>" + post.title + "</h3>                    <span class='post-date'>" + post.pretty_date + "</span>                    <span>|</span><span class='post-author'>by " + post.author + "</span>                    <div class='post-body'>" + post.text + "</div>                    <div class='posts-nav'>                      " + (this.previousButton()) + "                      <a href='#' class='all-posts'>All News</a>                      " + (this.nextButton()) + "                    </div>                  </div>";
       $('.news-feed-widget').append(postMarkup);
       toggleListener = new ToggleListener(this.configs, this.feed);
       toggleListener.fullViewListener();
@@ -89,11 +89,19 @@
     };
 
     SingleArticleView.prototype.nextButton = function() {
-      return "<a href='#' data-post-index='" + (this.postIndex + 1) + "' class='post-toggle next-post'><span>Next</span></a>";
+      if (this.postIndex < this.feed.length - 1) {
+        return " <span class='nav-divider'>|</span> <a href='#' data-post-index='" + (this.postIndex + 1) + "' class='post-toggle next-post'>Next</a>";
+      } else {
+        return "";
+      }
     };
 
     SingleArticleView.prototype.previousButton = function() {
-      return "<a href='#' data-post-index='" + (this.postIndex - 1) + "' class='post-toggle previous-post'><span>Previous</span></a>";
+      if (this.postIndex > 0) {
+        return "<a href='#' data-post-index='" + (this.postIndex - 1) + "' class='post-toggle previous-post'>Previous</a> <span class='nav-divider'>|</span> ";
+      } else {
+        return "";
+      }
     };
 
     return SingleArticleView;

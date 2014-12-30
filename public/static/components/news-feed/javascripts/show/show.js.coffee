@@ -11,7 +11,6 @@ $ ->
     else
       toggleListener.basicListener())
 
-    
   feedSource.getFeed()
 
 class NewsFeedBuilder
@@ -59,9 +58,9 @@ class SingleArticleView
                     <span class='post-date'>#{post.pretty_date}</span>
                     <span>|</span><span class='post-author'>by #{post.author}</span>
                     <div class='post-body'>#{post.text}</div>
-                    <div>
+                    <div class='posts-nav'>
                       #{@previousButton()}
-                      <a href='#' class='all-posts'><span>All News</span></a>
+                      <a href='#' class='all-posts'>All News</a>
                       #{@nextButton()}
                     </div>
                   </div>"
@@ -73,10 +72,16 @@ class SingleArticleView
     toggleListener.listViewListener()
 
   nextButton: () ->
-    "<a href='#' data-post-index='#{@postIndex + 1}' class='post-toggle next-post'><span>Next</span></a>"
+    if @postIndex < @feed.length - 1
+      " <span class='nav-divider'>|</span> <a href='#' data-post-index='#{@postIndex + 1}' class='post-toggle next-post'>Next</a>"
+    else
+      ""
 
   previousButton: () ->
-    "<a href='#' data-post-index='#{@postIndex - 1}' class='post-toggle previous-post'><span>Previous</span></a>"
+    if @postIndex > 0
+      "<a href='#' data-post-index='#{@postIndex - 1}' class='post-toggle previous-post'>Previous</a> <span class='nav-divider'>|</span> "
+    else
+      ""
     
 class ToggleListener
   constructor: (@configs, @feed) ->

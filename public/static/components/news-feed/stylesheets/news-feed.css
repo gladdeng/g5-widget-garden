@@ -17,10 +17,12 @@
 
 .news-feed-post img{ margin-bottom:0.5em; }
 
+.news-feed single-post .post-date,
 .news-feed-post .post-date{
   padding-right:0.5em;
 }
 
+.news-feed-single-post .post-author,
 .news-feed-post .post-author{
   padding-left:0.5em;
 }
