@@ -5,7 +5,7 @@ $ ->
   feedSource = new NewsFeedSource(feedURL)
   $(feedSource).bind("feedReady", (event) =>
     new NewsFeedBuilder(configs, feedSource.feed)
-    new ToggleListener(configs))
+    new ToggleListener(configs, feedSource.feed))
     
 
   feedSource.getFeed()
@@ -44,7 +44,7 @@ class NewsFeedBuilder
     details += "<div class='post-description'>#{post.description}</div>" unless post.description == ""
 
 class SingleArticleView
-  constructor: (@postID, @configs) ->
+  constructor: (@postID, @configs, @feed) ->
     @clearAllPosts()
     @buildSelectedPost()
 
@@ -52,12 +52,24 @@ class SingleArticleView
     $(".news-feed-post").remove()
 
   buildSelectedPost: () ->
-    $('.news-feed-widget').append("<h1>Gigity ---- #{@postID}</h1>")
+    post = @feed.filter (post) => post.id == @postID
+    post = post[0]
+
+    postMarkup = "<div class='news-feed-single-post'>
+                    <img src='#{post.image}' />
+                    <h3 class='post-title'>#{post.title}</h3>
+                    <span class='post-date'>#{post.pretty_date}</span>
+                    <span>|</span><span class='post-author'>by #{post.author}</span>
+                    <div class='post-body'>#{post.text}</div>
+                  </div>"
+
+    $('.news-feed-widget').append(postMarkup)
+    
  
 
 
 class ToggleListener
-  constructor: (@configs) ->
+  constructor: (@configs, @feed) ->
     # @basicListener()
     @fullViewListener()
 
@@ -70,7 +82,7 @@ class ToggleListener
     that = this
     $('.post-toggle').click ->
       postID = $(this).data("post-id")
-      new SingleArticleView(postID, that.configs)
+      new SingleArticleView(postID, that.configs, that.feed)
       false
 
 class NewsFeedSource

@@ -9,7 +9,7 @@
     feedSource = new NewsFeedSource(feedURL);
     $(feedSource).bind("feedReady", function(event) {
       new NewsFeedBuilder(configs, feedSource.feed);
-      return new ToggleListener(configs);
+      return new ToggleListener(configs, feedSource.feed);
     });
     return feedSource.getFeed();
   });
@@ -66,9 +66,10 @@
   })();
 
   SingleArticleView = (function() {
-    function SingleArticleView(postID, configs) {
+    function SingleArticleView(postID, configs, feed) {
       this.postID = postID;
       this.configs = configs;
+      this.feed = feed;
       this.clearAllPosts();
       this.buildSelectedPost();
     }
@@ -78,7 +79,14 @@
     };
 
     SingleArticleView.prototype.buildSelectedPost = function() {
-      return $('.news-feed-widget').append("<h1>Gigity ---- " + this.postID + "</h1>");
+      var post, postMarkup,
+        _this = this;
+      post = this.feed.filter(function(post) {
+        return post.id === _this.postID;
+      });
+      post = post[0];
+      postMarkup = "<div class='news-feed-single-post'>                    <img src='" + post.image + "' />                    <h3 class='post-title'>" + post.title + "</h3>                    <span class='post-date'>" + post.pretty_date + "</span>                    <span>|</span><span class='post-author'>by " + post.author + "</span>                    <div class='post-body'>" + post.text + "</div>                  </div>";
+      return $('.news-feed-widget').append(postMarkup);
     };
 
     return SingleArticleView;
@@ -86,8 +94,9 @@
   })();
 
   ToggleListener = (function() {
-    function ToggleListener(configs) {
+    function ToggleListener(configs, feed) {
       this.configs = configs;
+      this.feed = feed;
       this.fullViewListener();
     }
 
@@ -104,7 +113,7 @@
       return $('.post-toggle').click(function() {
         var postID;
         postID = $(this).data("post-id");
-        new SingleArticleView(postID, that.configs);
+        new SingleArticleView(postID, that.configs, that.feed);
         return false;
       });
     };
