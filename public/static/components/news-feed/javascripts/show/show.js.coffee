@@ -32,12 +32,11 @@ class NewsFeedBuilder
     markup = []
 
     for post, index in websitePosts
-      markup.push( "<div class='news-feed-post'>
+      markup.push( "<div class='news-feed-post #{@activeClass(index)}'>
                       #{@toggleMarkup(post, index)}
                       #{@detailsMarkup(post)}
                       <div class='post-body'>#{post.text}</div>
-                      <a class='post-toggle post-expand' href='#' data-post-index='#{index}'>Read More</a>
-                      <a class='post-toggle post-collapse' href='#'>Hide This</a>
+                      #{@bottomToggles(index)}
                     </div>" )
       
     $('.news-feed-widget').append(markup.join(''))
@@ -48,10 +47,22 @@ class NewsFeedBuilder
     toggle += "  <h3 class='post-title'>#{post.title}</h3>" unless post.title == ""
     toggle += "</a>"
 
+  bottomToggles: (index) ->
+    toggles  = "<a class='post-toggle post-expand' href='#' data-post-index='#{index}'>Read More</a>"
+    toggles += "<a class='post-toggle post-collapse' href='#'>Hide This</a>" if @configs.uiType != "full-page"
+    toggles
+
   detailsMarkup: (post) ->
     details  = "<span class='post-date'>#{post.pretty_date}</span>" unless post.title == ""
     details += "<span>|</span><span class='post-author'>by #{post.author}</span>" unless post.author == ""
     details += "<div class='post-description'>#{post.description}</div>" unless post.description == ""
+    details
+
+  activeClass: (index) ->
+    if index == 0
+      "active-post"
+    else
+      ""
 
 # Build markup for selected item
 # ******************************************

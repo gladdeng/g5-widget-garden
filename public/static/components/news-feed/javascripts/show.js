@@ -37,7 +37,7 @@
       markup = [];
       for (index = _i = 0, _len = websitePosts.length; _i < _len; index = ++_i) {
         post = websitePosts[index];
-        markup.push("<div class='news-feed-post'>                      " + (this.toggleMarkup(post, index)) + "                      " + (this.detailsMarkup(post)) + "                      <div class='post-body'>" + post.text + "</div>                      <a class='post-toggle post-expand' href='#' data-post-index='" + index + "'>Read More</a>                      <a class='post-toggle post-collapse' href='#'>Hide This</a>                    </div>");
+        markup.push("<div class='news-feed-post " + (this.activeClass(index)) + "'>                      " + (this.toggleMarkup(post, index)) + "                      " + (this.detailsMarkup(post)) + "                      <div class='post-body'>" + post.text + "</div>                      " + (this.bottomToggles(index)) + "                    </div>");
       }
       return $('.news-feed-widget').append(markup.join(''));
     };
@@ -54,6 +54,15 @@
       return toggle += "</a>";
     };
 
+    NewsFeedBuilder.prototype.bottomToggles = function(index) {
+      var toggles;
+      toggles = "<a class='post-toggle post-expand' href='#' data-post-index='" + index + "'>Read More</a>";
+      if (this.configs.uiType !== "full-page") {
+        toggles += "<a class='post-toggle post-collapse' href='#'>Hide This</a>";
+      }
+      return toggles;
+    };
+
     NewsFeedBuilder.prototype.detailsMarkup = function(post) {
       var details;
       if (post.title !== "") {
@@ -64,6 +73,14 @@
       }
       if (post.description !== "") {
         return details += "<div class='post-description'>" + post.description + "</div>";
+      }
+    };
+
+    NewsFeedBuilder.prototype.activeClass = function(index) {
+      if (index === 0) {
+        return "active-post";
+      } else {
+        return "";
       }
     };
 
