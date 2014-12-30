@@ -56,9 +56,9 @@ class SingleArticleView
                     <span>|</span><span class='post-author'>by #{post.author}</span>
                     <div class='post-body'>#{post.text}</div>
                     <div>
-                      <a href='#' data-post-index='#{@postIndex - 1}' class='post-toggle previous-post'><span>Previous</span></a>
+                      #{@previousButton()}
                       <a href='#' class='all-posts'><span>All News</span></a>
-                      <a href='#' data-post-index='#{@postIndex + 1}' class='post-toggle next-post'><span>Next</span></a>
+                      #{@nextButton()}
                     </div>
                   </div>"
 
@@ -67,6 +67,12 @@ class SingleArticleView
     toggleListener = new ToggleListener(@configs, @feed)
     toggleListener.fullViewListener()
     toggleListener.listViewListener()
+
+  nextButton: () ->
+    "<a href='#' data-post-index='#{@postIndex + 1}' class='post-toggle next-post'><span>Next</span></a>"
+
+  previousButton: () ->
+    "<a href='#' data-post-index='#{@postIndex - 1}' class='post-toggle previous-post'><span>Previous</span></a>"
     
 class ToggleListener
   constructor: (@configs, @feed) ->
