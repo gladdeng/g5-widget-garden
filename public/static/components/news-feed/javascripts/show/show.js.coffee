@@ -6,6 +6,7 @@ $ ->
   $(feedSource).bind("feedReady", (event) =>
     new NewsFeedBuilder(configs, feedSource.feed)
     new ToggleListener(configs))
+    
 
   feedSource.getFeed()
 
@@ -25,14 +26,14 @@ class NewsFeedBuilder
                       #{@toggleMarkup(post)}
                       #{@detailsMarkup(post)}
                       <div class='post-body'>#{post.text}</div>
-                      <a class='post-toggle post-expand' href='#'>Read More</a>
+                      <a class='post-toggle post-expand' href='#' data-post-id='#{post.id}'>Read More</a>
                       <a class='post-toggle post-collapse' href='#'>Hide This</a>
                     </div>" )
       
     $('.news-feed-widget').append(markup.join(''))
 
   toggleMarkup: (post) ->
-    toggle  = "<a class='post-toggle' href='#'>"
+    toggle  = "<a class='post-toggle' href='#' data-post-id='#{post.id}'>"
     toggle += "  <img src='#{post.image}' />" unless post.image == ""
     toggle += "  <h3 class='post-title'>#{post.title}</h3>" unless post.title == ""
     toggle += "</a>"
@@ -42,13 +43,31 @@ class NewsFeedBuilder
     details += "<span>|</span><span class='post-author'>by #{post.author}</span>" unless post.author == ""
     details += "<div class='post-description'>#{post.description}</div>" unless post.description == ""
 
+class SingleArticleView
+  constructor: (@postID, @configs) ->
+    @clearAllPosts()
+    @buildSelectedPost()
+
+  clearAllPosts: () ->
+
+  buildSelectedPost: () ->
+
+
 class ToggleListener
   constructor: (@configs) ->
-    @basicListener()
+    # @basicListener()
+    @fullViewListener()
 
   basicListener: () ->
     $('.post-toggle').click ->
       $(this).parent().toggleClass("active-post")
+      false
+
+  fullViewListener: () ->
+    that = this
+    $('.post-toggle').click ->
+      postID = $(this).data("post-id")
+      new SingleArticleView(postID, that.configs)
       false
 
 class NewsFeedSource

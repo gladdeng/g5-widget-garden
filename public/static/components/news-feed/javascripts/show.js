@@ -1,5 +1,5 @@
 (function() {
-  var NewsFeedBuilder, NewsFeedSource, ToggleListener;
+  var NewsFeedBuilder, NewsFeedSource, SingleArticleView, ToggleListener;
 
   $(function() {
     var configs, feedSource, feedURL,
@@ -31,14 +31,14 @@
       markup = [];
       for (index = _i = 0, _len = websitePosts.length; _i < _len; index = ++_i) {
         post = websitePosts[index];
-        markup.push("<div class='news-feed-post'>                      " + (this.toggleMarkup(post)) + "                      " + (this.detailsMarkup(post)) + "                      <div class='post-body'>" + post.text + "</div>                      <a class='post-toggle post-expand' href='#'>Read More</a>                      <a class='post-toggle post-collapse' href='#'>Hide This</a>                    </div>");
+        markup.push("<div class='news-feed-post'>                      " + (this.toggleMarkup(post)) + "                      " + (this.detailsMarkup(post)) + "                      <div class='post-body'>" + post.text + "</div>                      <a class='post-toggle post-expand' href='#' data-post-id='" + post.id + "'>Read More</a>                      <a class='post-toggle post-collapse' href='#'>Hide This</a>                    </div>");
       }
       return $('.news-feed-widget').append(markup.join(''));
     };
 
     NewsFeedBuilder.prototype.toggleMarkup = function(post) {
       var toggle;
-      toggle = "<a class='post-toggle' href='#'>";
+      toggle = "<a class='post-toggle' href='#' data-post-id='" + post.id + "'>";
       if (post.image !== "") {
         toggle += "  <img src='" + post.image + "' />";
       }
@@ -65,15 +65,42 @@
 
   })();
 
+  SingleArticleView = (function() {
+    function SingleArticleView(postID, configs) {
+      this.postID = postID;
+      this.configs = configs;
+      this.clearAllPosts();
+      this.buildSelectedPost();
+    }
+
+    SingleArticleView.prototype.clearAllPosts = function() {};
+
+    SingleArticleView.prototype.buildSelectedPost = function() {};
+
+    return SingleArticleView;
+
+  })();
+
   ToggleListener = (function() {
     function ToggleListener(configs) {
       this.configs = configs;
-      this.basicListener();
+      this.fullViewListener();
     }
 
     ToggleListener.prototype.basicListener = function() {
       return $('.post-toggle').click(function() {
         $(this).parent().toggleClass("active-post");
+        return false;
+      });
+    };
+
+    ToggleListener.prototype.fullViewListener = function() {
+      var that;
+      that = this;
+      return $('.post-toggle').click(function() {
+        var postID;
+        postID = $(this).data("post-id");
+        new SingleArticleView(postID, that.configs);
         return false;
       });
     };
