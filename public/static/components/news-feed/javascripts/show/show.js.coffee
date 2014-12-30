@@ -6,8 +6,11 @@ $ ->
   $(feedSource).bind("feedReady", (event) =>
     new NewsFeedBuilder(configs, feedSource.feed)
     toggleListener = new ToggleListener(configs, feedSource.feed)
-    # ADD LOGIC HERE TO DETERMINE LISTENER TYPE
-    toggleListener.fullViewListener())
+    if configs.uiType == "full-page"
+      toggleListener.fullViewListener()
+    else
+      toggleListener.basicListener())
+
     
   feedSource.getFeed()
 

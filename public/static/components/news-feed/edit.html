@@ -53,6 +53,21 @@
       />
     </div>
 
+    <div class="form-field">
+      {{ widget.ui_type.id_hidden_field }}
+      <label for="{{ widget.ui_type.value_field_id }}">
+        UI Type
+      </label>
+      <br />
+      <small>'full-page' or 'accordion'</small>
+      <input type="text"
+        placeholder="accordion or full-page"
+        id="{{ widget.ui_type.value_field_id }}"
+        name="{{ widget.ui_type.value_field_name }}"
+        value="{{ widget.ui_type.best_value }}"
+      />
+    </div>
+
     <!-- 
     <div class="form-field">
       {{ widget.XXXXXX.id_hidden_field }}

@@ -11,7 +11,11 @@
       var toggleListener;
       new NewsFeedBuilder(configs, feedSource.feed);
       toggleListener = new ToggleListener(configs, feedSource.feed);
-      return toggleListener.fullViewListener();
+      if (configs.uiType === "full-page") {
+        return toggleListener.fullViewListener();
+      } else {
+        return toggleListener.basicListener();
+      }
     });
     return feedSource.getFeed();
   });
