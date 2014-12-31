@@ -94,13 +94,31 @@ class SingleArticleView
 
   nextButton: () ->
     if @postIndex < @feed.length - 1
-      " <span class='nav-divider'>|</span> <a href='#' data-post-index='#{@postIndex + 1}' class='post-toggle next-post'>Next</a>"
+      linkIndex = @postIndex + 1
+      " <a href='#' data-post-index='#{linkIndex}' class='post-toggle next-post'>
+          <span>Next</span>
+          <div>
+            <img src='#{@feed[linkIndex].image}' />
+            <div class='post-title'>#{@feed[linkIndex].title}</div>
+            <div class='post-date'>#{@feed[linkIndex].pretty_date}</div>
+            <div class='post-author'>by #{@feed[linkIndex].author}</div>
+          </div>
+        </a>"
     else
       ""
 
   previousButton: () ->
     if @postIndex > 0
-      "<a href='#' data-post-index='#{@postIndex - 1}' class='post-toggle previous-post'>Previous</a> <span class='nav-divider'>|</span> "
+      linkIndex = @postIndex - 1
+      " <a href='#' data-post-index='#{linkIndex}' class='post-toggle previous-post'>
+          <span>Previous</span>
+          <div>
+            <img src='#{@feed[linkIndex].image}' />
+            <div class='post-title'>#{@feed[linkIndex].title}</div>
+            <div class='post-date'>#{@feed[linkIndex].pretty_date}</div>
+            <div class='post-author'>by #{@feed[linkIndex].author}</div>
+          </div>
+        </a>"
     else
       ""
 # Choose type of listener based on UI type

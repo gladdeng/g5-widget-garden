@@ -107,16 +107,20 @@
     };
 
     SingleArticleView.prototype.nextButton = function() {
+      var linkIndex;
       if (this.postIndex < this.feed.length - 1) {
-        return " <span class='nav-divider'>|</span> <a href='#' data-post-index='" + (this.postIndex + 1) + "' class='post-toggle next-post'>Next</a>";
+        linkIndex = this.postIndex + 1;
+        return " <a href='#' data-post-index='" + linkIndex + "' class='post-toggle next-post'>          <span>Next</span>          <div>            <img src='" + this.feed[linkIndex].image + "' />            <div class='post-title'>" + this.feed[linkIndex].title + "</div>            <div class='post-date'>" + this.feed[linkIndex].pretty_date + "</div>            <div class='post-author'>by " + this.feed[linkIndex].author + "</div>          </div>        </a>";
       } else {
         return "";
       }
     };
 
     SingleArticleView.prototype.previousButton = function() {
+      var linkIndex;
       if (this.postIndex > 0) {
-        return "<a href='#' data-post-index='" + (this.postIndex - 1) + "' class='post-toggle previous-post'>Previous</a> <span class='nav-divider'>|</span> ";
+        linkIndex = this.postIndex - 1;
+        return " <a href='#' data-post-index='" + linkIndex + "' class='post-toggle previous-post'>          <span>Previous</span>          <div>            <img src='" + this.feed[linkIndex].image + "' />            <div class='post-title'>" + this.feed[linkIndex].title + "</div>            <div class='post-date'>" + this.feed[linkIndex].pretty_date + "</div>            <div class='post-author'>by " + this.feed[linkIndex].author + "</div>          </div>        </a>";
       } else {
         return "";
       }

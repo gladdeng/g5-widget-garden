@@ -55,3 +55,19 @@
 .active-post .post-expand{ display:none; }
 
 .active-post .post-collapse{ display:block; }
+
+.posts-nav img{
+  max-width:100px;
+}
+
+.posts-nav{position:relative; width:100%;}
+.posts-nav .post-toggle{
+  display:inline-block;
+  width:49%;
+}
+.posts-nav .all-posts{
+  display:block;
+  position:absolute;
+  top:-10px;
+  left:49%;
+}
