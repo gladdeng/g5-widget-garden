@@ -7,8 +7,24 @@
     "unit_page_url": "{{ widget.unit_page_url.value }}"
   }
 </script>
-  
-<p class="iui-title">Select a Size</p>
+
+<style>
+  /* Button Color color customizations */
+  .ss-featured-unit-categories .iui-size .btn,
+  .ss-featured-unit-categories .iui-steps span:first-child{ background:{{widget.primary_color.value}}; }
+
+  .ss-featured-unit-categories .iui-size .btn:hover{
+    opacity:0.8;
+  }
+
+  /* Secondary  color customizations */
+  .ss-featured-unit-categories .iui-title,
+  .ss-featured-unit-categories .iui-size .btn,
+  .ss-featured-unit-categories .iui-steps span:first-child{ color:{{widget.secondary_color.value}}; }
+
+  /* Text-Color-1 color customizations */
+  .ss-featured-unit-categories .iui-title{color:{{widget.accent_color_1.value}};}
+</style>
 
   <div class="iui-steps">
     <span>1</span>
@@ -16,6 +32,8 @@
     <span>3</span>
     <span>4</span>
   </div>
+
+  <p class="iui-title">Select a Size</p>
 
   <div class="iui-container">
     <p>Loading Unit Options</p>

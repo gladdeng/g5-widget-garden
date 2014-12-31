@@ -22,6 +22,7 @@
 }
 .ss-featured-unit-categories .iui-steps span {
   background-color: white;
+  color: #15006c;
   border-radius: 50%;
   line-height: 1;
   text-align: center;
@@ -44,9 +45,16 @@
 .ss-featured-unit-categories .iui-size {
   display: inline-block;
   padding: 5px;
-  /*margin-right: -4px;*/
   width: 50%;
+  opacity:1;
 }
+
+.ss-featured-unit-categories .iui-size .btn:hover{
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
 .ss-featured-unit-categories .iui-size:nth-child(3):last-child,
 .ss-featured-unit-categories .iui-size:nth-child(5) {
   width: 100%;

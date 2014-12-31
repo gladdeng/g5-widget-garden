@@ -12,7 +12,6 @@
         value="{{ widget.unit_service_host.best_value }}"
       />
     </div>
-
     <div class="form-field">
       {{ widget.location_urn.id_hidden_field }}
       <label for="{{ widget.location_urn.value_field_id }}">
@@ -25,7 +24,6 @@
         value="{{ widget.location_urn.best_value }}"
       />
     </div>
-
     <div class="form-field">
       {{ widget.unit_page_url.id_hidden_field }}
       <label for="{{ widget.unit_page_url.value_field_id }}">
@@ -38,10 +36,42 @@
         value="{{ widget.unit_page_url.best_value }}"
       />
     </div>
-
-
-    
+    <div class="form-field">
+      {{ widget.primary_color.id_hidden_field }}
+      <label for="{{ widget.primary_color.value_field_id }}">
+        Button BG Color
+      </label>
+      <input type="text"
+        placeholder="#252b32"
+        id="{{ widget.primary_color.value_field_id }}"
+        name="{{ widget.primary_color.value_field_name }}"
+        value="{{ widget.primary_color.value }}"
+      />
+    </div>
+    <div class="form-field">
+      {{ widget.secondary_color.id_hidden_field }}
+      <label for="{{ widget.secondary_color.value_field_id }}">
+        Text Color
+      </label>
+      <input type="text"
+        placeholder="#005892"
+        id="{{ widget.secondary_color.value_field_id }}"
+        name="{{ widget.secondary_color.value_field_name }}"
+        value="{{ widget.secondary_color.value }}"
+      />
+    </div>
+    <div class="form-field">
+      {{ widget.accent_color_1.id_hidden_field }}
+      <label for="{{ widget.accent_color_1.value_field_id }}">
+        Accent Color('Select Size' header if needed)
+      </label>
+      <input type="text"
+        id="{{ widget.accent_color_1.value_field_id }}"
+        name="{{ widget.accent_color_1.value_field_name }}"
+        value="{{ widget.accent_color_1.value }}"
+        placeholder=""
+      />
+    </div>
   </fieldset>
-
   <input type="submit" value="Save" class="btn" />
 </form>
