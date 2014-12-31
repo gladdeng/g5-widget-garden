@@ -60,7 +60,7 @@ class NewsFeedBuilder
 
   activeClass: (index) ->
     if index == 0
-      "active-post"
+      ""
     else
       ""
 

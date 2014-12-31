@@ -72,13 +72,14 @@
         details += "<span>|</span><span class='post-author'>by " + post.author + "</span>";
       }
       if (post.description !== "") {
-        return details += "<div class='post-description'>" + post.description + "</div>";
+        details += "<div class='post-description'>" + post.description + "</div>";
       }
+      return details;
     };
 
     NewsFeedBuilder.prototype.activeClass = function(index) {
       if (index === 0) {
-        return "active-post";
+        return "";
       } else {
         return "";
       }

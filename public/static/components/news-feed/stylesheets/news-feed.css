@@ -6,7 +6,7 @@
   border-bottom:1px solid #000;
 }
 
-.news-feed-post.active-post img{
+.news-feed-post:first-of-type img{
   max-width:100%;
 }
 
