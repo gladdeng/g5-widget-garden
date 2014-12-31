@@ -1,33 +1,26 @@
 <div class="multifamily-iui-cards widget">
   <script>
     var EmberAppConfig = {  
-      "modulePrefix":"self-storage-iui-cards",
+      "modulePrefix":"multi-family-iui-cards",
       "environment":"production",
       "baseURL":"/",
       "locationType":"auto",
       "EmberENV":{
         "FEATURES":{},
+        "MAX_UNIT_AVAILABILITY": 6,
         "PER_PAGE":20
       },
       "APP":{
         "rootElement":"#iui-container",
-        "serviceHost":"{{ widget.service_host.best_value | url_encode }}",
-        "storeId":"{{ widget.core_store_id.best_value }}",
-        "nearbyLocationsButtonLabel":"{{ widget.nearby_locations_button_label.best_value }}",
-        "unitSizeHelpUrl": "{{ widget.unit_size_help_url.best_value | url_encode }}",
-        "unitSizeHelpLabel":"{{ widget.unit_size_help_label.best_value }}"
+        "serviceHost":"{{ widget.floorplans_service_host.value | url_encode }}",
+        'storeId': '{{ widget.core_store_id.value }}',
+        'leadFormUrl': '{{ widget.lead_form_url.value | url_encode }}',
+        'floorplansServiceHost': "{{ widget.floorplans_service_host.value | url_encode }}",
+        'maxUnitAvailability': {{ widget.max_unit_availability.value }},
+        'enableLeaseTerms': "{{ widget.lease_terms.value }}"
       },
       "exportApplicationGlobal":false
     }
-
-    var G5 = {
-        iuiContainer: 'iui-container',
-        coreStoreId: '{{ widget.core_store_id.value }}',
-        leadFormUrl: '{{ widget.lead_form_url.value | url_encode }}',
-        floorplansServiceHost: "{{ widget.floorplans_service_host.value | url_encode }}",
-        maxUnitAvailability: {{ widget.max_unit_availability.value }},
-        enableLeaseTerms: "{{ widget.lease_terms.value }}"
-    };
 
     var mfMetaConfig = document.createElement('meta');
         mfMetaConfig.id="ember-meta";
