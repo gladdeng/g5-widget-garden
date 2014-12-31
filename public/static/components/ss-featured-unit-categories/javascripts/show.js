@@ -29,15 +29,15 @@
       markupHash = [];
       for (index = _i = 0, _len = categories.length; _i < _len; index = ++_i) {
         category = categories[index];
-        markupHash.push(buttonTemplate(category.name, configs));
+        markupHash.push(buttonTemplate(category.id, category.name, configs));
       }
-      allButton = " <div class='iui-size iui-view-all'>                    <a class='btn' href='" + configs.unit_page_url + "/#/category/all/units'>                      View All                    </a>                  </div> ";
+      allButton = " <div class='iui-size iui-view-all'>                    <a class='btn' href='" + configs.unit_page_url + "/#/size'>                      View All                    </a>                  </div> ";
       markupHash.push(allButton);
       $('.ss-featured-unit-categories .iui-container').html(markupHash.join(''));
     }
 
-    buttonTemplate = function(name, configs) {
-      return "<div class='iui-size'><a class='btn' href='" + configs.unit_page_url + "/#/category/" + name + "/units'>" + name + "</a></div>";
+    buttonTemplate = function(id, name, configs) {
+      return "<div class='iui-size'><a class='btn' href='" + configs.unit_page_url + "/#/options?categoryID=" + id + "'>" + name + "</a></div>";
     };
 
     return ssUnitMarkupBuilder;
