@@ -1,7 +1,6 @@
 .ss-featured-unit-categories{
   background: #999;
 }
-
 .ss-featured-unit-categories {
   clear: both;
   padding: 30px;
@@ -48,13 +47,6 @@
   width: 50%;
   opacity:1;
 }
-
-.ss-featured-unit-categories .iui-size .btn:hover{
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
 .ss-featured-unit-categories .iui-size:nth-child(3):last-child,
 .ss-featured-unit-categories .iui-size:nth-child(5) {
   width: 100%;
