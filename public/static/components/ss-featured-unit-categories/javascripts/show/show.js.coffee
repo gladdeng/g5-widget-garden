@@ -32,4 +32,4 @@ class ssUnitMarkupBuilder
     #buttonText = if name > 0 then "#{name} Bedroom" else "Studio"
     #buttonText = name.split(" ").join("")
 
-    "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url}/#/options?categoryID=#{id}'>#{name}</a></div>"
+    "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url}/#/options?categoryId=#{id}'>#{name}</a></div>"

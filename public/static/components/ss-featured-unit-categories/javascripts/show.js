@@ -37,7 +37,7 @@
     }
 
     buttonTemplate = function(id, name, configs) {
-      return "<div class='iui-size'><a class='btn' href='" + configs.unit_page_url + "/#/options?categoryID=" + id + "'>" + name + "</a></div>";
+      return "<div class='iui-size'><a class='btn' href='" + configs.unit_page_url + "/#/options?categoryId=" + id + "'>" + name + "</a></div>";
     };
 
     return ssUnitMarkupBuilder;
