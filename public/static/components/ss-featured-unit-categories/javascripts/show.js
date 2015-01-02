@@ -30,15 +30,15 @@
       markupHash = [];
       for (index = _i = 0, _len = categories.length; _i < _len; index = ++_i) {
         category = categories[index];
-        markupHash.push(this.buttonTemplate(category.id, category.name, this.configs));
+        markupHash.push(this.buttonTemplate(category, this.configs));
       }
       allButton = " <div class='iui-size iui-view-all'>                    <a class='btn' href='" + (this.unitPageUrl()) + "/#/size'>                      View All                    </a>                  </div> ";
       markupHash.push(allButton);
       $('.ss-featured-unit-categories .iui-container').html(markupHash.join(''));
     }
 
-    ssUnitMarkupBuilder.prototype.buttonTemplate = function(id, name, configs) {
-      return "<div class='iui-size'><a class='btn' href='" + (this.unitPageUrl()) + "/#/options?categoryId=" + id + "'>" + name + "</a></div>";
+    ssUnitMarkupBuilder.prototype.buttonTemplate = function(category, configs) {
+      return "<div class='iui-size'><a class='btn' href='" + (this.unitPageUrl()) + "/#/options?categoryId=" + category.id + "'>" + category.name + "</a></div>";
     };
 
     ssUnitMarkupBuilder.prototype.unitPageUrl = function() {
