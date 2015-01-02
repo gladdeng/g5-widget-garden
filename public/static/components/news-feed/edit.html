@@ -68,6 +68,19 @@
       />
     </div>
 
+    <div class="form-field">
+      {{ widget.background_color.id_hidden_field }}
+      <label for="{{ widget.background_color.value_field_id }}">
+        Background Color
+      </label>
+      <input type="Defaults to white if blank"
+        placeholder="gigity"
+        id="{{ widget.background_color.value_field_id }}"
+        name="{{ widget.background_color.value_field_name }}"
+        value="{{ widget.background_color.value }}"
+      />
+    </div>
+
     <!-- 
     <div class="form-field">
       {{ widget.XXXXXX.id_hidden_field }}

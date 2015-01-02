@@ -98,6 +98,7 @@ class SingleArticleView
       linkIndex = @postIndex + 1
       " <a href='#' data-post-index='#{linkIndex}' class='post-toggle next-post'>
           <span>Next</span>
+          <span class='nav-bling'> ></span>
           <div>
             <img src='#{@feed[linkIndex].image}' />
             <div class='post-title'>#{@feed[linkIndex].title}</div>
@@ -112,6 +113,7 @@ class SingleArticleView
     if @postIndex > 0
       linkIndex = @postIndex - 1
       " <a href='#' data-post-index='#{linkIndex}' class='post-toggle previous-post'>
+          <span class='nav-bling'>< </span>
           <span>Previous</span>
           <div>
             <img src='#{@feed[linkIndex].image}' />
@@ -198,6 +200,9 @@ class NewsFeedWidthChecker
 
     $( window ).resize () =>
       @applyWidthClasses()
+
+# Pseudo Media Query
+# ******************************************
 
   applyWidthClasses: () ->
     container = $("#news-feed-widget")
