@@ -16,6 +16,7 @@ $ ->
       toggleListener.basicListener())
 
   feedSource.getFeed()
+  new NewsFeedWidthChecker()
 
 # Build out markup for initial list of posts
 # ******************************************
@@ -81,7 +82,7 @@ class SingleArticleView
                     <div class='post-body'>#{post.text}</div>
                     <div class='posts-nav'>
                       #{@previousButton()}
-                      <a href='#' class='all-posts'>All News</a>
+                      <a href='#' class='all-posts'>See More News ></a>
                       #{@nextButton()}
                     </div>
                   </div>"
@@ -190,3 +191,19 @@ class NewsFeedSource
       sessionStorage.setItem(@url, JSON.stringify(@feed))
     catch
       null
+
+class NewsFeedWidthChecker
+  constructor: () ->
+    @applyWidthClasses()
+
+    $( window ).resize () =>
+      @applyWidthClasses()
+
+  applyWidthClasses: () ->
+    container = $("#news-feed-widget")
+    width = container.width()
+
+    if width <= 460
+      container.removeClass("wide").addClass("narrow")
+    else
+      container.removeClass("narrow").addClass("wide")

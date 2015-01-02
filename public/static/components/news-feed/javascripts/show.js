@@ -1,5 +1,5 @@
 (function() {
-  var NewsFeedBuilder, NewsFeedSource, SingleArticleView, ToggleListener;
+  var NewsFeedBuilder, NewsFeedSource, NewsFeedWidthChecker, SingleArticleView, ToggleListener;
 
   $(function() {
     var configs, feedSource, feedURL,
@@ -17,7 +17,8 @@
         return toggleListener.basicListener();
       }
     });
-    return feedSource.getFeed();
+    feedSource.getFeed();
+    return new NewsFeedWidthChecker();
   });
 
   NewsFeedBuilder = (function() {
@@ -99,7 +100,7 @@
     SingleArticleView.prototype.buildSelectedPost = function() {
       var post, postMarkup, toggleListener;
       post = this.feed[this.postIndex];
-      postMarkup = "<div class='news-feed-single-post'>                    <!-- <p class='all-posts-top'><a href='#' class='all-posts'><span>Back to all news</span></a></p> -->                    <img src='" + post.image + "' />                    <h3 class='post-title'>" + post.title + "</h3>                    <span class='post-date'>" + post.pretty_date + "</span>                    <span>|</span><span class='post-author'>by " + post.author + "</span>                    <div class='post-body'>" + post.text + "</div>                    <div class='posts-nav'>                      " + (this.previousButton()) + "                      <a href='#' class='all-posts'>All News</a>                      " + (this.nextButton()) + "                    </div>                  </div>";
+      postMarkup = "<div class='news-feed-single-post'>                    <!-- <p class='all-posts-top'><a href='#' class='all-posts'><span>Back to all news</span></a></p> -->                    <img src='" + post.image + "' />                    <h3 class='post-title'>" + post.title + "</h3>                    <span class='post-date'>" + post.pretty_date + "</span>                    <span>|</span><span class='post-author'>by " + post.author + "</span>                    <div class='post-body'>" + post.text + "</div>                    <div class='posts-nav'>                      " + (this.previousButton()) + "                      <a href='#' class='all-posts'>See More News ></a>                      " + (this.nextButton()) + "                    </div>                  </div>";
       $('.news-feed-widget').append(postMarkup);
       toggleListener = new ToggleListener(this.configs, this.feed);
       toggleListener.fullViewListener();
@@ -224,6 +225,30 @@
     };
 
     return NewsFeedSource;
+
+  })();
+
+  NewsFeedWidthChecker = (function() {
+    function NewsFeedWidthChecker() {
+      var _this = this;
+      this.applyWidthClasses();
+      $(window).resize(function() {
+        return _this.applyWidthClasses();
+      });
+    }
+
+    NewsFeedWidthChecker.prototype.applyWidthClasses = function() {
+      var container, width;
+      container = $("#news-feed-widget");
+      width = container.width();
+      if (width <= 460) {
+        return container.removeClass("wide").addClass("narrow");
+      } else {
+        return container.removeClass("narrow").addClass("wide");
+      }
+    };
+
+    return NewsFeedWidthChecker;
 
   })();
 

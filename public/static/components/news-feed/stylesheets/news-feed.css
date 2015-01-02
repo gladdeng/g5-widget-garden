@@ -56,16 +56,20 @@
 
 .active-post .post-collapse{ display:block; }
 
-.posts-nav img{
-  max-width:100px;
-}
+
 
 .posts-nav{
   position:relative;
   width:100%;
   padding-top:20px;
   text-align:center;
+  border-top:1px solid #888;
 }
+
+.posts-nav img{
+  max-width:100px;
+}
+
 .posts-nav .post-toggle{
   display:inline-block;
   width:49%;
@@ -74,9 +78,22 @@
 .posts-nav .all-posts{
   display:block;
   position:absolute;
-  width:100%;
-  top:0;
-  left:0;
+  width:33%;
+  top:-0.75em;
+  left:33%;
   text-align:center;
-  font-weight:bold;
+  border:1px solid #888;
+  padding:.25em;
+  line-height: 1em;
+  background:#fff;
+}
+
+.news-feed-widget.narrow .posts-nav .all-posts{
+  width:60%;
+  left:20%;
+}
+
+.news-feed-widget.narrow .posts-nav .post-date,
+.news-feed-widget.narrow .posts-nav .post-author{
+  display:none;
 }
