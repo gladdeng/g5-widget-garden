@@ -8,6 +8,12 @@
   }
 </script>
 
+<style>
+  {% if widget.background_color.value != blank %}
+    .news-feed-widget .posts-nav .all-posts{ background:{{ widget.background_color.value }}; }
+  {% endif %} 
+</style>
+
 <div class="news-feed-widget widget" id="news-feed-widget">
   <h2 id="news-feed-top">{{ widget.heading_text.value }}</h2>
 </div>
