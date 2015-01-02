@@ -54,6 +54,16 @@ describe G5ComponentGarden do
       end
     end
 
+    describe "#modified" do
+      it "is a Text Property" do
+        component.widget_id.should be_an_instance_of Microformats2::Property::Text
+      end
+
+      it "contains the time last modified" do
+        component.modified.to_s.should == "Mon, 17 Nov 2014 17:59:45 UTC +00:00"
+      end
+    end
+
     describe "#photo" do
       it "is a Url Property" do
         component.photo.should be_an_instance_of Microformats2::Property::Url
