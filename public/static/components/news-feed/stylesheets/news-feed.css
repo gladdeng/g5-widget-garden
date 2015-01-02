@@ -61,13 +61,14 @@
 .posts-nav{
   position:relative;
   width:100%;
-  padding-top:20px;
+  padding-top:2em;
   text-align:center;
   border-top:1px solid #888;
 }
 
 .posts-nav img{
-  max-width:100px;
+  height:100px;
+  margin:10px 0;
 }
 
 .posts-nav .post-toggle{

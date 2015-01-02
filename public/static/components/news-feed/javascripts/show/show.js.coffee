@@ -82,7 +82,7 @@ class SingleArticleView
                     <div class='post-body'>#{post.text}</div>
                     <div class='posts-nav'>
                       #{@previousButton()}
-                      <a href='#' class='all-posts'>See More News ></a>
+                      <a href='#' class='all-posts'>See More News<span class='nav-bling'> ></span></a>
                       #{@nextButton()}
                     </div>
                   </div>"
@@ -194,15 +194,15 @@ class NewsFeedSource
     catch
       null
 
+# Pseudo Media Query
+# ******************************************
+
 class NewsFeedWidthChecker
   constructor: () ->
     @applyWidthClasses()
 
     $( window ).resize () =>
       @applyWidthClasses()
-
-# Pseudo Media Query
-# ******************************************
 
   applyWidthClasses: () ->
     container = $("#news-feed-widget")
