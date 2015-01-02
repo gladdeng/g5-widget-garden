@@ -11,15 +11,16 @@ $ ->
         new ssUnitMarkupBuilder(categories, configs) 
 
 class ssUnitMarkupBuilder 
-  constructor: (categories, configs) ->
+  configs: null
+  constructor: (categories, @configs) ->
     categories.sort((a, b) -> return a.name - b.name)
     markupHash = []
 
     for category, index in categories
-      markupHash.push(buttonTemplate(category.id, category.name, configs))
+      markupHash.push(@buttonTemplate(category.id, category.name, @configs))
 
     allButton = " <div class='iui-size iui-view-all'>
-                    <a class='btn' href='#{configs.unit_page_url}/#/size'>
+                    <a class='btn' href='#{@unitPageUrl()}/#/size'>
                       View All
                     </a>
                   </div> "
@@ -28,8 +29,14 @@ class ssUnitMarkupBuilder
 
     $('.ss-featured-unit-categories .iui-container').html(markupHash.join(''))
 
-  buttonTemplate = (id, name, configs) ->
+  buttonTemplate: (id, name, configs) ->
     #buttonText = if name > 0 then "#{name} Bedroom" else "Studio"
     #buttonText = name.split(" ").join("")
 
-    "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url}/#/options?categoryId=#{id}'>#{name}</a></div>"
+    "<div class='iui-size'><a class='btn' href='#{@unitPageUrl()}/#/options?categoryId=#{id}'>#{name}</a></div>"
+
+  unitPageUrl: ->
+    if @configs.unit_page_url.indexOf('http') != -1
+      return @configs.unit_page_url
+    else
+      return "#{document.location.href}/#{@configs.unit_page_url}"
