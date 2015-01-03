@@ -80,6 +80,7 @@ class NewsFeedBuilder
 
 class SingleArticleView
   constructor: (@postIndex, @configs, @feed) ->
+    @postIndex = 0 if typeof @feed[@postIndex] == 'undefined'
 
   buildSelectedPost: () ->
     post = @feed[@postIndex]

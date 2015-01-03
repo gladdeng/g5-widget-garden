@@ -101,6 +101,9 @@
       this.postIndex = postIndex;
       this.configs = configs;
       this.feed = feed;
+      if (typeof this.feed[this.postIndex] === 'undefined') {
+        this.postIndex = 0;
+      }
     }
 
     SingleArticleView.prototype.buildSelectedPost = function() {
