@@ -10,13 +10,23 @@ $ ->
   $(feedSource).bind("feedReady", (event) =>
     new NewsFeedBuilder(configs, feedSource.feed)
     toggleListener = new ToggleListener(configs, feedSource.feed)
-    if configs.uiType == "full-page"
+    selectedArticle = new QueryParameter("article-index").value()
+    
+    if selectedArticle
+      postIndex = parseInt(selectedArticle)
+      toggleListener.clearAllPosts()
+      singleArticleView = new SingleArticleView(postIndex, configs, feedSource.feed)
+      singleArticleView.buildSelectedPost()
+
+    else if configs.uiType == "full-page"
       toggleListener.fullViewListener()
+
     else
       toggleListener.basicListener())
 
   feedSource.getFeed()
   new NewsFeedWidthChecker()
+
 
 # Build out markup for initial list of posts
 # ******************************************
@@ -124,12 +134,14 @@ class SingleArticleView
         </a>"
     else
       ""
+
 # Choose type of listener based on UI type
 # ******************************************
     
 class ToggleListener
   constructor: (@configs, @feed) ->
-
+    @selectedArticle = new QueryParameter("article-index").value()
+    
   basicListener: () ->
     $('.post-toggle').click ->
       $(this).parent().toggleClass("active-post")
@@ -212,3 +224,18 @@ class NewsFeedWidthChecker
       container.removeClass("wide").addClass("narrow")
     else
       container.removeClass("narrow").addClass("wide")
+
+# Find a query param if it exists
+# ******************************************
+
+class QueryParameter
+  constructor: (@param) ->
+
+  value: () ->
+    name = @param.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")
+    regex = new RegExp("[\\?&]#{name}=([^&#]*)")
+    results = regex.exec(location.search);
+    if results == null
+      false
+    else 
+      decodeURIComponent(results[1].replace(/\+/g, " "))

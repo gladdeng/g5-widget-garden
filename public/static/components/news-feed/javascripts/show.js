@@ -1,5 +1,5 @@
 (function() {
-  var NewsFeedBuilder, NewsFeedSource, NewsFeedWidthChecker, SingleArticleView, ToggleListener;
+  var NewsFeedBuilder, NewsFeedSource, NewsFeedWidthChecker, QueryParameter, SingleArticleView, ToggleListener;
 
   $(function() {
     var configs, feedSource, feedURL,
@@ -8,10 +8,16 @@
     feedURL = "" + configs.newsServiceDomain + "/locations/" + configs.locationURN + "/news_feed.json";
     feedSource = new NewsFeedSource(feedURL);
     $(feedSource).bind("feedReady", function(event) {
-      var toggleListener;
+      var postIndex, selectedArticle, singleArticleView, toggleListener;
       new NewsFeedBuilder(configs, feedSource.feed);
       toggleListener = new ToggleListener(configs, feedSource.feed);
-      if (configs.uiType === "full-page") {
+      selectedArticle = new QueryParameter("article-index").value();
+      if (selectedArticle) {
+        postIndex = parseInt(selectedArticle);
+        toggleListener.clearAllPosts();
+        singleArticleView = new SingleArticleView(postIndex, configs, feedSource.feed);
+        return singleArticleView.buildSelectedPost();
+      } else if (configs.uiType === "full-page") {
         return toggleListener.fullViewListener();
       } else {
         return toggleListener.basicListener();
@@ -135,6 +141,7 @@
     function ToggleListener(configs, feed) {
       this.configs = configs;
       this.feed = feed;
+      this.selectedArticle = new QueryParameter("article-index").value();
     }
 
     ToggleListener.prototype.basicListener = function() {
@@ -249,6 +256,27 @@
     };
 
     return NewsFeedWidthChecker;
+
+  })();
+
+  QueryParameter = (function() {
+    function QueryParameter(param) {
+      this.param = param;
+    }
+
+    QueryParameter.prototype.value = function() {
+      var name, regex, results;
+      name = this.param.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+      results = regex.exec(location.search);
+      if (results === null) {
+        return false;
+      } else {
+        return decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+    };
+
+    return QueryParameter;
 
   })();
 
