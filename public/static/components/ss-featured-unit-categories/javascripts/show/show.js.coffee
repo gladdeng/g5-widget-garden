@@ -20,7 +20,7 @@ class ssUnitMarkupBuilder
       markupHash.push(@buttonTemplate(category, @configs))
 
     allButton = " <div class='iui-size iui-view-all'>
-                    <a class='btn' href='#{@unitPageUrl()}/#/size'>
+                    <a class='btn' href='#{configs.unit_page_url}/#/size'>
                       View All
                     </a>
                   </div> "
@@ -33,10 +33,10 @@ class ssUnitMarkupBuilder
     #buttonText = if name > 0 then "#{name} Bedroom" else "Studio"
     #buttonText = name.split(" ").join("")
 
-    "<div class='iui-size'><a class='btn' href='#{@unitPageUrl()}/#/options?categoryId=#{category.id}'>#{category.name}</a></div>"
+    "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url}/#/options?categoryId=#{category.id}'>#{category.name}</a></div>"
 
   unitPageUrl: ->
     if @configs.unit_page_url.indexOf('http') != -1
-      return @configs.unit_page_url_2
+      return @configs.unit_page_url
     else
-      return "#{document.location.href}/#{@configs.unit_page_url_2}"
+      return "#{document.location.href}/#{@configs.unit_page_url}"
