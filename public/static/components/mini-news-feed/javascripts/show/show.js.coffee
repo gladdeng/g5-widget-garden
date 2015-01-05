@@ -8,10 +8,10 @@ $ ->
   feedURL = "#{configs.newsServiceDomain}/locations/#{configs.locationURN}/news_feed.json"
   feedSource = new MiniNewsFeedSource(feedURL)
   $(feedSource).bind("feedReady", (event) =>
-    new NewsFeedBuilder(configs, feedSource.feed)
+    new NewsFeedBuilder(configs, feedSource.feed) )
 
   feedSource.getFeed()
-  new MiniNewsFeedWidthChecker() )
+  new MiniNewsFeedWidthChecker()
 
 
 # Build out markup for initial list of posts

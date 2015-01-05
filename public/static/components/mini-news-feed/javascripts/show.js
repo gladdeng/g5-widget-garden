@@ -7,9 +7,11 @@
     configs = JSON.parse($('#mini-news-feed-config').html());
     feedURL = "" + configs.newsServiceDomain + "/locations/" + configs.locationURN + "/news_feed.json";
     feedSource = new MiniNewsFeedSource(feedURL);
-    return $(feedSource).bind("feedReady", function(event) {
+    $(feedSource).bind("feedReady", function(event) {
       return new NewsFeedBuilder(configs, feedSource.feed);
-    }, feedSource.getFeed(), new MiniNewsFeedWidthChecker());
+    });
+    feedSource.getFeed();
+    return new MiniNewsFeedWidthChecker();
   });
 
   NewsFeedBuilder = (function() {
