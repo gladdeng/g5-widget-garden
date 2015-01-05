@@ -1,6 +1,3 @@
-require 'highline/import'
-require "active_support/all"
-
 namespace :dev do 
   desc "Builds widget configuration markup."
   task :init => :environment do

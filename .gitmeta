@@ -1321,7 +1321,7 @@
 }, 
 "lib/tasks/init_tasks.rake": {
 "mode": 33188, 
-"mtime": 1420495091
+"mtime": 1420496453
 }, 
 "public/static/components/photo-group/edit.html": {
 "mode": 33188, 
@@ -1597,7 +1597,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1420495481
+"mtime": 1420496078
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
@@ -2129,7 +2129,7 @@
 }, 
 "lib/tasks": {
 "mode": 16877, 
-"mtime": 1420495397
+"mtime": 1420496457
 }, 
 "public/static/components/html/images": {
 "mode": 16877, 
