@@ -9,5 +9,7 @@
 </script>
 
 <div class="mini-news-feed-widget widget" id="mini-news-feed-widget">
-  <h2 id="news-feed-top">{{ widget.heading_text.value }}</h2>
+  {% if widget.heading_text.value != blank %}
+    <h2 id="news-feed-top">{{ widget.heading_text.value }}</h2>
+  {% endif %}
 </div>
