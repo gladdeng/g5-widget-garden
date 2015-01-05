@@ -1,8 +1,6 @@
 $ -> 
   configs = ssFeaturedUnitCategories
-  #configs = JSON.parse($('#ss-featured-unit-categories-config').html())
   $.ajax
-    #url: "#{configs.unit_service_host}"  #for local testing
     url: "#{configs.unit_service_host}/api/v1/storage_facilities/#{configs.location_urn}/storage_categories"
     dataType: 'json'
     success: (data) =>
@@ -20,7 +18,7 @@ class ssUnitMarkupBuilder
       markupHash.push(@buttonTemplate(category, @configs))
 
     allButton = " <div class='iui-size iui-view-all'>
-                    <a class='btn' href='#{configs.unit_page_url}/#/size'>
+                    <a class='btn' href='#{configs.unit_page_url_2}/#/size'>
                       View All
                     </a>
                   </div> "
@@ -30,13 +28,10 @@ class ssUnitMarkupBuilder
     $('.ss-featured-unit-categories .iui-container').html(markupHash.join(''))
 
   buttonTemplate: (category, configs) ->
-    #buttonText = if name > 0 then "#{name} Bedroom" else "Studio"
-    #buttonText = name.split(" ").join("")
+    "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url_2}/#/options?categoryId=#{category.id}'>#{category.name}</a></div>"
 
-    "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url}/#/options?categoryId=#{category.id}'>#{category.name}</a></div>"
-
-  unitPageUrl: ->
-    if @configs.unit_page_url.indexOf('http') != -1
-      return @configs.unit_page_url
-    else
-      return "#{document.location.href}/#{@configs.unit_page_url}"
+  #unitPageUrl: ->
+    #if @configs.unit_page_url.indexOf('http') != -1
+      #return @configs.unit_page_url
+    #else
+      #return "#{document.location.href}/#{@configs.unit_page_url}"

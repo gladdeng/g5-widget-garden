@@ -32,21 +32,13 @@
         category = categories[index];
         markupHash.push(this.buttonTemplate(category, this.configs));
       }
-      allButton = " <div class='iui-size iui-view-all'>                    <a class='btn' href='" + configs.unit_page_url + "/#/size'>                      View All                    </a>                  </div> ";
+      allButton = " <div class='iui-size iui-view-all'>                    <a class='btn' href='" + configs.unit_page_url_2 + "/#/size'>                      View All                    </a>                  </div> ";
       markupHash.push(allButton);
       $('.ss-featured-unit-categories .iui-container').html(markupHash.join(''));
     }
 
     ssUnitMarkupBuilder.prototype.buttonTemplate = function(category, configs) {
-      return "<div class='iui-size'><a class='btn' href='" + configs.unit_page_url + "/#/options?categoryId=" + category.id + "'>" + category.name + "</a></div>";
-    };
-
-    ssUnitMarkupBuilder.prototype.unitPageUrl = function() {
-      if (this.configs.unit_page_url.indexOf('http') !== -1) {
-        return this.configs.unit_page_url;
-      } else {
-        return "" + document.location.href + "/" + this.configs.unit_page_url;
-      }
+      return "<div class='iui-size'><a class='btn' href='" + configs.unit_page_url_2 + "/#/options?categoryId=" + category.id + "'>" + category.name + "</a></div>";
     };
 
     return ssUnitMarkupBuilder;

@@ -73,11 +73,11 @@
       />
     </div>
     <div class="form-field">
-      {{ widget.cta_link_3.id_hidden_field }}
-      <select id="{{ widget.cta_link_3.value_field_id }}" name="{{ widget.cta_link_3.value_field_name }}">
+      {{ widget.unit_page_url_2.id_hidden_field }}
+      <select id="{{ widget.unit_page_url_2.value_field_id }}" name="{{ widget.unit_page_url_2.value_field_name }}">
         {% for web_page in widget.navigation.value %}
           <option value="{{ web_page[1].url | url_encode }}"
-            {% if widget.cta_link_3.value == web_page[1].url %}
+            {% if widget.unit_page_url_2.value == web_page[1].url %}
               selected
             {% endif %} >{{ web_page[1].name }}</option>
         {% endfor %}
