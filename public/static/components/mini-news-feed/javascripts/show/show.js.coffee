@@ -29,14 +29,19 @@ class NewsLinkBuilder
     markup = []
 
     for post, index in websitePosts
-      markup.push( "<a class='news-item-link' href='#{@configs.newsPagePath}?article-index=#{index}' data-post-index='#{index}'>
+      markup.push( "<div class='news-item-preview'>
                       <img src='#{post.image}' />
                       <h3 class='post-title'>#{post.title}</h3>
-                      <span class='post-date'>#{post.pretty_date}</span>
-                      <span>|</span>
-                      <span class='post-author'>by #{post.author}</span>
+                      <div class='post-details'>
+                        <span class='post-date'>#{post.pretty_date}</span>
+                        <span class='divider'>|</span>
+                        <span class='post-author'>by #{post.author}</span>
+                      </div>
                       <div class='post-description'>#{post.description}</div>
-                    </a>" )
+                      <a class='news-item-link' href='#{@configs.newsPagePath}?article-index=#{index}' data-post-index='#{index}'>
+                        Read More<span class='nav-bling'> ></span>
+                      </a>
+                    </div>" )
       
     $('.mini-news-feed-widget').append(markup.join(''))
 
@@ -88,8 +93,7 @@ class MiniNewsFeedWidthChecker
     container = $("#mini-news-feed-widget")
     width = container.width()
 
-    if width <= 460
+    if width <= 590
       container.removeClass("wide").addClass("narrow")
     else
       container.removeClass("narrow").addClass("wide")
-      

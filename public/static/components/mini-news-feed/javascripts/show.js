@@ -31,7 +31,7 @@
       markup = [];
       for (index = _i = 0, _len = websitePosts.length; _i < _len; index = ++_i) {
         post = websitePosts[index];
-        markup.push("<a class='news-item-link' href='" + this.configs.newsPagePath + "?article-index=" + index + "' data-post-index='" + index + "'>                      <img src='" + post.image + "' />                      <h3 class='post-title'>" + post.title + "</h3>                      <span class='post-date'>" + post.pretty_date + "</span>                      <span>|</span>                      <span class='post-author'>by " + post.author + "</span>                      <div class='post-description'>" + post.description + "</div>                    </a>");
+        markup.push("<div class='news-item-preview'>                      <img src='" + post.image + "' />                      <h3 class='post-title'>" + post.title + "</h3>                      <div class='post-details'>                        <span class='post-date'>" + post.pretty_date + "</span>                        <span class='divider'>|</span>                        <span class='post-author'>by " + post.author + "</span>                      </div>                      <div class='post-description'>" + post.description + "</div>                      <a class='news-item-link' href='" + this.configs.newsPagePath + "?article-index=" + index + "' data-post-index='" + index + "'>                        Read More<span class='nav-bling'> ></span>                      </a>                    </div>");
       }
       return $('.mini-news-feed-widget').append(markup.join(''));
     };
@@ -100,7 +100,7 @@
       var container, width;
       container = $("#mini-news-feed-widget");
       width = container.width();
-      if (width <= 460) {
+      if (width <= 590) {
         return container.removeClass("wide").addClass("narrow");
       } else {
         return container.removeClass("narrow").addClass("wide");
