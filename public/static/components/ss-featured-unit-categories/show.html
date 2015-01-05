@@ -4,7 +4,8 @@
   var ssFeaturedUnitCategories = {
     "unit_service_host": "{{ widget.unit_service_host.value }}",
     "location_urn": "{{ widget.location_urn.value }}",
-    "unit_page_url": "{{ widget.unit_page_url.value }}"
+    "unit_page_url": "{{ widget.unit_page_url.value }}",
+    "unit_page_url_2": "{{ widget.cta_link_3.value }}"
   }
 </script>
 
@@ -23,6 +24,9 @@
 </style>
 
   <div class="iui-steps">
+        <li>
+        <a href="{{ widget.cta_link_3.value }}">{{ widget.cta_link_3.value }}</a>
+      </li>
     <span>1</span>
     <span>2</span>
     <span>3</span>

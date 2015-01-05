@@ -37,6 +37,6 @@ class ssUnitMarkupBuilder
 
   unitPageUrl: ->
     if @configs.unit_page_url.indexOf('http') != -1
-      return @configs.unit_page_url
+      return @configs.unit_page_url_2
     else
-      return "#{document.location.href}/#{@configs.unit_page_url}"
+      return "#{document.location.href}/#{@configs.unit_page_url_2}"

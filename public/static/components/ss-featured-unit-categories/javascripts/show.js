@@ -43,9 +43,9 @@
 
     ssUnitMarkupBuilder.prototype.unitPageUrl = function() {
       if (this.configs.unit_page_url.indexOf('http') !== -1) {
-        return this.configs.unit_page_url;
+        return this.configs.unit_page_url_2;
       } else {
-        return "" + document.location.href + "/" + this.configs.unit_page_url;
+        return "" + document.location.href + "/" + this.configs.unit_page_url_2;
       }
     };
 
