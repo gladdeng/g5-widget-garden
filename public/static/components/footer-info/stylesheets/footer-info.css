@@ -36,3 +36,8 @@
   display: inline-block;
   max-width: 200px;
 }
+.footer-info .icon {
+  background-color: #000;
+  height: 40px;
+  width: 40px;
+}

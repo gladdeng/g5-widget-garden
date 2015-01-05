@@ -8,15 +8,9 @@ A garden of widgets that can be used in client location sites.
 
 ## Setup
 
-1. Install all the required gems
-```bash
-bundle
-```
-
-2. Install all the required node dependencies.
-```bash
-npm install
-```
+1. Install all the required gems `bundle`
+2. Set timestamps & symlink git hooks `rake dev:init`
+3. Install all the required node dependencies. `npm install`
 
 ## Grunt Task
 
