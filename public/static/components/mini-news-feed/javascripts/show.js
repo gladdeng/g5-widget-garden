@@ -31,9 +31,19 @@
       markup = [];
       for (index = _i = 0, _len = websitePosts.length; _i < _len; index = ++_i) {
         post = websitePosts[index];
-        markup.push("<div class='news-item-preview'>                      <img src='" + post.image + "' />                      <h3 class='post-title'>" + post.title + "</h3>                      <div class='post-details'>                        <span class='post-date'>" + post.pretty_date + "</span>                        <span class='divider'>|</span>                        <span class='post-author'>by " + post.author + "</span>                      </div>                      <div class='post-description'>" + post.description + "</div>                      <a class='news-item-link' href='" + this.configs.newsPagePath + "?article-index=" + index + "' data-post-index='" + index + "'>                        Read More<span class='nav-bling'> ></span>                      </a>                    </div>");
+        markup.push("<div class='news-item-preview'>                      <img src='" + post.image + "' />                      <h3 class='post-title'>" + post.title + "</h3>                      " + (this.postDetails(post)) + "                      <div class='post-description'>" + post.description + "</div>                      <a class='news-item-link' href='" + this.configs.newsPagePath + "?article-index=" + index + "' data-post-index='" + index + "'>                        Read More<span class='nav-bling'> ></span>                      </a>                    </div>");
       }
       return $('.mini-news-feed-widget').append(markup.join(''));
+    };
+
+    NewsLinkBuilder.prototype.postDetails = function(post) {
+      var markup;
+      markup = " <div class='post-details'>";
+      markup += "<span class='post-date'>" + post.pretty_date + "</span>";
+      if (post.author !== "") {
+        markup += "<span class='divider'> | </span><span class='post-author'>by " + post.author + "</span>";
+      }
+      return markup += "</div>";
     };
 
     return NewsLinkBuilder;

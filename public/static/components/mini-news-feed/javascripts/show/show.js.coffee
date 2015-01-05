@@ -32,11 +32,7 @@ class NewsLinkBuilder
       markup.push( "<div class='news-item-preview'>
                       <img src='#{post.image}' />
                       <h3 class='post-title'>#{post.title}</h3>
-                      <div class='post-details'>
-                        <span class='post-date'>#{post.pretty_date}</span>
-                        <span class='divider'>|</span>
-                        <span class='post-author'>by #{post.author}</span>
-                      </div>
+                      #{@postDetails(post)}
                       <div class='post-description'>#{post.description}</div>
                       <a class='news-item-link' href='#{@configs.newsPagePath}?article-index=#{index}' data-post-index='#{index}'>
                         Read More<span class='nav-bling'> ></span>
@@ -45,6 +41,12 @@ class NewsLinkBuilder
       
     $('.mini-news-feed-widget').append(markup.join(''))
 
+  postDetails: (post) ->
+    markup =  " <div class='post-details'>"
+    markup += "<span class='post-date'>#{post.pretty_date}</span>"
+    markup += "<span class='divider'> | </span><span class='post-author'>by #{post.author}</span>" unless post.author == ""
+    markup += "</div>"
+                        
 # Get news feed from service or session storage
 # ******************************************
 
