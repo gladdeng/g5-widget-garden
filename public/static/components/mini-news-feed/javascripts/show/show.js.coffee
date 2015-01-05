@@ -3,29 +3,15 @@
 # ******************************************
 
 $ ->
-  configs = JSON.parse($('#news-feed-config').html())
+  configs = JSON.parse($('#mini-news-feed-config').html())
 
   feedURL = "#{configs.newsServiceDomain}/locations/#{configs.locationURN}/news_feed.json"
-  feedSource = new NewsFeedSource(feedURL)
+  feedSource = new MiniNewsFeedSource(feedURL)
   $(feedSource).bind("feedReady", (event) =>
     new NewsFeedBuilder(configs, feedSource.feed)
-    toggleListener = new ToggleListener(configs, feedSource.feed)
-    selectedArticle = new QueryParameter("article-index").value()
-    
-    if selectedArticle
-      postIndex = parseInt(selectedArticle)
-      toggleListener.clearAllPosts()
-      singleArticleView = new SingleArticleView(postIndex, configs, feedSource.feed)
-      singleArticleView.buildSelectedPost()
-
-    else if configs.uiType == "full-page"
-      toggleListener.fullViewListener()
-
-    else
-      toggleListener.basicListener())
 
   feedSource.getFeed()
-  new NewsFeedWidthChecker()
+  new MiniNewsFeedWidthChecker() )
 
 
 # Build out markup for initial list of posts
@@ -43,14 +29,14 @@ class NewsFeedBuilder
     markup = []
 
     for post, index in websitePosts
-      markup.push( "<div class='news-feed-post #{@activeClass(index)}'>
+      markup.push( "<div class='news-feed-post'>
                       #{@toggleMarkup(post, index)}
                       #{@detailsMarkup(post)}
                       <div class='post-body'>#{post.text}</div>
                       #{@bottomToggles(index)}
                     </div>" )
       
-    $('.news-feed-widget').append(markup.join(''))
+    $('.mini-news-feed-widget').append(markup.join(''))
 
   toggleMarkup: (post, index) ->
     toggle  = "<a class='post-toggle' href='#' data-post-index='#{index}'>"
@@ -69,114 +55,51 @@ class NewsFeedBuilder
     details += "<div class='post-description'>#{post.description}</div>" unless post.description == ""
     details
 
-  activeClass: (index) ->
-    if index == 0
-      ""
-    else
-      ""
-
 # Build markup for selected item
 # ******************************************
 
-class SingleArticleView
-  constructor: (@postIndex, @configs, @feed) ->
-    @postIndex = 0 if typeof @feed[@postIndex] == 'undefined'
-
-  buildSelectedPost: () ->
-    post = @feed[@postIndex]
-    postMarkup = "<div class='news-feed-single-post'>
-                    <!-- <p class='all-posts-top'><a href='#' class='all-posts'><span>Back to all news</span></a></p> -->
-                    <img src='#{post.image}' />
-                    <h3 class='post-title'>#{post.title}</h3>
-                    <span class='post-date'>#{post.pretty_date}</span>
-                    <span>|</span><span class='post-author'>by #{post.author}</span>
-                    <div class='post-body'>#{post.text}</div>
-                    <div class='posts-nav'>
-                      #{@previousButton()}
-                      <a href='#' class='all-posts'>See More News<span class='nav-bling'> ></span></a>
-                      #{@nextButton()}
-                    </div>
-                  </div>"
-
-    $('.news-feed-widget').append(postMarkup)
-
-    toggleListener = new ToggleListener(@configs, @feed)
-    toggleListener.fullViewListener()
-    toggleListener.listViewListener()
-
-  nextButton: () ->
-    if @postIndex < @feed.length - 1
-      linkIndex = @postIndex + 1
-      " <a href='#' data-post-index='#{linkIndex}' class='post-toggle next-post'>
-          <span>Next</span>
-          <span class='nav-bling'> ></span>
-          <div>
-            <img src='#{@feed[linkIndex].image}' />
-            <div class='post-title'>#{@feed[linkIndex].title}</div>
-            <div class='post-date'>#{@feed[linkIndex].pretty_date}</div>
-            <div class='post-author'>by #{@feed[linkIndex].author}</div>
-          </div>
-        </a>"
-    else
-      ""
-
-  previousButton: () ->
-    if @postIndex > 0
-      linkIndex = @postIndex - 1
-      " <a href='#' data-post-index='#{linkIndex}' class='post-toggle previous-post'>
-          <span class='nav-bling'>< </span>
-          <span>Previous</span>
-          <div>
-            <img src='#{@feed[linkIndex].image}' />
-            <div class='post-title'>#{@feed[linkIndex].title}</div>
-            <div class='post-date'>#{@feed[linkIndex].pretty_date}</div>
-            <div class='post-author'>by #{@feed[linkIndex].author}</div>
-          </div>
-        </a>"
-    else
-      ""
 
 # Choose type of listener based on UI type
 # ******************************************
     
-class ToggleListener
-  constructor: (@configs, @feed) ->
-    @selectedArticle = new QueryParameter("article-index").value()
+# class ToggleListener
+#   constructor: (@configs, @feed) ->
+#     @selectedArticle = new QueryParameter("article-index").value()
     
-  basicListener: () ->
-    $('.post-toggle').click ->
-      $(this).parent().toggleClass("active-post")
-      false
+#   basicListener: () ->
+#     $('.post-toggle').click ->
+#       $(this).parent().toggleClass("active-post")
+#       false
 
-  fullViewListener: () ->
-    that = this
-    $('.post-toggle').click ->
-      postIndex = $(this).data("post-index")
-      that.clearAllPosts()
-      singleArticleView = new SingleArticleView(postIndex, that.configs, that.feed)
-      singleArticleView.buildSelectedPost()
-      false
+#   fullViewListener: () ->
+#     that = this
+#     $('.post-toggle').click ->
+#       postIndex = $(this).data("post-index")
+#       that.clearAllPosts()
+#       singleArticleView = new SingleArticleView(postIndex, that.configs, that.feed)
+#       singleArticleView.buildSelectedPost()
+#       false
 
-  listViewListener: () ->
-    that = this
-    $('.all-posts').click ->
-      that.clearAllPosts()
-      new NewsFeedBuilder(that.configs, that.feed)
-      toggleListener = new ToggleListener(that.configs, that.feed)
-      toggleListener.fullViewListener()
-      false
+#   listViewListener: () ->
+#     that = this
+#     $('.all-posts').click ->
+#       that.clearAllPosts()
+#       new NewsFeedBuilder(that.configs, that.feed)
+#       toggleListener = new ToggleListener(that.configs, that.feed)
+#       toggleListener.fullViewListener()
+#       false
 
-  clearAllPosts: () ->
-    $(".news-feed-single-post, .news-feed-post").remove()
+#   clearAllPosts: () ->
+#     $(".news-feed-single-post, .news-feed-post").remove()
 
-    $('html, body').animate({
-      scrollTop: $("#news-feed-top").offset().top
-    }, 420)
+#     $('html, body').animate({
+#       scrollTop: $("#news-feed-top").offset().top
+#     }, 420)
 
 # Get news feed from service or session storage
 # ******************************************
 
-class NewsFeedSource
+class MiniNewsFeedSource
   constructor: (@url) ->
     
   getFeed: ->
@@ -210,7 +133,7 @@ class NewsFeedSource
 # Pseudo Media Query
 # ******************************************
 
-class NewsFeedWidthChecker
+class MiniNewsFeedWidthChecker
   constructor: () ->
     @applyWidthClasses()
 
@@ -218,7 +141,7 @@ class NewsFeedWidthChecker
       @applyWidthClasses()
 
   applyWidthClasses: () ->
-    container = $("#news-feed-widget")
+    container = $("#mini-news-feed-widget")
     width = container.width()
 
     if width <= 460
@@ -226,17 +149,17 @@ class NewsFeedWidthChecker
     else
       container.removeClass("narrow").addClass("wide")
 
-# Find a query param if it exists
-# ******************************************
+# # Find a query param if it exists
+# # ******************************************
 
-class QueryParameter
-  constructor: (@param) ->
+# class QueryParameter
+#   constructor: (@param) ->
 
-  value: () ->
-    name = @param.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")
-    regex = new RegExp("[\\?&]#{name}=([^&#]*)")
-    results = regex.exec(location.search);
-    if results == null
-      false
-    else 
-      decodeURIComponent(results[1].replace(/\+/g, " "))
+#   value: () ->
+#     name = @param.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")
+#     regex = new RegExp("[\\?&]#{name}=([^&#]*)")
+#     results = regex.exec(location.search);
+#     if results == null
+#       false
+#     else 
+#       decodeURIComponent(results[1].replace(/\+/g, " "))
