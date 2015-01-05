@@ -25,7 +25,7 @@
       var index, markup, post, postCount, websitePosts, _i, _len;
       postCount = parseInt(this.configs.numberOfPosts);
       if (isNaN(postCount)) {
-        postCount = 5;
+        postCount = 3;
       }
       websitePosts = this.feed.slice(0, postCount);
       markup = [];

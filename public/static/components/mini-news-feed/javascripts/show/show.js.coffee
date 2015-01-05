@@ -23,7 +23,7 @@ class NewsLinkBuilder
 
   populateFeed: () ->
     postCount = parseInt(@configs.numberOfPosts)
-    postCount = 5 if isNaN(postCount)
+    postCount = 3 if isNaN(postCount)
 
     websitePosts = @feed[0...postCount]
     markup = []
