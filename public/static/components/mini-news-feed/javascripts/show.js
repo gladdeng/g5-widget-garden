@@ -1,5 +1,5 @@
 (function() {
-  var MiniNewsFeedSource, MiniNewsFeedWidthChecker, NewsFeedBuilder;
+  var MiniNewsFeedSource, MiniNewsFeedWidthChecker, NewsLinkBuilder;
 
   $(function() {
     var configs, feedSource, feedURL,
@@ -8,20 +8,20 @@
     feedURL = "" + configs.newsServiceDomain + "/locations/" + configs.locationURN + "/news_feed.json";
     feedSource = new MiniNewsFeedSource(feedURL);
     $(feedSource).bind("feedReady", function(event) {
-      return new NewsFeedBuilder(configs, feedSource.feed);
+      return new NewsLinkBuilder(configs, feedSource.feed);
     });
     feedSource.getFeed();
     return new MiniNewsFeedWidthChecker();
   });
 
-  NewsFeedBuilder = (function() {
-    function NewsFeedBuilder(configs, feed) {
+  NewsLinkBuilder = (function() {
+    function NewsLinkBuilder(configs, feed) {
       this.configs = configs;
       this.feed = feed;
       this.populateFeed();
     }
 
-    NewsFeedBuilder.prototype.populateFeed = function() {
+    NewsLinkBuilder.prototype.populateFeed = function() {
       var index, markup, post, postCount, websitePosts, _i, _len;
       postCount = parseInt(this.configs.numberOfPosts);
       if (isNaN(postCount)) {
@@ -31,47 +31,12 @@
       markup = [];
       for (index = _i = 0, _len = websitePosts.length; _i < _len; index = ++_i) {
         post = websitePosts[index];
-        markup.push("<div class='news-feed-post'>                      " + (this.toggleMarkup(post, index)) + "                      " + (this.detailsMarkup(post)) + "                      <div class='post-body'>" + post.text + "</div>                      " + (this.bottomToggles(index)) + "                    </div>");
+        markup.push("<a class='news-item-link' href='" + this.configs.newsPagePath + "?article-index=" + index + "' data-post-index='" + index + "'>                      <img src='" + post.image + "' />                      <h3 class='post-title'>" + post.title + "</h3>                      <span class='post-date'>" + post.pretty_date + "</span>                      <span>|</span>                      <span class='post-author'>by " + post.author + "</span>                      <div class='post-description'>" + post.description + "</div>                    </a>");
       }
       return $('.mini-news-feed-widget').append(markup.join(''));
     };
 
-    NewsFeedBuilder.prototype.toggleMarkup = function(post, index) {
-      var toggle;
-      toggle = "<a class='post-toggle' href='#' data-post-index='" + index + "'>";
-      if (post.image !== "") {
-        toggle += "  <img src='" + post.image + "' />";
-      }
-      if (post.title !== "") {
-        toggle += "  <h3 class='post-title'>" + post.title + "</h3>";
-      }
-      return toggle += "</a>";
-    };
-
-    NewsFeedBuilder.prototype.bottomToggles = function(index) {
-      var toggles;
-      toggles = "<a class='post-toggle post-expand' href='#' data-post-index='" + index + "'>Read More</a>";
-      if (this.configs.uiType !== "full-page") {
-        toggles += "<a class='post-toggle post-collapse' href='#'>Hide This</a>";
-      }
-      return toggles;
-    };
-
-    NewsFeedBuilder.prototype.detailsMarkup = function(post) {
-      var details;
-      if (post.title !== "") {
-        details = "<span class='post-date'>" + post.pretty_date + "</span>";
-      }
-      if (post.author !== "") {
-        details += "<span>|</span><span class='post-author'>by " + post.author + "</span>";
-      }
-      if (post.description !== "") {
-        details += "<div class='post-description'>" + post.description + "</div>";
-      }
-      return details;
-    };
-
-    return NewsFeedBuilder;
+    return NewsLinkBuilder;
 
   })();
 

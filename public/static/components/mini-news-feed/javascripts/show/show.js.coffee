@@ -8,16 +8,16 @@ $ ->
   feedURL = "#{configs.newsServiceDomain}/locations/#{configs.locationURN}/news_feed.json"
   feedSource = new MiniNewsFeedSource(feedURL)
   $(feedSource).bind("feedReady", (event) =>
-    new NewsFeedBuilder(configs, feedSource.feed) )
+    new NewsLinkBuilder(configs, feedSource.feed) )
 
   feedSource.getFeed()
   new MiniNewsFeedWidthChecker()
 
 
-# Build out markup for initial list of posts
+# Build out markup for posts links
 # ******************************************
 
-class NewsFeedBuilder
+class NewsLinkBuilder
   constructor: (@configs, @feed) ->
     @populateFeed()
 
@@ -29,72 +29,16 @@ class NewsFeedBuilder
     markup = []
 
     for post, index in websitePosts
-      markup.push( "<div class='news-feed-post'>
-                      #{@toggleMarkup(post, index)}
-                      #{@detailsMarkup(post)}
-                      <div class='post-body'>#{post.text}</div>
-                      #{@bottomToggles(index)}
-                    </div>" )
+      markup.push( "<a class='news-item-link' href='#{@configs.newsPagePath}?article-index=#{index}' data-post-index='#{index}'>
+                      <img src='#{post.image}' />
+                      <h3 class='post-title'>#{post.title}</h3>
+                      <span class='post-date'>#{post.pretty_date}</span>
+                      <span>|</span>
+                      <span class='post-author'>by #{post.author}</span>
+                      <div class='post-description'>#{post.description}</div>
+                    </a>" )
       
     $('.mini-news-feed-widget').append(markup.join(''))
-
-  toggleMarkup: (post, index) ->
-    toggle  = "<a class='post-toggle' href='#' data-post-index='#{index}'>"
-    toggle += "  <img src='#{post.image}' />" unless post.image == ""
-    toggle += "  <h3 class='post-title'>#{post.title}</h3>" unless post.title == ""
-    toggle += "</a>"
-
-  bottomToggles: (index) ->
-    toggles  = "<a class='post-toggle post-expand' href='#' data-post-index='#{index}'>Read More</a>"
-    toggles += "<a class='post-toggle post-collapse' href='#'>Hide This</a>" if @configs.uiType != "full-page"
-    toggles
-
-  detailsMarkup: (post) ->
-    details  = "<span class='post-date'>#{post.pretty_date}</span>" unless post.title == ""
-    details += "<span>|</span><span class='post-author'>by #{post.author}</span>" unless post.author == ""
-    details += "<div class='post-description'>#{post.description}</div>" unless post.description == ""
-    details
-
-# Build markup for selected item
-# ******************************************
-
-
-# Choose type of listener based on UI type
-# ******************************************
-    
-# class ToggleListener
-#   constructor: (@configs, @feed) ->
-#     @selectedArticle = new QueryParameter("article-index").value()
-    
-#   basicListener: () ->
-#     $('.post-toggle').click ->
-#       $(this).parent().toggleClass("active-post")
-#       false
-
-#   fullViewListener: () ->
-#     that = this
-#     $('.post-toggle').click ->
-#       postIndex = $(this).data("post-index")
-#       that.clearAllPosts()
-#       singleArticleView = new SingleArticleView(postIndex, that.configs, that.feed)
-#       singleArticleView.buildSelectedPost()
-#       false
-
-#   listViewListener: () ->
-#     that = this
-#     $('.all-posts').click ->
-#       that.clearAllPosts()
-#       new NewsFeedBuilder(that.configs, that.feed)
-#       toggleListener = new ToggleListener(that.configs, that.feed)
-#       toggleListener.fullViewListener()
-#       false
-
-#   clearAllPosts: () ->
-#     $(".news-feed-single-post, .news-feed-post").remove()
-
-#     $('html, body').animate({
-#       scrollTop: $("#news-feed-top").offset().top
-#     }, 420)
 
 # Get news feed from service or session storage
 # ******************************************
@@ -148,18 +92,4 @@ class MiniNewsFeedWidthChecker
       container.removeClass("wide").addClass("narrow")
     else
       container.removeClass("narrow").addClass("wide")
-
-# # Find a query param if it exists
-# # ******************************************
-
-# class QueryParameter
-#   constructor: (@param) ->
-
-#   value: () ->
-#     name = @param.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")
-#     regex = new RegExp("[\\?&]#{name}=([^&#]*)")
-#     results = regex.exec(location.search);
-#     if results == null
-#       false
-#     else 
-#       decodeURIComponent(results[1].replace(/\+/g, " "))
+      
