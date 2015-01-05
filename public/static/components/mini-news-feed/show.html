@@ -1,0 +1,13 @@
+<script id="news-feed-config" type="application/json">
+  { "newsServiceDomain": "{{ widget.news_service_domain.value }}",
+    "locationURN":       "{{ widget.location_urn.best_value }}",
+    "numberOfPosts":     "{{ widget.number_of_posts.value }}",
+    "headingText":       "{{ widget.heading_text.value }}",
+    "newsPagePath":      "{{ widget.news_page_path.best_value }}",
+    "backgroundColor":   "{{ widget.background_color.value }}"
+  }
+</script>
+
+<div class="mini-news-feed-widget widget" id="mini-news-feed-widget">
+  <h2 id="news-feed-top">{{ widget.heading_text.value }}</h2>
+</div>
