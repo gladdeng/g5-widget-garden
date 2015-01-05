@@ -13,7 +13,12 @@ A garden of widgets that can be used in client location sites.
 bundle
 ```
 
-2. Install all the required node dependencies.
+2. Set timestamps & symlink git hooks
+```
+rake dev:init
+```
+
+3. Install all the required node dependencies.
 ```bash
 npm install
 ```
