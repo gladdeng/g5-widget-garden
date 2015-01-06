@@ -617,7 +617,7 @@
 }, 
 "public/static/components/mini-news-feed": {
 "mode": 16877, 
-"mtime": 1420498953
+"mtime": 1420558191
 }, 
 "public/static/components/contact-form/edit.html": {
 "mode": 33188, 
@@ -949,7 +949,7 @@
 }, 
 "public/static/components": {
 "mode": 16877, 
-"mtime": 1419905278
+"mtime": 1420558235
 }, 
 "public/static/components/home-multifamily-iui/javascripts/show.js": {
 "mode": 33188, 
@@ -1069,7 +1069,7 @@
 }, 
 "public/static/components/mini-news-feed/show.html": {
 "mode": 33188, 
-"mtime": 1420498763
+"mtime": 1420558191
 }, 
 "public/static/components/map/show.html": {
 "mode": 33188, 
@@ -1677,7 +1677,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1420498982
+"mtime": 1420558060
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
