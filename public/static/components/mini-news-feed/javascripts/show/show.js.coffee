@@ -38,6 +38,12 @@ class NewsLinkBuilder
                         Read More<span class='nav-bling'> ></span>
                       </a>
                     </div>" )
+
+    markup.push(" <div class='all-news'>
+                    <a class='all-news-link' href='#{@configs.newsPagePath}'>
+                      See More News<span class='nav-bling'> ></span>
+                    </a>
+                  </div> ")
       
     $('.mini-news-feed-widget').append(markup.join(''))
 

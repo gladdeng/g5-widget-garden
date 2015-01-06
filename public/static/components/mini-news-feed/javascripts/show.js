@@ -33,6 +33,7 @@
         post = websitePosts[index];
         markup.push("<div class='news-item-preview'>                      <img src='" + post.image + "' />                      <h3 class='post-title'>" + post.title + "</h3>                      " + (this.postDetails(post)) + "                      <div class='post-description'>" + post.description + "</div>                      <a class='news-item-link' href='" + this.configs.newsPagePath + "?article-index=" + index + "' data-post-index='" + index + "'>                        Read More<span class='nav-bling'> ></span>                      </a>                    </div>");
       }
+      markup.push(" <div class='all-news'>                    <a class='all-news-link' href='" + this.configs.newsPagePath + "'>                      See More News<span class='nav-bling'> ></span>                    </a>                  </div> ");
       return $('.mini-news-feed-widget').append(markup.join(''));
     };
 
