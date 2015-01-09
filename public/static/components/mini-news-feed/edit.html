@@ -53,6 +53,9 @@
       />
     </div>
 
+
+
+<!-- 
     <div class="form-field">
       {{ widget.news_page_path.id_hidden_field }}
       <label for="{{ widget.news_page_path.value_field_id }}">
@@ -64,7 +67,22 @@
         name="{{ widget.news_page_path.value_field_name }}"
         value="{{ widget.news_page_path.value }}"
       />
+    </div> -->
+
+    <div class="form-field">
+      {{ widget.news_page_path.id_hidden_field }}
+      <select id="{{ widget.news_page_path.value_field_id }}" name="{{ widget.news_page_path.value_field_name }}">
+        {% for web_page in widget.navigation.value %}
+          <option value="{{ web_page[1].url | url_encode }}"
+            {% if widget.news_page_path.value == web_page[1].url %}
+              selected
+            {% endif %} >{{ web_page[1].name }}</option>
+        {% endfor %}
+      </select>
     </div>
+
+
+
 
     <div class="form-field">
       {{ widget.background_color.id_hidden_field }}

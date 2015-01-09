@@ -109,7 +109,7 @@ module G5ComponentGarden
       begin
         Time.zone.at(META[directory]['mtime'])
       rescue
-        10.minutes.ago
+        30.seconds.ago
       end
     end
 
