@@ -18,7 +18,7 @@ class ssUnitMarkupBuilder
       markupHash.push(@buttonTemplate(category, @configs))
 
     allButton = " <div class='iui-size iui-view-all'>
-                    <a class='btn' href='#{configs.unit_page_url_2}/#/size'>
+                    <a class='btn' href='#{configs.unit_page_url}/#/size'>
                       View All
                     </a>
                   </div> "
@@ -28,4 +28,4 @@ class ssUnitMarkupBuilder
     $('.ss-featured-unit-categories .iui-container').html(markupHash.join(''))
 
   buttonTemplate: (category, configs) ->
-    "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url_2}/#/options?categoryId=#{category.id}'>#{category.name}</a></div>"
+    "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url}/#/options?categoryId=#{category.id}'>#{category.name}</a></div>"
