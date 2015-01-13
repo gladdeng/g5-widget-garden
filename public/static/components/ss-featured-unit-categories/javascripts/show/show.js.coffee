@@ -29,9 +29,3 @@ class ssUnitMarkupBuilder
 
   buttonTemplate: (category, configs) ->
     "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url_2}/#/options?categoryId=#{category.id}'>#{category.name}</a></div>"
-
-  #unitPageUrl: ->
-    #if @configs.unit_page_url.indexOf('http') != -1
-      #return @configs.unit_page_url
-    #else
-      #return "#{document.location.href}/#{@configs.unit_page_url}"
