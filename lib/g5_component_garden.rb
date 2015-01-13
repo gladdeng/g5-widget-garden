@@ -106,6 +106,7 @@ module G5ComponentGarden
     end
 
     def get_directory_timestamp(directory)
+      return 5.seconds.ago if Rails.env.development?
       Time.zone.at(META[directory]['mtime'])
     end
 
