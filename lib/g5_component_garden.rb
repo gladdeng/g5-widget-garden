@@ -106,11 +106,8 @@ module G5ComponentGarden
     end
 
     def get_directory_timestamp(directory)
-      begin
-        Time.zone.at(META[directory]['mtime'])
-      rescue
-        30.seconds.ago
-      end
+      return 5.seconds.ago if ENV['FORCE_WIDGET_UPDATES']
+      Time.zone.at(META[directory]['mtime'])
     end
 
     def merge_edit_and_show_markup(directory)
