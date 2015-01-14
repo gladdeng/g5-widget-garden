@@ -9,7 +9,7 @@
     }
   </script>
 
-  {% if widget.primary_color.value || widget.border_color.value || widget.secondary_color.value != blank %}
+  {% if widget.primary_color.value != blank or widget.border_color.value != blank or widget.secondary_color.value != blank %}
     <style>
       {% if widget.primary_color.value != blank %}
         /* Button BG Color color customizations */
