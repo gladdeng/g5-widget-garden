@@ -112,7 +112,7 @@ setUpContactInfoSheet = ->
 
   $(window).smartresize ->
 
-    if Modernizr.mq("(min-width: 668px)")
+    if $(window).width() >= 668
 
       # If switching from mobile view to larger view, initialize widget
       if ($('.contact-info-sheet').first().hasClass('mobile'))

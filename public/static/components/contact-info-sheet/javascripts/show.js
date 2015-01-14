@@ -122,7 +122,7 @@
       setupMobileContactInfoSheet();
     }
     return $(window).smartresize(function() {
-      if (Modernizr.mq("(min-width: 668px)")) {
+      if ($(window).width() >= 668) {
         if ($('.contact-info-sheet').first().hasClass('mobile')) {
           $('.contact-info-sheet').first().removeClass('mobile');
           return initializeContactInfoSheet();
