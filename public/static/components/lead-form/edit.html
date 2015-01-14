@@ -55,16 +55,32 @@
         Tour
       </option>
 
-      <option value="inquiry" {% if widget.form_type.value == "inquiry" %}selected{% endif %}>
+      <option value="YardiVoyagerSeniorHousingInquiryStrategy" {% if widget.form_type.value == "YardiVoyagerSeniorHousingInquiryStrategy" %}selected{% endif %}>
         YVSL Inquiry
       </option>
 
-      <option value="tour_request" {% if widget.form_type.value == "tour_request" %}selected{% endif %}>
+      <option value="YardiVoyagerSeniorHousingTourRequestStrategy" {% if widget.form_type.value == "YardiVoyagerSeniorHousingTourRequestStrategy" %}selected{% endif %}>
         YVSL Tour Request
       </option>
 
-      <option value="contact_us" {% if widget.form_type.value == "contact_us" %}selected{% endif %}>
+      <option value="YardiVoyagerSeniorHousingContactUsStrategy" {% if widget.form_type.value == "YardiVoyagerSeniorHousingContactUsStrategy" %}selected{% endif %}>
         YVSL Contact Us
+      </option>
+
+      <option value="YardiVoyagerContactUsStrategy" {% if widget.form_type.value == "YardiVoyagerContactUsStrategy" %}selected{% endif %}>
+        Yardi Voyager Contact Us
+      </option>
+
+      <option value="YardiVoyagerReservationStrategy" {% if widget.form_type.value == "YardiVoyagerReservationStrategy" %}selected{% endif %}>
+        Yardi Voyager Reservation
+      </option>
+
+      <option value="YardiVoyagerTourRequestStrategy" {% if widget.form_type.value == "YardiVoyagerTourRequestStrategy" %}selected{% endif %}>
+        Yardi Voyager Tour Request
+      </option>
+
+      <option value="YardiVoyagerApplicationStrategy" {% if widget.form_type.value == "YardiVoyagerApplicationStrategy" %}selected{% endif %}>
+        Yardi Voyager Application
       </option>
     </select>
   </div>
