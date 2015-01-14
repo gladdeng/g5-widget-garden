@@ -9,20 +9,22 @@
     }
   </script>
 
-  <style>
-    {% if widget.primary_color.value != blank %}
-      /* Button BG Color color customizations */
-      .walkscore-listing{ background:{{widget.primary_color.value}}; }
-    {% endif %}
-    {% if widget.border_color.value != blank %}
-      /* Border Color color customizations */
-      .walkscore-listing{ border: 1px solid {{widget.border_color.value}}; }
-    {% endif %}
-    {% if widget.secondary_color.value != blank %}
-      /* Secondary  color customizations */
-      .walkscore-listing a span{ color:{{widget.secondary_color.value}}; }
-    {% endif %}
-  </style>
+  {% if widget.primary_color.value || widget.border_color.value || widget.secondary_color.value != blank %}
+    <style>
+      {% if widget.primary_color.value != blank %}
+        /* Button BG Color color customizations */
+        .walkscore-listing{ background:{{widget.primary_color.value}}; }
+      {% endif %}
+      {% if widget.border_color.value != blank %}
+        /* Border Color color customizations */
+        .walkscore-listing{ border: 1px solid {{widget.border_color.value}}; }
+      {% endif %}
+      {% if widget.secondary_color.value != blank %}
+        /* Secondary  color customizations */
+        .walkscore-listing a span{ color:{{widget.secondary_color.value}}; }
+      {% endif %}
+    </style>
+  {% endif %}
 
   <div class="walkscore-listing {% if widget.primary_color.value != blank %}btn{% endif %}">
   </div>
