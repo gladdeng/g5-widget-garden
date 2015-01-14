@@ -37,6 +37,18 @@
         />
       </div>
       <div class="form-field">
+        {{ widget.border_color.id_hidden_field }}
+        <label for="{{ widget.border_color.value_field_id }}">
+          Walkscore Text Color
+        </label>
+        <input type="text"
+          placeholder="#eeeeee"
+          id="{{ widget.border_color.value_field_id }}"
+          name="{{ widget.border_color.value_field_name }}"
+          value="{{ widget.border_color.value }}"
+        />
+      </div>
+      <div class="form-field">
         {{ widget.secondary_color.id_hidden_field }}
         <label for="{{ widget.secondary_color.value_field_id }}">
           Walkscore Text Color
