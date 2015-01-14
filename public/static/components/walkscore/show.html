@@ -2,9 +2,27 @@
   <script id="walkscore-config" type="application/javascript">
     var walkFeedVarsConfig = {
       "walkscore_client": "{{ widget.walkscore_client.value }}",
-      "walkscore_location": "{{ widget.walkscore_location.value }}"
+      "walkscore_location": "{{ widget.walkscore_location.value }}",
+      "primary_color": "{{ widget.primary_color.value }}",
+      "border_color": "{{ widget.border_color.value }}",
+      "secondary_color": "{{ widget.secondary_color.value }}"
     }
   </script>
+
+  <style>
+    {% if widget.primary_color.value != blank %}
+      /* Button BG Color color customizations */
+      .walkscore-listing{ background:{{widget.primary_color.value}}; }
+    {% endif %}
+    {% if widget.border_color.value != blank %}
+      /* Border Color color customizations */
+      .walkscore-listing{ border: 1px solid {{widget.border_color.value}}; }
+    {% endif %}
+    {% if widget.secondary_color.value != blank %}
+      /* Secondary  color customizations */
+      .walkscore-listing{ color:{{widget.secondary_color.value}}; }
+    {% endif %}
+  </style>
 
   <div class="walkscore-listing">
   </div>

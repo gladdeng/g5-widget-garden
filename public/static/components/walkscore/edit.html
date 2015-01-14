@@ -24,5 +24,30 @@
     />
   </div>
 
+  <div class="form-field">
+        {{ widget.primary_color.id_hidden_field }}
+        <label for="{{ widget.primary_color.value_field_id }}">
+          Walkscore BG Color
+        </label>
+        <input type="text"
+          placeholder="#ffffff"
+          id="{{ widget.primary_color.value_field_id }}"
+          name="{{ widget.primary_color.value_field_name }}"
+          value="{{ widget.primary_color.value }}"
+        />
+      </div>
+      <div class="form-field">
+        {{ widget.secondary_color.id_hidden_field }}
+        <label for="{{ widget.secondary_color.value_field_id }}">
+          Walkscore Text Color
+        </label>
+        <input type="text"
+          placeholder="#000000"
+          id="{{ widget.secondary_color.value_field_id }}"
+          name="{{ widget.secondary_color.value_field_name }}"
+          value="{{ widget.secondary_color.value }}"
+        />
+      </div>
+
   <input type="submit" value="Save" />
 </form>

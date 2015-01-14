@@ -1,3 +1,24 @@
+.walkscore-listing{
+  padding: 6px 12px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.walkscore-listing a{
+  display:block;
+  opacity: .9;
+}
+
+.walkscore-listing a:hover{
+  display:block;
+  opacity: 1;
+  -webkit-transition: all 500ms ease-out 1s;
+  -moz-transition: all 500ms ease-out 1s;
+  -o-transition: all 500ms ease-out 1s;
+  transition: all 500ms ease-out 1s;
+}
+
 .walkscore-listing a img{
   vertical-align: baseline;
 }
