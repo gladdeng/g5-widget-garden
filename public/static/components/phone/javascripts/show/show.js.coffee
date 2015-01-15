@@ -6,3 +6,4 @@ $ ->
 
   if phoneOptions.appendPhone == "true"
     # go stick the phone number in other places, too
+    gigity = "goo"
