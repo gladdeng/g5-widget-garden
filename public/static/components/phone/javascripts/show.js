@@ -1,13 +1,12 @@
 (function() {
   $(function() {
-    var gigity, phoneOptions;
+    var phoneMarkup, phoneOptions;
     phoneOptions = JSON.parse($('.phone .config:first').html());
-    if (phoneOptions.displayPhone === "true") {
-      new phoneNumber(phoneOptions);
+    if (phoneOptions.appendPhone === 'true') {
+      phoneMarkup = " <a href='tel://" + phoneOptions.defaultPhoneNumber + "' class='appended-phone number h-card vcard' itemscope itemtype='http://schema.org/LocalBusiness' >                      <span style='visibility:hidden;' class='p-tel tel' itemprop='telephone'>" + phoneOptions.defaultPhoneNumber + "</span>                    </a> ";
+      $(phoneMarkup).insertAfter("" + phoneOptions.appendElements);
     }
-    if (phoneOptions.appendPhone === "true") {
-      return gigity = "goo";
-    }
+    return new phoneNumber(phoneOptions);
   });
 
 }).call(this);
