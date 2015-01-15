@@ -53,5 +53,37 @@
     </label>
   </div>
 
+  <div class="form-field check-field">
+    {{ widget.append_phone.id_hidden_field }}
+    <input type="hidden"
+      id="{{ widget.append_phone.value_field_id }}_false"
+      name="{{ widget.append_phone.value_field_name }}"
+      value="false"
+    />
+    <input type="checkbox"
+      id="{{ widget.append_phone.value_field_id }}"
+      name="{{ widget.append_phone.value_field_name }}"
+      value="true"
+      {% if widget.append_phone.value == "true" %}
+      checked="checked"
+      {% endif %}
+    />
+    <label for="{{ widget.append_phone.value_field_id }}" >
+      Append Phone Number to Other Elements
+    </label>
+  </div>
+
+  <div class="form-field">
+    {{ widget.append_elements.id_hidden_field }}
+    <label for="{{ widget.append_elements.value_field_id }}" >
+      Other Phone Elements
+    </label>
+    <input type="text"
+      id="{{ widget.append_elements.value_field_id }}"
+      name="{{ widget.append_elements.value_field_name }}"
+      value="{{ widget.append_elements.value }}"
+    />
+  </div>
+
   <input type="submit" value="Save" class="btn" />
 </form>
