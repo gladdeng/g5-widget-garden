@@ -78,6 +78,26 @@
       />
     </div>
 
+    <div class="form-field check-field">
+      {{ widget.display_photos.id_hidden_field }}
+      <input type="hidden"
+        id="{{ widget.display_photos.value_field_id }}_false"
+        name="{{ widget.display_photos.value_field_name }}"
+        value="false"
+      />
+      <input type="checkbox"
+        id="{{ widget.display_photos.value_field_id }}"
+        name="{{ widget.display_photos.value_field_name }}"
+        value="true"
+        {% if widget.display_photos.value == "true" %}
+        checked="checked"
+        {% endif %}
+      />
+      <label for="{{ widget.display_photos.value_field_id }}" >
+        Display Photos
+      </label>
+    </div>
+
     <!-- 
     <div class="form-field">
       {{ widget.XXXXXX.id_hidden_field }}
