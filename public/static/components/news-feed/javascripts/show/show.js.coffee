@@ -86,7 +86,8 @@ class SingleArticleView
     post = @feed[@postIndex]
     postMarkup = "<div class='news-feed-single-post'>
                     <!-- <p class='all-posts-top'><a href='#' class='all-posts'><span>Back to all news</span></a></p> -->
-                    <img src='#{post.image}' />
+                    
+                    #{@imageMarkup(post)}
                     <h3 class='post-title'>#{post.title}</h3>
                     <span class='post-date'>#{post.pretty_date}</span>
                     <span>|</span><span class='post-author'>by #{post.author}</span>
@@ -117,6 +118,12 @@ class SingleArticleView
             <div class='post-author'>by #{@feed[linkIndex].author}</div>
           </div>
         </a>"
+    else
+      ""
+
+  imageMarkup: (post) ->
+    if post.image != ""
+      "<img src='#{post.image}' />"
     else
       ""
 
