@@ -89,7 +89,7 @@
         id="{{ widget.display_photos.value_field_id }}"
         name="{{ widget.display_photos.value_field_name }}"
         value="true"
-        {% if widget.display_photos.value == "true" %}
+        {% if widget.display_photos.best_value == "true" %}
         checked="checked"
         {% endif %}
       />
@@ -107,7 +107,7 @@
         placeholder="Used only when an article's image is empty"
         id="{{ widget.default_image.value_field_id }}"
         name="{{ widget.default_image.value_field_name }}"
-        value="{{ widget.default_image.value }}"
+        value="{{ widget.default_image.best_value }}"
       />
     </div>
 
