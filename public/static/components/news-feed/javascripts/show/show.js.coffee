@@ -88,7 +88,7 @@ class SingleArticleView
                     #{@imageMarkup(post)}
                     <h3 class='post-title'>#{post.title}</h3>
                     <span class='post-date'>#{post.pretty_date}</span>
-                    <span>|</span><span class='post-author'>by #{post.author}</span>
+                    #{@authorMarkup(post)}
                     <div class='post-body'>#{post.text}</div>
                     <div class='posts-nav'>
                       #{@previousButton()}
@@ -122,6 +122,12 @@ class SingleArticleView
   imageMarkup: (post) ->
     if post.image != ""
       "<img src='#{post.image}' />"
+    else
+      ""
+
+  authorMarkup: (post) ->
+    if post.author != ""
+      "<span>|</span><span class='post-author'>by #{post.author}</span>"
     else
       ""
 

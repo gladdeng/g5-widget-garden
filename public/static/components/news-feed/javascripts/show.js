@@ -109,7 +109,7 @@
     SingleArticleView.prototype.buildSelectedPost = function() {
       var post, postMarkup, toggleListener;
       post = this.feed[this.postIndex];
-      postMarkup = "<div class='news-feed-single-post'>                    " + (this.imageMarkup(post)) + "                    <h3 class='post-title'>" + post.title + "</h3>                    <span class='post-date'>" + post.pretty_date + "</span>                    <span>|</span><span class='post-author'>by " + post.author + "</span>                    <div class='post-body'>" + post.text + "</div>                    <div class='posts-nav'>                      " + (this.previousButton()) + "                      <a href='#' class='all-posts'>See More News<span class='nav-bling'> ></span></a>                      " + (this.nextButton()) + "                    </div>                  </div>";
+      postMarkup = "<div class='news-feed-single-post'>                    " + (this.imageMarkup(post)) + "                    <h3 class='post-title'>" + post.title + "</h3>                    <span class='post-date'>" + post.pretty_date + "</span>                    " + (this.authorMarkup(post)) + "                    <div class='post-body'>" + post.text + "</div>                    <div class='posts-nav'>                      " + (this.previousButton()) + "                      <a href='#' class='all-posts'>See More News<span class='nav-bling'> ></span></a>                      " + (this.nextButton()) + "                    </div>                  </div>";
       $('.news-feed-widget').append(postMarkup);
       toggleListener = new ToggleListener(this.configs, this.feed);
       toggleListener.fullViewListener();
@@ -129,6 +129,14 @@
     SingleArticleView.prototype.imageMarkup = function(post) {
       if (post.image !== "") {
         return "<img src='" + post.image + "' />";
+      } else {
+        return "";
+      }
+    };
+
+    SingleArticleView.prototype.authorMarkup = function(post) {
+      if (post.author !== "") {
+        return "<span>|</span><span class='post-author'>by " + post.author + "</span>";
       } else {
         return "";
       }
