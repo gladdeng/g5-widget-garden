@@ -30,7 +30,7 @@ class NewsLinkBuilder
 
     for post, index in websitePosts
       markup.push( "<div class='news-item-preview'>
-                      <img src='#{post.image}' />
+                      #{@imageMarkup(post)}
                       <h3 class='post-title'>#{post.title}</h3>
                       #{@postDetails(post)}
                       <div class='post-description'>#{post.description}</div>
@@ -52,7 +52,17 @@ class NewsLinkBuilder
     markup += "<span class='post-date'>#{post.pretty_date}</span>"
     markup += "<span class='divider'> | </span><span class='post-author'>by #{post.author}</span>" unless post.author == ""
     markup += "</div>"
-                        
+
+  imageMarkup: (post) ->
+    markup = ""
+    if @configs.displayPhotos == "true"
+      image = post.image
+      image = @configs.defaultImage if image == ""
+      imageElement = "<img src='#{image}' />" if image != ""
+      markup = "<div class='post-image-wrapper'><div>#{imageElement}</div></div>" if imageElement
+    
+    markup
+                 
 # Get news feed from service or session storage
 # ******************************************
 

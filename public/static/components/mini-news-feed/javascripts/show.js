@@ -31,7 +31,7 @@
       markup = [];
       for (index = _i = 0, _len = websitePosts.length; _i < _len; index = ++_i) {
         post = websitePosts[index];
-        markup.push("<div class='news-item-preview'>                      <img src='" + post.image + "' />                      <h3 class='post-title'>" + post.title + "</h3>                      " + (this.postDetails(post)) + "                      <div class='post-description'>" + post.description + "</div>                      <a class='news-item-link' href='" + this.configs.newsPagePath + "?article-index=" + index + "' data-post-index='" + index + "'>                        Read More<span class='nav-bling'> ></span>                      </a>                    </div>");
+        markup.push("<div class='news-item-preview'>                      " + (this.imageMarkup(post)) + "                      <h3 class='post-title'>" + post.title + "</h3>                      " + (this.postDetails(post)) + "                      <div class='post-description'>" + post.description + "</div>                      <a class='news-item-link' href='" + this.configs.newsPagePath + "?article-index=" + index + "' data-post-index='" + index + "'>                        Read More<span class='nav-bling'> ></span>                      </a>                    </div>");
       }
       markup.push(" <div class='all-news'>                    <a class='all-news-link' href='" + this.configs.newsPagePath + "'>                      See More News<span class='nav-bling'> ></span>                    </a>                  </div> ");
       return $('.mini-news-feed-widget').append(markup.join(''));
@@ -45,6 +45,24 @@
         markup += "<span class='divider'> | </span><span class='post-author'>by " + post.author + "</span>";
       }
       return markup += "</div>";
+    };
+
+    NewsLinkBuilder.prototype.imageMarkup = function(post) {
+      var image, imageElement, markup;
+      markup = "";
+      if (this.configs.displayPhotos === "true") {
+        image = post.image;
+        if (image === "") {
+          image = this.configs.defaultImage;
+        }
+        if (image !== "") {
+          imageElement = "<img src='" + image + "' />";
+        }
+        if (imageElement) {
+          markup = "<div class='post-image-wrapper'><div>" + imageElement + "</div></div>";
+        }
+      }
+      return markup;
     };
 
     return NewsLinkBuilder;
