@@ -85,8 +85,6 @@ class SingleArticleView
   buildSelectedPost: () ->
     post = @feed[@postIndex]
     postMarkup = "<div class='news-feed-single-post'>
-                    <!-- <p class='all-posts-top'><a href='#' class='all-posts'><span>Back to all news</span></a></p> -->
-                    
                     #{@imageMarkup(post)}
                     <h3 class='post-title'>#{post.title}</h3>
                     <span class='post-date'>#{post.pretty_date}</span>
