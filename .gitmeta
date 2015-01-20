@@ -617,7 +617,7 @@
 }, 
 "public/static/components/mini-news-feed": {
 "mode": 16877, 
-"mtime": 1421771144
+"mtime": 1421771431
 }, 
 "public/static/components/contact-form/edit.html": {
 "mode": 33188, 
@@ -1501,7 +1501,7 @@
 }, 
 "public/static/components/mini-news-feed/edit.html": {
 "mode": 33188, 
-"mtime": 1421770986
+"mtime": 1421771431
 }, 
 "public/static/components/mini-news-feed/javascripts": {
 "mode": 16877, 
@@ -1677,7 +1677,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1421770759
+"mtime": 1421771166
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
@@ -1721,7 +1721,7 @@
 }, 
 "public/static/components/mini-news-feed/index.html": {
 "mode": 33188, 
-"mtime": 1421771092
+"mtime": 1421771341
 }, 
 "public/static/components/request-info-form/images/thumbnail.png": {
 "mode": 33188, 
