@@ -21,7 +21,7 @@
 }, 
 "public/static/components/news-feed": {
 "mode": 16877, 
-"mtime": 1421766456
+"mtime": 1421855019
 }, 
 "public/static/components/phone/images": {
 "mode": 16877, 
@@ -265,7 +265,7 @@
 }, 
 "public/static/components/news-feed/index.html": {
 "mode": 33188, 
-"mtime": 1421766456
+"mtime": 1421854947
 }, 
 "public/static/components/featured-properties/edit.html": {
 "mode": 33188, 
@@ -845,7 +845,7 @@
 }, 
 "public/static/components/news-feed/show.html": {
 "mode": 33188, 
-"mtime": 1421766456
+"mtime": 1421854967
 }, 
 "public/static/components/city-state-zip-search/javascripts/show.js": {
 "mode": 33188, 
@@ -1677,7 +1677,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1421794688
+"mtime": 1421794966
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
@@ -2057,7 +2057,7 @@
 }, 
 "public/static/components/news-feed/edit.html": {
 "mode": 33188, 
-"mtime": 1421766456
+"mtime": 1421855019
 }, 
 "public/static/components/review-form": {
 "mode": 16877, 
