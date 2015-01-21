@@ -66,15 +66,29 @@
   border-top:1px solid #888;
 }
 
-.posts-nav img{
+/*.posts-nav img{
   height:100px;
   margin:10px 0;
+}*/
+
+.news-feed-widget .post-image-wrapper {
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  position: relative;
+  overflow: hidden;
+}
+
+.news-feed-widget .post-image-wrapper > div {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  text-align: center;
 }
 
 .posts-nav .post-toggle{
   display:inline-block;
-  width:49%;
+  width:45%;
   vertical-align:top;
+  margin:0 2%;
 }
 .posts-nav .all-posts{
   display:block;
