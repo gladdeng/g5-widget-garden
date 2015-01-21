@@ -56,8 +56,6 @@
 
 .active-post .post-collapse{ display:block; }
 
-
-
 .posts-nav{
   position:relative;
   width:100%;
@@ -65,11 +63,6 @@
   text-align:center;
   border-top:1px solid #888;
 }
-
-/*.posts-nav img{
-  height:100px;
-  margin:10px 0;
-}*/
 
 .news-feed-widget .post-image-wrapper {
   width: 100%;
