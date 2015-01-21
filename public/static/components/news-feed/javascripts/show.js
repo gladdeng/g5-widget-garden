@@ -120,7 +120,7 @@
       var linkIndex;
       if (this.postIndex < this.feed.length - 1) {
         linkIndex = this.postIndex + 1;
-        return " <a href='#' data-post-index='" + linkIndex + "' class='post-toggle next-post'>          <span>Next</span>          <span class='nav-bling'> ></span>          <div>            <img src='" + this.feed[linkIndex].image + "' />            <div class='post-title'>" + this.feed[linkIndex].title + "</div>            <div class='post-date'>" + this.feed[linkIndex].pretty_date + "</div>            <div class='post-author'>by " + this.feed[linkIndex].author + "</div>          </div>        </a>";
+        return " <a href='#' data-post-index='" + linkIndex + "' class='post-toggle next-post'>          <span>Next</span>          <span class='nav-bling'> ></span>          <div>            " + (this.navImageMarkup(this.feed[linkIndex])) + "            <div class='post-title'>" + this.feed[linkIndex].title + "</div>            <div class='post-date'>" + this.feed[linkIndex].pretty_date + "</div>            <div class='post-author'>by " + this.feed[linkIndex].author + "</div>          </div>        </a>";
       } else {
         return "";
       }
@@ -146,10 +146,28 @@
       var linkIndex;
       if (this.postIndex > 0) {
         linkIndex = this.postIndex - 1;
-        return " <a href='#' data-post-index='" + linkIndex + "' class='post-toggle previous-post'>          <span class='nav-bling'>< </span>          <span>Previous</span>          <div>            <img src='" + this.feed[linkIndex].image + "' />            <div class='post-title'>" + this.feed[linkIndex].title + "</div>            <div class='post-date'>" + this.feed[linkIndex].pretty_date + "</div>            <div class='post-author'>by " + this.feed[linkIndex].author + "</div>          </div>        </a>";
+        return " <a href='#' data-post-index='" + linkIndex + "' class='post-toggle previous-post'>          <span class='nav-bling'>< </span>          <span>Previous</span>          <div>            " + (this.navImageMarkup(this.feed[linkIndex])) + "            <div class='post-title'>" + this.feed[linkIndex].title + "</div>            <div class='post-date'>" + this.feed[linkIndex].pretty_date + "</div>            <div class='post-author'>by " + this.feed[linkIndex].author + "</div>          </div>        </a>";
       } else {
         return "";
       }
+    };
+
+    SingleArticleView.prototype.navImageMarkup = function(post) {
+      var image, imageElement, markup;
+      markup = "";
+      if (this.configs.displayPhotos === "true") {
+        image = post.image;
+        if (image === "") {
+          image = this.configs.defaultImage;
+        }
+        if (image !== "") {
+          imageElement = "<img src='" + image + "' />";
+        }
+        if (imageElement) {
+          markup = "<div class='post-image-wrapper'><div>" + imageElement + "</div></div>";
+        }
+      }
+      return markup;
     };
 
     return SingleArticleView;

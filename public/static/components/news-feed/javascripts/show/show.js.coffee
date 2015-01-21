@@ -110,7 +110,7 @@ class SingleArticleView
           <span>Next</span>
           <span class='nav-bling'> ></span>
           <div>
-            <img src='#{@feed[linkIndex].image}' />
+            #{@navImageMarkup(@feed[linkIndex])}
             <div class='post-title'>#{@feed[linkIndex].title}</div>
             <div class='post-date'>#{@feed[linkIndex].pretty_date}</div>
             <div class='post-author'>by #{@feed[linkIndex].author}</div>
@@ -138,7 +138,7 @@ class SingleArticleView
           <span class='nav-bling'>< </span>
           <span>Previous</span>
           <div>
-            <img src='#{@feed[linkIndex].image}' />
+            #{@navImageMarkup(@feed[linkIndex])}
             <div class='post-title'>#{@feed[linkIndex].title}</div>
             <div class='post-date'>#{@feed[linkIndex].pretty_date}</div>
             <div class='post-author'>by #{@feed[linkIndex].author}</div>
@@ -146,6 +146,16 @@ class SingleArticleView
         </a>"
     else
       ""
+  navImageMarkup: (post) ->
+    markup = ""
+    if @configs.displayPhotos == "true"
+      image = post.image
+      image = @configs.defaultImage if image == ""
+      imageElement = "<img src='#{image}' />" if image != ""
+      markup = "<div class='post-image-wrapper'><div>#{imageElement}</div></div>" if imageElement
+    
+    markup
+
 
 # Choose type of listener based on UI type
 # ******************************************
