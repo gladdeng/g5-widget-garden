@@ -54,7 +54,7 @@ class NewsFeedBuilder
 
   toggleMarkup: (post, index) ->
     toggle  = "<a class='post-toggle' href='#' data-post-index='#{index}'>"
-    toggle += "  <img src='#{post.image}' />" unless post.image == ""
+    toggle += "  <img src='#{post.image}' />" unless post.image == "" || @configs.displayPhotos != "true"
     toggle += "  <h3 class='post-title'>#{post.title}</h3>" unless post.title == ""
     toggle += "</a>"
 
@@ -122,7 +122,7 @@ class SingleArticleView
       ""
 
   imageMarkup: (post) ->
-    if post.image != ""
+    if @configs.displayPhotos == "true" && post.image != ""
       "<img src='#{post.image}' />"
     else
       ""

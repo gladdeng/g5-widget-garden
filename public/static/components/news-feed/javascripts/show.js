@@ -52,7 +52,7 @@
     NewsFeedBuilder.prototype.toggleMarkup = function(post, index) {
       var toggle;
       toggle = "<a class='post-toggle' href='#' data-post-index='" + index + "'>";
-      if (post.image !== "") {
+      if (!(post.image === "" || this.configs.displayPhotos !== "true")) {
         toggle += "  <img src='" + post.image + "' />";
       }
       if (post.title !== "") {
@@ -127,7 +127,7 @@
     };
 
     SingleArticleView.prototype.imageMarkup = function(post) {
-      if (post.image !== "") {
+      if (this.configs.displayPhotos === "true" && post.image !== "") {
         return "<img src='" + post.image + "' />";
       } else {
         return "";
