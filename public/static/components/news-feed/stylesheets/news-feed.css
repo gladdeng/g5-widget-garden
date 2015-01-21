@@ -76,6 +76,8 @@
   padding-bottom: 56.25%; /* 16:9 */
   position: relative;
   overflow: hidden;
+  border: 1px solid #888;
+  border-top: none;
 }
 
 .news-feed-widget .post-image-wrapper > div {
@@ -90,6 +92,11 @@
   vertical-align:top;
   margin:0 2%;
 }
+
+.posts-nav .post-nav-top{ border:1px solid #888; padding:5px 10px;}
+.posts-nav .previous-post .post-nav-top{ text-align: left; }
+.posts-nav .next-post .post-nav-top{ text-align: right; }
+
 .posts-nav .all-posts{
   display:block;
   position:absolute;
@@ -104,6 +111,7 @@
 }
 
 .posts-nav .author-divider{ display:none; }
+.posts-nav .post-title{ margin-top:10px;}
 
 .news-feed-widget.narrow .posts-nav .all-posts{
   width:60%;

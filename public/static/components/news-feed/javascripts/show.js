@@ -120,7 +120,7 @@
       var linkIndex;
       if (this.postIndex < this.feed.length - 1) {
         linkIndex = this.postIndex + 1;
-        return " <a href='#' data-post-index='" + linkIndex + "' class='post-toggle next-post'>          <span>Next</span>          <span class='nav-bling'> ></span>          <div>            " + (this.navImageMarkup(this.feed[linkIndex])) + "            <div class='post-title'>" + this.feed[linkIndex].title + "</div>            <div class='post-date'>" + this.feed[linkIndex].pretty_date + "</div>            " + (this.authorMarkup(this.feed[linkIndex])) + "          </div>        </a>";
+        return " <a href='#' data-post-index='" + linkIndex + "' class='post-toggle next-post'>          <div class='post-nav-top'>            <span>Next</span>            <span class='nav-bling'> ></span>          </div>          <div>            " + (this.navImageMarkup(this.feed[linkIndex])) + "            <div class='post-title'>" + this.feed[linkIndex].title + "</div>            <div class='post-date'>" + this.feed[linkIndex].pretty_date + "</div>            " + (this.authorMarkup(this.feed[linkIndex])) + "          </div>        </a>";
       } else {
         return "";
       }
@@ -146,7 +146,7 @@
       var linkIndex;
       if (this.postIndex > 0) {
         linkIndex = this.postIndex - 1;
-        return " <a href='#' data-post-index='" + linkIndex + "' class='post-toggle previous-post'>          <span class='nav-bling'>< </span>          <span>Previous</span>          <div>            " + (this.navImageMarkup(this.feed[linkIndex])) + "            <div class='post-title'>" + this.feed[linkIndex].title + "</div>            <div class='post-date'>" + this.feed[linkIndex].pretty_date + "</div>            " + (this.authorMarkup(this.feed[linkIndex])) + "          </div>        </a>";
+        return " <a href='#' data-post-index='" + linkIndex + "' class='post-toggle previous-post'>          <div class='post-nav-top'>            <span class='nav-bling'>< </span>            <span>Previous</span>          </div>          <div>            " + (this.navImageMarkup(this.feed[linkIndex])) + "            <div class='post-title'>" + this.feed[linkIndex].title + "</div>            <div class='post-date'>" + this.feed[linkIndex].pretty_date + "</div>            " + (this.authorMarkup(this.feed[linkIndex])) + "          </div>        </a>";
       } else {
         return "";
       }
