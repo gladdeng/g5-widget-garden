@@ -113,7 +113,7 @@ class SingleArticleView
             #{@navImageMarkup(@feed[linkIndex])}
             <div class='post-title'>#{@feed[linkIndex].title}</div>
             <div class='post-date'>#{@feed[linkIndex].pretty_date}</div>
-            <div class='post-author'>by #{@feed[linkIndex].author}</div>
+            #{@authorMarkup(@feed[linkIndex])}
           </div>
         </a>"
     else
@@ -127,7 +127,7 @@ class SingleArticleView
 
   authorMarkup: (post) ->
     if post.author != ""
-      "<span>|</span><span class='post-author'>by #{post.author}</span>"
+      "<span class='author-divider'>|</span><span class='post-author'>by #{post.author}</span>"
     else
       ""
 
@@ -141,7 +141,7 @@ class SingleArticleView
             #{@navImageMarkup(@feed[linkIndex])}
             <div class='post-title'>#{@feed[linkIndex].title}</div>
             <div class='post-date'>#{@feed[linkIndex].pretty_date}</div>
-            <div class='post-author'>by #{@feed[linkIndex].author}</div>
+            #{@authorMarkup(@feed[linkIndex])}
           </div>
         </a>"
     else

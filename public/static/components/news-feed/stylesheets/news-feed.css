@@ -103,6 +103,8 @@
   background:#fff;
 }
 
+.posts-nav .author-divider{ display:none; }
+
 .news-feed-widget.narrow .posts-nav .all-posts{
   width:60%;
   left:20%;
