@@ -6,22 +6,22 @@
 
 /* SEARCH FORM */
 /*************************************/
-.zip-search-top{
+.zip-search-top {
   float:right;
   position:relative;
-  background:#1772a2;
+  background-color:#888;
   padding:10px 10px 15px 10px;
   margin-bottom:10px;
 }
 
-.mini-version .zip-search-top{
+.mini-version .zip-search-top {
   float:none;
   overflow:auto;
   margin:10px auto;
   max-width:400px;
 }
 
-.zip-search-heading{
+.zip-search-heading {
   color:#f3f3f3;
   font-size:22px;
   padding:0 0 10px 0;
