@@ -66,7 +66,7 @@ width: 100%;
 display: block
 }
 .corpSearchWrapper .search-form {
-background: #252b32;
+background: #222;
 float: left;
 width: 100%;
 position: relative;
@@ -82,7 +82,7 @@ color: #fff;
 display: block;
 position: relative;
 float: left;
-background: #acb4bd;
+background: #aaa;
 margin: 4px;
 min-height: 43px;
 max-height: 43px
@@ -155,7 +155,7 @@ width: 56px
 }
 .corpSearchWrapper .search-form .search-button {
 width: 212px;
-background: #fe7b6f;
+background: #777;
 text-align: center
 }
 .corpSearchWrapper .search-form-center {
@@ -320,7 +320,7 @@ border-radius: 3px;
 text-align: center;
 text-decoration: none;
 text-transform: uppercase;
-background: #005892;
+background: #777;
 color: #fff
 }
 .corpSearchWrapper .searchResultsInfo {
@@ -392,7 +392,7 @@ z-index: 1000;
 width: 500px;
 height: 52px;
 position: absolute;
-background: #acb4bd url(https://widgets.g5dxm.com/multifamily-search/ajax-bar.gif) no-repeat 55px 16px;
+background: #acb4bd url(https://widgets.g5dxm.com/multifamily-search/ajax-bar.gif) center center no-repeat;
 opacity: .7;
 filter: alpha(opacity=70)
 }
