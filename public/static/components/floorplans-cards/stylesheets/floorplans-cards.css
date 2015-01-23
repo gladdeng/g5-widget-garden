@@ -107,7 +107,7 @@ a.floorplan-view-link span{
   background-position:center;
 }
 
-.floorplans-cards a.unit-cta-button{
+.floorplans-cards .unit-cta-button{
   display:block;
   position:absolute;
   bottom:20px;
@@ -121,6 +121,6 @@ a.floorplan-view-link span{
   border-radius:3px;
 }
 
-a.unit-cta-button:hover{
+.unit-cta-button:hover{
   color:#fff;
 }
