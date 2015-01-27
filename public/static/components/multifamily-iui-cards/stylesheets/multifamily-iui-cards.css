@@ -320,7 +320,7 @@
   font-size: 18px;
   margin: 0;
   padding: 6px 0 0;
-  background: #526173;
+  background: #888;
   border-radius: 15px;
   text-align: center;
   text-decoration: none;
@@ -338,7 +338,7 @@
 }
 
 .multifamily-iui-cards .iui-cards-nav a.active {
-  background: #fe7b74;
+  background: #444;
 }
 
 .multifamily-iui-cards .iui-cards-nav a.active span {
@@ -440,7 +440,7 @@
 }
 
 .multifamily-iui-cards .iui-cards-unit-categories a:hover {
-  background: #fe7b74;
+  background: #aaa;
 }
 
 .multifamily-iui-cards .iui-cards-unit-categories a:hover .iui-cards-category-card {
@@ -448,10 +448,10 @@
 }
 
 .multifamily-iui-cards .iui-cards-unit-categories a:hover .category-card-title {
-  background: #fe7b74;
+  background: #aaa;
 }
 
-.multifamily-iui-cards .iui-cards-unit-categories a.iui-cards-view-all {
+.multifamily-iui-cards .iui-cards-unit-categories .iui-cards-view-all {
   display: block;
   width: 468px;
   max-width: 99%;
@@ -463,7 +463,7 @@
   color: #fff;
   background-image: url(https://widgets.g5dxm.com/multifamily-iui-cards/background-stripes.png);
   background-repeat: repeat;
-  background-color: #005892;
+  background-color: #888;
 }
 
 .multifamily-iui-cards .iui-cards-unit-categories a.iui-cards-view-all:hover {

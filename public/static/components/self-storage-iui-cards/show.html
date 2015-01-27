@@ -75,7 +75,10 @@
     .iui-cards-wrapper .category-card-title,
     .iui-cards-wrapper .iui-cards-special-section .special-price { border-bottom:1px solid {{ widget.text_color.best_value }}; }
 
-    .iui-cards-wrapper .iui-cards-unit-header .iui-cards-header-arrow{ background: {{ widget.toggle_color.best_value }} url(http://cdn11.g5search.com/assets/257595/iui-cards-unit-header-arrow.png) no-repeat center center; }
+    .iui-cards-wrapper .iui-cards-unit-header .iui-cards-header-arrow{ background-color: {{ widget.toggle_color.best_value }}; }
+
+    .iui-cards-wrapper .iui-cards-amenities-section svg path,
+    .iui-cards-wrapper .iui-cards-amenities-section svg rect { fill:{{ widget.amenity_color.best_value }}; }
   </style>
 
   <div id="iui-container">
