@@ -1,13 +1,16 @@
-.home-multifamily-iui {
+.ss-featured-unit-categories{
+  background: #999;
+}
+.ss-featured-unit-categories {
   clear: both;
   padding: 30px;
 }
-.home-multifamily-iui .iui-steps {
+.ss-featured-unit-categories .iui-steps {
   margin-bottom: 1em;
   overflow: hidden;
   position: relative;
 }
-.home-multifamily-iui .iui-steps:before {
+.ss-featured-unit-categories .iui-steps:before {
   content: '';
   background-color: white;
   display: block;
@@ -16,8 +19,9 @@
   position: absolute;
   top: .75em;
 }
-.home-multifamily-iui .iui-steps span {
+.ss-featured-unit-categories .iui-steps span {
   background-color: white;
+  color: #15006c;
   border-radius: 50%;
   line-height: 1;
   text-align: center;
@@ -28,22 +32,26 @@
   width: 1.5em;
   position: relative;
 }
-.home-multifamily-iui .iui-title {
+.ss-featured-unit-categories .iui-title {
   margin: 0;
 }
-.home-multifamily-iui .iui-container {
+.ss-featured-unit-categories .iui-container {
   text-align: center;
   overflow: hidden;
   margin-left: -5px;
   margin-right: -5px;
 }
-.home-multifamily-iui .iui-size {
+.ss-featured-unit-categories .iui-size {
   display: inline-block;
   padding: 5px;
-  margin-right: -4px;
   width: 50%;
+  opacity:1;
 }
-.home-multifamily-iui .iui-size:nth-child(3):last-child,
-.home-multifamily-iui .iui-size:nth-child(5) {
+.ss-featured-unit-categories .iui-size:nth-child(3):last-child,
+.ss-featured-unit-categories .iui-size:nth-child(5) {
   width: 100%;
+}
+
+.ss-featured-unit-categories .iui-size > a{
+  display:block;
 }

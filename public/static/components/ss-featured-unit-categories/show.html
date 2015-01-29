@@ -1,0 +1,37 @@
+<div class="ss-featured-unit-categories widget">
+
+<script id="ss-featured-unit-categories-config" type="application/javascript">
+  var ssFeaturedUnitCategories = {
+    "unit_service_host": "{{ widget.unit_service_host.value }}",
+    "location_urn": "{{ widget.location_urn.value }}",
+    "unit_page_url": "{{ widget.unit_page_url.value }}"
+  }
+</script>
+
+<style>
+  /* Button Color color customizations */
+  .ss-featured-unit-categories .iui-size .btn,
+  .ss-featured-unit-categories .iui-steps span:first-child{ background:{{widget.primary_color.value}}; }
+
+  /* Secondary  color customizations */
+  .ss-featured-unit-categories .iui-title,
+  .ss-featured-unit-categories .iui-size .btn,
+  .ss-featured-unit-categories .iui-steps span:first-child{ color:{{widget.secondary_color.value}}; }
+
+  /* Text-Color-1 color customizations */
+  .ss-featured-unit-categories .iui-title{color:{{widget.accent_color_1.value}};}
+</style>
+
+  <div class="iui-steps">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+  </div>
+
+  <p class="iui-title">Select a Size</p>
+
+  <div class="iui-container">
+    <p>Loading Unit Options</p>
+  </div>
+</div>
