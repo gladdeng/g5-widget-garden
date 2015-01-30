@@ -27,6 +27,7 @@ class WidgetsController < ApplicationController
 
   def widget_css(garden_ids=nil)
    	scss = ""
+    binding.pry
    	get_widgets(garden_ids).each do |c|
    		slug = c.try(:name).to_s.downcase.gsub(/\s/, '-') if c.try(:name)
    		path = "public/static/components/#{slug}/stylesheets/#{slug}.css" if slug
@@ -47,7 +48,7 @@ class WidgetsController < ApplicationController
 
   def get_widgets(garden_ids=[])
   	components = G5ComponentGarden.all.map
-  	unless garden_ids.blank?
+  	unless garden_ids.blank? || garden_ids.include?('all')
   		garden_ids = garden_ids.gsub(/[\[\]']+/, '').split(',').collect! { |n| n }.uniq unless garden_ids.kind_of?(Array)
    		components = components.select { |w| garden_ids.include?(w.try(:widget_id).to_s) }
    	end
