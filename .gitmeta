@@ -191,6 +191,10 @@
 "mode": 33188, 
 "mtime": 1416247185
 }, 
+"public/static/components/ss-featured-unit-categories/images/thumbnail.png": {
+"mode": 33188, 
+"mtime": 1422642208
+}, 
 "app/decorators/component_decorator.rb": {
 "mode": 33188, 
 "mtime": 1418954346
@@ -459,6 +463,10 @@
 "mode": 33188, 
 "mtime": 1419363207
 }, 
+"public/static/components/ss-featured-unit-categories/stylesheets/ss-featured-categories.css": {
+"mode": 33188, 
+"mtime": 1422642208
+}, 
 "public/static/components/google-translate/javascripts": {
 "mode": 16877, 
 "mtime": 1419363207
@@ -502,6 +510,10 @@
 "lib/assets": {
 "mode": 16877, 
 "mtime": 1405094996
+}, 
+"public/static/components/ss-featured-unit-categories/javascripts": {
+"mode": 16877, 
+"mtime": 1422642208
 }, 
 "public/static/components/multifamily-iui-cards/javascripts/show.js": {
 "mode": 33188, 
@@ -691,6 +703,10 @@
 "mode": 33188, 
 "mtime": 1405094996
 }, 
+"public/static/components/ss-featured-unit-categories/show.html": {
+"mode": 33188, 
+"mtime": 1422642208
+}, 
 "public/static/components/comarketing/index.html": {
 "mode": 33188, 
 "mtime": 1416247185
@@ -767,6 +783,10 @@
 "mode": 33188, 
 "mtime": 1405094996
 }, 
+"public/static/components/ss-featured-unit-categories": {
+"mode": 16877, 
+"mtime": 1422642744
+}, 
 "public/static/components/comarketing": {
 "mode": 16877, 
 "mtime": 1416247185
@@ -802,6 +822,10 @@
 "config/locales/en.yml": {
 "mode": 33188, 
 "mtime": 1405094996
+}, 
+"public/static/components/ss-featured-unit-categories/images": {
+"mode": 16877, 
+"mtime": 1422642208
 }, 
 "public/static/components/corporate-map/javascripts/show.js": {
 "mode": 33188, 
@@ -1095,6 +1119,10 @@
 "mode": 33188, 
 "mtime": 1416247185
 }, 
+"public/static/components/ss-featured-unit-categories/stylesheets": {
+"mode": 16877, 
+"mtime": 1422642208
+}, 
 "spec/support/components/name-of-component/show.html": {
 "mode": 33188, 
 "mtime": 1405094996
@@ -1186,6 +1214,10 @@
 "app/helpers/application_helper.rb": {
 "mode": 33188, 
 "mtime": 1405094996
+}, 
+"public/static/components/ss-featured-unit-categories/index.html": {
+"mode": 33188, 
+"mtime": 1422642744
 }, 
 "lib": {
 "mode": 16877, 
@@ -1723,6 +1755,10 @@
 "mode": 33188, 
 "mtime": 1416247185
 }, 
+"public/static/components/ss-featured-unit-categories/javascripts/show": {
+"mode": 16877, 
+"mtime": 1422642208
+}, 
 "public/static/components/column/show.html": {
 "mode": 33188, 
 "mtime": 1416247185
@@ -1862,6 +1898,10 @@
 "public/static/components/contact-info-sheet/stylesheets/contact-info-sheet.css": {
 "mode": 33188, 
 "mtime": 1419363207
+}, 
+"public/static/images": {
+"mode": 16877, 
+"mtime": 1416247185
 }, 
 "public/static/components/apply-form/edit.html": {
 "mode": 33188, 
@@ -2087,9 +2127,9 @@
 "mode": 16877, 
 "mtime": 1405094996
 }, 
-"public/static/images": {
-"mode": 16877, 
-"mtime": 1416247185
+"public/static/components/ss-featured-unit-categories/javascripts/show.js": {
+"mode": 33188, 
+"mtime": 1422642208
 }, 
 "app/views": {
 "mode": 16877, 
@@ -2491,6 +2531,10 @@
 "mode": 16877, 
 "mtime": 1416247185
 }, 
+"public/static/components/ss-featured-unit-categories/edit.html": {
+"mode": 33188, 
+"mtime": 1422642208
+}, 
 "public/static/components/social-feed/javascripts/show/show.js.coffee": {
 "mode": 33188, 
 "mtime": 1416247185
@@ -2662,6 +2706,10 @@
 "public/static/components/map": {
 "mode": 16877, 
 "mtime": 1416247185
+}, 
+"public/static/components/ss-featured-unit-categories/javascripts/show/show.js.coffee": {
+"mode": 33188, 
+"mtime": 1422642208
 }, 
 "public/static/images/accessibility.png": {
 "mode": 33188, 
