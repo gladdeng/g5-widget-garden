@@ -27,7 +27,6 @@ class WidgetsController < ApplicationController
 
   def widget_css(garden_ids=nil)
    	scss = ""
-    binding.pry
    	get_widgets(garden_ids).each do |c|
    		slug = c.try(:name).to_s.downcase.gsub(/\s/, '-') if c.try(:name)
    		path = "public/static/components/#{slug}/stylesheets/#{slug}.css" if slug
