@@ -31,7 +31,10 @@ module G5ComponentGarden
 
     def parse_from_directory(directory)
       # assign name, summary, and preview from index.html
-      component = Microformats2.parse(File.join(directory, "index.html")).g5_components.first
+      component_parse = Microformats2.parse(File.join(directory, "index.html"))
+      component = component_parse.g5_components.first if component_parse.try(:g5_components)
+      return unless component
+
       relative_directory = get_directory(directory)
 
       # assign uid as slug from directory name for now

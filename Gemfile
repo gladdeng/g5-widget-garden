@@ -3,6 +3,7 @@ ruby "2.1.5"
 
 gem "rails", "~> 4.1.7"
 gem "jquery-rails"
+gem 'active_model_serializers'
 
 gem "quiet_assets", "~> 1.0.1"
 gem "bootstrap-sass", "~> 2.1.0.1"
