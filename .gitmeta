@@ -21,7 +21,7 @@
 }, 
 "public/static/components/news-feed": {
 "mode": 16877, 
-"mtime": 1421855019
+"mtime": 1422894119
 }, 
 "public/static/components/phone/images": {
 "mode": 16877, 
@@ -617,7 +617,7 @@
 }, 
 "public/static/components/mini-news-feed": {
 "mode": 16877, 
-"mtime": 1422890938
+"mtime": 1422894100
 }, 
 "public/static/components/contact-form/edit.html": {
 "mode": 33188, 
@@ -1501,7 +1501,7 @@
 }, 
 "public/static/components/mini-news-feed/edit.html": {
 "mode": 33188, 
-"mtime": 1421791343
+"mtime": 1422894100
 }, 
 "public/static/components/mini-news-feed/javascripts": {
 "mode": 16877, 
@@ -1677,7 +1677,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1422891884
+"mtime": 1422893710
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
@@ -2057,7 +2057,7 @@
 }, 
 "public/static/components/news-feed/edit.html": {
 "mode": 33188, 
-"mtime": 1421855019
+"mtime": 1422894119
 }, 
 "public/static/components/review-form": {
 "mode": 16877, 
