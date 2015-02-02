@@ -183,6 +183,7 @@
 
     ToggleListener.prototype.basicListener = function() {
       return $('.post-toggle').click(function() {
+        $(this).siblings(".post-description, .post-body").slideToggle();
         $(this).parent().toggleClass("active-post");
         return false;
       });

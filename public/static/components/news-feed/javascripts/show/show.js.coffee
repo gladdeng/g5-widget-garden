@@ -170,6 +170,7 @@ class ToggleListener
     
   basicListener: () ->
     $('.post-toggle').click ->
+      $(this).siblings(".post-description, .post-body").slideToggle()
       $(this).parent().toggleClass("active-post")
       false
 
