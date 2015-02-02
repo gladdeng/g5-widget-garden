@@ -1,13 +1,18 @@
 /* Mini News Feed */
 
-.mini-news-feed-widget{ width:100%; padding:0 0 3em 0;}
+.mini-news-feed-widget{
+  width:100%;
+  padding:0 0 3em 0;
+  text-align:center;
+}
 
 .mini-news-feed-widget .news-item-preview{
-  display:block;
+  display:inline-block;
   position:relative;
   width:33%;
   padding:10px;
-  float:left;
+  vertical-align:top;
+  text-align:left;
 }
 
 .mini-news-feed-widget.narrow .news-item-preview{
