@@ -55,6 +55,9 @@
 
     <div class="form-field">
       {{ widget.news_page_path.id_hidden_field }}
+      <label for="{{ widget.news_page_path.value_field_id }}">
+        News Page
+      </label>
       <select id="{{ widget.news_page_path.value_field_id }}" name="{{ widget.news_page_path.value_field_name }}">
         {% for web_page in widget.navigation.value %}
           <option value="{{ web_page[1].url | url_encode }}"
