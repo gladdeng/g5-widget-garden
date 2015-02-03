@@ -62191,8 +62191,18 @@ define('self-storage-iui-cards/components/description-section', ['exports', 'emb
 
   DescriptionSectionComponent = Ember['default'].Component.extend({
     tagName: 'div',
-    classNameBindings: [':iui-cards-unit-description'],
-    attributeBindings: ['style']
+    classNameBindings: [':iui-cards-unit-description', 'descriptionClass'],
+    attributeBindings: ['style'],
+    hasDescription: (function() {
+      return this.get('unit.description.length') > 0;
+    }).property('unit'),
+    descriptionClass: (function() {
+      if (this.get('hasDescription')) {
+        return "has-description";
+      } else {
+        return "no-description";
+      }
+    }).property('unit')
   });
 
   exports['default'] = DescriptionSectionComponent;
@@ -63418,29 +63428,8 @@ define('self-storage-iui-cards/templates/components/unit-cta', ['exports', 'embe
   exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
   helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+    var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
-  function program1(depth0,data) {
-    
-    var buffer = '', helper, options;
-    data.buffer.push("\n    	");
-    data.buffer.push(escapeExpression((helper = helpers['call-to-actions-section'] || (depth0 && depth0['call-to-actions-section']),options={hash:{
-      'unit': ("unit")
-    },hashTypes:{'unit': "ID"},hashContexts:{'unit': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "call-to-actions-section", options))));
-    data.buffer.push("\n    ");
-    return buffer;
-    }
-
-  function program3(depth0,data) {
-    
-    var buffer = '', helper, options;
-    data.buffer.push("\n    	");
-    data.buffer.push(escapeExpression((helper = helpers['description-section'] || (depth0 && depth0['description-section']),options={hash:{
-      'unit': ("unit")
-    },hashTypes:{'unit': "ID"},hashContexts:{'unit': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "description-section", options))));
-    data.buffer.push("\n    ");
-    return buffer;
-    }
 
     data.buffer.push(escapeExpression((helper = helpers['unit-cta-clickable-header'] || (depth0 && depth0['unit-cta-clickable-header']),options={hash:{
       'unit': ("unit")
@@ -63454,11 +63443,13 @@ define('self-storage-iui-cards/templates/components/unit-cta', ['exports', 'embe
       'unit': ("unit")
     },hashTypes:{'unit': "ID"},hashContexts:{'unit': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "amenities-section", options))));
     data.buffer.push("\n    <!-- disable nearby locations until orion api is created -->\n    <!-- {\\{nearby-locations unit=unit}\\} -->\n    ");
-    stack1 = helpers.unless.call(depth0, "summarize", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+    data.buffer.push(escapeExpression((helper = helpers['call-to-actions-section'] || (depth0 && depth0['call-to-actions-section']),options={hash:{
+      'unit': ("unit")
+    },hashTypes:{'unit': "ID"},hashContexts:{'unit': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "call-to-actions-section", options))));
     data.buffer.push("\n    ");
-    stack1 = helpers['if'].call(depth0, "unit.description", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+    data.buffer.push(escapeExpression((helper = helpers['description-section'] || (depth0 && depth0['description-section']),options={hash:{
+      'unit': ("unit")
+    },hashTypes:{'unit': "ID"},hashContexts:{'unit': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "description-section", options))));
     data.buffer.push("\n</div>\n");
     return buffer;
     
