@@ -6,8 +6,19 @@
 			"settings": [
 				{
 					"id": 1,
-					"name": 'tracking_code',
-					"value": 'UA-XXXXXXXX'
+					"name": "tracking_code",
+					"value": "UA-12345678"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"garden_id": 7,
+			"settings": [
+				{
+					"id": 9546, 
+					"name": "meta_description", 
+					"value": "sample meta"
 				}
 			]
 		}
