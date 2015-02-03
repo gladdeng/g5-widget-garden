@@ -1,0 +1,15 @@
+{
+	"widgets": [
+		{
+			"id": 1,
+			"garden_id": 1,
+			"settings": [
+				{
+					"id": 1,
+					"name": 'tracking_code',
+					"value": 'UA-XXXXXXXX'
+				}
+			]
+		}
+	]
+}

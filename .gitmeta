@@ -373,7 +373,7 @@
 }, 
 "app": {
 "mode": 16877, 
-"mtime": 1422732332
+"mtime": 1422927131
 }, 
 "public/static/components/typekit": {
 "mode": 16877, 
@@ -394,6 +394,10 @@
 "public/static/components/floorplans-cards/images/floorplan-icon.png": {
 "mode": 33188, 
 "mtime": 1409250169
+}, 
+"app/drop": {
+"mode": 16877, 
+"mtime": 1422927181
 }, 
 "app/views/components/show.html.erb": {
 "mode": 33188, 
@@ -607,10 +611,6 @@
 "mode": 16877, 
 "mtime": 1421887065
 }, 
-"public/static/components/comarketing/images": {
-"mode": 16877, 
-"mtime": 1409250169
-}, 
 "spec/support/components/name-of-component/stylesheets/name-of-other-component.css": {
 "mode": 33188, 
 "mtime": 1405094996
@@ -673,7 +673,7 @@
 }, 
 "app/decorators": {
 "mode": 16877, 
-"mtime": 1419896725
+"mtime": 1422924474
 }, 
 "public/static/components/locations-navigation/javascripts/show.js": {
 "mode": 33188, 
@@ -759,13 +759,13 @@
 "mode": 33188, 
 "mtime": 1416936348
 }, 
-"public/static/components/gallery/stylesheets/gallery.css": {
-"mode": 33188, 
-"mtime": 1421876242
+"public/static/components/comarketing/images": {
+"mode": 16877, 
+"mtime": 1409250169
 }, 
 "app/models": {
 "mode": 16877, 
-"mtime": 1405094996
+"mtime": 1422926004
 }, 
 "config/initializers/mime_types.rb": {
 "mode": 33188, 
@@ -901,7 +901,7 @@
 }, 
 "config": {
 "mode": 16877, 
-"mtime": 1422647643
+"mtime": 1422911800
 }, 
 "app/serializers/widget_serializer.rb": {
 "mode": 33204, 
@@ -913,7 +913,7 @@
 }, 
 "app/controllers/widgets_controller.rb": {
 "mode": 33188, 
-"mtime": 1422825028
+"mtime": 1422927278
 }, 
 "public/static/components/directions/show.html": {
 "mode": 33188, 
@@ -981,7 +981,7 @@
 }, 
 "app/controllers": {
 "mode": 16877, 
-"mtime": 1422825028
+"mtime": 1422927278
 }, 
 "public/static/components/map/edit.html": {
 "mode": 33188, 
@@ -1190,6 +1190,10 @@
 "public/static/components/contact-info-sheet": {
 "mode": 16877, 
 "mtime": 1419363207
+}, 
+"public/static/components/gallery/stylesheets/gallery.css": {
+"mode": 33188, 
+"mtime": 1421876242
 }, 
 "public/static/components/suggestion-form/images": {
 "mode": 16877, 
@@ -1669,7 +1673,11 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1422649107
+"mtime": 1422825097
+}, 
+"spec/support/widgets/create-widgets.json": {
+"mode": 33204, 
+"mtime": 1422928849
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
@@ -1682,6 +1690,10 @@
 "public/static/components/calls-to-action/javascripts/show": {
 "mode": 16877, 
 "mtime": 1421887065
+}, 
+"public/static/components/photo/edit.html": {
+"mode": 33188, 
+"mtime": 1416247185
 }, 
 "public/static/components/floorplans-cards/javascripts": {
 "mode": 16877, 
@@ -1741,7 +1753,7 @@
 }, 
 "public/static/components/floorplans": {
 "mode": 16877, 
-"mtime": 1422730167
+"mtime": 1422924731
 }, 
 "public/static/components/featured-properties/stylesheets": {
 "mode": 16877, 
@@ -1951,7 +1963,7 @@
 "mode": 33188, 
 "mtime": 1419363207
 }, 
-"public/static/components/photo/edit.html": {
+"public/static/components/map/javascripts/show/show.js.coffee": {
 "mode": 33188, 
 "mtime": 1416247185
 }, 
@@ -1981,7 +1993,7 @@
 }, 
 "config/routes.rb": {
 "mode": 33188, 
-"mtime": 1422647643
+"mtime": 1422911800
 }, 
 "public/static/components/phone": {
 "mode": 16877, 
@@ -2165,7 +2177,7 @@
 }, 
 "public/static/components/floorplans/show.html": {
 "mode": 33188, 
-"mtime": 1416247185
+"mtime": 1422924731
 }, 
 "public/static/components/footer-info/show.html": {
 "mode": 33188, 
@@ -2195,9 +2207,9 @@
 "mode": 16877, 
 "mtime": 1405094996
 }, 
-"public/static/components/map/javascripts/show/show.js.coffee": {
-"mode": 33188, 
-"mtime": 1416247185
+"app/drop/widget_setting_drop.rb": {
+"mode": 33204, 
+"mtime": 1422927181
 }, 
 "public/static/components/directions/images": {
 "mode": 16877, 
@@ -2339,6 +2351,10 @@
 "mode": 33188, 
 "mtime": 1416247185
 }, 
+"spec/support/widgets": {
+"mode": 16877, 
+"mtime": 1422928849
+}, 
 "public/static/components/contact-info/show.html": {
 "mode": 33188, 
 "mtime": 1416247185
@@ -2449,7 +2465,7 @@
 }, 
 "spec/support": {
 "mode": 16877, 
-"mtime": 1405094996
+"mtime": 1422928702
 }, 
 "public/static/components/social-feed/javascripts/show": {
 "mode": 16877, 
@@ -2539,6 +2555,10 @@
 "mode": 16877, 
 "mtime": 1419363521
 }, 
+"app/models/widget_setting.rb": {
+"mode": 33204, 
+"mtime": 1422926004
+}, 
 "public/static/components/social-links/stylesheets/social-links.css": {
 "mode": 33188, 
 "mtime": 1419363207
@@ -2609,7 +2629,7 @@
 }, 
 "Gemfile": {
 "mode": 33188, 
-"mtime": 1422732349
+"mtime": 1422924124
 }, 
 "public/static/components/tell-friend-form": {
 "mode": 16877, 
@@ -2737,7 +2757,7 @@
 }, 
 "Gemfile.lock": {
 "mode": 33188, 
-"mtime": 1422732369
+"mtime": 1422924247
 }, 
 "spec/views": {
 "mode": 16877, 
