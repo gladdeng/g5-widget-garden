@@ -3,7 +3,7 @@ ruby "2.1.5"
 
 gem "rails", "~> 4.1.7"
 gem "jquery-rails"
-gem 'active_model_serializers'
+gem 'active_model_serializers', "0.9.0"
 
 gem "quiet_assets", "~> 1.0.1"
 gem "bootstrap-sass", "~> 2.1.0.1"
@@ -15,6 +15,7 @@ gem "uglifier", ">= 1.0.3"
 gem "highline"
 
 gem "liquid"
+gem "draper"
 
 group :development, :test do
   gem "dotenv-rails", "~> 0.9.0"

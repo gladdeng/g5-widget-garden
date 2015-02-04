@@ -8,7 +8,8 @@ class WidgetSetting
                   :field_id,
                   :value_field_name,
                   :value_field_id,
-                  :value
+                  :value,
+                  :best_value
 
   def id_hidden_field
     ActionController::Base.helpers.hidden_field_tag("#{field_name}[id]", id)
@@ -29,5 +30,4 @@ class WidgetSetting
   def value_field_id
     value_field_name.parameterize.gsub(/-/, "_")
   end
-
 end

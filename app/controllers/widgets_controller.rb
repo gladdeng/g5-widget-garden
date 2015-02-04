@@ -56,7 +56,7 @@ class WidgetsController < ApplicationController
           content = File.read(path)
           widget = load_widget_settings(w)
           binding.pry
-          content = Liquid::Template.parse(content).render("widget" => WidgetDrop.new(widget))
+          content = Liquid::Template.parse(content).render("widget" => widget)
           ##TODO: liquid parsing
           html << content
         rescue Exception => e
@@ -128,19 +128,35 @@ class WidgetsController < ApplicationController
     end
   end
 
-  def load_widget_settings(component, widget_id=0, settings={})
+  def load_widget_settings(component, widget_id=0, settings=[])
     widget = widget_from_json(component)
-    prop_group = widget[:property_groups].detect { |g| g[:categories].map(&:downcase).include?("instance") }
-    props = prop_group[:properties].inject({}) do |h, p|
-      k = p[:name].to_sym
-      val = settings.has_key?(k) ? settings[k] : p[:default]
-      h[k] = widget_setting(p[:name], widget_id, val)
-      h
-    end if prop_group
-    ##TODO RESUME HERE
+    props = load_widget_properties(widget, widget_id, settings)
+    Widget.new(props)
+  end
+
+  def find_setting(settings, key)
+    settings = settings.detect { |s| s[:name] == key }
+    settings.first if settings
   end
 
   def widget_setting(name, id, value)
-    WidgetSetting.new({name: name, id: id, value: value})
+    WidgetSetting.new({:name => name, :id => id, :value => value})
+  end
+
+  def widget_instance_property_group(widget)
+    widget[:property_groups].detect { |g| g[:categories].map(&:downcase).include?("instance") }
+  end
+
+  def load_widget_properties(widget, widget_id, settings)
+    prop_group = widget_instance_property_group(widget)
+    props = {id: widget_id, garden_id: widget.try(:garden_widget_id), settings: []}
+    prop_group[:properties].each do |p|
+      key = p[:name].to_sym
+      setting = find_setting(settings, key)
+      val = setting.try(:value) || p[:default]
+      setting_id = setting.try(:id) || 0
+      props[:settings] << widget_setting(p[:name], setting_id, val)
+    end if prop_group
+    props
   end
 end

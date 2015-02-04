@@ -29,7 +29,7 @@
 }, 
 "app/helpers/widgets_helper.rb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "git-meta": {
 "mode": 33261, 
@@ -69,7 +69,7 @@
 }, 
 "spec": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/home-multifamily-iui/javascripts": {
 "mode": 16877, 
@@ -101,11 +101,11 @@
 }, 
 "app/assets/javascripts": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "app/assets/stylesheets/widgets.css.scss": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/contact-form/show.html": {
 "mode": 33188, 
@@ -185,7 +185,7 @@
 }, 
 "public/static/components/self-storage-iui-cards/stylesheets": {
 "mode": 16877, 
-"mtime": 1422975412
+"mtime": 1422998171
 }, 
 "public/static/components/navigation/javascripts/show.js": {
 "mode": 33188, 
@@ -193,7 +193,7 @@
 }, 
 "public/static/components/button/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/ss-featured-unit-categories/images/thumbnail.png": {
 "mode": 33188, 
@@ -205,7 +205,7 @@
 }, 
 "app/serializers": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/lead-form/images/thumbnail.png": {
 "mode": 33188, 
@@ -325,7 +325,7 @@
 }, 
 "public/static/components/city-state-zip-search/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/self-storage-iui-filtered/edit.html": {
 "mode": 33188, 
@@ -373,11 +373,11 @@
 }, 
 "app": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1423002505
 }, 
 "public/static/components/typekit": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/lead-form/edit.html": {
 "mode": 33188, 
@@ -385,7 +385,7 @@
 }, 
 "public/static/components/meta-description": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/quote/stylesheets": {
 "mode": 16877, 
@@ -394,10 +394,6 @@
 "public/static/components/floorplans-cards/images/floorplan-icon.png": {
 "mode": 33188, 
 "mtime": 1409250169
-}, 
-"app/drop": {
-"mode": 16877, 
-"mtime": 1422977568
 }, 
 "app/views/components/show.html.erb": {
 "mode": 33188, 
@@ -433,7 +429,7 @@
 }, 
 "public/static/components/calls-to-action": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/corporate-map/images": {
 "mode": 16877, 
@@ -489,7 +485,7 @@
 }, 
 "public/static/components/promoted-reviews/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/directions/stylesheets": {
 "mode": 16877, 
@@ -505,7 +501,7 @@
 }, 
 "app/views/widgets/index.html.erb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/map/stylesheets/map.css": {
 "mode": 33188, 
@@ -577,7 +573,7 @@
 }, 
 "public/static/components/column/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "vendor/assets/javascripts/.gitkeep": {
 "mode": 33188, 
@@ -597,7 +593,7 @@
 }, 
 "app/views/widgets": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/javascripts/libs/fancybox": {
 "mode": 16877, 
@@ -647,6 +643,10 @@
 "mode": 33188, 
 "mtime": 1416936348
 }, 
+"app/models/widget.rb": {
+"mode": 33204, 
+"mtime": 1423009762
+}, 
 "public/static/components/coupon/show.html": {
 "mode": 33188, 
 "mtime": 1419363521
@@ -673,7 +673,7 @@
 }, 
 "app/decorators": {
 "mode": 16877, 
-"mtime": 1422924474
+"mtime": 1423008961
 }, 
 "public/static/components/locations-navigation/javascripts/show.js": {
 "mode": 33188, 
@@ -709,7 +709,7 @@
 }, 
 "public/static/components/multifamily-iui-cards/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "app/mailers/.gitkeep": {
 "mode": 33188, 
@@ -765,7 +765,7 @@
 }, 
 "app/models": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1423009762
 }, 
 "config/initializers/mime_types.rb": {
 "mode": 33188, 
@@ -801,7 +801,7 @@
 }, 
 "public/static/components/ss-featured-unit-categories": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/comarketing": {
 "mode": 16877, 
@@ -897,15 +897,15 @@
 }, 
 "spec/views/widgets": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "config": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "app/serializers/widget_serializer.rb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/locations-navigation/images/thumbnail.png": {
 "mode": 33188, 
@@ -913,7 +913,7 @@
 }, 
 "app/controllers/widgets_controller.rb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1423009445
 }, 
 "public/static/components/directions/show.html": {
 "mode": 33188, 
@@ -969,7 +969,7 @@
 }, 
 "app/assets/stylesheets": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/hold-unit-form": {
 "mode": 16877, 
@@ -981,7 +981,7 @@
 }, 
 "app/controllers": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1423009445
 }, 
 "public/static/components/map/edit.html": {
 "mode": 33188, 
@@ -997,7 +997,7 @@
 }, 
 "public/static/components/multifamily-mini-search": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/video/javascripts/show.js": {
 "mode": 33188, 
@@ -1033,7 +1033,7 @@
 }, 
 "lib/g5_component_garden.rb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/navigation/stylesheets/navigation.css": {
 "mode": 33188, 
@@ -1053,7 +1053,7 @@
 }, 
 "app/assets/javascripts/widgets.js.coffee": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/contact-info/images/thumbnail.png": {
 "mode": 33188, 
@@ -1065,7 +1065,7 @@
 }, 
 "public/static/components/self-storage-iui-cards/javascripts/show.js": {
 "mode": 33188, 
-"mtime": 1422975412
+"mtime": 1422998171
 }, 
 "public/static/components/photo-group/stylesheets/photo-group.css": {
 "mode": 33188, 
@@ -1085,7 +1085,7 @@
 }, 
 "app/views/widgets/show.html.erb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/quote/images": {
 "mode": 16877, 
@@ -1239,6 +1239,10 @@
 "mode": 33188, 
 "mtime": 1416936348
 }, 
+"app/drops/widget_drop.rb": {
+"mode": 33204, 
+"mtime": 1423009259
+}, 
 "public/static/components/multifamily-search/images/ajax-bar.gif": {
 "mode": 33188, 
 "mtime": 1412806929
@@ -1253,11 +1257,11 @@
 }, 
 "public/static/components/ss-featured-unit-categories/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "lib": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1423009042
 }, 
 "public/static/components/column/images": {
 "mode": 16877, 
@@ -1337,7 +1341,7 @@
 }, 
 "public/static/components/meta": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/contact-info-sheet/show.html": {
 "mode": 33188, 
@@ -1437,7 +1441,7 @@
 }, 
 "public/static/components/multifamily-search/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/navigation/javascripts/show": {
 "mode": 16877, 
@@ -1453,11 +1457,11 @@
 }, 
 "public/static/components/html/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "spec/helpers": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "db": {
 "mode": 16877, 
@@ -1493,7 +1497,7 @@
 }, 
 "public/static/components/multifamily-mini-search/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/images/fancybox_sprite.png": {
 "mode": 33261, 
@@ -1569,7 +1573,7 @@
 }, 
 "public/static/components/multifamily-search": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/floorplans/edit.html": {
 "mode": 33188, 
@@ -1609,7 +1613,7 @@
 }, 
 "public/static/components/self-storage-iui-cards/stylesheets/self-storage-iui-cards.css": {
 "mode": 33188, 
-"mtime": 1422975412
+"mtime": 1422998171
 }, 
 "public/static/components/directions/stylesheets/directions.css": {
 "mode": 33188, 
@@ -1625,7 +1629,7 @@
 }, 
 "public/static/components/self-storage-iui-cards": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "vendor/assets/javascripts": {
 "mode": 16877, 
@@ -1637,7 +1641,7 @@
 }, 
 "public/static/components/promoted-reviews": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "spec/integration/components_path_spec.rb": {
 "mode": 33188, 
@@ -1673,11 +1677,11 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "spec/support/widgets/create-widgets.json": {
 "mode": 33188, 
-"mtime": 1422978731
+"mtime": 1422998171
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
@@ -1687,11 +1691,7 @@
 "mode": 16877, 
 "mtime": 1405094996
 }, 
-"public/static/components/calls-to-action/javascripts/show": {
-"mode": 16877, 
-"mtime": 1421887065
-}, 
-"public/static/components/photo/edit.html": {
+"public/static/components/content-stripe/javascripts/edit/edit.js.coffee": {
 "mode": 33188, 
 "mtime": 1416247185
 }, 
@@ -1701,7 +1701,7 @@
 }, 
 "public/static/components/google-translate": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/logo/images/thumbnail.png": {
 "mode": 33188, 
@@ -1761,7 +1761,7 @@
 }, 
 "public/static/components/button": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/multifamily-mini-search/javascripts/show.js": {
 "mode": 33188, 
@@ -1833,7 +1833,7 @@
 }, 
 "public/static/components/typekit/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/content-stripe/images": {
 "mode": 16877, 
@@ -1857,7 +1857,7 @@
 }, 
 "public/static/components/html": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/button/edit.html": {
 "mode": 33188, 
@@ -1877,11 +1877,11 @@
 }, 
 "spec/views/widgets/index.html.erb_spec.rb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
-"public/static/components/content-stripe/javascripts/edit/edit.js.coffee": {
-"mode": 33188, 
-"mtime": 1416247185
+"public/static/components/calls-to-action/javascripts/show": {
+"mode": 16877, 
+"mtime": 1421887065
 }, 
 "public/static/components/photo-group/images": {
 "mode": 16877, 
@@ -1925,11 +1925,15 @@
 }, 
 "public/static/components/self-storage-iui-cards/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/video/javascripts": {
 "mode": 16877, 
 "mtime": 1416247185
+}, 
+"app/drops": {
+"mode": 16877, 
+"mtime": 1423009259
 }, 
 "public/robots.txt": {
 "mode": 33188, 
@@ -1963,13 +1967,13 @@
 "mode": 33188, 
 "mtime": 1419363207
 }, 
-"public/static/components/map/javascripts/show/show.js.coffee": {
+"public/static/components/photo/edit.html": {
 "mode": 33188, 
 "mtime": 1416247185
 }, 
 "spec/views/widgets/show.html.erb_spec.rb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/multifamily-iui-cards/images/blank.gif": {
 "mode": 33188, 
@@ -1993,7 +1997,7 @@
 }, 
 "config/routes.rb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/phone": {
 "mode": 16877, 
@@ -2129,7 +2133,7 @@
 }, 
 "public/static/components/quote": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/logo/show.html": {
 "mode": 33188, 
@@ -2185,7 +2189,7 @@
 }, 
 "app/helpers": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/ss-featured-unit-categories/javascripts/show.js": {
 "mode": 33188, 
@@ -2193,7 +2197,7 @@
 }, 
 "app/views": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "bin": {
 "mode": 16877, 
@@ -2207,9 +2211,9 @@
 "mode": 16877, 
 "mtime": 1405094996
 }, 
-"app/drop/widget_setting_drop.rb": {
+"public/static/components/map/javascripts/show/show.js.coffee": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1416247185
 }, 
 "public/static/components/directions/images": {
 "mode": 16877, 
@@ -2289,7 +2293,7 @@
 }, 
 "public/static/components/meta/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/promoted-reviews/javascripts/show": {
 "mode": 16877, 
@@ -2313,7 +2317,7 @@
 }, 
 "public/static/components/self-storage-iui-cards/javascripts": {
 "mode": 16877, 
-"mtime": 1422975412
+"mtime": 1422998171
 }, 
 "public/javascripts/libs/jquery.xdomainrequest.min.js": {
 "mode": 33188, 
@@ -2353,7 +2357,7 @@
 }, 
 "spec/support/widgets": {
 "mode": 16877, 
-"mtime": 1422978731
+"mtime": 1422998171
 }, 
 "public/static/components/contact-info/show.html": {
 "mode": 33188, 
@@ -2439,6 +2443,10 @@
 "mode": 16877, 
 "mtime": 1417474483
 }, 
+"app/drops/widget_setting_drop.rb": {
+"mode": 33204, 
+"mtime": 1423003884
+}, 
 "public/static/components/navigation/images/thumbnail.png": {
 "mode": 33188, 
 "mtime": 1409250169
@@ -2453,7 +2461,7 @@
 }, 
 "public/static/components/quote/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/content-stripe/javascripts/edit.js": {
 "mode": 33188, 
@@ -2465,7 +2473,7 @@
 }, 
 "spec/support": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/social-feed/javascripts/show": {
 "mode": 16877, 
@@ -2473,7 +2481,7 @@
 }, 
 "spec/controllers": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/javascripts": {
 "mode": 16877, 
@@ -2549,7 +2557,7 @@
 }, 
 "spec/controllers/widgets_controller_spec.rb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/content-stripe/stylesheets": {
 "mode": 16877, 
@@ -2557,7 +2565,7 @@
 }, 
 "app/models/widget_setting.rb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1423008984
 }, 
 "public/static/components/social-links/stylesheets/social-links.css": {
 "mode": 33188, 
@@ -2625,11 +2633,11 @@
 }, 
 "spec/helpers/widgets_helper_spec.rb": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "Gemfile": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1423008541
 }, 
 "public/static/components/tell-friend-form": {
 "mode": 16877, 
@@ -2645,7 +2653,7 @@
 }, 
 "public/static/components/google-translate/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "config/unicorn.rb": {
 "mode": 33188, 
@@ -2669,7 +2677,7 @@
 }, 
 "public/static/components/city-state-zip-search": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/floorplans/javascripts": {
 "mode": 16877, 
@@ -2677,7 +2685,7 @@
 }, 
 "public/static/components/column": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/comarketing/edit.html": {
 "mode": 33188, 
@@ -2705,7 +2713,7 @@
 }, 
 "public/static/components/multifamily-iui-cards": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/social-feed/stylesheets/social-feed.css": {
 "mode": 33188, 
@@ -2757,15 +2765,15 @@
 }, 
 "Gemfile.lock": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1423008551
 }, 
 "spec/views": {
 "mode": 16877, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/meta-description/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "app/views/components/_component.html.erb": {
 "mode": 33188, 
@@ -2825,7 +2833,7 @@
 }, 
 "public/static/components/calls-to-action/index.html": {
 "mode": 33188, 
-"mtime": 1422977568
+"mtime": 1422998171
 }, 
 "public/static/components/video/edit.html": {
 "mode": 33188, 
