@@ -1,9 +1,20 @@
 (function() {
   $(function() {
-    var realPageVars;
+    var realPageJSBuilder, realPageVars;
     realPageVars = realPageVarsConfig;
-    if (realPageVars.realpage_id.length > 1) {
-      return console.log(realPageVars.realpage_id);
+    realPageJSBuilder = function(configs) {
+      var realPageJS, realpage_url, target_div;
+      console.log(configs);
+      target_div = "&container=realpage-iframe";
+      realpage_url = configs.realpage_stylesheet.length > 1 && configs.realpage_id.length > 1 ? "" + configs.realpage_id + target_div + "&css=https%3A" + configs.realpage_stylesheet : configs.realpage_id.length > 1 ? "" + configs.realpage_id + target_div : void 0;
+      console.log(realpage_url);
+      realPageJS = "<SCRIPT language=\"javascript\" src=\"https://property.onesite.realpage.com/oll/eol/widget?siteId=" + realpage_url + "\"></SCRIPT>";
+      if (realpage_url != null) {
+        return $('.realpage.widget').append(realPageJS);
+      }
+    };
+    if (realPageVars != null) {
+      return realPageJSBuilder(realPageVars);
     }
   });
 
