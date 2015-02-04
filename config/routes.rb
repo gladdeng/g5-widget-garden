@@ -11,6 +11,7 @@ G5WidgetGarden::Application.routes.draw do
 
   post "widgets/:garden_id/edit"			=> "widgets#edit_html", as: :edit_widget
   post "widgets/:garden_id/show"			=> "widgets#show_html", as: :show_widget
+  post "widgets/edit"                 => "widgets#edit_html", as: :edit_widget
   post "widgets/show"									=> "widgets#show_html", as: :show_widgets
 
   root to: "components#index"

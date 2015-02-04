@@ -21,6 +21,22 @@
 					"value": "sample meta"
 				}
 			]
+		},
+		{
+			"id": 3,
+			"garden_id": 16,
+			"settings": [
+				{
+					"id": 8080, 
+					"name": "client_urn", 
+					"value": "g5-c-1t5cfga8-compassselfstorage"
+				},
+				{
+					"id": 8081, 
+					"name": "location_urn", 
+					"value": "g5-cl-i3hgailn-compass-102-krome"
+				},
+			]
 		}
 	]
 }
