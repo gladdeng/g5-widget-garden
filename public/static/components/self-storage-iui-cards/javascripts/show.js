@@ -62549,6 +62549,26 @@ define('self-storage-iui-cards/mixins/cpm', ['exports', 'ember'], function (expo
   exports['default'] = CpmMixin;
 
 });
+define('self-storage-iui-cards/mixins/reset-scroll', ['exports', 'ember'], function (exports, Ember) {
+
+  'use strict';
+
+  var ResetScrollMixin;
+
+  ResetScrollMixin = Ember['default'].Mixin.create({
+    activate: function() {
+      var widgetTop, wrapper;
+      wrapper = $('.iui-cards-wrapper');
+      widgetTop = wrapper.length ? wrapper.offset().top : 0;
+      return $('html, body').animate({
+        scrollTop: widgetTop
+      }, 400, 'swing');
+    }
+  });
+
+  exports['default'] = ResetScrollMixin;
+
+});
 define('self-storage-iui-cards/models/amenity', ['exports', 'ember-data'], function (exports, DS) {
 
   'use strict';
@@ -62864,13 +62884,13 @@ define('self-storage-iui-cards/routes/application', ['exports', 'ember', 'self-s
   exports['default'] = ApplicationRoute;
 
 });
-define('self-storage-iui-cards/routes/hold', ['exports', 'ember'], function (exports, Ember) {
+define('self-storage-iui-cards/routes/hold', ['exports', 'ember', 'self-storage-iui-cards/mixins/reset-scroll'], function (exports, Ember, ResetScrollMixin) {
 
   'use strict';
 
   var HoldsRoute;
 
-  HoldsRoute = Ember['default'].Route.extend({
+  HoldsRoute = Ember['default'].Route.extend(ResetScrollMixin['default'], {
     cta: null,
     model: function(params) {
       var unit;
@@ -62906,13 +62926,13 @@ define('self-storage-iui-cards/routes/index', ['exports', 'ember'], function (ex
   exports['default'] = IndexRoute;
 
 });
-define('self-storage-iui-cards/routes/options', ['exports', 'ember'], function (exports, Ember) {
+define('self-storage-iui-cards/routes/options', ['exports', 'ember', 'self-storage-iui-cards/mixins/reset-scroll'], function (exports, Ember, ResetScrollMixin) {
 
   'use strict';
 
   var UnitsOptionsRoute;
 
-  UnitsOptionsRoute = Ember['default'].Route.extend({
+  UnitsOptionsRoute = Ember['default'].Route.extend(ResetScrollMixin['default'], {
     model: function(params) {
       var category;
       category = this.store.getById('storageCategory', params.categoryId);
@@ -62931,13 +62951,13 @@ define('self-storage-iui-cards/routes/options', ['exports', 'ember'], function (
   exports['default'] = UnitsOptionsRoute;
 
 });
-define('self-storage-iui-cards/routes/size', ['exports', 'ember'], function (exports, Ember) {
+define('self-storage-iui-cards/routes/size', ['exports', 'ember', 'self-storage-iui-cards/mixins/reset-scroll'], function (exports, Ember, ResetScrollMixin) {
 
   'use strict';
 
   var UnitsSizeRoute;
 
-  UnitsSizeRoute = Ember['default'].Route.extend({
+  UnitsSizeRoute = Ember['default'].Route.extend(ResetScrollMixin['default'], {
     model: function() {
       return this.store.all('storageCategory');
     },
