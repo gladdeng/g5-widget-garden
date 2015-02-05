@@ -507,10 +507,6 @@
 "mode": 33188, 
 "mtime": 1423013732
 }, 
-"spec/support/widgets/edit-widgets.json": {
-"mode": 33204, 
-"mtime": 1423014811
-}, 
 "public/static/components/map/stylesheets/map.css": {
 "mode": 33188, 
 "mtime": 1409250169
@@ -909,7 +905,7 @@
 }, 
 "config": {
 "mode": 16877, 
-"mtime": 1423085541
+"mtime": 1423089118
 }, 
 "app/serializers/widget_serializer.rb": {
 "mode": 33188, 
@@ -921,7 +917,7 @@
 }, 
 "app/controllers/widgets_controller.rb": {
 "mode": 33188, 
-"mtime": 1423082428
+"mtime": 1423096031
 }, 
 "public/static/components/directions/show.html": {
 "mode": 33188, 
@@ -989,15 +985,11 @@
 }, 
 "app/controllers": {
 "mode": 16877, 
-"mtime": 1423082428
+"mtime": 1423096031
 }, 
 "public/static/components/map/edit.html": {
 "mode": 33188, 
 "mtime": 1412974601
-}, 
-"spec/support/widgets/edit-single-widget.json": {
-"mode": 33204, 
-"mtime": 1423077680
 }, 
 "public/static/components/comarketing/images/thumbnail.png": {
 "mode": 33188, 
@@ -1689,11 +1681,11 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1423013732
+"mtime": 1423085560
 }, 
 "spec/support/widgets/create-widgets.json": {
 "mode": 33188, 
-"mtime": 1423014553
+"mtime": 1423099360
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
@@ -1818,6 +1810,10 @@
 "git-hooks/pre-commit": {
 "mode": 33261, 
 "mtime": 1420051758
+}, 
+"spec/support/widgets/create-single-widget.json": {
+"mode": 33204, 
+"mtime": 1423095688
 }, 
 "public/static/components/video/index.html": {
 "mode": 33188, 
@@ -2013,7 +2009,7 @@
 }, 
 "config/routes.rb": {
 "mode": 33188, 
-"mtime": 1423085541
+"mtime": 1423089118
 }, 
 "public/static/components/phone": {
 "mode": 16877, 
@@ -2373,7 +2369,7 @@
 }, 
 "spec/support/widgets": {
 "mode": 16877, 
-"mtime": 1423077680
+"mtime": 1423099360
 }, 
 "public/static/components/contact-info/show.html": {
 "mode": 33188, 

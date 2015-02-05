@@ -17,18 +17,27 @@ class WidgetsController < ApplicationController
     _html(:g5_edit_template)
   end
 
+  def show_htmls
+    _htmls(:g5_show_template)
+  end
+
+  def edit_htmls
+    _htmls(:g5_edit_template)
+  end
+
   private
 
   def get_garden_ids
-    return [params[:garden_id]] if params[:garden_id]
-    return params[:garden_ids].split(',').uniq if params[:garden_ids]
+    return [params[:garden_id].to_i] if params[:garden_id]
+    return params[:garden_ids].split(',').map(&:to_i).uniq if params[:garden_ids]
+    return get_widget_params.map { |p| p[:garden_id].to_i }.uniq if get_widget_params
     "all"
   end
 
   def get_widgets(garden_ids=[])
     @widgets = G5ComponentGarden.all.map
     unless garden_ids.blank? || garden_ids.include?('all')
-      @widgets = @widgets.select { |w| garden_ids.include?(w.try(:widget_id).to_s) }
+      @widgets = @widgets.select { |w| garden_ids.include?(w.try(:widget_id).to_s.to_i) }
     end
     @widgets
   end
@@ -85,9 +94,12 @@ class WidgetsController < ApplicationController
     if @widgets.size == 1
       params = get_widget_params.first unless get_widget_params.blank?
       render :text => single_widget_html(template, @widgets.first, params)
-    else
-      render :json => multi_widget_html(template)
     end
+  end
+
+  def _htmls(template)
+    get_widgets(get_garden_ids)
+    render :json => multi_widget_html(template)
   end
 
   def single_widget_html(template, widget, params=nil)
@@ -95,8 +107,8 @@ class WidgetsController < ApplicationController
     path = "public/#{widget.try(template).to_s}" if widget.respond_to?(template)
     if path && File.exists?(path)
       begin
-        widget_id = params ? params[:id] : 0
-        settings = params ? params[:settings] : []
+        widget_id = params.has_key?(:id) ? params[:id] : 0
+        settings = params.has_key?(:settings) ? params[:settings] : []
         html << Liquid::Template.parse(File.read(path)).render("widget" => load_widget_settings(widget, widget_id, settings))
       rescue Exception => e
         puts "error parsing #{widget.try(:g5_uid)} - #{e.message}"
@@ -107,11 +119,16 @@ class WidgetsController < ApplicationController
 
   def multi_widget_html(template)
     json = {widgets: []}
-    @widgets.each do |widget|
-      # build up json object here
-      html = single_widget_html(template, widget)
-    end
-    json
+    params = get_widget_params
+    params.each do |p|
+      component = @widgets.detect { |w| w.try(:widget_id).to_s.to_i == p[:garden_id] }
+      json[:widgets] << {
+        id: p[:id],
+        garden_id: p[:garden_id],
+        html: single_widget_html(template, component, p)
+      }
+    end if params
+    json.to_json
   end
 
   def widget_dependencies(component, format)
@@ -136,17 +153,21 @@ class WidgetsController < ApplicationController
     end
   end
 
+  ## widget settings
+
   def load_widget_settings(component, widget_id=0, settings=[])
-    Widget.new(load_widget_properties(component, widget_id, settings))
+    Widget.new(get_widget_properties(component, widget_id, settings))
   end
 
   def find_setting(settings, key)
-    settings.detect { |s| s[:name].to_sym == key }
+    settings.detect { |s| s[:name].to_sym == key } if settings
   end
 
   def widget_setting(name, id, value)
     WidgetSetting.new({:name => name, :id => id, :value => value})
   end
+
+  ## widget properties
 
   def widget_instance_property_group(component)
     if component.respond_to?(:g5_property_groups)
@@ -158,23 +179,32 @@ class WidgetsController < ApplicationController
     end
   end
 
-  def load_widget_properties(component, widget_id, settings)
+  def widget_instance_properties(component)
     prop_group = widget_instance_property_group(component)
-    properties = prop_group.try(:g5_properties) if prop_group
-    widget_props = {
+    prop_group.try(:g5_properties) if prop_group
+  end
+
+  def get_widget_properties(component, widget_id, settings)
+    {
       id: widget_id,
       garden_id: component.try(:widget_id),
-      settings: []
+      settings: load_widget_properties(widget_instance_properties(component), settings)
     }
+  end
+
+  def load_widget_properties(properties, settings)
+    arr = []
     properties.each do |prop|
       name = prop.format.try(:g5_name).to_s
       setting = find_setting(settings, name.to_sym)
       setting_id = setting ? setting[:id] : 0
-      val = setting ? setting[:value] : p[:default]
-      widget_props[:settings] << widget_setting(name, setting_id, val)
+      val = setting ? setting[:value] : prop.try(:g5_default_value)
+      arr << widget_setting(name, setting_id, val)
     end if properties
-    widget_props
+    arr
   end
+
+  ## widget packet params
 
   def get_widget_params
     params[:widgets]

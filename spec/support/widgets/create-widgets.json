@@ -12,8 +12,15 @@
 			]
 		},
 		{
+			"id": 1000,
+			"garden_id": 2,
+			"settings": [
+				
+			]
+		},
+		{
 			"id": 2,
-			"garden_id": 7,
+			"garden_id": 28,
 			"settings": [
 				{
 					"id": 9546, 
@@ -35,7 +42,7 @@
 					"id": 8081, 
 					"name": "location_urn", 
 					"value": "g5-cl-i3hgailn-compass-102-krome"
-				},
+				}
 			]
 		}
 	]
