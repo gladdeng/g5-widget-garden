@@ -63181,8 +63181,9 @@ define('self-storage-iui-cards/templates/components/lead-action-link', ['exports
     var buffer = '', stack1;
     data.buffer.push("\n  <a ");
     data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
-      'href': ("linkHref")
-    },hashTypes:{'href': "STRING"},hashContexts:{'href': depth0},contexts:[],types:[],data:data})));
+      'href': ("linkHref"),
+      'class': ("isPhone")
+    },hashTypes:{'href': "STRING",'class': "STRING"},hashContexts:{'href': depth0,'class': depth0},contexts:[],types:[],data:data})));
     data.buffer.push(">");
     stack1 = helpers._triageMustache.call(depth0, "ctaText", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
     if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
