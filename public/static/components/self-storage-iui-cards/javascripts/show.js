@@ -63586,7 +63586,7 @@ define('self-storage-iui-cards/templates/unit-sizes', ['exports', 'ember'], func
   function program1(depth0,data) {
     
     var buffer = '', stack1;
-    data.buffer.push("\n  <div class=\"iui-cards-size-help\">\n    <a ");
+    data.buffer.push("\n  <div class=\"iui-cards-size-help html\">\n    <a ");
     data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
       'href': ("controller.unitSizeHelpUrl")
     },hashTypes:{'href': "STRING"},hashContexts:{'href': depth0},contexts:[],types:[],data:data})));
