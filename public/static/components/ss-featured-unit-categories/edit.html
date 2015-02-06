@@ -44,10 +44,22 @@
         Button BG Color
       </label>
       <input type="text"
-        placeholder="#252b32"
+        placeholder="#999"
         id="{{ widget.primary_color.value_field_id }}"
         name="{{ widget.primary_color.value_field_name }}"
         value="{{ widget.primary_color.value }}"
+      />
+    </div>
+    <div class="form-field">
+      {{ widget.primary_color_hover.id_hidden_field }}
+      <label for="{{ widget.primary_color_hover.value_field_id }}">
+        Button BG Hover
+      </label>
+      <input type="text"
+        placeholder="#666"
+        id="{{ widget.primary_color_hover.value_field_id }}"
+        name="{{ widget.primary_color_hover.value_field_name }}"
+        value="{{ widget.primary_color_hover.value }}"
       />
     </div>
     <div class="form-field">
@@ -71,7 +83,7 @@
         id="{{ widget.accent_color_1.value_field_id }}"
         name="{{ widget.accent_color_1.value_field_name }}"
         value="{{ widget.accent_color_1.value }}"
-        placeholder=""
+        placeholder="#eee"
       />
     </div>
 

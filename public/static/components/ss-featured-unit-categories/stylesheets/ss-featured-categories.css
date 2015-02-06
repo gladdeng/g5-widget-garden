@@ -15,7 +15,7 @@
   background-color: white;
   display: block;
   height: 1px;
-  width: 10.5em;
+  width: 8.2em;
   position: absolute;
   top: .75em;
 }
@@ -47,11 +47,13 @@
   width: 50%;
   opacity:1;
 }
-.ss-featured-unit-categories .iui-size:nth-child(2):last-child,
+.ss-featured-unit-categories .iui-size:nth-child(3):last-child,
 .ss-featured-unit-categories .iui-size:nth-child(5) {
   width: 100%;
 }
 
 .ss-featured-unit-categories .iui-size > a{
   display:block;
+  padding: 1em 3px;
+  font-size: .935em;
 }
