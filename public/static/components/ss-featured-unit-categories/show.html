@@ -8,19 +8,35 @@
   }
 </script>
 
+{% if widget.primary_color.value != blank or widget.secondary_color.value != blank or widget.accent_color.value != blank %}
 <style>
+  {% if widget.primary_color.value != blank %}
   /* Button Color color customizations */
-  .ss-featured-unit-categories .iui-size .btn,
-  .ss-featured-unit-categories .iui-steps span:first-child{ background:{{widget.primary_color.value}}; }
-
+    .ss-featured-unit-categories .iui-size > a,
+    .ss-featured-unit-categories .iui-steps span:first-child{ background-color:{{widget.primary_color.value}}; }
+  {% endif %}
+  {% if widget.primary_color_hover.value != blank %}
+  /* Button Color color customizations */
+    .ss-featured-unit-categories .iui-size > a:hover{ 
+      background-color:{{widget.primary_color_hover.value}};
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      transition: all .3s ease; 
+    }
+  {% endif %}
+  {% if widget.secondary_color.value != blank %}
   /* Secondary  color customizations */
-  .ss-featured-unit-categories .iui-title,
-  .ss-featured-unit-categories .iui-size .btn,
-  .ss-featured-unit-categories .iui-steps span:first-child{ color:{{widget.secondary_color.value}}; }
-
+    .ss-featured-unit-categories .iui-title,
+    .ss-featured-unit-categories .iui-size .btn,
+    .ss-featured-unit-categories .iui-steps span:first-child{ color:{{widget.secondary_color.value}}; }
+  {% endif %}
+  {% if widget.accent_color_1.value != blank %}
   /* Text-Color-1 color customizations */
-  .ss-featured-unit-categories .iui-title{color:{{widget.accent_color_1.value}};}
+    .ss-featured-unit-categories .iui-title{color:{{widget.accent_color_1.value}} !important;}
+  {% endif %}
 </style>
+{% endif %}
 
   <div class="iui-steps">
     <span>1</span>
