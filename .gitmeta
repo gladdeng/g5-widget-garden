@@ -265,7 +265,7 @@
 }, 
 "public/static/components/news-feed/index.html": {
 "mode": 33188, 
-"mtime": 1421854947
+"mtime": 1423463995
 }, 
 "public/static/components/featured-properties/edit.html": {
 "mode": 33188, 
@@ -1677,7 +1677,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1422894132
+"mtime": 1422896483
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
@@ -2057,7 +2057,7 @@
 }, 
 "public/static/components/news-feed/edit.html": {
 "mode": 33188, 
-"mtime": 1422894119
+"mtime": 1423464014
 }, 
 "public/static/components/review-form": {
 "mode": 16877, 
