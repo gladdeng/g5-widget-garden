@@ -62402,6 +62402,7 @@ define('self-storage-iui-cards/components/unit-cta-clickable-header', ['exports'
       this.$().parents('.units').find('.iui-cards-unit').removeClass('iui-cards-show-details');
       if (!targetUnit.hasClass('iui-cards-show-details')) {
         targetUnit.off('transitionend webkitTransitionEnd').on('transitionend webkitTransitionEnd', (function() {
+          targetUnit.off('transitionend webkitTransitionEnd');
           return this.scrollToUnit();
         }).bind(this));
         return targetUnit.toggleClass('iui-cards-show-details');
