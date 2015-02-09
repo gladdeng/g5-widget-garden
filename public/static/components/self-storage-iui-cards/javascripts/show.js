@@ -62397,16 +62397,15 @@ define('self-storage-iui-cards/components/unit-cta-clickable-header', ['exports'
     }).property('unit'),
     snowflakeSvg: '<span><svg version="1.1" class="iui-cards-special-snowflake" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35px" height="35px" viewBox="0 0 35 35" enable-background="new 0 0 35 35" xml:space="preserve" title="Climate Controlled"> <path fill="currentColor" d="M20.6,10.2l-1.4,0l0.4,0.7c0.3,0.5,0.1,1.1-0.3,1.4c-0.5,0.3-1.1,0.1-1.4-0.3l-1.1-1.8l-3.8,0l1.9,3.4 l2.7,0.1c0.5,0,1,0.5,1,1c0,0.5-0.5,1-1,1l-1.5,0l1.1,2c0.3,0.5,0.1,1.1-0.4,1.4c-0.5,0.3-1.1,0.1-1.4-0.4l-1.1-1.9l-0.3,0.7 c-0.3,0.5-0.9,0.7-1.3,0.4c-0.5-0.3-0.7-0.9-0.4-1.3l0.9-1.8l-1.9-3.4l-1.9,3.3l1.3,2.3c0.3,0.5,0.1,1.1-0.4,1.4 c-0.5,0.3-1.1,0.1-1.4-0.4l-0.7-1.3l-1.2,2.1c-0.3,0.5-0.9,0.6-1.4,0.4c-0.5-0.3-0.6-0.9-0.4-1.4l1.2-2l-0.8,0c-0.5,0-1-0.4-1.1-0.9 c0-0.5,0.4-1,0.9-1.1l2.1-0.1l1.9-3.3l-4,0l-1.4,2.2C4,12.9,3.4,13,2.9,12.7c-0.5-0.3-0.6-0.9-0.3-1.4l0.7-1.2l-2.3,0 c-0.6,0-1-0.4-1-1c0-0.6,0.4-1,1-1l2.3,0L2.9,7.5C2.6,7,2.7,6.4,3.2,6.1c0.5-0.3,1.1-0.2,1.4,0.3l1.1,1.8l3.9,0l-2-3.4L4.9,4.6 C4.4,4.6,4,4.1,4,3.6c0-0.5,0.5-1,1.1-0.9l1.4,0.1L5.9,1.6C5.6,1.1,5.7,0.5,6.2,0.2C6.7,0,7.3,0.1,7.6,0.6l0.6,1.1L8.6,1 C8.9,0.5,9.5,0.4,10,0.6c0.5,0.3,0.7,0.9,0.4,1.4l-1,1.8l2,3.4l1.9-3.4L12,1.4C11.8,1,12,0.4,12.5,0.1c0.5-0.2,1.1-0.1,1.3,0.4 l0.6,1.2l0.6-1.1C15.4,0.2,16,0,16.4,0.3c0.5,0.3,0.6,0.9,0.4,1.4l-0.7,1.2l0.9,0c0.6,0,1,0.4,1,1c0,0.6-0.4,1-1,1l-2,0l-1.9,3.4 l3.8,0L18.3,6c0.3-0.5,0.9-0.6,1.4-0.3C20.1,6,20.3,6.6,20,7.1l-0.8,1.2l1.3,0c0.6,0,1,0.4,1,1C21.6,9.8,21.1,10.2,20.6,10.2z"/> </svg></span>'.htmlSafe(),
     click: function() {
-      var callback, isAlreadyExpanded, targetUnit;
+      var targetUnit;
       targetUnit = this.$().parent('.iui-cards-unit');
-      isAlreadyExpanded = targetUnit.hasClass('iui-cards-show-details');
       this.$().parents('.units').find('.iui-cards-unit').removeClass('iui-cards-show-details');
-      if (!isAlreadyExpanded) {
-        targetUnit.toggleClass('iui-cards-show-details');
-        callback = (function() {
+      if (!targetUnit.hasClass('iui-cards-show-details')) {
+        targetUnit.off('transitionend webkitTransitionEnd').on('transitionend webkitTransitionEnd', (function() {
+          targetUnit.off('transitionend webkitTransitionEnd');
           return this.scrollToUnit();
-        }).bind(this);
-        return setTimeout(callback, 400);
+        }).bind(this));
+        return targetUnit.toggleClass('iui-cards-show-details');
       }
     },
     scrollToUnit: function() {
