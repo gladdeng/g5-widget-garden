@@ -62260,8 +62260,8 @@ define('self-storage-iui-cards/components/leads-form', ['exports', 'ember'], fun
     }).property("unit"),
     customFieldParams: function() {
       var params;
-      params = "custom_fields[][name]=p-unit-external-id&custom_fields[][value]=" + (this.unit.get("externalId"));
-      return "" + params + "&custom_fields[][name]=p-rental-rate&custom_fields[][value]=" + (this.unit.get("minRate"));
+      params = "custom_fields[][name]=unit_id&custom_fields[][value]=" + (this.unit.get("externalId") || this.unit.get("size"));
+      return "" + params + "&custom_fields[][name]=p-lease-terms&custom_fields[][value]=" + (this.unit.get("minRate"));
     },
     formEnhancer: (function() {
       var _ref;
