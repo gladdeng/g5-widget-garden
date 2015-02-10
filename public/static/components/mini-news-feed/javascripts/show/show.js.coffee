@@ -44,7 +44,7 @@ class NewsLinkBuilder
                       See More News<span class='nav-bling'> ></span>
                     </a>
                   </div> ")
-      
+
     $('.mini-news-feed-widget').append(markup.join(''))
 
   postDetails: (post) ->
@@ -60,15 +60,15 @@ class NewsLinkBuilder
       image = @configs.defaultImage if image == ""
       imageElement = "<img src='#{image}' />" if image != ""
       markup = "<div class='post-image-wrapper'><div>#{imageElement}</div></div>" if imageElement
-    
+
     markup
-                 
+
 # Get news feed from service or session storage
-# ******************************************
+# *********************************************
 
 class MiniNewsFeedSource
   constructor: (@url) ->
-    
+
   getFeed: ->
     if @feedFromStorage()
       $(this).trigger("feedReady")

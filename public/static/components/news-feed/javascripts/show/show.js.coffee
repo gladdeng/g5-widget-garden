@@ -11,7 +11,7 @@ $ ->
     new NewsFeedBuilder(configs, feedSource.feed)
     toggleListener = new ToggleListener(configs, feedSource.feed)
     selectedArticle = new QueryParameter("article-index").value()
-    
+
     if selectedArticle
       postIndex = parseInt(selectedArticle)
       toggleListener.clearAllPosts()
@@ -49,7 +49,7 @@ class NewsFeedBuilder
                       <div class='post-body'>#{post.text}</div>
                       #{@bottomToggles(index)}
                     </div>" )
-      
+
     $('.news-feed-widget').append(markup.join(''))
 
   toggleMarkup: (post, index) ->
@@ -157,17 +157,17 @@ class SingleArticleView
       image = @configs.defaultImage if image == ""
       imageElement = "<img src='#{image}' />" if image != ""
       markup = "<div class='post-image-wrapper'><div>#{imageElement}</div></div>" if imageElement
-    
+
     markup
 
 
 # Choose type of listener based on UI type
 # ******************************************
-    
+
 class ToggleListener
   constructor: (@configs, @feed) ->
     @selectedArticle = new QueryParameter("article-index").value()
-    
+
   basicListener: () ->
     $('.post-toggle').click ->
       $(this).siblings(".post-description, .post-body").slideToggle()
@@ -200,11 +200,11 @@ class ToggleListener
     }, 420)
 
 # Get news feed from service or session storage
-# ******************************************
+# *********************************************
 
 class NewsFeedSource
   constructor: (@url) ->
-    
+
   getFeed: ->
     if @feedFromStorage()
       $(this).trigger("feedReady")
@@ -264,5 +264,5 @@ class QueryParameter
     results = regex.exec(location.search);
     if results == null
       false
-    else 
+    else
       decodeURIComponent(results[1].replace(/\+/g, " "))
