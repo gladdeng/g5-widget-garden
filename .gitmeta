@@ -261,7 +261,7 @@
 }, 
 "public/static/components/mini-news-feed/stylesheets/mini-news-feed.css": {
 "mode": 33188, 
-"mtime": 1422893622
+"mtime": 1423527951
 }, 
 "public/static/components/news-feed/index.html": {
 "mode": 33188, 
@@ -1069,7 +1069,7 @@
 }, 
 "public/static/components/mini-news-feed/show.html": {
 "mode": 33188, 
-"mtime": 1422890938
+"mtime": 1423527964
 }, 
 "public/static/components/map/show.html": {
 "mode": 33188, 
@@ -1677,7 +1677,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1423464412
+"mtime": 1423464578
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
