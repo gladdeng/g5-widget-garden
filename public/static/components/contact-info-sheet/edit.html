@@ -49,6 +49,18 @@
   </div>
 
   <div class="form-field">
+    <label for="{{ widget.third_party_chat.value_field_id }}" >
+      3rd Party Chat URL
+    </label>
+    {{ widget.third_party_chat.id_hidden_field }}
+    <input type="text"
+      id="{{ widget.third_party_chat.value_field_id }}"
+      name="{{ widget.third_party_chat.value_field_name }}"
+      value="{{ widget.third_party_chat.value }}"
+    />
+  </div>
+
+  <div class="form-field">
     <label for="{{ widget.success_redirect_url.value_field_id }}" >
       Successful Submission Redirect URL
     </label>

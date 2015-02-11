@@ -13,6 +13,9 @@
     <!-- use phone service for this number -->
     <a class="number info-sheet-phone-btn info-sheet-toggle" href="tel://{{ widget.phone_number.value }}"><span class="p-tel">{{ widget.phone_number.value }}</span></a>
     <a class="info-sheet-email-btn info-sheet-toggle" href="{{ widget.contact_url.value | url_encode }}">Email</a>
+    {% if widget.third_party_chat.value != blank %}
+      <a class="info-sheet-chat-btn info-sheet-icon" target="_blank" href="{{ widget.third_party_chat.value | url_encode }}">Third Party Chat</a>
+    {% endif %}
     <div class="info-sheet-page-up info-sheet-pagination">UP</div>
     <div class="info-sheet-page-down info-sheet-pagination">DOWN</div>
   </div> <!-- end .info-sheet-nav -->
