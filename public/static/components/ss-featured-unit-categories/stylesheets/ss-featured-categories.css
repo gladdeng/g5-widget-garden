@@ -47,8 +47,9 @@
   width: 50%;
   opacity:1;
 }
-.ss-featured-unit-categories .iui-size:nth-child(3):last-child,
-.ss-featured-unit-categories .iui-size:nth-child(5) {
+
+.ss-featured-unit-categories .iui-size:nth-child(odd):last-child,
+.ss-featured-unit-categories .iui-size:nth-last-child(2):nth-child(odd){
   width: 100%;
 }
 

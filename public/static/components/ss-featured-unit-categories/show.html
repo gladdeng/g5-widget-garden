@@ -15,16 +15,6 @@
     .ss-featured-unit-categories .iui-size > a,
     .ss-featured-unit-categories .iui-steps span:first-child{ background-color:{{widget.primary_color.value}}; }
   {% endif %}
-  {% if widget.primary_color_hover.value != blank %}
-  /* Button Color color customizations */
-    .ss-featured-unit-categories .iui-size > a:hover{ 
-      background-color:{{widget.primary_color_hover.value}};
-      -webkit-transition: all .3s ease;
-      -moz-transition: all .3s ease;
-      -o-transition: all .3s ease;
-      transition: all .3s ease; 
-    }
-  {% endif %}
   {% if widget.secondary_color.value != blank %}
   /* Secondary  color customizations */
     .ss-featured-unit-categories .iui-title,
