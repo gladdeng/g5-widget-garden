@@ -86,13 +86,25 @@
   <div class="form-field">
     {{ widget.text_color.id_hidden_field }}
     <label for="{{ widget.text_color.value_field_id }}">
-      Nav Text Color
+      Text Color
     </label>
     <input type="text"
       placeholder=""
       id="{{ widget.text_color.value_field_id }}"
       name="{{ widget.text_color.value_field_name }}"
       value="{{ widget.text_color.best_value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.button_text_color.id_hidden_field }}
+    <label for="{{ widget.button_text_color.value_field_id }}">
+      Button Text Color
+    </label>
+    <input type="text"
+      placeholder=""
+      id="{{ widget.button_text_color.value_field_id }}"
+      name="{{ widget.button_text_color.value_field_name }}"
+      value="{{ widget.button_text_color.best_value }}"
     />
   </div>
   <div class="form-field">

@@ -15,7 +15,7 @@
   background-color: white;
   display: block;
   height: 1px;
-  width: 10.5em;
+  width: 7.87em;
   position: absolute;
   top: .75em;
 }
@@ -54,4 +54,6 @@
 
 .ss-featured-unit-categories .iui-size > a{
   display:block;
+  padding: 1em 3px;
+  font-size: .935em;
 }

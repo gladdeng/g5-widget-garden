@@ -109,7 +109,6 @@ module G5ComponentGarden
     end
 
     def get_directory_timestamp(directory)
-      return 5.seconds.ago if ENV['FORCE_WIDGET_UPDATES']
       Time.zone.at(META[directory]['mtime'])
     end
 
