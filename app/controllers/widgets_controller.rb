@@ -29,8 +29,10 @@ class WidgetsController < ApplicationController
 
   def get_garden_ids
     return [params[:garden_id].to_i] if params[:garden_id]
-    return "all" if params[:garden_ids].include?('all')
-    return params[:garden_ids].split(',').map(&:to_i).uniq if params[:garden_ids]
+    if params[:garden_ids]
+      return "all" if params[:garden_ids].include?('all')
+      return params[:garden_ids].split(',').map(&:to_i).uniq
+    end
     return get_widget_params.map { |p| p[:garden_id].to_i }.uniq if get_widget_params
     "all"
   end

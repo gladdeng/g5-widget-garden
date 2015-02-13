@@ -649,7 +649,7 @@
 }, 
 "public/static/components/gallery-basic": {
 "mode": 16877, 
-"mtime": 1419363521
+"mtime": 1423852762
 }, 
 "LICENSE.txt": {
 "mode": 33188, 
@@ -949,7 +949,7 @@
 }, 
 "app/controllers/widgets_controller.rb": {
 "mode": 33188, 
-"mtime": 1423849709
+"mtime": 1423854348
 }, 
 "public/static/components/directions/show.html": {
 "mode": 33188, 
@@ -1021,7 +1021,7 @@
 }, 
 "app/controllers": {
 "mode": 16877, 
-"mtime": 1423849709
+"mtime": 1423854348
 }, 
 "public/static/components/map/edit.html": {
 "mode": 33188, 
@@ -1753,7 +1753,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1423848450
+"mtime": 1423849736
 }, 
 "spec/support/widgets/create-widgets.json": {
 "mode": 33188, 
@@ -1913,7 +1913,7 @@
 }, 
 "public/static/components/gallery-basic/index.html": {
 "mode": 33188, 
-"mtime": 1416247185
+"mtime": 1423852762
 }, 
 "public/static/components/google-translate/show.html": {
 "mode": 33188, 
