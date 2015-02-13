@@ -18,7 +18,6 @@
   background:#FBE3E4;
   color:#8a1f11;
   border:1px solid #ff0000;
-  margin-bottom: 1em;
   padding: .5em;
   position: relative;
 }
@@ -98,7 +97,4 @@
   margin-top: 0;
   width: 47.5%;
   float:left;
-}
-.directions.wide .text {
-  width: 50%;
 }
