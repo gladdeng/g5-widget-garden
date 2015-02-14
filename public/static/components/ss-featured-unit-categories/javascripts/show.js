@@ -4,25 +4,30 @@
   $(function() {
     var configs,
       _this = this;
+    if (typeof ssFeaturedUnitCategories === 'undefined') {
+      return;
+    }
     configs = ssFeaturedUnitCategories;
-    return $.ajax({
-      url: "" + configs.unit_service_host + "/api/v1/storage_facilities/" + configs.location_urn + "/storage_categories",
-      dataType: 'json',
-      success: function(data) {
-        var categories;
-        categories = data.storage_categories;
-        if (typeof categories !== "undefined" && categories.length > 0) {
-          return new ssUnitMarkupBuilder(categories, configs);
+    if (configs) {
+      return $.ajax({
+        url: "" + configs.unit_service_host + "/api/v1/storage_facilities/" + configs.location_urn + "/storage_categories",
+        dataType: 'json',
+        success: function(data) {
+          var categories;
+          categories = data.storage_categories;
+          if (typeof categories !== "undefined" && categories.length > 0) {
+            return new ssUnitMarkupBuilder(categories, configs);
+          }
         }
-      }
-    });
+      });
+    }
   });
 
   ssUnitMarkupBuilder = (function() {
     ssUnitMarkupBuilder.prototype.configs = null;
 
     function ssUnitMarkupBuilder(categories, configs) {
-      var allButton, category, index, markupHash, _i, _len;
+      var allButton, category, container, index, markupHash, _i, _len;
       this.configs = configs;
       categories.sort(function(a, b) {
         return a.name - b.name;
@@ -34,7 +39,10 @@
       }
       allButton = " <div class='iui-size iui-view-all'>                    <a class='btn' href='" + configs.unit_page_url + "/#/size'>                      View All                    </a>                  </div> ";
       markupHash.push(allButton);
-      $('.ss-featured-unit-categories .iui-container').html(markupHash.join(''));
+      container = $('.ss-featured-unit-categories .iui-container');
+      if (container.length) {
+        container.html(markupHash.join(''));
+      }
     }
 
     ssUnitMarkupBuilder.prototype.buttonTemplate = function(category, configs) {

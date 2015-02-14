@@ -3,7 +3,9 @@
 # ******************************************
 
 $ ->
-  configs = JSON.parse($('#mini-news-feed-config').html())
+  configOpts = $('#mini-news-feed-config')
+  return unless configOpts.length
+  configs = JSON.parse(configOpts.html())
 
   feedURL = "#{configs.newsServiceDomain}/locations/#{configs.locationURN}/news_feed.json"
   feedSource = new MiniNewsFeedSource(feedURL)

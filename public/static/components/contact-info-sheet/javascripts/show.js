@@ -2,8 +2,12 @@
   var setUpContactInfoSheet;
 
   setUpContactInfoSheet = function() {
-    var initializeContactInfoSheet, phoneOptions, setFadeDelay, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
-    phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
+    var configOpts, initializeContactInfoSheet, phoneOptions, setFadeDelay, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
+    configOpts = $('.contact-info-sheet .config:first');
+    if (!configOpts.length) {
+      return;
+    }
+    phoneOptions = JSON.parse(configOpts.html());
     new phoneNumber(phoneOptions);
     setFadeDelay = function(seconds) {
       var delay;

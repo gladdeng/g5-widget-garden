@@ -11,10 +11,13 @@
   };
 
   $(function() {
-    var configs, languages;
-    configs = JSON.parse($('#google-translate-config').html());
-    languages = configs.languages;
-    return googleTranslateElementInit(languages);
+    var configOpts, configs, languages;
+    configOpts = $('#google-translate-config');
+    if (configOpts.length) {
+      configs = JSON.parse(configOpts.html());
+      languages = configs.languages;
+      return googleTranslateElementInit(languages);
+    }
   });
 
 }).call(this);

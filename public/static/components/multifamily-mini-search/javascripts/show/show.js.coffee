@@ -1,6 +1,7 @@
 $ ->
-
-  miniSearchConfigs = JSON.parse($('#mf-mini-search-config').html())
+  configOpts = $('#mf-mini-search-config')
+  return unless configOpts.length
+  miniSearchConfigs = JSON.parse(configOpts.html())
 
   $.ajax
     url: "#{miniSearchConfigs.serviceURL}/api/v0/client_locations?client_id=#{miniSearchConfigs.clientID}"

@@ -2,9 +2,13 @@
   var MiniNewsFeedSource, MiniNewsFeedWidthChecker, NewsLinkBuilder;
 
   $(function() {
-    var configs, feedSource, feedURL,
+    var configOpts, configs, feedSource, feedURL,
       _this = this;
-    configs = JSON.parse($('#mini-news-feed-config').html());
+    configOpts = $('#mini-news-feed-config');
+    if (!configOpts.length) {
+      return;
+    }
+    configs = JSON.parse(configOpts.html());
     feedURL = "" + configs.newsServiceDomain + "/locations/" + configs.locationURN + "/news_feed.json";
     feedSource = new MiniNewsFeedSource(feedURL);
     $(feedSource).bind("feedReady", function(event) {

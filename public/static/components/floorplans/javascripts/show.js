@@ -94,8 +94,12 @@
   };
 
   $(function() {
-    var floorplanContainer, pricingOptions;
-    pricingOptions = JSON.parse($('.floorplans .config:first').html());
+    var configOpts, floorplanContainer, pricingOptions;
+    configOpts = $('.floorplans .config:first');
+    if (!configOpts.length) {
+      return;
+    }
+    pricingOptions = JSON.parse(configOpts.html);
     new pricingAndAvailability(pricingOptions);
     $(".floorplans .floorplan-btn").fancybox();
     floorplanContainer = $('.floorplans');

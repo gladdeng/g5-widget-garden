@@ -2,14 +2,16 @@
   var BusinessSchemaUpdater, ReviewFeedSource, ReviewTemplater;
 
   $(function() {
-    var feedSource, fullReviewsConfig, hcardReviewsConfig, targetElement,
+    var feedSource, fullReviewsConfig, hcardReviewsConfig, targetElement, useFeed,
       _this = this;
+    useFeed = false;
     if ($('.promoted-reviews-config.full-review-config').length) {
       fullReviewsConfig = JSON.parse($('.promoted-reviews-config.full-review-config').html());
       feedSource = new ReviewFeedSource(fullReviewsConfig.review_api_url);
       $(feedSource).bind("feedReady", function(event) {
         return new ReviewTemplater(fullReviewsConfig.branded_name).update(feedSource.feed);
       });
+      useFeed = true;
     } else if ($('.promoted-reviews-config.hcard-review-config').length) {
       hcardReviewsConfig = JSON.parse($('.promoted-reviews-config.hcard-review-config').html());
       feedSource = new ReviewFeedSource(hcardReviewsConfig.review_api_url);
@@ -17,8 +19,11 @@
       $(feedSource).bind("feedReady", function(event) {
         return new BusinessSchemaUpdater(targetElement, hcardReviewsConfig.review_page_url).update(feedSource.feed);
       });
+      useFeed = true;
     }
-    return feedSource.getFeed();
+    if (useFeed) {
+      return feedSource.getFeed();
+    }
   });
 
   ReviewFeedSource = (function() {

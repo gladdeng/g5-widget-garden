@@ -92,6 +92,8 @@ class customizeUnitGrid
     $('.unit-beds, .unit-baths, .unit-size, .unit-rate').css('color', color)
 
 class initializeUnitGrid
-  floorplanConfig = JSON.parse($('#floorplan-cards-config').html())
-  new populateUnitData(floorplanConfig)
+  configOpts = $('#floorplan-cards-config')
+  if configOpts.length
+    floorplanConfig = JSON.parse(configOpts.html())
+    new populateUnitData(floorplanConfig)
   

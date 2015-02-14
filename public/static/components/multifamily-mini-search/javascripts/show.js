@@ -2,9 +2,13 @@
   var AlternateSearchSubmittal, citySelectUpdater, corpSearchMarkupBuilder, optionsBuilder, radioButtonBuilder, radioButtonListener, searchSubmittal;
 
   $(function() {
-    var altSearchVals, miniSearchConfigs,
+    var altSearchVals, configOpts, miniSearchConfigs,
       _this = this;
-    miniSearchConfigs = JSON.parse($('#mf-mini-search-config').html());
+    configOpts = $('#mf-mini-search-config');
+    if (!configOpts.length) {
+      return;
+    }
+    miniSearchConfigs = JSON.parse(configOpts.html());
     $.ajax({
       url: "" + miniSearchConfigs.serviceURL + "/api/v0/client_locations?client_id=" + miniSearchConfigs.clientID,
       dataType: 'json',

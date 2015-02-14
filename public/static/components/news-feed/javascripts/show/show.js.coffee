@@ -3,7 +3,9 @@
 # ******************************************
 
 $ ->
-  configs = JSON.parse($('#news-feed-config').html())
+  configOpts = $('#news-feed-config')
+  return unless configOpts.length
+  configs = JSON.parse(configOpts.html())
 
   feedURL = "#{configs.newsServiceDomain}/locations/#{configs.locationURN}/news_feed.json"
   feedSource = new NewsFeedSource(feedURL)

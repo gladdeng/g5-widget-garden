@@ -2,8 +2,12 @@
   var BlogFetcher, facebookFeedBuilder, facebookInitializer, googlePlusFeedBuilder, googlePlusInitializer, tabListener, tweetBuilder, tweetInitializer;
 
   $(function() {
-    var blogConfig, facebookFeed, feedVars, googlePlusFeed;
-    feedVars = JSON.parse($('#social-feed-config').html());
+    var blogConfig, configOpts, facebookFeed, feedVars, googlePlusFeed;
+    configOpts = $('#social-feed-config');
+    if (!configOpts.length) {
+      return;
+    }
+    feedVars = JSON.parse(configOpts.html());
     if (feedVars.twitter_username.length > 1) {
       new tweetInitializer(feedVars);
     }

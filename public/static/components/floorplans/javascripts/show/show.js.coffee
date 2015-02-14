@@ -83,7 +83,10 @@ setupFilters = ->
       $(bedSelector + bathSelector).fadeIn "fast"
 
 $ ->
-  pricingOptions = JSON.parse($('.floorplans .config:first').html())
+  configOpts = $('.floorplans .config:first')
+  return unless configOpts.length
+  
+  pricingOptions = JSON.parse(configOpts.html)
   new pricingAndAvailability(pricingOptions)
 
   $(".floorplans .floorplan-btn").fancybox()

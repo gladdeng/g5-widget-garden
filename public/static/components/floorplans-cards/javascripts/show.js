@@ -102,13 +102,16 @@
   })();
 
   initializeUnitGrid = (function() {
-    var floorplanConfig;
+    var configOpts, floorplanConfig;
 
     function initializeUnitGrid() {}
 
-    floorplanConfig = JSON.parse($('#floorplan-cards-config').html());
+    configOpts = $('#floorplan-cards-config');
 
-    new populateUnitData(floorplanConfig);
+    if (configOpts.length) {
+      floorplanConfig = JSON.parse(configOpts.html());
+      new populateUnitData(floorplanConfig);
+    }
 
     return initializeUnitGrid;
 

@@ -1,12 +1,14 @@
 $ -> 
+  return if typeof ssFeaturedUnitCategories == 'undefined'
   configs = ssFeaturedUnitCategories
-  $.ajax
-    url: "#{configs.unit_service_host}/api/v1/storage_facilities/#{configs.location_urn}/storage_categories"
-    dataType: 'json'
-    success: (data) =>
-      categories = data.storage_categories
-      if typeof(categories) != "undefined" && categories.length > 0
-        new ssUnitMarkupBuilder(categories, configs) 
+  if configs
+    $.ajax
+      url: "#{configs.unit_service_host}/api/v1/storage_facilities/#{configs.location_urn}/storage_categories"
+      dataType: 'json'
+      success: (data) =>
+        categories = data.storage_categories
+        if typeof(categories) != "undefined" && categories.length > 0
+          new ssUnitMarkupBuilder(categories, configs) 
 
 class ssUnitMarkupBuilder 
   configs: null
@@ -25,7 +27,8 @@ class ssUnitMarkupBuilder
 
     markupHash.push(allButton)
 
-    $('.ss-featured-unit-categories .iui-container').html(markupHash.join(''))
+    container = $('.ss-featured-unit-categories .iui-container')
+    container.html(markupHash.join('')) if container.length
 
   buttonTemplate: (category, configs) ->
     "<div class='iui-size'><a class='btn' href='#{configs.unit_page_url}/#/options?categoryId=#{category.id}'>#{category.name}</a></div>"

@@ -3,6 +3,9 @@
 
   $(function() {
     var zipSearchConfigs;
+    if (!$('#zip-search-config').length) {
+      return;
+    }
     zipSearchConfigs = new ZipSearchConfigs;
     new PseudoMediaQuery(zipSearchConfigs);
     new SearchButtonListener(zipSearchConfigs);
@@ -12,7 +15,7 @@
   ZipSearchAjaxRequest = (function() {
     function ZipSearchAjaxRequest(zipSearchConfigs) {
       var _this = this;
-      if (zipSearchConfigs.searchURL()) {
+      if (zipSearchConfigs && zipSearchConfigs.searchURL()) {
         $.ajax({
           url: zipSearchConfigs.searchURL(),
           dataType: 'json',

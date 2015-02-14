@@ -1,5 +1,7 @@
 $ ->
-  phoneOptions = JSON.parse($('.phone .config:first').html())
+  configOpts = $('.phone .config:first')
+  return unless configOpts.length
+  phoneOptions = JSON.parse(configOpts.html())
 
   if phoneOptions.appendPhone == 'true'
     phoneMarkup = " <a href='tel://#{phoneOptions.defaultPhoneNumber}' class='appended-phone number h-card vcard' itemscope itemtype='http://schema.org/LocalBusiness' >

@@ -2,9 +2,13 @@
   var iuiMarkupBuilder;
 
   $(function() {
-    var configs,
+    var configOpts, configs,
       _this = this;
-    configs = JSON.parse($('#home-multifamily-iui-config').html());
+    configOpts = $('#home-multifamily-iui-config');
+    if (!configOpts.length) {
+      return;
+    }
+    configs = JSON.parse(configOpts.html());
     return $.ajax({
       url: "" + configs.floorplans_service_host + "/api/v0/multi_families?store_id=" + configs.core_store_id,
       dataType: 'json',

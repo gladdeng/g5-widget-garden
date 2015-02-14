@@ -1,5 +1,7 @@
 $ ->
   # Grab settings from index.html
+  return unless $('#zip-search-config').length
+  
   zipSearchConfigs = new ZipSearchConfigs
   # Classes for different container widths
   new PseudoMediaQuery(zipSearchConfigs)
@@ -10,7 +12,7 @@ $ ->
   
 class ZipSearchAjaxRequest
   constructor: (zipSearchConfigs) ->
-    if zipSearchConfigs.searchURL()
+    if zipSearchConfigs && zipSearchConfigs.searchURL()
       $.ajax
         url: zipSearchConfigs.searchURL()
         dataType: 'json'

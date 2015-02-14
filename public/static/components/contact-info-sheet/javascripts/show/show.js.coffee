@@ -1,6 +1,9 @@
 setUpContactInfoSheet = ->
 
-  phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html())
+  configOpts = $('.contact-info-sheet .config:first')
+  return unless configOpts.length
+
+  phoneOptions = JSON.parse(configOpts.html())
   new phoneNumber(phoneOptions)
 
   setFadeDelay = (seconds) ->

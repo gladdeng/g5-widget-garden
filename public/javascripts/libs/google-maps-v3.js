@@ -3,8 +3,10 @@ google.maps = google.maps || {};
 (function() {
   
   function getScript(src) {
-    document.write('<' + 'script src="' + src + '"' +
-                   ' type="text/javascript"><' + '/script>');
+    tag = document.createElement('script');
+    tag.src = src;
+    tag.type = "text/javascript";
+    document.getElementByTagName('head').appendChild(tag);
   }
   
   var modules = google.maps.modules = {};

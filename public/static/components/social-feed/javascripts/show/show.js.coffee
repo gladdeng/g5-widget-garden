@@ -1,6 +1,8 @@
 $ ->
   # Get social feed config options
-  feedVars = JSON.parse($('#social-feed-config').html())
+  configOpts = $('#social-feed-config')
+  return unless configOpts.length
+  feedVars = JSON.parse(configOpts.html())
 
   # Twitter feed setup
   if feedVars.twitter_username.length > 1
