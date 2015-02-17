@@ -1,33 +1,50 @@
 $ ->
   # Get photo randomizer config options
   photoRandomizerVars = photoRandomizerVarsConfig  
+
+  # PHOTO RANDOMIZER UTILITIES
+  # *******************
+  #Grab up all the URLs & alt text from the Configs in an array
+  photo_array = photoRandomizerVars.photos
+  
+  #Randomize some stuff by passing it the array
+  random_photo = photo_array[Math.floor(Math.random()*photo_array.length)];
+  # randomPhoto = (obj) ->
+  #   keys = Object.keys(obj)
+  #   obj[keys[keys.length * Math.random() << 0]]
+  #   # console.log(obj)
+
+  #Build out the random image
+  photoRandomizerBuilder = (data) ->
+    if data != []
+      photoRandomizerMarkup = """<img src="#{data.url}" alt="#{data.alt_text}"/>"""
+      $('.photo-randomizer').append(photoRandomizerMarkup)
+
+  #console.log randomPhoto(photo_info)
+  #console.log(photoRandomizerVarsConfig.photos[0].url)
+  #photoRandomizerBuilder(photo_array)
+  #random_dude = randomPhoto(photo_array)
+  #photoRandomizerBuilder(random_dude)
+
+  photoRandomizerBuilder(random_photo)
+
+# $ ->
+#   photoRandomizerVars = photoRandomizerVarsConfig    
   # Setup
-  # if photoRandomizerVars.length > 1
-  #   photoRandomizer = new photoRandomizerInitializer(photoRandomizerVars)
-
-# PHOTO RANDOMIZER UTILITIES
-# *******************
-  #Grab up all the URLs & alt text from the Configs
-  #photoRandomizerVars = photoRandomizerVarsConfig 
-
-  #Smash all the results into an array?  Need Utility that accepts
-  photos = []
-  i = 0
-  while i < objects.length
-    arr.push objects[i].name
-    i++
-
-  #Grab a Random item from the Array and assign it to variable
-  random_photo = photoRandomizerVars[Math.floor(Math.random()*items.length)]
-
-  #append arrayRandom to some html element
-  $('.photo-randomizer').append(photoRandomizerMarkup)
+#   new photoRandomizerInitializer(photoRandomizerVars) if photoRandomizerVars?
 
 
-randomPhoto = (obj) ->
-  keys = Object.keys(obj)
-  obj[keys[keys.length * Math.random() << 0]]
-  console.log(obj)
+# class photoRandomizerInitializer
+#   constructor: (@configs) ->
+#   randomPhoto: () ->
+#     constructor: @obj
+#     keys = Object.keys(@obj)
+#     @obj[keys[keys.length * Math.random() << 0]]
+#     console.log(@obj)
 
-
+#   photoRandomizerBuilder: () ->
+#     contstructor: @dataFeed
+#     if dataFeed != []
+#       photoRandomizerMarkup = """<img src="#{@dataFeed.url}" alt="#{@dataFeed.alt_text}"/>"""
+#       $('.photo-randomizer').append(photoRandomizerMarkup)
 

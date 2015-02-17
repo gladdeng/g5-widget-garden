@@ -2,29 +2,12 @@
   <script id="photo-randomizer-config" type="application/javascript">
     var photoRandomizerVarsConfig = { 
       "photos": [
-        { "url": "http://placehold.it/150x150", "alt": "Alt 1" },
-        { "url": "http://placehold.it/250x150", "alt": "Alt 2" },
-        { "url": "http://placehold.it/350x150", "alt": "Alt 3" },
-        { "url": "http://placehold.it/450x150", "alt": "Alt 4" },
-        { "url": "http://placehold.it/550x150", "alt": "Alt 5" },
+        { "url": "{{ widget.photo_1_url.value }}", "alt": "{{ widget.photo_1_alt.value }}" },
+        { "url": "{{ widget.photo_2_url.value }}", "alt": "{{ widget.photo_2_alt.value }}" },
+        { "url": "{{ widget.photo_3_url.value }}", "alt": "{{ widget.photo_3_alt.value }}" },
+        { "url": "{{ widget.photo_4_url.value }}", "alt": "{{ widget.photo_4_alt.value }}" },
+        { "url": "{{ widget.photo_5_url.value }}", "alt": "{{ widget.photo_5_alt.value }}" },
       ] 
     }
-
-    //console.log(photos.photos[0].url)
-
-    // var photoRandomizerVarsConfig = { 
-    //   "photos": [
-    //     { "url": "{{ widget.photo_1_url.value }}", "alt": "{{ widget.photo_1_alt.value }}" },
-    //     { "url": "{{ widget.photo_2_url.value }}", "alt": "{{ widget.photo_2_alt.value }}" },
-    //     { "url": "{{ widget.photo_3_url.value }}", "alt": "{{ widget.photo_3_alt.value }}" },
-    //     { "url": "{{ widget.photo_4_url.value }}", "alt": "{{ widget.photo_4_alt.value }}" },
-    //     { "url": "{{ widget.photo_5_url.value }}", "alt": "{{ widget.photo_5_alt.value }}" },
-    //   ] 
-    // }
-
   </script>
-
-
-  <div class="photo-randomizer-listing">
-  </div>
 </div>

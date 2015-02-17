@@ -1,24 +1,17 @@
 (function() {
-  var randomPhoto;
-
   $(function() {
-    var i, photoRandomizerVars, photos, random_photo;
+    var photoRandomizerBuilder, photoRandomizerVars, photo_array, random_photo;
     photoRandomizerVars = photoRandomizerVarsConfig;
-    photos = [];
-    i = 0;
-    while (i < objects.length) {
-      arr.push(objects[i].name);
-      i++;
-    }
-    random_photo = photoRandomizerVars[Math.floor(Math.random() * items.length)];
-    return $('.photo-randomizer').append(photoRandomizerMarkup);
+    photo_array = photoRandomizerVars.photos;
+    random_photo = photo_array[Math.floor(Math.random() * photo_array.length)];
+    photoRandomizerBuilder = function(data) {
+      var photoRandomizerMarkup;
+      if (data !== []) {
+        photoRandomizerMarkup = "<img src=\"" + data.url + "\" alt=\"" + data.alt_text + "\"/>";
+        return $('.photo-randomizer').append(photoRandomizerMarkup);
+      }
+    };
+    return photoRandomizerBuilder(random_photo);
   });
-
-  randomPhoto = function(obj) {
-    var keys;
-    keys = Object.keys(obj);
-    obj[keys[keys.length * Math.random() << 0]];
-    return console.log(obj);
-  };
 
 }).call(this);
