@@ -2,7 +2,7 @@
   var setUpContactInfoSheet;
 
   setUpContactInfoSheet = function() {
-    var initializeContactInfoSheet, phoneOptions, setFadeDelay, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
+    var initializeContactInfoSheet, phoneOptions, setFadeDelay, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, sprayChat, stopContactInfoSheet;
     phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
     new phoneNumber(phoneOptions);
     setFadeDelay = function(seconds) {
@@ -24,6 +24,12 @@
       });
     };
     setFadeDelay(phoneOptions.fadeDelay);
+    sprayChat = function(url) {
+      var chatMarkup;
+      chatMarkup = "<a href=\"#\" class=\"info-sheet-chat-btn info-sheet-icon\" onclick=\"window.open(url,'targetWindow',\n                                  'toolbar=no,\n                                   location=no,\n                                   status=no,\n                                   menubar=no,\n                                   scrollbars=yes,\n                                   resizable=yes,\n                                   width=800,\n                                   height=600');\nreturn false;\">Popup link</a>";
+      return $(chatMarkup).insertAfter($(".info-sheet-email-btn"));
+    };
+    sprayChat(phoneOptions.third_party_chat);
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");
       widget.find(".info-sheet-email").hide();

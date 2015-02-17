@@ -16,6 +16,26 @@ setUpContactInfoSheet = ->
 
   setFadeDelay(phoneOptions.fadeDelay) 
 
+
+  sprayChat = (url) ->
+    #openChatWindow = window.open url, 'Click to Chat', 'width=918, height=615, scrollbars=yes, resizable=yes'
+    # chatMarkup = """<a href="#{url}" onclick="openChatWindow(this.href); return false;" class="info-sheet-chat-btn info-sheet-icon">Third Party Chat</a>"""
+    chatMarkup = """<a href="#" class="info-sheet-chat-btn info-sheet-icon" onclick="window.open(url,'targetWindow',
+                                   'toolbar=no,
+                                    location=no,
+                                    status=no,
+                                    menubar=no,
+                                    scrollbars=yes,
+                                    resizable=yes,
+                                    width=800,
+                                    height=600');
+ return false;">Popup link</a>"""
+
+    $(chatMarkup).insertAfter($(".info-sheet-email-btn"))
+
+  # openChatWindow(phoneOptions.third_party_chat)
+  sprayChat(phoneOptions.third_party_chat)
+
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"
     widget.find(".info-sheet-email").hide()
