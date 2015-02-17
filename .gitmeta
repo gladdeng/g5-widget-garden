@@ -1377,7 +1377,7 @@
 }, 
 "public/static/components/content-stripe": {
 "mode": 16877, 
-"mtime": 1424196283
+"mtime": 1424197254
 }, 
 "public/static/tmp-images/logo-2.png": {
 "mode": 33188, 
@@ -1557,7 +1557,7 @@
 }, 
 "public/static/components/content-stripe/show.html": {
 "mode": 33188, 
-"mtime": 1424196283
+"mtime": 1424197254
 }, 
 "public/static/tmp-images/dxm.png": {
 "mode": 33188, 
@@ -1777,7 +1777,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1424195797
+"mtime": 1424197240
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
