@@ -11,7 +11,9 @@
         return $('.photo-randomizer').append(photoRandomizerMarkup);
       }
     };
-    return photoRandomizerBuilder(random_photo);
+    if (photo_array.length > 1) {
+      return photoRandomizerBuilder(random_photo);
+    }
   });
 
 }).call(this);

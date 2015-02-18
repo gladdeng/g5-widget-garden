@@ -9,10 +9,6 @@ $ ->
   
   #Randomize some stuff by passing it the array
   random_photo = photo_array[Math.floor(Math.random()*photo_array.length)];
-  # randomPhoto = (obj) ->
-  #   keys = Object.keys(obj)
-  #   obj[keys[keys.length * Math.random() << 0]]
-  #   # console.log(obj)
 
   #Build out the random image
   photoRandomizerBuilder = (data) ->
@@ -20,14 +16,9 @@ $ ->
       photoRandomizerMarkup = """<img src="#{data.url}" alt="#{data.alt_text}"/>"""
       $('.photo-randomizer').append(photoRandomizerMarkup)
 
-  #console.log randomPhoto(photo_info)
-  #console.log(photoRandomizerVarsConfig.photos[0].url)
-  #photoRandomizerBuilder(photo_array)
-  #random_dude = randomPhoto(photo_array)
-  #photoRandomizerBuilder(random_dude)
+  photoRandomizerBuilder(random_photo) if photo_array.length > 1
 
-  photoRandomizerBuilder(random_photo)
-
+# The Module Pattern
 # $ ->
 #   photoRandomizerVars = photoRandomizerVarsConfig    
   # Setup
@@ -47,4 +38,3 @@ $ ->
 #     if dataFeed != []
 #       photoRandomizerMarkup = """<img src="#{@dataFeed.url}" alt="#{@dataFeed.alt_text}"/>"""
 #       $('.photo-randomizer').append(photoRandomizerMarkup)
-
