@@ -16,7 +16,7 @@ setUpContactInfoSheet = ->
 
   setFadeDelay(phoneOptions.fadeDelay) 
   
-  sprayChat = (configs) ->
+  chatWindow = (configs) ->
     chatMarkup =  """<a href="#{configs.third_party_chat}" target="_blank" class="info-sheet-chat-btn info-sheet-icon">Third Party Chat</a>"""
     $(chatMarkup).insertAfter($(".info-sheet-email-btn"))
     width = if configs.chat_width.length > 1 then configs.chat_width else 600
@@ -26,7 +26,7 @@ setUpContactInfoSheet = ->
       openChatWindow = window.open(configs.third_party_chat, 'Chat', """width=#{width}, height=#{height}, scrollbars=yes, resizable=yes""")
       false 
 
-  sprayChat(phoneOptions)
+  chatWindow(phoneOptions) if phoneOptions.third_party_chat
 
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"
