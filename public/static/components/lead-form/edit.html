@@ -116,7 +116,10 @@
 
 <script type="text/javascript">
   function showDiv(elem){
-     if(elem.value == "application")
-        $('#application_div').css("display", "block");
+    if(elem.value == "application"){
+      $('#application_div').css("display", "block");
+    }else{
+      $('#application_div').css("display", "none");
+    }
   }
 </script>
