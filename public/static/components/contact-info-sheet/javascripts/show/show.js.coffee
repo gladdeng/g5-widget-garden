@@ -15,26 +15,18 @@ setUpContactInfoSheet = ->
     })
 
   setFadeDelay(phoneOptions.fadeDelay) 
-
-
-  sprayChat = (url) ->
-    #openChatWindow = window.open url, 'Click to Chat', 'width=918, height=615, scrollbars=yes, resizable=yes'
-    # chatMarkup = """<a href="#{url}" onclick="openChatWindow(this.href); return false;" class="info-sheet-chat-btn info-sheet-icon">Third Party Chat</a>"""
-    chatMarkup = """<a href="#" class="info-sheet-chat-btn info-sheet-icon" onclick="window.open(url,'targetWindow',
-                                   'toolbar=no,
-                                    location=no,
-                                    status=no,
-                                    menubar=no,
-                                    scrollbars=yes,
-                                    resizable=yes,
-                                    width=800,
-                                    height=600');
- return false;">Popup link</a>"""
-
+  
+  sprayChat = (configs) ->
+    chatMarkup =  """<a href="#{configs.third_party_chat}" target="_blank" class="info-sheet-chat-btn info-sheet-icon">Third Party Chat</a>"""
     $(chatMarkup).insertAfter($(".info-sheet-email-btn"))
+    width = if configs.chat_width.length > 1 then configs.chat_width else 600
+    height = if configs.chat_height.length > 1 then configs.chat_height else 600
 
-  # openChatWindow(phoneOptions.third_party_chat)
-  sprayChat(phoneOptions.third_party_chat)
+    $('.info-sheet-chat-btn').click ->
+      openChatWindow = window.open(configs.third_party_chat, 'Chat', """width=#{width}, height=#{height}, scrollbars=yes, resizable=yes""")
+      false 
+
+  sprayChat(phoneOptions)
 
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"

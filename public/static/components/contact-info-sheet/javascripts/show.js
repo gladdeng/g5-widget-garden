@@ -24,12 +24,19 @@
       });
     };
     setFadeDelay(phoneOptions.fadeDelay);
-    sprayChat = function(url) {
-      var chatMarkup;
-      chatMarkup = "<a href=\"#\" class=\"info-sheet-chat-btn info-sheet-icon\" onclick=\"window.open(url,'targetWindow',\n                                  'toolbar=no,\n                                   location=no,\n                                   status=no,\n                                   menubar=no,\n                                   scrollbars=yes,\n                                   resizable=yes,\n                                   width=800,\n                                   height=600');\nreturn false;\">Popup link</a>";
-      return $(chatMarkup).insertAfter($(".info-sheet-email-btn"));
+    sprayChat = function(configs) {
+      var chatMarkup, height, width;
+      chatMarkup = "<a href=\"" + configs.third_party_chat + "\" target=\"_blank\" class=\"info-sheet-chat-btn info-sheet-icon\">Third Party Chat</a>";
+      $(chatMarkup).insertAfter($(".info-sheet-email-btn"));
+      width = configs.chat_width.length > 1 ? configs.chat_width : 600;
+      height = configs.chat_height.length > 1 ? configs.chat_height : 600;
+      return $('.info-sheet-chat-btn').click(function() {
+        var openChatWindow;
+        openChatWindow = window.open(configs.third_party_chat, 'Chat', "width=" + width + ", height=" + height + ", scrollbars=yes, resizable=yes");
+        return false;
+      });
     };
-    sprayChat(phoneOptions.third_party_chat);
+    sprayChat(phoneOptions);
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");
       widget.find(".info-sheet-email").hide();
