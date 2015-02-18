@@ -10,6 +10,11 @@ A garden of widgets that can be used in client location sites.
 
 1. Install all the required gems `bundle`
 2. Set timestamps & symlink git hooks `rake dev:init`
+
+   this configures git hooks(commit, merge) to maintain timestamps in `.gitmeta`.
+   everytime you make a commit the file timestamps will be updated.
+   if you want to update timestamps without commiting code, you can commit with allow empty.
+   i.e. `git commit --allow-empty -m "update timestamps"`
 3. Install all the required node dependencies. `npm install`
 
 ## Grunt Task
@@ -39,6 +44,7 @@ The Gruntfile is watching *.js & *.js.coffee files under public/static/component
   * Jessica Dillon / [@jessicard](https://github.com/jessicard)
   * Chad Crissman / [@crissmancd](https://github.com/crissmancd)
   * Brian Bauer / [@bbauer](https://github.com/bbauer)
+  * Levi Brown / [@levibrown](https://github.com/levibrown)
 
 ## Contributing
 
@@ -61,7 +67,7 @@ bundle exec rspec
 
 ## License
 
-Copyright (c) 2013 G5
+Copyright (c) 2015 G5
 
 MIT License
 
