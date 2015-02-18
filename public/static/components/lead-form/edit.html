@@ -68,7 +68,7 @@
         YVSL Contact Us
       </option>
 
-      <option value="application" {% if widget.form_type.value == "application" %}selected{% endif %}>
+      <option value="online_application" {% if widget.form_type.value == "online_application" %}selected{% endif %}>
         Yardi Voyager Application
       </option>
 
@@ -116,7 +116,7 @@
 
 <script type="text/javascript">
   function showDiv(elem){
-    if(elem.value == "application"){
+    if(elem.value == "online_application"){
       $('#application_div').css("display", "block");
     }else{
       $('#application_div').css("display", "none");
