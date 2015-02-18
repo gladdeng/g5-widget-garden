@@ -2,7 +2,7 @@
   var setUpContactInfoSheet;
 
   setUpContactInfoSheet = function() {
-    var initializeContactInfoSheet, phoneOptions, setFadeDelay, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, sprayChat, stopContactInfoSheet;
+    var chatWindow, initializeContactInfoSheet, phoneOptions, setFadeDelay, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
     phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
     new phoneNumber(phoneOptions);
     setFadeDelay = function(seconds) {
@@ -24,7 +24,7 @@
       });
     };
     setFadeDelay(phoneOptions.fadeDelay);
-    sprayChat = function(configs) {
+    chatWindow = function(configs) {
       var chatMarkup, height, width;
       chatMarkup = "<a href=\"" + configs.third_party_chat + "\" target=\"_blank\" class=\"info-sheet-chat-btn info-sheet-icon\">Third Party Chat</a>";
       $(chatMarkup).insertAfter($(".info-sheet-email-btn"));
@@ -36,7 +36,9 @@
         return false;
       });
     };
-    sprayChat(phoneOptions);
+    if (phoneOptions.third_party_chat) {
+      chatWindow(phoneOptions);
+    }
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");
       widget.find(".info-sheet-email").hide();
