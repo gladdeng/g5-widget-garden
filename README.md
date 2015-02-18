@@ -17,6 +17,10 @@ A garden of widgets that can be used in client location sites.
    i.e. `git commit --allow-empty -m "update timestamps"`
 3. Install all the required node dependencies. `npm install`
 
+##### resolve .gitmeta branch conflicts: 
+1. reset your branch .gitmeta to origin master. `git checkout origin/master .gitmeta`
+2. then sync your file system timestamps to .gitmeta by running a empty commit(runs git hook). `git commit --allow-empty -m "update timestamps"`
+
 ## Grunt Task
 
 You will need to run the Gruntfile tasks in order to compile and concat the widget javascripts.
