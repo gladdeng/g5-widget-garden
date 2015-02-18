@@ -50,7 +50,7 @@ bundle exec rspec
 ```
 
 
-## Widget CSS Conventions
+## Widget CSS conventions
 
 The css used for widgets should be the minimal amount to get it working
 and layed out correctly. The theme css will handle the majority of
@@ -90,6 +90,22 @@ a.btn { }
 **Do not use the font-family property**
 
 **Try to limit use of color, font-size, font-style, font-weight, borders, etc.**
+
+
+## Available classes for styling in themes using boilerplate
+
+* .clearfix
+* .hidden
+* .visually-hidden *(hides from screen but not screen readers)*
+* .image-replace *(for hiding text and using background image)*
+* .btn
+* .form-field *(to wrap a label and input)*
+* .form-instruction *(any form notes or instructions)*
+* .required *(place on labels of required form fields)*
+* .center *(centers text)*
+* .float-left, .float-right, .float-none
+* .clear-left, .clear-right, .clear-both
+* http://g5-theme-garden.herokuapp.com/static/g5-icons
 
 
 ## Authors
