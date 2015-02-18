@@ -17,9 +17,10 @@ A garden of widgets that can be used in client location sites.
    i.e. `git commit --allow-empty -m "update timestamps"`
 3. Install all the required node dependencies. `npm install`
 
-##### resolve .gitmeta branch conflicts: 
+##### resolve .gitmeta branch conflicts:
 1. reset your branch .gitmeta to origin master. `git checkout origin/master .gitmeta`
 2. then sync your file system timestamps to .gitmeta by running a empty commit(runs git hook). `git commit --allow-empty -m "update timestamps"`
+
 
 ## Grunt Task
 
@@ -40,6 +41,56 @@ The Gruntfile is watching *.js & *.js.coffee files under public/static/component
 1. Run a coffee task - compile the *.js.coffee files from public/static/components/*/javascripts/{show, edit}/ into *.compiled.js in the same directory
 1. Run a concat task - concat *.js and *.compiled.js files into public/static/components/*/javascripts/ as either show.js or edit.js (depending on which folder it's coming from)
 1. Run a clean task - remove *.compiled.js files from public/static/components/*/javascripts/{show, edit}/
+
+
+## Specs
+
+```bash
+bundle exec rspec
+```
+
+
+## Widget CSS Conventions
+
+The css used for widgets should be the minimal amount to get it working
+and layed out correctly. The theme css will handle the majority of
+styles
+
+**Namespace all styles with the top level widget class, which should be
+the name of the widget. For example:**
+
+```css
+.widget-name .title { }
+```
+
+**Try to limit selectors to 3 levels. For example:**
+
+DO THIS
+```
+.widget-name .title span { }
+```
+
+NOT THIS
+```
+.widget-name .widget-wrapper .title a span { }
+```
+
+**If possible, do not use tag names in conjunction with class names**
+
+DO THIS
+```
+.btn { }
+```
+
+NOT THIS
+```
+a.btn { }
+```
+
+**Do not use the font-family property**
+
+**Try to limit use of color, font-size, font-style, font-weight, borders, etc.**
+
 
 ## Authors
 
@@ -63,11 +114,6 @@ The Gruntfile is watching *.js & *.js.coffee files under public/static/component
 If you find bugs, have feature requests or questions, please
 [file an issue](https://github.com/G5/g5-widget-garden/issues).
 
-## Specs
-
-```bash
-bundle exec rspec
-```
 
 ## License
 
