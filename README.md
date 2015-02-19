@@ -56,14 +56,14 @@ The css used for widgets should be the minimal amount to get it working
 and layed out correctly. The theme css will handle the majority of
 styles
 
-**Namespace all styles with the top level widget class, which should be
-the name of the widget. For example:**
+**1** Namespace all styles with the top level widget class, which should be
+the name of the widget. For example:
 
 ```css
 .widget-name .title { }
 ```
 
-**Try to limit selectors to 3 levels. For example:**
+**2** Try to limit selectors to 3 levels. For example:
 
 DO THIS
 ```
@@ -75,7 +75,7 @@ NOT THIS
 .widget-name .widget-wrapper .title a span { }
 ```
 
-**If possible, do not use tag names in conjunction with class names**
+**3** If possible, do not use tag names in conjunction with class names
 
 DO THIS
 ```
@@ -87,13 +87,35 @@ NOT THIS
 a.btn { }
 ```
 
-**Do not use the font-family property**
+**4** Do not use the font-family property
 
-**Try to limit use of color, font-size, font-style, font-weight, borders, etc.**
+**5** Try to limit use of color, font-size, font-style, font-weight, borders, etc.
+
+**6** Do not use !important unless you know for sure that the color
+will never need to be changed. This should be rare
+
+
+### Regarding configurable widget settings
+
+Sometimes you may want the widget to have some custom styling options,
+typically related to color. These use inline styles in the show view.
+Please follow these conventions:
+
+**1** Use the background-color attribute, rather than background
+
+**2** If you give the option to change the background, also give the option
+to change the text color within that element
+
+**3** For these custom colors, set the defaults in the css file, not the index file
+
+**4** Limit these types of widget settings as much as possible
 
 
 ## Available classes for styling in themes using boilerplate
 
+* .primary-color, .secondary-color, .tertiary-color *(sets color to custom variables)*
+* .primary-bg, .secondary-bg, .tertiary-bg *(sets background-color to custom variables)*
+* .primary-font, .secondary-font *(sets font-family to custom font variable)*
 * .clearfix
 * .hidden
 * .visually-hidden *(hides from screen but not screen readers)*
