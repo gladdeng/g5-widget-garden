@@ -30,8 +30,7 @@
         .contact-info-sheet .info-sheet-nav:after {
           clear: both; }
       .contact-info-sheet .info-sheet-toggle,
-      .contact-info-sheet .info-sheet-pagination,
-      .contact-info-sheet .info-sheet-icon{
+      .contact-info-sheet .info-sheet-pagination{
         background-image: url("https://widgets.g5dxm.com/contact-info/contact-icons-light.png"); }
       .contact-info-sheet .info-sheet-toggle {
         float: left;
