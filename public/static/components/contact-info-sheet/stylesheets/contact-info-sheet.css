@@ -49,7 +49,10 @@
       .contact-info-sheet .info-sheet-content {
         display: none !important; } }
   @media screen and (max-width: 1169px) {
-    .contact-info-sheet .info-sheet-pagination,
+    .contact-info-sheet .info-sheet-pagination{
+      display: none; }
+  }
+  @media screen and (max-width: 909px) {
     .contact-info-sheet .info-sheet-icon {
       display: none; }
   }
