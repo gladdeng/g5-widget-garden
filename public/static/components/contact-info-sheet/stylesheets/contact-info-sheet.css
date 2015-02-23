@@ -79,6 +79,14 @@
         text-indent: 100%;
         white-space: nowrap;
         overflow: hidden; }
+      .contact-info-sheet .info-sheet-icon.chat-code{
+        text-indent: 0;
+        background-image:none;
+      }
+      .contact-info-sheet .info-sheet-icon.chat-code img{
+        max-width: 75px;
+        max-height: 75px;
+      }
       .contact-info-sheet .info-sheet-phone-btn {
         background-position: center 21px; }
       .contact-info-sheet .info-sheet-email-btn {
