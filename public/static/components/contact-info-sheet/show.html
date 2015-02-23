@@ -9,6 +9,9 @@
       "third_party_chat":"{{widget.third_party_chat_url.value}}",
       "chat_width":"{{widget.chat_width.value}}",
       "chat_height":"{{widget.chat_height.value}}"
+      {% if widget.third_party_chat_code.value != blank %}
+      ,"third_party_chat_code":"true"
+      {% endif %}
     }
   </script>
 
