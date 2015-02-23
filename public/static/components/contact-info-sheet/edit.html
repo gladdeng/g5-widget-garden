@@ -48,16 +48,19 @@
     />
   </div>
 
+
+
   <div class="form-field">
-    <label for="{{ widget.third_party_chat.value_field_id }}" >
-      3rd Party Chat URL
-    </label>
     {{ widget.third_party_chat.id_hidden_field }}
-    <input type="text"
-      id="{{ widget.third_party_chat.value_field_id }}"
+    <label for="{{ widget.third_party_chat.value_field_id }}" >
+      3rd Party Chat URL or HTML
+    </label>
+    <textarea
+      id="ckeditor"
       name="{{ widget.third_party_chat.value_field_name }}"
-      value="{{ widget.third_party_chat.value }}"
-    />
+     >
+      {{ widget.third_party_chat.value }}
+    </textarea>
   </div>
 
   <div class="form-field">
