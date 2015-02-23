@@ -26,7 +26,7 @@
     setFadeDelay(phoneOptions.fadeDelay);
     chatWindow = function(configs) {
       var chatMarkup, height, width;
-      chatMarkup = "<a href=\"" + configs.third_party_chat + "\" target=\"_blank\" class=\"info-sheet-chat-btn info-sheet-icon\">Third Party Chat</a>";
+      chatMarkup = "<span class=\"info-sheet-chat-btn info-sheet-icon\">" + configs.third_party_chat + "</span>";
       $(chatMarkup).insertAfter($(".info-sheet-email-btn"));
       width = configs.chat_width.length > 1 ? configs.chat_width : 600;
       height = configs.chat_height.length > 1 ? configs.chat_height : 600;
@@ -58,7 +58,7 @@
       screenHeight = $(window).height();
       if ($("body").hasClass("web-home-template") || Modernizr.mq("(min-width: 1325px)")) {
         widgetPosition = $("header[role=banner]").outerHeight() + 30;
-      } else if (phoneOptions.third_party_chat) {
+      } else if (Modernizr.mq("(max-width: 909px) and (min-width: 1170px") && phoneOptions.third_party_chat) {
         widgetPosition = $("header[role=banner]").outerHeight() + 30;
       } else {
         widgetPosition = $("header[role=banner]").outerHeight() + $("section[role=main] .row:first-of-type").outerHeight() + 30;
