@@ -26,7 +26,7 @@
     setFadeDelay(phoneOptions.fadeDelay);
     chatWindow = function(configs) {
       var chatMarkup, height, width;
-      chatMarkup = "<span class=\"info-sheet-chat-btn info-sheet-icon\">" + configs.third_party_chat + "</span>";
+      chatMarkup = "<a href=\"" + configs.third_party_chat + "\" target=\"_blank\" class=\"info-sheet-chat-btn info-sheet-icon\">Third Party Chat</a>";
       $(chatMarkup).insertAfter($(".info-sheet-email-btn"));
       width = configs.chat_width.length > 1 ? configs.chat_width : 600;
       height = configs.chat_height.length > 1 ? configs.chat_height : 600;

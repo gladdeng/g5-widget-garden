@@ -17,8 +17,7 @@ setUpContactInfoSheet = ->
   setFadeDelay(phoneOptions.fadeDelay) 
   
   chatWindow = (configs) ->
-    #chatMarkup =  """<a href="#{configs.third_party_chat}" target="_blank" class="info-sheet-chat-btn info-sheet-icon">Third Party Chat</a>"""
-    chatMarkup =  """<span class="info-sheet-chat-btn info-sheet-icon">#{configs.third_party_chat}</span>"""
+    chatMarkup =  """<a href="#{configs.third_party_chat}" target="_blank" class="info-sheet-chat-btn info-sheet-icon">Third Party Chat</a>"""
     $(chatMarkup).insertAfter($(".info-sheet-email-btn"))
     width = if configs.chat_width.length > 1 then configs.chat_width else 600
     height = if configs.chat_height.length > 1 then configs.chat_height else 600

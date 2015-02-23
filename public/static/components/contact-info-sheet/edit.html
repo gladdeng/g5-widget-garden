@@ -49,27 +49,27 @@
   </div>
 
   <div class="form-field">
-    <label for="{{ widget.third_party_chat.value_field_id }}" >
+    <label for="{{ widget.third_party_chat_url.value_field_id }}" >
       3rd Party Chat URL
     </label>
-    {{ widget.third_party_chat.id_hidden_field }}
+    {{ widget.third_party_chat_url.id_hidden_field }}
     <input type="text"
-      id="{{ widget.third_party_chat.value_field_id }}"
-      name="{{ widget.third_party_chat.value_field_name }}"
-      value="{{ widget.third_party_chat.value }}"
+      id="{{ widget.third_party_chat_url.value_field_id }}"
+      name="{{ widget.third_party_chat_url.value_field_name }}"
+      value="{{ widget.third_party_chat_url.value }}"
     />
   </div>
 
   <div class="form-field">
-    {{ widget.third_party_chat.id_hidden_field }}
-    <label for="{{ widget.third_party_chat.value_field_id }}" >
+    {{ widget.third_party_chat_code.id_hidden_field }}
+    <label for="{{ widget.third_party_chat_code.value_field_id }}" >
       3rd Party Chat URL or HTML
     </label>
     <textarea
-      id="{{ widget.third_party_chat.value_field_id }}"
-      name="{{ widget.third_party_chat.value_field_name }}"
+      id="{{ widget.third_party_chat_code.value_field_id }}"
+      name="{{ widget.third_party_chat_code.value_field_name }}"
      >
-      {{ widget.third_party_chat.value }}
+      {{ widget.third_party_chat_code.value }}
     </textarea>
   </div>
 
