@@ -36,7 +36,7 @@
         return false;
       });
     };
-    if (phoneOptions.third_party_chat) {
+    if (phoneOptions.third_party_chat.length > 1) {
       chatWindow(phoneOptions);
     }
     showPhone = function(widget) {

@@ -27,7 +27,7 @@ setUpContactInfoSheet = ->
       openChatWindow = window.open(configs.third_party_chat, 'Chat', """width=#{width}, height=#{height}, scrollbars=yes, resizable=yes""")
       false 
 
-  chatWindow(phoneOptions) if phoneOptions.third_party_chat
+  chatWindow(phoneOptions) if phoneOptions.third_party_chat.length > 1
 
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"
