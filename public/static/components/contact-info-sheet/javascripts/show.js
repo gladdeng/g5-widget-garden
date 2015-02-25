@@ -2,7 +2,7 @@
   var setUpContactInfoSheet;
 
   setUpContactInfoSheet = function() {
-    var chatWindow, initializeContactInfoSheet, phoneOptions, setFadeDelay, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
+    var chatWindow, chatWindowURL, initializeContactInfoSheet, phoneOptions, setFadeDelay, setupContactInfoSheet, setupMobileContactInfoSheet, showEmail, showPhone, stopContactInfoSheet;
     phoneOptions = JSON.parse($('.contact-info-sheet .config:first').html());
     new phoneNumber(phoneOptions);
     setFadeDelay = function(seconds) {
@@ -36,8 +36,23 @@
         return false;
       });
     };
-    if (phoneOptions.third_party_chat.length > 1) {
-      chatWindow(phoneOptions);
+    chatWindowURL = function(configs) {
+      var chatMarkup, chatMarkupHTML, chatMarkupURL, height, width;
+      chatMarkupURL = "<a href=\"" + configs.third_party_chat + "\" target=\"_blank\" class=\"info-sheet-chat-btn info-sheet-icon\">Third Party Chat</a>";
+      chatMarkupHTML = "<span class=\"info-sheet-chat-btn info-sheet-icon chat-code\">" + configs.third_party_url + "</span>";
+      chatMarkup = configs.third_party_chat.length > 1 ? chatMarkupURL : chatMarkupHTML;
+      $(chatMarkup).insertAfter($(".info-sheet-email-btn"));
+      width = configs.chat_width.length > 1 ? configs.chat_width : 600;
+      height = configs.chat_height.length > 1 ? configs.chat_height : 600;
+      return $('.info-sheet-chat-btn').click(function() {
+        var openChatWindow, url;
+        url = configs.third_party_chat.length > 1 ? configs.third_party_chat : '';
+        openChatWindow = window.open(url, 'Chat', "width=" + width + ", height=" + height + ", scrollbars=yes, resizable=yes");
+        return false;
+      });
+    };
+    if (phoneOptions.third_party_chat.length > 1 || phoneOptions.third_party_url.length > 1) {
+      chatWindowURL(phoneOptions);
     }
     showPhone = function(widget) {
       widget.removeClass("opened showing-email");

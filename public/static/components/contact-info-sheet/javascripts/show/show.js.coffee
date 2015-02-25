@@ -26,7 +26,31 @@ setUpContactInfoSheet = ->
       openChatWindow = window.open(configs.third_party_chat, 'Chat', """width=#{width}, height=#{height}, scrollbars=yes, resizable=yes""")
       false 
 
-  chatWindow(phoneOptions) if phoneOptions.third_party_chat.length > 1
+  # chatWindow(phoneOptions) if phoneOptions.third_party_chat.length > 1
+
+  chatWindowURL = (configs) ->
+    #need to pass in the chat URL or chat HTML & build out HTML
+    #need to build out the window width and height if defined
+    #need to set the on click depending for either URL or HTML
+    #define the function once to handle all situations
+    #call function once for URL and once for Chat with conditional check.
+
+    chatMarkupURL =  """<a href="#{configs.third_party_chat}" target="_blank" class="info-sheet-chat-btn info-sheet-icon">Third Party Chat</a>"""
+    chatMarkupHTML = """<span class="info-sheet-chat-btn info-sheet-icon chat-code">#{configs.third_party_url}</span>"""
+
+    chatMarkup = if configs.third_party_chat.length > 1 then chatMarkupURL else chatMarkupHTML
+    $(chatMarkup).insertAfter($(".info-sheet-email-btn"))
+
+
+    width = if configs.chat_width.length > 1 then configs.chat_width else 600
+    height = if configs.chat_height.length > 1 then configs.chat_height else 600
+
+    $('.info-sheet-chat-btn').click ->
+      url = if configs.third_party_chat.length > 1 then configs.third_party_chat else ''
+      openChatWindow = window.open(url, 'Chat', """width=#{width}, height=#{height}, scrollbars=yes, resizable=yes""")
+      false 
+
+  chatWindowURL(phoneOptions) if phoneOptions.third_party_chat.length > 1 or  phoneOptions.third_party_url.length > 1
 
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"
