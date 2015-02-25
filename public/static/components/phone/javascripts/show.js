@@ -6,9 +6,12 @@
       return;
     }
     phoneOptions = JSON.parse(configOpts.html());
+    phoneMarkup = " <a href='tel://" + phoneOptions.defaultPhoneNumber + "' class='appended-phone number h-card vcard' itemscope itemtype='http://schema.org/LocalBusiness' >                    <span style='visibility:hidden;' class='p-tel tel' itemprop='telephone'>" + phoneOptions.defaultPhoneNumber + "</span>                  </a> ";
     if (phoneOptions.appendPhone === 'true') {
-      phoneMarkup = " <a href='tel://" + phoneOptions.defaultPhoneNumber + "' class='appended-phone number h-card vcard' itemscope itemtype='http://schema.org/LocalBusiness' >                      <span style='visibility:hidden;' class='p-tel tel' itemprop='telephone'>" + phoneOptions.defaultPhoneNumber + "</span>                    </a> ";
       $(phoneMarkup).insertAfter("" + phoneOptions.appendElements);
+    }
+    if (phoneOptions.prependPhone === 'true') {
+      $(phoneMarkup).insertBefore("" + phoneOptions.appendElements);
     }
     return new phoneNumber(phoneOptions);
   });
