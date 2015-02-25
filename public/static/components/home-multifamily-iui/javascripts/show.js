@@ -37,9 +37,10 @@
     }
 
     buttonTemplate = function(beds, configs) {
-      var buttonText;
+      var buttonClass, buttonText;
+      buttonClass = beds > 0 ? "btn-beds" : "btn-studio";
       buttonText = beds > 0 ? "<strong>" + beds + "</strong> Bedroom" : "Studio";
-      return "<div class='iui-size'><a class='btn' href='" + configs.floorplan_page_url + "#/bedrooms/" + beds + "/floorplans'>" + buttonText + "</a></div>";
+      return "<div class='iui-size'><a class='btn " + buttonClass + "' href='" + configs.floorplan_page_url + "#/bedrooms/" + beds + "/floorplans'>" + buttonText + "</a></div>";
     };
 
     return iuiMarkupBuilder;
