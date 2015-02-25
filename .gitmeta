@@ -79,6 +79,10 @@
 "mode": 16877, 
 "mtime": 1424819609
 }, 
+"public/static/components/logo/javascripts/show.js": {
+"mode": 33188, 
+"mtime": 1424823626
+}, 
 "public/static/components/quote/images/thumbnail.png": {
 "mode": 33188, 
 "mtime": 1409250169
@@ -969,7 +973,7 @@
 }, 
 "public/static/components/footer-info/javascripts": {
 "mode": 16877, 
-"mtime": 1424819615
+"mtime": 1424886600
 }, 
 "public/static/tmp-images/logo-4.png": {
 "mode": 33188, 
@@ -1013,7 +1017,7 @@
 }, 
 "public/static/components": {
 "mode": 16877, 
-"mtime": 1424789484
+"mtime": 1424886217
 }, 
 "public/static/components/home-multifamily-iui/javascripts/show.js": {
 "mode": 33188, 
@@ -1121,7 +1125,7 @@
 }, 
 "public/static/components/footer-info/javascripts/show.js": {
 "mode": 33188, 
-"mtime": 1424819714
+"mtime": 1424886600
 }, 
 "public/static/components/contact-info/images/thumbnail.png": {
 "mode": 33188, 
@@ -1777,7 +1781,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1424819609
+"mtime": 1424886600
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
@@ -1851,6 +1855,10 @@
 "mode": 16877, 
 "mtime": 1424819609
 }, 
+"public/static/components/logo/javascripts/show/show.js.coffee": {
+"mode": 33204, 
+"mtime": 1424823803
+}, 
 "public/static/components/floorplans": {
 "mode": 16877, 
 "mtime": 1422924731
@@ -1902,6 +1910,10 @@
 "git-hooks/pre-commit": {
 "mode": 33261, 
 "mtime": 1420051758
+}, 
+"public/static/components/logo/javascripts": {
+"mode": 16877, 
+"mtime": 1424823626
 }, 
 "public/static/components/real-page/images/thumbnail.png": {
 "mode": 33188, 
@@ -1974,6 +1986,10 @@
 "public/static/components/service-request-form/images": {
 "mode": 16877, 
 "mtime": 1409250169
+}, 
+"public/static/components/logo/javascripts/show": {
+"mode": 16877, 
+"mtime": 1424823803
 }, 
 "public/static/components/content-stripe/javascripts/edit/edit.js.coffee": {
 "mode": 33188, 
@@ -2241,7 +2257,7 @@
 }, 
 "public/static/components/logo/show.html": {
 "mode": 33188, 
-"mtime": 1416247185
+"mtime": 1424886600
 }, 
 "public/static/components/floorplans-cards/images/thumbnail.png": {
 "mode": 33188, 
@@ -2429,7 +2445,7 @@
 }, 
 "public/static/components/logo": {
 "mode": 16877, 
-"mtime": 1419363207
+"mtime": 1424886619
 }, 
 "public/static/components/promoted-reviews/javascripts": {
 "mode": 16877, 
