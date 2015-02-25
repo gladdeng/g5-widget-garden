@@ -25,22 +25,19 @@
     };
     setFadeDelay(phoneOptions.fadeDelay);
     chatWindowURL = function(configs) {
-      var chatMarkup, chatMarkupHTML, chatMarkupURL, height, url, width;
+      var chatMarkupURL, height, url, width;
       chatMarkupURL = "<a href=\"" + configs.third_party_chat + "\" target=\"_blank\" class=\"info-sheet-chat-btn info-sheet-icon\">Third Party Chat</a>";
-      chatMarkupHTML = "<span class=\"info-sheet-chat-btn info-sheet-icon chat-code\">" + configs.third_party_url + "</span>";
-      chatMarkup = configs.third_party_chat.length > 1 ? chatMarkupURL : chatMarkupHTML;
-      $(chatMarkup).insertAfter($(".info-sheet-email-btn"));
+      $(chatMarkupURL).insertAfter($(".info-sheet-email-btn"));
       width = configs.chat_width.length > 1 ? configs.chat_width : 600;
       height = configs.chat_height.length > 1 ? configs.chat_height : 600;
       url = configs.third_party_chat.length > 1 ? configs.third_party_chat : "";
-      console.log(url);
       return $('.info-sheet-chat-btn').click(function() {
         var openChatWindow;
         openChatWindow = window.open(url, 'Chat', "width=" + width + ", height=" + height + ", scrollbars=yes, resizable=yes");
         return false;
       });
     };
-    if (phoneOptions.third_party_chat.length > 1 || phoneOptions.third_party_url.length > 1) {
+    if (phoneOptions.third_party_chat.length > 1 || phoneOptions.third_party_url === true) {
       chatWindowURL(phoneOptions);
     }
     showPhone = function(widget) {

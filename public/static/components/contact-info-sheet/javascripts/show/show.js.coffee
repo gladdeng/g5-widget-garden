@@ -36,24 +36,21 @@ setUpContactInfoSheet = ->
     #call function once for URL and once for Chat with conditional check.
 
     chatMarkupURL =  """<a href="#{configs.third_party_chat}" target="_blank" class="info-sheet-chat-btn info-sheet-icon">Third Party Chat</a>"""
-    chatMarkupHTML = """<span class="info-sheet-chat-btn info-sheet-icon chat-code">#{configs.third_party_url}</span>"""
+    # chatMarkupHTML = """<span class="info-sheet-chat-btn info-sheet-icon chat-code">#{configs.third_party_url}</span>"""
 
-    chatMarkup = if configs.third_party_chat.length > 1 then chatMarkupURL else chatMarkupHTML
-    $(chatMarkup).insertAfter($(".info-sheet-email-btn"))
+    #chatMarkup = if configs.third_party_chat.length > 1 then chatMarkupURL else chatMarkupHTML
+    $(chatMarkupURL).insertAfter($(".info-sheet-email-btn"))
 
 
     width = if configs.chat_width.length > 1 then configs.chat_width else 600
     height = if configs.chat_height.length > 1 then configs.chat_height else 600
     url = if configs.third_party_chat.length > 1 then configs.third_party_chat else ""
 
-    console.log url
-
     $('.info-sheet-chat-btn').click ->
       openChatWindow = window.open(url, 'Chat', """width=#{width}, height=#{height}, scrollbars=yes, resizable=yes""")
       false 
 
-
-  chatWindowURL(phoneOptions) if phoneOptions.third_party_chat.length > 1 or  phoneOptions.third_party_url.length > 1
+  chatWindowURL(phoneOptions) if phoneOptions.third_party_chat.length > 1 or  phoneOptions.third_party_url is true
 
   showPhone = (widget) ->
     widget.removeClass "opened showing-email"
