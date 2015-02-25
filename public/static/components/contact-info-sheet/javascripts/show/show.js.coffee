@@ -16,17 +16,17 @@ setUpContactInfoSheet = ->
 
   setFadeDelay(phoneOptions.fadeDelay) 
   
-  chatWindow = (configs) ->
-    chatMarkup =  """<a href="#{configs.third_party_chat}" target="_blank" class="info-sheet-chat-btn info-sheet-icon">Third Party Chat</a>"""
-    $(chatMarkup).insertAfter($(".info-sheet-email-btn"))
-    width = if configs.chat_width.length > 1 then configs.chat_width else 600
-    height = if configs.chat_height.length > 1 then configs.chat_height else 600
+  # chatWindow = (configs) ->
+  #   chatMarkup =  """<a href="#{configs.third_party_chat}" target="_blank" class="info-sheet-chat-btn info-sheet-icon">Third Party Chat</a>"""
+  #   $(chatMarkup).insertAfter($(".info-sheet-email-btn"))
+  #   width = if configs.chat_width.length > 1 then configs.chat_width else 600
+  #   height = if configs.chat_height.length > 1 then configs.chat_height else 600
 
-    $('.info-sheet-chat-btn').click ->
-      openChatWindow = window.open(configs.third_party_chat, 'Chat', """width=#{width}, height=#{height}, scrollbars=yes, resizable=yes""")
-      false 
+  #   $('.info-sheet-chat-btn').click ->
+  #     openChatWindow = window.open(configs.third_party_chat, 'Chat', """width=#{width}, height=#{height}, scrollbars=yes, resizable=yes""")
+  #     false 
 
-  # chatWindow(phoneOptions) if phoneOptions.third_party_chat.length > 1
+  # # chatWindow(phoneOptions) if phoneOptions.third_party_chat.length > 1
 
   chatWindowURL = (configs) ->
     #need to pass in the chat URL or chat HTML & build out HTML
@@ -44,11 +44,14 @@ setUpContactInfoSheet = ->
 
     width = if configs.chat_width.length > 1 then configs.chat_width else 600
     height = if configs.chat_height.length > 1 then configs.chat_height else 600
+    url = if configs.third_party_chat.length > 1 then configs.third_party_chat else ""
+
+    console.log url
 
     $('.info-sheet-chat-btn').click ->
-      url = if configs.third_party_chat.length > 1 then configs.third_party_chat else ''
       openChatWindow = window.open(url, 'Chat', """width=#{width}, height=#{height}, scrollbars=yes, resizable=yes""")
       false 
+
 
   chatWindowURL(phoneOptions) if phoneOptions.third_party_chat.length > 1 or  phoneOptions.third_party_url.length > 1
 
