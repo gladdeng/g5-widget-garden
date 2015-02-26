@@ -69,10 +69,11 @@ setUpContactInfoSheet = ->
     $("body").css "padding-bottom", 0
     widget = $(".contact-info-sheet").first()
     screenHeight = $(window).height()
+    chatPresent = true if phoneOptions.third_party_chat.length > 1 or phoneOptions.third_party_url is true
 
     if $("body").hasClass("web-home-template") or Modernizr.mq("(min-width: 1325px)")
       widgetPosition = $("header[role=banner]").outerHeight() + 30
-    else if Modernizr.mq("(max-width: 909px) and (min-width: 1170px") and phoneOptions.third_party_chat.length > 1 or phoneOptions.third_party_url is true
+    else if Modernizr.mq("(max-width: 909px) and (min-width: 1170px") and chatPresent is true
       widgetPosition = $("header[role=banner]").outerHeight() + 30
     else
       widgetPosition = $("header[role=banner]").outerHeight() + $("section[role=main] .row:first-of-type").outerHeight() + 30
