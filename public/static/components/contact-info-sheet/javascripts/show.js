@@ -61,7 +61,7 @@
       chatPresent = phoneOptions.third_party_chat.length > 1 || phoneOptions.third_party_url === true ? true : false;
       if ($("body").hasClass("web-home-template") || Modernizr.mq("(min-width: 1325px)")) {
         widgetPosition = $("header[role=banner]").outerHeight() + 30;
-      } else if (Modernizr.mq("(min-width: 909px)") && chatPresent === true) {
+      } else if (Modernizr.mq("(min-width: 910px)") && chatPresent === true) {
         widgetPosition = $("header[role=banner]").outerHeight() + 30;
       } else {
         widgetPosition = $("header[role=banner]").outerHeight() + $("section[role=main] .row:first-of-type").outerHeight() + 30;

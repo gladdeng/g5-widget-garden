@@ -73,7 +73,7 @@ setUpContactInfoSheet = ->
 
     if $("body").hasClass("web-home-template") or Modernizr.mq("(min-width: 1325px)")
       widgetPosition = $("header[role=banner]").outerHeight() + 30
-    else if Modernizr.mq("(min-width: 909px)") and chatPresent is true
+    else if Modernizr.mq("(min-width: 910px)") and chatPresent is true
       widgetPosition = $("header[role=banner]").outerHeight() + 30
     else
       widgetPosition = $("header[role=banner]").outerHeight() + $("section[role=main] .row:first-of-type").outerHeight() + 30
