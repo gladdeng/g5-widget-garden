@@ -69,7 +69,7 @@ setUpContactInfoSheet = ->
     $("body").css "padding-bottom", 0
     widget = $(".contact-info-sheet").first()
     screenHeight = $(window).height()
-    chatPresent is true if phoneOptions.third_party_chat.length > 1 or phoneOptions.third_party_url is true
+    chatPresent = if phoneOptions.third_party_chat.length > 1 or phoneOptions.third_party_url is true then true else false
 
     if $("body").hasClass("web-home-template") or Modernizr.mq("(min-width: 1325px)")
       widgetPosition = $("header[role=banner]").outerHeight() + 30

@@ -54,13 +54,11 @@
       return widget.addClass("opened showing-email");
     };
     setupContactInfoSheet = function() {
-      var screenHeight, widget, widgetHeight, widgetPosition;
+      var chatPresent, screenHeight, widget, widgetHeight, widgetPosition;
       $("body").css("padding-bottom", 0);
       widget = $(".contact-info-sheet").first();
       screenHeight = $(window).height();
-      if (phoneOptions.third_party_chat.length > 1 || phoneOptions.third_party_url === true) {
-        chatPresent === true;
-      }
+      chatPresent = phoneOptions.third_party_chat.length > 1 || phoneOptions.third_party_url === true ? true : false;
       if ($("body").hasClass("web-home-template") || Modernizr.mq("(min-width: 1325px)")) {
         widgetPosition = $("header[role=banner]").outerHeight() + 30;
       } else if (Modernizr.mq("(max-width: 909px) and (min-width: 1170px)") && chatPresent === true) {
