@@ -28,5 +28,6 @@ class iuiMarkupBuilder
     $('.home-multifamily-iui .iui-container').html(markupHash.join(''))
 
   buttonTemplate = (beds, configs) ->
+    buttonClass = if beds > 0 then "btn-beds" else "btn-studio"
     buttonText = if beds > 0 then "<strong>#{beds}</strong> Bedroom" else "Studio"
-    "<div class='iui-size'><a class='btn' href='#{configs.floorplan_page_url}#/bedrooms/#{beds}/floorplans'>#{buttonText}</a></div>"
+    "<div class='iui-size'><a class='btn #{buttonClass}' href='#{configs.floorplan_page_url}#/bedrooms/#{beds}/floorplans'>#{buttonText}</a></div>"
