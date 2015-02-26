@@ -60,7 +60,7 @@
       screenHeight = $(window).height();
       if ($("body").hasClass("web-home-template") || Modernizr.mq("(min-width: 1325px)")) {
         widgetPosition = $("header[role=banner]").outerHeight() + 30;
-      } else if (Modernizr.mq("(max-width: 909px) and (min-width: 1170px") && phoneOptions.third_party_chat || phoneOptions.third_party_chat_code) {
+      } else if (Modernizr.mq("(max-width: 909px) and (min-width: 1170px") && phoneOptions.third_party_chat.length > 1 || phoneOptions.third_party_url === true) {
         widgetPosition = $("header[role=banner]").outerHeight() + 30;
       } else {
         widgetPosition = $("header[role=banner]").outerHeight() + $("section[role=main] .row:first-of-type").outerHeight() + 30;
