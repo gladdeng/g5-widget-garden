@@ -63,7 +63,7 @@
       }
       if ($("body").hasClass("web-home-template") || Modernizr.mq("(min-width: 1325px)")) {
         widgetPosition = $("header[role=banner]").outerHeight() + 30;
-      } else if (Modernizr.mq("(max-width: 909px) and (min-width: 1170px") && chatPresent === true) {
+      } else if (Modernizr.mq("(max-width: 909px) and (min-width: 1170px)") && chatPresent === true) {
         widgetPosition = $("header[role=banner]").outerHeight() + 30;
       } else {
         widgetPosition = $("header[role=banner]").outerHeight() + $("section[role=main] .row:first-of-type").outerHeight() + 30;
