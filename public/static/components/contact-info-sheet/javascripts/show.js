@@ -54,12 +54,12 @@
       return widget.addClass("opened showing-email");
     };
     setupContactInfoSheet = function() {
-      var chatPresent, screenHeight, widget, widgetHeight, widgetPosition;
+      var screenHeight, widget, widgetHeight, widgetPosition;
       $("body").css("padding-bottom", 0);
       widget = $(".contact-info-sheet").first();
       screenHeight = $(window).height();
       if (phoneOptions.third_party_chat.length > 1 || phoneOptions.third_party_url === true) {
-        chatPresent = true;
+        chatPresent === true;
       }
       if ($("body").hasClass("web-home-template") || Modernizr.mq("(min-width: 1325px)")) {
         widgetPosition = $("header[role=banner]").outerHeight() + 30;
