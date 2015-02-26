@@ -27,7 +27,7 @@
     chatWindow = function(configs) {
       var chatMarkup, height, width;
       chatMarkup = "<a href=\"" + configs.third_party_chat + "\" class=\"info-sheet-chat-btn info-sheet-icon\">Third Party Chat</a>";
-      if (configs.third_party_chat) {
+      if (configs.third_party_chat.length > 1) {
         $(chatMarkup).insertAfter($(".info-sheet-email-btn"));
       }
       width = configs.chat_width.length > 1 ? configs.chat_width : 600;
