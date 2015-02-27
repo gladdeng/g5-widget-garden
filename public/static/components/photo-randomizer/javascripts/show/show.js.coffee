@@ -7,12 +7,16 @@ $ ->
   #Grab up all the URLs & alt text from the Configs in an array
   photo_array = photoRandomizerVars.photos
   
-  #Randomize some stuff by passing it the array
+  #Clean the array of undefined values / Randomize some stuff by passing it the array
+  #clean_arrary = photo_array.filter(Boolean);
   random_photo = photo_array[Math.floor(Math.random()*photo_array.length)];
+
 
   #Build out the random image
   photoRandomizerBuilder = (data) ->
     if data != []
+      #clean up array of undefined values
+
       photoRandomizerMarkup = """<img src="#{data.url}" alt="#{data.alt_text}"/>"""
       $('.photo-randomizer').append(photoRandomizerMarkup)
 
