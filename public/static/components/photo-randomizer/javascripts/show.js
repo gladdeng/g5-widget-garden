@@ -1,9 +1,18 @@
 (function() {
   $(function() {
-    var photoRandomizerBuilder, photoRandomizerVars, photo_array, random_photo;
-    photoRandomizerVars = photoRandomizerVarsConfig;
-    photo_array = photoRandomizerVars.photos;
-    random_photo = photo_array[Math.floor(Math.random() * photo_array.length)];
+    var cleanArray, photoRandomizerBuilder, photo_array, random_photo;
+    photo_array = photoRandomizerVarsConfig.photos;
+    cleanArray = [];
+    photo_array.forEach(function(arrayItem) {
+      var valuesExist, x, y;
+      x = arrayItem.url;
+      y = arrayItem.alt;
+      valuesExist = x.length > 1 && y.length > 1 ? true : false;
+      if (valuesExist === true) {
+        cleanArray.push(arrayItem);
+      }
+    });
+    random_photo = cleanArray[Math.floor(Math.random() * cleanArray.length)];
     photoRandomizerBuilder = function(data) {
       var photoRandomizerMarkup;
       if (data !== []) {
@@ -11,7 +20,7 @@
         return $('.photo-randomizer').append(photoRandomizerMarkup);
       }
     };
-    if (random_photo.length > 1) {
+    if (cleanArray.length > 1) {
       return photoRandomizerBuilder(random_photo);
     }
   });
