@@ -76,27 +76,11 @@
         Yardi Voyager Contact Us
       </option>
 
-      <option value="reservation" {% if widget.form_type.value == "reservation" %}selected{% endif %}>
-        Yardi Voyager Reservation
-      </option>
-
       <option value="tour_request" {% if widget.form_type.value == "tour_request" %}selected{% endif %}>
         Yardi Voyager Tour Request
       </option>
 
     </select>
-  </div>
-
-  <div class="form-field" id="application_div" style="display:none">
-    <label for="{{ widget.application_fee.value_field_id }}" >
-      Application Fee
-    </label>
-    {{ widget.application_fee.id_hidden_field }}
-    <input type="text"
-      id="{{ widget.application_fee.value_field_id }}"
-      name="{{ widget.application_fee.value_field_name }}"
-      value="{{ widget.application_fee.value | url_encode }}"
-    />
   </div>
 
   <div class="form-field">
@@ -113,13 +97,3 @@
 
   <input type="submit" value="Save" class="btn" />
 </form>
-
-<script type="text/javascript">
-  function showDiv(elem){
-    if(elem.value == "online_application"){
-      $('#application_div').css("display", "block");
-    }else{
-      $('#application_div').css("display", "none");
-    }
-  }
-</script>
