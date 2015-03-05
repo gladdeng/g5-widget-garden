@@ -1,7 +1,7 @@
 <div class="self-storage-iui-cards widget">
   <script>
     var EmberAppConfig = {
-      "modulePrefix":"self-storage-iui-cards",
+      "modulePrefix":"sitelink-elease-iui-cards",
       "environment":"production",
       "baseURL":"/",
       "locationType":"auto",
@@ -12,14 +12,15 @@
         "storeId":"{{ widget.store_urn.best_value }}",
         "nearbyLocationsButtonLabel":"{{ widget.nearby_locations_button_label.best_value }}",
         "unitSizeHelpUrl": "{{ widget.unit_size_help_url.best_value | url_encode }}",
-        "unitSizeHelpLabel":"{{ widget.unit_size_help_label.best_value }}"
+        "unitSizeHelpLabel":"{{ widget.unit_size_help_label.best_value }}",
+        "moveInCostEndpoint":"https://g5-vls-1soj8z7v-g5-selfstorage.herokuapp.com/api/v1/move_in_costs_retrievals"
       },
       "exportApplicationGlobal":false
     }
 
     var ssMetaConfig = document.createElement('meta');
       ssMetaConfig.id="ember-meta";
-      ssMetaConfig.name = "self-storage-iui-cards/config/environment";
+      ssMetaConfig.name = "sitelink-elease-iui-cards/config/environment";
       ssMetaConfig.content = JSON.stringify(EmberAppConfig);
       document.getElementsByTagName('head')[0].appendChild(ssMetaConfig);
   </script>
