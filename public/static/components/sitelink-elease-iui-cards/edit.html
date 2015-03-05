@@ -22,6 +22,17 @@
       name="{{ widget.service_host.value_field_name }}"
       value="{{ widget.service_host.best_value }}"
     />
+  <div class="form-field">
+    {{ widget.move_in_cost_service_host.id_hidden_field }}
+    <label for="{{ widget.move_in_cost_service_host.value_field_id }}">
+     Move In Cost Service Host
+    </label>
+    <input type="text"
+      placeholder="http://www.mydomain.com"
+      id="{{ widget.move_in_cost_service_host.value_field_id }}"
+      name="{{ widget.move_in_cost_service_host.value_field_name }}"
+      value="{{ widget.move_in_cost_service_host.best_value }}"
+    />  
   </div>
   <div class="form-field">
     {{ widget.unit_size_help_url.id_hidden_field }}
