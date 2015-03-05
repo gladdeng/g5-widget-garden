@@ -21,7 +21,7 @@ $ ->
     if data != []
       #clean up array of undefined values
 
-      photoRandomizerMarkup = """<img src="#{data.url}" alt="#{data.alt}"/>"""
+      photoRandomizerMarkup = """<img class="u-photo" src="#{data.url}" alt="#{data.alt}" itemprop="image"/>"""
       $('.photo-randomizer').append(photoRandomizerMarkup)
 
   photoRandomizerBuilder(random_photo) if cleanArray.length > 1

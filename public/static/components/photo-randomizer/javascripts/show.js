@@ -16,7 +16,7 @@
     photoRandomizerBuilder = function(data) {
       var photoRandomizerMarkup;
       if (data !== []) {
-        photoRandomizerMarkup = "<img src=\"" + data.url + "\" alt=\"" + data.alt + "\"/>";
+        photoRandomizerMarkup = "<img class=\"u-photo\" src=\"" + data.url + "\" alt=\"" + data.alt + "\" itemprop=\"image\"/>";
         return $('.photo-randomizer').append(photoRandomizerMarkup);
       }
     };
