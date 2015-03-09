@@ -3,6 +3,8 @@
 window.EmberENV = {"FEATURES":{}};
 var runningTests = false;
 
+
+
 /* jshint ignore:end */
 
 ;var define, requireModule, require, requirejs;
@@ -49032,6 +49034,17 @@ define("ember/container-debug-adapter",
     },
 
     /**
+     * Get all defined modules.
+     *
+     * @method _getEntries
+     * @return {Array} the list of registered modules.
+     * @private
+     */
+    _getEntries: function() {
+      return requirejs.entries;
+    },
+
+    /**
       Returns the available classes a given type.
 
       @method catalogEntriesByType
@@ -49039,7 +49052,7 @@ define("ember/container-debug-adapter",
       @return {Array} An array of classes.
     */
     catalogEntriesByType: function(type) {
-      var entries = requirejs.entries,
+      var entries = this._getEntries(),
           module,
           types = Ember.A();
 
@@ -49047,24 +49060,39 @@ define("ember/container-debug-adapter",
         return this.shortname;
       };
 
+      var prefix = this.namespace.modulePrefix;
+
       for(var key in entries) {
-        if(entries.hasOwnProperty(key) && key.indexOf(type) !== -1)
-        {
-          // // TODO return the name instead of the module itself
-          // module = require(key, null, null, true);
+        if(entries.hasOwnProperty(key) && key.indexOf(type) !== -1) {
+          // Check if it's a pod module
+          var name = getPod(type, key, this.namespace.podModulePrefix || prefix);
+          if (!name) {
+            // Not pod
+            name = key.split(type + 's/').pop();
 
-          // if (module && module['default']) { module = module['default']; }
-          // module.shortname = key.split(type +'s/').pop();
-          // module.toString = makeToString;
+            // Support for different prefix (such as ember-cli addons).
+            // Uncomment the code below when
+            // https://github.com/ember-cli/ember-resolver/pull/80 is merged.
 
-          // types.push(module);
-          types.push(key.split(type +'s/').pop());
+            //var match = key.match('^/?(.+)/' + type);
+            //if (match && match[1] !== prefix) {
+              // Different prefix such as an addon
+              //name = match[1] + '@' + name;
+            //}
+          }
+          types.addObject(name);
         }
       }
-
       return types;
     }
   });
+
+  function getPod(type, key, prefix) {
+    var match = key.match(new RegExp('^/?' + prefix + '/(.+)/' + type + '$'));
+    if (match) {
+      return match[1];
+    }
+  }
 
   ContainerDebugAdapter['default'] = ContainerDebugAdapter;
   return ContainerDebugAdapter;
@@ -49081,11 +49109,12 @@ define("ember/container-debug-adapter",
   Ember.Application.initializer({
     name: 'container-debug-adapter',
 
-    initialize: function(container) {
+    initialize: function(container, app) {
       var ContainerDebugAdapter = require('ember/container-debug-adapter');
       var Resolver = require('ember/resolver');
 
       container.register('container-debug-adapter:main', ContainerDebugAdapter);
+      app.inject('container-debug-adapter:main', 'namespace', 'application:main');
     }
   });
 }());
@@ -62041,6 +62070,16 @@ define("ember-inflector/system/string",
 }));
 
 ;
+;/* jshint ignore:start */
+
+
+
+/* jshint ignore:end */
+
+/* jshint ignore:start */
+
+/* jshint ignore:end */
+
 define('self-storage-iui-cards/adapters/application', ['exports', 'ember', 'ember-data', 'self-storage-iui-cards/config/environment'], function (exports, Ember, DS, config) {
 
   'use strict';
@@ -63725,6 +63764,10 @@ define('self-storage-iui-cards/views/unit-sizes', ['exports', 'ember', 'self-sto
 	exports['default'] = UnitSizesView;
 
 });
+/* jshint ignore:start */
+
+/* jshint ignore:end */
+
 /* jshint ignore:start */
 
 define('self-storage-iui-cards/config/environment', ['ember'], function(Ember) {
