@@ -23,6 +23,8 @@
       <% end %>
     </p>
 
+    <p>Supports Liquid?: <span class="p-liquid"><%= component.try(:liquid) || "false" %></span></p>
+
     <p>
       <%= component.resource_link({uri: component.photo,
                                    html: {class: "u-photo u-url"},
