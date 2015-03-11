@@ -13,6 +13,7 @@ class iuiMarkupBuilder
   constructor: (categories, configs) ->
     categories.sort((a, b) -> return a.beds - b.beds)
     markupHash = []
+    categoryClass = "count-" + categories.length
 
     for category, index in categories
       markupHash.push(buttonTemplate(category.beds, configs))
@@ -25,7 +26,7 @@ class iuiMarkupBuilder
 
     markupHash.push(allButton)
 
-    $('.home-multifamily-iui .iui-container').html(markupHash.join(''))
+    $('.home-multifamily-iui').addClass(categoryClass).find('.iui-container').html(markupHash.join(''))
 
   buttonTemplate = (beds, configs) ->
     buttonClass = if beds > 0 then "btn-beds" else "btn-studio"
