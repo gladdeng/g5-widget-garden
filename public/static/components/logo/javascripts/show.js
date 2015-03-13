@@ -4,6 +4,9 @@
     logoVars = logoConfigs;
     logoBuilder = function(configs) {
       var cleanArray, i, logo_canonical_url, logo_href, pathArray, single_domain_path;
+      if (!window.location.origin) {
+        window.location.origin = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+      }
       logo_canonical_url = window.location.origin;
       if (configs.single_domain_location === "true") {
         pathArray = window.location.pathname.split('/');
@@ -21,7 +24,7 @@
         logo_href = logo_canonical_url;
       }
       if (logo_href != null) {
-        return $('.logo.widget').prop('href', logo_href);
+        return $('.logo.widget').attr('href', logo_href);
       }
     };
     if (logoVars != null) {

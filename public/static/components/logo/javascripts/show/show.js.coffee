@@ -2,6 +2,9 @@ $ ->
   logoVars = logoConfigs
 
   logoBuilder = (configs) ->
+    if !window.location.origin
+      window.location.origin = window.location.protocol + '//' + window.location.hostname + (if window.location.port then ':' + window.location.port else '')
+
     logo_canonical_url = window.location.origin
 
     #Determine single domain location url or primary domain url from config checkbox 
@@ -15,13 +18,13 @@ $ ->
       while i < 4
         single_domain_path += '/'
         single_domain_path += cleanArray[i]
-        i++
+        i++   
       logo_href = logo_canonical_url + single_domain_path
     else 
       #Primary domain URL
       logo_href = logo_canonical_url
 
     #Build out URL
-    $('.logo.widget').prop('href', logo_href) if logo_href?
+    $('.logo.widget').attr('href', logo_href) if logo_href?
 
   logoBuilder(logoVars) if logoVars?
