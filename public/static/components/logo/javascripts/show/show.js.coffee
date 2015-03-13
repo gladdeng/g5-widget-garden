@@ -2,10 +2,8 @@ $ ->
   logoVars = logoConfigs
 
   logoBuilder = (configs) ->
-    if !window.location.origin
-      window.location.origin = window.location.protocol + '//' + window.location.hostname + (if window.location.port then ':' + window.location.port else '')
 
-    logo_canonical_url = window.location.origin
+    logo_canonical_url = window.location.protocol + '//' + window.location.host;
 
     #Determine single domain location url or primary domain url from config checkbox 
     if configs.single_domain_location is "true"

@@ -4,10 +4,7 @@
     logoVars = logoConfigs;
     logoBuilder = function(configs) {
       var cleanArray, i, logo_canonical_url, logo_href, pathArray, single_domain_path;
-      if (!window.location.origin) {
-        window.location.origin = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
-      }
-      logo_canonical_url = window.location.origin;
+      logo_canonical_url = window.location.protocol + '//' + window.location.host;
       if (configs.single_domain_location === "true") {
         pathArray = window.location.pathname.split('/');
         cleanArray = pathArray.filter(Boolean);
