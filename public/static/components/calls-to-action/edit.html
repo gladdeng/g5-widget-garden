@@ -12,11 +12,11 @@
     </div>
          
     <div class="form-field">
-      {{ widget.slug_1.id_hidden_field }}
-      <select id="{{ widget.slug_1.value_field_id }}" name="{{ widget.slug_1.value_field_name }}">
+      {{ widget.page_slug_1.id_hidden_field }}
+      <select id="{{ widget.page_slug_1.value_field_id }}" name="{{ widget.page_slug_1.value_field_name }}">
         {% for page in widget.navigateable_pages %}
           <option value="{{ page.slug }}"
-            {% if widget.slug_1.value == page.slug %}
+            {% if widget.page_slug_1.value == page.slug %}
               selected
             {% endif %} >{{ page.slug }}</option>
         {% endfor %}
@@ -37,11 +37,11 @@
     </div>
          
     <div class="form-field">
-      {{ widget.slug_2.id_hidden_field }}
-      <select id="{{ widget.slug_2.value_field_id }}" name="{{ widget.slug_2.value_field_name }}">
+      {{ widget.page_slug_2.id_hidden_field }}
+      <select id="{{ widget.page_slug_2.value_field_id }}" name="{{ widget.page_slug_2.value_field_name }}">
         {% for page in widget.navigateable_pages %}
           <option value="{{ page.slug }}"
-            {% if widget.slug_2.value == page.slug %}
+            {% if widget.page_slug_2.value == page.slug %}
               selected
             {% endif %} >{{ page.slug }}</option>
         {% endfor %}
@@ -62,11 +62,11 @@
     </div>
          
     <div class="form-field">
-      {{ widget.slug_3.id_hidden_field }}
-      <select id="{{ widget.slug_3.value_field_id }}" name="{{ widget.slug_3.value_field_name }}">
+      {{ widget.page_slug_3.id_hidden_field }}
+      <select id="{{ widget.page_slug_3.value_field_id }}" name="{{ widget.page_slug_3.value_field_name }}">
         {% for page in widget.navigateable_pages %}
           <option value="{{ page.slug }}"
-            {% if widget.slug_3.value == page.slug %}
+            {% if widget.page_slug_3.value == page.slug %}
               selected
             {% endif %} >{{ page.slug }}</option>
         {% endfor %}
@@ -87,11 +87,11 @@
     </div>
          
     <div class="form-field">
-      {{ widget.slug_4.id_hidden_field }}
-      <select id="{{ widget.slug_4.value_field_id }}" name="{{ widget.slug_4.value_field_name }}">
+      {{ widget.page_slug_4.id_hidden_field }}
+      <select id="{{ widget.page_slug_4.value_field_id }}" name="{{ widget.page_slug_4.value_field_name }}">
         {% for page in widget.navigateable_pages %}
           <option value="{{ page.slug }}"
-            {% if widget.slug_4.value == page.slug %}
+            {% if widget.page_slug_4.value == page.slug %}
               selected
             {% endif %} >{{ page.slug }}</option>
         {% endfor %}
