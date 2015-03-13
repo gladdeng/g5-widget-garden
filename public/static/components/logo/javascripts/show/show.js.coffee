@@ -10,6 +10,7 @@ $ ->
       pathArray = window.location.pathname.split('/')
       cleanArray = pathArray.filter(Boolean)
       single_domain_path = ''
+      logo_href = ''
       i = 0
       while i < 4
         single_domain_path += '/'
