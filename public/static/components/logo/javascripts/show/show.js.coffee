@@ -3,7 +3,7 @@ $ ->
 
   logoBuilder = (configs) ->
 
-    logo_canonical_url = window.location.protocol + '//' + window.location.host;
+    logo_canonical_url = window.location.protocol + '//' + window.location.host
 
     #Determine single domain location url or primary domain url from config checkbox 
     if configs.single_domain_location is "true"
@@ -11,7 +11,6 @@ $ ->
       pathArray = window.location.pathname.split('/')
       cleanArray = pathArray.filter(Boolean)
       single_domain_path = ''
-      logo_href = ''
       i = 0
       while i < 4
         single_domain_path += '/'
