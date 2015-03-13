@@ -21,6 +21,6 @@ $ ->
       logo_href = logo_canonical_url
 
     #Build out URL
-    $('.logo.widget').attr('href', logo_href) if logo_href?
+    $('.logo.widget').prop('href', logo_href) if logo_href?
 
   logoBuilder(logoVars) if logoVars?

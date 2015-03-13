@@ -20,7 +20,7 @@
         logo_href = logo_canonical_url;
       }
       if (logo_href != null) {
-        return $('.logo.widget').attr('href', logo_href);
+        return $('.logo.widget').prop('href', logo_href);
       }
     };
     if (logoVars != null) {
