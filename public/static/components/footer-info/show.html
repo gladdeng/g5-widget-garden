@@ -68,9 +68,13 @@
 
     {% if widget.linkedin_username.value != blank  %}
       {% if widget.linkedin_account_type.value == "INDIVIDUAL"  %}
-        <a href="http://www.linkedin.com/in/{{ widget.linkedin_username.value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
+        <a href="http://www.linkedin.com/in/{{ widget.linkedin_username.value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank"><svg class="icon">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#footer-icon-linkedin" />
+        </svg></a>
       {% else %}
-        <a href="http://www.linkedin.com/company/{{ widget.linkedin_username.value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank">LinkedIn</a>
+        <a href="http://www.linkedin.com/company/{{ widget.linkedin_username.value | url_encode }}" class="linked-in" title="LinkedIn" rel="me" target="_blank"><svg class="icon">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#footer-icon-linkedin" />
+        </svg></a>
       {% endif %}
     {% endif %}
   </div>
