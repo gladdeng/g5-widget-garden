@@ -55,6 +55,14 @@
         Tour
       </option>
 
+      <option value="walk_in" {% if widget.form_type.value == "walk_in" %}selected{% endif %}>
+        Walk In
+      </option>
+
+      <option value="call" {% if widget.form_type.value == "call" %}selected{% endif %}>
+        Call
+      </option>
+
       <option value="inquiry" {% if widget.form_type.value == "inquiry" %}selected{% endif %}>
         YVSL Inquiry
       </option>
