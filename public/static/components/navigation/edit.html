@@ -98,7 +98,7 @@
                 id="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display"
                 name="{{ widget.navigation.value_field_name }}[{{ web_page[0] }}][display]"
                 value="true"
-                {% if web_page[1].display != "false" %}
+                {% unless web_page[1].display == "false" or web_page[1].display == nil %}
                 checked="checked"
                 {% endif %}
               />
