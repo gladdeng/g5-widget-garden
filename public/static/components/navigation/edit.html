@@ -100,7 +100,7 @@
                 value="true"
                 {% unless web_page[1].display == "false" or web_page[1].display == nil %}
                 checked="checked"
-                {% endif %}
+                {% endunless %}
               />
               <label for="{{ widget.navigation.value_field_id }}_{{ web_page[0] }}_display">
                 {{ web_page[1].name }}
