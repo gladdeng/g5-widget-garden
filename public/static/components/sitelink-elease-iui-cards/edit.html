@@ -58,7 +58,6 @@
       value="{{ widget.unit_size_help_label.best_value }}"
     />
   </div>
-
   <div class="form-field">
     {{ widget.disclaimer_text.id_hidden_field }}
     <label for="{{ widget.disclaimer_text.value_field_id }}">
@@ -70,6 +69,20 @@
       name="{{ widget.disclaimer_text.value_field_name }}"
       value="{{ widget.disclaimer_text.value }}"
     />
+  </div>
+  <div class="form-field">
+    {{ widget.map_page_path.id_hidden_field }}
+    <label for="{{ widget.map_page_path.value_field_id }}">
+      Map Page
+    </label>
+    <select id="{{ widget.map_page_path.value_field_id }}" name="{{ widget.map_page_path.value_field_name }}">
+      {% for web_page in widget.navigation.value %}
+        <option value="{{ web_page[1].url | url_encode }}"
+          {% if widget.map_page_path.value == web_page[1].url %}
+            selected
+          {% endif %} >{{ web_page[1].name }}</option>
+      {% endfor %}
+    </select>
   </div>
   <input type="submit" value="Save" class="btn" />
 </form>
