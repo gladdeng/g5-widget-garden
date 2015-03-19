@@ -41,11 +41,11 @@
     .self-storage-iui-cards .iui-cards-wrapper .iui-cards-unit-header,
     .self-storage-iui-cards .iui-cards-wrapper .iui-cards-nearby-locations.nearby-locations-open { background:{{ widget.primary_color.best_value }}; }
 
-    {% if widget.form_bg_color.value! = blank %}
+    {% if widget.form_bg_color.value != blank %}
     .self-storage-iui-cards .iui-cards-wrapper .leads-form{ background:{{ widget.form_bg_color.value }}; }
     {% endif %}
     
-    {% if widget.form_text_color.value! = blank %}
+    {% if widget.form_text_color.value != blank %}
     .self-storage-iui-cards .iui-cards-wrapper .hold-leads-form form p,
     .self-storage-iui-cards .iui-cards-wrapper .hold-leads-form form label,
     .self-storage-iui-cards .iui-cards-wrapper .hold-leads-form form legend,
