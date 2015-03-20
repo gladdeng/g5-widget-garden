@@ -71,6 +71,42 @@
     />
   </div>
   <div class="form-field">
+    {{ widget.final_instructions_1.id_hidden_field }}
+    <label for="{{ widget.final_instructions_1.value_field_id }}">
+      Final Instructions (1st Paragraph)
+    </label>
+    <input type="text"
+      placeholder=""
+      id="{{ widget.final_instructions_1.value_field_id }}"
+      name="{{ widget.final_instructions_1.value_field_name }}"
+      value="{{ widget.final_instructions_1.value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.final_instructions_2.id_hidden_field }}
+    <label for="{{ widget.final_instructions_2.value_field_id }}">
+      Final Instructions (2nd Paragraph)
+    </label>
+    <input type="text"
+      placeholder=""
+      id="{{ widget.final_instructions_2.value_field_id }}"
+      name="{{ widget.final_instructions_2.value_field_name }}"
+      value="{{ widget.final_instructions_2.value }}"
+    />
+  </div>
+  <div class="form-field">
+    {{ widget.final_instructions_3.id_hidden_field }}
+    <label for="{{ widget.final_instructions_3.value_field_id }}">
+      Final Instructions (3rd Paragraph)
+    </label>
+    <input type="text"
+      placeholder=""
+      id="{{ widget.final_instructions_3.value_field_id }}"
+      name="{{ widget.final_instructions_3.value_field_name }}"
+      value="{{ widget.final_instructions_3.value }}"
+    />
+  </div>
+  <div class="form-field">
     {{ widget.map_page_path.id_hidden_field }}
     <label for="{{ widget.map_page_path.value_field_id }}">
       Map Page
