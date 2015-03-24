@@ -43,7 +43,9 @@
                 {% if forloop.first %}
                   <li><a href="{{ web_page[1].url | url_encode }}">{{ web_page[1].name }}</a></li>
                 {% endif %}
-                <li><a href="{{ child_page[1].url | url_encode }}">{{ child_page[1].name }}</a></li>
+                {% if child_page[1].display != "false" %}
+                  <li><a href="{{ child_page[1].url | url_encode }}">{{ child_page[1].name }}</a></li>
+                {% endif %}
               {% endfor %}
             </ul>
           {% endif %}
