@@ -120,5 +120,19 @@
       {% endfor %}
     </select>
   </div>
+  <div class="form-field">
+    {{ widget.return_to_site_path.id_hidden_field }}
+    <label for="{{ widget.return_to_site_path.value_field_id }}">
+      Return Page
+    </label>
+    <select id="{{ widget.return_to_site_path.value_field_id }}" name="{{ widget.return_to_site_path.value_field_name }}">
+      {% for web_page in widget.navigation.value %}
+        <option value="{{ web_page[1].url | url_encode }}"
+          {% if widget.return_to_site_path.value == web_page[1].url %}
+            selected
+          {% endif %} >{{ web_page[1].name }}</option>
+      {% endfor %}
+    </select>
+  </div>
   <input type="submit" value="Save" class="btn" />
 </form>
