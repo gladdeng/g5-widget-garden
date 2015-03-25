@@ -71,7 +71,7 @@
       Successful Submission Redirect URL
     </label>
     {{ widget.success_redirect_url.id_hidden_field }}
-    <input type="url"
+    <input type="text"
       id="{{ widget.success_redirect_url.value_field_id }}"
       name="{{ widget.success_redirect_url.value_field_name }}"
       value="{{ widget.success_redirect_url.value | url_encode }}"
