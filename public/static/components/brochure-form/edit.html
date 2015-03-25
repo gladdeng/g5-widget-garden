@@ -1,18 +1,6 @@
 <form action="{{ widget.form_action.value | url_encode }}" class="h-entry">
 
   <div class="form-field">
-    {{ widget.client_urn.id_hidden_field }}
-    <label for="{{ widget.client_urn.value_field_id }}" >
-      Client URN
-    </label>
-    <input type="text"
-      id="{{ widget.client_urn.value_field_id }}"
-      name="{{ widget.client_urn.value_field_name }}"
-      value="{{ widget.client_urn.value }}"
-    />
-  </div>
-
-  <div class="form-field">
     <label for="{{ widget.cls_url.value_field_id }}" >
       Client Leads Service URL
     </label>
