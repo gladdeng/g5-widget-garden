@@ -17,7 +17,7 @@
 
   <div class="info-sheet-nav">
     <!-- use phone service for this number -->
-    <a class="number info-sheet-phone-btn info-sheet-toggle" href="tel://{{ widget.phone_number.value }}"><span class="p-tel">{{ widget.phone_number.value }}</span></a>
+    <a class="number info-sheet-phone-btn info-sheet-toggle" href="tel://{{ widget.location_phone_number.value }}"><span class="p-tel">{{ widget.location_phone_number.value }}</span></a>
     <a class="info-sheet-email-btn info-sheet-toggle" href="{{ widget.contact_url.value | url_encode }}">Email</a>
     {% if widget.third_party_chat_code.value != blank %}
       <span class="info-sheet-chat-btn info-sheet-icon chat-code">{{widget.third_party_chat_code.value}}</span>
