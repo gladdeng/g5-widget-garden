@@ -112,11 +112,11 @@
       Map Page
     </label>
     <select id="{{ widget.map_page_path.value_field_id }}" name="{{ widget.map_page_path.value_field_name }}">
-      {% for web_page in widget.navigation.value %}
-        <option value="{{ web_page[1].url | url_encode }}"
-          {% if widget.map_page_path.value == web_page[1].url %}
+      {% for page in widget.navigateable_pages %}
+        <option value="{{ page.slug }}"
+          {% if widget.map_page_path.value == page.slug %}
             selected
-          {% endif %} >{{ web_page[1].name }}</option>
+          {% endif %} >{{ page.slug }}</option>
       {% endfor %}
     </select>
   </div>
@@ -126,11 +126,11 @@
       Return Page
     </label>
     <select id="{{ widget.return_to_site_path.value_field_id }}" name="{{ widget.return_to_site_path.value_field_name }}">
-      {% for web_page in widget.navigation.value %}
-        <option value="{{ web_page[1].url | url_encode }}"
-          {% if widget.return_to_site_path.value == web_page[1].url %}
+      {% for page in widget.navigateable_pages %}
+        <option value="{{ page.slug }}"
+          {% if widget.return_to_site_path.value == page.slug %}
             selected
-          {% endif %} >{{ web_page[1].name }}</option>
+          {% endif %} >{{ page.slug }}</option>
       {% endfor %}
     </select>
   </div>
