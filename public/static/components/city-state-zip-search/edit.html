@@ -63,10 +63,10 @@
         Form Background Color
       </label>
       <input type="text"
-        placeholder="Form Background"
+        placeholder="Defaults to {%raw%}{{theme_primary_color}}{%endraw%}"
         id="{{ widget.form_background_color.value_field_id }}"
         name="{{ widget.form_background_color.value_field_name }}"
-        value="{{ widget.theme_primary_color.value }}"
+        value="{{ widget.form_background_color.value }}"
       />
     </div>
 
