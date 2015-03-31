@@ -173,7 +173,7 @@
 }, 
 "public/static/components/directions/edit.html": {
 "mode": 33188, 
-"mtime": 1416247185
+"mtime": 1427840093
 }, 
 ".travis.yml": {
 "mode": 33188, 
@@ -1161,7 +1161,7 @@
 }, 
 "public/static/components/directions/index.html": {
 "mode": 33188, 
-"mtime": 1427825540
+"mtime": 1427840033
 }, 
 "public/static/components/mini-news-feed/show.html": {
 "mode": 33188, 
@@ -1813,7 +1813,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1427838372
+"mtime": 1427839122
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
@@ -2817,7 +2817,7 @@
 }, 
 "public/static/components/directions": {
 "mode": 16877, 
-"mtime": 1427825540
+"mtime": 1427840093
 }, 
 ".env": {
 "mode": 33188, 
