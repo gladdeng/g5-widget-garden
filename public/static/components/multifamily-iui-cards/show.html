@@ -7,7 +7,6 @@
       "locationType":"auto",
       "EmberENV":{
         "FEATURES":{},
-        "MAX_UNIT_AVAILABILITY": 6,
         "PER_PAGE":20
       },
       "APP":{
@@ -16,8 +15,9 @@
         'storeId': '{{ widget.core_store_id.value }}',
         'leadFormUrl': '{{ widget.lead_form_url.value | url_encode }}',
         'floorplansServiceHost': "{{ widget.floorplans_service_host.value | url_encode }}",
-        'maxUnitAvailability': {{ widget.max_unit_availability.value }},
-        'enableLeaseTerms': "{{ widget.lease_terms.value }}"
+        'maxUnitAvailability': "{{ widget.max_unit_availability.value }}",
+        'enableLeaseTerms': "{{ widget.lease_terms.value }}",
+        'successRedirectUrl':"{{widget.success_redirect_url.value}}"
       },
       "exportApplicationGlobal":false
     }
