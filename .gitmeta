@@ -1709,7 +1709,7 @@
 }, 
 "public/static/components/footer-info/edit.html": {
 "mode": 33188, 
-"mtime": 1419363207
+"mtime": 1427855098
 }, 
 "public/static/components/gallery-basic/javascripts/show": {
 "mode": 16877, 
@@ -1813,7 +1813,7 @@
 }, 
 ".gitmeta": {
 "mode": 33188, 
-"mtime": 1427840179
+"mtime": 1427853809
 }, 
 "public/static/components/tour-form/index.html": {
 "mode": 33188, 
@@ -1881,7 +1881,7 @@
 }, 
 "public/static/components/footer-info": {
 "mode": 16877, 
-"mtime": 1427235796
+"mtime": 1427855098
 }, 
 "public/static/components/multifamily-mini-search/javascripts": {
 "mode": 16877, 
@@ -1937,7 +1937,7 @@
 }, 
 "public/static/components/footer-info/index.html": {
 "mode": 33188, 
-"mtime": 1416247185
+"mtime": 1427854998
 }, 
 "git-hooks/pre-commit": {
 "mode": 33261, 
